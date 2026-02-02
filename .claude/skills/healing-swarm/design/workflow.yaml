@@ -1,0 +1,320 @@
+# Design Workflow
+# Coordinates ux-architect and visual-designer
+
+name: design-workflow
+version: 1.0.0
+description: |
+  Orchestrates healing application design by coordinating UX architecture
+  and visual design into cohesive, accessible, therapeutic experiences.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Understand design requirements and constraints
+    agent: orchestrator
+    actions:
+      - parse_design_brief
+      - identify_user_needs
+      - determine_scope
+      - load_research_inputs
+
+  - name: user_research_synthesis
+    description: Synthesize research into design implications
+    agent: ux-architect
+    inputs:
+      - research_brief (from research workflow)
+      - user_population
+      - accessibility_requirements
+    outputs:
+      - user_needs.md
+      - design_constraints.md
+      - accessibility_requirements.md
+
+  - name: journey_mapping
+    description: Design user journeys and flows
+    agent: ux-architect
+    inputs:
+      - user_needs.md
+      - practice_structure (from research)
+    outputs:
+      - user_journeys.md
+      - flow_diagrams.md
+
+  - name: wireframing
+    description: Create structural wireframes
+    agent: ux-architect
+    inputs:
+      - user_journeys.md
+      - component_requirements
+    outputs:
+      - wireframes.md
+      - component_specs.md
+      - interaction_specs.md
+
+  - name: visual_system
+    description: Design visual language and tokens
+    agent: visual-designer
+    parallel: true
+    inputs:
+      - design_brief
+      - brand_direction
+      - accessibility_requirements
+    outputs:
+      - design_tokens.json
+      - color_palette.md
+      - typography_system.md
+
+  - name: visual_application
+    description: Apply visual design to wireframes
+    agent: visual-designer
+    inputs:
+      - wireframes.md
+      - design_tokens.json
+    outputs:
+      - visual_specs.md
+      - component_visuals.md
+      - animation_specs.md
+
+  - name: design_integration
+    description: Integrate UX and visual into complete system
+    agent: orchestrator
+    inputs:
+      - wireframes.md
+      - visual_specs.md
+      - component_specs.md
+    outputs:
+      - design_system.json
+      - complete_specs.md
+
+  - name: accessibility_review
+    description: Review design for accessibility
+    agent: accessibility-auditor
+    inputs:
+      - design_system.json
+      - complete_specs.md
+    outputs:
+      - accessibility_audit.md
+      - required_changes.md
+
+  - name: remediation
+    description: Address accessibility findings
+    agents:
+      - ux-architect
+      - visual-designer
+    inputs:
+      - required_changes.md
+    outputs:
+      - updated_design_system.json
+
+  - name: ethics_review
+    description: Review design for ethical concerns
+    agent: ethics-guardian
+    inputs:
+      - complete_specs.md
+    outputs:
+      - ethics_approval
+      - concerns
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DESIGN FOCUS AREAS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+focus_areas:
+  meditation_timer:
+    description: Design for timed meditation/practice sessions
+    components:
+      - timer_display
+      - progress_indicator
+      - pause_controls
+      - completion_screen
+    considerations:
+      - Minimal distraction during practice
+      - Gentle audio cues
+      - Easy one-handed control
+      - Accessibility for screen readers
+
+  journal_interface:
+    description: Design for reflective journaling
+    components:
+      - entry_editor
+      - prompt_display
+      - history_view
+      - export_function
+    considerations:
+      - Easy text input (voice option)
+      - Privacy indicators
+      - Reflective reading mode
+      - No social sharing pressure
+
+  practice_guide:
+    description: Design for step-by-step practice instruction
+    components:
+      - instruction_display
+      - visual_aid
+      - audio_option
+      - progress_tracking
+    considerations:
+      - One-handed operation
+      - Clear step progression
+      - Easy pause/exit
+      - Offline capability
+
+  progress_tracking:
+    description: Design for viewing healing journey progress
+    components:
+      - calendar_view
+      - streak_display (non-shaming)
+      - milestone_markers
+      - reflection_prompts
+    considerations:
+      - No guilt for missed days
+      - Celebrate without gamification
+      - Private by default
+      - Meaningful metrics only
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output_structure:
+  design_system.json:
+    description: Complete design token system
+    includes:
+      - colors
+      - typography
+      - spacing
+      - shadows
+      - borders
+      - animations
+      - breakpoints
+
+  user_journeys.md:
+    sections:
+      - journey_overview
+      - phases
+      - daily_structure
+      - transition_points
+      - off_ramps
+      - re_entry_points
+
+  wireframes.md:
+    sections:
+      - screen_inventory
+      - per_screen_specs
+      - interaction_flows
+      - edge_cases
+
+  component_specs.md:
+    per_component:
+      - purpose
+      - visual_spec
+      - states
+      - interactions
+      - accessibility
+      - responsive_behavior
+
+  visual_specs.md:
+    sections:
+      - color_application
+      - typography_usage
+      - imagery_guidelines
+      - animation_specs
+      - dark_mode_specs
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  ux_architecture:
+    - User journeys documented
+    - One-handed operation verified
+    - Exit paths always visible
+    - Cognitive load minimized
+    - Crisis resources accessible
+
+  visual_design:
+    - Color contrast meets WCAG AA
+    - Typography is accessible
+    - Touch targets minimum 48px
+    - Reduced motion respected
+    - Dark mode complete
+
+  integration:
+    - Tokens applied consistently
+    - All components specified
+    - States documented
+    - Responsive behavior defined
+
+  accessibility:
+    - WCAG AA compliance verified
+    - Screen reader compatibility
+    - Keyboard navigation complete
+    - Focus management documented
+
+  ethics:
+    - No addictive patterns
+    - No shame/guilt mechanics
+    - Privacy preserved
+    - Disclaimers properly placed
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DESIGN PRINCIPLES CHECKLIST
+# ═══════════════════════════════════════════════════════════════════════════════
+
+principles_checklist:
+  sanctuary:
+    - [ ] Feels calm and safe
+    - [ ] Generous white space
+    - [ ] Soft color palette
+    - [ ] No visual clutter
+
+  empowerment:
+    - [ ] User controls pace
+    - [ ] Skip options available
+    - [ ] No locked progression
+    - [ ] Data stays with user
+
+  accessibility:
+    - [ ] One-handed operation
+    - [ ] High contrast option
+    - [ ] Screen reader friendly
+    - [ ] Reduced motion support
+
+  honesty:
+    - [ ] Clear disclaimers
+    - [ ] No outcome promises
+    - [ ] Complements medical care
+    - [ ] Transparent about what it is
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Full healing app design
+    invocation: /healing-design --input research-brief.md
+    expected_output:
+      - Complete design system
+      - User journeys
+      - All wireframes
+      - Visual specifications
+
+  - name: Focused component design
+    invocation: /healing-design --focus "meditation-timer" --accessibility high
+    expected_output:
+      - Timer component wireframe
+      - Visual specification
+      - Accessibility documentation
+      - Animation specs
+
+  - name: Visual system only
+    invocation: /sacred-visuals --palette "Raphael healing green" --style contemplative
+    expected_output:
+      - Design tokens
+      - Color palette
+      - Typography system
+      - Imagery guidelines

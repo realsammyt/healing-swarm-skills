@@ -1,0 +1,42 @@
+{
+  "name": "healing-swarm-skills",
+  "version": "1.0.0",
+  "description": "A transcendent ecosystem of AI-assisted tools for researching, developing, and deploying ethical body and mental healing applications.",
+  "author": "Healing Swarm Collective",
+  "license": "CC-BY-NC-SA-4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/healing-swarm-skills.git"
+  },
+  "keywords": [
+    "healing",
+    "wellness",
+    "meditation",
+    "mindfulness",
+    "tcm",
+    "traditional-medicine",
+    "mental-health",
+    "ai-assisted",
+    "claude",
+    "swarm",
+    "ethical-ai"
+  ],
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate-skills.js",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "vitest",
+    "build:docs": "node scripts/build-docs.js"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.0",
+    "vitest": "^1.2.0",
+    "yaml": "^2.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "private": true
+}

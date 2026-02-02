@@ -1,0 +1,61 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+/dist/
+/build/
+.next/
+/out/
+
+# But keep the skills build directory
+!.claude/skills/healing-swarm/build/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Package manager locks (keep one, ignore others if using different managers)
+# Uncomment the ones you don't use:
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Healing swarm state (local development state)
+.claude/healing-swarm-state.json
+
+# Generated content (if generating locally)
+healing-app-output/
+
+# Secrets (never commit)
+*.pem
+*.key
+credentials.json
+secrets.json

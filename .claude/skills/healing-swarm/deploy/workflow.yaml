@@ -1,0 +1,340 @@
+# Deploy Workflow
+# Orchestrates devops-specialist and content-manager
+
+name: deploy-workflow
+version: 1.0.0
+description: |
+  Manages deployment and content updates for healing applications,
+  ensuring reliable, privacy-respecting deployments.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: pre_deploy_check
+    description: Verify all requirements for deployment
+    agent: orchestrator
+    actions:
+      - verify_quality_gates_passed
+      - check_content_reviews
+      - validate_build
+
+  - name: content_preparation
+    description: Prepare content for deployment
+    agent: content-manager
+    inputs:
+      - content_library
+      - approved_updates
+    outputs:
+      - manifest.json
+      - content_bundle
+
+  - name: build_verification
+    description: Verify build is ready for deployment
+    agent: devops-specialist
+    inputs:
+      - source_code
+      - content_bundle
+    outputs:
+      - verified_build
+      - build_report
+
+  - name: staging_deploy
+    description: Deploy to staging environment
+    agent: devops-specialist
+    inputs:
+      - verified_build
+    outputs:
+      - staging_url
+      - deploy_status
+
+  - name: staging_verification
+    description: Verify staging deployment
+    agent: orchestrator
+    inputs:
+      - staging_url
+    actions:
+      - health_check
+      - content_verification
+      - functionality_test
+    outputs:
+      - staging_verification_report
+
+  - name: production_deploy
+    description: Deploy to production
+    agent: devops-specialist
+    inputs:
+      - verified_build
+      - staging_verification_report
+    outputs:
+      - production_url
+      - deploy_status
+
+  - name: post_deploy_verification
+    description: Verify production deployment
+    agent: devops-specialist
+    inputs:
+      - production_url
+    outputs:
+      - post_deploy_report
+      - monitoring_status
+
+  - name: content_update_only
+    description: Update content without full deploy
+    agent: content-manager
+    skip_if: full_deploy
+    inputs:
+      - content_changes
+    outputs:
+      - content_update_status
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DEPLOYMENT TYPES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+deployment_types:
+  full:
+    description: Complete application deployment
+    stages:
+      - pre_deploy_check
+      - content_preparation
+      - build_verification
+      - staging_deploy
+      - staging_verification
+      - production_deploy
+      - post_deploy_verification
+    requires:
+      - quality_approval
+      - all_tests_passing
+
+  content_only:
+    description: Content update without code changes
+    stages:
+      - pre_deploy_check
+      - content_preparation
+      - content_update_only
+      - post_deploy_verification
+    requires:
+      - content_approval
+      - manifest_valid
+
+  hotfix:
+    description: Emergency fix deployment
+    stages:
+      - build_verification
+      - staging_deploy
+      - staging_verification
+      - production_deploy
+      - post_deploy_verification
+    requires:
+      - critical_issue_confirmed
+      - minimal_testing_passed
+    skip:
+      - full_staging_verification
+
+  rollback:
+    description: Revert to previous version
+    stages:
+      - identify_target_version
+      - production_deploy
+      - post_deploy_verification
+    requires:
+      - rollback_approval
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  pre_deploy:
+    - name: tests_passing
+      check: All automated tests pass
+      blocking: true
+
+    - name: accessibility_audit
+      check: WCAG AA compliance verified
+      blocking: true
+
+    - name: ethics_approval
+      check: Ethics guardian approved
+      blocking: true
+
+    - name: security_scan
+      check: No security vulnerabilities
+      blocking: true
+
+    - name: build_success
+      check: Production build completes
+      blocking: true
+
+  staging:
+    - name: health_check
+      check: All endpoints responding
+      blocking: true
+
+    - name: content_verification
+      check: All content loads correctly
+      blocking: true
+
+    - name: functionality
+      check: Core features working
+      blocking: true
+
+  production:
+    - name: health_check
+      check: Production healthy
+      blocking: false
+      action_on_fail: alert_and_investigate
+
+    - name: error_rate
+      check: Error rate < 1%
+      blocking: false
+      action_on_fail: alert_and_monitor
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PLATFORM CONFIGURATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+platforms:
+  netlify:
+    deploy_command: netlify deploy --prod
+    preview_command: netlify deploy
+    config_file: netlify.toml
+    environment_vars:
+      source: GitHub Secrets
+
+  vercel:
+    deploy_command: vercel --prod
+    preview_command: vercel
+    config_file: vercel.json
+    environment_vars:
+      source: Vercel Environment
+
+  cloudflare:
+    deploy_command: wrangler pages deploy dist
+    preview_command: wrangler pages deploy dist --branch preview
+    config_file: wrangler.toml
+    environment_vars:
+      source: Cloudflare Secrets
+
+  github_pages:
+    deploy_command: gh workflow run deploy.yml
+    config_file: .github/workflows/deploy.yml
+    environment_vars:
+      source: GitHub Secrets
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ROLLBACK CONFIGURATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+rollback:
+  auto_rollback:
+    enabled: true
+    triggers:
+      - error_rate > 5%
+      - health_check_failure
+      - critical_user_report
+
+  manual_rollback:
+    requires_approval: true
+    approvers:
+      - any_team_member
+
+  rollback_history:
+    keep_versions: 10
+    storage: platform_native
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MONITORING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+monitoring:
+  health_checks:
+    - endpoint: /
+      interval: 60s
+      timeout: 10s
+      expected_status: 200
+
+    - endpoint: /manifest.json
+      interval: 300s
+      expected_status: 200
+
+  alerts:
+    - condition: downtime > 5 minutes
+      action: notify_team
+      severity: critical
+
+    - condition: error_rate > 1%
+      action: notify_team
+      severity: warning
+
+    - condition: slow_response > 3s
+      action: log_for_review
+      severity: info
+
+  uptime_target: 99.9%
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PRIVACY REQUIREMENTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+privacy:
+  required:
+    - No third-party tracking
+    - HTTPS only
+    - Security headers configured
+    - No PII in logs
+
+  monitoring_exceptions:
+    - Anonymous error tracking (opt-in)
+    - Aggregate performance metrics
+    - Health check data
+
+  analytics:
+    allowed: Plausible (self-hosted or cloud)
+    forbidden:
+      - Google Analytics
+      - Facebook Pixel
+      - Any advertising trackers
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Full production deploy
+    invocation: |
+      /healing-deploy ./healing-app/
+        --platform netlify
+        --environment production
+    expected_output:
+      - Staging verification
+      - Production deployment
+      - Post-deploy report
+
+  - name: Content update only
+    invocation: |
+      /healing-deploy
+        --update-content ./new-content/
+    expected_output:
+      - Content validation
+      - Content deployment
+      - Verification
+
+  - name: Rollback
+    invocation: |
+      /healing-deploy --rollback
+        --to-version "2025.01.14"
+    expected_output:
+      - Version restoration
+      - Verification
+      - Notification
+
+  - name: Preview deploy
+    invocation: |
+      /healing-deploy ./healing-app/
+        --preview
+    expected_output:
+      - Preview URL
+      - Basic verification

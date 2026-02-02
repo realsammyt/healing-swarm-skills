@@ -1,0 +1,410 @@
+# Orchestrator Workflow
+# Full healing application development lifecycle
+
+name: healing-swarm-workflow
+version: 1.0.0
+description: |
+  Complete orchestration of healing application development from
+  research through deployment, coordinating all specialized agents.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PHASES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+phases:
+  - id: discovery
+    name: Discovery
+    description: Research healing modalities and user needs
+    workflows:
+      - research/workflow.yaml
+    agents:
+      - traditions-scholar
+      - clinical-researcher
+      - mechanisms-neuroscientist
+    outputs:
+      - research-brief.md
+      - traditions-research.md
+      - clinical-evidence.md
+      - mechanism-bridges.md
+    checkpoint: true
+
+  - id: planning
+    name: Planning
+    description: Create implementation plan
+    agent: swarm-conductor
+    inputs:
+      - research-brief.md
+    outputs:
+      - implementation-plan.md
+      - content-requirements.md
+      - milestone-schedule.md
+    checkpoint: true
+
+  - id: design
+    name: Design
+    description: Design user experience and visual system
+    workflows:
+      - design/workflow.yaml
+    agents:
+      - ux-architect
+      - visual-designer
+    inputs:
+      - research-brief.md
+      - implementation-plan.md
+    outputs:
+      - design-system.json
+      - user-journeys.md
+      - wireframes.md
+      - component-specs.md
+    checkpoint: true
+
+  - id: content
+    name: Content Creation
+    description: Create all healing content
+    workflows:
+      - content/workflow.yaml
+    agents:
+      - content-writer
+    inputs:
+      - research-brief.md
+      - content-requirements.md
+    outputs:
+      - content-library/
+        - prayers/
+        - visualizations/
+        - practices/
+        - evidence-boxes/
+        - journal-prompts/
+      - content-manifest.json
+    checkpoint: true
+
+  - id: development
+    name: Development
+    description: Build the application
+    workflows:
+      - build/workflow.yaml
+    agents:
+      - app-developer
+    inputs:
+      - design-system.json
+      - component-specs.md
+      - content-library/
+    outputs:
+      - healing-app/
+      - build-manifest.json
+    checkpoint: true
+
+  - id: quality
+    name: Quality Assurance
+    description: Comprehensive quality review
+    workflows:
+      - quality/workflow.yaml
+    agents:
+      - ethics-guardian
+      - clinical-reviewer
+      - cultural-reviewer
+      - accessibility-auditor
+    inputs:
+      - content-library/
+      - healing-app/
+    outputs:
+      - quality-report.md
+      - approval-status
+    gate: must_pass
+    checkpoint: true
+
+  - id: remediation
+    name: Remediation
+    description: Address quality issues
+    condition: quality_issues_found
+    agents:
+      - content-writer
+      - app-developer
+    inputs:
+      - quality-report.md
+    outputs:
+      - remediated-content/
+      - remediated-app/
+    loop:
+      until: all_reviews_pass
+      max_iterations: 5
+
+  - id: deployment
+    name: Deployment
+    description: Deploy application
+    workflows:
+      - deploy/workflow.yaml
+    agents:
+      - devops-specialist
+      - content-manager
+    inputs:
+      - healing-app/
+      - content-library/
+    outputs:
+      - staging-url
+      - production-url
+      - deployment-report.md
+    checkpoint: true
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# STATE MANAGEMENT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+state:
+  storage: .claude/healing-swarm-state.json
+
+  schema:
+    project_id: string
+    project_name: string
+    current_phase: Phase
+    phase_status: { [phase]: Status }
+    artifacts: { [name]: path }
+    reviews: { [type]: ReviewResult }
+    blockers: Blocker[]
+    checkpoints: Checkpoint[]
+
+  checkpoint_policy:
+    save_after: each_phase
+    restore_capability: true
+    max_checkpoints: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+gates:
+  discovery_complete:
+    checks:
+      - research_brief_exists
+      - at_least_one_tradition_researched
+      - evidence_reviewed
+    blocking: true
+
+  design_complete:
+    checks:
+      - design_system_created
+      - user_journeys_defined
+      - component_specs_complete
+    blocking: true
+
+  content_complete:
+    checks:
+      - all_required_content_created
+      - content_follows_templates
+      - initial_review_passed
+    blocking: true
+
+  development_complete:
+    checks:
+      - application_builds
+      - core_features_functional
+      - accessibility_basics_met
+    blocking: true
+
+  quality_approved:
+    checks:
+      - ethics_guardian_approved
+      - clinical_review_passed
+      - cultural_review_passed
+      - accessibility_audit_passed
+    blocking: true
+    veto_authority: ethics-guardian
+
+  deployment_ready:
+    checks:
+      - all_quality_gates_passed
+      - staging_verified
+      - production_configuration_valid
+    blocking: true
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PARALLEL EXECUTION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+parallel_phases:
+  discovery:
+    - traditions-scholar
+    - clinical-researcher
+    # mechanisms-neuroscientist runs after both complete
+
+  design:
+    - ux-architect
+    - visual-designer
+
+  quality:
+    parallel:
+      - clinical-reviewer
+      - cultural-reviewer
+      - accessibility-auditor
+    then:
+      - ethics-guardian
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  agent_failure:
+    retry: 2
+    backoff: exponential
+    on_failure: escalate_to_human
+
+  quality_failure:
+    action: enter_remediation_phase
+    max_iterations: 5
+    on_max: escalate_to_human
+
+  ethics_veto:
+    action: halt_workflow
+    require: human_review_or_major_revision
+    cannot_override: true
+
+  missing_input:
+    action: request_from_source
+    timeout: 5_minutes
+    on_timeout: escalate
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INVOCATION MODES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+modes:
+  full:
+    description: Complete lifecycle from scratch
+    phases: all
+    estimated_time: varies_by_scope
+
+  resume:
+    description: Continue from checkpoint
+    requires: checkpoint_id
+    phases: remaining
+
+  phase_only:
+    description: Run single phase
+    requires: phase_id
+    phases: single
+
+  simple:
+    description: Minimal viable application
+    phases:
+      - discovery (quick)
+      - design (minimal)
+      - content (essential only)
+      - development (core features)
+      - quality (essential checks)
+      - deployment
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROJECT TEMPLATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+templates:
+  healing_journey:
+    description: Multi-day healing program
+    focus: Sequential practice program
+    phases: all
+    content:
+      - Daily practices
+      - Journal prompts
+      - Progress tracking
+      - Prayer/visualization
+
+  meditation_guide:
+    description: Meditation-focused application
+    focus: Guided meditation experiences
+    phases: all
+    content:
+      - Meditation scripts
+      - Timer functionality
+      - Progress tracking
+
+  practice_library:
+    description: Reference library of practices
+    focus: Browsable practice collection
+    phases:
+      - discovery
+      - design (simple)
+      - content
+      - development (simple)
+      - quality
+      - deployment
+    content:
+      - Practice instructions
+      - Evidence boxes
+      - Acupoint guides
+
+  content_only:
+    description: Static content site
+    focus: Educational content
+    phases:
+      - discovery
+      - content
+      - quality (content only)
+      - deployment (static)
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Full healing journey
+    invocation: |
+      /healing-swarm "Sacred Healing Journey"
+        --focus "ligament healing"
+        --traditions "TCM, Jewish mystical"
+        --duration "21 days"
+    expected:
+      - Complete 21-day healing program
+      - TCM acupressure practices
+      - Jewish healing prayers
+      - Full application
+
+  - name: Simple meditation guide
+    invocation: |
+      /healing-swarm "Breath of Healing"
+        --focus "anxiety reduction"
+        --simple
+    expected:
+      - Minimal meditation app
+      - Core breathing practices
+      - Basic progress tracking
+
+  - name: Resume from checkpoint
+    invocation: |
+      /healing-swarm --resume
+        --checkpoint "checkpoint-20250115-design"
+    expected:
+      - Resume from design phase
+      - All prior work preserved
+
+  - name: Content phase only
+    invocation: |
+      /healing-swarm "Project Name"
+        --phase content
+        --input research-brief.md
+    expected:
+      - Content creation only
+      - Uses existing research
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+final_output:
+  artifacts:
+    - healing-app/ (deployed application)
+    - content-library/ (all healing content)
+    - research-brief.md (research documentation)
+    - design-system.json (design tokens)
+    - quality-report.md (review history)
+    - deployment-report.md (deployment info)
+
+  state:
+    - Checkpoint at each phase
+    - Can resume if interrupted
+    - Full audit trail
+
+  deliverables:
+    - Production URL
+    - Documentation
+    - Maintenance guide

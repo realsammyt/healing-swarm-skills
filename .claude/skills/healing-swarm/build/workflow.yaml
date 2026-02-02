@@ -1,0 +1,296 @@
+# Build Workflow
+# Orchestrates healing application development
+
+name: build-workflow
+version: 1.0.0
+description: |
+  Manages the development of healing applications from design
+  specifications and content to production-ready applications.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse build requirements and load inputs
+    agent: orchestrator
+    actions:
+      - parse_build_request
+      - load_design_system
+      - load_content
+      - determine_scope
+
+  - name: project_setup
+    description: Initialize project structure and dependencies
+    agent: app-developer
+    inputs:
+      - project_type (web-app / mobile-app / content-only)
+      - design_tokens
+    outputs:
+      - project/
+      - package.json
+      - configuration files
+
+  - name: design_integration
+    description: Integrate design tokens and create base styles
+    agent: app-developer
+    inputs:
+      - design_tokens.json
+      - visual_specs.md
+    outputs:
+      - src/styles/tokens.css
+      - tailwind.config.ts
+      - base component styles
+
+  - name: component_development
+    description: Build healing-specific components
+    agent: app-developer
+    parallel: true
+    inputs:
+      - component_specs (from build/components/)
+      - design_tokens
+    outputs:
+      - src/components/healing/
+
+  - name: content_integration
+    description: Integrate healing content into application
+    agent: app-developer
+    inputs:
+      - content_library/
+    outputs:
+      - src/content/
+      - content manifest
+
+  - name: page_assembly
+    description: Assemble pages from components and content
+    agent: app-developer
+    inputs:
+      - wireframes
+      - components
+      - content
+    outputs:
+      - src/pages/
+
+  - name: accessibility_implementation
+    description: Ensure full accessibility
+    agent: app-developer
+    inputs:
+      - all components and pages
+    outputs:
+      - keyboard navigation
+      - screen reader support
+      - reduced motion handling
+
+  - name: pwa_setup
+    description: Configure progressive web app features
+    agent: app-developer
+    inputs:
+      - application shell
+    outputs:
+      - manifest.json
+      - service worker
+      - offline support
+
+  - name: testing
+    description: Test application thoroughly
+    agents:
+      - app-developer
+      - accessibility-auditor
+    inputs:
+      - built application
+    outputs:
+      - test results
+      - accessibility audit
+
+  - name: build
+    description: Create production build
+    agent: app-developer
+    inputs:
+      - source code
+    outputs:
+      - dist/
+      - build manifest
+
+  - name: quality_review
+    description: Final quality review before deployment
+    agents:
+      - ethics-guardian
+      - clinical-reviewer
+      - accessibility-auditor
+    inputs:
+      - production build
+    outputs:
+      - quality_approval
+      - required_fixes
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BUILD TEMPLATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+templates:
+  web-app:
+    description: Full-featured healing web application
+    includes:
+      - All healing components
+      - User journey framework
+      - Progress tracking
+      - Journal functionality
+      - Offline support
+    stack:
+      framework: React with TypeScript
+      styling: Tailwind CSS
+      build: Vite
+      pwa: Workbox
+
+  mobile-app:
+    description: React Native healing application
+    includes:
+      - Core healing components
+      - Native device integration
+      - Push notifications (optional)
+    stack:
+      framework: React Native
+      navigation: React Navigation
+      storage: AsyncStorage
+
+  content-only:
+    description: Static content site for healing guides
+    includes:
+      - Content rendering
+      - Simple navigation
+      - Minimal interactivity
+    stack:
+      framework: Astro
+      styling: Tailwind CSS
+      build: Static generation
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COMPONENT REGISTRY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+components:
+  core:
+    - name: Button
+      spec: build/components/common/button.md
+      priority: high
+    - name: Card
+      spec: build/components/common/card.md
+      priority: high
+    - name: Modal
+      spec: build/components/common/modal.md
+      priority: medium
+
+  healing:
+    - name: MeditationTimer
+      spec: build/components/meditation-timer.md
+      priority: high
+    - name: JournalEntry
+      spec: build/components/journal-entry.md
+      priority: high
+    - name: ProgressTracker
+      spec: build/components/progress-tracker.md
+      priority: medium
+    - name: PracticeGuide
+      spec: build/components/practice-guide.md
+      priority: high
+    - name: PsalmSelector
+      spec: build/components/psalm-selector.md
+      priority: medium
+    - name: AcupointGuide
+      spec: build/components/acupoint-guide.md
+      priority: medium
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  code_quality:
+    - TypeScript strict mode passes
+    - ESLint passes
+    - No console errors/warnings
+    - All tests pass
+
+  accessibility:
+    - axe-core reports no violations
+    - Keyboard navigation complete
+    - Screen reader tested
+    - Reduced motion supported
+    - WCAG AA compliance verified
+
+  performance:
+    - Lighthouse performance > 90
+    - First contentful paint < 1.5s
+    - Time to interactive < 3s
+    - Core Web Vitals pass
+
+  privacy:
+    - No external tracking scripts
+    - Data stored locally by default
+    - Export functionality works
+    - No data transmitted without consent
+
+  pwa:
+    - Manifest valid
+    - Service worker registered
+    - Offline mode works
+    - Installable
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BUILD CONFIGURATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+build_config:
+  development:
+    hot_reload: true
+    source_maps: true
+    minification: false
+
+  staging:
+    source_maps: true
+    minification: true
+    analytics: false
+
+  production:
+    source_maps: false
+    minification: true
+    analytics: privacy-respecting-only
+    cache_busting: true
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Build complete web app
+    invocation: |
+      /healing-build
+        --design design-system.json
+        --content content-library/
+        --template web-app
+    expected_output:
+      - Complete React application
+      - All components implemented
+      - Content integrated
+      - PWA configured
+      - Ready for deployment
+
+  - name: Build single component
+    invocation: |
+      /healing-build
+        --component "meditation-timer"
+    expected_output:
+      - MeditationTimer component
+      - Tests
+      - Storybook story
+      - Documentation
+
+  - name: Update content only
+    invocation: |
+      /healing-build
+        --update-content ./new-content/
+    expected_output:
+      - Updated content files
+      - Regenerated manifest
+      - Cache invalidation prepared

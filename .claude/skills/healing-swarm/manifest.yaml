@@ -1,0 +1,441 @@
+# Healing Swarm Skills Manifest
+# Version: 1.0.0
+#
+# A transcendent ecosystem of AI agents for developing ethical
+# body and mental healing applications.
+
+name: healing-swarm
+version: 1.0.0
+description: |
+  Comprehensive swarm skillset for researching, planning, developing,
+  testing, iterating, and deploying ethical body and mental healing
+  applications and ecosystems.
+
+  Integrates 4,000+ years of documented healing practices with modern
+  evidence-based clinical research, delivered through accessible,
+  privacy-first digital experiences.
+
+author: Healing Swarm Collective
+license: CC-BY-NC-SA-4.0
+repository: https://github.com/yourusername/healing-swarm-skills
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SHARED RESOURCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+shared_resources:
+  - path: shared/ethics-guardrails.md
+    description: Ethical constraints all agents must follow
+    required: true
+    load_order: 1
+
+  - path: shared/terminology.md
+    description: Standardized vocabulary across healing traditions
+    required: true
+    load_order: 2
+
+  - path: shared/citation-format.md
+    description: Citation standards for ancient and modern sources
+    required: true
+    load_order: 3
+
+  - path: shared/design-tokens.json
+    description: Design system tokens (colors, spacing, typography)
+    required: false
+    load_order: 4
+
+  - path: shared/voice-guide.md
+    description: Tone and voice guidelines for all content
+    required: true
+    load_order: 5
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SKILL DEFINITIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+skills:
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # RESEARCH SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: healing-research
+    trigger: /healing-research
+    description: |
+      Deep research into healing traditions and clinical evidence.
+      Coordinates traditions scholar, clinical researcher, and
+      mechanisms neuroscientist to produce comprehensive research briefs.
+    category: research
+    agents:
+      - traditions-scholar
+      - clinical-researcher
+      - mechanisms-neuroscientist
+    workflow: research/workflow.yaml
+    requires_ethics_approval: true
+    outputs:
+      - research-brief.md
+      - traditions-research.md
+      - clinical-evidence.md
+      - mechanism-bridges.md
+    example_usage: |
+      /healing-research "acupressure for hand ligament injuries"
+      /healing-research "visualization for chronic pain" --depth comprehensive
+
+  - name: traditions-research
+    trigger: /traditions-research
+    description: |
+      Research specific healing traditions with scholarly rigor.
+      Covers TCM, Ayurveda, Western esoteric, Indigenous, Jewish mystical.
+    category: research
+    agents:
+      - traditions-scholar
+    standalone: true
+    example_usage: |
+      /traditions-research "Solomonic angel healing"
+      /traditions-research "TCM meridian theory for upper extremity"
+
+  - name: clinical-research
+    trigger: /clinical-research
+    description: |
+      Systematic review of clinical evidence for healing modalities.
+      Searches PubMed/PMC, assesses study quality, reports findings.
+    category: research
+    agents:
+      - clinical-researcher
+    standalone: true
+    example_usage: |
+      /clinical-research "guided imagery pain reduction"
+      /clinical-research "prayer health outcomes"
+
+  - name: mechanism-mapping
+    trigger: /mechanism-mapping
+    description: |
+      Bridge traditional healing concepts with modern neuroscience.
+      Translate between ancient wisdom and scientific understanding.
+    category: research
+    agents:
+      - mechanisms-neuroscientist
+    standalone: true
+    example_usage: |
+      /mechanism-mapping "qi cultivation" --to neuroscience
+      /mechanism-mapping "chakra activation" --to psychophysiology
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # DESIGN SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: healing-design
+    trigger: /healing-design
+    description: |
+      Design healing application UX and visuals.
+      Creates user journeys, wireframes, design systems optimized
+      for vulnerable users and therapeutic contexts.
+    category: design
+    agents:
+      - ux-architect
+      - visual-designer
+    workflow: design/workflow.yaml
+    outputs:
+      - design-system.json
+      - wireframes.md
+      - component-specs.md
+      - user-journeys.md
+    example_usage: |
+      /healing-design --input research-brief.md
+      /healing-design --focus "meditation timer" --accessibility high
+
+  - name: healing-ux
+    trigger: /healing-ux
+    description: |
+      Design user experience for healing contexts.
+      Special attention to one-handed operation, vulnerable users,
+      therapeutic interaction patterns.
+    category: design
+    agents:
+      - ux-architect
+    standalone: true
+    example_usage: |
+      /healing-ux "21-day healing journey"
+      /healing-ux --for "injured hand user"
+
+  - name: sacred-visuals
+    trigger: /sacred-visuals
+    description: |
+      Design visual system with healing aesthetics.
+      Colors, typography, sacred geometry, calming animations.
+    category: design
+    agents:
+      - visual-designer
+    standalone: true
+    example_usage: |
+      /sacred-visuals --palette "Raphael healing green"
+      /sacred-visuals --style "contemplative, scholarly"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CONTENT SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: healing-content
+    trigger: /healing-content
+    description: |
+      Write content for healing applications.
+      Prayers, invocations, evidence boxes, historical notes,
+      guided visualizations, practice instructions, journal prompts.
+    category: content
+    agents:
+      - content-writer
+    workflow: content/workflow.yaml
+    templates:
+      - content/templates/prayer.md
+      - content/templates/evidence-box.md
+      - content/templates/historical-note.md
+      - content/templates/visualization.md
+      - content/templates/practice-instruction.md
+      - content/templates/journal-prompt.md
+    outputs:
+      - content-library/
+    example_usage: |
+      /healing-content --type prayer --tradition "Jewish mystical" --angel Raphael
+      /healing-content --type evidence-box --topic "visualization and healing"
+      /healing-content --type visualization --focus "hand healing"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # BUILD SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: healing-build
+    trigger: /healing-build
+    description: |
+      Develop healing applications with accessibility and privacy focus.
+      Builds meditation timers, journals, progress trackers, practice guides.
+    category: build
+    agents:
+      - app-developer
+    workflow: build/workflow.yaml
+    component_specs:
+      - build/components/meditation-timer.md
+      - build/components/journal-entry.md
+      - build/components/progress-tracker.md
+      - build/components/practice-guide.md
+      - build/components/psalm-selector.md
+      - build/components/acupoint-guide.md
+    outputs:
+      - application/
+    example_usage: |
+      /healing-build --design design-system.json --content content-library/
+      /healing-build --component "meditation-timer"
+      /healing-build --template web-app
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # QUALITY SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: healing-review
+    trigger: /healing-review
+    description: |
+      Comprehensive quality review for healing applications.
+      Ethics, clinical accuracy, cultural sensitivity, accessibility.
+    category: quality
+    agents:
+      - ethics-guardian
+      - clinical-reviewer
+      - cultural-reviewer
+      - accessibility-auditor
+    workflow: quality/workflow.yaml
+    outputs:
+      - review-report.md
+    example_usage: |
+      /healing-review ./healing-app/
+      /healing-review --type ethics-only ./content/
+
+  - name: ethics-review
+    trigger: /ethics-review
+    description: |
+      Ethics and safety review for healing content/features.
+      Medical safety, psychological safety, cultural integrity, privacy.
+    category: quality
+    agents:
+      - ethics-guardian
+    standalone: true
+    veto_power: true
+    example_usage: |
+      /ethics-review ./healing-app/
+      /ethics-review "This practice will cure your condition"
+
+  - name: clinical-review
+    trigger: /clinical-review
+    description: |
+      Verify clinical claims and citations.
+      Check PMID validity, claim accuracy, evidence representation.
+    category: quality
+    agents:
+      - clinical-reviewer
+    standalone: true
+    example_usage: |
+      /clinical-review ./content/evidence-boxes/
+
+  - name: cultural-review
+    trigger: /cultural-review
+    description: |
+      Cultural sensitivity review for healing content.
+      Attribution, representation, appropriation assessment.
+    category: quality
+    agents:
+      - cultural-reviewer
+    standalone: true
+    example_usage: |
+      /cultural-review ./content/traditions/
+
+  - name: a11y-audit
+    trigger: /a11y-audit
+    description: |
+      Accessibility audit for healing applications.
+      WCAG compliance plus healing-specific accessibility.
+    category: quality
+    agents:
+      - accessibility-auditor
+    standalone: true
+    example_usage: |
+      /a11y-audit ./healing-app/
+      /a11y-audit --healing-specific ./components/
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # DEPLOYMENT SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: healing-deploy
+    trigger: /healing-deploy
+    description: |
+      Deploy and maintain healing applications.
+      Static hosting, monitoring, content updates.
+    category: deploy
+    agents:
+      - devops-specialist
+      - content-manager
+    workflow: deploy/workflow.yaml
+    example_usage: |
+      /healing-deploy ./healing-app/ --platform netlify
+      /healing-deploy --update-content ./new-content/
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ORCHESTRATION
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: healing-swarm
+    trigger: /healing-swarm
+    description: |
+      Complete healing application development lifecycle.
+      Orchestrates all agents through research, design, content,
+      build, quality, and deployment phases.
+    category: orchestration
+    orchestrator: swarm-conductor
+    workflow: orchestrator/workflow.yaml
+    phases:
+      - discovery
+      - planning
+      - design
+      - content
+      - development
+      - quality
+      - remediation
+      - deployment
+    example_usage: |
+      /healing-swarm "Sacred Healing Journey" --focus "ligament healing"
+      /healing-swarm "Meditation Guide" --focus "anxiety reduction" --simple
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# AGENT DEFINITIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+agents:
+  # Research Agents
+  traditions-scholar:
+    prompt: research/traditions-scholar.md
+    tools: [WebSearch, WebFetch, Read, Glob, Grep]
+
+  clinical-researcher:
+    prompt: research/clinical-researcher.md
+    tools: [WebSearch, WebFetch, Read, Glob, Grep]
+
+  mechanisms-neuroscientist:
+    prompt: research/mechanisms-neuroscientist.md
+    tools: [WebSearch, WebFetch, Read]
+
+  # Design Agents
+  ux-architect:
+    prompt: design/ux-architect.md
+    tools: [Read, Write, Glob]
+
+  visual-designer:
+    prompt: design/visual-designer.md
+    tools: [Read, Write, Glob]
+
+  # Content Agents
+  content-writer:
+    prompt: content/content-writer.md
+    tools: [Read, Write, Glob, Grep]
+
+  # Build Agents
+  app-developer:
+    prompt: build/app-developer.md
+    tools: [Read, Write, Edit, Bash, Glob, Grep]
+
+  # Quality Agents
+  ethics-guardian:
+    prompt: quality/ethics-guardian.md
+    tools: [Read, Glob, Grep]
+    veto_power: true
+
+  clinical-reviewer:
+    prompt: quality/clinical-reviewer.md
+    tools: [Read, WebSearch, WebFetch, Glob]
+
+  cultural-reviewer:
+    prompt: quality/cultural-reviewer.md
+    tools: [Read, Glob, Grep]
+
+  accessibility-auditor:
+    prompt: quality/accessibility-auditor.md
+    tools: [Read, Bash, Glob]
+
+  # Deploy Agents
+  devops-specialist:
+    prompt: deploy/devops-specialist.md
+    tools: [Read, Write, Bash, Glob]
+
+  content-manager:
+    prompt: deploy/content-manager.md
+    tools: [Read, Write, Edit, Glob, Grep]
+
+  # Orchestration
+  swarm-conductor:
+    prompt: orchestrator/swarm-conductor.md
+    tools: [Read, Write, Task, Glob, Grep]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GLOBAL SETTINGS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+settings:
+  default_output_path: ./healing-app-output/
+  require_ethics_approval: true
+  citation_verification: true
+  accessibility_minimum: AA
+
+  # Quality gates
+  gates:
+    ethics:
+      blocking: true
+      agent: ethics-guardian
+    clinical_accuracy:
+      blocking: true
+      agent: clinical-reviewer
+    accessibility:
+      blocking: true
+      minimum_level: AA
+
+  # State management
+  state:
+    storage: .claude/healing-swarm-state.json
+    checkpoint_after_phases: true
+    resume_capability: true

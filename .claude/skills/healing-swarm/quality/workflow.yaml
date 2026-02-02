@@ -1,0 +1,318 @@
+# Quality Workflow
+# Orchestrates ethics-guardian, clinical-reviewer, cultural-reviewer, accessibility-auditor
+
+name: quality-workflow
+version: 1.0.0
+description: |
+  Comprehensive quality assurance for healing applications covering
+  ethics, clinical accuracy, cultural sensitivity, and accessibility.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Receive and categorize items for review
+    agent: orchestrator
+    actions:
+      - identify_review_type
+      - route_to_reviewers
+      - set_priority
+
+  - name: parallel_review
+    description: Run appropriate reviews in parallel
+    parallel: true
+    agents:
+      - clinical-reviewer
+      - cultural-reviewer
+      - accessibility-auditor
+    inputs:
+      - content_or_application
+    outputs:
+      - clinical_findings
+      - cultural_findings
+      - accessibility_findings
+
+  - name: ethics_synthesis
+    description: Ethics guardian reviews all findings and content
+    agent: ethics-guardian
+    inputs:
+      - content_or_application
+      - clinical_findings
+      - cultural_findings
+      - accessibility_findings
+    outputs:
+      - ethics_review
+      - final_status
+      - required_changes
+
+  - name: report_generation
+    description: Generate comprehensive quality report
+    agent: orchestrator
+    inputs:
+      - all_findings
+      - ethics_review
+    outputs:
+      - quality_report.md
+
+  - name: remediation_tracking
+    description: Track fixes and re-review
+    agent: orchestrator
+    inputs:
+      - quality_report
+      - remediation_submissions
+    outputs:
+      - remediation_status
+      - final_approval
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# REVIEW TYPES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+review_types:
+  content:
+    description: Review individual content pieces
+    reviewers:
+      - clinical-reviewer (if health claims present)
+      - cultural-reviewer (if traditional content)
+      - ethics-guardian (always)
+    examples:
+      - Prayer
+      - Evidence box
+      - Visualization script
+      - Practice instruction
+
+  component:
+    description: Review individual UI components
+    reviewers:
+      - accessibility-auditor
+      - ethics-guardian (for healing components)
+    examples:
+      - Meditation timer
+      - Journal entry
+      - Progress tracker
+
+  feature:
+    description: Review complete features
+    reviewers:
+      - accessibility-auditor
+      - ethics-guardian
+    examples:
+      - Journaling system
+      - Practice guide flow
+      - Progress tracking
+
+  application:
+    description: Full application review
+    reviewers:
+      - clinical-reviewer
+      - cultural-reviewer
+      - accessibility-auditor
+      - ethics-guardian
+    comprehensive: true
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  ethics:
+    agent: ethics-guardian
+    blocking: true
+    criteria:
+      - No medical claims violations
+      - No psychological safety violations
+      - No cultural appropriation
+      - No privacy violations
+    veto_power: true
+
+  clinical_accuracy:
+    agent: clinical-reviewer
+    blocking: true
+    criteria:
+      - All citations valid
+      - Claims match evidence level
+      - Appropriate language used
+      - Contraindications noted
+
+  cultural_integrity:
+    agent: cultural-reviewer
+    blocking: true
+    criteria:
+      - Proper attribution present
+      - Open practices only (unless approved)
+      - Respectful representation
+      - Adaptations noted
+
+  accessibility:
+    agent: accessibility-auditor
+    blocking: true
+    criteria:
+      - WCAG AA compliance
+      - Keyboard navigation complete
+      - Screen reader compatible
+      - One-handed operation supported
+    minimum_level: AA
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ISSUE SEVERITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+severity_levels:
+  critical:
+    description: Must fix before any release
+    examples:
+      - Medical claim without qualification
+      - Closed practice presented
+      - WCAG A violation
+      - Safety information missing
+    response: Block release
+
+  high:
+    description: Must fix before production release
+    examples:
+      - Evidence language too strong
+      - Incomplete attribution
+      - WCAG AA violation
+      - One-handed operation blocked
+    response: Block production, allow staging
+
+  medium:
+    description: Should fix soon
+    examples:
+      - Minor attribution issues
+      - WCAG AAA issues
+      - UX improvements needed
+    response: Track for next release
+
+  low:
+    description: Nice to have improvements
+    examples:
+      - Enhanced accessibility features
+      - Additional cultural context
+      - Minor language improvements
+    response: Track in backlog
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output_structure:
+  quality_report.md:
+    sections:
+      - executive_summary
+      - review_scope
+      - clinical_findings
+      - cultural_findings
+      - accessibility_findings
+      - ethics_review
+      - required_changes
+      - recommendations
+      - approval_status
+
+  issue_tracker:
+    format: structured
+    fields:
+      - issue_id
+      - severity
+      - category
+      - description
+      - location
+      - recommendation
+      - status
+      - assigned_to
+      - resolved_at
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ESCALATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+escalation:
+  to_human_review:
+    triggers:
+      - Novel ethical territory
+      - Cultural authority questions
+      - Legal implications
+      - Competing ethical values
+      - Indigenous content
+    process:
+      - Document question fully
+      - Provide agent assessment
+      - List options with tradeoffs
+      - Request human decision
+
+  ethics_veto:
+    authority: ethics-guardian
+    process:
+      - Issue veto with full explanation
+      - Document what would be needed to approve
+      - Provide appeal process
+    appeal:
+      - Can appeal to human review
+      - Must provide additional context
+      - Ethics guardian re-evaluates
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Review content piece
+    invocation: |
+      /healing-review --type content
+        --input healing-prayer.md
+    expected_output:
+      - Quality report
+      - Required changes (if any)
+      - Approval status
+
+  - name: Full application review
+    invocation: |
+      /healing-review ./healing-app/
+    expected_output:
+      - Comprehensive quality report
+      - All issues categorized
+      - Remediation roadmap
+
+  - name: Ethics-only review
+    invocation: |
+      /ethics-review "This practice will cure your anxiety"
+    expected_output:
+      - Ethics violation identified
+      - Required correction
+      - Appropriate language suggested
+
+  - name: Accessibility audit
+    invocation: |
+      /a11y-audit ./healing-app/
+    expected_output:
+      - WCAG compliance report
+      - Healing-specific a11y findings
+      - Remediation guidance
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CONTINUOUS QUALITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+continuous_quality:
+  automated_checks:
+    - axe-core accessibility testing
+    - Evidence language pattern matching
+    - Citation validation
+    - Attribution completeness check
+
+  pre_commit:
+    - Run automated checks
+    - Flag potential issues
+    - Block obvious violations
+
+  pre_release:
+    - Full review workflow
+    - Human approval required
+    - All gates must pass
+
+  post_release:
+    - Monitor for issues
+    - User feedback integration
+    - Continuous improvement

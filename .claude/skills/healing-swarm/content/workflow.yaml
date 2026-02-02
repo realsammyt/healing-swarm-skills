@@ -1,0 +1,316 @@
+# Content Workflow
+# Orchestrates content creation for healing applications
+
+name: content-workflow
+version: 1.0.0
+description: |
+  Manages the creation of healing content including prayers,
+  evidence boxes, visualizations, practice instructions, and
+  journal prompts. Ensures all content meets ethical standards
+  and voice guidelines.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse content request and load requirements
+    agent: orchestrator
+    actions:
+      - parse_content_request
+      - identify_content_type
+      - load_relevant_research
+      - select_template
+
+  - name: research_integration
+    description: Gather all research needed for content
+    agents:
+      - traditions-scholar
+      - clinical-researcher
+    inputs:
+      - content_topic
+      - tradition_if_specified
+    outputs:
+      - source_material.md
+      - evidence_summaries.md
+      - attribution_requirements.md
+
+  - name: content_creation
+    description: Write the content using templates
+    agent: content-writer
+    inputs:
+      - content_type
+      - template
+      - source_material
+      - evidence_summaries
+      - voice_guidelines
+    outputs:
+      - draft_content.md
+
+  - name: quality_review
+    description: Multi-agent review of content
+    parallel: true
+    agents:
+      - clinical-reviewer
+      - cultural-reviewer
+      - ethics-guardian
+    inputs:
+      - draft_content.md
+    outputs:
+      - clinical_feedback.md
+      - cultural_feedback.md
+      - ethics_feedback.md
+
+  - name: revision
+    description: Revise content based on feedback
+    agent: content-writer
+    inputs:
+      - draft_content.md
+      - clinical_feedback.md
+      - cultural_feedback.md
+      - ethics_feedback.md
+    outputs:
+      - revised_content.md
+
+  - name: accessibility_review
+    description: Review content for accessibility
+    agent: accessibility-auditor
+    inputs:
+      - revised_content.md
+    outputs:
+      - accessibility_feedback.md
+
+  - name: finalization
+    description: Final polish and formatting
+    agent: content-writer
+    inputs:
+      - revised_content.md
+      - accessibility_feedback.md
+    outputs:
+      - final_content.md
+      - content_metadata.json
+
+  - name: approval
+    description: Final ethics approval
+    agent: ethics-guardian
+    inputs:
+      - final_content.md
+    outputs:
+      - approval_status
+      - publication_ready
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CONTENT TYPES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+content_types:
+  prayer:
+    template: content/templates/prayer.md
+    required_elements:
+      - tradition_attribution
+      - settling_instruction
+      - body
+      - closing
+      - source_citation
+    review_focus:
+      - cultural_sensitivity
+      - non_exclusionary_language
+      - proper_attribution
+
+  evidence_box:
+    template: content/templates/evidence-box.md
+    required_elements:
+      - evidence_level
+      - summary
+      - key_finding
+      - limitations
+      - citation_with_pmid
+    review_focus:
+      - claim_accuracy
+      - appropriate_language
+      - proper_citation
+
+  historical_note:
+    template: content/templates/historical-note.md
+    required_elements:
+      - origins
+      - development
+      - traditional_use
+      - sources
+    review_focus:
+      - historical_accuracy
+      - proper_attribution
+      - cultural_respect
+
+  visualization:
+    template: content/templates/visualization.md
+    required_elements:
+      - duration
+      - settling
+      - main_journey
+      - integration
+      - return
+    review_focus:
+      - psychological_safety
+      - exit_instructions
+      - multi_sensory_inclusion
+
+  practice_instruction:
+    template: content/templates/practice-instruction.md
+    required_elements:
+      - tradition_attribution
+      - clear_steps
+      - variations
+      - safety_notes
+    review_focus:
+      - safety_accuracy
+      - accessibility_options
+      - proper_attribution
+
+  journal_prompt:
+    template: content/templates/journal-prompt.md
+    required_elements:
+      - reflection_question
+      - guiding_questions
+      - permission_statement
+    review_focus:
+      - psychological_safety
+      - non_prescriptive_language
+      - openness
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  clinical_accuracy:
+    - Evidence language matches evidence level
+    - Citations are valid (PMID exists)
+    - Claims don't exceed evidence
+    - Limitations acknowledged
+
+  cultural_integrity:
+    - Proper attribution to tradition
+    - No appropriation of closed practices
+    - Respectful representation
+    - Adaptations noted
+
+  psychological_safety:
+    - No triggering content without warning
+    - Exit/pause always offered
+    - Permission to stop
+    - Grounding available
+
+  accessibility:
+    - Reading level appropriate
+    - Multi-sensory inclusion
+    - Clear structure
+    - Modifications offered
+
+  ethics:
+    - No medical claims
+    - No outcome promises
+    - Proper disclaimers
+    - User autonomy respected
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# METADATA REQUIREMENTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+content_metadata:
+  required_fields:
+    - content_id
+    - content_type
+    - title
+    - tradition (if applicable)
+    - reading_time_minutes
+    - difficulty_level
+    - topics
+    - created_date
+    - last_reviewed_date
+    - ethics_approval_id
+
+  optional_fields:
+    - audio_version_available
+    - related_content_ids
+    - prerequisites
+    - contraindications
+    - seasonal_relevance
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BATCH PROCESSING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+batch_operations:
+  create_content_library:
+    description: Generate complete content library for an app
+    inputs:
+      - content_plan.yaml
+      - research_brief.md
+    outputs:
+      - content_library/
+        - prayers/
+        - evidence_boxes/
+        - visualizations/
+        - practices/
+        - journal_prompts/
+      - content_manifest.json
+
+  review_existing_content:
+    description: Review and update existing content library
+    inputs:
+      - content_library/
+      - updated_research.md
+    outputs:
+      - review_report.md
+      - updated_content/
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Create healing prayer
+    invocation: |
+      /healing-content --type prayer
+        --tradition "Jewish mystical"
+        --focus "hand healing"
+        --angel Raphael
+    expected_output:
+      - Prayer with proper attribution
+      - Visualization cues
+      - Source citations
+      - Ethics approval
+
+  - name: Create evidence box
+    invocation: |
+      /healing-content --type evidence-box
+        --topic "acupressure anxiety reduction"
+    expected_output:
+      - Evidence summary
+      - PMID citations
+      - Appropriate language
+      - Limitations noted
+
+  - name: Create visualization
+    invocation: |
+      /healing-content --type visualization
+        --focus "ligament healing"
+        --duration 10min
+    expected_output:
+      - Full visualization script
+      - Multi-sensory cues
+      - Grounding elements
+      - Return instructions
+
+  - name: Content library generation
+    invocation: |
+      /healing-content --batch
+        --plan content_plan.yaml
+        --input research-brief.md
+    expected_output:
+      - Complete content library
+      - All content types populated
+      - Manifest with metadata
+      - Ethics approvals
