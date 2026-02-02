@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { cn } from '@site/src/lib/utils';
 
 export interface SafetyConsentProps {
@@ -23,6 +23,8 @@ export function SafetyConsent({
   className,
 }: SafetyConsentProps) {
   const [isAcknowledged, setIsAcknowledged] = useState(false);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const firstFocusableRef = useRef<HTMLInputElement>(null);
 
   const handleConfirm = () => {
     if (isAcknowledged) {
@@ -30,15 +32,57 @@ export function SafetyConsent({
     }
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent) => {
+  const handleCheckboxKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
       setIsAcknowledged(!isAcknowledged);
     }
   };
 
+  // Handle Escape key to close dialog
+  const handleDialogKeyDown = useCallback((event: KeyboardEvent) => {
+    if (event.key === 'Escape' && onCancel) {
+      event.preventDefault();
+      onCancel();
+    }
+  }, [onCancel]);
+
+  // Focus trap: keep focus within dialog
+  const handleFocusTrap = useCallback((event: KeyboardEvent) => {
+    if (event.key !== 'Tab' || !dialogRef.current) return;
+
+    const focusableElements = dialogRef.current.querySelectorAll<HTMLElement>(
+      'input, button, [tabindex]:not([tabindex="-1"])'
+    );
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    if (event.shiftKey && document.activeElement === firstElement) {
+      event.preventDefault();
+      lastElement?.focus();
+    } else if (!event.shiftKey && document.activeElement === lastElement) {
+      event.preventDefault();
+      firstElement?.focus();
+    }
+  }, []);
+
+  // Set up keyboard listeners and initial focus
+  useEffect(() => {
+    document.addEventListener('keydown', handleDialogKeyDown);
+    document.addEventListener('keydown', handleFocusTrap);
+
+    // Focus first focusable element on mount
+    firstFocusableRef.current?.focus();
+
+    return () => {
+      document.removeEventListener('keydown', handleDialogKeyDown);
+      document.removeEventListener('keydown', handleFocusTrap);
+    };
+  }, [handleDialogKeyDown, handleFocusTrap]);
+
   return (
     <div
+      ref={dialogRef}
       className={cn(
         'rounded-lg border-2 border-feedback-warning bg-grounding-dark p-6 space-y-5',
         'shadow-lg',
@@ -47,6 +91,7 @@ export function SafetyConsent({
       role="dialog"
       aria-labelledby="safety-consent-title"
       aria-describedby="safety-consent-body"
+      aria-modal="true"
     >
       {/* Warning Icon and Title */}
       <div className="flex items-start gap-3">
@@ -102,10 +147,11 @@ export function SafetyConsent({
         >
           <div className="flex-shrink-0 pt-0.5">
             <input
+              ref={firstFocusableRef}
               type="checkbox"
               checked={isAcknowledged}
               onChange={(e) => setIsAcknowledged(e.target.checked)}
-              onKeyDown={handleKeyDown}
+              onKeyDown={handleCheckboxKeyDown}
               className={cn(
                 'w-5 h-5 rounded border-2',
                 'focus:ring-2 focus:ring-offset-2 focus:ring-offset-grounding-dark',

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { cn } from '@site/src/lib/utils';
 
 export interface PracticeOption {
@@ -29,6 +29,8 @@ export function PracticeSelector({
   const [selectedIds, setSelectedIds] = useState<Set<string>>(
     new Set(defaultSelected)
   );
+  const [focusedIndex, setFocusedIndex] = useState(0);
+  const optionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const handleToggle = (optionId: string) => {
     const newSelectedIds = new Set(selectedIds);
@@ -48,10 +50,37 @@ export function PracticeSelector({
     onSelect(Array.from(newSelectedIds));
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent, optionId: string) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      handleToggle(optionId);
+  const focusOption = useCallback((index: number) => {
+    const clampedIndex = Math.max(0, Math.min(index, options.length - 1));
+    setFocusedIndex(clampedIndex);
+    optionRefs.current[clampedIndex]?.focus();
+  }, [options.length]);
+
+  const handleKeyDown = (event: React.KeyboardEvent, optionId: string, index: number) => {
+    switch (event.key) {
+      case 'Enter':
+      case ' ':
+        event.preventDefault();
+        handleToggle(optionId);
+        break;
+      case 'ArrowDown':
+      case 'ArrowRight':
+        event.preventDefault();
+        focusOption(index + 1);
+        break;
+      case 'ArrowUp':
+      case 'ArrowLeft':
+        event.preventDefault();
+        focusOption(index - 1);
+        break;
+      case 'Home':
+        event.preventDefault();
+        focusOption(0);
+        break;
+      case 'End':
+        event.preventDefault();
+        focusOption(options.length - 1);
+        break;
     }
   };
 
@@ -83,27 +112,29 @@ export function PracticeSelector({
         className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"
         role={mode === 'single' ? 'radiogroup' : 'group'}
       >
-        {options.map((option) => {
+        {options.map((option, index) => {
           const isSelected = selectedIds.has(option.id);
 
           return (
             <div
               key={option.id}
+              ref={(el) => { optionRefs.current[index] = el; }}
               className={cn(
                 'relative rounded-lg border-2 p-4 cursor-pointer',
                 'transition-all duration-200',
-                'focus-within:ring-2 focus-within:ring-offset-2',
-                'focus-within:ring-offset-grounding-dark',
+                'focus:ring-2 focus:ring-offset-2',
+                'focus:ring-offset-grounding-dark focus:ring-healing-primary',
+                'focus:outline-none',
                 'hover:scale-[1.02] active:scale-[0.98]',
                 isSelected
                   ? 'border-healing-primary bg-healing-ghost shadow-glow-healing'
                   : 'border-grounding-medium bg-grounding-dark/50 hover:border-grounding-light'
               )}
               onClick={() => handleToggle(option.id)}
-              onKeyDown={(e) => handleKeyDown(e, option.id)}
+              onKeyDown={(e) => handleKeyDown(e, option.id, index)}
               role={mode === 'single' ? 'radio' : 'checkbox'}
               aria-checked={isSelected}
-              tabIndex={0}
+              tabIndex={index === focusedIndex ? 0 : -1}
             >
               {/* Selection Indicator */}
               <div className="absolute top-3 right-3">

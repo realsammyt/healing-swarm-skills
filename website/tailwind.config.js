@@ -22,6 +22,7 @@ module.exports = {
           dark: '#0ea5e9',
           light: '#7dd3fc',
           ghost: 'rgba(56, 189, 248, 0.1)',
+          border: 'rgba(56, 189, 248, 0.3)',
         },
         sacred: {
           gold: '#fbbf24',
