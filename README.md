@@ -1,5 +1,8 @@
 # Healing Swarm Skills
 
+[![View Website](https://img.shields.io/badge/View-Website-2dd284?style=for-the-badge)](https://realsammyt.github.io/healing-swarm-skills)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg?style=for-the-badge)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
 > A transcendent ecosystem of AI-assisted tools for researching, developing, and deploying ethical body and mental healing applications.
 
 ```

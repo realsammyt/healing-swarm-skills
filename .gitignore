@@ -59,3 +59,11 @@ healing-app-output/
 *.key
 credentials.json
 secrets.json
+
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+Gemfile.lock
+vendor/

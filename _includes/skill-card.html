@@ -1,0 +1,22 @@
+{% comment %}
+  Skill card component
+  Usage: {% include skill-card.html name="healing-research" trigger="/healing-research" description="Deep research into healing traditions" %}
+{% endcomment %}
+
+<div class="skill-card">
+  <div class="skill-header">
+    <code class="skill-trigger">{{ include.trigger }}</code>
+    <span class="skill-category">{{ include.category | default: "skill" }}</span>
+  </div>
+  <h3 class="skill-name">{{ include.name }}</h3>
+  <p class="skill-description">{{ include.description }}</p>
+  {% if include.agents %}
+  <div class="skill-agents">
+    <span class="agents-label">Agents:</span>
+    <span class="agents-list">{{ include.agents }}</span>
+  </div>
+  {% endif %}
+  {% if include.link %}
+  <a href="{{ include.link | relative_url }}" class="skill-link">Learn more &rarr;</a>
+  {% endif %}
+</div>

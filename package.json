@@ -33,7 +33,8 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "test": "vitest",
-    "build:docs": "node scripts/build-docs.js"
+    "build:docs": "node scripts/build-docs.js",
+    "serve-docs": "bundle exec jekyll serve --livereload"
   },
   "devDependencies": {
     "eslint": "^8.57.0",

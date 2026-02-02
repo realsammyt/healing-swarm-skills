@@ -1,0 +1,26 @@
+# Site navigation
+main:
+  - title: About
+    url: /about/
+  - title: Get Started
+    url: /getting-started/
+  - title: Examples
+    url: /examples/
+  - title: Skills
+    url: /skills/
+  - title: Architecture
+    url: /architecture/
+  - title: Ethics
+    url: /ethics/
+  - title: Docs
+    url: /docs/
+  - title: Contribute
+    url: /contribute/
+
+footer:
+  - title: GitHub
+    url: https://github.com/realsammyt/healing-swarm-skills
+  - title: License
+    url: /license/
+  - title: Contributing
+    url: /contribute/
