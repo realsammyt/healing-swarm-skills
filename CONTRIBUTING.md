@@ -6,6 +6,29 @@ our ethical foundation and quality standards.
 
 ---
 
+## Quick Start for Contributors
+
+1. **[Read the Setup Guide](docs/SETUP.md)** - Get your environment ready
+2. **[Read the Ethics Guardrails](/.claude/skills/healing-swarm/shared/ethics-guardrails.md)** - Understand our constraints
+3. **[Create a Skill](docs/guides/creating-skills.md)** - Follow the step-by-step guide
+4. **[Test Your Skill](docs/guides/testing-skills.md)** - Validate before submitting
+5. **[Submit a PR](#pull-request-guidelines)** - Follow PR guidelines below
+
+### Use Our Tooling
+
+```bash
+# Create a new skill with interactive CLI
+npm run create-skill
+
+# Validate your changes
+npm run validate
+
+# Check ethics references
+npm run check:ethics
+```
+
+---
+
 ## Our Ethical Foundation
 
 Before contributing, please familiarize yourself with our core ethical principles:
@@ -111,11 +134,24 @@ Help others understand and use the swarm:
 git clone https://github.com/YOUR-USERNAME/healing-swarm-skills.git
 cd healing-swarm-skills
 
+# Install dependencies
+npm install
+
 # Create a branch
 git checkout -b feature/your-feature-name
 
+# Create a new skill (recommended)
+npm run create-skill
+
+# Or use a template
+cp -r templates/minimal-skill .claude/skills/healing-swarm/your-skill
+
 # Make your changes
 # ...
+
+# Validate before committing
+npm run validate
+npm run check:ethics
 
 # Commit with clear message
 git commit -m "Add: [brief description]
@@ -129,6 +165,19 @@ git push origin feature/your-feature-name
 
 # Open a Pull Request
 ```
+
+### Using Templates
+
+We provide starter templates for common skill types:
+
+| Template | Use When |
+|----------|----------|
+| [minimal-skill](templates/minimal-skill/) | Learning, simple single-agent skills |
+| [research-skill](templates/research-skill/) | Multi-source research skills |
+| [content-skill](templates/content-skill/) | Content creation skills |
+| [quality-skill](templates/quality-skill/) | Review and audit skills |
+
+See [Creating Skills Guide](docs/guides/creating-skills.md) for detailed instructions.
 
 ### 3. Pull Request Guidelines
 

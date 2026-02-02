@@ -1,0 +1,137 @@
+# Simple Breathing Workflow
+# Creates guided breathing meditations with quality review
+
+name: simple-breathing-workflow
+version: 1.0.0
+description: |
+  Creates simple guided breathing meditations with traditional grounding,
+  evidence-based claims, and safety elements.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse request and select appropriate technique
+    agent: breathing-guide
+    actions:
+      - parse_duration
+      - parse_focus
+      - select_technique
+      - plan_structure
+    outputs:
+      - meditation_plan
+
+  - name: create_content
+    description: Write the guided breathing meditation
+    agent: breathing-guide
+    inputs:
+      - meditation_plan
+    outputs:
+      - draft-meditation.md
+
+  - name: quality_review
+    description: Review for safety and quality
+    agent: orchestrator
+    invokes:
+      - quality/ethics-guardian
+    inputs:
+      - draft-meditation.md
+    outputs:
+      - review_status
+      - required_modifications
+
+  - name: finalize
+    description: Apply any modifications and prepare final output
+    agent: breathing-guide
+    inputs:
+      - draft-meditation.md
+      - required_modifications
+    outputs:
+      - breathing-meditation.md
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output_structure:
+  breathing-meditation.md:
+    sections:
+      - title_and_metadata
+      - before_you_begin
+      - the_practice
+      - safety_information
+      - background
+      - disclaimer
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  create_content:
+    - All required sections present
+    - Timing appropriate for duration
+    - Language follows voice guide
+    - Instructions clear and sequential
+    - Tradition properly attributed
+
+  quality_review:
+    - Medical disclaimer present
+    - No outcome promises
+    - Contraindications noted
+    - Exit ramp provided
+    - Evidence language appropriate
+
+  finalize:
+    - All quality issues resolved
+    - Output format correct
+    - Ready for use
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  invalid_duration:
+    action: clarify
+    message: "Please specify duration: 2min, 5min, or 10min"
+    continue: false
+
+  invalid_focus:
+    action: fallback
+    message: "Using default focus: calm"
+    continue: true
+
+  safety_concern:
+    action: halt
+    message: "Content requires safety review modifications"
+    continue: false
+    require: ethics-guardian approval
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Quick calm breath
+    invocation: /simple-breathing --duration 2min --focus calm
+    expected_output:
+      - 2-minute calming breath meditation
+      - Simple 3-step instruction
+      - Safety note included
+
+  - name: Standard meditation
+    invocation: /simple-breathing --duration 5min --focus calm --level beginner
+    expected_output:
+      - 5-minute meditation
+      - Full structured practice
+      - Attribution and evidence included
+
+  - name: Sleep preparation
+    invocation: /simple-breathing --duration 10min --focus sleep
+    expected_output:
+      - 10-minute sleep practice
+      - Progressive relaxation elements
+      - Gentle transition to rest

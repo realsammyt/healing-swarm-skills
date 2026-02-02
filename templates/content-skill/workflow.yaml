@@ -1,0 +1,239 @@
+# Content Skill Workflow
+# Coordinates content creation with safety and quality review
+
+name: content-skill-workflow
+version: 1.0.0
+description: |
+  Creates healing content (prayers, visualizations, instructions) with
+  built-in safety review and voice consistency checking.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse content request and determine requirements
+    agent: content-creator
+    actions:
+      - identify_content_type
+      - determine_tradition
+      - assess_audience
+      - select_template
+    outputs:
+      - content_plan
+
+  - name: research_check
+    description: Gather any needed background information
+    agent: orchestrator
+    condition: needs_research
+    invokes:
+      - research/traditions-scholar (if traditional content)
+      - research/clinical-researcher (if evidence needed)
+    outputs:
+      - background_info
+
+  - name: draft
+    description: Create initial content draft
+    agent: content-creator
+    inputs:
+      - content_plan
+      - background_info (if available)
+    outputs:
+      - draft-content.md
+
+  - name: editorial_review
+    description: Review for voice, clarity, and completeness
+    agent: content-editor
+    inputs:
+      - draft-content.md
+    outputs:
+      - editorial_feedback
+      - revision_required
+
+  - name: revision
+    description: Apply editorial feedback
+    agent: content-creator
+    condition: revision_required
+    inputs:
+      - draft-content.md
+      - editorial_feedback
+    outputs:
+      - revised-content.md
+
+  - name: safety_review
+    description: Final safety and ethics check
+    agent: orchestrator
+    invokes:
+      - quality/ethics-guardian
+    inputs:
+      - current_content
+    outputs:
+      - safety_approval
+      - required_changes
+
+  - name: finalize
+    description: Apply final changes and prepare for delivery
+    agent: content-creator
+    inputs:
+      - current_content
+      - required_changes
+    outputs:
+      - final-content.md
+      - content-metadata.yaml
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CONTENT TYPES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+content_types:
+  prayer:
+    template: content/templates/prayer.md
+    required_elements:
+      - tradition_attribution
+      - appropriate_language
+      - closing_completion
+    safety_elements:
+      - non_coercive_language
+      - disclaimer_if_health_related
+
+  visualization:
+    template: content/templates/visualization.md
+    required_elements:
+      - grounding_opening
+      - sensory_guidance
+      - exit_ramp
+      - grounding_return
+    safety_elements:
+      - intensity_appropriate
+      - trauma_aware_language
+      - stop_permission
+
+  instruction:
+    template: content/templates/practice-instruction.md
+    required_elements:
+      - clear_steps
+      - modifications
+      - contraindications
+    safety_elements:
+      - medical_disclaimer
+      - when_to_stop
+      - healthcare_guidance
+
+  journal_prompt:
+    template: content/templates/journal-prompt.md
+    required_elements:
+      - open_ended_question
+      - guidance_notes
+    safety_elements:
+      - grounding_option
+      - support_resources_if_deep
+
+  evidence_box:
+    template: content/templates/evidence-box.md
+    required_elements:
+      - evidence_level
+      - sources_cited
+      - limitations
+    safety_elements:
+      - no_cure_claims
+      - appropriate_language
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output_structure:
+  final-content.md:
+    sections:
+      - title
+      - metadata_block
+      - main_content
+      - safety_information
+      - attribution
+
+  content-metadata.yaml:
+    fields:
+      - content_type
+      - tradition
+      - evidence_level
+      - created_date
+      - safety_reviewed
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  draft:
+    - Template structure followed
+    - All required elements present
+    - Tradition properly attributed
+    - Evidence level appropriate
+
+  editorial_review:
+    - Voice guide followed
+    - Reading level accessible (8th grade)
+    - Instructions clear and sequential
+    - Tone appropriate for audience
+
+  safety_review:
+    - No prohibited claims
+    - Medical disclaimers present (if applicable)
+    - Exit ramps present (if applicable)
+    - Grounding techniques included (if applicable)
+    - Cultural respect maintained
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  unclear_request:
+    action: clarify
+    message: "What type of content would you like? (prayer, visualization, instruction, etc.)"
+    continue: false
+
+  closed_tradition:
+    action: redirect
+    message: "This practice comes from a closed tradition. I can suggest alternatives from open traditions."
+    continue: false
+    suggest_alternatives: true
+
+  safety_concern:
+    action: halt
+    message: "This content requires safety modifications before it can be delivered."
+    continue: false
+    require: safety_review approval
+
+  voice_inconsistency:
+    action: revise
+    message: "Content needs revision to match voice guidelines."
+    continue: true
+    require: editorial revision
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Healing prayer
+    invocation: /my-content --type prayer --tradition "Jewish" --topic "healing presence"
+    expected_output:
+      - Prayer with proper attribution
+      - Non-coercive language
+      - Complete closure
+
+  - name: Sleep visualization
+    invocation: /my-content --type visualization --topic "sleep preparation" --duration "10 minutes"
+    expected_output:
+      - Grounded opening and closing
+      - Appropriate pacing
+      - Exit ramp included
+
+  - name: Breathing instruction
+    invocation: /my-content --type instruction --topic "calming breath"
+    expected_output:
+      - Clear step-by-step
+      - Modifications included
+      - Safety notes present

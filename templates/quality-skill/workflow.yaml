@@ -1,0 +1,307 @@
+# Quality Skill Workflow
+# Coordinates comprehensive quality review with multiple specialized reviewers
+
+name: quality-skill-workflow
+version: 1.0.0
+description: |
+  Performs systematic quality review of healing content and applications,
+  coordinating multiple specialized reviewers and producing actionable reports.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Assess review target and determine scope
+    agent: quality-lead
+    actions:
+      - identify_target_type
+      - determine_applicable_reviews
+      - assess_context
+      - assign_reviewers
+    outputs:
+      - review_plan
+
+  - name: ethics_review
+    description: Review for ethics and safety compliance
+    agent: orchestrator
+    parallel: true
+    condition: review_plan.includes_ethics
+    invokes:
+      - quality/ethics-guardian
+    inputs:
+      - target
+    outputs:
+      - ethics_findings
+
+  - name: accessibility_review
+    description: Review for accessibility compliance
+    agent: orchestrator
+    parallel: true
+    condition: review_plan.includes_accessibility
+    invokes:
+      - quality/accessibility-auditor
+    inputs:
+      - target
+    outputs:
+      - accessibility_findings
+
+  - name: clinical_review
+    description: Review for clinical accuracy
+    agent: orchestrator
+    parallel: true
+    condition: review_plan.includes_clinical
+    invokes:
+      - quality/clinical-reviewer
+    inputs:
+      - target
+    outputs:
+      - clinical_findings
+
+  - name: cultural_review
+    description: Review for cultural sensitivity
+    agent: orchestrator
+    parallel: true
+    condition: review_plan.includes_cultural
+    invokes:
+      - quality/cultural-reviewer
+    inputs:
+      - target
+    outputs:
+      - cultural_findings
+
+  - name: checklist_audit
+    description: Systematic checklist-based audit
+    agent: checklist-auditor
+    inputs:
+      - target
+      - applicable_checklists
+    outputs:
+      - audit_results
+
+  - name: synthesis
+    description: Compile all findings into unified report
+    agent: quality-lead
+    inputs:
+      - ethics_findings (if available)
+      - accessibility_findings (if available)
+      - clinical_findings (if available)
+      - cultural_findings (if available)
+      - audit_results
+    outputs:
+      - quality-report.md
+      - issues-list.yaml
+      - remediation-guide.md
+
+  - name: approval
+    description: Make final approval decision
+    agent: quality-lead
+    inputs:
+      - quality-report.md
+    outputs:
+      - approval_status
+      - required_actions
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# REVIEW TYPES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+review_types:
+  full:
+    description: Complete review of all applicable categories
+    includes:
+      - ethics
+      - accessibility
+      - clinical (if health content)
+      - cultural (if traditional content)
+      - checklist audit
+
+  ethics:
+    description: Focus on ethics and safety
+    includes:
+      - ethics
+      - checklist audit (ethics items only)
+
+  accessibility:
+    description: Focus on accessibility compliance
+    includes:
+      - accessibility
+      - checklist audit (accessibility items only)
+
+  clinical:
+    description: Focus on clinical accuracy
+    includes:
+      - clinical
+      - checklist audit (evidence items only)
+
+  cultural:
+    description: Focus on cultural sensitivity
+    includes:
+      - cultural
+      - checklist audit (attribution items only)
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SEVERITY LEVELS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+severity_levels:
+  critical:
+    description: Safety risk or ethics violation
+    response: Block deployment
+    resolution_required: immediate
+    examples:
+      - Cure claims
+      - Missing medical disclaimer with health content
+      - Closed practice disclosure
+
+  high:
+    description: Significant quality issue
+    response: Fix before deployment
+    resolution_required: before_release
+    examples:
+      - Missing exit ramp in intense visualization
+      - Keyboard accessibility failure
+      - Evidence overclaim
+
+  medium:
+    description: Quality improvement needed
+    response: Fix in next iteration
+    resolution_required: next_release
+    examples:
+      - Voice inconsistency
+      - Missing modifications
+      - Minor attribution gaps
+
+  low:
+    description: Minor enhancement
+    response: Optional fix
+    resolution_required: optional
+    examples:
+      - Tone refinement
+      - Additional examples
+      - Documentation improvement
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output_structure:
+  quality-report.md:
+    sections:
+      - executive_summary
+      - detailed_findings_by_category
+      - remediation_summary
+      - approval_status
+
+  issues-list.yaml:
+    fields:
+      - target
+      - review_date
+      - overall_status
+      - issues_array
+
+  remediation-guide.md:
+    sections:
+      - critical_fixes
+      - high_priority_fixes
+      - medium_priority_fixes
+      - optional_improvements
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  ethics_review:
+    - All "NEVER do" items verified absent
+    - All "ALWAYS include" items verified present
+    - Safety considerations documented
+
+  accessibility_review:
+    - WCAG AA compliance verified
+    - Keyboard navigation works
+    - Screen reader compatibility confirmed
+
+  clinical_review:
+    - All citations verified
+    - Evidence levels appropriate
+    - Safety information complete
+
+  cultural_review:
+    - Traditions properly attributed
+    - Closed practice boundaries respected
+    - Context preserved
+
+  synthesis:
+    - All findings integrated
+    - Severity assignments appropriate
+    - Recommendations actionable
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# APPROVAL CRITERIA
+# ═══════════════════════════════════════════════════════════════════════════════
+
+approval_criteria:
+  approved:
+    - No critical issues
+    - No high issues (or waived with justification)
+    - Checklist compliance >= 90%
+
+  approved_with_conditions:
+    - No critical issues
+    - High issues identified with remediation plan
+    - Checklist compliance >= 80%
+
+  not_approved:
+    - Any critical issues present
+    - Multiple unaddressed high issues
+    - Checklist compliance < 80%
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  target_not_found:
+    action: halt
+    message: "Cannot locate review target. Please verify the path or content."
+    continue: false
+
+  reviewer_unavailable:
+    action: flag_and_continue
+    message: "[Reviewer] unavailable. Review will be incomplete."
+    continue: true
+    note_in_report: true
+
+  critical_issue_found:
+    action: flag_immediately
+    message: "Critical issue identified. Review continues but deployment blocked."
+    continue: true
+    escalate: true
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Full review of visualization
+    invocation: /my-quality "./content/healing-visualization.md" --type full
+    expected_output:
+      - Complete quality report
+      - All categories reviewed
+      - Approval status
+
+  - name: Ethics-only review
+    invocation: /my-quality "./content/prayer.md" --type ethics
+    expected_output:
+      - Ethics-focused report
+      - Safety assessment
+      - Pass/fail on guardrails
+
+  - name: Accessibility audit
+    invocation: /my-quality "./components/meditation-timer" --type accessibility
+    expected_output:
+      - WCAG compliance report
+      - Keyboard navigation test results
+      - Screen reader compatibility

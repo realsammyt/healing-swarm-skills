@@ -1,0 +1,193 @@
+# {{WORKFLOW_NAME}} Workflow
+# {{BRIEF_DESCRIPTION}}
+
+name: {{workflow-name}}
+version: 1.0.0
+description: |
+  {{MULTI_LINE_DESCRIPTION}}
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse request and determine scope
+    agent: {{PRIMARY_AGENT}}
+    actions:
+      - parse_request
+      - validate_inputs
+      - determine_approach
+
+  - name: {{STAGE_2_NAME}}
+    description: {{STAGE_2_DESCRIPTION}}
+    agent: {{STAGE_2_AGENT}}
+    parallel: false  # Set true if can run alongside other stages
+    inputs:
+      - {{INPUT_1}}
+      - {{INPUT_2}}
+    outputs:
+      - {{OUTPUT_1}}
+
+  - name: {{STAGE_3_NAME}}
+    description: {{STAGE_3_DESCRIPTION}}
+    agent: {{STAGE_3_AGENT}}
+    parallel: false
+    inputs:
+      - {{INPUT_FROM_PREVIOUS_STAGE}}
+    outputs:
+      - {{OUTPUT_2}}
+
+  # Add research stage if needed:
+  # - name: research
+  #   description: Gather background information
+  #   agent: orchestrator
+  #   invokes:
+  #     - research/traditions-scholar
+  #     - research/clinical-researcher
+  #   outputs:
+  #     - research-brief.md
+
+  - name: quality_review
+    description: Review outputs for safety and quality
+    agent: orchestrator
+    invokes:
+      - quality/ethics-guardian
+      # Add other reviewers as needed:
+      # - quality/clinical-reviewer
+      # - quality/cultural-reviewer
+      # - quality/accessibility-auditor
+    inputs:
+      - {{PRIMARY_OUTPUT}}
+    outputs:
+      - review_status
+      - required_modifications
+
+  - name: finalize
+    description: Apply modifications and deliver final output
+    agent: {{PRIMARY_AGENT}}
+    inputs:
+      - {{PRIMARY_OUTPUT}}
+      - required_modifications
+    outputs:
+      - {{FINAL_OUTPUT}}
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DEPTH LEVELS (Optional - remove if not applicable)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# depth_levels:
+#   quick:
+#     description: Rapid overview
+#     output: Brief summary
+#
+#   standard:
+#     description: Balanced depth
+#     output: Complete deliverable
+#
+#   comprehensive:
+#     description: Deep dive
+#     output: Extensive documentation
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTEGRATION PATTERNS (Optional - remove if single agent)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# integration:
+#   parallel_execution:
+#     - {{PARALLEL_STAGE_1}}
+#     - {{PARALLEL_STAGE_2}}
+#
+#   sequential_execution:
+#     - intake → {{STAGE_2_NAME}}
+#     - {{STAGE_2_NAME}} → quality_review
+#     - quality_review → finalize
+#
+#   data_flow:
+#     stage_to_stage:
+#       - Data type 1
+#       - Data type 2
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output_structure:
+  {{PRIMARY_OUTPUT}}:
+    sections:
+      - overview
+      - main_content
+      - safety_considerations
+      - references
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  {{STAGE_2_NAME}}:
+    - {{QUALITY_REQUIREMENT_1}}
+    - {{QUALITY_REQUIREMENT_2}}
+    - {{QUALITY_REQUIREMENT_3}}
+
+  quality_review:
+    - Ethics guardrails respected
+    - No prohibited medical claims
+    - Appropriate disclaimers present
+    - Cultural attribution complete (if applicable)
+    - Accessibility requirements met
+
+  finalize:
+    - All quality gate issues resolved
+    - Output format correct
+    - Ready for delivery
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  invalid_input:
+    action: clarify
+    message: "Please provide more specific information about {{WHAT_IS_NEEDED}}"
+    continue: false
+
+  {{ERROR_TYPE_1}}:
+    action: {{ACTION}}  # halt|redirect|fallback|flag_and_continue
+    message: "{{USER_FACING_MESSAGE}}"
+    continue: {{true_or_false}}
+    suggest: "{{ALTERNATIVE_SUGGESTION}}"
+
+  ethics_concern:
+    action: halt_and_review
+    message: "This request requires ethics review before proceeding"
+    continue: false
+    require: ethics-guardian approval
+
+  safety_concern:
+    action: halt
+    message: "Safety concern identified. Please consult a healthcare provider."
+    continue: false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: {{EXAMPLE_1_NAME}}
+    invocation: /{{SKILL_TRIGGER}} "{{EXAMPLE_QUERY_1}}"
+    expected_output:
+      - {{EXPECTED_OUTPUT_1}}
+      - {{EXPECTED_OUTPUT_2}}
+
+  - name: {{EXAMPLE_2_NAME}}
+    invocation: /{{SKILL_TRIGGER}} "{{EXAMPLE_QUERY_2}}"
+    expected_output:
+      - {{EXPECTED_OUTPUT_1}}
+      - {{EXPECTED_OUTPUT_2}}
+
+  - name: Edge case handling
+    invocation: /{{SKILL_TRIGGER}} "{{EDGE_CASE_QUERY}}"
+    expected_output:
+      - Graceful handling
+      - Clarification request or appropriate refusal

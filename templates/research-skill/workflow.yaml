@@ -1,0 +1,291 @@
+# Research Skill Workflow
+# Coordinates multi-source research with evidence review
+
+name: research-skill-workflow
+version: 1.0.0
+description: |
+  Orchestrates comprehensive healing research by coordinating traditional
+  and clinical research tracks, then synthesizing findings with rigorous
+  evidence review.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse research request and determine scope
+    agent: research-lead
+    actions:
+      - parse_query
+      - identify_traditions
+      - identify_clinical_questions
+      - set_depth_level
+    outputs:
+      - research_plan
+
+  - name: traditional_research
+    description: Research traditional healing practices and sources
+    agent: orchestrator
+    parallel: true
+    invokes:
+      - research/traditions-scholar
+    inputs:
+      - research_plan
+    outputs:
+      - traditional-findings.md
+
+  - name: clinical_research
+    description: Systematic review of clinical evidence
+    agent: orchestrator
+    parallel: true
+    invokes:
+      - research/clinical-researcher
+    inputs:
+      - research_plan
+    outputs:
+      - clinical-findings.md
+
+  - name: synthesis
+    description: Integrate all research into comprehensive brief
+    agent: research-lead
+    inputs:
+      - traditional-findings.md
+      - clinical-findings.md
+    outputs:
+      - research-brief.md
+
+  - name: evidence_review
+    description: Verify citations and evidence claims
+    agent: evidence-reviewer
+    inputs:
+      - research-brief.md
+    outputs:
+      - review_report
+      - required_revisions
+
+  - name: revision
+    description: Apply evidence review feedback
+    agent: research-lead
+    inputs:
+      - research-brief.md
+      - required_revisions
+    outputs:
+      - revised-brief.md
+    condition: required_revisions.length > 0
+
+  - name: ethics_review
+    description: Final safety and ethics check
+    agent: orchestrator
+    invokes:
+      - quality/ethics-guardian
+    inputs:
+      - revised-brief.md OR research-brief.md
+    outputs:
+      - ethics_approval
+      - final_modifications
+
+  - name: finalize
+    description: Produce final research output
+    agent: research-lead
+    inputs:
+      - current_brief
+      - final_modifications
+    outputs:
+      - final-research-brief.md
+      - evidence-summary.md
+      - source-bibliography.md
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DEPTH LEVELS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+depth_levels:
+  quick:
+    description: Rapid overview for initial scoping
+    traditional:
+      - Secondary sources acceptable
+      - 1-2 traditions focus
+    clinical:
+      - Systematic reviews only
+      - Top 3-5 studies
+    synthesis:
+      - Key findings only
+    output: 2-3 page brief
+
+  standard:
+    description: Balanced research for typical needs
+    traditional:
+      - Primary sources preferred
+      - 2-3 traditions
+      - Historical context included
+    clinical:
+      - Systematic reviews + key RCTs
+      - Evidence level assessment
+      - Safety review
+    synthesis:
+      - Full integration
+      - Gap analysis
+    output: 5-10 page brief
+
+  comprehensive:
+    description: Deep dive for complex topics
+    traditional:
+      - Primary sources required
+      - All relevant traditions
+      - Full lineage tracing
+    clinical:
+      - Complete literature search
+      - All study types reviewed
+      - Full safety profile
+    synthesis:
+      - Complete integration
+      - Mechanism analysis
+      - Detailed gap analysis
+    output: 15-25 page brief
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTEGRATION PATTERNS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+integration:
+  parallel_execution:
+    - traditional_research
+    - clinical_research
+
+  sequential_execution:
+    - intake → traditional_research + clinical_research
+    - traditional_research + clinical_research → synthesis
+    - synthesis → evidence_review
+    - evidence_review → revision (if needed)
+    - revision/synthesis → ethics_review
+    - ethics_review → finalize
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output_structure:
+  final-research-brief.md:
+    sections:
+      - executive_summary
+      - traditional_foundations
+      - clinical_evidence
+      - integration_synthesis
+      - practice_implications
+      - safety_considerations
+      - gaps_and_uncertainties
+      - references
+
+  evidence-summary.md:
+    sections:
+      - evidence_overview
+      - evidence_level_assessment
+      - key_studies
+      - limitations
+
+  source-bibliography.md:
+    sections:
+      - primary_sources
+      - clinical_literature
+      - secondary_sources
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  traditional_research:
+    - Primary sources cited for key claims
+    - Dates and eras documented
+    - Cultural context preserved
+    - Closed practices identified and respected
+
+  clinical_research:
+    - Search strategy documented
+    - Study quality assessed
+    - Evidence level assigned correctly
+    - Limitations noted
+
+  synthesis:
+    - All components integrated coherently
+    - Appropriate qualifications used
+    - No overstated conclusions
+    - Gaps acknowledged
+
+  evidence_review:
+    - All citations verified
+    - All claims appropriately supported
+    - Language matches evidence level
+    - No prohibited claims
+
+  ethics_review:
+    - Medical disclaimers present
+    - No cure/diagnosis claims
+    - Safety information complete
+    - Cultural attribution proper
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  no_traditional_sources:
+    action: document_gap
+    message: "Traditional documentation unavailable or insufficient"
+    continue: true
+    note_in_output: true
+
+  no_clinical_evidence:
+    action: document_gap
+    message: "Clinical research lacking for this modality"
+    continue: true
+    note: "Absence of evidence ≠ evidence of absence"
+    note_in_output: true
+
+  closed_practice:
+    action: flag_and_redirect
+    message: "This practice is closed/initiatory"
+    continue: false
+    suggest_alternatives: true
+
+  evidence_concerns:
+    action: require_revision
+    message: "Evidence review identified issues requiring revision"
+    continue: false
+    require: revision stage
+
+  ethics_concerns:
+    action: halt_and_review
+    message: "Ethics review identified concerns"
+    continue: false
+    require: manual_review
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Quick research overview
+    invocation: /my-research "acupressure points for stress" --depth quick
+    expected_output:
+      - 2-3 page brief
+      - Key TCM points identified
+      - Top clinical studies summarized
+      - Quick integration
+
+  - name: Standard research brief
+    invocation: /my-research "meditation for anxiety"
+    expected_output:
+      - 5-10 page brief
+      - Multiple traditions covered
+      - Evidence level assessed
+      - Practice implications included
+
+  - name: Comprehensive deep dive
+    invocation: /my-research "visualization techniques for healing" --depth comprehensive
+    expected_output:
+      - 15-25 page brief
+      - Full traditional documentation
+      - Complete literature review
+      - Detailed mechanism analysis

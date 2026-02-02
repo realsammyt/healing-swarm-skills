@@ -1,0 +1,25 @@
+# Manifest Entry for Research Skill
+# Copy this to .claude/skills/healing-swarm/manifest.yaml under 'skills:'
+
+- name: my-research
+  trigger: /my-research
+  description: Research [topic area] with traditional and clinical evidence synthesis
+  category: research
+  agents:
+    - research-lead
+    - evidence-reviewer
+  workflow: my-research/workflow.yaml
+  inputs:
+    - query: string
+    - depth: enum[quick, standard, comprehensive]
+    - traditions: array[string] (optional)
+    - focus: enum[traditional, clinical, integrated] (optional)
+  outputs:
+    - research-brief.md
+    - evidence-summary.md
+    - source-bibliography.md
+  requires:
+    - ethics-guardrails
+    - terminology
+    - citation-format
+    - voice-guide

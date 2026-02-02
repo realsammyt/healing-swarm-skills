@@ -1,0 +1,24 @@
+# Manifest Entry for Content Skill
+# Copy this to .claude/skills/healing-swarm/manifest.yaml under 'skills:'
+
+- name: my-content
+  trigger: /my-content
+  description: Create [content type] for healing applications
+  category: content
+  agents:
+    - content-creator
+    - content-editor
+  workflow: my-content/workflow.yaml
+  inputs:
+    - content_type: enum[prayer, visualization, instruction, journal-prompt, evidence-box]
+    - topic: string
+    - tradition: string (optional)
+    - tone: enum[gentle, grounded, uplifting] (optional)
+    - duration: string (optional)
+  outputs:
+    - content.md
+    - metadata.yaml
+  requires:
+    - ethics-guardrails
+    - voice-guide
+    - terminology

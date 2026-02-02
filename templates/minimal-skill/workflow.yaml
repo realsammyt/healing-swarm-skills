@@ -1,0 +1,121 @@
+# Minimal Skill Workflow
+# A simple workflow with one agent and basic quality review
+
+name: my-skill-workflow
+version: 1.0.0
+description: |
+  Simple workflow for [describe what this skill does].
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse user request and validate inputs
+    agent: my-agent
+    actions:
+      - parse_request
+      - validate_inputs
+      - check_contraindications
+
+  - name: execute
+    description: Perform the main skill task
+    agent: my-agent
+    inputs:
+      - parsed_request
+    outputs:
+      - my-output.md
+
+  - name: quality_review
+    description: Review output for safety and quality
+    agent: orchestrator
+    invokes:
+      - quality/ethics-guardian
+    inputs:
+      - my-output.md
+    outputs:
+      - review_status
+      - required_modifications
+
+  - name: finalize
+    description: Apply any modifications and deliver
+    agent: my-agent
+    inputs:
+      - my-output.md
+      - required_modifications
+    outputs:
+      - final-output.md
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output_structure:
+  my-output.md:
+    sections:
+      - overview
+      - main_content
+      - safety_information
+      - sources
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  execute:
+    - Output addresses user request
+    - Content is accurate and complete
+    - Language is accessible (8th grade level)
+    - Sources are cited
+
+  quality_review:
+    - Ethics guardrails respected
+    - No prohibited medical claims
+    - Appropriate disclaimers present
+    - Cultural attribution complete (if applicable)
+
+  finalize:
+    - All quality issues resolved
+    - Output format correct
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  invalid_input:
+    action: clarify
+    message: "I need more information. Could you please specify [what's needed]?"
+    continue: false
+
+  out_of_scope:
+    action: redirect
+    message: "This request is outside what I can help with safely."
+    suggest: "You might try [alternative suggestion]"
+    continue: false
+
+  ethics_concern:
+    action: halt
+    message: "This request requires ethics review."
+    continue: false
+    require: ethics-guardian approval
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Basic usage
+    invocation: /my-skill "example query"
+    expected_output:
+      - Appropriate response to query
+      - Safety information included
+      - Sources cited
+
+  - name: Edge case
+    invocation: /my-skill "edge case query"
+    expected_output:
+      - Graceful handling
+      - Clarification or appropriate refusal

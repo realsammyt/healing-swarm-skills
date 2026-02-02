@@ -1,0 +1,23 @@
+# Manifest Entry for Minimal Skill
+# Copy this to .claude/skills/healing-swarm/manifest.yaml under 'skills:'
+
+- name: my-skill
+  trigger: /my-skill
+  description: Brief description of what this skill does
+  category: my-category  # research|design|content|build|quality|deploy
+  agents:
+    - my-agent
+  workflow: my-skill/workflow.yaml
+  inputs:
+    - query: string
+    # Add more inputs as needed:
+    # - option: enum[choice1, choice2]
+    # - flag: boolean
+  outputs:
+    - my-output.md
+  requires:
+    - ethics-guardrails
+    - voice-guide
+    # Add more requirements as needed:
+    # - terminology
+    # - design-tokens

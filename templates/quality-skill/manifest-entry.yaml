@@ -1,0 +1,21 @@
+# Manifest Entry for Quality Skill
+# Copy this to .claude/skills/healing-swarm/manifest.yaml under 'skills:'
+
+- name: my-quality
+  trigger: /my-quality
+  description: Review [content/application type] for quality, safety, and compliance
+  category: quality
+  agents:
+    - quality-lead
+    - checklist-auditor
+  workflow: my-quality/workflow.yaml
+  inputs:
+    - target: string (file path or content)
+    - review_type: enum[full, ethics, accessibility, clinical, cultural]
+    - severity_threshold: enum[all, critical-only] (optional)
+  outputs:
+    - quality-report.md
+    - issues-list.yaml
+    - remediation-guide.md
+  requires:
+    - ethics-guardrails

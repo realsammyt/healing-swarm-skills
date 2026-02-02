@@ -1,0 +1,112 @@
+name: Validate Pull Request
+
+on:
+  pull_request:
+    branches: [main, master]
+    paths:
+      - '.claude/skills/**'
+      - 'templates/**'
+      - 'scripts/**'
+      - 'package.json'
+
+jobs:
+  validate:
+    name: Validate Skills
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate skill structure
+        run: npm run validate
+
+      - name: Check ethics references
+        run: npm run check:ethics
+
+      - name: Lint agent prompts
+        run: npm run lint:prompts
+
+      - name: Validate manifest
+        run: npm run validate:manifest
+        continue-on-error: true  # May not have manifest yet
+
+  yaml-lint:
+    name: Lint YAML
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint YAML files
+        run: npx yaml-lint '.claude/skills/**/*.yaml' || true
+
+  markdown-lint:
+    name: Lint Markdown
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint Markdown files
+        run: npx markdownlint-cli2 '.claude/skills/**/*.md' || true
+
+  summary:
+    name: Validation Summary
+    runs-on: ubuntu-latest
+    needs: [validate, yaml-lint, markdown-lint]
+    if: always()
+
+    steps:
+      - name: Check validation results
+        run: |
+          echo "## PR Validation Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ needs.validate.result }}" == "success" ]; then
+            echo "✅ **Skills Validation**: Passed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Skills Validation**: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ "${{ needs.yaml-lint.result }}" == "success" ]; then
+            echo "✅ **YAML Lint**: Passed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "⚠️ **YAML Lint**: Issues found" >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ "${{ needs.markdown-lint.result }}" == "success" ]; then
+            echo "✅ **Markdown Lint**: Passed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "⚠️ **Markdown Lint**: Issues found" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Fail if validation failed
+        if: needs.validate.result != 'success'
+        run: exit 1

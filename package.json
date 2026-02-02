@@ -24,6 +24,12 @@
   "type": "module",
   "scripts": {
     "validate": "node scripts/validate-skills.js",
+    "validate:manifest": "node scripts/validate-manifest.js",
+    "validate:workflows": "node scripts/validate-skills.js --file *.yaml",
+    "validate:agents": "node scripts/validate-skills.js --file *.md",
+    "check:ethics": "node scripts/check-ethics.js",
+    "lint:prompts": "node scripts/lint-prompts.js",
+    "create-skill": "node scripts/create-skill.js",
     "lint": "eslint .",
     "format": "prettier --write .",
     "test": "vitest",

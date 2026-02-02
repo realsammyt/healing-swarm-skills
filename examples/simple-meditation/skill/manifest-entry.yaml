@@ -1,0 +1,20 @@
+# Manifest Entry for Simple Breathing Skill
+# Copy this to .claude/skills/healing-swarm/manifest.yaml under 'skills:'
+
+- name: simple-breathing
+  trigger: /simple-breathing
+  description: Create a simple guided breathing meditation
+  category: content
+  agents:
+    - breathing-guide
+  workflow: simple-breathing/workflow.yaml
+  inputs:
+    - duration: enum[2min, 5min, 10min]
+    - focus: enum[calm, energy, sleep]
+    - level: enum[beginner, intermediate]
+  outputs:
+    - breathing-meditation.md
+  requires:
+    - ethics-guardrails
+    - voice-guide
+    - terminology
