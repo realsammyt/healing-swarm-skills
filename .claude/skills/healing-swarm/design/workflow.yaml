@@ -267,28 +267,28 @@ quality_gates:
 
 principles_checklist:
   sanctuary:
-    - [ ] Feels calm and safe
-    - [ ] Generous white space
-    - [ ] Soft color palette
-    - [ ] No visual clutter
+    - "Feels calm and safe"
+    - "Generous white space"
+    - "Soft color palette"
+    - "No visual clutter"
 
   empowerment:
-    - [ ] User controls pace
-    - [ ] Skip options available
-    - [ ] No locked progression
-    - [ ] Data stays with user
+    - "User controls pace"
+    - "Skip options available"
+    - "No locked progression"
+    - "Data stays with user"
 
   accessibility:
-    - [ ] One-handed operation
-    - [ ] High contrast option
-    - [ ] Screen reader friendly
-    - [ ] Reduced motion support
+    - "One-handed operation"
+    - "High contrast option"
+    - "Screen reader friendly"
+    - "Reduced motion support"
 
   honesty:
-    - [ ] Clear disclaimers
-    - [ ] No outcome promises
-    - [ ] Complements medical care
-    - [ ] Transparent about what it is
+    - "Clear disclaimers"
+    - "No outcome promises"
+    - "Complements medical care"
+    - "Transparent about what it is"
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # EXAMPLE INVOCATIONS

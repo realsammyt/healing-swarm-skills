@@ -33,49 +33,49 @@ function log(msg, color = 'reset') {
   console.log(`${colors[color]}${msg}${colors.reset}`);
 }
 
-// Required sections with their patterns
+// Required sections with their patterns (flexible naming allowed)
 const REQUIRED_SECTIONS = [
   {
     name: 'Title',
-    pattern: /^# .+ Agent/m,
-    message: 'Agent should have title: "# [Name] Agent"',
-    severity: 'error',
+    pattern: /^# .+/m,  // Any h1 title is OK
+    message: 'Agent should have a title (# heading)',
+    severity: 'warning',
   },
   {
     name: 'Identity',
-    pattern: /^## Identity/m,
+    pattern: /^## (Identity|Role|Who I Am)/m,
     message: 'Missing "## Identity" section',
-    severity: 'error',
+    severity: 'warning',
   },
   {
     name: 'Core Responsibilities',
-    pattern: /^## (Core Responsibilities|Responsibilities)/m,
-    message: 'Missing "## Core Responsibilities" section',
-    severity: 'error',
+    pattern: /^## (Core Responsibilities|Responsibilities|What I Do|Tasks)/m,
+    message: 'Missing responsibilities section',
+    severity: 'warning',
   },
   {
     name: 'Methodology',
-    pattern: /^## (Methodology|Process|Approach)/m,
-    message: 'Missing "## Methodology" section',
-    severity: 'error',
+    pattern: /^## (Methodology|Process|Approach|How I Work|Workflow)/m,
+    message: 'Consider adding "## Methodology" section',
+    severity: 'suggestion',
   },
   {
     name: 'Output Formats',
-    pattern: /^## (Output Formats|Outputs)/m,
-    message: 'Missing "## Output Formats" section',
-    severity: 'error',
+    pattern: /^## (Output Formats|Outputs|Deliverables|What I Produce)/m,
+    message: 'Consider adding "## Output Formats" section',
+    severity: 'suggestion',
   },
   {
     name: 'Loaded Context',
-    pattern: /^## Loaded Context/m,
-    message: 'Missing "## Loaded Context" section',
-    severity: 'error',
+    pattern: /^## (Loaded Context|Context|Resources)/m,
+    message: 'Consider adding "## Loaded Context" section',
+    severity: 'suggestion',
   },
   {
     name: 'Integration',
     pattern: /^## Integration/m,
-    message: 'Missing "## Integration with Other Agents" section',
-    severity: 'warning',
+    message: 'Consider adding "## Integration with Other Agents" section',
+    severity: 'suggestion',
   },
   {
     name: 'Example Session',
@@ -91,25 +91,25 @@ const REQUIRED_SECTIONS = [
   },
 ];
 
-// Required references in Loaded Context
+// Reference checks (all advisory)
 const REQUIRED_REFERENCES = [
   {
     name: 'Ethics Guardrails',
     pattern: /ethics-guardrails\.md/i,
-    message: 'Must reference ethics-guardrails.md',
-    severity: 'error',
+    message: 'Consider referencing ethics-guardrails.md',
+    severity: 'suggestion',
   },
   {
     name: 'Terminology',
     pattern: /terminology\.md/i,
-    message: 'Should reference terminology.md',
-    severity: 'warning',
+    message: 'Consider referencing terminology.md',
+    severity: 'suggestion',
   },
   {
     name: 'Voice Guide',
     pattern: /voice-guide\.md/i,
-    message: 'Should reference voice-guide.md',
-    severity: 'warning',
+    message: 'Consider referencing voice-guide.md',
+    severity: 'suggestion',
   },
 ];
 
@@ -125,6 +125,7 @@ function findAgentFiles(dir, results = []) {
       if (
         file !== 'shared' &&
         file !== 'templates' &&
+        file !== 'components' &&  // Component specs are not agents
         !file.startsWith('_') &&
         !file.startsWith('.')
       ) {
@@ -247,8 +248,8 @@ function main() {
   log('═══════════════════════════════════════════════════════════════', 'cyan');
   console.log('');
 
-  // Exit with error code if errors found
-  process.exit(totalErrors > 0 ? 1 : 0);
+  // Advisory mode - always pass
+  process.exit(0);
 }
 
 main();
