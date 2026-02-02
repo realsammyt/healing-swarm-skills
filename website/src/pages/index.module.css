@@ -1,0 +1,274 @@
+/* ============================================
+   Hero Section
+   ============================================ */
+
+.heroBanner {
+  padding: 6rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    var(--ifm-background-color) 0%,
+    var(--ifm-background-surface-color) 100%
+  );
+}
+
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(
+    circle,
+    rgba(45, 210, 132, 0.15) 0%,
+    rgba(56, 189, 248, 0.1) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  animation: pulse-slow 6s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #2dd284, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 996px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  color: var(--ifm-font-color-secondary);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 996px) {
+  .heroSubtitle {
+    font-size: 1.25rem;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.heroTagline {
+  font-size: 1rem;
+  font-style: italic;
+  color: #fbbf24;
+  opacity: 0.8;
+  margin-top: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   Final CTA Section
+   ============================================ */
+
+.ctaSection {
+  padding: 5rem 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--ifm-background-surface-color) 100%
+  );
+  border-top: 1px solid var(--ifm-toc-border-color);
+}
+
+.ctaContent {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #2dd284, #fbbf24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media screen and (max-width: 996px) {
+  .ctaTitle {
+    font-size: 2rem;
+  }
+}
+
+.ctaSubtitle {
+  font-size: 1.25rem;
+  color: var(--ifm-font-color-secondary);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+@media screen and (max-width: 996px) {
+  .ctaSubtitle {
+    font-size: 1.125rem;
+  }
+}
+
+.ctaButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.heroTitle {
+  animation: slideInUp 0.8s ease-out;
+}
+
+.heroSubtitle {
+  animation: slideInUp 0.8s ease-out 0.2s;
+  animation-fill-mode: both;
+}
+
+.buttons {
+  animation: slideInUp 0.8s ease-out 0.4s;
+  animation-fill-mode: both;
+}
+
+.heroTagline {
+  animation: fadeIn 1s ease-out 0.6s;
+  animation-fill-mode: both;
+}
+
+/* ============================================
+   Button Enhancements
+   ============================================ */
+
+.button--primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.button--primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.button--primary:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* ============================================
+   Accessibility
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .heroTitle,
+  .heroSubtitle,
+  .buttons,
+  .heroTagline,
+  .heroBanner::before,
+  .button--primary::before {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* ============================================
+   Responsive Adjustments
+   ============================================ */
+
+@media screen and (max-width: 768px) {
+  .heroBanner {
+    padding: 4rem 0;
+  }
+
+  .ctaSection {
+    padding: 3rem 0;
+  }
+
+  .buttons,
+  .ctaButtons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .buttons > *,
+  .ctaButtons > * {
+    width: 100%;
+    max-width: 300px;
+  }
+}

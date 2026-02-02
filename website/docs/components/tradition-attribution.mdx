@@ -1,0 +1,222 @@
+---
+sidebar_position: 3
+title: TraditionAttribution
+description: Honor traditional healing knowledge with proper cultural attribution and respect
+---
+
+import { TraditionAttribution } from '@site/src/components/healing';
+
+# TraditionAttribution
+
+Provide respectful attribution for healing practices rooted in traditional knowledge systems, clearly marking open vs closed practices and acknowledging cultural origins.
+
+## Purpose
+
+The `TraditionAttribution` component ensures cultural integrity by:
+- Clearly identifying the source tradition
+- Providing historical context
+- Citing primary sources and lineage
+- Distinguishing open practices from closed/restricted ones
+- Acknowledging adaptations made for modern contexts
+
+## Live Demo
+
+### Open Practice Example
+
+<TraditionAttribution
+  traditionName="Traditional Chinese Medicine"
+  era="Developed over 2,000+ years, codified in classical texts like the Huangdi Neijing (Yellow Emperor's Inner Canon, ~200 BCE)"
+  primarySources={[
+    "Huangdi Neijing (Yellow Emperor's Inner Canon)",
+    "Shennong Bencao Jing (Divine Farmer's Materia Medica)",
+    "Modern TCM university curricula in China"
+  ]}
+  adaptationNotes="This presentation synthesizes classical TCM principles with modern anatomical understanding. Traditional concepts like Qi and meridians are explained using both traditional and contemporary frameworks."
+  isOpenPractice={true}
+/>
+
+### Closed Practice Example
+
+<div className="my-8">
+  <TraditionAttribution
+    traditionName="Lakota Sweat Lodge Ceremony"
+    era="Pre-colonial indigenous practice, specific protocols vary by community"
+    primarySources={[
+      "Oral tradition passed through Lakota elders",
+      "Black Elk's teachings (documented with permission)",
+      "Contemporary Lakota spiritual leaders"
+    ]}
+    adaptationNotes="This is a sacred ceremony with specific protocols. Non-Lakota individuals should not attempt to replicate or lead this practice without explicit permission and proper training from authorized tradition keepers."
+    isOpenPractice={false}
+  />
+</div>
+
+### Adapted Practice Example
+
+<div className="my-8">
+  <TraditionAttribution
+    traditionName="Mindfulness Meditation"
+    era="Rooted in Buddhist meditation practices (Vipassana, Anapanasati), ~2,500 years old"
+    primarySources={[
+      "Satipatthana Sutta (Discourse on the Foundations of Mindfulness)",
+      "Anapanasati Sutta (Discourse on Mindfulness of Breathing)",
+      "Modern adaptations by Jon Kabat-Zinn (MBSR, 1979)"
+    ]}
+    adaptationNotes="Modern mindfulness practices are secular adaptations of Buddhist meditation techniques. While the core techniques are preserved, they've been separated from Buddhist religious context to make them accessible in clinical and secular settings."
+    isOpenPractice={true}
+  />
+</div>
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `traditionName` | `string` | Yes | Name of the traditional healing system or practice |
+| `era` | `string` | No | Historical period or timespan |
+| `primarySources` | `string[]` | Yes | Array of source texts, lineages, or authorities |
+| `adaptationNotes` | `string` | No | How the practice has been adapted or modified |
+| `isOpenPractice` | `boolean` | Yes | Whether practice is open (accessible to all) or closed (requires specific permission/initiation) |
+| `className` | `string` | No | Additional CSS classes |
+
+## Open vs Closed Practices
+
+### Open Practices
+
+Traditions that are **openly shared** and can be respectfully learned and practiced by anyone:
+- Traditional Chinese Medicine (TCM)
+- Ayurveda
+- Buddhist meditation techniques
+- Yoga (most modern forms)
+- Herbalism from various traditions
+- Breathwork techniques
+
+**Responsibility**: Learn accurately, credit sources, practice respectfully.
+
+### Closed Practices
+
+Traditions that require **specific permission, initiation, or cultural membership**:
+- Indigenous ceremonies (sweat lodges, vision quests, specific healing rites)
+- Certain Native American practices
+- Some African traditional healing rituals
+- Specific lineage-based practices (certain tantric techniques, shamanic initiations)
+- Sacred knowledge restricted to initiated practitioners
+
+**Responsibility**: Do not replicate, do not claim expertise, seek permission from tradition keepers before engaging.
+
+:::warning Cultural Appropriation vs Appreciation
+**Appropriation**: Taking closed practices without permission, claiming traditions as your own, profiting from others' cultural heritage without credit.
+
+**Appreciation**: Learning open practices respectfully, crediting sources, acknowledging cultural origins, seeking guidance from tradition keepers.
+:::
+
+## Code Examples
+
+### Basic Open Practice
+
+```mdx
+import { TraditionAttribution } from '@site/src/components/healing';
+
+<TraditionAttribution
+  traditionName="Ayurveda"
+  era="Developed in India over 5,000+ years"
+  primarySources={[
+    "Charaka Samhita (ancient medical text)",
+    "Sushruta Samhita (ancient surgical text)",
+    "Modern Ayurvedic practitioners and institutions"
+  ]}
+  isOpenPractice={true}
+/>
+```
+
+### Closed Practice with Warning
+
+```mdx
+<TraditionAttribution
+  traditionName="Curanderismo Healing Rituals"
+  era="Indigenous Mexican and Latin American healing tradition"
+  primarySources={[
+    "Passed through curandero/curandera lineages",
+    "Combines indigenous, Catholic, and African influences"
+  ]}
+  adaptationNotes="Specific ritual techniques and prayers are traditionally taught only within apprenticeship relationships. Public descriptions here are limited to general principles out of respect for the tradition."
+  isOpenPractice={false}
+/>
+```
+
+### Adapted Modern Practice
+
+```mdx
+<TraditionAttribution
+  traditionName="Secular Mindfulness-Based Stress Reduction (MBSR)"
+  era="Developed 1979 by Jon Kabat-Zinn, based on Buddhist practices from ~2,500 years ago"
+  primarySources={[
+    "Buddhist Vipassana and Zen meditation traditions",
+    "Kabat-Zinn's MBSR curriculum (University of Massachusetts Medical School)",
+    "Clinical research validating secular adaptations"
+  ]}
+  adaptationNotes="MBSR extracts meditation techniques from their Buddhist religious context, making them accessible in clinical settings. The core practices are preserved while removing religious framework."
+  isOpenPractice={true}
+/>
+```
+
+## When to Use
+
+Use `TraditionAttribution` when documenting:
+- Traditional healing modalities (TCM, Ayurveda, indigenous medicine)
+- Spiritual practices adapted for therapeutic use
+- Historical healing techniques
+- Cultural knowledge systems
+- Practices requiring cultural context or permission
+
+:::info Documentation Standards
+Every healing skill that draws from traditional knowledge MUST include a TraditionAttribution component. This is non-negotiable for ethical documentation.
+:::
+
+## Accessibility Features
+
+- **Semantic HTML**: Uses `<aside>` role="complementary" for proper document structure
+- **ARIA labels**: Descriptive labels identifying tradition and practice status
+- **Clear visual hierarchy**: Header, sources, and notes clearly distinguished
+- **Screen reader friendly**: Lists use proper `<ul>` with role="list"
+- **Keyboard navigation**: All interactive elements accessible via keyboard
+
+## Ethics Guidelines
+
+### Do:
+- Research traditions thoroughly before documenting
+- Cite primary sources and lineage holders
+- Be clear about adaptations and modifications
+- Mark closed practices explicitly
+- Acknowledge when you're outside a tradition
+- Update attributions as you learn more
+
+### Don't:
+- Claim expertise in traditions you haven't studied deeply
+- Present closed practices as open
+- Strip cultural context without acknowledgment
+- Profit from sacred knowledge without permission
+- Ignore requests from tradition keepers about representation
+
+:::danger Never
+Document closed practices in detail without explicit permission from authorized tradition keepers. When in doubt, err on the side of caution and respect.
+:::
+
+## Visual Design
+
+The component uses sacred design tokens:
+- **Border**: Sacred gold with gentle glow
+- **Background**: Dark with subtle transparency
+- **Typography**: Warm gold tones for sacred knowledge
+- **Icon**: Traditional wisdom symbol (lightbulb/illumination)
+- **Hover state**: Enhanced glow effect
+
+## Related Components
+
+- [EvidenceCitation](./evidence-citation) - For citing research on traditional practices
+- [SafetyConsent](./safety-consent) - For disclaimers when practices may not be appropriate for all users
+
+## Further Reading
+
+- [Cultural Appropriation in Wellness](https://example.com)
+- [Ethical Guidelines for Traditional Knowledge Documentation](https://example.com)
+- [Indigenous Data Sovereignty](https://example.com)

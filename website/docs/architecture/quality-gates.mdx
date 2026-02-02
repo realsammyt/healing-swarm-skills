@@ -1,0 +1,440 @@
+---
+sidebar_position: 3
+title: Quality Gates
+description: How quality is enforced at every stage
+---
+
+# Quality Gates
+
+Quality gates are checkpoints that enforce standards throughout the development lifecycle. They ensure safety, accuracy, and ethical compliance at every stage.
+
+---
+
+## Gate Architecture
+
+```
+  Input > [Gate 1] > Process > [Gate 2] > Review > [Gate 3] > Output
+            ^                    ^                   ^
+            |                    |                   |
+      Input Validation    Process Quality      Output Review
+```
+
+---
+
+## Gate Types
+
+### 1. Input Validation Gates
+
+**Purpose:** Verify prerequisites before processing
+
+**Location:** Before each stage begins
+
+**Checks:**
+- Required inputs present
+- Input format valid
+- Prerequisites met
+- Context loaded
+
+**Example:**
+```yaml
+gate: input-validation
+stage: content-creation
+checks:
+  - research_brief_exists: true
+  - design_spec_exists: true
+  - ethics_guardrails_loaded: true
+  - tradition_documented: true
+enforcement: blocking
+```
+
+**On Failure:**
+- Block stage from starting
+- Report missing prerequisites
+- Wait for resolution
+
+### 2. Process Quality Gates
+
+**Purpose:** Monitor execution and enforce guardrails
+
+**Location:** During agent execution
+
+**Checks:**
+- Ethics guardrails followed
+- Methodology applied correctly
+- Quality standards met
+- Safety considerations addressed
+
+**Example:**
+```yaml
+gate: process-quality
+stage: content-creation
+checks:
+  - no_medical_diagnosis: required
+  - no_cure_claims: required
+  - medical_disclaimer_included: required
+  - grounding_technique_present: required
+  - tradition_attributed: required
+enforcement: blocking
+frequency: continuous
+```
+
+**On Failure:**
+- Stop processing immediately
+- Report violation
+- Require correction
+
+### 3. Output Review Gates
+
+**Purpose:** Validate final outputs before handoff
+
+**Location:** After stage completion
+
+**Checks:**
+- Output format correct
+- Quality standards met
+- All requirements satisfied
+- Ready for next stage
+
+**Example:**
+```yaml
+gate: output-review
+stage: content-creation
+checks:
+  - all_files_present: true
+  - format_valid: markdown
+  - reading_level: 6th-grade-max
+  - disclaimers_present: true
+  - attributions_complete: true
+enforcement: blocking
+```
+
+**On Failure:**
+- Block handoff to next stage
+- Return to agent for fixes
+- Re-review required
+
+---
+
+## Severity Levels
+
+Quality issues are classified by severity:
+
+### Critical
+
+**Definition:** Safety risk or ethics violation
+
+**Examples:**
+- Medical diagnosis provided
+- Cure claims made
+- Closed practice disclosed
+- No medical disclaimer
+- Harmful advice given
+
+**Enforcement:**
+- **BLOCKS** deployment immediately
+- Cannot be overridden
+- Requires complete fix
+- Must pass re-review
+
+**Response Time:** Immediate
+
+### High
+
+**Definition:** Significant quality issue
+
+**Examples:**
+- Missing disclaimers
+- Inaccurate attribution
+- Major accessibility issues
+- Evidence language too strong
+- Contraindications missing
+
+**Enforcement:**
+- **BLOCKS** next stage
+- Must fix before proceeding
+- Can be temporarily waived with approval
+- Re-review required
+
+**Response Time:** Before next stage
+
+### Medium
+
+**Definition:** Quality improvement needed
+
+**Examples:**
+- Minor inaccuracies
+- Clarity improvements
+- Reading level high
+- Minor accessibility gaps
+- Attribution incomplete
+
+**Enforcement:**
+- **WARNS** but continues
+- Should fix soon
+- May defer to later stage
+- Optional re-review
+
+**Response Time:** Within sprint
+
+### Low
+
+**Definition:** Minor enhancement
+
+**Examples:**
+- Style suggestions
+- Formatting improvements
+- Optional optimizations
+
+**Enforcement:**
+- **NOTES** only
+- Consider fixing
+- No blocking
+- No re-review required
+
+**Response Time:** When convenient
+
+---
+
+## Gate Configurations
+
+### Blocking Gate
+
+Prevents progression until resolved:
+
+```yaml
+gate:
+  name: ethics-guardrails
+  type: blocking
+  severity: critical
+  checks:
+    - no_medical_diagnosis
+    - no_cure_claims
+    - medical_disclaimer_present
+    - no_closed_practices
+  on_fail:
+    action: block-immediately
+    notify: orchestrator
+    escalate: ethics-guardian
+    require: complete-fix
+```
+
+### Warning Gate
+
+Allows progression with notification:
+
+```yaml
+gate:
+  name: style-guide
+  type: warning
+  severity: medium
+  checks:
+    - reading_level_appropriate
+    - tone_consistent
+    - formatting_clean
+  on_fail:
+    action: warn-and-continue
+    notify: orchestrator
+    log: issues.yaml
+    defer: true
+```
+
+### Advisory Gate
+
+Provides recommendations only:
+
+```yaml
+gate:
+  name: optimization
+  type: advisory
+  severity: low
+  checks:
+    - performance_optimal
+    - code_style_consistent
+    - comments_helpful
+  on_fail:
+    action: note-only
+    log: suggestions.md
+```
+
+---
+
+## Special Gates
+
+### Ethics Guardian Gate
+
+The ethics-guardian agent has special gate authority:
+
+```yaml
+gate:
+  name: ethics-final-review
+  agent: ethics-guardian
+  authority: absolute
+  checks:
+    - comprehensive_safety_review
+    - all_disclaimers_present
+    - no_harm_risk
+    - cultural_respect_verified
+  powers:
+    - block_deployment: true
+    - require_modifications: true
+    - escalate_to_human: true
+    - override_other_gates: false
+  enforcement: blocking-absolute
+```
+
+**Special Powers:**
+- Can block deployment immediately
+- Cannot be overridden
+- Final word on ethics
+- Can escalate to human review
+
+### Cultural Sensitivity Gate
+
+Ensures traditions are honored:
+
+```yaml
+gate:
+  name: cultural-respect
+  agent: cultural-reviewer
+  checks:
+    - tradition_specifically_named
+    - era_provided
+    - primary_sources_cited
+    - adaptations_noted
+    - closed_practices_protected
+    - context_preserved
+  enforcement: blocking
+  escalation: cultural-expert-review
+```
+
+### Accessibility Gate
+
+Verifies WCAG compliance:
+
+```yaml
+gate:
+  name: accessibility-compliance
+  agent: accessibility-auditor
+  checks:
+    - wcag_aa_minimum
+    - keyboard_navigation
+    - screen_reader_compatible
+    - color_contrast_sufficient
+    - reduced_motion_respected
+    - one_handed_operation
+  enforcement: blocking
+  tools:
+    - automated-testing
+    - manual-review
+```
+
+---
+
+## Gate Bypass (Restricted)
+
+In rare cases, gates can be bypassed:
+
+**Requirements:**
+- Explicit approval from gate owner
+- Documented justification
+- Temporary only
+- Follow-up fix required
+- Audit trail maintained
+
+**Example:**
+```yaml
+bypass:
+  gate: style-guide
+  reason: "Emergency content update"
+  approved_by: content-lead
+  expires: 2024-03-15
+  follow_up:
+    - fix_issues: true
+    - deadline: 2024-03-20
+    - re_review: required
+```
+
+**Cannot Bypass:**
+- Ethics guardrails gate
+- Medical safety gate
+- Closed practices gate
+
+---
+
+## Continuous Monitoring
+
+Some gates operate continuously:
+
+**During Development:**
+```yaml
+continuous_gates:
+  - ethics_guardrails_check
+  - medical_safety_monitor
+  - cultural_respect_watch
+
+frequency: every-agent-action
+enforcement: immediate-block
+```
+
+**In Production:**
+```yaml
+production_monitors:
+  - accessibility_compliance
+  - content_accuracy
+  - link_integrity
+  - attribution_completeness
+
+frequency: daily
+alerts: email + dashboard
+```
+
+---
+
+## Gate Metrics
+
+Track gate performance:
+
+**Effectiveness:**
+- Issues caught per gate
+- False positive rate
+- Time to resolution
+- Bypass frequency
+
+**Efficiency:**
+- Gate execution time
+- Blocking vs warning ratio
+- Re-review frequency
+
+**Quality:**
+- Issues that escaped gates
+- Post-deployment issues
+- User-reported problems
+
+---
+
+## Best Practices
+
+### Gate Design
+
+1. **Clear Criteria** - Unambiguous pass/fail conditions
+2. **Appropriate Severity** - Match enforcement to risk
+3. **Fast Feedback** - Quick results when possible
+4. **Actionable Output** - Clear guidance on fixes
+
+### Gate Implementation
+
+1. **Automate When Possible** - Automated checks are faster
+2. **Human Review When Necessary** - Some checks need judgment
+3. **Document Rationale** - Explain why gates exist
+4. **Track Metrics** - Measure effectiveness
+
+### Gate Operation
+
+1. **Enforce Consistently** - No special exceptions
+2. **Update Regularly** - Evolve with learning
+3. **Audit Thoroughly** - Verify gates work
+4. **Escalate Appropriately** - Human review when needed
+
+---
+
+*"Quality gates protect users. Severity guides response. Ethics gates never yield."*

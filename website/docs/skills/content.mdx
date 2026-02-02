@@ -1,0 +1,156 @@
+---
+sidebar_position: 3
+title: Content Skill
+description: Create prayers, visualizations, practice instructions, and evidence summaries
+---
+
+# healing-content
+
+**Trigger:** `/healing-content`
+
+Create healing content including prayers, visualizations, practice instructions, and evidence summaries.
+
+## Agent
+
+- **Content Writer** - Multi-format content creation
+
+## Content Types
+
+- `prayer` - Spiritual invocations and blessings
+- `visualization` - Guided imagery and meditations
+- `instruction` - Practice how-to guides
+- `evidence-box` - Research summaries
+- `journal-prompt` - Reflection questions
+- `historical-note` - Context and attribution
+
+## Inputs
+
+| Input | Required | Description |
+|-------|----------|-------------|
+| `type` | Yes | Content type (see above) |
+| `topic` | Yes | Content topic |
+| `tradition` | No | Source tradition |
+| `tone` | No | `gentle`, `grounded`, `uplifting` |
+
+## Examples
+
+**Create a prayer:**
+```bash
+/healing-content --type prayer --tradition "Jewish" --topic "healing presence"
+```
+
+**Create visualization:**
+```bash
+/healing-content --type visualization --topic "stress relief" --duration "10 minutes"
+```
+
+**Create instructions:**
+```bash
+/healing-content --type instruction --topic "box breathing"
+```
+
+## Content Guidelines
+
+### Required Elements
+
+All healing content MUST include:
+
+1. **Medical disclaimer** - "Does not replace professional care"
+2. **Permission to stop** - "You can stop at any time"
+3. **Tradition attribution** - When applicable
+4. **Evidence language** - Appropriate to strength
+
+### Voice and Tone
+
+**Gentle:**
+- Invitational, not commanding
+- "You might..." not "You will..."
+- Permission-based
+
+**Grounded:**
+- Clear, concrete instructions
+- No mystical jargon without explanation
+- Practical guidance
+
+**Respectful:**
+- Honor source traditions
+- Acknowledge limitations
+- No appropriation
+
+### Safety Considerations
+
+Content must include:
+
+- Contraindications when relevant
+- Grounding techniques for intensive practices
+- Exit ramps ("If you feel uncomfortable...")
+- Crisis resources for mental health content
+
+## Output Format
+
+### Prayer Template
+
+```markdown
+# [Prayer Title]
+
+**Tradition:** [Specific tradition and era]
+**Context:** [When/how traditionally used]
+**Adaptation:** [Any changes from traditional form]
+
+---
+
+[Prayer text]
+
+---
+
+**Attribution:** [Source and lineage]
+**Disclaimer:** For spiritual support only, not medical treatment.
+```
+
+### Visualization Template
+
+```markdown
+# [Visualization Title]
+
+**Duration:** [Time]
+**Purpose:** [Intended effect]
+**Evidence:** [Research support if any]
+
+---
+
+## Before You Begin
+
+[Setup instructions and safety notes]
+
+---
+
+## The Visualization
+
+[Guided script]
+
+---
+
+## If You Need to Stop
+
+[Grounding technique]
+
+---
+
+**Disclaimer:** [Standard medical disclaimer]
+```
+
+## Quality Gates
+
+Before output is finalized:
+
+- Medical disclaimer present
+- Permission to stop included
+- Tradition properly attributed
+- Evidence language appropriate
+- No cure claims
+- Grounding techniques provided
+- Reading level appropriate (~6th grade)
+
+---
+
+*Create with care. Empower, don't prescribe. Honor all sources.*

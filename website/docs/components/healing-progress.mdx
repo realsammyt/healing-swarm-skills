@@ -1,0 +1,300 @@
+---
+sidebar_position: 4
+title: HealingProgress
+description: Visualize healing journeys and skill development lifecycles
+---
+
+import { HealingProgress } from '@site/src/components/healing';
+
+# HealingProgress
+
+A progress indicator designed for visualizing healing journeys, skill development lifecycles, and multi-step processes with encouragement and warmth.
+
+## Purpose
+
+The `HealingProgress` component helps users understand:
+- Where they are in a healing or learning journey
+- What steps have been completed
+- What's coming next
+- Progress made over time
+
+## Live Demo
+
+### Skill Development Lifecycle
+
+<HealingProgress
+  steps={[
+    { id: '1', label: 'Research & Evidence Review', status: 'completed' },
+    { id: '2', label: 'Content Development', status: 'completed' },
+    { id: '3', label: 'Quality Review', status: 'current' },
+    { id: '4', label: 'Deployment', status: 'upcoming' }
+  ]}
+  encouragementMessage="Great progress! Your skill is nearly ready for publication."
+/>
+
+### Healing Journey Example
+
+<div className="my-8">
+  <HealingProgress
+    steps={[
+      { id: '1', label: 'Initial Assessment', status: 'completed' },
+      { id: '2', label: 'Setting Intentions', status: 'completed' },
+      { id: '3', label: 'Active Practice', status: 'current' },
+      { id: '4', label: 'Integration & Reflection', status: 'upcoming' },
+      { id: '5', label: 'Ongoing Maintenance', status: 'upcoming' }
+    ]}
+    encouragementMessage="You're building a sustainable healing practice. Remember to honor your pace."
+  />
+</div>
+
+### Course Progress Example
+
+<div className="my-8">
+  <HealingProgress
+    steps={[
+      { id: '1', label: 'Understanding Foundations', status: 'completed' },
+      { id: '2', label: 'Learning Techniques', status: 'completed' },
+      { id: '3', label: 'Practicing Daily', status: 'completed' },
+      { id: '4', label: 'Advanced Applications', status: 'current' },
+      { id: '5', label: 'Teaching Others', status: 'upcoming' }
+    ]}
+  />
+</div>
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `steps` | `HealingStep[]` | Yes | Array of step objects defining the journey |
+| `encouragementMessage` | `string` | No | Optional encouraging message to display |
+| `className` | `string` | No | Additional CSS classes |
+
+### HealingStep Interface
+
+```typescript
+interface HealingStep {
+  id: string;           // Unique identifier
+  label: string;        // Step description
+  status: StepStatus;   // 'completed' | 'current' | 'upcoming'
+}
+```
+
+## Step Statuses
+
+### Completed
+- Displays a checkmark icon
+- Green healing color
+- Solid connecting line to next step
+- Font: Medium weight
+
+### Current
+- Displays a pulsing dot
+- Blue calm color with gentle glow
+- Animated breathing effect
+- Font: Semibold weight
+- Draws user attention
+
+### Upcoming
+- Displays step number
+- Gray grounding color
+- Subtle appearance
+- Font: Regular weight
+
+## Code Examples
+
+### Basic Usage
+
+```mdx
+import { HealingProgress } from '@site/src/components/healing';
+
+<HealingProgress
+  steps={[
+    { id: '1', label: 'Step One', status: 'completed' },
+    { id: '2', label: 'Step Two', status: 'current' },
+    { id: '3', label: 'Step Three', status: 'upcoming' }
+  ]}
+/>
+```
+
+### With Encouragement
+
+```mdx
+<HealingProgress
+  steps={[
+    { id: '1', label: 'Foundation Work', status: 'completed' },
+    { id: '2', label: 'Active Healing', status: 'current' },
+    { id: '3', label: 'Integration', status: 'upcoming' }
+  ]}
+  encouragementMessage="You're making meaningful progress. Be gentle with yourself."
+/>
+```
+
+### Dynamic Progress (React Component)
+
+```tsx
+import { HealingProgress, HealingStep } from '@site/src/components/healing';
+import { useState } from 'react';
+
+function MyJourney() {
+  const [currentStep, setCurrentStep] = useState(2);
+
+  const steps: HealingStep[] = [
+    {
+      id: '1',
+      label: 'Awareness',
+      status: currentStep > 1 ? 'completed' : 'current'
+    },
+    {
+      id: '2',
+      label: 'Exploration',
+      status: currentStep === 2 ? 'current' : currentStep > 2 ? 'completed' : 'upcoming'
+    },
+    {
+      id: '3',
+      label: 'Integration',
+      status: currentStep === 3 ? 'current' : currentStep > 3 ? 'completed' : 'upcoming'
+    }
+  ];
+
+  return (
+    <div>
+      <HealingProgress steps={steps} />
+      <button onClick={() => setCurrentStep(currentStep + 1)}>
+        Next Step
+      </button>
+    </div>
+  );
+}
+```
+
+## Use Cases
+
+### Skill Development
+
+Track the lifecycle of a healing skill from research to deployment:
+1. Research & Evidence Review
+2. Content Development
+3. Quality Review
+4. Community Testing
+5. Deployment
+
+### Healing Journey
+
+Guide users through a therapeutic process:
+1. Assessment
+2. Goal Setting
+3. Active Practice
+4. Progress Review
+5. Maintenance
+
+### Course Progress
+
+Show learning progression:
+1. Foundations
+2. Core Techniques
+3. Practice
+4. Advanced Topics
+5. Mastery
+
+### Treatment Protocol
+
+Visualize multi-phase treatment:
+1. Initial Consultation
+2. Acute Phase
+3. Stabilization
+4. Integration
+5. Follow-up
+
+## Accessibility Features
+
+- **ARIA progressbar role**: Semantic progress indication
+- **aria-valuenow/valuemin/valuemax**: Current progress announced to screen readers
+- **Clear status indicators**: Multiple visual cues (color, icon, animation)
+- **Descriptive labels**: Each step clearly labeled with status
+- **Live regions**: Encouragement messages use aria-live for screen reader updates
+- **Semantic HTML**: Proper heading and list structures
+
+:::tip Screen Reader Experience
+Screen readers will announce: "Healing journey progress, 2 of 4 steps completed" along with individual step statuses.
+:::
+
+## Visual Design
+
+### Colors
+- **Completed**: Healing green (growth, achievement)
+- **Current**: Calm blue (presence, focus)
+- **Upcoming**: Neutral gray (patience, potential)
+
+### Animations
+- **Current step**: Gentle pulse animation (1.5s cycle)
+- **Current dot**: Breathing animation (draws eye, calming)
+- **Transitions**: Smooth 300ms color transitions
+
+### Layout
+- **Vertical timeline**: Clear progression flow
+- **Generous spacing**: Not cramped, easy to scan
+- **Connecting lines**: Visual flow between steps
+- **Circle indicators**: Clear focal points
+
+## Best Practices
+
+:::tip When to Use
+- Multi-step healing processes
+- Skill development tracking
+- Course or program progress
+- Treatment protocol stages
+- Learning journeys
+:::
+
+:::info Encouragement Messages
+Use encouragement thoughtfully:
+- Acknowledge progress made
+- Normalize the journey's pace
+- Avoid toxic positivity
+- Be specific to the context
+- Include self-compassion prompts
+:::
+
+## Customization
+
+### Custom Styling
+
+```mdx
+<HealingProgress
+  steps={mySteps}
+  className="max-w-md mx-auto p-6 bg-grounding-dark rounded-lg"
+/>
+```
+
+### Different Step Counts
+
+The component adapts to any number of steps (3-10 recommended):
+
+```mdx
+// Simple 3-step process
+<HealingProgress
+  steps={[
+    { id: '1', label: 'Begin', status: 'completed' },
+    { id: '2', label: 'Practice', status: 'current' },
+    { id: '3', label: 'Integrate', status: 'upcoming' }
+  ]}
+/>
+
+// Detailed 7-step journey
+<HealingProgress
+  steps={[/* 7 detailed steps */]}
+/>
+```
+
+## Related Components
+
+- [PracticeSelector](./practice-selector) - For choosing practices at journey start
+- [SafetyConsent](./safety-consent) - For informed consent before beginning
+
+## Design Inspiration
+
+This component draws from:
+- **Clinical progress tracking**: Medical treatment timelines
+- **Mindfulness apps**: Calm, Headspace progress visualizations
+- **Educational platforms**: Course completion indicators
+- **Hero's journey**: Narrative arc of transformation

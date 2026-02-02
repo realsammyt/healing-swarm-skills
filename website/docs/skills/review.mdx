@@ -1,0 +1,200 @@
+---
+sidebar_position: 5
+title: Review Skill
+description: Comprehensive quality review covering ethics, clinical accuracy, cultural sensitivity, and accessibility
+---
+
+# healing-review
+
+**Trigger:** `/healing-review`
+
+Comprehensive quality review covering ethics, clinical accuracy, cultural sensitivity, and accessibility.
+
+## Agents
+
+- **Ethics Guardian** - Ethics and safety review
+- **Clinical Reviewer** - Clinical accuracy
+- **Cultural Reviewer** - Cultural sensitivity
+- **Accessibility Auditor** - WCAG compliance
+
+## Inputs
+
+| Input | Required | Description |
+|-------|----------|-------------|
+| `target` | Yes | File or directory to review |
+| `type` | No | `full`, `ethics`, `clinical`, `cultural`, `accessibility` |
+| `severity` | No | `all`, `critical-only` |
+
+## Outputs
+
+- `review-report.md` - Complete review
+- `issues.yaml` - Structured issues list
+
+## Examples
+
+**Full review:**
+```bash
+/healing-review ./content/meditation.md
+```
+
+**Ethics-only review:**
+```bash
+/healing-review ./content/ --type ethics
+```
+
+**Critical issues only:**
+```bash
+/healing-review ./app/ --severity critical-only
+```
+
+## Review Types
+
+### Ethics Review
+
+The ethics-guardian has special authority and can **BLOCK** content from deployment.
+
+**Checks:**
+- No medical diagnosis
+- No medication recommendations
+- No cure claims
+- No delaying emergency care
+- No closed/initiatory practices disclosed
+- No cultural appropriation
+- Medical disclaimers present
+- Grounding techniques included
+- Permission to stop built in
+
+**Severity Levels:**
+- **CRITICAL** - Blocks deployment immediately
+- **HIGH** - Must fix before deployment
+- **MEDIUM** - Should fix soon
+- **LOW** - Consider fixing
+
+### Clinical Review
+
+Verifies accuracy of health claims.
+
+**Checks:**
+- Evidence language matches strength
+- Sample sizes noted
+- Limitations acknowledged
+- Contraindications documented
+- Mechanisms accurately described
+- Citations valid (PMID/DOI)
+
+### Cultural Review
+
+Ensures respect for source traditions.
+
+**Checks:**
+- Traditions specifically named (not "Eastern wisdom")
+- Era/dates provided
+- Primary sources cited
+- Adaptations noted
+- Closed practices protected
+- Attribution complete
+- Context preserved
+
+### Accessibility Review
+
+Verifies WCAG compliance.
+
+**Checks:**
+- WCAG AA minimum met
+- Keyboard navigation works
+- Screen reader compatible
+- Color contrast sufficient
+- No color-only information
+- Reduced motion respected
+- One-handed operation possible
+- Works offline
+
+## Review Process
+
+1. **Automated Checks** - Quick scan for common issues
+2. **Agent Review** - Each agent reviews in parallel
+3. **Synthesis** - Combine findings
+4. **Prioritization** - Rank by severity
+5. **Report Generation** - Create actionable output
+
+## Output Format
+
+### Review Report Structure
+
+```markdown
+# Review Report: [Target]
+
+## Summary
+
+- Total issues: [count]
+- Critical: [count]
+- High: [count]
+- Medium: [count]
+- Low: [count]
+
+## Critical Issues
+
+[Issues that must be fixed immediately]
+
+## High Priority Issues
+
+[Issues that should be fixed before deployment]
+
+## Medium Priority Issues
+
+[Quality improvements]
+
+## Low Priority Issues
+
+[Minor enhancements]
+
+## Recommendations
+
+[Overall guidance]
+```
+
+### Issues YAML Structure
+
+```yaml
+issues:
+  - id: ETH-001
+    type: ethics
+    severity: critical
+    message: "Medical disclaimer missing"
+    location: "content/meditation.md:1"
+    fix: "Add disclaimer at top of file"
+
+  - id: CLI-002
+    type: clinical
+    severity: high
+    message: "Evidence language too strong"
+    location: "content/breathing.md:45"
+    fix: "Change 'will cure' to 'may help'"
+```
+
+## Quality Gates
+
+Issues by severity:
+
+**CRITICAL** → Blocks deployment
+- Safety risks
+- Ethics violations
+- Closed practice disclosure
+
+**HIGH** → Fix before deployment
+- Missing disclaimers
+- Inaccurate attributions
+- Major accessibility issues
+
+**MEDIUM** → Fix soon
+- Minor inaccuracies
+- Clarity improvements
+- Minor accessibility gaps
+
+**LOW** → Consider fixing
+- Style suggestions
+- Minor enhancements
+
+---
+
+*Review with rigor. Safety first. No compromises on ethics.*

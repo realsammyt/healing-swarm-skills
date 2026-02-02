@@ -1,0 +1,333 @@
+---
+sidebar_position: 1
+title: Agent Architecture
+description: How agents are structured and coordinated
+---
+
+# Agent Architecture
+
+Agents are the core building blocks of the healing swarm. Each agent has clearly defined responsibilities, expertise, and quality standards.
+
+---
+
+## Agent Structure
+
+Each agent has clearly defined components:
+
+```
++-------------------------------------------------------------+
+|                        AGENT STRUCTURE                        |
+|                                                               |
+|  +--------------+                                            |
+|  |   Identity   |  Who the agent is, expertise areas         |
+|  +--------------+                                            |
+|         |                                                     |
+|         v                                                     |
+|  +--------------+                                            |
+|  | Loaded       |  Required resources (ethics, terminology)  |
+|  | Context      |  *** MUST include ethics-guardrails.md     |
+|  +--------------+                                            |
+|         |                                                     |
+|         v                                                     |
+|  +--------------+                                            |
+|  |Responsibilities|  What the agent does                     |
+|  +--------------+                                            |
+|         |                                                     |
+|         v                                                     |
+|  +--------------+                                            |
+|  | Methodology  |  How the agent works                       |
+|  +--------------+                                            |
+|         |                                                     |
+|         v                                                     |
+|  +--------------+                                            |
+|  |   Outputs    |  What the agent produces                   |
+|  +--------------+                                            |
++-------------------------------------------------------------+
+```
+
+---
+
+## Required Components
+
+### 1. Identity
+
+**What it defines:**
+- Agent name and role
+- Area of expertise
+- Scope of authority
+
+**Example:**
+```markdown
+# Ethics Guardian
+
+**Role:** Primary ethics and safety reviewer
+**Expertise:** Medical ethics, psychological safety, cultural sensitivity
+**Authority:** Can BLOCK content from deployment
+```
+
+### 2. Loaded Context
+
+**Must include:**
+- `ethics-guardrails.md` (REQUIRED for all agents)
+- Relevant shared resources (terminology, voice guide, etc.)
+- Agent-specific knowledge bases
+
+**Example:**
+```markdown
+## Context
+
+This agent has loaded:
+- ethics-guardrails.md (REQUIRED)
+- terminology.md
+- clinical-standards.md
+- evidence-language-guide.md
+```
+
+### 3. Responsibilities
+
+**What it defines:**
+- Primary tasks
+- Decision boundaries
+- Quality criteria
+
+**Example:**
+```markdown
+## Responsibilities
+
+1. Review all healing content for medical safety
+2. Verify proper disclaimers are present
+3. Check for cure claims or medical advice
+4. Ensure grounding techniques are included
+5. Block content that violates safety principles
+```
+
+### 4. Methodology
+
+**What it defines:**
+- How the agent approaches tasks
+- Steps in the process
+- Tools and frameworks used
+
+**Example:**
+```markdown
+## Methodology
+
+1. **Initial Scan** - Quick check for obvious issues
+2. **Deep Review** - Detailed analysis of content
+3. **Safety Assessment** - Harm probability/severity matrix
+4. **Report Generation** - Structured findings
+5. **Approval Decision** - Pass/fail/conditional
+```
+
+### 5. Outputs
+
+**What it defines:**
+- File formats produced
+- Structure of deliverables
+- Handoff requirements
+
+**Example:**
+```markdown
+## Outputs
+
+- ethics-review.md - Detailed review report
+- issues.yaml - Structured issue list
+- approval-status.txt - PASS/FAIL/CONDITIONAL
+```
+
+---
+
+## Agent Communication
+
+Agents communicate through structured handoffs:
+
+```
+  Agent A                          Agent B
+     |                                |
+     |  +------------------------+   |
+     +-->| Output: research.md   |-->|
+        | Format: Markdown       |   |
+        | Contains: findings,    |   |
+        |   sources, limitations |   |
+        +------------------------+   |
+```
+
+### Handoff Protocol
+
+```yaml
+handoff:
+  from: traditions-scholar
+  to: content-writer
+  artifacts:
+    - traditions-research.md
+    - primary-sources.yaml
+  verification:
+    - sources_cited: true
+    - era_documented: true
+    - closed_practices_noted: true
+```
+
+---
+
+## Agent Types
+
+### Research Agents
+
+**Purpose:** Gather and synthesize information
+
+**Examples:**
+- Traditions Scholar
+- Clinical Researcher
+- Mechanisms Neuroscientist
+
+**Key Characteristics:**
+- Parallel execution
+- Independent sources
+- Evidence grading
+
+### Build Agents
+
+**Purpose:** Create content and components
+
+**Examples:**
+- UX Architect
+- Visual Designer
+- Content Writer
+- App Developer
+
+**Key Characteristics:**
+- Sequential execution
+- Build on prior outputs
+- Follow specifications
+
+### Quality Agents
+
+**Purpose:** Review and validate
+
+**Examples:**
+- Ethics Guardian
+- Clinical Reviewer
+- Cultural Reviewer
+- Accessibility Auditor
+
+**Key Characteristics:**
+- Parallel execution
+- Independent review
+- Block authority
+
+### Orchestration Agents
+
+**Purpose:** Coordinate workflows
+
+**Examples:**
+- Swarm Conductor
+
+**Key Characteristics:**
+- Manages dependencies
+- Routes between agents
+- Enforces quality gates
+
+---
+
+## Agent Authority Levels
+
+### Advisory
+
+**Can:**
+- Make recommendations
+- Flag issues
+- Suggest improvements
+
+**Cannot:**
+- Block deployment
+- Override other agents
+
+### Review
+
+**Can:**
+- Flag critical issues
+- Require fixes
+- Conditional approval
+
+**Cannot:**
+- Block immediately (must escalate)
+
+### Guardian
+
+**Can:**
+- Block deployment immediately
+- Require modifications
+- Final word on ethics
+- Escalate to human review
+
+**Special Agent:**
+- Ethics Guardian (only agent with this level)
+
+---
+
+## Coordination Patterns
+
+### Fan-Out (Parallel)
+
+Used for independent research:
+
+```
+    Orchestrator
+         |
+    +----+----+
+    |    |    |
+    A    B    C
+```
+
+### Pipeline (Sequential)
+
+Used for dependent stages:
+
+```
+    A → B → C → D
+```
+
+### Review (Parallel + Synthesis)
+
+Used for quality review:
+
+```
+      Content
+         |
+    +----+----+
+    |    |    |
+    E    C    A
+    |    |    |
+    +----+----+
+         |
+    Synthesis
+```
+
+---
+
+## Best Practices
+
+### Agent Design
+
+1. **Single Responsibility** - Each agent does one thing well
+2. **Clear Boundaries** - No overlap in responsibilities
+3. **Explicit Dependencies** - Document what each agent needs
+4. **Quality First** - Build quality checks into methodology
+
+### Agent Implementation
+
+1. **Load Ethics** - Always include ethics-guardrails.md
+2. **Document Process** - Clear methodology section
+3. **Structured Output** - Consistent formats for handoffs
+4. **Error Handling** - Graceful failure modes
+
+### Agent Coordination
+
+1. **Declare Dependencies** - What inputs are needed
+2. **Verify Outputs** - Check handoff artifacts
+3. **Parallel When Possible** - Speed up execution
+4. **Gate When Necessary** - Enforce quality standards
+
+---
+
+*"Each agent knows its role. Each role serves the whole. The whole serves healing."*

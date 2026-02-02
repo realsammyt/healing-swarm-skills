@@ -1,0 +1,121 @@
+---
+sidebar_position: 2
+title: Design Skill
+description: Design healing application UX and visuals with accessibility-first approach
+---
+
+# healing-design
+
+**Trigger:** `/healing-design`
+
+Design healing application user experience and visual elements with accessibility-first approach.
+
+## Agents
+
+- **UX Architect** - Information architecture and flows
+- **Visual Designer** - Visual design and aesthetics
+
+## Inputs
+
+| Input | Required | Description |
+|-------|----------|-------------|
+| `project` | Yes | Project name or context |
+| `scope` | No | `component`, `page`, `full-app` |
+| `accessibility` | No | Specific accessibility focus |
+
+## Outputs
+
+- `ux-specification.md` - UX architecture document
+- `visual-design.md` - Visual design guidelines
+- `component-specs/` - Individual component specs
+
+## Examples
+
+**Design a component:**
+```bash
+/healing-design "meditation timer" --scope component
+```
+
+**Full app design:**
+```bash
+/healing-design "Sacred Healing Journey app" --scope full-app
+```
+
+## Design Principles
+
+### Healing-First Design
+
+- **Calm, not cluttered** - Reduce cognitive load
+- **Gentle, not aggressive** - No harsh colors or animations
+- **Empowering, not prescriptive** - User maintains control
+- **Private, not social** - No sharing pressure
+
+### Accessibility Requirements
+
+All designs must meet:
+
+- WCAG AA minimum (AAA preferred)
+- Support for reduced motion
+- Keyboard navigation
+- Screen reader compatibility
+- One-handed operation
+- Works offline
+
+### Visual Language
+
+**Colors:**
+- Soft, natural palette
+- High contrast for readability
+- No red for critical actions (trauma-aware)
+
+**Typography:**
+- Readable fonts (16px+ body text)
+- Clear hierarchy
+- Generous spacing
+
+**Motion:**
+- Subtle, purposeful
+- Respects `prefers-reduced-motion`
+- Never required for comprehension
+
+## Output Format
+
+### UX Specification Structure
+
+```markdown
+# UX Specification: [Project]
+
+## User Needs
+- Primary user goals
+- Pain points addressed
+- Success metrics
+
+## Information Architecture
+- Content hierarchy
+- Navigation structure
+- User flows
+
+## Interaction Patterns
+- Key interactions
+- States and feedback
+- Error handling
+
+## Accessibility
+- WCAG compliance
+- Keyboard navigation
+- Screen reader support
+```
+
+## Quality Gates
+
+Before output is finalized:
+
+- WCAG AA compliance verified
+- Reduced motion alternatives provided
+- No dependency on color alone
+- One-handed operation possible
+- Offline functionality considered
+
+---
+
+*Design with compassion. Build for everyone. Beauty serves healing.*

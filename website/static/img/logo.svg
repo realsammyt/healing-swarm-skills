@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="healing-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2dd284;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38bdf8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Healing symbol (stylized asterisk/sparkle) -->
+  <g transform="translate(32, 32)">
+    <!-- Vertical line -->
+    <line x1="0" y1="-22" x2="0" y2="22" stroke="url(#healing-gradient)" stroke-width="5" stroke-linecap="round"/>
+    <!-- Horizontal line -->
+    <line x1="-22" y1="0" x2="22" y2="0" stroke="url(#healing-gradient)" stroke-width="5" stroke-linecap="round"/>
+    <!-- Diagonal lines -->
+    <line x1="-16" y1="-16" x2="16" y2="16" stroke="url(#healing-gradient)" stroke-width="5" stroke-linecap="round"/>
+    <line x1="16" y1="-16" x2="-16" y2="16" stroke="url(#healing-gradient)" stroke-width="5" stroke-linecap="round"/>
+    <!-- Center circle -->
+    <circle cx="0" cy="0" r="6" fill="url(#healing-gradient)"/>
+  </g>
+</svg>

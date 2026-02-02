@@ -1,0 +1,284 @@
+---
+sidebar_position: 7
+title: Swarm Orchestrator
+description: Full orchestrated development lifecycle from research through deployment
+---
+
+# healing-swarm
+
+**Trigger:** `/healing-swarm`
+
+Full orchestrated development lifecycle, coordinating all swarm agents from research through deployment.
+
+## Orchestrator
+
+- **Swarm Conductor** - Coordinates all agents
+
+## Inputs
+
+| Input | Required | Description |
+|-------|----------|-------------|
+| `project` | Yes | Project name |
+| `focus` | Yes | Healing focus area |
+| `users` | No | Target user personas |
+| `traditions` | No | Source traditions |
+
+## Outputs
+
+- `research/` - Research outputs
+- `design/` - Design specifications
+- `content/` - Created content
+- `app/` - Built application
+- `reviews/` - Quality reviews
+
+## Examples
+
+**Full development cycle:**
+```bash
+/healing-swarm "Sacred Healing Journey" \
+  --focus "ligament healing" \
+  --users "injured individual, healing partner"
+```
+
+**Focused development:**
+```bash
+/healing-swarm "Breathwork App" \
+  --focus "stress relief" \
+  --traditions "Vedic, TCM"
+```
+
+## Complete Lifecycle
+
+### Phase 1: Research (Parallel)
+
+**Agents:**
+- Traditions Scholar
+- Clinical Researcher
+- Mechanisms Neuroscientist
+
+**Output:**
+- Comprehensive research brief
+- Evidence summaries
+- Safety considerations
+
+### Phase 2: Design (Sequential)
+
+**Agents:**
+- UX Architect
+- Visual Designer
+
+**Output:**
+- UX specifications
+- Visual design guidelines
+- Component specifications
+
+### Phase 3: Content Creation (Parallel)
+
+**Agent:**
+- Content Writer
+
+**Creates:**
+- Meditation scripts
+- Prayer texts
+- Evidence boxes
+- Practice instructions
+- Historical context
+
+### Phase 4: Build (Sequential)
+
+**Agent:**
+- App Developer
+
+**Implements:**
+- Components
+- Navigation
+- Accessibility features
+- Offline support
+
+### Phase 5: Quality Review (Parallel)
+
+**Agents:**
+- Ethics Guardian
+- Clinical Reviewer
+- Cultural Reviewer
+- Accessibility Auditor
+
+**Verifies:**
+- Safety compliance
+- Clinical accuracy
+- Cultural respect
+- Accessibility standards
+
+### Phase 6: Deployment (Sequential)
+
+**Agents:**
+- DevOps Specialist
+- Content Manager
+
+**Deploys:**
+- Staging environment
+- Production (after approval)
+- Content updates
+
+## Workflow Stages
+
+```
+┌────────────────────────────────────────────────────┐
+│ INTAKE                                              │
+│ Parse project requirements                          │
+└────────────────┬───────────────────────────────────┘
+                 │
+                 v
+┌────────────────────────────────────────────────────┐
+│ RESEARCH (Parallel)                                 │
+│ • Traditions Scholar                               │
+│ • Clinical Researcher                              │
+│ • Mechanisms Neuroscientist                        │
+└────────────────┬───────────────────────────────────┘
+                 │
+                 v
+┌────────────────────────────────────────────────────┐
+│ DESIGN (Sequential)                                 │
+│ • UX Architect                                     │
+│ • Visual Designer                                  │
+└────────────────┬───────────────────────────────────┘
+                 │
+                 v
+┌────────────────────────────────────────────────────┐
+│ CONTENT (Parallel)                                  │
+│ • Content Writer (multiple pieces)                 │
+└────────────────┬───────────────────────────────────┘
+                 │
+                 v
+┌────────────────────────────────────────────────────┐
+│ BUILD (Sequential)                                  │
+│ • App Developer                                    │
+└────────────────┬───────────────────────────────────┘
+                 │
+                 v
+┌────────────────────────────────────────────────────┐
+│ REVIEW (Parallel)                                   │
+│ • Ethics Guardian                                  │
+│ • Clinical Reviewer                                │
+│ • Cultural Reviewer                                │
+│ • Accessibility Auditor                            │
+└────────────────┬───────────────────────────────────┘
+                 │
+                 v
+┌────────────────────────────────────────────────────┐
+│ FIXES (If needed)                                   │
+│ Address critical/high issues                        │
+└────────────────┬───────────────────────────────────┘
+                 │
+                 v
+┌────────────────────────────────────────────────────┐
+│ DEPLOY (Sequential)                                 │
+│ • DevOps Specialist                                │
+│ • Content Manager                                  │
+└────────────────────────────────────────────────────┘
+```
+
+## Quality Gates
+
+The swarm enforces quality at every transition:
+
+**Research → Design**
+- Research brief complete
+- Safety considerations documented
+- Evidence levels clear
+
+**Design → Content**
+- UX specification approved
+- Accessibility requirements defined
+- Visual guidelines established
+
+**Content → Build**
+- Content passes ethics review
+- Attribution complete
+- Disclaimers present
+
+**Build → Review**
+- Implementation complete
+- Tests passing
+- Accessibility tests green
+
+**Review → Deploy**
+- No critical issues
+- High priority issues resolved
+- Sign-off from ethics guardian
+
+## Coordination Principles
+
+### Parallel Execution
+
+When possible, run agents simultaneously:
+- Research agents (different sources)
+- Content creation (different pieces)
+- Quality reviewers (different lenses)
+
+### Sequential Dependencies
+
+Some stages must complete before others:
+- Research before design
+- Design before content
+- Content before build
+- Build before review
+
+### Handoff Protocol
+
+Each stage produces artifacts for the next:
+
+```yaml
+handoff:
+  from: research
+  to: design
+  artifacts:
+    - research-brief.md
+    - evidence-summary.md
+    - safety-considerations.md
+  verification:
+    - all_sources_cited: true
+    - safety_documented: true
+    - evidence_graded: true
+```
+
+## Project Output Structure
+
+```
+project-name/
+├── research/
+│   ├── research-brief.md
+│   ├── traditions-research.md
+│   ├── clinical-evidence.md
+│   └── mechanism-bridges.md
+│
+├── design/
+│   ├── ux-specification.md
+│   ├── visual-design.md
+│   └── component-specs/
+│
+├── content/
+│   ├── meditations/
+│   ├── prayers/
+│   ├── evidence-boxes/
+│   └── instructions/
+│
+├── app/
+│   ├── src/
+│   ├── tests/
+│   └── documentation.md
+│
+├── reviews/
+│   ├── ethics-review.md
+│   ├── clinical-review.md
+│   ├── cultural-review.md
+│   └── accessibility-review.md
+│
+└── deployment/
+    ├── staging/
+    └── production/
+```
+
+---
+
+*Orchestrate with wisdom. Coordinate with care. Build healing together.*

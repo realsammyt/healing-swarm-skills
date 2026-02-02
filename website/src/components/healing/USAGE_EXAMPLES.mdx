@@ -1,0 +1,312 @@
+# Healing Components Usage Examples
+
+This file shows how to use the healing components in your Docusaurus MDX pages.
+
+## Basic Import Pattern
+
+```tsx
+import {
+  EvidenceCitation,
+  TraditionAttribution,
+  HealingProgress,
+  PracticeSelector,
+  SafetyConsent
+} from '@site/src/components/healing';
+```
+
+## 1. EvidenceCitation Examples
+
+### Strong Evidence
+
+```tsx
+<EvidenceCitation
+  level="strong"
+  title="Mindfulness-Based Stress Reduction Reduces Anxiety"
+  author="Hofmann et al."
+  date="2010"
+  domain="Clinical Psychology"
+  snippet="Meta-analysis of 39 studies (1,140 participants) found MBSR programs significantly reduced anxiety symptoms across diverse populations."
+  sampleSize={1140}
+  sourceUrl="https://pubmed.example.com/study"
+/>
+```
+
+### Traditional Knowledge
+
+```tsx
+<EvidenceCitation
+  level="traditional"
+  title="Breathwork in Indigenous Healing Practices"
+  domain="Traditional Medicine"
+  snippet="Many indigenous cultures have used intentional breathing patterns as part of healing ceremonies for millennia."
+/>
+```
+
+### With Limitations
+
+```tsx
+<EvidenceCitation
+  level="preliminary"
+  title="Cold Water Immersion and Mental Health"
+  author="Thompson & Jones"
+  date="2023"
+  domain="Sports Medicine"
+  snippet="Preliminary evidence suggests regular cold water immersion may have antidepressant effects."
+  sampleSize={64}
+  limitations="Small pilot study, needs larger randomized trials"
+  sourceUrl="https://example.com/study"
+/>
+```
+
+## 2. TraditionAttribution Examples
+
+### Open Practice
+
+```tsx
+<TraditionAttribution
+  traditionName="Loving-Kindness Meditation (Metta)"
+  era="Buddhist tradition, circa 5th century BCE"
+  primarySources={[
+    "Metta Sutta (Discourse on Loving-Kindness)",
+    "Karaniya Metta Sutta",
+    "Contemporary teachers: Sharon Salzberg, Jack Kornfield"
+  ]}
+  adaptationNotes="While rooted in Buddhist philosophy, metta practice has been adapted for secular mindfulness programs and shows benefits across cultural contexts."
+  isOpenPractice={true}
+/>
+```
+
+### Closed Practice Warning
+
+```tsx
+<TraditionAttribution
+  traditionName="Certain Indigenous Ceremony Practices"
+  era="Pre-colonial Americas"
+  primarySources={[
+    "Oral traditions maintained by tribal elders",
+    "Cultural protocols specific to each nation"
+  ]}
+  adaptationNotes="Many indigenous healing practices are sacred and restricted to community members or those who have received proper authorization and training."
+  isOpenPractice={false}
+/>
+```
+
+## 3. HealingProgress Examples
+
+### Simple Progress
+
+```tsx
+<HealingProgress
+  steps={[
+    { id: '1', label: 'Read safety information', status: 'completed' },
+    { id: '2', label: 'Choose your focus', status: 'current' },
+    { id: '3', label: 'Practice for one week', status: 'upcoming' }
+  ]}
+/>
+```
+
+### With Encouragement
+
+```tsx
+<HealingProgress
+  steps={[
+    { id: '1', label: 'Learn the technique', status: 'completed' },
+    { id: '2', label: 'Practice daily', status: 'completed' },
+    { id: '3', label: 'Notice the effects', status: 'current' },
+    { id: '4', label: 'Share your experience', status: 'upcoming' }
+  ]}
+  encouragementMessage="You've been practicing consistently! Take time to notice any shifts, however subtle."
+/>
+```
+
+## 4. PracticeSelector Examples
+
+### Single Selection
+
+```tsx
+<PracticeSelector
+  title="What brings you here today?"
+  description="Select the area where you'd like support"
+  mode="single"
+  options={[
+    {
+      id: 'stress',
+      label: 'Stress & Overwhelm',
+      description: 'Tools for nervous system regulation'
+    },
+    {
+      id: 'sleep',
+      label: 'Sleep Difficulties',
+      description: 'Practices to support restful sleep'
+    },
+    {
+      id: 'mood',
+      label: 'Low Mood',
+      description: 'Techniques to support emotional well-being'
+    }
+  ]}
+  onSelect={(ids) => console.log('Selected:', ids)}
+/>
+```
+
+### Multi Selection
+
+```tsx
+<PracticeSelector
+  title="Select all that apply"
+  description="Choose any symptoms you're experiencing"
+  mode="multi"
+  options={[
+    { id: 'tension', label: 'Physical Tension', description: 'Tight muscles, jaw clenching' },
+    { id: 'racing', label: 'Racing Thoughts', description: 'Mind feels busy or restless' },
+    { id: 'fatigue', label: 'Fatigue', description: 'Low energy, feeling drained' }
+  ]}
+  onSelect={(ids) => console.log('Symptoms:', ids)}
+/>
+```
+
+## 5. SafetyConsent Examples
+
+### Basic Consent
+
+```tsx
+<SafetyConsent
+  title="Before You Begin"
+  body="This breathing practice may cause temporary lightheadedness. Please sit comfortably and stop if you feel dizzy."
+  onConfirm={() => startPractice()}
+/>
+```
+
+### Multi-Paragraph with Cancel
+
+```tsx
+<SafetyConsent
+  title="Trauma-Informed Practice Notice"
+  body={`This practice involves body awareness which may bring up difficult emotions or memories.
+
+You are in control and can stop at any time. There is no pressure to continue if something doesn't feel right.
+
+If you have a trauma history, consider practicing with a therapist or trusted support person nearby.`}
+  checkboxLabel="I understand this practice may be emotionally activating and I can stop at any time"
+  confirmLabel="I'm Ready to Begin"
+  cancelLabel="Not Right Now"
+  onConfirm={() => beginBodyScan()}
+  onCancel={() => navigateBack()}
+/>
+```
+
+## 6. Combined Example: Complete Flow
+
+```tsx
+import React, { useState } from 'react';
+import {
+  SafetyConsent,
+  PracticeSelector,
+  HealingProgress,
+  TraditionAttribution,
+  EvidenceCitation
+} from '@site/src/components/healing';
+
+export function BreathingPracticePage() {
+  const [step, setStep] = useState(1);
+  const [selectedTechnique, setSelectedTechnique] = useState([]);
+
+  return (
+    <div className="space-y-8">
+      <h1>Breathwork for Anxiety Relief</h1>
+
+      <HealingProgress
+        steps={[
+          { id: '1', label: 'Safety review', status: step >= 2 ? 'completed' : 'current' },
+          { id: '2', label: 'Choose technique', status: step === 2 ? 'current' : step > 2 ? 'completed' : 'upcoming' },
+          { id: '3', label: 'Practice', status: step === 3 ? 'current' : 'upcoming' }
+        ]}
+      />
+
+      {step === 1 && (
+        <SafetyConsent
+          title="Important: Practice Safely"
+          body="Breathwork can cause dizziness. Practice seated and stop if uncomfortable."
+          onConfirm={() => setStep(2)}
+        />
+      )}
+
+      {step === 2 && (
+        <PracticeSelector
+          title="Choose a Breathing Technique"
+          options={[
+            { id: 'box', label: 'Box Breathing', description: '4-4-4-4 count pattern' },
+            { id: '478', label: '4-7-8 Breathing', description: 'Sleep-promoting pattern' }
+          ]}
+          mode="single"
+          onSelect={(ids) => {
+            setSelectedTechnique(ids);
+            setStep(3);
+          }}
+        />
+      )}
+
+      <TraditionAttribution
+        traditionName="Pranayama"
+        era="Ancient Yogic Tradition"
+        primarySources={["Yoga Sutras", "Hatha Yoga Pradipika"]}
+        isOpenPractice={true}
+      />
+
+      <EvidenceCitation
+        level="strong"
+        title="Controlled Breathing Reduces Anxiety"
+        snippet="Systematic review found significant anxiety reduction..."
+        sourceUrl="https://example.com"
+      />
+    </div>
+  );
+}
+```
+
+## Styling Tips
+
+### Custom Colors
+
+All components support the `className` prop for customization:
+
+```tsx
+<EvidenceCitation
+  level="strong"
+  title="Study Title"
+  snippet="..."
+  className="my-8 border-4 border-healing-primary"
+/>
+```
+
+### Responsive Layouts
+
+Components are responsive by default, but you can control layout:
+
+```tsx
+<div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+  <EvidenceCitation level="strong" title="Study 1" snippet="..." />
+  <EvidenceCitation level="moderate" title="Study 2" snippet="..." />
+  <EvidenceCitation level="preliminary" title="Study 3" snippet="..." />
+</div>
+```
+
+### Dark Mode
+
+Components automatically adapt to Docusaurus dark mode via the healing color palette.
+
+## Accessibility Features
+
+All components include:
+- **Keyboard navigation**: Tab through interactive elements, Enter/Space to activate
+- **Screen reader support**: ARIA labels, roles, and live regions
+- **Focus indicators**: Clear visual focus states
+- **Semantic HTML**: Proper heading hierarchy and landmark regions
+
+## Best Practices
+
+1. **Always provide safety information** before practices that could cause physical responses
+2. **Credit traditions** when sharing practices with cultural origins
+3. **Include evidence** to help users make informed choices
+4. **Show progress** to encourage completion of multi-step processes
+5. **Use encouraging language** to support users on their healing journey

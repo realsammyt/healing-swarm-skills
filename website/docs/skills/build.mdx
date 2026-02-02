@@ -1,0 +1,153 @@
+---
+sidebar_position: 4
+title: Build Skill
+description: Develop accessible, privacy-first healing applications
+---
+
+# healing-build
+
+**Trigger:** `/healing-build`
+
+Develop accessible, privacy-first healing applications with proper component architecture.
+
+## Agent
+
+- **App Developer** - Application development specialist
+
+## Inputs
+
+| Input | Required | Description |
+|-------|----------|-------------|
+| `component` | Yes | Component or feature to build |
+| `framework` | No | Framework preference |
+| `spec` | No | Path to existing specification |
+
+## Outputs
+
+- `implementation/` - Built components
+- `tests/` - Test files
+- `documentation.md` - Implementation docs
+
+## Examples
+
+**Build a component:**
+```bash
+/healing-build "meditation timer"
+```
+
+**Build from spec:**
+```bash
+/healing-build --spec build/components/meditation-timer.md
+```
+
+## Development Principles
+
+### Privacy-First Architecture
+
+**Local Storage:**
+- All health data stays on device
+- No external transmission without consent
+- User controls data completely
+
+**No Tracking:**
+- No analytics without consent
+- No third-party cookies
+- No fingerprinting
+
+**Offline-First:**
+- Core functionality works offline
+- Graceful degradation
+- Local data sync
+
+### Accessibility Requirements
+
+**Keyboard Navigation:**
+- All interactions keyboard-accessible
+- Logical tab order
+- Visible focus indicators
+
+**Screen Reader Support:**
+- Semantic HTML
+- ARIA labels where needed
+- Live region announcements
+
+**Motion Sensitivity:**
+- Respect `prefers-reduced-motion`
+- Provide static alternatives
+- No auto-play
+
+**Color Independence:**
+- Don't rely on color alone
+- Sufficient contrast ratios (WCAG AA)
+- Patterns and text labels
+
+### Code Standards
+
+**TypeScript:**
+```typescript
+// Strict mode enabled
+// Explicit types
+// No any except where necessary
+```
+
+**React Components:**
+```typescript
+// Functional components
+// Custom hooks for logic
+// Proper prop types
+// Accessibility attributes
+```
+
+**Testing:**
+```typescript
+// Unit tests for logic
+// Integration tests for flows
+// Accessibility tests
+// 80%+ coverage
+```
+
+## Component Architecture
+
+### Standard Component Structure
+
+```
+component/
+├── Component.tsx           # Main component
+├── Component.test.tsx      # Tests
+├── Component.stories.tsx   # Storybook stories
+├── Component.module.css    # Styles
+├── hooks/                  # Custom hooks
+│   └── useComponentLogic.ts
+├── types.ts                # TypeScript types
+└── README.md               # Documentation
+```
+
+### Accessibility Checklist
+
+Every component must:
+
+- [ ] Support keyboard navigation
+- [ ] Include ARIA labels
+- [ ] Announce state changes
+- [ ] Respect reduced motion
+- [ ] Work with screen readers
+- [ ] Meet WCAG AA contrast
+- [ ] Support one-handed use
+- [ ] Function offline
+
+## Quality Gates
+
+Before code is committed:
+
+- All tests pass
+- TypeScript strict mode clean
+- ESLint/Prettier compliant
+- Accessibility tests pass
+- No external data transmission
+- Proper error handling
+- Loading states present
+- Documentation complete
+
+---
+
+*Build with compassion. Privacy is sacred. Accessibility is mandatory.*

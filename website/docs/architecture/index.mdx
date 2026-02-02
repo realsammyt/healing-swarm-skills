@@ -1,0 +1,180 @@
+---
+sidebar_position: 7
+title: Architecture Overview
+description: How the Healing Swarm Skills system is designed
+---
+
+# Architecture
+
+The healing swarm is built on principles of ethics-first design, multi-agent coordination, and local-first privacy.
+
+---
+
+## System Overview
+
+```
++-----------------------------------------------------------------------+
+|                           USER INTERFACE                               |
+|                         (Claude Code CLI)                              |
++-------------------------------+---------------------------------------+
+                                |
+                                v
++-----------------------------------------------------------------------+
+|                          SKILL TRIGGERS                                |
+|  /healing-research  /healing-design  /healing-content  /healing-swarm |
++-------------------------------+---------------------------------------+
+                                |
+                                v
++-----------------------------------------------------------------------+
+|                          ORCHESTRATION LAYER                           |
+|                                                                        |
+|  +-------------+  +-------------+  +-------------+  +-------------+   |
+|  |   Intake    |->|  Routing    |->|  Execution  |->|   Output    |   |
+|  |   Parser    |  |   Engine    |  |  Controller |  |  Formatter  |   |
+|  +-------------+  +-------------+  +-------------+  +-------------+   |
++-------------------------------+---------------------------------------+
+                                |
+                                v
++-----------------------------------------------------------------------+
+|                           AGENT SWARMS                                 |
+|                                                                        |
+|  +---------------+     +---------------+     +---------------+        |
+|  | RESEARCH SWARM|     |  BUILD SWARM  |     | QUALITY SWARM |        |
+|  |               |     |               |     |               |        |
+|  | - traditions  |     | - ux-architect|     | - ethics      |        |
+|  |   scholar     |     | - visual      |     |   guardian    |        |
+|  | - clinical    |     |   designer    |     | - clinical    |        |
+|  |   researcher  |     | - content     |     |   reviewer    |        |
+|  | - mechanisms  |     |   writer      |     | - cultural    |        |
+|  |   neuro       |     | - app         |     |   reviewer    |        |
+|  |               |     |   developer   |     | - a11y        |        |
+|  +---------------+     +---------------+     +---------------+        |
++-------------------------------+---------------------------------------+
+                                |
+                                v
++-----------------------------------------------------------------------+
+|                         SHARED RESOURCES                               |
+|                                                                        |
+|  +----------------+  +----------------+  +----------------+            |
+|  | ethics-        |  | terminology.md |  | design-        |            |
+|  | guardrails.md  |  | voice-guide.md |  | tokens.json    |            |
+|  | *** REQUIRED ***|  |               |  | citation-fmt   |            |
+|  +----------------+  +----------------+  +----------------+            |
++-----------------------------------------------------------------------+
+```
+
+---
+
+## Core Design Principles
+
+### 1. Ethics First
+
+Every component is built with ethics as the foundation:
+
+```
+                    +---------------------+
+                    |   ETHICS LAYER      |
+                    |  (Always Present)   |
+                    +---------+-----------+
+                              |
+        +---------------------+---------------------+
+        |                     |                     |
+        v                     v                     v
+  +-----------+         +-----------+         +-----------+
+  |  Research |         |   Build   |         |  Deploy   |
+  |   Layer   |         |   Layer   |         |   Layer   |
+  +-----------+         +-----------+         +-----------+
+```
+
+The ethics guardrails are **not optional**. Every agent must reference and follow them.
+
+### 2. Quality Gate Architecture
+
+Quality is enforced at multiple checkpoints:
+
+```
+  Input > [Gate 1] > Process > [Gate 2] > Review > [Gate 3] > Output
+            ^                    ^                   ^
+            |                    |                   |
+      Input Validation    Process Quality      Output Review
+```
+
+### 3. Parallel + Sequential Execution
+
+Workflows combine parallel research with sequential quality review:
+
+```
+  Intake
+    |
+    +------+------+
+    |      |      |        (Parallel)
+    v      v      v
+  Agent   Agent  Agent
+    A       B      C
+    |      |      |
+    +------+------+
+           |               (Sequential)
+           v
+      Synthesis
+           |
+           v
+    Quality Review
+           |
+           v
+       Output
+```
+
+### 4. Local-First Privacy
+
+Data architecture prioritizes user privacy:
+
+```
+  +-----------------------------------------+
+  |              USER DEVICE                 |
+  |  +-----------------------------------+  |
+  |  |       LOCAL STORAGE               |  |
+  |  |  - Healing progress               |  |
+  |  |  - Journal entries                |  |
+  |  |  - Practice history               |  |
+  |  |  - Preferences                    |  |
+  |  +-----------------------------------+  |
+  |                                          |
+  |  +-----------------------------------+  |
+  |  |       APPLICATION                 |  |
+  |  |  - All processing local           |  |
+  |  |  - No external health data        |  |
+  |  |  - User controls everything       |  |
+  |  +-----------------------------------+  |
+  +-----------------------------------------+
+              |
+              |  (Only with explicit consent)
+              v
+  +-----------------------------------------+
+  |           EXTERNAL SERVICES              |
+  |  - Anonymous analytics only              |
+  |  - No PII transmitted                    |
+  |  - User can opt out                      |
+  +-----------------------------------------+
+```
+
+---
+
+## Learn More
+
+- [Agent Architecture](./agents.mdx) - How agents are structured
+- [Workflow Patterns](./workflows.mdx) - Execution patterns
+- [Quality Gates](./quality-gates.mdx) - Quality enforcement system
+
+---
+
+## Decision Records
+
+Key architectural decisions are documented:
+
+- **ADR-001: Ethics-First Architecture** (GitHub) - Why ethics is enforced at every layer
+- **ADR-002: Local-First Data** (GitHub) - Why all health data stays local
+- **ADR-003: Multi-Agent Quality** (GitHub) - Why multiple agents review everything
+
+---
+
+*"Build with intention. Ethics at foundation. Privacy as sanctuary."*

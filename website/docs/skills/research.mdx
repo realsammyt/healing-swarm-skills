@@ -1,0 +1,103 @@
+---
+sidebar_position: 1
+title: Research Skill
+description: Deep research into healing traditions and clinical evidence
+---
+
+# healing-research
+
+**Trigger:** `/healing-research`
+
+Deep research into healing traditions and clinical evidence, coordinating multiple specialized research agents.
+
+## Agents
+
+- **Traditions Scholar** - Ancient healing practices
+- **Clinical Researcher** - Modern evidence review
+- **Mechanisms Neuroscientist** - Science-tradition bridging
+
+## Inputs
+
+| Input | Required | Description |
+|-------|----------|-------------|
+| `query` | Yes | Research topic or question |
+| `depth` | No | `quick`, `standard`, `comprehensive` |
+| `traditions` | No | Specific traditions to research |
+
+## Outputs
+
+- `research-brief.md` - Comprehensive summary
+- `traditions-research.md` - Traditional healing research
+- `clinical-evidence.md` - Clinical evidence review
+- `mechanism-bridges.md` - Science-tradition connections
+
+## Examples
+
+**Quick research:**
+```bash
+/healing-research "acupressure for headache" --depth quick
+```
+
+**Comprehensive research:**
+```bash
+/healing-research "meditation for chronic pain" --depth comprehensive
+```
+
+**Specific tradition:**
+```bash
+/healing-research "pranayama breathing" --traditions "Vedic"
+```
+
+## Research Process
+
+1. **Query Parsing** - Extract key concepts and constraints
+2. **Parallel Research** - All three agents work simultaneously
+3. **Synthesis** - Combine findings into unified brief
+4. **Ethics Review** - Verify all claims are appropriately qualified
+
+## Output Format
+
+### Research Brief Structure
+
+```markdown
+# Research Brief: [Topic]
+
+## Executive Summary
+- Key findings
+- Evidence level
+- Recommended next steps
+
+## Traditional Background
+- Historical context
+- Source traditions
+- Classical references
+
+## Clinical Evidence
+- Study summaries
+- Evidence quality
+- Limitations
+
+## Mechanism Bridges
+- How tradition and science connect
+- Theoretical frameworks
+- Research directions
+
+## Recommendations
+- What to include in content
+- What to avoid
+- Safety considerations
+```
+
+## Quality Gates
+
+Before output is finalized:
+
+- All sources are properly cited
+- Evidence language matches strength
+- Traditions are accurately represented
+- Safety considerations documented
+- No cure claims present
+
+---
+
+*Research with rigor. Honor all sources. Ground in evidence.*

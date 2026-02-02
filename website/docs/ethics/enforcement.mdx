@@ -1,0 +1,536 @@
+---
+sidebar_position: 2
+title: Ethics Enforcement
+description: How ethical principles are enforced in practice
+---
+
+# Ethics Enforcement
+
+Ethics is not aspirational—it's enforced through multiple layers of checks, gates, and agent oversight.
+
+---
+
+## Three-Layer Architecture
+
+```
+┌─────────────────────────────────────────────┐
+│         LAYER 3: ETHICS GUARDIAN             │
+│         (Final review, blocking power)       │
+└──────────────────┬──────────────────────────┘
+                   │
+┌─────────────────────────────────────────────┐
+│         LAYER 2: REQUIRED ELEMENTS           │
+│         (Disclaimers, attributions, etc.)    │
+└──────────────────┬──────────────────────────┘
+                   │
+┌─────────────────────────────────────────────┐
+│         LAYER 1: FOUNDATIONAL GUARDRAILS     │
+│         (Absolute constraints, all agents)   │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+## Layer 1: Foundational Guardrails
+
+The `ethics-guardrails.md` file defines absolute constraints that **all agents must follow**.
+
+### Medical Safety
+
+**Prohibited:**
+- ❌ No diagnosis
+- ❌ No medication recommendations
+- ❌ No cure claims
+- ❌ No delaying emergency care
+
+**Required:**
+- ✅ Medical disclaimers
+- ✅ "Consult your healthcare provider"
+- ✅ "Continue prescribed treatments"
+- ✅ Emergency care instructions
+
+### Psychological Safety
+
+**Prohibited:**
+- ❌ No shame/blame
+- ❌ No illness-as-punishment
+- ❌ No dependency creation
+- ❌ No outcome promises
+
+**Required:**
+- ✅ Grounding techniques
+- ✅ Permission to stop
+- ✅ Crisis resources
+- ✅ Self-compassion messaging
+
+### Cultural Integrity
+
+**Prohibited:**
+- ❌ No closed practice disclosure
+- ❌ No misattribution
+- ❌ No context stripping
+- ❌ No cultural appropriation
+
+**Required:**
+- ✅ Specific traditions named
+- ✅ Era/dates provided
+- ✅ Primary sources cited
+- ✅ Adaptations noted
+
+### Data Privacy
+
+**Prohibited:**
+- ❌ No external health data transmission
+- ❌ No identifiable storage
+- ❌ No advertising use
+- ❌ No required accounts
+
+**Required:**
+- ✅ Local-first storage
+- ✅ User controls data
+- ✅ Export/delete options
+- ✅ Clear privacy policy
+
+### Enforcement
+
+```yaml
+layer: foundational-guardrails
+enforcement: automatic
+frequency: every-agent-action
+severity: critical
+on_violation:
+  action: block-immediately
+  notify: ethics-guardian
+  escalate: human-review
+  log: violation-report
+```
+
+---
+
+## Layer 2: Required Elements
+
+Every piece of healing content **MUST** include these elements.
+
+### Medical Disclaimers
+
+**Required text variations:**
+
+**Standard disclaimer:**
+> "This content is for informational purposes only and does not replace professional medical care. Consult your healthcare provider before beginning any new healing practice."
+
+**Specific condition disclaimer:**
+> "If you have [condition], consult your healthcare provider before practicing. This is not medical advice."
+
+**Emergency disclaimer:**
+> "If you experience [symptoms], seek immediate medical attention. Do not delay care."
+
+**Placement:**
+- At start of content
+- Before practice instructions
+- At end of content
+
+### Psychological Safety Elements
+
+**Grounding techniques:**
+
+For intensive practices:
+```markdown
+## If You Need to Stop
+
+If you feel uncomfortable:
+1. Open your eyes
+2. Notice 5 things you can see
+3. Take 3 slow breaths
+4. Return when ready
+
+You can stop anytime.
+```
+
+**Crisis resources:**
+
+For mental health content:
+```markdown
+## If You Need Support
+
+If you're in crisis:
+- Call 988 (Suicide & Crisis Lifeline)
+- Text "HELLO" to 741741 (Crisis Text Line)
+- Go to your nearest emergency room
+
+These practices support but don't replace professional care.
+```
+
+### Cultural Attribution
+
+**Required structure:**
+
+```markdown
+## Background
+
+**Tradition:** [Specific tradition name]
+**Origin:** [Geographic location and era]
+**Source:** [Primary text or lineage]
+**Adaptation:** [Any changes from traditional form]
+
+This practice draws on [tradition] as documented in [source].
+We honor the lineage holders who preserved this wisdom.
+```
+
+### Evidence Honesty
+
+**Required structure:**
+
+```markdown
+## Evidence
+
+**Evidence Level:** [Strong/Moderate/Preliminary/Traditional]
+
+**Research Findings:**
+- [Finding 1 with appropriate language]
+- [Finding 2 with appropriate language]
+
+**Limitations:**
+- [Study limitation 1]
+- [Study limitation 2]
+
+**Note:** Results vary. This may help but is not guaranteed.
+
+**Sources:**
+- [Citation 1] (PMID: xxxxx)
+- [Citation 2] (DOI: xxxxx)
+```
+
+### Enforcement
+
+```yaml
+layer: required-elements
+enforcement: automated-check
+stage: pre-deployment
+severity: high
+on_missing:
+  action: block-deployment
+  notify: content-creator
+  require: add-elements
+  re-review: mandatory
+```
+
+---
+
+## Layer 3: Ethics Guardian
+
+The ethics-guardian agent has special authority over all content.
+
+### Special Powers
+
+**Blocking Authority:**
+- Can block deployment immediately
+- Cannot be overridden
+- Final word on ethics
+- No bypass allowed
+
+**Review Authority:**
+- Reviews all content before deployment
+- Can require modifications
+- Can escalate to human review
+- Maintains ethics audit log
+
+**Decision Authority:**
+- Final word on ethics questions
+- Interprets guardrails
+- Resolves edge cases
+- Updates standards
+
+### Review Process
+
+```yaml
+ethics-guardian-review:
+  trigger: pre-deployment
+
+  checks:
+    medical_safety:
+      - no_diagnosis
+      - no_medication_advice
+      - no_cure_claims
+      - disclaimers_present
+
+    psychological_safety:
+      - no_shame_blame
+      - grounding_techniques_present
+      - permission_to_stop
+      - crisis_resources (if mental health)
+
+    cultural_integrity:
+      - traditions_named
+      - attributions_complete
+      - no_closed_practices
+      - context_preserved
+
+    data_privacy:
+      - no_external_transmission
+      - user_controls_data
+      - privacy_policy_clear
+
+  decision:
+    if_all_pass: approve
+    if_any_critical: block
+    if_any_high: conditional-approval
+    if_uncertain: escalate-human
+```
+
+### Approval Statuses
+
+**APPROVED:**
+- All checks pass
+- Ready for deployment
+- Logged as approved
+
+**CONDITIONAL:**
+- Most checks pass
+- Minor issues noted
+- Deploy with fixes
+
+**BLOCKED:**
+- Critical issue found
+- Cannot deploy
+- Must fix and re-review
+
+**ESCALATED:**
+- Uncertain case
+- Requires human judgment
+- Deployment paused
+
+### Enforcement
+
+```yaml
+layer: ethics-guardian
+agent: ethics-guardian
+authority: absolute
+enforcement: manual-review
+frequency: pre-deployment
+severity: critical-to-low
+
+on_block:
+  action: prevent-deployment
+  notify: all-agents
+  require: complete-fix
+  re-review: mandatory
+
+on_conditional:
+  action: allow-with-conditions
+  notify: content-creator
+  track: fix-deadline
+
+on_escalate:
+  action: pause-deployment
+  notify: human-reviewer
+  wait: human-decision
+```
+
+---
+
+## Harm Assessment Matrix
+
+Evaluate potential harm before proceeding:
+
+```
+                Low Probability    High Probability
+High Severity   CAUTION            BLOCK
+Low Severity    PROCEED            CAUTION
+```
+
+### Assessment Questions
+
+**Physical Harm:**
+- Could this cause physical injury?
+- Could this delay necessary medical care?
+- Are contraindications documented?
+- **If yes to any → HIGH severity**
+
+**Psychological Harm:**
+- Could this cause emotional distress?
+- Could this exacerbate mental health conditions?
+- Are grounding techniques provided?
+- **If yes without safeguards → HIGH severity**
+
+**Cultural Harm:**
+- Could this harm source communities?
+- Is attribution complete and respectful?
+- Are closed practices protected?
+- **If yes to harm → HIGH severity**
+
+**Privacy Harm:**
+- Could this expose sensitive user data?
+- Is consent explicit?
+- Is data minimized?
+- **If yes to exposure → HIGH severity**
+
+---
+
+## Automated Checks
+
+Some ethics enforcement is automated:
+
+### Pre-Processing Checks
+
+```bash
+# Before any agent starts
+check_ethics_loaded() {
+  if ! agent.has_loaded("ethics-guardrails.md"); then
+    BLOCK "Ethics guardrails not loaded"
+  fi
+}
+```
+
+### During-Processing Checks
+
+```bash
+# Continuous monitoring
+monitor_content() {
+  if contains("will cure"); then
+    BLOCK "Cure claim detected"
+  fi
+
+  if contains("you must"); then
+    WARN "Coercive language detected"
+  fi
+
+  if !contains("disclaimer"); then
+    WARN "Medical disclaimer missing"
+  fi
+}
+```
+
+### Post-Processing Checks
+
+```bash
+# Before deployment
+validate_output() {
+  checks = [
+    has_medical_disclaimer(),
+    has_proper_attribution(),
+    no_cure_claims(),
+    no_closed_practices(),
+    grounding_present() if intensive(),
+  ]
+
+  if any(check == FAIL for check in checks):
+    BLOCK "Required element missing"
+  fi
+}
+```
+
+---
+
+## Human Escalation
+
+When automated checks are insufficient:
+
+### Escalation Triggers
+
+Escalate to human review when:
+- Edge case not covered by guidelines
+- Conflicting principles
+- Cultural sensitivity question
+- Novel practice type
+- Community concern raised
+
+### Escalation Process
+
+```yaml
+escalation:
+  1_detect:
+    trigger: automated-check-uncertain
+    capture: context + content + question
+
+  2_notify:
+    recipients:
+      - ethics-guardian-lead
+      - relevant-specialist
+      - community-liaison (if cultural)
+    urgency: based-on-severity
+
+  3_review:
+    participants: 2+ humans
+    process: discussion + decision
+    timeline: 24h (critical) / 1wk (normal)
+
+  4_decide:
+    options: [approve, block, modify, defer]
+    documentation: rationale-required
+    communication: notify-all-stakeholders
+
+  5_update:
+    guidelines: if-new-pattern
+    training: if-repeat-issue
+    audit: log-decision
+```
+
+---
+
+## Continuous Monitoring
+
+Ethics enforcement doesn't stop at deployment:
+
+### Post-Deployment Monitoring
+
+```yaml
+monitoring:
+  frequency: continuous
+
+  checks:
+    - content_accuracy
+    - attribution_integrity
+    - links_working
+    - disclaimers_present
+
+  alerts:
+    critical: immediate
+    high: daily-digest
+    medium: weekly-report
+```
+
+### Feedback Integration
+
+```yaml
+feedback:
+  sources:
+    - user-reports
+    - practitioner-feedback
+    - community-input
+    - incident-reports
+
+  process:
+    1_receive: log + acknowledge
+    2_investigate: review-content
+    3_assess: harm-potential
+    4_respond: fix | update | clarify
+    5_communicate: notify-reporter
+```
+
+---
+
+## Audit Trail
+
+All ethics decisions are logged:
+
+```yaml
+audit_entry:
+  timestamp: ISO-8601
+  content_id: unique-identifier
+  agent: agent-name
+  check: check-name
+  result: pass | fail | conditional
+  severity: critical | high | medium | low
+  action: block | approve | conditional
+  rationale: text-explanation
+  escalated: true | false
+  human_reviewer: name (if escalated)
+```
+
+**Retention:** Permanent
+**Access:** Ethics team only
+**Purpose:** Learning, accountability, improvement
+
+---
+
+*"Ethics enforcement is not optional. It's built into every layer. It cannot be bypassed. It protects users absolutely."*

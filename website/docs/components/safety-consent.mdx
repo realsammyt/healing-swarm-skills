@@ -1,0 +1,408 @@
+---
+sidebar_position: 6
+title: SafetyConsent
+description: Informed consent dialogs for healing practices requiring disclaimers
+---
+
+import React from 'react';
+import { SafetyConsent } from '@site/src/components/healing';
+
+# SafetyConsent
+
+A dialog component for obtaining informed consent before users engage with healing practices. Ensures users understand risks, limitations, and proper usage.
+
+## Purpose
+
+The `SafetyConsent` component provides:
+- Medical and legal disclaimers
+- Contraindication warnings
+- Informed consent acknowledgment
+- Ethical protection for users and providers
+- Documentation of user understanding
+
+## Live Demo
+
+### Medical Disclaimer Example
+
+export function MedicalDisclaimerDemo() {
+  const [showPractice, setShowPractice] = React.useState(false);
+  if (showPractice) {
+    return (
+      <div className="p-6 rounded-lg bg-healing-ghost border border-healing-primary">
+        <p className="text-healing-light">✓ Consent acknowledged. Practice content would appear here.</p>
+        <button
+          onClick={() => setShowPractice(false)}
+          className="mt-4 text-sm text-grounding-light underline"
+        >
+          Reset demo
+        </button>
+      </div>
+    );
+  }
+  return (
+    <SafetyConsent
+      title="Medical Disclaimer"
+      body="The information provided in this healing practice is for educational purposes only and is not intended as a substitute for professional medical advice, diagnosis, or treatment.
+
+Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of something you have read here.
+
+If you think you may have a medical emergency, call your doctor or emergency services immediately."
+      checkboxLabel="I understand this is not medical advice and will consult healthcare professionals for medical concerns"
+      confirmLabel="I Understand"
+      onConfirm={() => setShowPractice(true)}
+      onCancel={() => alert('Practice cancelled')}
+    />
+  );
+}
+
+<MedicalDisclaimerDemo />
+
+### Contraindications Warning
+
+export function ContraindicationsDemo() {
+  const [showPractice, setShowPractice] = React.useState(false);
+  if (showPractice) {
+    return (
+      <div className="p-6 rounded-lg bg-healing-ghost border border-healing-primary">
+        <p className="text-healing-light">✓ Consent acknowledged. Practice content would appear here.</p>
+        <button
+          onClick={() => setShowPractice(false)}
+          className="mt-4 text-sm text-grounding-light underline"
+        >
+          Reset demo
+        </button>
+      </div>
+    );
+  }
+  return (
+    <div className="my-8">
+      <SafetyConsent
+        title="Important Safety Information"
+        body="This breathwork practice involves rapid breathing and breath retention, which can be intense.
+
+DO NOT practice if you have any of the following conditions:
+• Cardiovascular problems or heart disease
+• High or low blood pressure
+• History of seizures or epilepsy
+• Pregnancy
+• Recent surgery or injury
+• Severe mental health conditions
+
+This practice may cause temporary dizziness, tingling, or altered consciousness. Always practice in a safe environment, preferably lying down or seated with support. Never practice while driving, in water, or in potentially dangerous situations.
+
+Stop immediately if you experience pain, extreme discomfort, or concerning symptoms."
+        checkboxLabel="I have read the contraindications and confirm I do not have any of these conditions"
+        confirmLabel="I Am Safe to Practice"
+        cancelLabel="Not Right for Me"
+        onConfirm={() => setShowPractice(true)}
+        onCancel={() => alert('Good call prioritizing safety!')}
+      />
+    </div>
+  );
+}
+
+<ContraindicationsDemo />
+
+### Traditional Practice Disclaimer
+
+export function TraditionalDisclaimerDemo() {
+  const [showPractice, setShowPractice] = React.useState(false);
+  if (showPractice) {
+    return (
+      <div className="p-6 rounded-lg bg-healing-ghost border border-healing-primary">
+        <p className="text-healing-light">✓ Consent acknowledged. Practice content would appear here.</p>
+        <button
+          onClick={() => setShowPractice(false)}
+          className="mt-4 text-sm text-grounding-light underline"
+        >
+          Reset demo
+        </button>
+      </div>
+    );
+  }
+  return (
+    <div className="my-8">
+      <SafetyConsent
+        title="Traditional Practice Acknowledgment"
+        body="This practice is drawn from Traditional Chinese Medicine, which has been used therapeutically for thousands of years within specific cultural and theoretical frameworks.
+
+While TCM is widely practiced and has been studied scientifically, it represents a different paradigm from Western biomedicine. Some concepts (like Qi, meridians, and organ systems) may not have direct equivalents in modern anatomy and physiology.
+
+The effectiveness of this practice is supported by traditional knowledge and some clinical research, but individual results may vary. This should complement, not replace, conventional medical care when appropriate."
+        checkboxLabel="I understand this practice comes from a traditional healing system and represents one approach among many"
+        confirmLabel="Continue to Practice"
+        onConfirm={() => setShowPractice(true)}
+      />
+    </div>
+  );
+}
+
+<TraditionalDisclaimerDemo />
+
+## Props
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `title` | `string` | Yes | - | Dialog title (e.g., "Medical Disclaimer") |
+| `body` | `string` | Yes | - | Full disclaimer text (supports paragraphs via `\n\n`) |
+| `checkboxLabel` | `string` | No | "I understand and acknowledge..." | Acknowledgment checkbox text |
+| `confirmLabel` | `string` | No | "I Consent" | Confirm button text |
+| `cancelLabel` | `string` | No | "Cancel" | Cancel button text (optional) |
+| `onConfirm` | `() => void` | Yes | - | Callback when user confirms |
+| `onCancel` | `() => void` | No | - | Optional callback for cancel action |
+| `className` | `string` | No | - | Additional CSS classes |
+
+## When to Use
+
+Use `SafetyConsent` when documenting practices that involve:
+
+### Medical Practices
+- Exercise or movement that could cause injury
+- Breathing techniques affecting physiology
+- Dietary recommendations or fasting protocols
+- Supplement or herb usage
+- Practices contraindicated for certain conditions
+
+### Psychological Practices
+- Deep emotional processing
+- Trauma-sensitive work
+- Altered states of consciousness
+- Practices that may trigger difficult emotions
+- Therapeutic techniques requiring professional support
+
+### Traditional Practices
+- Practices from traditional medicine systems
+- Spiritual or energetic practices
+- Techniques requiring proper instruction
+- Closed practices adapted for secular use
+- Practices with cultural protocols
+
+### Legal Protection
+- Practices you're documenting but not licensed to teach
+- Content that could be misused
+- Techniques requiring supervision
+- Practices with liability concerns
+
+## Code Examples
+
+### Basic Medical Disclaimer
+
+```mdx
+import { SafetyConsent } from '@site/src/components/healing';
+
+<SafetyConsent
+  title="Medical Disclaimer"
+  body="This information is for educational purposes only..."
+  onConfirm={() => showPractice()}
+/>
+```
+
+### With Contraindications
+
+```mdx
+<SafetyConsent
+  title="Safety Warning"
+  body="DO NOT practice if you have:
+• Heart conditions
+• High blood pressure
+• Pregnancy
+
+Always consult your doctor before starting new practices."
+  checkboxLabel="I confirm I do not have these contraindications"
+  confirmLabel="I'm Safe to Practice"
+  cancelLabel="Not for Me"
+  onConfirm={() => enablePractice()}
+  onCancel={() => suggestAlternatives()}
+/>
+```
+
+### React Integration
+
+```tsx
+import { SafetyConsent } from '@site/src/components/healing';
+import { useState } from 'react';
+
+function ProtectedPractice() {
+  const [hasConsented, setHasConsented] = useState(false);
+
+  if (!hasConsented) {
+    return (
+      <SafetyConsent
+        title="Important Safety Information"
+        body="This practice involves..."
+        onConfirm={() => setHasConsented(true)}
+        onCancel={() => window.history.back()}
+      />
+    );
+  }
+
+  return <PracticeContent />;
+}
+```
+
+### With Session Storage
+
+```tsx
+function PersistentConsent() {
+  const [hasConsented, setHasConsented] = useState(() => {
+    return sessionStorage.getItem('breathwork-consent') === 'true';
+  });
+
+  const handleConfirm = () => {
+    sessionStorage.setItem('breathwork-consent', 'true');
+    setHasConsented(true);
+  };
+
+  if (!hasConsented) {
+    return (
+      <SafetyConsent
+        title="Breathwork Safety"
+        body="..."
+        onConfirm={handleConfirm}
+      />
+    );
+  }
+
+  return <BreathworkPractice />;
+}
+```
+
+## Accessibility Features
+
+- **Dialog role**: Proper ARIA dialog semantics
+- **Focus management**: Focus trapped within dialog
+- **Keyboard navigation**: Full keyboard support
+  - `Tab`: Navigate through elements
+  - `Space` / `Enter`: Toggle checkbox, activate buttons
+  - `Esc`: Cancel (if cancel button provided)
+- **Screen reader announcements**:
+  - Title read as dialog heading
+  - Body content properly structured
+  - Checkbox state announced
+  - Button disabled state communicated
+- **Visual indicators**:
+  - Clear disabled state for unacknowledged consent
+  - High contrast warning icon
+  - Focus rings on interactive elements
+
+:::tip Accessibility
+The dialog is fully keyboard navigable and screen reader friendly. Users who cannot see the checkbox state will hear "enabled" or "disabled" status on the confirm button.
+:::
+
+## Best Practices
+
+### Content Guidelines
+
+:::info Writing Disclaimers
+- **Be specific**: List actual contraindications, not vague warnings
+- **Be clear**: Use simple language, avoid jargon
+- **Be honest**: Don't oversell or undersell risks
+- **Be actionable**: Tell users what to do (consult doctor, stop if X happens)
+- **Be concise**: Long disclaimers aren't read; keep essential points
+:::
+
+### Legal Protection
+
+:::warning Not Legal Advice
+This component helps with informed consent but doesn't constitute legal protection. Consult a lawyer about liability for your specific use case.
+:::
+
+### Ethical Requirements
+
+**Always include SafetyConsent for:**
+- Practices that could cause physical harm if done incorrectly
+- Techniques contraindicated for medical conditions
+- Practices that could trigger psychological distress
+- Traditional practices you're not qualified to teach professionally
+- Content where misuse could cause harm
+
+**Consider including SafetyConsent for:**
+- Dietary or supplement recommendations
+- Exercise or movement practices
+- Breathwork or meditation techniques
+- Practices requiring supervision
+- Content targeting vulnerable populations
+
+## User Experience
+
+### Consent Flow
+
+1. **Present disclaimer**: User encounters warning before content
+2. **Read content**: User reads safety information
+3. **Acknowledge**: User checks acknowledgment box
+4. **Enable action**: Confirm button becomes active
+5. **Proceed**: User confirms and accesses content
+
+### Reducing Friction
+
+Balance safety with user experience:
+- **Session persistence**: Don't require consent every page visit
+- **Clear labeling**: Users know what they're consenting to
+- **Cancel option**: Users can opt out if practice isn't for them
+- **Respectful tone**: Not fear-mongering, just honest safety info
+
+## Visual Design
+
+### Warning Aesthetic
+
+- **Border**: Yellow-orange warning color
+- **Icon**: Triangle warning symbol
+- **Background**: Dark neutral with warning border
+- **Typography**: Clear hierarchy with bold title
+
+### State Transitions
+
+- **Unacknowledged**: Confirm button disabled, gray, muted
+- **Acknowledged**: Confirm button enabled, green, glowing
+- **Hover states**: Subtle feedback on interactive elements
+- **Focus states**: Clear keyboard focus indicators
+
+## Related Components
+
+- [EvidenceCitation](./evidence-citation) - Cite safety research
+- [TraditionAttribution](./tradition-attribution) - Context for traditional practices
+- [HealingProgress](./healing-progress) - Guide users after consent
+
+## Technical Notes
+
+### Paragraph Parsing
+
+Body text supports paragraphs via double newlines:
+
+```tsx
+body="First paragraph.
+
+Second paragraph.
+
+Third paragraph."
+```
+
+Internally split by `\n\n` and rendered as separate `<p>` tags.
+
+### State Management
+
+Component manages checkbox state internally, but calls external `onConfirm`/`onCancel` callbacks for parent component integration.
+
+### Persistence Strategies
+
+Consider these approaches for multi-page consent:
+
+```tsx
+// Session storage (current session only)
+sessionStorage.setItem('consent-key', 'true');
+
+// Local storage (persists across sessions)
+localStorage.setItem('consent-key', 'true');
+
+// Cookie (with expiration)
+document.cookie = "consent=true; max-age=31536000";
+
+// Database (for logged-in users)
+await saveUserConsent(userId, practiceId);
+```
+
+## Further Reading
+
+- [Informed Consent in Medicine](https://example.com)
+- [Liability Considerations for Wellness Professionals](https://example.com)
+- [WCAG Dialog Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/)

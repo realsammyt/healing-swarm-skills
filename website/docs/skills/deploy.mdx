@@ -1,0 +1,156 @@
+---
+sidebar_position: 6
+title: Deploy Skill
+description: Deploy and maintain healing applications
+---
+
+# healing-deploy
+
+**Trigger:** `/healing-deploy`
+
+Deploy and maintain healing applications with proper infrastructure and content management.
+
+## Agents
+
+- **DevOps Specialist** - Infrastructure and deployment
+- **Content Manager** - Content deployment and updates
+
+## Inputs
+
+| Input | Required | Description |
+|-------|----------|-------------|
+| `target` | Yes | Deployment target |
+| `environment` | No | `staging`, `production` |
+| `content` | No | Content to deploy |
+
+## Examples
+
+**Deploy to staging:**
+```bash
+/healing-deploy ./app --environment staging
+```
+
+**Deploy content update:**
+```bash
+/healing-deploy --content ./content/new-meditation.md
+```
+
+## Deployment Principles
+
+### Privacy-First Infrastructure
+
+**No Health Data Transmission:**
+- All user data stays local
+- No centralized health records
+- No analytics without consent
+
+**Static-First Architecture:**
+- Static site generation where possible
+- Edge deployment for speed
+- No server-side user tracking
+
+**Security Hardened:**
+- HTTPS only
+- CSP headers
+- No third-party scripts without audit
+- Regular security updates
+
+### Content Deployment
+
+**Version Control:**
+- All content versioned
+- Rollback capability
+- Change tracking
+
+**Quality Gates:**
+- Must pass ethics review
+- Must pass accessibility tests
+- Must have proper attribution
+
+**Deployment Checklist:**
+- [ ] Content reviewed
+- [ ] Tests passed
+- [ ] Accessibility verified
+- [ ] Attribution complete
+- [ ] Disclaimers present
+- [ ] Backup created
+- [ ] Rollback plan ready
+
+## Infrastructure Options
+
+### Static Hosting
+
+**Recommended for:**
+- Content-focused applications
+- Simple meditation guides
+- Practice libraries
+
+**Platforms:**
+- Netlify
+- Vercel
+- GitHub Pages
+- CloudFlare Pages
+
+### Serverless
+
+**Recommended for:**
+- Applications with dynamic features
+- User account management (optional)
+- Community features
+
+**Principles:**
+- No user health data on servers
+- Minimal server-side state
+- Privacy-preserving analytics only
+
+## Monitoring
+
+**What to Monitor:**
+- Uptime
+- Load times
+- Error rates
+- Accessibility compliance
+
+**What NOT to Monitor:**
+- Individual user behavior
+- Health data
+- Personally identifiable information
+
+### Privacy-Preserving Analytics
+
+If analytics are needed:
+
+- Aggregate only, no individual tracking
+- No PII collection
+- User can opt out
+- Data minimization
+- Local storage preferred
+
+## Maintenance
+
+### Content Updates
+
+**Process:**
+1. Update content
+2. Run quality review
+3. Test in staging
+4. Deploy to production
+5. Monitor for issues
+
+**Frequency:**
+- Security updates: Immediately
+- Content fixes: As needed
+- Feature updates: Regular schedule
+- Research updates: When evidence changes
+
+### Quality Monitoring
+
+**Ongoing Checks:**
+- Accessibility compliance
+- Link integrity
+- Content accuracy
+- Attribution completeness
+
+---
+
+*Deploy with care. Privacy always. Monitor lightly.*

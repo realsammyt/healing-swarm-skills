@@ -1,0 +1,326 @@
+/* ============================================
+   Section Base Styles
+   ============================================ */
+
+.ethicsSection,
+.forWhomSection,
+.exampleSection {
+  padding: 4rem 0;
+  position: relative;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #2dd284, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sectionSubtitle {
+  font-size: 1.25rem;
+  color: var(--ifm-font-color-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   Ethics Principles Grid
+   ============================================ */
+
+.ethicsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.ethicsCard {
+  background: var(--ifm-card-background-color);
+  border: 1px solid rgba(45, 210, 132, 0.2);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.ethicsCard:hover {
+  border-color: rgba(45, 210, 132, 0.4);
+  box-shadow: 0 0 20px rgba(45, 210, 132, 0.15);
+  transform: translateY(-4px);
+}
+
+.ethicsIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  filter: grayscale(0.3);
+  transition: filter 0.3s ease;
+}
+
+.ethicsCard:hover .ethicsIcon {
+  filter: grayscale(0);
+}
+
+.ethicsTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #2dd284;
+}
+
+.ethicsDescription {
+  font-size: 0.95rem;
+  color: var(--ifm-font-color-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================
+   For Whom Section
+   ============================================ */
+
+.forWhomSection {
+  background: linear-gradient(180deg, transparent 0%, var(--ifm-background-surface-color) 100%);
+}
+
+.forWhomGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.forWhomCard {
+  background: var(--ifm-card-background-color);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.forWhomCard:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+  transform: translateY(-4px);
+}
+
+.forWhomIcon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.forWhomTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #38bdf8;
+}
+
+.forWhomDescription {
+  font-size: 1rem;
+  color: var(--ifm-font-color-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.forWhomFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.forWhomFeatures li {
+  font-size: 0.9rem;
+  color: var(--ifm-font-color-base);
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.forWhomFeatures li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #2dd284;
+  font-weight: bold;
+}
+
+/* ============================================
+   Example Showcase
+   ============================================ */
+
+.exampleSection {
+  background: linear-gradient(180deg, var(--ifm-background-surface-color) 0%, transparent 100%);
+}
+
+.exampleContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+@media (max-width: 996px) {
+  .exampleContainer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .exampleVisual {
+    order: -1;
+  }
+}
+
+.exampleContent {
+  text-align: left;
+}
+
+.exampleTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--ifm-font-color-base);
+}
+
+.exampleSubtitle {
+  font-size: 1.125rem;
+  color: var(--ifm-font-color-secondary);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.exampleFeatures {
+  margin-bottom: 2rem;
+}
+
+.exampleFeature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  color: var(--ifm-font-color-base);
+}
+
+.featureIcon {
+  color: #2dd284;
+  font-weight: bold;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.exampleActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   Visual Card (Code Preview)
+   ============================================ */
+
+.exampleVisual {
+  position: relative;
+}
+
+.visualCard {
+  background: var(--ifm-card-background-color);
+  border: 1px solid rgba(45, 210, 132, 0.3);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.visualCard:hover {
+  box-shadow: 0 0 30px rgba(45, 210, 132, 0.2);
+  transform: translateY(-2px);
+}
+
+.visualHeader {
+  background: var(--ifm-background-surface-color);
+  padding: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+
+.visualDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--ifm-color-emphasis-500);
+}
+
+.visualBody {
+  padding: 1.5rem;
+}
+
+.codeBlock {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--ifm-font-color-base);
+  overflow-x: auto;
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ethicsCard,
+.forWhomCard,
+.visualCard {
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+/* Stagger animation delays */
+.ethicsCard:nth-child(1) { animation-delay: 0.1s; }
+.ethicsCard:nth-child(2) { animation-delay: 0.2s; }
+.ethicsCard:nth-child(3) { animation-delay: 0.3s; }
+.ethicsCard:nth-child(4) { animation-delay: 0.4s; }
+.ethicsCard:nth-child(5) { animation-delay: 0.5s; }
+.ethicsCard:nth-child(6) { animation-delay: 0.6s; }
+.ethicsCard:nth-child(7) { animation-delay: 0.7s; }
+
+.forWhomCard:nth-child(1) { animation-delay: 0.1s; }
+.forWhomCard:nth-child(2) { animation-delay: 0.2s; }
+.forWhomCard:nth-child(3) { animation-delay: 0.3s; }
+
+/* ============================================
+   Accessibility
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .ethicsCard,
+  .forWhomCard,
+  .visualCard,
+  .ethicsCard:hover,
+  .forWhomCard:hover,
+  .visualCard:hover {
+    animation: none;
+    transition: none;
+    transform: none;
+  }
+}

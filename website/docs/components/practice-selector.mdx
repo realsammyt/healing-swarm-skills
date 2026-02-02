@@ -1,0 +1,399 @@
+---
+sidebar_position: 5
+title: PracticeSelector
+description: Interactive selection interface for choosing healing modalities and practices
+---
+
+import React from 'react';
+import { PracticeSelector } from '@site/src/components/healing';
+
+# PracticeSelector
+
+An accessible, interactive component for selecting healing practices, modalities, or options from a set of choices. Supports both single and multi-select modes.
+
+## Purpose
+
+The `PracticeSelector` component provides:
+- Clear visualization of available options
+- Single or multiple selection capability
+- Descriptive information for each choice
+- Visual feedback for selections
+- Keyboard and screen reader accessibility
+
+## Live Demo
+
+### Single Selection Mode
+
+export function SingleSelectDemo() {
+  const [selected, setSelected] = React.useState([]);
+  return (
+    <PracticeSelector
+      title="Choose Your Primary Healing Modality"
+      description="Select the healing approach you'd like to focus on first."
+      mode="single"
+      options={[
+        {
+          id: 'meditation',
+          label: 'Meditation',
+          description: 'Cultivate awareness and inner calm through mindfulness practices.'
+        },
+        {
+          id: 'movement',
+          label: 'Movement Therapy',
+          description: 'Heal through gentle, intentional physical movement and body awareness.'
+        },
+        {
+          id: 'breathwork',
+          label: 'Breathwork',
+          description: 'Transform your state using conscious breathing techniques.'
+        }
+      ]}
+      onSelect={(ids) => setSelected(ids)}
+    />
+  );
+}
+
+<SingleSelectDemo />
+
+### Multi-Selection Mode
+
+export function MultiSelectDemo() {
+  const [selected, setSelected] = React.useState([]);
+  return (
+    <div className="my-8">
+      <PracticeSelector
+        title="Build Your Healing Toolkit"
+        description="Select all practices that interest you. You can combine multiple approaches."
+        mode="multi"
+        options={[
+          {
+            id: 'yoga',
+            label: 'Yoga',
+            description: 'Ancient practice combining postures, breath, and meditation.'
+          },
+          {
+            id: 'herbalism',
+            label: 'Herbalism',
+            description: 'Traditional plant-based remedies and natural medicine.'
+          },
+          {
+            id: 'journaling',
+            label: 'Therapeutic Journaling',
+            description: 'Process emotions and insights through structured writing.'
+          },
+          {
+            id: 'nutrition',
+            label: 'Nutritional Healing',
+            description: 'Optimize health through mindful food choices and eating practices.'
+          },
+          {
+            id: 'energy',
+            label: 'Energy Work',
+            description: 'Practices like Reiki, Qigong, and chakra balancing.'
+          },
+          {
+            id: 'nature',
+            label: 'Nature Therapy',
+            description: 'Healing through connection with the natural world.'
+          }
+        ]}
+        onSelect={(ids) => setSelected(ids)}
+      />
+    </div>
+  );
+}
+
+<MultiSelectDemo />
+
+## Props
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `title` | `string` | Yes | - | Heading for the selector |
+| `description` | `string` | No | - | Optional explanation text |
+| `options` | `PracticeOption[]` | Yes | - | Array of selectable options |
+| `mode` | `'single' \| 'multi'` | No | `'single'` | Selection mode |
+| `onSelect` | `(ids: string[]) => void` | Yes | - | Callback when selection changes |
+| `defaultSelected` | `string[]` | No | `[]` | Initially selected option IDs |
+| `className` | `string` | No | - | Additional CSS classes |
+
+### PracticeOption Interface
+
+```typescript
+interface PracticeOption {
+  id: string;          // Unique identifier
+  label: string;       // Option name/title
+  description: string; // Brief explanation
+}
+```
+
+## Selection Modes
+
+### Single Selection (`mode="single"`)
+
+- Only one option can be selected at a time
+- Selecting a new option deselects the previous one
+- Uses radio button semantics
+- Best for: choosing primary modality, selecting approach, picking one path
+
+### Multi Selection (`mode="multi"`)
+
+- Multiple options can be selected simultaneously
+- Clicking toggles each option independently
+- Uses checkbox semantics
+- Best for: building toolkits, selecting preferences, choosing combinations
+
+## Code Examples
+
+### Basic Single Selection
+
+```mdx
+import { PracticeSelector } from '@site/src/components/healing';
+
+<PracticeSelector
+  title="Choose Your Focus"
+  mode="single"
+  options={[
+    {
+      id: 'mind',
+      label: 'Mind-Body Connection',
+      description: 'Practices that unite mental and physical awareness.'
+    },
+    {
+      id: 'spirit',
+      label: 'Spiritual Practices',
+      description: 'Cultivate meaning, purpose, and connection.'
+    }
+  ]}
+  onSelect={(ids) => console.log('Selected:', ids)}
+/>
+```
+
+### Multi-Selection with Default
+
+```mdx
+<PracticeSelector
+  title="Select Your Interests"
+  description="Choose all areas you'd like to explore."
+  mode="multi"
+  defaultSelected={['meditation', 'yoga']}
+  options={[
+    { id: 'meditation', label: 'Meditation', description: '...' },
+    { id: 'yoga', label: 'Yoga', description: '...' },
+    { id: 'tai-chi', label: 'Tai Chi', description: '...' }
+  ]}
+  onSelect={(ids) => console.log('Selected:', ids)}
+/>
+```
+
+### Interactive Form Integration
+
+```tsx
+import { PracticeSelector } from '@site/src/components/healing';
+import { useState } from 'react';
+
+function HealingPathForm() {
+  const [selectedPractices, setSelectedPractices] = useState<string[]>([]);
+
+  const handleSubmit = () => {
+    console.log('User selected:', selectedPractices);
+    // Process selections...
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <PracticeSelector
+        title="Choose Your Healing Practices"
+        mode="multi"
+        options={[
+          { id: 'mindfulness', label: 'Mindfulness', description: '...' },
+          { id: 'movement', label: 'Movement', description: '...' },
+          { id: 'herbs', label: 'Herbalism', description: '...' }
+        ]}
+        onSelect={setSelectedPractices}
+      />
+
+      <button
+        type="submit"
+        disabled={selectedPractices.length === 0}
+      >
+        Continue
+      </button>
+    </form>
+  );
+}
+```
+
+## Use Cases
+
+### Skill Library Filtering
+
+```mdx
+<PracticeSelector
+  title="Filter Skills by Modality"
+  mode="multi"
+  options={[
+    { id: 'meditation', label: 'Meditation', description: 'Mindfulness and awareness practices' },
+    { id: 'somatic', label: 'Somatic', description: 'Body-based healing techniques' },
+    { id: 'herbal', label: 'Herbal', description: 'Plant-based remedies' }
+  ]}
+  onSelect={(ids) => filterSkills(ids)}
+/>
+```
+
+### Assessment Questions
+
+```mdx
+<PracticeSelector
+  title="What are your primary wellness goals?"
+  mode="multi"
+  options={[
+    { id: 'stress', label: 'Stress Reduction', description: 'Calm anxiety and tension' },
+    { id: 'sleep', label: 'Better Sleep', description: 'Improve sleep quality' },
+    { id: 'energy', label: 'More Energy', description: 'Boost vitality and reduce fatigue' },
+    { id: 'pain', label: 'Pain Management', description: 'Reduce chronic pain' }
+  ]}
+  onSelect={(goals) => personalizeRecommendations(goals)}
+/>
+```
+
+### Preference Settings
+
+```mdx
+<PracticeSelector
+  title="Learning Style Preference"
+  mode="single"
+  options={[
+    { id: 'video', label: 'Video Lessons', description: 'Watch demonstrations and explanations' },
+    { id: 'reading', label: 'Text Guides', description: 'Read detailed written instructions' },
+    { id: 'audio', label: 'Audio Guidance', description: 'Listen to guided sessions' }
+  ]}
+  onSelect={(ids) => updatePreference(ids[0])}
+/>
+```
+
+## Accessibility Features
+
+- **Semantic roles**: Uses `radiogroup` for single, `group` for multi
+- **ARIA attributes**: `aria-checked`, `aria-label` properly set
+- **Keyboard navigation**: Full keyboard support
+  - `Tab` / `Shift+Tab`: Navigate between options
+  - `Enter` / `Space`: Toggle selection
+  - Arrow keys work within group
+- **Focus management**: Clear focus indicators
+- **Screen reader friendly**: Announces selection state changes
+- **Live regions**: Selection count updates announced
+
+:::tip Keyboard Users
+All functionality is available via keyboard. The component follows standard radio/checkbox keyboard patterns.
+:::
+
+## Visual Design
+
+### States
+
+**Unselected**
+- Light border
+- Subtle background
+- Grayscale text
+- Empty circle indicator
+
+**Selected**
+- Bright healing green border
+- Healing ghost background
+- Colored text
+- Checkmark icon
+- Gentle glow effect
+
+**Hover**
+- Border brightens
+- Slight scale increase
+- Smooth transition
+
+**Focus**
+- Focus ring appears
+- High contrast outline
+- Keyboard navigation visible
+
+### Responsive Grid
+
+Options automatically adapt to screen size:
+- **Mobile**: Single column
+- **Tablet**: 2 columns
+- **Desktop**: 3 columns
+
+## Best Practices
+
+:::tip When to Use
+- Choosing healing modalities
+- Filtering skill libraries
+- Building personalized toolkits
+- Assessment questionnaires
+- Preference selection
+- Onboarding flows
+:::
+
+:::warning Selection Mode Choice
+- Use **single** when: only one choice makes sense, mutually exclusive options, primary selection
+- Use **multi** when: combinations are valid, building a toolkit, multiple preferences
+:::
+
+:::info User Experience
+- Limit to 3-8 options for best comprehension
+- Keep descriptions concise (1-2 sentences)
+- Use parallel structure in descriptions
+- Test with actual users to validate options
+:::
+
+## Customization
+
+### Custom Grid Layout
+
+```mdx
+<PracticeSelector
+  title="Choose Practices"
+  options={myOptions}
+  onSelect={handleSelect}
+  className="grid-cols-1 lg:grid-cols-4"
+/>
+```
+
+### With Additional Context
+
+```mdx
+<div className="space-y-4">
+  <div className="p-4 bg-calm-ghost rounded-lg border border-calm-border">
+    <p className="text-sm text-calm-light">
+      Choose practices that resonate with you. There's no wrong choice.
+    </p>
+  </div>
+
+  <PracticeSelector
+    title="Select Your Path"
+    options={options}
+    onSelect={handleSelect}
+  />
+</div>
+```
+
+## Related Components
+
+- [HealingProgress](./healing-progress) - Show progress after selections
+- [SafetyConsent](./safety-consent) - Get informed consent before practice
+- [EvidenceCitation](./evidence-citation) - Display research on selected practices
+
+## Technical Notes
+
+### State Management
+
+The component maintains its own internal state but calls `onSelect` callback for external state management. This hybrid approach provides:
+- Immediate visual feedback (internal state)
+- Parent component control (via callback)
+- Flexibility in state architecture
+
+### Performance
+
+- Renders efficiently with React keys
+- Smooth animations via CSS transitions
+- No unnecessary re-renders
+- Handles large option sets (tested up to 20 options)

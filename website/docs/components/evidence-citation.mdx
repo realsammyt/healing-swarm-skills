@@ -1,0 +1,213 @@
+---
+sidebar_position: 2
+title: EvidenceCitation
+description: Display research findings with clear evidence levels and source attribution
+---
+
+import { EvidenceCitation } from '@site/src/components/healing';
+
+# EvidenceCitation
+
+Display research findings, scientific studies, and traditional knowledge with clear evidence levels, proper attribution, and transparent limitations.
+
+## Purpose
+
+The `EvidenceCitation` component ensures intellectual honesty when presenting healing research by:
+- Making evidence quality immediately visible
+- Providing full citation information
+- Highlighting study limitations
+- Linking to original sources
+
+## Live Demo
+
+### Strong Evidence
+
+<EvidenceCitation
+  level="strong"
+  title="Mindfulness-Based Stress Reduction for Chronic Pain"
+  author="Hilton L, et al."
+  date="2017"
+  domain="Pain Medicine"
+  snippet="Evidence supports the use of MBSR for treating chronic pain, with significant improvements in pain intensity and quality of life."
+  sampleSize={3536}
+  limitations="Most studies had short follow-up periods (8-12 weeks)"
+  sourceUrl="https://pubmed.ncbi.nlm.nih.gov/27658913/"
+/>
+
+### Moderate Evidence
+
+<div className="my-6">
+  <EvidenceCitation
+    level="moderate"
+    title="Acupuncture for Migraine Prevention"
+    author="Linde K, et al."
+    date="2016"
+    domain="Neurology"
+    snippet="Acupuncture is at least as effective as prophylactic drug treatment and has fewer adverse effects."
+    sampleSize={4985}
+    limitations="Sham acupuncture also showed benefits, suggesting non-specific effects"
+  />
+</div>
+
+### Preliminary Evidence
+
+<div className="my-6">
+  <EvidenceCitation
+    level="preliminary"
+    title="Adaptogenic Herbs for Stress Management"
+    author="Panossian A, Wikman G"
+    date="2010"
+    domain="Phytotherapy"
+    snippet="Adaptogens appear to influence key mediators of the stress response including heat shock proteins and stress-activated c-Jun N-terminal protein kinase."
+    sampleSize={180}
+    limitations="Limited human trials; most evidence from animal studies and in vitro research"
+  />
+</div>
+
+### Traditional Knowledge
+
+<div className="my-6">
+  <EvidenceCitation
+    level="traditional"
+    title="Traditional Chinese Medicine Approach to Qi Deficiency"
+    author="Maciocia G"
+    date="2005"
+    domain="Traditional Chinese Medicine"
+    snippet="Qi deficiency manifests as fatigue, weak voice, spontaneous sweating, and pale tongue. Treatment focuses on tonifying Qi through herbal formulas and acupuncture."
+    sourceUrl="https://example.com/tcm-foundations"
+  />
+</div>
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `level` | `'strong' \| 'moderate' \| 'preliminary' \| 'traditional'` | Yes | Evidence quality level |
+| `title` | `string` | Yes | Study or source title |
+| `author` | `string` | No | Author(s) name(s) |
+| `date` | `string` | No | Publication date |
+| `domain` | `string` | No | Research domain (e.g., "Psychiatry", "TCM") |
+| `snippet` | `string` | Yes | Key finding or quote from the source |
+| `sampleSize` | `number` | No | Number of participants in study |
+| `limitations` | `string` | No | Study limitations or caveats |
+| `sourceUrl` | `string` | No | Link to original source |
+| `className` | `string` | No | Additional CSS classes |
+
+## Evidence Levels
+
+### Strong Evidence
+- Multiple high-quality randomized controlled trials
+- Systematic reviews and meta-analyses
+- Consistent results across studies
+- Large sample sizes
+- **Badge color**: Green
+
+### Moderate Evidence
+- Some quality studies with mostly consistent results
+- May include observational studies
+- Smaller sample sizes or shorter duration
+- **Badge color**: Blue
+
+### Preliminary Evidence
+- Limited studies or mixed results
+- Small sample sizes
+- Early-stage research
+- Needs replication
+- **Badge color**: Gold
+
+### Traditional Knowledge
+- Historical use in traditional healing systems
+- May lack modern scientific validation
+- Based on cultural wisdom and generations of practice
+- **Badge color**: Dark gold
+
+## Code Examples
+
+### Basic Usage
+
+```mdx
+import { EvidenceCitation } from '@site/src/components/healing';
+
+<EvidenceCitation
+  level="strong"
+  title="Exercise for Depression Treatment"
+  author="Cooney GM, et al."
+  date="2013"
+  snippet="Exercise appears to improve depressive symptoms in people with a diagnosis of depression."
+  sampleSize={1356}
+/>
+```
+
+### With All Props
+
+```mdx
+<EvidenceCitation
+  level="moderate"
+  title="Yoga for Lower Back Pain"
+  author="Wieland LS, et al."
+  date="2017"
+  domain="Complementary Medicine"
+  snippet="There is low- to moderate-certainty evidence that yoga compared to non-exercise controls results in small to moderate improvements in back-related function at three and six months."
+  sampleSize={1080}
+  limitations="High heterogeneity in yoga interventions; difficulty in blinding participants"
+  sourceUrl="https://pubmed.ncbi.nlm.nih.gov/28436583/"
+  className="my-8"
+/>
+```
+
+### Traditional Knowledge Citation
+
+```mdx
+<EvidenceCitation
+  level="traditional"
+  title="Ayurvedic Principles of Digestive Health"
+  author="Lad V"
+  date="2002"
+  domain="Ayurveda"
+  snippet="Agni, the digestive fire, is considered the foundation of health. Strong agni ensures proper digestion, absorption, and elimination."
+  sourceUrl="https://example.com/ayurveda-textbook"
+/>
+```
+
+## Accessibility Features
+
+- **Semantic HTML**: Uses `<article>` role with proper heading structure
+- **ARIA labels**: Descriptive labels for screen readers
+- **Keyboard navigation**: Source links are keyboard accessible
+- **Focus indicators**: Clear visual focus states
+- **Time elements**: Dates use semantic `<time>` tags
+- **Color contrast**: All text meets WCAG AA standards
+
+## Best Practices
+
+:::tip When to Use
+- Presenting research findings in skill documentation
+- Citing sources for healing technique claims
+- Showing evidence quality for treatment recommendations
+- Documenting traditional knowledge with proper context
+:::
+
+:::warning Important
+- Always include limitations for preliminary research
+- Link to original sources when available
+- Be honest about evidence quality - don't oversell traditional knowledge as "proven"
+- Update citations as new research emerges
+:::
+
+## Styling Customization
+
+The component uses Tailwind classes and can be customized:
+
+```mdx
+<EvidenceCitation
+  level="strong"
+  title="Research Title"
+  snippet="Key finding..."
+  className="border-4 shadow-xl"
+/>
+```
+
+## Related Components
+
+- [TraditionAttribution](./tradition-attribution) - For attributing traditional healing knowledge
+- [SafetyConsent](./safety-consent) - For disclaimers and informed consent

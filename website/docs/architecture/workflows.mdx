@@ -1,0 +1,472 @@
+---
+sidebar_position: 2
+title: Workflow Patterns
+description: Execution patterns for coordinating agent swarms
+---
+
+# Workflow Patterns
+
+Workflows define how agents coordinate to accomplish complex tasks. The healing swarm uses several patterns to balance speed, quality, and safety.
+
+---
+
+## Core Patterns
+
+### 1. Parallel Execution
+
+**When to use:**
+- Research from independent sources
+- Content creation for different pieces
+- Quality review by different specialists
+
+**Structure:**
+```
+    Start
+      |
+  +---+---+
+  |   |   |
+  A   B   C
+  |   |   |
+  +---+---+
+      |
+   Synthesis
+```
+
+**Benefits:**
+- Faster execution
+- Independent verification
+- Diverse perspectives
+
+**Example:**
+```yaml
+stage: research
+execution: parallel
+agents:
+  - traditions-scholar
+  - clinical-researcher
+  - mechanisms-neuroscientist
+outputs:
+  - traditions-research.md
+  - clinical-evidence.md
+  - mechanism-bridges.md
+synthesis: research-brief.md
+```
+
+### 2. Sequential Execution
+
+**When to use:**
+- Each stage depends on previous
+- Build on prior outputs
+- Linear dependencies
+
+**Structure:**
+```
+  A → B → C → D
+```
+
+**Benefits:**
+- Clear dependencies
+- Incremental validation
+- Quality gates between stages
+
+**Example:**
+```yaml
+stages:
+  - name: research
+    agent: research-swarm
+    output: research-brief.md
+
+  - name: design
+    agent: ux-architect
+    requires: research-brief.md
+    output: ux-specification.md
+
+  - name: content
+    agent: content-writer
+    requires: ux-specification.md
+    output: content/
+```
+
+### 3. Review Pattern
+
+**When to use:**
+- Multiple quality perspectives needed
+- Independent verification required
+- Consensus-based approval
+
+**Structure:**
+```
+      Content
+         |
+    +----+----+
+    |    |    |
+    E    C    A
+    |    |    |
+    +----+----+
+         |
+    Synthesis
+```
+
+**Benefits:**
+- Multiple quality lenses
+- Independent review
+- Comprehensive coverage
+
+**Example:**
+```yaml
+stage: quality-review
+execution: parallel
+agents:
+  - ethics-guardian
+  - clinical-reviewer
+  - cultural-reviewer
+  - accessibility-auditor
+target: content/
+outputs:
+  - ethics-review.md
+  - clinical-review.md
+  - cultural-review.md
+  - accessibility-review.md
+synthesis: review-report.md
+approval: all-must-pass
+```
+
+### 4. Conditional Pattern
+
+**When to use:**
+- Different paths based on results
+- Fix-and-retry workflows
+- Escalation scenarios
+
+**Structure:**
+```
+    Process
+       |
+    Review
+    /    \
+  Pass  Fail
+   |      |
+Output   Fix → Review
+```
+
+**Example:**
+```yaml
+stage: review-and-fix
+steps:
+  - review: quality-check
+  - condition: review.status
+    if_pass:
+      - deploy
+    if_fail:
+      - fix-issues
+      - review-again
+    if_critical:
+      - block
+      - escalate
+```
+
+---
+
+## Complete Workflows
+
+### Full Healing App Development
+
+```yaml
+workflow: healing-app-full-cycle
+
+stages:
+  - name: intake
+    agent: orchestrator
+    execution: sequential
+    output: project-specification.yaml
+
+  - name: research
+    execution: parallel
+    agents:
+      - traditions-scholar
+      - clinical-researcher
+      - mechanisms-neuroscientist
+    synthesis: research-brief.md
+
+  - name: design
+    execution: sequential
+    agents:
+      - ux-architect
+      - visual-designer
+    requires: research-brief.md
+    output: design-specifications/
+
+  - name: content-creation
+    execution: parallel
+    agent: content-writer
+    requires: design-specifications/
+    outputs:
+      - meditations/
+      - prayers/
+      - evidence-boxes/
+
+  - name: build
+    execution: sequential
+    agent: app-developer
+    requires:
+      - design-specifications/
+      - content/
+    output: app/
+
+  - name: quality-review
+    execution: parallel
+    agents:
+      - ethics-guardian
+      - clinical-reviewer
+      - cultural-reviewer
+      - accessibility-auditor
+    target: [content/, app/]
+    synthesis: review-report.md
+
+  - name: fix-issues
+    condition: quality-review.has-issues
+    execution: sequential
+    agents:
+      - content-writer (if content issues)
+      - app-developer (if app issues)
+
+  - name: re-review
+    condition: fix-issues.completed
+    execution: parallel
+    agents: [same as quality-review]
+
+  - name: deploy
+    condition: all-reviews-pass
+    execution: sequential
+    agents:
+      - devops-specialist
+      - content-manager
+```
+
+### Quick Content Creation
+
+```yaml
+workflow: quick-content
+
+stages:
+  - name: research
+    execution: parallel
+    depth: quick
+    agents:
+      - traditions-scholar
+      - clinical-researcher
+    synthesis: research-summary.md
+
+  - name: content
+    agent: content-writer
+    requires: research-summary.md
+    output: content.md
+
+  - name: ethics-review
+    agent: ethics-guardian
+    target: content.md
+    output: ethics-approval.md
+
+  - name: output
+    condition: ethics-review.pass
+    output: final-content.md
+```
+
+---
+
+## Stage Types
+
+### Intake Stage
+
+**Purpose:** Parse and validate input
+
+**Characteristics:**
+- Single agent (orchestrator)
+- Sequential execution
+- Validation gates
+
+**Output:**
+```yaml
+project:
+  name: "Healing App"
+  focus: "stress relief"
+  traditions: ["Vedic", "TCM"]
+  users: ["stressed individual"]
+
+validation:
+  - focus_valid: true
+  - traditions_recognized: true
+  - scope_reasonable: true
+```
+
+### Parallel Stage
+
+**Purpose:** Independent work
+
+**Characteristics:**
+- Multiple agents
+- No dependencies between agents
+- Outputs merged after completion
+
+**Coordination:**
+```yaml
+parallel_stage:
+  agents: [A, B, C]
+  timeout: 5m
+  merge_strategy: combine-all
+  failure_handling: continue-others
+```
+
+### Sequential Stage
+
+**Purpose:** Dependent work
+
+**Characteristics:**
+- One agent at a time
+- Each depends on previous
+- Quality gates between
+
+**Coordination:**
+```yaml
+sequential_stage:
+  steps:
+    - agent: A
+      output: artifact-1
+    - agent: B
+      requires: artifact-1
+      output: artifact-2
+    - agent: C
+      requires: artifact-2
+      output: artifact-3
+```
+
+### Review Stage
+
+**Purpose:** Quality assurance
+
+**Characteristics:**
+- Parallel reviewers
+- Independent perspectives
+- Approval required
+
+**Coordination:**
+```yaml
+review_stage:
+  reviewers: [E, C, A, Access]
+  approval_mode: all-must-pass
+  critical_blocks: true
+  synthesis: review-report.md
+```
+
+---
+
+## Quality Gates
+
+Quality gates are checkpoints between stages:
+
+```
+  Stage A
+     |
+  [GATE]
+     |
+  Stage B
+```
+
+### Gate Types
+
+**Input Validation:**
+- Checks before processing
+- Verifies prerequisites met
+- Validates input format
+
+**Process Quality:**
+- Checks during execution
+- Monitors agent behavior
+- Enforces guardrails
+
+**Output Review:**
+- Checks after completion
+- Validates output quality
+- Ethics verification
+
+### Gate Enforcement
+
+**Blocking Gates:**
+```yaml
+gate:
+  type: blocking
+  checks:
+    - ethics_guardrails_loaded: required
+    - medical_disclaimer_present: required
+    - no_cure_claims: required
+  on_fail: block-immediately
+```
+
+**Warning Gates:**
+```yaml
+gate:
+  type: warning
+  checks:
+    - reading_level: target-6th-grade
+    - cultural_attribution: complete
+  on_fail: warn-continue
+```
+
+---
+
+## Error Handling
+
+### Failure Modes
+
+**Agent Failure:**
+```yaml
+on_agent_failure:
+  retry: 3-times
+  backoff: exponential
+  fallback: human-escalation
+```
+
+**Validation Failure:**
+```yaml
+on_validation_failure:
+  severity_critical: block-immediately
+  severity_high: require-fix
+  severity_medium: warn-continue
+```
+
+**Timeout:**
+```yaml
+on_timeout:
+  action: save-partial-results
+  notify: orchestrator
+  escalate: human-review
+```
+
+---
+
+## Best Practices
+
+### Workflow Design
+
+1. **Parallel When Possible** - Speed up independent work
+2. **Gate Between Dependencies** - Enforce quality
+3. **Clear Failure Modes** - Handle errors gracefully
+4. **Document Dependencies** - Make requirements explicit
+
+### Execution
+
+1. **Monitor Progress** - Track stage completion
+2. **Capture Outputs** - Save intermediate results
+3. **Log Decisions** - Record why paths chosen
+4. **Enable Rollback** - Support undo when needed
+
+### Quality
+
+1. **Review Early** - Catch issues fast
+2. **Review Often** - Multiple checkpoints
+3. **Review Independently** - Parallel reviewers
+4. **Block When Necessary** - Safety first
+
+---
+
+*"Workflows coordinate agents. Gates ensure quality. Patterns enable scale."*

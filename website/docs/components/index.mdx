@@ -1,0 +1,107 @@
+---
+sidebar_position: 1
+title: Healing UI Components
+description: Evidence-based, accessible, and ethical components for healing documentation
+---
+
+# Healing UI Components
+
+A collection of React components designed specifically for documenting healing practices, traditional knowledge, and evidence-based therapies with integrity and respect.
+
+## Available Components
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+  <a href="./evidence-citation" className="block p-6 rounded-lg border-2 border-healing-border bg-grounding-dark/50 hover:border-healing-primary hover:shadow-glow-healing transition-all no-underline">
+    <h3 className="text-healing-light font-bold mb-2">EvidenceCitation</h3>
+    <p className="text-grounding-light text-sm">Display research findings with clear evidence levels, sources, and limitations.</p>
+  </a>
+
+  <a href="./tradition-attribution" className="block p-6 rounded-lg border-2 border-sacred-gold bg-grounding-dark/50 hover:border-sacred-gold-light hover:shadow-glow-sacred transition-all no-underline">
+    <h3 className="text-sacred-gold-light font-bold mb-2">TraditionAttribution</h3>
+    <p className="text-grounding-light text-sm">Honor traditional healing knowledge with proper cultural attribution and respect.</p>
+  </a>
+
+  <a href="./healing-progress" className="block p-6 rounded-lg border-2 border-calm-border bg-grounding-dark/50 hover:border-calm-primary hover:shadow-glow-calm transition-all no-underline">
+    <h3 className="text-calm-light font-bold mb-2">HealingProgress</h3>
+    <p className="text-grounding-light text-sm">Visualize healing journeys and skill development lifecycles.</p>
+  </a>
+
+  <a href="./practice-selector" className="block p-6 rounded-lg border-2 border-healing-border bg-grounding-dark/50 hover:border-healing-primary hover:shadow-glow-healing transition-all no-underline">
+    <h3 className="text-healing-light font-bold mb-2">PracticeSelector</h3>
+    <p className="text-grounding-light text-sm">Interactive selection interface for choosing healing modalities.</p>
+  </a>
+
+  <a href="./safety-consent" className="block p-6 rounded-lg border-2 border-feedback-warning bg-grounding-dark/50 hover:border-feedback-warning hover:shadow-lg transition-all no-underline">
+    <h3 className="text-feedback-warning font-bold mb-2">SafetyConsent</h3>
+    <p className="text-grounding-light text-sm">Informed consent dialogs for practices requiring disclaimers.</p>
+  </a>
+</div>
+
+## Design Principles
+
+### Evidence-First
+
+All components are designed to make evidence transparency easy and natural. Research findings include:
+- Clear evidence levels (strong, moderate, preliminary, traditional)
+- Sample sizes and study quality indicators
+- Explicit limitations and caveats
+- Direct links to source materials
+
+### Accessibility
+
+Every component follows WCAG 2.1 Level AA standards:
+- Semantic HTML with proper ARIA labels
+- Keyboard navigation support
+- Screen reader friendly
+- Focus management and visual indicators
+- Color contrast compliance
+
+### Cultural Ethics
+
+Traditional knowledge components ensure:
+- Proper attribution to source traditions
+- Clear marking of open vs closed practices
+- Respect for cultural protocols
+- Acknowledgment of adaptation and modification
+
+### Visual Consistency
+
+Components use the healing design system:
+- Semantic color palette (healing green, sacred gold, calm blue)
+- Consistent spacing and typography
+- Smooth transitions and animations
+- Gentle glows and shadows for hierarchy
+
+## Using Components in MDX
+
+Components can be imported and used directly in your MDX documentation:
+
+```mdx
+import { EvidenceCitation } from '@site/src/components/healing';
+
+<EvidenceCitation
+  level="strong"
+  title="Benefits of Meditation for Anxiety"
+  author="Goyal M, et al."
+  date="2014"
+  domain="Psychiatry"
+  snippet="Meditation programs can result in small to moderate reductions in anxiety."
+  sampleSize={3515}
+  sourceUrl="https://pubmed.ncbi.nlm.nih.gov/24395196/"
+/>
+```
+
+## Component Props Reference
+
+Each component is fully typed with TypeScript. See individual component pages for detailed prop tables and examples.
+
+## Installation
+
+Components are part of the healing swarm skills website. They require:
+- React 18+
+- Tailwind CSS with healing design tokens
+- Utility functions from `@site/src/lib/utils`
+
+:::tip
+Check out individual component pages for live demos, complete prop documentation, and usage examples.
+:::

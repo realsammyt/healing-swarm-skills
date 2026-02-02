@@ -1,0 +1,69 @@
+---
+sidebar_position: 5
+title: Skills Overview
+description: All 7 healing swarm skills - triggers, purposes, and examples
+---
+
+# Skills Reference
+
+The healing swarm provides 7 skills for the complete development lifecycle of ethical healing applications.
+
+---
+
+## Skills Overview
+
+| Skill | Trigger | Purpose |
+|-------|---------|---------|
+| [Research](./research.mdx) | `/healing-research` | Deep research into healing traditions and clinical evidence |
+| [Design](./design.mdx) | `/healing-design` | Design healing application UX and visuals |
+| [Content](./content.mdx) | `/healing-content` | Create prayers, evidence boxes, visualizations |
+| [Build](./build.mdx) | `/healing-build` | Develop accessible, privacy-first applications |
+| [Review](./review.mdx) | `/healing-review` | Quality review (ethics, clinical, cultural, a11y) |
+| [Deploy](./deploy.mdx) | `/healing-deploy` | Deploy and maintain applications |
+| [Swarm](./swarm.mdx) | `/healing-swarm` | Full orchestrated development lifecycle |
+
+---
+
+## Common Options
+
+Available across multiple skills:
+
+| Option | Description |
+|--------|-------------|
+| `--verbose` | Show detailed output |
+| `--dry-run` | Preview without executing |
+| `--output` | Specify output directory |
+
+---
+
+## Architecture Diagram
+
+```
+                     +------------------+
+                     |   ORCHESTRATOR   |
+                     |  healing-swarm   |
+                     +--------+---------+
+                              |
+        +---------------------+---------------------+
+        |                     |                     |
+  +-----+-----+         +-----+-----+         +-----+-----+
+  |  RESEARCH |         |   BUILD   |         |  QUALITY  |
+  |   SWARM   |         |   SWARM   |         |   SWARM   |
+  +-----+-----+         +-----+-----+         +-----+-----+
+        |                     |                     |
+  +-----+-----+         +-----+-----+         +-----+-----+
+  |     |     |         |     |     |         |     |     |
+ [S]   [R]   [N]       [UX]  [V]  [D]        [E]   [C]  [A]
+
+S = Traditions Scholar     UX = UX Architect     E = Ethics Guardian
+R = Clinical Researcher    V = Visual Designer   C = Clinical/Cultural
+N = Neuroscientist         D = App Developer     A = Accessibility
+```
+
+---
+
+## Learn More
+
+- [Architecture Overview](../architecture/index.mdx)
+- [Examples](../examples/index.mdx)
+- [Ethics Framework](../ethics/index.mdx)
