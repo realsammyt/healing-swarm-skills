@@ -136,14 +136,24 @@
 
 .button--secondary {
   background: transparent;
-  color: var(--ifm-font-color-base);
-  border: 1px solid var(--ifm-color-emphasis-500);
+  color: #f1f5f9 !important;
+  border: 2px solid #64748b;
+}
+
+[data-theme='dark'] .button--secondary {
+  color: #f1f5f9 !important;
+  border-color: #64748b;
 }
 
 .button--secondary:hover {
   border-color: var(--ifm-color-primary);
-  color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary) !important;
   background: rgba(45, 210, 132, 0.1);
+}
+
+[data-theme='light'] .button--secondary {
+  color: #0f172a !important;
+  border-color: #94a3b8;
 }
 
 /* ============================================
