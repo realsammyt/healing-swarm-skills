@@ -9,7 +9,8 @@ description: Two paths into the healing swarm - explore what's possible or start
 Choose your path:
 
 - **[I Want to Explore](#i-want-to-explore)** - Learn what healing applications look like
-- **[I Want to Build](#i-want-to-build)** - Set up your environment and create skills
+- **[I Want to Add Healing to My Existing Project](#i-want-to-add-healing-to-my-existing-project)** - Analyze and enhance your app, game, or website
+- **[I Want to Build](#i-want-to-build)** - Set up your environment and create new healing tools
 
 ---
 
@@ -99,6 +100,91 @@ Notice the elements:
 - **Grounding technique** (lightheadedness guidance)
 
 [See the full example with research and quality review](./examples/simple-meditation.mdx)
+
+---
+
+## I Want to Add Healing to My Existing Project
+
+Have an app, website, game, or narrative that could be more healing? The HEAL Assessment analyzes your codebase and recommends where to add wellness properties.
+
+### The HEAL Framework
+
+| Letter | Looks For | Examples |
+|--------|-----------|----------|
+| **H** | Harsh Interactions | Cold error messages, abrupt rejections, punishing feedback |
+| **E** | Emotional Blind Spots | Missing acknowledgments, no celebration, cold confirmations |
+| **A** | Accessibility Gaps | Keyboard traps, missing labels, poor contrast, no screen reader support |
+| **L** | Lost Opportunities | Places where breathing space, pacing, or encouragement could exist |
+
+### Quick Start
+
+**Step 1: Run the Analysis**
+
+In your project directory:
+
+```bash
+claude -p "Using the healing-swarm project analysis skill, perform a
+HEAL assessment of this codebase. Focus on error handling, user
+feedback, loading states, forms, and accessibility. Provide a
+prioritized report with specific files and recommendations."
+```
+
+**Step 2: Review Recommendations**
+
+The analysis returns:
+- Severity levels (Critical, High, Medium, Low)
+- Specific file locations and line numbers
+- Current problematic patterns
+- Recommended healing integrations
+- Implementation difficulty estimates
+
+**Step 3: Implement High-Impact Changes**
+
+Start with critical and high-severity findings:
+
+| Finding | Solution |
+|---------|----------|
+| Harsh error messages | Use [Gentle Errors](/docs/integration/gentle-errors) pattern |
+| Missing breathing room | Add [Breathing Spaces](/docs/integration/breathing-spaces) |
+| Cold confirmations | Use [Mindful Interactions](/docs/integration/mindful-interactions) |
+| Accessibility issues | Apply [Accessibility Healing](/docs/integration/accessibility-healing) |
+
+### By Project Type
+
+| Project Type | Start With | Key Patterns |
+|--------------|------------|--------------|
+| **Web Apps** | Gentle Errors | UI Wellness, Ethical Data |
+| **Mobile Apps** | Project Analysis | Breathing Spaces, Accessibility |
+| **Video Games** | [Game Healing](/docs/integration/game-healing) | Adaptive difficulty, restorative spaces |
+| **Interactive Stories** | [Narrative Healing](/docs/integration/narrative-healing) | Safe spaces, emotional pacing |
+| **Apps with Engagement** | [Healing Gamification](/docs/integration/healing-gamification) | Compassionate streaks, meaningful progress |
+
+### Example: Transforming an Error State
+
+**Before:**
+```tsx
+{error && <p className="error">{error}</p>}
+```
+
+**After:**
+```tsx
+import { GentleError } from '@/components/integration';
+
+{error && (
+  <GentleError
+    message="Something unexpected happened"
+    explanation={error}
+    suggestions={['Try again', 'Contact support']}
+    tone="apologetic"
+  />
+)}
+```
+
+### Next Steps for Upgrading
+
+1. [Full Project Analysis Guide](/docs/integration/project-analysis) - Detailed prompts and templates
+2. [Integration Patterns](/docs/integration) - All available healing patterns
+3. [Components Reference](/docs/components) - Drop-in React components
 
 ---
 
@@ -208,6 +294,13 @@ npm run check:ethics
 - [Browse all 7 skills](./skills/index.mdx)
 - [See the Simple Meditation example](./examples/simple-meditation.mdx)
 - [Learn about the ethics framework](./ethics/index.mdx)
+
+### For Project Upgraders
+
+- [Full Project Analysis Guide](./integration/project-analysis.mdx) - HEAL assessment details
+- [Integration Patterns Reference](./integration/index.mdx) - All available patterns
+- [Game Healing](./integration/game-healing.mdx) - For game projects
+- [Narrative Healing](./integration/narrative-healing.mdx) - For interactive stories
 
 ### For Builders
 

@@ -13,10 +13,10 @@ function HomepageHeader() {
     <header className={clsx('hero', styles.heroBanner)}>
       <div className="container">
         <h1 className={styles.heroTitle}>
-          Democratizing Healing Wisdom
+          Add Healing to Any Project
         </h1>
         <p className={styles.heroSubtitle}>
-          AI-assisted tools for ethical healing applications.
+          AI-powered assessment identifies where your apps, games, and narratives can heal.
           <br />
           Open source. Evidence-grounded. Culturally respectful.
         </p>
@@ -28,8 +28,13 @@ function HomepageHeader() {
           </Link>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/skills">
-            View Skills
+            to="/docs/integration/project-analysis">
+            Analyze My Project
+          </Link>
+          <Link
+            className="button button--secondary button--lg"
+            to="/docs/integration">
+            Integration Patterns
           </Link>
         </div>
         <div className={styles.heroTagline}>
@@ -46,11 +51,11 @@ function FinalCTA() {
       <div className="container">
         <div className={styles.ctaContent}>
           <h2 className={styles.ctaTitle}>
-            Ready to Build Ethical Healing Tools?
+            Ready to Add Healing to Your Project?
           </h2>
           <p className={styles.ctaSubtitle}>
-            Join us in democratizing healing wisdom with AI-assisted tools that respect traditions,
-            honor evidence, and prioritize safety.
+            Whether you're building something new or enhancing an existing app, game, or narrative—
+            add healing properties that respect users and prioritize wellbeing.
           </p>
           <div className={styles.ctaButtons}>
             <Link
@@ -60,8 +65,8 @@ function FinalCTA() {
             </Link>
             <Link
               className="button button--secondary button--lg"
-              to="/docs/contributing">
-              Contribute
+              to="/docs/integration/project-analysis">
+              Analyze Existing Project
             </Link>
             <Link
               className="button button--secondary button--lg"

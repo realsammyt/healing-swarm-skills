@@ -1,12 +1,12 @@
 ---
 sidebar_position: 1
 title: Healing UI Components
-description: Evidence-based, accessible, and ethical components for healing documentation
+description: Evidence-based, accessible, and ethical components for healing documentation and integration
 ---
 
 # Healing UI Components
 
-A collection of React components designed specifically for documenting healing practices, traditional knowledge, and evidence-based therapies with integrity and respect.
+A collection of React components for documenting healing practices and adding healing properties to any project. Includes components for evidence presentation, cultural attribution, and drop-in integration patterns for apps, games, and narratives.
 
 ## Available Components
 
@@ -36,6 +36,73 @@ A collection of React components designed specifically for documenting healing p
     <p className="text-grounding-light text-sm">Informed consent dialogs for practices requiring disclaimers.</p>
   </a>
 </div>
+
+## Integration Components
+
+Drop-in components for adding healing properties to any project. These work standalone and can be integrated into apps, games, and narratives.
+
+```tsx
+import {
+  BreathePause,
+  GentleError,
+  WellbeingCheck,
+  MindfulTransition,
+  CalmLoading,
+  HealingJourney,
+  ProgressCelebration,
+  NarrativeChoice,
+  SafeSpace,
+} from '@site/src/components/integration';
+```
+
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-8">
+  <div className="block p-6 rounded-lg border-2 border-healing-border bg-grounding-dark/50">
+    <h3 className="text-healing-light font-bold mb-2">BreathePause</h3>
+    <p className="text-grounding-light text-sm">Intentional pause overlays with guided breathing before critical actions.</p>
+  </div>
+
+  <div className="block p-6 rounded-lg border-2 border-calm-border bg-grounding-dark/50">
+    <h3 className="text-calm-light font-bold mb-2">GentleError</h3>
+    <p className="text-grounding-light text-sm">Compassionate error states with tone variants and actionable suggestions.</p>
+  </div>
+
+  <div className="block p-6 rounded-lg border-2 border-healing-border bg-grounding-dark/50">
+    <h3 className="text-healing-light font-bold mb-2">WellbeingCheck</h3>
+    <p className="text-grounding-light text-sm">Periodic wellness check-in notifications with configurable positioning.</p>
+  </div>
+
+  <div className="block p-6 rounded-lg border-2 border-calm-border bg-grounding-dark/50">
+    <h3 className="text-calm-light font-bold mb-2">MindfulTransition</h3>
+    <p className="text-grounding-light text-sm">Aware state changes that give users time to adjust to new contexts.</p>
+  </div>
+
+  <div className="block p-6 rounded-lg border-2 border-healing-border bg-grounding-dark/50">
+    <h3 className="text-healing-light font-bold mb-2">CalmLoading</h3>
+    <p className="text-grounding-light text-sm">Peaceful loading states that turn waiting time into breathing space.</p>
+  </div>
+
+  <div className="block p-6 rounded-lg border-2 border-sacred-gold bg-grounding-dark/50">
+    <h3 className="text-sacred-gold-light font-bold mb-2">HealingJourney</h3>
+    <p className="text-grounding-light text-sm">Progress visualization with milestones and encouraging messages.</p>
+  </div>
+
+  <div className="block p-6 rounded-lg border-2 border-sacred-gold bg-grounding-dark/50">
+    <h3 className="text-sacred-gold-light font-bold mb-2">ProgressCelebration</h3>
+    <p className="text-grounding-light text-sm">Three-phase achievement recognition: celebrate → reflect → continue.</p>
+  </div>
+
+  <div className="block p-6 rounded-lg border-2 border-purple-400 bg-grounding-dark/50">
+    <h3 className="text-purple-300 font-bold mb-2">NarrativeChoice</h3>
+    <p className="text-grounding-light text-sm">Emotion-coded story choices with skip options for difficult moments.</p>
+  </div>
+
+  <div className="block p-6 rounded-lg border-2 border-purple-400 bg-grounding-dark/50">
+    <h3 className="text-purple-300 font-bold mb-2">SafeSpace</h3>
+    <p className="text-grounding-light text-sm">In-experience refuge with grounding activities and support resources.</p>
+  </div>
+</div>
+
+See [Integration Patterns](/docs/integration) for usage guides.
 
 ## Design Principles
 

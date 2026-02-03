@@ -68,6 +68,33 @@ const FOR_WHOM_ITEMS = [
   },
 ];
 
+const PROJECT_TYPES = [
+  {
+    title: 'Web & Mobile Apps',
+    icon: '📱',
+    description: 'Add gentle errors, breathing spaces, and ethical data practices to any application.',
+    link: '/docs/integration/ui-wellness',
+  },
+  {
+    title: 'Video Games',
+    icon: '🎮',
+    description: 'Adaptive difficulty, restorative spaces, and wellness mechanics for player wellbeing.',
+    link: '/docs/integration/game-healing',
+  },
+  {
+    title: 'Interactive Stories',
+    icon: '📖',
+    description: 'Content warnings, safe spaces, and emotional pacing for narratives that heal.',
+    link: '/docs/integration/narrative-healing',
+  },
+  {
+    title: 'Existing Projects',
+    icon: '🔍',
+    description: 'AI-powered HEAL assessment identifies where any codebase can add healing properties.',
+    link: '/docs/integration/project-analysis',
+  },
+];
+
 export function EthicsPrinciples(): JSX.Element {
   return (
     <section className={styles.ethicsSection}>
@@ -85,6 +112,30 @@ export function EthicsPrinciples(): JSX.Element {
               <h3 className={styles.ethicsTitle}>{principle.title}</h3>
               <p className={styles.ethicsDescription}>{principle.description}</p>
             </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function ProjectTypesSection(): JSX.Element {
+  return (
+    <section className={styles.forWhomSection}>
+      <div className="container">
+        <div className="text-center margin-bottom--lg">
+          <h2 className={styles.sectionTitle}>What You Can Build</h2>
+          <p className={styles.sectionSubtitle}>
+            Add healing properties to any project type—new or existing.
+          </p>
+        </div>
+        <div className={styles.forWhomGrid}>
+          {PROJECT_TYPES.map((item, idx) => (
+            <Link key={idx} to={item.link} className={styles.forWhomCard} style={{textDecoration: 'none'}}>
+              <div className={styles.forWhomIcon}>{item.icon}</div>
+              <h3 className={styles.forWhomTitle}>{item.title}</h3>
+              <p className={styles.forWhomDescription}>{item.description}</p>
+            </Link>
           ))}
         </div>
       </div>
@@ -198,6 +249,7 @@ export function ExampleShowcase(): JSX.Element {
 export default function HomepageFeatures(): JSX.Element {
   return (
     <>
+      <ProjectTypesSection />
       <ForWhomSection />
       <EthicsPrinciples />
       <ExampleShowcase />
