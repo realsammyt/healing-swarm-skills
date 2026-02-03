@@ -1,0 +1,667 @@
+---
+sidebar_position: 11
+title: Game Healing
+description: Wellness-centered game design mechanics and patterns
+---
+
+# Game Healing
+
+**Games that leave players better than they found them.** This skill covers mechanics, systems, and design patterns for creating video games that actively support player wellbeing while remaining engaging and enjoyable.
+
+---
+
+## Philosophy
+
+Games have profound power over emotional states. A horror game can spike cortisol. A puzzle game can induce flow. A cozy game can lower blood pressure.
+
+**Game healing** intentionally designs for positive psychological outcomes:
+- Reduce stress, don't just distract from it
+- Build real skills, not just in-game ones
+- Create genuine connection, not addiction
+- Leave players feeling capable, not inadequate
+
+---
+
+## Core Design Pillars
+
+### 1. Safe Challenge
+Challenge that stretches without breaking. Difficulty that teaches rather than punishes.
+
+### 2. Embodied Calm
+Mechanics that physiologically calm: breathing games, rhythm matching, gentle pacing.
+
+### 3. Meaningful Progress
+Growth that reflects real psychological development, not just number increases.
+
+### 4. Restorative Spaces
+Places to simply exist, without objectives or threats.
+
+### 5. Connective Play
+Multiplayer as support system, not competition battleground.
+
+---
+
+## Difficulty Compassion
+
+### Adaptive Difficulty
+
+```typescript
+interface AdaptiveDifficultyConfig {
+  // Track player state
+  deathsInLastMinutes: number;
+  averageHeartRateChange?: number; // If biometric
+  timeOnCurrentChallenge: number;
+  playerRequestedHelp: boolean;
+
+  // Adjustment thresholds
+  frustrationThreshold: number;
+  flowStateIndicators: string[];
+}
+
+function calculateCompassionateDifficulty(
+  config: AdaptiveDifficultyConfig,
+  baseDifficulty: number
+): number {
+  let adjustment = 0;
+
+  // Death spiral prevention
+  if (config.deathsInLastMinutes > 3) {
+    adjustment -= 0.2; // Ease up
+  }
+
+  // Time frustration
+  if (config.timeOnCurrentChallenge > 300) { // 5 minutes
+    adjustment -= 0.1;
+  }
+
+  // Biometric stress (if available)
+  if (config.averageHeartRateChange && config.averageHeartRateChange > 20) {
+    adjustment -= 0.15;
+  }
+
+  // Player asked for help
+  if (config.playerRequestedHelp) {
+    adjustment -= 0.3;
+  }
+
+  // Never go below minimum playability
+  return Math.max(0.3, Math.min(1.0, baseDifficulty + adjustment));
+}
+```
+
+### Assist Options
+
+```tsx
+function AccessibilityAssistMenu({ onConfigure }) {
+  const [options, setOptions] = useState({
+    invincibility: false,
+    infiniteResources: false,
+    skipCombat: false,
+    navigationAssist: false,
+    slowMotionOption: false,
+    contentWarnings: true,
+    screenShake: 0.5,
+    flashingEffects: false,
+  });
+
+  return (
+    <div className="space-y-6 p-6 rounded-xl bg-grounding-dark">
+      <div>
+        <h2 className="text-xl font-semibold text-white">Play Your Way</h2>
+        <p className="text-sm text-gray-400 mt-2">
+          These options exist so everyone can experience this story.
+          Using them isn't cheating—it's choosing your experience.
+        </p>
+      </div>
+
+      <div className="space-y-4">
+        <h3 className="font-medium text-gray-300">Challenge Options</h3>
+
+        <label className="flex items-center gap-3 p-3 rounded-lg bg-grounding-darkest">
+          <input
+            type="checkbox"
+            checked={options.invincibility}
+            onChange={e => setOptions({...options, invincibility: e.target.checked})}
+          />
+          <div>
+            <p className="text-gray-200">Cannot be defeated</p>
+            <p className="text-xs text-gray-500">Focus on story without combat pressure</p>
+          </div>
+        </label>
+
+        <label className="flex items-center gap-3 p-3 rounded-lg bg-grounding-darkest">
+          <input
+            type="checkbox"
+            checked={options.skipCombat}
+            onChange={e => setOptions({...options, skipCombat: e.target.checked})}
+          />
+          <div>
+            <p className="text-gray-200">Skip combat encounters</p>
+            <p className="text-xs text-gray-500">Auto-resolve battles, keep the narrative</p>
+          </div>
+        </label>
+
+        <label className="flex items-center gap-3 p-3 rounded-lg bg-grounding-darkest">
+          <input
+            type="checkbox"
+            checked={options.navigationAssist}
+            onChange={e => setOptions({...options, navigationAssist: e.target.checked})}
+          />
+          <div>
+            <p className="text-gray-200">Navigation guidance</p>
+            <p className="text-xs text-gray-500">Gentle hints toward objectives</p>
+          </div>
+        </label>
+      </div>
+
+      <div className="space-y-4">
+        <h3 className="font-medium text-gray-300">Comfort Options</h3>
+
+        <div className="p-3 rounded-lg bg-grounding-darkest">
+          <label className="text-gray-200 block mb-2">Screen shake intensity</label>
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.1"
+            value={options.screenShake}
+            onChange={e => setOptions({...options, screenShake: parseFloat(e.target.value)})}
+            className="w-full"
+          />
+          <div className="flex justify-between text-xs text-gray-500">
+            <span>Off</span>
+            <span>Full</span>
+          </div>
+        </div>
+
+        <label className="flex items-center gap-3 p-3 rounded-lg bg-grounding-darkest">
+          <input
+            type="checkbox"
+            checked={options.contentWarnings}
+            onChange={e => setOptions({...options, contentWarnings: e.target.checked})}
+          />
+          <div>
+            <p className="text-gray-200">Content warnings before scenes</p>
+            <p className="text-xs text-gray-500">Brief alerts for potentially intense content</p>
+          </div>
+        </label>
+      </div>
+
+      <p className="text-xs text-gray-500 text-center">
+        You can change these settings anytime from the pause menu.
+      </p>
+    </div>
+  );
+}
+```
+
+---
+
+## Restorative Spaces
+
+### Safe Zones
+
+```typescript
+interface SafeZone {
+  // No threats
+  enemiesCannotEnter: boolean;
+  damageDisabled: boolean;
+  timersDisabled: boolean;
+
+  // Restorative features
+  healthRegeneration: boolean;
+  resourceRefill: boolean;
+
+  // Comfort elements
+  ambientSounds: string[]; // Nature, music, etc.
+  interactiveComforts: string[]; // Pets, plants, etc.
+
+  // Player agency
+  canSave: boolean;
+  canFastTravel: boolean;
+  canAccessInventory: boolean;
+}
+
+const healingSanctuary: SafeZone = {
+  enemiesCannotEnter: true,
+  damageDisabled: true,
+  timersDisabled: true,
+
+  healthRegeneration: true,
+  resourceRefill: true,
+
+  ambientSounds: ['fireplace', 'rain-outside', 'gentle-music'],
+  interactiveComforts: ['pet-cat', 'water-plants', 'journal', 'bed'],
+
+  canSave: true,
+  canFastTravel: true,
+  canAccessInventory: true,
+};
+```
+
+### Cozy Mechanics
+
+```typescript
+// Activities that exist purely for comfort
+const cozyActivities = {
+  fishing: {
+    // No time pressure
+    // Gentle feedback
+    // Optional completion
+    canFail: false,
+    rewards: 'ambient' as const, // Atmosphere, not progression
+    pace: 'player-controlled',
+  },
+
+  gardening: {
+    growthRate: 'relaxed', // Can't really fail
+    dailyProgress: true, // Reason to return, but no punishment for missing
+    aestheticReward: true, // Beautiful garden, not min-maxed stats
+  },
+
+  animalCare: {
+    animalsCannotDie: true,
+    affectionAlwaysIncreases: true, // Can't lose relationship
+    interactionsAlwaysPositive: true,
+  },
+
+  crafting: {
+    resourcesGenerous: true,
+    failuresStillUseful: true, // "Happy accidents"
+    previewResults: true, // No gambling on outcomes
+  },
+};
+```
+
+---
+
+## Breathing Mechanics
+
+### Breath-Synced Gameplay
+
+```typescript
+// Mechanics that match breathing rhythms
+interface BreathMechanic {
+  inhaleAction: () => void;
+  holdAction?: () => void;
+  exhaleAction: () => void;
+
+  breathDuration: number; // Seconds per cycle
+  visualFeedback: 'expanding-circle' | 'rising-water' | 'growing-plant';
+}
+
+// Example: Meditation puzzle
+const meditationPuzzle: BreathMechanic = {
+  inhaleAction: () => {
+    // Character rises/floats upward
+    // Light gathers
+    // Sound pitches up gently
+  },
+
+  holdAction: () => {
+    // Suspended moment
+    // Time slows
+    // Details become visible
+  },
+
+  exhaleAction: () => {
+    // Gentle descent
+    // Light releases/spreads
+    // Solution elements connect
+  },
+
+  breathDuration: 6, // ~10 breaths per minute (calming)
+  visualFeedback: 'expanding-circle',
+};
+
+// Real physiological benefit: actually calms the player
+```
+
+### Rhythm-Based Calming
+
+```typescript
+// Match game rhythm to calming heartrate
+const calmingRhythm = {
+  baseBeatsPerMinute: 60, // Resting heart rate
+
+  musicTempo: 60, // Matches heartrate
+  animationPulse: 60, // UI breathes with music
+  interactionTiming: 1000, // Inputs feel unhurried
+
+  // As player succeeds, tempo can gentle increase
+  // Never goes above 80 BPM (still calm)
+  maxTempo: 80,
+};
+```
+
+---
+
+## Emotional Pacing
+
+### Tension Curves
+
+```typescript
+interface EmotionalPacing {
+  // Track intensity over time
+  currentIntensity: number; // 0-1
+  recentPeak: number;
+  timeSinceRest: number;
+
+  // Design rules
+  maxSustainedIntensity: number;
+  requiredRestAfterPeak: boolean;
+  gentleTransitions: boolean;
+}
+
+function manageEmotionalPacing(
+  pacing: EmotionalPacing,
+  proposedEvent: GameEvent
+): GameEvent | 'defer' {
+  // If already at high intensity
+  if (pacing.currentIntensity > 0.8 && proposedEvent.intensity > 0.5) {
+    // Insert calming moment first
+    return 'defer';
+  }
+
+  // If long time since rest
+  if (pacing.timeSinceRest > 600 && proposedEvent.intensity > 0.3) {
+    // Require rest point
+    return 'defer';
+  }
+
+  // If recent peak, ensure recovery
+  if (pacing.recentPeak > 0.9 && pacing.timeSinceRest < 120) {
+    return 'defer';
+  }
+
+  return proposedEvent;
+}
+```
+
+### Post-Intense Recovery
+
+```tsx
+function PostBossRecovery({ bossDefeated, onContinue }) {
+  const [phase, setPhase] = useState<'victory' | 'rest' | 'reflect' | 'ready'>('victory');
+
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      {phase === 'victory' && (
+        <div className="text-center space-y-4 animate-fade-in">
+          <div className="text-6xl">⚔️</div>
+          <h2 className="text-3xl font-bold text-healing-primary">Victory</h2>
+          <p className="text-gray-400">{bossDefeated.name} has been defeated.</p>
+          <button
+            onClick={() => setPhase('rest')}
+            className="px-6 py-3 rounded-lg bg-healing-primary text-grounding-darkest"
+          >
+            Let it settle
+          </button>
+        </div>
+      )}
+
+      {phase === 'rest' && (
+        <div className="text-center space-y-4 animate-fade-in">
+          <div className="w-32 h-32 mx-auto rounded-full border-4 border-calm-primary animate-breathe" />
+          <p className="text-gray-300">
+            That was intense.
+            <br />
+            Take a moment.
+          </p>
+          <button
+            onClick={() => setPhase('reflect')}
+            className="text-sm text-gray-500"
+          >
+            Ready
+          </button>
+        </div>
+      )}
+
+      {phase === 'reflect' && (
+        <div className="text-center space-y-4 animate-fade-in max-w-md">
+          <p className="text-gray-300">
+            What did this battle teach you?
+          </p>
+          <div className="grid gap-2">
+            <button
+              onClick={() => setPhase('ready')}
+              className="p-3 rounded-lg bg-grounding-dark text-gray-300 text-sm"
+            >
+              Patience defeats aggression
+            </button>
+            <button
+              onClick={() => setPhase('ready')}
+              className="p-3 rounded-lg bg-grounding-dark text-gray-300 text-sm"
+            >
+              Every challenge can be overcome
+            </button>
+            <button
+              onClick={() => setPhase('ready')}
+              className="p-3 rounded-lg bg-grounding-dark text-gray-300 text-sm"
+            >
+              I'm stronger than I thought
+            </button>
+          </div>
+        </div>
+      )}
+
+      {phase === 'ready' && (
+        <div className="text-center space-y-4 animate-fade-in">
+          <div className="text-4xl">🌅</div>
+          <p className="text-gray-300">The world awaits.</p>
+          <button
+            onClick={onContinue}
+            className="px-6 py-3 rounded-lg bg-healing-primary text-grounding-darkest"
+          >
+            Continue Journey
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+---
+
+## Multiplayer Healing
+
+### Cooperative, Not Competitive
+
+```typescript
+interface HealingMultiplayer {
+  // No PvP pressure
+  pvpMode: 'off' | 'opt-in-only';
+
+  // Shared success
+  progressShared: boolean;
+  noStealingRewards: boolean;
+  helpingAlwaysRewarded: boolean;
+
+  // Social safety
+  communicationFiltered: boolean;
+  quickPositiveReactions: string[]; // "Nice!" "Thanks!" "You're amazing!"
+  noNegativeReactions: boolean;
+
+  // Connection without obligation
+  canPlaySolo: boolean;
+  noMatchmakingPenalty: boolean;
+  asyncCoopSupported: boolean;
+}
+
+const healingCoopDesign: HealingMultiplayer = {
+  pvpMode: 'opt-in-only',
+
+  progressShared: true,
+  noStealingRewards: true,
+  helpingAlwaysRewarded: true,
+
+  communicationFiltered: true,
+  quickPositiveReactions: ['💚', '👏', '✨', '🙌', '💪'],
+  noNegativeReactions: true,
+
+  canPlaySolo: true,
+  noMatchmakingPenalty: true,
+  asyncCoopSupported: true,
+};
+```
+
+### Compassionate Matchmaking
+
+```typescript
+function healingMatchmaking(player: Player, pool: Player[]): Player[] {
+  // Match on skill AND temperament
+  const matches = pool.filter(other => {
+    // Similar skill (within 20%)
+    const skillMatch = Math.abs(player.skill - other.skill) < player.skill * 0.2;
+
+    // Compatible playstyle
+    const styleMatch = player.playstyle === other.playstyle ||
+      (player.playstyle === 'supportive' && other.playstyle === 'needs-support') ||
+      (player.playstyle === 'needs-support' && other.playstyle === 'supportive');
+
+    // Not recently reported for toxicity
+    const safePlayer = other.recentReports < 1;
+
+    return skillMatch && styleMatch && safePlayer;
+  });
+
+  // Prioritize players with positive interaction history
+  return matches.sort((a, b) => b.positiveInteractions - a.positiveInteractions);
+}
+```
+
+---
+
+## Session Boundaries
+
+### Healthy Session Management
+
+```tsx
+function SessionWellnessCheck({
+  sessionDuration,
+  onContinue,
+  onBreak,
+  onQuit,
+}: {
+  sessionDuration: number; // minutes
+  onContinue: () => void;
+  onBreak: () => void;
+  onQuit: () => void;
+}) {
+  const hours = Math.floor(sessionDuration / 60);
+  const minutes = sessionDuration % 60;
+
+  return (
+    <div className="fixed inset-0 bg-grounding-darkest/90 flex items-center justify-center z-50">
+      <div className="max-w-md p-8 rounded-xl bg-grounding-dark text-center space-y-6">
+        <div className="text-4xl">☕</div>
+
+        <div>
+          <h2 className="text-xl font-semibold text-white">
+            You've been playing for {hours > 0 ? `${hours}h ` : ''}{minutes}m
+          </h2>
+          <p className="text-gray-400 mt-2">
+            Just checking in. How are you feeling?
+          </p>
+        </div>
+
+        <div className="space-y-3">
+          <button
+            onClick={onContinue}
+            className="w-full py-3 rounded-lg bg-healing-primary text-grounding-darkest font-medium"
+          >
+            I'm good, continue playing
+          </button>
+          <button
+            onClick={onBreak}
+            className="w-full py-3 rounded-lg border border-calm-primary text-calm-light"
+          >
+            Take a break (game paused)
+          </button>
+          <button
+            onClick={onQuit}
+            className="w-full py-3 rounded-lg border border-gray-600 text-gray-400"
+          >
+            Save and quit for now
+          </button>
+        </div>
+
+        <p className="text-xs text-gray-500">
+          Your progress is always saved. Life comes first. 💚
+        </p>
+      </div>
+    </div>
+  );
+}
+```
+
+### Natural Stopping Points
+
+```typescript
+interface NaturalStoppingPoint {
+  type: 'chapter-end' | 'safe-zone-reached' | 'objective-complete' | 'time-boundary';
+
+  // Clear communication
+  message: string;
+  saveMade: boolean;
+  progressSummary: string;
+
+  // No FOMO
+  nothingMissedByQuitting: boolean;
+  canResumeLater: boolean;
+}
+
+function createStoppingPoint(event: GameEvent): NaturalStoppingPoint | null {
+  // Every 30-45 minutes, create natural pause
+  // After story beats, suggest reflection
+  // When entering safe zones, note it's a good time to rest
+
+  return {
+    type: 'safe-zone-reached',
+    message: "You've reached the village. Good place to rest, if you need to.",
+    saveMade: true,
+    progressSummary: "Chapter 3: 45% complete",
+    nothingMissedByQuitting: true,
+    canResumeLater: true,
+  };
+}
+```
+
+---
+
+## Implementation Checklist
+
+### Core Systems
+- [ ] Adaptive/compassionate difficulty
+- [ ] Robust assist options (no shame attached)
+- [ ] Safe zones/restorative spaces
+- [ ] Breathing/rhythm mechanics
+- [ ] Emotional pacing system
+- [ ] Session wellness checks
+- [ ] Natural stopping points
+
+### Social Features
+- [ ] PvP is opt-in only
+- [ ] No toxic communication vectors
+- [ ] Positive-only quick reactions
+- [ ] Helping always rewarded
+- [ ] Solo always viable
+- [ ] Async coop support
+
+### Player Care
+- [ ] Content warnings configurable
+- [ ] Screen shake/flash controls
+- [ ] No FOMO mechanics
+- [ ] Progress always saved
+- [ ] Easy to take breaks
+- [ ] Clear on what will be missed (nothing)
+
+---
+
+## Related Patterns
+
+- [Narrative Healing](/docs/integration/narrative-healing) - Story elements in games
+- [Healing Gamification](/docs/integration/healing-gamification) - Progress and achievements
+- [Breathing Spaces](/docs/integration/breathing-spaces) - Pause mechanics
+- [Accessibility Healing](/docs/integration/accessibility-healing) - Inclusive design

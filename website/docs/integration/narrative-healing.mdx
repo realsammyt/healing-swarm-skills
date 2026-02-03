@@ -1,0 +1,652 @@
+---
+sidebar_position: 10
+title: Narrative Healing
+description: Therapeutic storytelling for interactive fiction and visual novels
+---
+
+# Narrative Healing
+
+**Stories that heal.** Interactive narratives have unique power to create safe spaces for emotional exploration, perspective-taking, and personal growth. This skill covers patterns for therapeutic storytelling in visual novels, interactive fiction, and branching narratives.
+
+---
+
+## The Power of Narrative
+
+Stories provide:
+
+- **Safe distance** - Process difficult emotions through characters
+- **Agency** - Make choices in scenarios we can't in life
+- **Perspective** - See through others' eyes
+- **Rehearsal** - Practice responses to challenging situations
+- **Validation** - See our experiences reflected and honored
+- **Hope** - Witness transformation and possibility
+
+---
+
+## Core Principles
+
+### 1. Emotional Safety First
+Players should feel held, not trapped. Provide exits, warnings, and support.
+
+### 2. No Wrong Choices
+Every path has value. Avoid punishing players for authentic responses.
+
+### 3. Pacing Control
+Let players control the emotional intensity and speed.
+
+### 4. Authentic Representation
+Treat difficult topics with research, sensitivity, and lived-experience input.
+
+### 5. Integration Support
+Help players process what they experienced after intense sequences.
+
+---
+
+## Content Warnings System
+
+### Configurable Warnings
+
+```tsx
+interface ContentWarning {
+  id: string;
+  category: 'violence' | 'loss' | 'trauma' | 'relationships' | 'mental-health' | 'other';
+  severity: 'mention' | 'depicted' | 'detailed';
+  description: string;
+}
+
+function ContentWarningSystem({
+  warnings,
+  onConfigure,
+}: {
+  warnings: ContentWarning[];
+  onConfigure: (settings: Record<string, 'show' | 'soften' | 'skip'>) => void;
+}) {
+  const [settings, setSettings] = useState<Record<string, 'show' | 'soften' | 'skip'>>({});
+
+  const categories = {
+    violence: { label: 'Violence & Conflict', icon: '⚔️' },
+    loss: { label: 'Loss & Grief', icon: '🕯️' },
+    trauma: { label: 'Trauma & Abuse', icon: '💔' },
+    relationships: { label: 'Relationship Struggles', icon: '💫' },
+    'mental-health': { label: 'Mental Health Topics', icon: '🧠' },
+    other: { label: 'Other Sensitive Content', icon: '⚠️' },
+  };
+
+  return (
+    <div className="space-y-6 p-6 rounded-xl bg-grounding-dark">
+      <div>
+        <h2 className="text-xl font-semibold text-white">Content Settings</h2>
+        <p className="text-sm text-gray-400 mt-2">
+          This story contains themes that may be difficult. Customize your experience below.
+          These settings can be changed anytime.
+        </p>
+      </div>
+
+      {Object.entries(categories).map(([key, { label, icon }]) => {
+        const categoryWarnings = warnings.filter(w => w.category === key);
+        if (categoryWarnings.length === 0) return null;
+
+        return (
+          <div key={key} className="p-4 rounded-lg bg-grounding-darkest">
+            <div className="flex items-center gap-2 mb-3">
+              <span>{icon}</span>
+              <h3 className="font-medium text-gray-200">{label}</h3>
+            </div>
+
+            <div className="space-y-2 mb-4">
+              {categoryWarnings.map(warning => (
+                <p key={warning.id} className="text-sm text-gray-400 pl-6">
+                  • {warning.description} ({warning.severity})
+                </p>
+              ))}
+            </div>
+
+            <div className="flex gap-2">
+              {['show', 'soften', 'skip'].map(option => (
+                <button
+                  key={option}
+                  onClick={() => setSettings({ ...settings, [key]: option as any })}
+                  className={`px-3 py-1.5 rounded text-sm ${
+                    settings[key] === option
+                      ? 'bg-healing-primary text-grounding-darkest'
+                      : 'bg-grounding-medium text-gray-300'
+                  }`}
+                >
+                  {option === 'show' && 'Show fully'}
+                  {option === 'soften' && 'Soften content'}
+                  {option === 'skip' && 'Skip scenes'}
+                </button>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+
+      <button
+        onClick={() => onConfigure(settings)}
+        className="w-full py-3 rounded-lg bg-healing-primary text-grounding-darkest font-medium"
+      >
+        Save and Continue
+      </button>
+    </div>
+  );
+}
+```
+
+---
+
+## Choice Architecture
+
+### Meaningful Choices
+
+```tsx
+interface NarrativeChoice {
+  id: string;
+  text: string;
+  subtext?: string;  // Hints at emotional direction
+  emotion?: 'hopeful' | 'cautious' | 'honest' | 'protective' | 'vulnerable';
+  consequence?: 'immediate' | 'delayed' | 'subtle';
+}
+
+function NarrativeChoiceUI({
+  prompt,
+  choices,
+  onChoose,
+  allowSkip = true,
+}: {
+  prompt: string;
+  choices: NarrativeChoice[];
+  onChoose: (choice: NarrativeChoice) => void;
+  allowSkip?: boolean;
+}) {
+  const [hoveredChoice, setHoveredChoice] = useState<string | null>(null);
+
+  const emotionColors = {
+    hopeful: 'border-healing-primary',
+    cautious: 'border-amber-400',
+    honest: 'border-calm-primary',
+    protective: 'border-purple-400',
+    vulnerable: 'border-pink-400',
+  };
+
+  return (
+    <div className="space-y-6 max-w-2xl mx-auto">
+      {/* Prompt */}
+      <p className="text-lg text-gray-200 text-center italic">
+        {prompt}
+      </p>
+
+      {/* Choices */}
+      <div className="space-y-3">
+        {choices.map(choice => (
+          <button
+            key={choice.id}
+            onClick={() => onChoose(choice)}
+            onMouseEnter={() => setHoveredChoice(choice.id)}
+            onMouseLeave={() => setHoveredChoice(null)}
+            className={`
+              w-full p-4 rounded-lg text-left transition-all duration-200
+              border-2 ${choice.emotion ? emotionColors[choice.emotion] : 'border-grounding-medium'}
+              ${hoveredChoice === choice.id
+                ? 'bg-grounding-medium shadow-lg transform scale-[1.02]'
+                : 'bg-grounding-dark'
+              }
+            `}
+          >
+            <p className="text-gray-200">{choice.text}</p>
+            {choice.subtext && (
+              <p className="text-sm text-gray-500 mt-1 italic">
+                {choice.subtext}
+              </p>
+            )}
+          </button>
+        ))}
+      </div>
+
+      {/* Skip option for difficult moments */}
+      {allowSkip && (
+        <button
+          onClick={() => onChoose({ id: 'skip', text: 'Skip this moment' })}
+          className="w-full text-center text-sm text-gray-500 hover:text-gray-400"
+        >
+          I need to step back from this choice
+        </button>
+      )}
+
+      {/* Choice guidance */}
+      <p className="text-xs text-gray-600 text-center">
+        There are no wrong choices. Each path reveals something different.
+      </p>
+    </div>
+  );
+}
+```
+
+### Validating All Paths
+
+```tsx
+// Example: Processing grief - all responses are valid
+const griefChoices: NarrativeChoice[] = [
+  {
+    id: 'tears',
+    text: '"I can\'t hold it in anymore."',
+    subtext: 'Let the tears come',
+    emotion: 'vulnerable',
+  },
+  {
+    id: 'anger',
+    text: '"This isn\'t fair. None of this is fair."',
+    subtext: 'Feel the anger',
+    emotion: 'honest',
+  },
+  {
+    id: 'numb',
+    text: '"I don\'t feel anything right now."',
+    subtext: 'Acknowledge the numbness',
+    emotion: 'cautious',
+  },
+  {
+    id: 'move',
+    text: '"I need to keep moving. I can\'t stop."',
+    subtext: 'Channel into action',
+    emotion: 'protective',
+  },
+];
+
+// Each leads to different scenes but all are treated as valid grief responses
+// The narrative honors each approach without judgment
+```
+
+---
+
+## Emotional Pacing
+
+### Intensity Management
+
+```tsx
+interface EmotionalBeat {
+  type: 'tension' | 'release' | 'rest' | 'catharsis' | 'hope';
+  intensity: 1 | 2 | 3 | 4 | 5;
+  duration: 'brief' | 'medium' | 'extended';
+}
+
+function StoryPacer({
+  currentBeat,
+  onPaceChange,
+}: {
+  currentBeat: EmotionalBeat;
+  onPaceChange: (pace: 'slower' | 'continue' | 'faster') => void;
+}) {
+  // Show player their emotional journey
+  return (
+    <div className="fixed bottom-4 right-4 p-4 rounded-lg bg-grounding-dark/80 backdrop-blur">
+      <div className="flex items-center gap-3 mb-2">
+        <span className="text-sm text-gray-400">Intensity</span>
+        <div className="flex gap-1">
+          {[1, 2, 3, 4, 5].map(level => (
+            <div
+              key={level}
+              className={`w-2 h-4 rounded ${
+                level <= currentBeat.intensity
+                  ? level <= 2 ? 'bg-healing-primary'
+                    : level <= 4 ? 'bg-amber-400'
+                    : 'bg-red-400'
+                  : 'bg-grounding-medium'
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="flex gap-2">
+        <button
+          onClick={() => onPaceChange('slower')}
+          className="px-3 py-1 text-xs rounded bg-grounding-medium text-gray-300"
+        >
+          I need a moment
+        </button>
+        <button
+          onClick={() => onPaceChange('continue')}
+          className="px-3 py-1 text-xs rounded bg-grounding-medium text-gray-300"
+        >
+          Continue
+        </button>
+      </div>
+    </div>
+  );
+}
+```
+
+### Rest Points
+
+```tsx
+function NarrativeRestPoint({
+  message,
+  duration = 10,
+  onContinue,
+}: {
+  message: string;
+  duration?: number;
+  onContinue: () => void;
+}) {
+  const [canContinue, setCanContinue] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setCanContinue(true), duration * 1000);
+    return () => clearTimeout(timer);
+  }, [duration]);
+
+  return (
+    <div className="min-h-screen flex items-center justify-center p-8">
+      <div className="max-w-md text-center space-y-8">
+        {/* Breathing animation */}
+        <div className="w-24 h-24 mx-auto rounded-full border-4 border-calm-primary/50 animate-breathe" />
+
+        {/* Rest message */}
+        <p className="text-lg text-gray-300">{message}</p>
+
+        <p className="text-sm text-gray-500">
+          Take a moment before continuing.
+        </p>
+
+        {/* Continue button */}
+        <button
+          onClick={onContinue}
+          disabled={!canContinue}
+          className={`
+            px-6 py-3 rounded-lg font-medium transition-all
+            ${canContinue
+              ? 'bg-calm-primary text-grounding-darkest'
+              : 'bg-grounding-medium text-grounding-light opacity-50'
+            }
+          `}
+        >
+          {canContinue ? 'When you\'re ready' : 'Breathing...'}
+        </button>
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+## Safe Spaces
+
+### In-Narrative Safe Rooms
+
+```tsx
+function SafeSpaceRoom({
+  onReturn,
+  resources,
+}: {
+  onReturn: () => void;
+  resources?: Array<{ label: string; url: string }>;
+}) {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-grounding-darkest to-grounding-dark p-8">
+      <div className="max-w-2xl mx-auto space-y-8">
+        {/* Header */}
+        <div className="text-center">
+          <div className="text-4xl mb-4">🏡</div>
+          <h2 className="text-2xl font-semibold text-white">Safe Space</h2>
+          <p className="text-gray-400 mt-2">
+            You've stepped away from the story. Take all the time you need.
+          </p>
+        </div>
+
+        {/* Grounding activities */}
+        <div className="grid gap-4 md:grid-cols-2">
+          <button className="p-6 rounded-xl bg-healing-ghost border border-healing-primary/30 text-left">
+            <span className="text-2xl mb-2 block">🌬️</span>
+            <h3 className="font-medium text-healing-light">Breathing Exercise</h3>
+            <p className="text-sm text-gray-400 mt-1">
+              A gentle guided breathing practice
+            </p>
+          </button>
+
+          <button className="p-6 rounded-xl bg-calm-ghost border border-calm-primary/30 text-left">
+            <span className="text-2xl mb-2 block">🎵</span>
+            <h3 className="font-medium text-calm-light">Calming Sounds</h3>
+            <p className="text-sm text-gray-400 mt-1">
+              Ambient audio to help you settle
+            </p>
+          </button>
+
+          <button className="p-6 rounded-xl bg-sacred-gold-ghost border border-sacred-gold/30 text-left">
+            <span className="text-2xl mb-2 block">📝</span>
+            <h3 className="font-medium text-sacred-gold">Journal</h3>
+            <p className="text-sm text-gray-400 mt-1">
+              Write about what you're feeling
+            </p>
+          </button>
+
+          <button className="p-6 rounded-xl bg-grounding-dark border border-grounding-medium text-left">
+            <span className="text-2xl mb-2 block">🗺️</span>
+            <h3 className="font-medium text-gray-300">Story Map</h3>
+            <p className="text-sm text-gray-400 mt-1">
+              See where you are in the narrative
+            </p>
+          </button>
+        </div>
+
+        {/* Real-world resources */}
+        {resources && resources.length > 0 && (
+          <div className="p-4 rounded-lg bg-grounding-darkest">
+            <h4 className="font-medium text-gray-300 mb-2">
+              If you need support beyond this story:
+            </h4>
+            <ul className="space-y-1">
+              {resources.map(resource => (
+                <li key={resource.url}>
+                  <a
+                    href={resource.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-calm-light hover:underline"
+                  >
+                    {resource.label} ↗
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Return */}
+        <div className="text-center space-y-4">
+          <button
+            onClick={onReturn}
+            className="px-6 py-3 rounded-lg bg-healing-primary text-grounding-darkest font-medium"
+          >
+            Return to Story
+          </button>
+          <p className="text-xs text-gray-500">
+            You can access this space anytime by pressing Escape.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+## Post-Experience Integration
+
+### Reflection Prompts
+
+```tsx
+function PostNarrativeReflection({
+  storyTitle,
+  themes,
+  playerChoices,
+  onComplete,
+}: {
+  storyTitle: string;
+  themes: string[];
+  playerChoices: Array<{ moment: string; choice: string }>;
+  onComplete: () => void;
+}) {
+  const [reflections, setReflections] = useState<Record<string, string>>({});
+
+  const prompts = [
+    "What moment stayed with you the most?",
+    "Was there a choice that surprised you?",
+    "Did any character feel familiar?",
+    "What would you tell your past self about this experience?",
+  ];
+
+  return (
+    <div className="max-w-2xl mx-auto p-8 space-y-8">
+      <div className="text-center">
+        <h2 className="text-2xl font-semibold text-white">
+          Reflecting on {storyTitle}
+        </h2>
+        <p className="text-gray-400 mt-2">
+          Stories can stir things up. This space is for settling.
+        </p>
+      </div>
+
+      {/* Journey summary */}
+      <div className="p-4 rounded-lg bg-grounding-dark">
+        <h3 className="font-medium text-gray-300 mb-3">Your journey touched on:</h3>
+        <div className="flex flex-wrap gap-2">
+          {themes.map(theme => (
+            <span key={theme} className="px-3 py-1 rounded-full bg-calm-ghost text-calm-light text-sm">
+              {theme}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Key choices review */}
+      <div className="space-y-4">
+        <h3 className="font-medium text-gray-300">Choices you made:</h3>
+        {playerChoices.slice(0, 3).map((choice, i) => (
+          <div key={i} className="p-3 rounded-lg bg-grounding-darkest">
+            <p className="text-sm text-gray-500">{choice.moment}</p>
+            <p className="text-gray-300 mt-1">You chose: "{choice.choice}"</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Reflection questions */}
+      <div className="space-y-4">
+        <h3 className="font-medium text-gray-300">Optional reflection:</h3>
+        {prompts.map((prompt, i) => (
+          <div key={i}>
+            <label className="text-sm text-gray-400 block mb-2">
+              {prompt}
+            </label>
+            <textarea
+              value={reflections[prompt] || ''}
+              onChange={(e) => setReflections({ ...reflections, [prompt]: e.target.value })}
+              className="w-full p-3 rounded-lg bg-grounding-darkest border border-grounding-medium text-gray-300 text-sm"
+              rows={2}
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Grounding */}
+      <div className="p-4 rounded-lg bg-healing-ghost text-center">
+        <p className="text-healing-light">
+          Remember: The story is complete. You're here, now, with whatever it brought up.
+        </p>
+      </div>
+
+      <button
+        onClick={onComplete}
+        className="w-full py-3 rounded-lg bg-healing-primary text-grounding-darkest font-medium"
+      >
+        Complete Experience
+      </button>
+    </div>
+  );
+}
+```
+
+---
+
+## Dialogue Patterns
+
+### Therapeutic Dialogue Writing
+
+```tsx
+// Example: Character processing grief through dialogue
+const therapeuticDialogue = [
+  {
+    speaker: 'character',
+    text: "I keep thinking I see them. In crowds. From the corner of my eye.",
+    beat: 'vulnerable',
+  },
+  {
+    speaker: 'player_choice',
+    choices: [
+      { text: "That sounds really disorienting.", emotion: 'validating' },
+      { text: "I do that too sometimes.", emotion: 'connecting' },
+      { text: "...", emotion: 'present', subtext: 'Simply be present' },
+    ],
+  },
+  {
+    speaker: 'character',
+    text: "Is that... normal? Or am I losing it?",
+    beat: 'seeking',
+  },
+  {
+    speaker: 'player_choice',
+    choices: [
+      {
+        text: "Grief does strange things. You're not losing it.",
+        emotion: 'reassuring',
+      },
+      {
+        text: "I don't know what's normal anymore either.",
+        emotion: 'honest',
+      },
+      {
+        text: "What would 'losing it' even mean right now?",
+        emotion: 'curious',
+      },
+    ],
+  },
+];
+
+// Note: All responses lead to meaningful dialogue, none are "wrong"
+```
+
+---
+
+## Implementation Checklist
+
+### Before Development
+- [ ] Consult sensitivity readers for difficult topics
+- [ ] Research therapeutic approaches to your themes
+- [ ] Design content warning system early
+- [ ] Plan emotional pacing curves
+- [ ] Create safe space mechanics
+
+### During Development
+- [ ] Validate all choice paths (no "wrong" answers)
+- [ ] Include escape routes from intense moments
+- [ ] Add breathing/rest points between intense scenes
+- [ ] Test with players who have lived experience
+- [ ] Ensure pacing controls work throughout
+
+### After Development
+- [ ] Provide post-experience integration support
+- [ ] Include real-world resource links where appropriate
+- [ ] Create "making of" content about therapeutic intent
+- [ ] Gather feedback on emotional safety
+- [ ] Iterate based on player experiences
+
+---
+
+## Related Patterns
+
+- [Breathing Spaces](/docs/integration/breathing-spaces) - Pacing mechanics
+- [Gentle Errors](/docs/integration/gentle-errors) - When things go wrong in narrative
+- [Game Healing](/docs/integration/game-healing) - Full game mechanics
+- [Healing Gamification](/docs/integration/healing-gamification) - Progress and achievements

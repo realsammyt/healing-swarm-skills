@@ -1,0 +1,599 @@
+---
+sidebar_position: 8
+title: Project Analysis
+description: AI-powered analysis to identify healing integration opportunities in any codebase
+---
+
+# Project Analysis Skill
+
+**Let AI agents identify healing opportunities in any project.** This skill provides structured prompts, analysis patterns, and reporting templates for systematically evaluating codebases and recommending healing integrations.
+
+---
+
+## Overview
+
+The Project Analysis skill enables healing swarm agents to:
+
+1. **Scan** - Examine codebase structure, patterns, and user flows
+2. **Identify** - Find stress points, harsh interactions, and missed opportunities
+3. **Recommend** - Suggest specific healing integrations with priority
+4. **Generate** - Produce implementation code and migration plans
+
+---
+
+## Quick Start
+
+### Analyze Any Project
+
+```bash
+# Clone the target project
+git clone https://github.com/example/target-project
+cd target-project
+
+# Run healing analysis with Claude
+claude -p "Using the healing-swarm project analysis skill, perform a
+comprehensive healing opportunity assessment of this codebase.
+
+Focus on:
+1. Error handling patterns
+2. User feedback mechanisms
+3. Loading and waiting states
+4. Form interactions
+5. Accessibility gaps
+6. Data consent flows
+
+Generate a prioritized report with specific file locations and
+recommended healing integrations."
+```
+
+---
+
+## Analysis Framework
+
+### The HEAL Assessment Model
+
+```
+H - Harsh Interactions
+    └── Error messages, validation feedback, rejection states
+
+E - Emotional Blind Spots
+    └── Missing acknowledgments, cold confirmations, abrupt transitions
+
+A - Accessibility Gaps
+    └── Keyboard traps, missing labels, poor contrast, no motion control
+
+L - Lost Opportunities
+    └── Places where breathing space, celebration, or care could exist
+```
+
+### Severity Scoring
+
+| Level | Impact | Examples |
+|-------|--------|----------|
+| **Critical** | Causes user distress | Harsh error shaming, data loss without warning |
+| **High** | Significant stress | Cold rejections, confusing flows, accessibility blocks |
+| **Medium** | Missed opportunity | No success celebration, abrupt transitions |
+| **Low** | Enhancement | Could add breathing space, gentle loading |
+
+---
+
+## Agent Prompts
+
+### Comprehensive Analysis Prompt
+
+```markdown
+# Healing Opportunity Analysis
+
+You are a healing integration specialist analyzing a codebase for opportunities
+to add wellness, mindfulness, and ethical design patterns.
+
+## Your Task
+
+Analyze this codebase systematically and produce a healing opportunity report.
+
+## Analysis Areas
+
+### 1. Error Handling Audit
+Scan for:
+- Error message tone (harsh vs supportive)
+- Recovery guidance (present vs absent)
+- Technical jargon exposure to users
+- Blame language ("You failed to..." vs "We couldn't...")
+
+Files to check: **/error*, **/exception*, components with "error" in name,
+catch blocks, .catch() handlers
+
+### 2. User Feedback Assessment
+Scan for:
+- Success state celebrations (or lack thereof)
+- Loading state messaging
+- Empty state communication
+- Form validation feedback tone
+
+Files to check: **/components/*, **/pages/*, forms, modals, notifications
+
+### 3. Transition Analysis
+Scan for:
+- Abrupt state changes
+- Missing confirmation dialogs
+- Instant irreversible actions
+- Context switches without preparation
+
+Files to check: navigation, routing, state management, delete/remove actions
+
+### 4. Accessibility Healing
+Scan for:
+- Missing ARIA labels
+- Keyboard navigation gaps
+- Color contrast issues
+- Motion without reduced-motion support
+- Focus management problems
+
+Files to check: all components, CSS/styles, interactive elements
+
+### 5. Data Ethics Review
+Scan for:
+- Consent mechanisms (or lack thereof)
+- Data collection transparency
+- Privacy control accessibility
+- Deletion capability
+
+Files to check: forms, analytics, tracking, auth, settings
+
+### 6. Pacing & Breathing
+Scan for:
+- Opportunities for intentional pauses
+- High-stress moments needing breathing space
+- Session length without breaks
+- Decision points needing reflection time
+
+## Output Format
+
+Produce a structured report with:
+1. Executive Summary (3-5 key findings)
+2. Critical Issues (must fix)
+3. High Priority Opportunities
+4. Medium Priority Enhancements
+5. Low Priority Nice-to-Haves
+6. Implementation Roadmap
+
+For each finding include:
+- File path and line number
+- Current code/pattern
+- Recommended healing integration
+- Effort estimate (low/medium/high)
+- Sample implementation code
+```
+
+### Quick Scan Prompt
+
+```markdown
+# Quick Healing Scan
+
+Perform a rapid assessment of this codebase for the top 5 healing opportunities.
+
+Focus on:
+1. The harshest error message you can find
+2. The most abrupt user action (no confirmation)
+3. The biggest accessibility gap
+4. The coldest success/failure state
+5. The most obvious missing breathing space
+
+For each, provide:
+- Location (file:line)
+- Current state
+- 3-line fix suggestion
+```
+
+### Component-Specific Prompt
+
+```markdown
+# Component Healing Analysis
+
+Analyze this specific component for healing opportunities:
+
+[PASTE COMPONENT CODE]
+
+Evaluate:
+1. Error states - Are they supportive?
+2. Loading states - Do they reduce anxiety?
+3. Empty states - Are they encouraging?
+4. Interactions - Are they mindful?
+5. Accessibility - Is it inclusive?
+6. Feedback - Does it acknowledge the user?
+
+Provide specific code changes to add healing properties.
+```
+
+---
+
+## Analysis Patterns
+
+### Error Message Scanner
+
+```typescript
+// Pattern to identify harsh error messages
+const harshPatterns = [
+  /error:\s/i,
+  /failed/i,
+  /invalid/i,
+  /wrong/i,
+  /incorrect/i,
+  /denied/i,
+  /rejected/i,
+  /unauthorized/i,
+  /forbidden/i,
+];
+
+const healingAlternatives = {
+  'Error:': "We encountered an issue:",
+  'Failed': "We couldn't complete",
+  'Invalid': "Please check",
+  'Wrong': "That doesn't match",
+  'Incorrect': "Let's try again",
+  'Denied': "Access isn't available",
+  'Rejected': "We couldn't process",
+  'Unauthorized': "Please sign in",
+  'Forbidden': "This area is restricted",
+};
+```
+
+### Accessibility Gap Detector
+
+```typescript
+// Patterns indicating accessibility issues
+const a11yPatterns = {
+  // Missing labels
+  missingLabel: /<(input|button|select)[^>]*(?!aria-label)(?!aria-labelledby)[^>]*>/,
+
+  // Click handlers without keyboard
+  clickWithoutKeyboard: /onClick=[^}]*(?!onKeyDown|onKeyPress)/,
+
+  // Images without alt
+  imgWithoutAlt: /<img[^>]*(?!alt=)[^>]*>/,
+
+  // Div/span as button
+  divAsButton: /<(div|span)[^>]*onClick/,
+};
+```
+
+### Stress Point Identifier
+
+```typescript
+// High-stress interaction patterns
+const stressPoints = [
+  // Irreversible actions without confirmation
+  { pattern: /delete|remove|destroy|clear/i, context: 'onClick' },
+
+  // Large data operations
+  { pattern: /submit|send|post|publish/i, context: 'form' },
+
+  // Financial transactions
+  { pattern: /pay|purchase|buy|checkout/i, context: 'button' },
+
+  // Account actions
+  { pattern: /deactivate|cancel|close.*account/i, context: 'action' },
+];
+```
+
+---
+
+## Report Templates
+
+### Executive Summary Template
+
+```markdown
+# Healing Opportunity Report: [Project Name]
+
+**Analysis Date:** [Date]
+**Analyzed By:** Healing Swarm Agent
+**Codebase Size:** [X files, Y components]
+
+## Executive Summary
+
+This [type of project] has **[X] critical**, **[Y] high**, and **[Z] medium**
+priority healing opportunities identified across [N] files.
+
+### Top 3 Findings
+
+1. **[Finding 1]** - [Brief description] - [Severity]
+2. **[Finding 2]** - [Brief description] - [Severity]
+3. **[Finding 3]** - [Brief description] - [Severity]
+
+### Healing Score
+
+| Category | Score | Notes |
+|----------|-------|-------|
+| Error Handling | X/10 | [Brief assessment] |
+| User Feedback | X/10 | [Brief assessment] |
+| Accessibility | X/10 | [Brief assessment] |
+| Data Ethics | X/10 | [Brief assessment] |
+| Pacing | X/10 | [Brief assessment] |
+| **Overall** | **X/10** | |
+
+### Recommended Priority
+
+1. [First thing to fix]
+2. [Second thing to fix]
+3. [Third thing to fix]
+```
+
+### Detailed Finding Template
+
+```markdown
+## Finding: [Title]
+
+**Severity:** [Critical/High/Medium/Low]
+**Category:** [Error Handling/Feedback/Accessibility/Ethics/Pacing]
+**Location:** `[file/path.tsx:123]`
+**Effort:** [Low/Medium/High]
+
+### Current State
+
+```[language]
+[Current code snippet]
+```
+
+### Issue
+
+[Description of why this is a healing opportunity]
+
+### Recommendation
+
+[Specific recommendation]
+
+### Suggested Implementation
+
+```[language]
+[Healed code snippet]
+```
+
+### Impact
+
+- User Experience: [Description]
+- Accessibility: [Description]
+- Emotional Safety: [Description]
+```
+
+---
+
+## Integration Workflow
+
+### Phase 1: Discovery
+
+```bash
+# 1. Clone and explore
+git clone [target-repo]
+cd [target-repo]
+
+# 2. Run quick scan
+claude -p "Quick healing scan of this codebase. Top 5 opportunities."
+
+# 3. Review findings
+# Agent produces initial report
+```
+
+### Phase 2: Deep Analysis
+
+```bash
+# Run comprehensive analysis
+claude -p "Full HEAL assessment using healing-swarm project analysis skill.
+Generate complete report with implementation roadmap."
+```
+
+### Phase 3: Implementation Planning
+
+```bash
+# Generate implementation plan
+claude -p "Based on the healing analysis, create a phased implementation
+plan. Start with critical issues, then high priority. Include:
+1. Specific file changes
+2. New components needed
+3. Testing approach
+4. Rollout strategy"
+```
+
+### Phase 4: Code Generation
+
+```bash
+# Generate healing components
+claude -p "Generate the healing integration components identified in
+the analysis. Use the healing-swarm component patterns. Include:
+1. GentleError replacements
+2. BreathePause for critical actions
+3. Accessibility fixes
+4. Updated copy for harsh messages"
+```
+
+---
+
+## Example Analysis Output
+
+### Sample Finding: Harsh Delete Confirmation
+
+```markdown
+## Finding: Harsh Account Deletion Flow
+
+**Severity:** Critical
+**Category:** Error Handling + Pacing
+**Location:** `src/pages/Settings/DeleteAccount.tsx:45`
+**Effort:** Medium
+
+### Current State
+
+```tsx
+<button onClick={() => deleteAccount()}>
+  Delete Account
+</button>
+
+// In deleteAccount():
+if (!confirm("Delete your account? This cannot be undone.")) return;
+```
+
+### Issue
+
+- No breathing space before irreversible action
+- Browser confirm() is cold and jarring
+- No acknowledgment of what will be lost
+- No suggestion to export data first
+
+### Recommendation
+
+Replace with MindfulTransition + data export prompt + phased confirmation.
+
+### Suggested Implementation
+
+```tsx
+function DeleteAccountFlow() {
+  const [stage, setStage] = useState<'initial' | 'export' | 'breathe' | 'confirm'>('initial');
+
+  if (stage === 'export') {
+    return (
+      <div className="space-y-4">
+        <h3>Before you go...</h3>
+        <p>Would you like to download your data first?</p>
+        <button onClick={exportData}>Download My Data</button>
+        <button onClick={() => setStage('breathe')}>Skip</button>
+      </div>
+    );
+  }
+
+  if (stage === 'breathe') {
+    return (
+      <BreathePause
+        duration={5}
+        message="You're about to delete your account"
+        subtext="Take a moment to be certain. This cannot be undone."
+        onComplete={() => setStage('confirm')}
+        onCancel={() => setStage('initial')}
+      />
+    );
+  }
+
+  if (stage === 'confirm') {
+    return (
+      <SafetyConsent
+        title="Final Confirmation"
+        body="Deleting your account will permanently remove all your data,
+              including [list what they lose]. We're sad to see you go."
+        checkboxLabel="I understand this is permanent and want to proceed"
+        confirmLabel="Yes, Delete My Account"
+        onConfirm={deleteAccount}
+        onCancel={() => setStage('initial')}
+      />
+    );
+  }
+
+  return (
+    <button onClick={() => setStage('export')}>
+      Delete Account...
+    </button>
+  );
+}
+```
+
+### Impact
+
+- User Experience: Transforms cold deletion into caring farewell
+- Accessibility: Proper dialog semantics, keyboard support
+- Emotional Safety: Breathing space prevents regret
+```
+
+---
+
+## Specialized Analyzers
+
+### React/Next.js Analyzer
+
+```markdown
+Analyze this React/Next.js codebase for healing opportunities.
+
+Special focus:
+- Error boundaries (are they gentle?)
+- Loading.tsx files (calming or anxiety-inducing?)
+- Form libraries (validation tone)
+- Toast/notification systems
+- Modal implementations
+- Route transitions
+```
+
+### API/Backend Analyzer
+
+```markdown
+Analyze this API codebase for healing opportunities in responses.
+
+Special focus:
+- Error response formats
+- Validation error messages
+- Rate limiting messages
+- Auth failure responses
+- Timeout handling
+- Status codes and messages
+```
+
+### Mobile App Analyzer
+
+```markdown
+Analyze this mobile app codebase for healing opportunities.
+
+Special focus:
+- Permission request flows
+- Push notification tone
+- Offline state handling
+- App review prompts
+- Onboarding friction
+- Gesture feedback
+```
+
+---
+
+## Continuous Integration
+
+### Pre-Commit Hook
+
+```bash
+#!/bin/bash
+# .git/hooks/pre-commit
+
+# Run healing lint on changed files
+changed_files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(tsx?|jsx?)$')
+
+if [ -n "$changed_files" ]; then
+  echo "Running healing lint..."
+  npx healing-lint $changed_files
+fi
+```
+
+### CI/CD Integration
+
+```yaml
+# .github/workflows/healing-check.yml
+name: Healing Check
+
+on: [pull_request]
+
+jobs:
+  healing-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Healing Analysis
+        run: |
+          npx healing-swarm analyze --format github
+
+      - name: Comment PR
+        uses: actions/github-script@v6
+        with:
+          script: |
+            // Post analysis results as PR comment
+```
+
+---
+
+## Related Skills
+
+- [Gentle Errors](/docs/integration/gentle-errors) - Implement error recommendations
+- [Breathing Spaces](/docs/integration/breathing-spaces) - Add recommended pauses
+- [Accessibility Healing](/docs/integration/accessibility-healing) - Fix identified gaps
+- [Healing Gamification](/docs/integration/healing-gamification) - Add engagement patterns

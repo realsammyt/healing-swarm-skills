@@ -1,0 +1,658 @@
+---
+sidebar_position: 9
+title: Healing Gamification
+description: Non-manipulative, wellness-focused engagement patterns
+---
+
+# Healing Gamification
+
+**Engagement that heals, not hooks.** Traditional gamification exploits psychology for engagement metrics. Healing gamification uses the same mechanics to support genuine wellbeing, growth, and connection.
+
+---
+
+## The Distinction
+
+| Dark Gamification | Healing Gamification |
+|-------------------|---------------------|
+| Exploits loss aversion | Celebrates progress |
+| Creates FOMO | Respects boundaries |
+| Punishes breaks | Welcomes returns |
+| Hides manipulation | Transparent mechanics |
+| Optimizes for time-on-app | Optimizes for life improvement |
+| Streak anxiety | Streak compassion |
+| Social comparison | Social support |
+| Variable rewards (slot machine) | Meaningful acknowledgment |
+
+---
+
+## Core Principles
+
+### 1. Progress Over Perfection
+Celebrate every step forward, not just completion.
+
+### 2. Compassionate Streaks
+Streaks should encourage, not punish. Breaking a streak is human, not failure.
+
+### 3. Intrinsic Motivation
+External rewards point toward internal satisfaction, then fade.
+
+### 4. Social Healing
+Connection for support, not competition.
+
+### 5. Transparent Mechanics
+Users should understand why features exist and how they work.
+
+---
+
+## Healing Progress Systems
+
+### Journey Visualization
+
+```tsx
+interface HealingJourneyProps {
+  milestones: Array<{
+    id: string;
+    title: string;
+    description: string;
+    achieved: boolean;
+    achievedDate?: Date;
+  }>;
+  currentPosition: number;
+  totalSteps: number;
+}
+
+export function HealingJourney({
+  milestones,
+  currentPosition,
+  totalSteps,
+}: HealingJourneyProps) {
+  const progress = (currentPosition / totalSteps) * 100;
+
+  return (
+    <div className="space-y-6">
+      {/* Progress bar */}
+      <div className="relative">
+        <div className="h-2 bg-grounding-medium rounded-full overflow-hidden">
+          <div
+            className="h-full bg-gradient-to-r from-healing-primary to-calm-primary transition-all duration-1000"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+        <p className="text-sm text-gray-400 mt-2">
+          Step {currentPosition} of {totalSteps} on your journey
+        </p>
+      </div>
+
+      {/* Milestones */}
+      <div className="space-y-4">
+        {milestones.map((milestone, index) => (
+          <div
+            key={milestone.id}
+            className={`p-4 rounded-lg border-2 transition-all ${
+              milestone.achieved
+                ? 'border-healing-primary bg-healing-ghost'
+                : index === milestones.findIndex(m => !m.achieved)
+                ? 'border-calm-primary bg-calm-ghost animate-pulse-slow'
+                : 'border-grounding-medium bg-grounding-dark/50 opacity-60'
+            }`}
+          >
+            <div className="flex items-center gap-3">
+              <div
+                className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                  milestone.achieved
+                    ? 'bg-healing-primary text-grounding-darkest'
+                    : 'bg-grounding-medium text-grounding-light'
+                }`}
+              >
+                {milestone.achieved ? '✓' : index + 1}
+              </div>
+              <div>
+                <h4 className="font-medium text-gray-200">{milestone.title}</h4>
+                <p className="text-sm text-gray-400">{milestone.description}</p>
+                {milestone.achievedDate && (
+                  <p className="text-xs text-healing-light mt-1">
+                    Achieved {milestone.achievedDate.toLocaleDateString()}
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Encouragement */}
+      <div className="text-center p-4 bg-grounding-dark rounded-lg">
+        <p className="text-gray-300">
+          {progress < 25 && "Every journey begins with a single step. You've begun. 🌱"}
+          {progress >= 25 && progress < 50 && "You're building momentum. Keep going. 🌿"}
+          {progress >= 50 && progress < 75 && "Halfway there! Your dedication shows. 🌳"}
+          {progress >= 75 && progress < 100 && "The summit is in sight. You've got this. 🏔️"}
+          {progress >= 100 && "You did it. Take a moment to honor your journey. ✨"}
+        </p>
+      </div>
+    </div>
+  );
+}
+```
+
+### Compassionate Streaks
+
+```tsx
+interface CompassionateStreakProps {
+  currentStreak: number;
+  longestStreak: number;
+  lastActiveDate: Date;
+  gracePeriodDays?: number;
+}
+
+export function CompassionateStreak({
+  currentStreak,
+  longestStreak,
+  lastActiveDate,
+  gracePeriodDays = 2,
+}: CompassionateStreakProps) {
+  const today = new Date();
+  const daysSinceActive = Math.floor(
+    (today.getTime() - lastActiveDate.getTime()) / (1000 * 60 * 60 * 24)
+  );
+
+  const streakStatus =
+    daysSinceActive === 0 ? 'active' :
+    daysSinceActive <= gracePeriodDays ? 'grace' :
+    'broken';
+
+  return (
+    <div className="p-6 rounded-xl bg-grounding-dark border border-grounding-medium">
+      {/* Current streak */}
+      <div className="text-center mb-6">
+        <div className="text-5xl font-bold text-healing-primary mb-2">
+          {currentStreak}
+        </div>
+        <p className="text-gray-400">day streak</p>
+      </div>
+
+      {/* Status message */}
+      <div className={`p-4 rounded-lg text-center mb-4 ${
+        streakStatus === 'active' ? 'bg-healing-ghost text-healing-light' :
+        streakStatus === 'grace' ? 'bg-calm-ghost text-calm-light' :
+        'bg-grounding-medium text-gray-300'
+      }`}>
+        {streakStatus === 'active' && (
+          <>
+            <p className="font-medium">You're here today! 🌟</p>
+            <p className="text-sm opacity-80">Your presence matters.</p>
+          </>
+        )}
+        {streakStatus === 'grace' && (
+          <>
+            <p className="font-medium">Welcome back! 💙</p>
+            <p className="text-sm opacity-80">
+              Life happens. You have {gracePeriodDays - daysSinceActive + 1} days
+              to continue your streak—no pressure.
+            </p>
+          </>
+        )}
+        {streakStatus === 'broken' && (
+          <>
+            <p className="font-medium">Fresh start 🌱</p>
+            <p className="text-sm opacity-80">
+              Streaks measure consistency, not worth.
+              You reached {longestStreak} days before—you can do it again.
+            </p>
+          </>
+        )}
+      </div>
+
+      {/* Streak comparison - supportive, not shaming */}
+      {longestStreak > currentStreak && (
+        <p className="text-center text-sm text-gray-500">
+          Your longest streak: {longestStreak} days.
+          <br />
+          <span className="text-gray-400">
+            That's still part of your journey.
+          </span>
+        </p>
+      )}
+
+      {/* Grace period explanation */}
+      <div className="mt-4 p-3 bg-grounding-darkest rounded-lg">
+        <p className="text-xs text-gray-500 text-center">
+          💡 We include a {gracePeriodDays}-day grace period because
+          life doesn't always go as planned—and that's okay.
+        </p>
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+## Achievement Systems
+
+### Meaningful Achievements
+
+```tsx
+interface Achievement {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  category: 'milestone' | 'growth' | 'connection' | 'exploration';
+  unlockedAt?: Date;
+  reflection?: string; // User's note about why this mattered
+}
+
+export function AchievementUnlock({ achievement }: { achievement: Achievement }) {
+  const [showReflection, setShowReflection] = useState(false);
+  const [reflection, setReflection] = useState(achievement.reflection || '');
+
+  return (
+    <div className="fixed inset-0 flex items-center justify-center bg-grounding-darkest/90 z-50">
+      <div className="max-w-md w-full mx-4 text-center space-y-6 animate-breathe">
+        {/* Achievement icon */}
+        <div className="text-6xl animate-bounce-slow">
+          {achievement.icon}
+        </div>
+
+        {/* Title */}
+        <div>
+          <p className="text-sm text-healing-light uppercase tracking-wide mb-2">
+            Achievement Unlocked
+          </p>
+          <h2 className="text-2xl font-bold text-white">
+            {achievement.title}
+          </h2>
+          <p className="text-gray-400 mt-2">
+            {achievement.description}
+          </p>
+        </div>
+
+        {/* Reflection prompt */}
+        {!showReflection ? (
+          <button
+            onClick={() => setShowReflection(true)}
+            className="text-sm text-calm-light hover:text-calm-primary"
+          >
+            + Add a reflection (optional)
+          </button>
+        ) : (
+          <div className="space-y-3">
+            <textarea
+              value={reflection}
+              onChange={(e) => setReflection(e.target.value)}
+              placeholder="What does this achievement mean to you?"
+              className="w-full p-3 rounded-lg bg-grounding-dark border border-grounding-medium text-gray-300 text-sm"
+              rows={3}
+            />
+            <p className="text-xs text-gray-500">
+              Your reflection is private and helps you remember why this mattered.
+            </p>
+          </div>
+        )}
+
+        {/* Dismiss */}
+        <button
+          onClick={() => {/* save and close */}}
+          className="px-6 py-3 rounded-lg bg-healing-primary text-grounding-darkest font-medium"
+        >
+          Continue Journey
+        </button>
+      </div>
+    </div>
+  );
+}
+```
+
+### Achievement Categories
+
+```tsx
+const healingAchievements = {
+  milestone: [
+    {
+      id: 'first-step',
+      title: 'First Step',
+      description: 'You began your healing journey',
+      icon: '🌱',
+    },
+    {
+      id: 'week-one',
+      title: 'One Week',
+      description: 'Seven days of showing up for yourself',
+      icon: '🌿',
+    },
+    {
+      id: 'month-one',
+      title: 'One Month',
+      description: 'A full month of dedication',
+      icon: '🌳',
+    },
+  ],
+
+  growth: [
+    {
+      id: 'tried-something-new',
+      title: 'Explorer',
+      description: 'You tried a new practice',
+      icon: '🧭',
+    },
+    {
+      id: 'pushed-through',
+      title: 'Resilient',
+      description: 'You continued when it was hard',
+      icon: '💪',
+    },
+    {
+      id: 'returned-after-break',
+      title: 'Returner',
+      description: 'You came back after time away',
+      icon: '🦋',
+    },
+  ],
+
+  connection: [
+    {
+      id: 'shared-journey',
+      title: 'Connector',
+      description: 'You shared your journey with someone',
+      icon: '🤝',
+    },
+    {
+      id: 'supported-other',
+      title: 'Supporter',
+      description: 'You encouraged another traveler',
+      icon: '💝',
+    },
+  ],
+
+  exploration: [
+    {
+      id: 'all-categories',
+      title: 'Well-Rounded',
+      description: 'You explored every practice category',
+      icon: '🌈',
+    },
+    {
+      id: 'deep-dive',
+      title: 'Deep Diver',
+      description: 'You went deep into one practice',
+      icon: '🔮',
+    },
+  ],
+};
+```
+
+---
+
+## Social Healing
+
+### Supportive Communities
+
+```tsx
+function HealingCircle({ members, currentUser }) {
+  return (
+    <div className="space-y-6">
+      <div className="text-center">
+        <h3 className="text-lg font-medium text-white">Your Healing Circle</h3>
+        <p className="text-sm text-gray-400">
+          Walking together, at our own paces
+        </p>
+      </div>
+
+      {/* Circle visualization */}
+      <div className="relative h-64 flex items-center justify-center">
+        {members.map((member, index) => {
+          const angle = (index / members.length) * 2 * Math.PI - Math.PI / 2;
+          const radius = 80;
+          const x = Math.cos(angle) * radius;
+          const y = Math.sin(angle) * radius;
+
+          return (
+            <div
+              key={member.id}
+              className="absolute transition-all duration-500"
+              style={{
+                transform: `translate(${x}px, ${y}px)`,
+              }}
+            >
+              <div className={`
+                w-12 h-12 rounded-full flex items-center justify-center
+                border-2 ${member.activeToday ? 'border-healing-primary' : 'border-grounding-medium'}
+                ${member.id === currentUser.id ? 'ring-2 ring-calm-primary ring-offset-2 ring-offset-grounding-darkest' : ''}
+              `}>
+                {member.avatar}
+              </div>
+              {member.activeToday && (
+                <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-healing-primary rounded-full flex items-center justify-center text-xs">
+                  ✓
+                </div>
+              )}
+            </div>
+          );
+        })}
+
+        {/* Center message */}
+        <div className="text-center">
+          <p className="text-2xl font-bold text-healing-primary">
+            {members.filter(m => m.activeToday).length}
+          </p>
+          <p className="text-xs text-gray-400">practicing today</p>
+        </div>
+      </div>
+
+      {/* Encouragement, not competition */}
+      <div className="p-4 bg-grounding-dark rounded-lg text-center">
+        <p className="text-gray-300">
+          {members.filter(m => m.activeToday).length > 1
+            ? "You're not alone on this path. 💙"
+            : "Your presence ripples outward. 🌊"
+          }
+        </p>
+      </div>
+    </div>
+  );
+}
+```
+
+### Anonymous Encouragement
+
+```tsx
+function AnonymousEncouragement() {
+  const [message, setMessage] = useState('');
+  const [sent, setSent] = useState(false);
+
+  const prompts = [
+    "Share something that helped you today...",
+    "What would you tell someone just starting?",
+    "A small win you're proud of...",
+  ];
+
+  if (sent) {
+    return (
+      <div className="p-6 rounded-xl bg-healing-ghost text-center">
+        <p className="text-healing-light">
+          Your encouragement has been shared anonymously. 🌟
+        </p>
+        <p className="text-sm text-gray-400 mt-2">
+          It may help someone who needs it today.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="p-6 rounded-xl bg-grounding-dark border border-grounding-medium">
+      <h4 className="font-medium text-white mb-3">Leave Encouragement</h4>
+      <p className="text-sm text-gray-400 mb-4">
+        {prompts[Math.floor(Math.random() * prompts.length)]}
+      </p>
+      <textarea
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        className="w-full p-3 rounded-lg bg-grounding-darkest border border-grounding-medium text-gray-300"
+        rows={3}
+        maxLength={280}
+      />
+      <div className="flex justify-between items-center mt-3">
+        <span className="text-xs text-gray-500">{message.length}/280</span>
+        <button
+          onClick={() => setSent(true)}
+          disabled={!message.trim()}
+          className="px-4 py-2 rounded-lg bg-healing-primary text-grounding-darkest font-medium disabled:opacity-50"
+        >
+          Share Anonymously
+        </button>
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+## Progress Celebrations
+
+### Mindful Celebrations
+
+```tsx
+export function ProgressCelebration({
+  achievement,
+  onContinue,
+}: {
+  achievement: string;
+  onContinue: () => void;
+}) {
+  const [phase, setPhase] = useState<'celebrate' | 'reflect' | 'continue'>('celebrate');
+
+  return (
+    <div className="fixed inset-0 flex items-center justify-center bg-grounding-darkest/95 z-50">
+      <div className="max-w-md w-full mx-4 p-8 text-center">
+        {phase === 'celebrate' && (
+          <div className="space-y-6 animate-fade-in">
+            <div className="text-6xl">🎉</div>
+            <h2 className="text-2xl font-bold text-white">{achievement}</h2>
+            <p className="text-gray-400">
+              Take a moment to acknowledge this.
+            </p>
+            <button
+              onClick={() => setPhase('reflect')}
+              className="px-6 py-3 rounded-lg bg-healing-primary text-grounding-darkest"
+            >
+              Let it land
+            </button>
+          </div>
+        )}
+
+        {phase === 'reflect' && (
+          <div className="space-y-6 animate-fade-in">
+            <div className="text-4xl animate-breathe">✨</div>
+            <p className="text-gray-300">
+              This didn't happen by accident.
+              <br />
+              <span className="text-healing-light">You showed up.</span>
+            </p>
+            <p className="text-sm text-gray-500">
+              Breathe in this moment.
+            </p>
+            <button
+              onClick={() => setPhase('continue')}
+              className="px-6 py-3 rounded-lg border border-gray-600 text-gray-300"
+            >
+              Ready to continue
+            </button>
+          </div>
+        )}
+
+        {phase === 'continue' && (
+          <div className="space-y-6 animate-fade-in">
+            <div className="text-4xl">🌱</div>
+            <p className="text-gray-300">
+              The journey continues.
+              <br />
+              What's calling to you next?
+            </p>
+            <button
+              onClick={onContinue}
+              className="px-6 py-3 rounded-lg bg-healing-primary text-grounding-darkest"
+            >
+              Let's go
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+## Anti-Patterns to Avoid
+
+### Never Do This
+
+```tsx
+// ❌ Loss-aversion manipulation
+"You'll lose your 50-day streak if you don't practice today!"
+
+// ❌ Social comparison shaming
+"You're ranked #847 out of 1000 users"
+
+// ❌ FOMO creation
+"Limited time offer! This reward expires in 2 hours!"
+
+// ❌ Variable reward manipulation
+"Spin the wheel to see what you won!"
+
+// ❌ Artificial scarcity
+"Only 3 slots left in today's meditation!"
+
+// ❌ Guilt-inducing push notifications
+"We miss you! Your plants are dying! 🥺"
+```
+
+### Do This Instead
+
+```tsx
+// ✅ Celebrate presence
+"Welcome back! Every return is a victory."
+
+// ✅ Personal progress
+"You've grown 23% in consistency this month—compared to yourself."
+
+// ✅ Respectful invitations
+"New practice available when you're ready."
+
+// ✅ Meaningful rewards
+"You've unlocked a reflection on patience."
+
+// ✅ Abundant access
+"All practices are always available to you."
+
+// ✅ Gentle reminders
+"Just checking in. No pressure—we're here when you need us."
+```
+
+---
+
+## Implementation Checklist
+
+- [ ] Progress systems show personal growth, not comparison
+- [ ] Streaks have grace periods and compassionate breaks
+- [ ] Achievements include reflection opportunities
+- [ ] Social features emphasize support, not competition
+- [ ] Celebrations include space to absorb the moment
+- [ ] Notifications are respectful and opt-in
+- [ ] Rewards are meaningful, not manipulative
+- [ ] Users understand why gamification exists
+- [ ] Breaking streaks doesn't trigger shame
+- [ ] Return after absence is celebrated
+
+---
+
+## Related Patterns
+
+- [Breathing Spaces](/docs/integration/breathing-spaces) - Pause during achievements
+- [Mindful Interactions](/docs/integration/mindful-interactions) - Intentional engagement
+- [Narrative Healing](/docs/integration/narrative-healing) - Story-driven progress
+- [Game Healing](/docs/integration/game-healing) - Full game mechanics

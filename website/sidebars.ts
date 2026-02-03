@@ -37,6 +37,10 @@ const sidebars: SidebarsConfig = {
         'integration/mindful-interactions',
         'integration/accessibility-healing',
         'integration/ethical-data',
+        'integration/project-analysis',
+        'integration/healing-gamification',
+        'integration/narrative-healing',
+        'integration/game-healing',
       ],
     },
     {
