@@ -1,0 +1,308 @@
+---
+sidebar_position: 8
+title: Integration Skill
+description: Add healing properties to any project, regardless of its main focus
+---
+
+# Integration Skill
+
+**Add healing properties to any project.** Whether you're building a productivity app, e-commerce site, developer tool, or game—this skill helps you weave wellness, mindfulness, and ethical design into your existing codebase.
+
+---
+
+## Why Integrate Healing?
+
+Every digital interaction affects human wellbeing. A harsh error message increases stress. A gentle loading state creates space for breath. Accessible design includes rather than excludes. Ethical data practices build trust.
+
+**Healing integration isn't about changing what your app does—it's about changing how it feels.**
+
+### The Ripple Effect
+
+```
+Your App + Healing Properties =
+  ├── Reduced user stress
+  ├── Increased accessibility
+  ├── Better error recovery
+  ├── More mindful interactions
+  ├── Ethical data handling
+  └── Calmer user experience
+```
+
+---
+
+## Integration Patterns
+
+Choose the patterns that fit your project:
+
+| Pattern | Best For | Effort |
+|---------|----------|--------|
+| [UI Wellness](/docs/integration/ui-wellness) | Any frontend | Low |
+| [Mindful Interactions](/docs/integration/mindful-interactions) | User-facing apps | Medium |
+| [Accessibility Healing](/docs/integration/accessibility-healing) | All projects | Medium |
+| [Gentle Errors](/docs/integration/gentle-errors) | Error-prone flows | Low |
+| [Ethical Data](/docs/integration/ethical-data) | Data-collecting apps | Medium |
+| [Breathing Spaces](/docs/integration/breathing-spaces) | High-intensity apps | Low |
+
+---
+
+## Quick Start
+
+### 1. Install Components
+
+```bash
+# Copy the healing components to your project
+npx degit realsammyt/healing-swarm-skills/website/src/components/healing ./src/components/healing
+```
+
+Or install individual patterns:
+
+```bash
+# Just the lightweight integration components
+npx degit realsammyt/healing-swarm-skills/website/src/components/integration ./src/components/integration
+```
+
+### 2. Add Your First Healing Touch
+
+**Before (harsh error):**
+```tsx
+{error && <div className="error">Error: {error.message}</div>}
+```
+
+**After (gentle error):**
+```tsx
+import { GentleError } from './components/integration';
+
+{error && (
+  <GentleError
+    message="Something unexpected happened"
+    suggestion="Take a breath. We'll help you through this."
+    onRetry={handleRetry}
+  />
+)}
+```
+
+### 3. Add Breathing Spaces
+
+High-intensity moments benefit from intentional pauses:
+
+```tsx
+import { BreathePause } from './components/integration';
+
+// Before a stressful action
+<BreathePause
+  duration={3}
+  message="Take a moment before continuing"
+  onComplete={proceedWithAction}
+/>
+```
+
+---
+
+## Integration Checklist
+
+Use this checklist to assess healing integration opportunities:
+
+### UI/UX Layer
+- [ ] **Colors**: Are they calming or jarring?
+- [ ] **Typography**: Is it readable and comfortable?
+- [ ] **Spacing**: Does content have room to breathe?
+- [ ] **Animations**: Gentle or abrupt?
+- [ ] **Loading states**: Anxiety-inducing or reassuring?
+
+### Interaction Layer
+- [ ] **Error messages**: Harsh or supportive?
+- [ ] **Success states**: Celebratory or matter-of-fact?
+- [ ] **Confirmations**: Clear consent or buried checkboxes?
+- [ ] **Transitions**: Smooth or jarring?
+- [ ] **Pace**: Rushed or allowing natural rhythm?
+
+### Data Layer
+- [ ] **Collection**: Minimal and transparent?
+- [ ] **Storage**: Secure and respectful?
+- [ ] **Consent**: Informed and revocable?
+- [ ] **Deletion**: Easy and complete?
+
+### Accessibility Layer
+- [ ] **Screen readers**: Full support?
+- [ ] **Keyboard navigation**: Complete?
+- [ ] **Color contrast**: WCAG AA minimum?
+- [ ] **Motion sensitivity**: Reduced motion support?
+- [ ] **Cognitive load**: Manageable complexity?
+
+---
+
+## Integration Examples
+
+### E-Commerce Site
+
+```tsx
+// Checkout flow with breathing space before purchase
+function Checkout() {
+  const [showPause, setShowPause] = useState(false);
+
+  const handleCheckout = () => {
+    setShowPause(true); // Offer a moment before big decision
+  };
+
+  if (showPause) {
+    return (
+      <MindfulTransition
+        message="You're about to complete your purchase"
+        subtext="Take a moment to review. There's no rush."
+        duration={5}
+        onContinue={processPayment}
+        onCancel={() => setShowPause(false)}
+      />
+    );
+  }
+
+  return <CheckoutForm onSubmit={handleCheckout} />;
+}
+```
+
+### Developer Tool
+
+```tsx
+// Gentle error handling for CLI output
+function CommandOutput({ result, error }) {
+  if (error) {
+    return (
+      <GentleError
+        message="Command encountered an issue"
+        technical={error.message}
+        suggestions={[
+          "Check your syntax",
+          "Verify permissions",
+          "Try with --verbose for details"
+        ]}
+        tone="technical" // Respects developer context
+      />
+    );
+  }
+
+  return <SuccessOutput result={result} />;
+}
+```
+
+### Productivity App
+
+```tsx
+// Wellbeing check-in during long sessions
+function useWellbeingReminder(intervalMinutes = 45) {
+  const [showReminder, setShowReminder] = useState(false);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setShowReminder(true);
+    }, intervalMinutes * 60 * 1000);
+
+    return () => clearInterval(timer);
+  }, [intervalMinutes]);
+
+  return {
+    showReminder,
+    dismissReminder: () => setShowReminder(false),
+    WellbeingReminder: () => showReminder ? (
+      <WellbeingCheck
+        message="You've been working for a while"
+        suggestions={[
+          "Stretch your shoulders",
+          "Look at something distant",
+          "Take three deep breaths"
+        ]}
+        onDismiss={() => setShowReminder(false)}
+      />
+    ) : null
+  };
+}
+```
+
+---
+
+## Design Tokens
+
+Use these healing-focused design tokens in any project:
+
+```css
+:root {
+  /* Healing Greens - Growth, calm, success */
+  --healing-primary: #2dd284;
+  --healing-dark: #1fa865;
+  --healing-light: #86efac;
+  --healing-ghost: rgba(45, 210, 132, 0.1);
+
+  /* Calm Blues - Trust, stability, peace */
+  --calm-primary: #38bdf8;
+  --calm-dark: #0ea5e9;
+  --calm-light: #7dd3fc;
+
+  /* Sacred Golds - Wisdom, warmth, tradition */
+  --sacred-gold: #fbbf24;
+  --sacred-gold-dark: #f59e0b;
+
+  /* Grounding Neutrals - Stability, depth */
+  --grounding-darkest: #0f172a;
+  --grounding-dark: #1e293b;
+  --grounding-medium: #334155;
+  --grounding-light: #475569;
+
+  /* Gentle Shadows */
+  --shadow-healing: 0 0 20px rgba(45, 210, 132, 0.4);
+  --shadow-calm: 0 0 20px rgba(56, 189, 248, 0.4);
+
+  /* Breathing Animations */
+  --breathe-duration: 4s;
+  --pulse-duration: 3s;
+}
+```
+
+---
+
+## Swarm Integration
+
+Use healing swarm agents to assist integration:
+
+```bash
+# Analyze your project for integration opportunities
+claude -p "Using the healing-swarm integration skill, analyze this codebase
+for opportunities to add healing properties. Focus on error handling,
+loading states, and user feedback patterns."
+
+# Generate healing components for your stack
+claude -p "Generate healing integration components for a React/Next.js
+e-commerce project. Include gentle errors, breathing pauses, and
+wellbeing check-ins."
+```
+
+---
+
+## Principles
+
+When integrating healing properties, remember:
+
+### 1. Respect Context
+A meditation app and a tax filing app need different approaches. Match the healing intensity to user expectations.
+
+### 2. Make It Optional
+Healing features should enhance, not obstruct. Always provide ways to proceed quickly if users prefer.
+
+### 3. Avoid Manipulation
+Healing is not a dark pattern. Don't use calming design to hide bad practices or manipulate decisions.
+
+### 4. Start Small
+One gentle error message is better than a complete overhaul that never ships. Integrate incrementally.
+
+### 5. Measure Impact
+Track user satisfaction, task completion, and stress indicators. Healing integration should improve metrics, not just feelings.
+
+---
+
+## Next Steps
+
+- **[UI Wellness Pattern](/docs/integration/ui-wellness)** - Color, typography, and spacing for calm
+- **[Component Library](/docs/components)** - Pre-built healing components
+- **[Ethics Framework](/docs/ethics)** - Principles guiding integration decisions
+
+---
+
+*"Every interaction is an opportunity for healing—or harm. Choose wisely."*

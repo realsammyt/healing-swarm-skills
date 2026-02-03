@@ -63,6 +63,11 @@ const config: Config = {
           position: 'left',
         },
         {
+          to: '/docs/integration',
+          label: 'Integration',
+          position: 'left',
+        },
+        {
           to: '/docs/components',
           label: 'Components',
           position: 'left',

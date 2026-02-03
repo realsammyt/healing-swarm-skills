@@ -1,0 +1,480 @@
+---
+sidebar_position: 6
+title: Accessibility Healing
+description: Inclusive design as an act of healing
+---
+
+# Accessibility Healing Pattern
+
+Accessibility is healing. When we design for the full spectrum of human ability, we create experiences that welcome rather than exclude. This pattern goes beyond compliance to genuine inclusion.
+
+---
+
+## The Philosophy
+
+Traditional accessibility is about compliance: meeting WCAG standards, avoiding lawsuits, checking boxes.
+
+**Accessibility healing** reframes inclusion as an act of care:
+- Every person excluded is a healing opportunity missed
+- Accessible design benefits everyone, not just those with disabilities
+- Inclusion communicates: "You belong here"
+
+---
+
+## Core Principles
+
+### 1. Universal Design First
+Design for the edges, and the center benefits too.
+
+### 2. Multiple Modalities
+Offer information through multiple senses (visual, auditory, tactile).
+
+### 3. User Control
+Let users adjust the experience to their needs.
+
+### 4. Graceful Degradation
+Core functionality works even when enhancements fail.
+
+---
+
+## Visual Accessibility
+
+### Color Contrast
+
+```css
+/* Minimum contrast ratios */
+:root {
+  /* Text on backgrounds - aim for 7:1 (AAA) not just 4.5:1 (AA) */
+  --text-primary: #f1f5f9;      /* On #0f172a: 15.3:1 ✓ */
+  --text-secondary: #94a3b8;    /* On #0f172a: 7.1:1 ✓ */
+  --text-muted: #64748b;        /* On #0f172a: 4.6:1 ✓ (large text only) */
+
+  /* Never rely on color alone */
+  --color-success: #2dd284;     /* + checkmark icon + "Success" text */
+  --color-error: #ff6b6b;       /* + X icon + "Error" text */
+}
+```
+
+### Color-Blind Safe
+
+```tsx
+// Never rely on color alone for meaning
+function StatusIndicator({ status }) {
+  const config = {
+    success: { color: 'text-healing-primary', icon: '✓', label: 'Success' },
+    warning: { color: 'text-amber-400', icon: '⚠', label: 'Warning' },
+    error: { color: 'text-red-400', icon: '✕', label: 'Error' },
+  };
+
+  const { color, icon, label } = config[status];
+
+  return (
+    <span className={`flex items-center gap-2 ${color}`}>
+      <span aria-hidden="true">{icon}</span>
+      <span>{label}</span>
+    </span>
+  );
+}
+```
+
+### Text Scaling
+
+```css
+/* Use relative units for text */
+html {
+  font-size: 100%; /* Respects user browser settings */
+}
+
+body {
+  font-size: 1rem; /* 16px default, scales with user preference */
+}
+
+/* Support up to 200% zoom without horizontal scroll */
+.container {
+  max-width: min(65ch, 100vw - 2rem);
+}
+
+/* Test with: browser zoom 200%, text-only zoom 200% */
+```
+
+### Focus Indicators
+
+```css
+/* Visible focus for all interactive elements */
+:focus-visible {
+  outline: 3px solid var(--color-healing);
+  outline-offset: 2px;
+}
+
+/* Don't remove focus for mouse users who might also use keyboard */
+:focus:not(:focus-visible) {
+  outline: 2px solid var(--color-healing);
+  outline-offset: 1px;
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 3px solid CanvasText;
+  }
+}
+```
+
+---
+
+## Keyboard Navigation
+
+### Full Keyboard Support
+
+```tsx
+function AccessibleMenu({ items }) {
+  const [focusedIndex, setFocusedIndex] = useState(0);
+  const itemRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    switch (e.key) {
+      case 'ArrowDown':
+      case 'ArrowRight':
+        e.preventDefault();
+        setFocusedIndex((i) => (i + 1) % items.length);
+        break;
+      case 'ArrowUp':
+      case 'ArrowLeft':
+        e.preventDefault();
+        setFocusedIndex((i) => (i - 1 + items.length) % items.length);
+        break;
+      case 'Home':
+        e.preventDefault();
+        setFocusedIndex(0);
+        break;
+      case 'End':
+        e.preventDefault();
+        setFocusedIndex(items.length - 1);
+        break;
+    }
+  };
+
+  useEffect(() => {
+    itemRefs.current[focusedIndex]?.focus();
+  }, [focusedIndex]);
+
+  return (
+    <div role="menu" onKeyDown={handleKeyDown}>
+      {items.map((item, i) => (
+        <button
+          key={item.id}
+          ref={(el) => (itemRefs.current[i] = el)}
+          role="menuitem"
+          tabIndex={i === focusedIndex ? 0 : -1}
+          onClick={item.action}
+        >
+          {item.label}
+        </button>
+      ))}
+    </div>
+  );
+}
+```
+
+### Skip Links
+
+```tsx
+function SkipLinks() {
+  return (
+    <div className="sr-only focus-within:not-sr-only">
+      <a
+        href="#main-content"
+        className="absolute top-2 left-2 px-4 py-2 bg-healing-primary text-grounding-darkest rounded-lg z-50"
+      >
+        Skip to main content
+      </a>
+      <a
+        href="#main-navigation"
+        className="absolute top-2 left-40 px-4 py-2 bg-healing-primary text-grounding-darkest rounded-lg z-50"
+      >
+        Skip to navigation
+      </a>
+    </div>
+  );
+}
+```
+
+---
+
+## Screen Reader Support
+
+### Semantic HTML
+
+```tsx
+// Use semantic elements, not divs for everything
+function Article({ title, content, author, date }) {
+  return (
+    <article aria-labelledby="article-title">
+      <header>
+        <h1 id="article-title">{title}</h1>
+        <p>
+          By <span className="author">{author}</span> on{' '}
+          <time dateTime={date.toISOString()}>
+            {date.toLocaleDateString()}
+          </time>
+        </p>
+      </header>
+
+      <main>{content}</main>
+
+      <footer>
+        {/* Related content */}
+      </footer>
+    </article>
+  );
+}
+```
+
+### Live Regions
+
+```tsx
+function NotificationArea() {
+  const [message, setMessage] = useState('');
+
+  return (
+    <>
+      {/* Polite: waits for user to finish current task */}
+      <div
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        className="sr-only"
+      >
+        {message}
+      </div>
+
+      {/* Assertive: interrupts immediately (use sparingly) */}
+      <div
+        role="alert"
+        aria-live="assertive"
+        className="sr-only"
+      >
+        {urgentMessage}
+      </div>
+    </>
+  );
+}
+```
+
+### Descriptive Labels
+
+```tsx
+// Bad: relies on visual context
+<button aria-label="X">✕</button>
+
+// Good: describes the action
+<button aria-label="Close dialog">
+  <span aria-hidden="true">✕</span>
+</button>
+
+// Even better: describes what it closes
+<button aria-label="Close shopping cart">
+  <span aria-hidden="true">✕</span>
+</button>
+```
+
+---
+
+## Cognitive Accessibility
+
+### Clear Language
+
+```tsx
+// Avoid jargon and complex sentences
+// Bad: "Your session has been invalidated due to inactivity timeout"
+// Good: "You've been signed out because you were away. Sign in again to continue."
+
+function SessionExpired() {
+  return (
+    <div role="alert">
+      <h2>You've been signed out</h2>
+      <p>You were away for a while, so we signed you out to keep your account safe.</p>
+      <button>Sign in again</button>
+    </div>
+  );
+}
+```
+
+### Progressive Complexity
+
+```tsx
+function FeatureExplanation({ feature }) {
+  const [showDetails, setShowDetails] = useState(false);
+
+  return (
+    <div>
+      {/* Simple explanation first */}
+      <p>{feature.simpleDescription}</p>
+
+      {/* More details on request */}
+      <button
+        onClick={() => setShowDetails(!showDetails)}
+        aria-expanded={showDetails}
+      >
+        {showDetails ? 'Show less' : 'Learn more'}
+      </button>
+
+      {showDetails && (
+        <div>
+          <p>{feature.detailedDescription}</p>
+          {feature.technicalDetails && (
+            <details>
+              <summary>Technical details</summary>
+              <p>{feature.technicalDetails}</p>
+            </details>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+### Consistent Patterns
+
+```tsx
+// Use the same patterns throughout the app
+// If "Save" is top-right in one form, it should be top-right in all forms
+
+function FormActions({ onSave, onCancel }) {
+  return (
+    <div className="flex justify-end gap-3">
+      {/* Cancel always left of save */}
+      <button onClick={onCancel} className="btn-secondary">
+        Cancel
+      </button>
+      {/* Save always on the right */}
+      <button onClick={onSave} className="btn-primary">
+        Save
+      </button>
+    </div>
+  );
+}
+```
+
+---
+
+## Motion Sensitivity
+
+```tsx
+function AnimatedComponent({ children }) {
+  const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
+
+  if (prefersReducedMotion) {
+    return <div>{children}</div>;
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+// CSS alternative
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+```
+
+---
+
+## User Preferences
+
+```tsx
+function AccessibilitySettings() {
+  const [settings, setSettings] = useLocalStorage('a11y-settings', {
+    reducedMotion: false,
+    highContrast: false,
+    largeText: false,
+    screenReaderMode: false,
+  });
+
+  return (
+    <div className="space-y-4">
+      <h2>Accessibility Settings</h2>
+
+      <label className="flex items-center gap-3">
+        <input
+          type="checkbox"
+          checked={settings.reducedMotion}
+          onChange={(e) => setSettings({ ...settings, reducedMotion: e.target.checked })}
+        />
+        Reduce motion
+      </label>
+
+      <label className="flex items-center gap-3">
+        <input
+          type="checkbox"
+          checked={settings.highContrast}
+          onChange={(e) => setSettings({ ...settings, highContrast: e.target.checked })}
+        />
+        High contrast
+      </label>
+
+      <label className="flex items-center gap-3">
+        <input
+          type="checkbox"
+          checked={settings.largeText}
+          onChange={(e) => setSettings({ ...settings, largeText: e.target.checked })}
+        />
+        Larger text
+      </label>
+    </div>
+  );
+}
+```
+
+---
+
+## Testing Checklist
+
+### Automated Testing
+- [ ] Run axe-core or similar tool
+- [ ] Check color contrast with WebAIM checker
+- [ ] Validate HTML (no duplicate IDs, proper nesting)
+
+### Manual Testing
+- [ ] Navigate entire app with keyboard only
+- [ ] Test with screen reader (NVDA, VoiceOver, or JAWS)
+- [ ] Test at 200% browser zoom
+- [ ] Test with high contrast mode
+- [ ] Test with `prefers-reduced-motion` enabled
+
+### User Testing
+- [ ] Include users with disabilities in testing
+- [ ] Test with actual assistive technology users
+- [ ] Gather feedback on pain points
+
+---
+
+## Resources
+
+- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
+- [Inclusive Components](https://inclusive-components.design/)
+- [A11y Project Checklist](https://www.a11yproject.com/checklist/)
+- [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
+
+---
+
+## Related Patterns
+
+- [UI Wellness](/docs/integration/ui-wellness) - Visual design that supports accessibility
+- [Gentle Errors](/docs/integration/gentle-errors) - Clear, helpful error messages
+- [Mindful Interactions](/docs/integration/mindful-interactions) - Pacing that supports cognitive accessibility

@@ -1,0 +1,486 @@
+---
+sidebar_position: 4
+title: Breathing Spaces
+description: Strategic pauses that give users room to breathe
+---
+
+# Breathing Spaces Pattern
+
+Not every moment needs to be optimized for speed. This pattern introduces intentional pauses that reduce decision fatigue, prevent mistakes, and create space for human rhythm.
+
+---
+
+## The Problem
+
+Modern apps optimize for speed at the cost of wellbeing:
+- Instant confirmations for irreversible actions
+- No breaks during extended sessions
+- Rushed transitions between contexts
+- Pressure to act immediately
+
+## The Solution
+
+Breathing spaces introduce strategic pauses that respect human cognitive rhythms.
+
+---
+
+## Types of Breathing Spaces
+
+### 1. Decision Pauses
+
+Before irreversible or significant actions:
+
+```tsx
+function DeleteAccountFlow() {
+  const [stage, setStage] = useState<'confirm' | 'breathe' | 'final'>('confirm');
+
+  if (stage === 'breathe') {
+    return (
+      <BreathePause
+        duration={5}
+        message="This will permanently delete your account"
+        subtext="Take a moment to be sure. There's no rush."
+        onComplete={() => setStage('final')}
+        onCancel={() => setStage('confirm')}
+      />
+    );
+  }
+
+  // ... rest of flow
+}
+```
+
+### 2. Session Breaks
+
+During extended work sessions:
+
+```tsx
+function useSessionBreaks(intervalMinutes = 45) {
+  const [showBreak, setShowBreak] = useState(false);
+  const [sessionStart] = useState(Date.now());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setShowBreak(true);
+    }, intervalMinutes * 60 * 1000);
+
+    return () => clearInterval(timer);
+  }, [intervalMinutes]);
+
+  return {
+    showBreak,
+    dismissBreak: () => setShowBreak(false),
+    sessionDuration: Date.now() - sessionStart,
+  };
+}
+```
+
+### 3. Transition Moments
+
+Between different contexts or modes:
+
+```tsx
+function ContextTransition({ from, to, children }) {
+  const [transitioning, setTransitioning] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setTransitioning(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (transitioning) {
+    return (
+      <MindfulTransition
+        message={`Moving from ${from} to ${to}`}
+        subtext="Take a breath as we shift gears"
+      />
+    );
+  }
+
+  return children;
+}
+```
+
+### 4. Completion Celebrations
+
+After finishing significant tasks:
+
+```tsx
+function TaskCompletion({ task, onContinue }) {
+  return (
+    <div className="text-center space-y-6 p-8">
+      <div className="text-6xl animate-breathe">✨</div>
+      <h2 className="text-2xl font-semibold text-healing-light">
+        {task.name} complete
+      </h2>
+      <p className="text-gray-400">
+        Take a moment to acknowledge your progress.
+      </p>
+      <div className="flex justify-center gap-4 pt-4">
+        <button
+          onClick={onContinue}
+          className="px-6 py-3 rounded-lg bg-healing-primary text-grounding-darkest"
+        >
+          Continue
+        </button>
+        <button
+          onClick={() => window.location.href = '/break'}
+          className="px-6 py-3 rounded-lg border border-gray-600 text-gray-300"
+        >
+          Take a Break
+        </button>
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+## Core Components
+
+### BreathePause
+
+```tsx
+interface BreathePauseProps {
+  duration: number;        // Seconds
+  message: string;
+  subtext?: string;
+  showBreathingGuide?: boolean;
+  onComplete: () => void;
+  onCancel?: () => void;
+  skipLabel?: string;
+}
+
+export function BreathePause({
+  duration,
+  message,
+  subtext,
+  showBreathingGuide = true,
+  onComplete,
+  onCancel,
+  skipLabel = "Skip",
+}: BreathePauseProps) {
+  const [remaining, setRemaining] = useState(duration);
+  const [canSkip, setCanSkip] = useState(false);
+
+  useEffect(() => {
+    // Allow skip after 2 seconds (prevent accidental skip)
+    const skipTimer = setTimeout(() => setCanSkip(true), 2000);
+
+    const countdown = setInterval(() => {
+      setRemaining((r) => {
+        if (r <= 1) {
+          clearInterval(countdown);
+          onComplete();
+          return 0;
+        }
+        return r - 1;
+      });
+    }, 1000);
+
+    return () => {
+      clearTimeout(skipTimer);
+      clearInterval(countdown);
+    };
+  }, [duration, onComplete]);
+
+  return (
+    <div className="fixed inset-0 bg-grounding-darkest/95 flex items-center justify-center z-50">
+      <div className="max-w-md text-center space-y-8 p-8">
+        {/* Breathing circle */}
+        {showBreathingGuide && (
+          <div className="relative mx-auto w-32 h-32">
+            <div className="absolute inset-0 rounded-full border-4 border-healing-primary/30" />
+            <div
+              className="absolute inset-0 rounded-full border-4 border-healing-primary animate-breathe"
+              style={{ animationDuration: '4s' }}
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-3xl font-light text-healing-light">
+                {remaining}
+              </span>
+            </div>
+          </div>
+        )}
+
+        {/* Message */}
+        <div className="space-y-2">
+          <h2 className="text-xl font-medium text-white">{message}</h2>
+          {subtext && (
+            <p className="text-gray-400">{subtext}</p>
+          )}
+        </div>
+
+        {/* Actions */}
+        <div className="flex justify-center gap-4">
+          {canSkip && (
+            <button
+              onClick={onComplete}
+              className="px-4 py-2 text-sm text-gray-500 hover:text-gray-400"
+            >
+              {skipLabel}
+            </button>
+          )}
+          {onCancel && (
+            <button
+              onClick={onCancel}
+              className="px-4 py-2 text-sm text-gray-500 hover:text-gray-400"
+            >
+              Cancel
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+### WellbeingCheck
+
+```tsx
+interface WellbeingCheckProps {
+  message?: string;
+  suggestions?: string[];
+  onDismiss: () => void;
+  onTakeBreak?: () => void;
+}
+
+export function WellbeingCheck({
+  message = "You've been working for a while",
+  suggestions = [
+    "Stretch your shoulders and neck",
+    "Look at something 20 feet away for 20 seconds",
+    "Take three deep breaths",
+    "Drink some water",
+  ],
+  onDismiss,
+  onTakeBreak,
+}: WellbeingCheckProps) {
+  const [selectedSuggestion, setSelectedSuggestion] = useState<number | null>(null);
+
+  return (
+    <div className="fixed bottom-4 right-4 max-w-sm rounded-xl border border-calm-primary/30 bg-grounding-dark p-6 shadow-lg z-40">
+      {/* Header */}
+      <div className="flex items-start gap-3 mb-4">
+        <div className="p-2 rounded-full bg-calm-ghost">
+          <span className="text-xl">💙</span>
+        </div>
+        <div>
+          <h3 className="font-medium text-calm-light">{message}</h3>
+          <p className="text-sm text-gray-400 mt-1">
+            A quick wellness moment
+          </p>
+        </div>
+      </div>
+
+      {/* Suggestions */}
+      <div className="space-y-2 mb-4">
+        {suggestions.map((suggestion, i) => (
+          <button
+            key={i}
+            onClick={() => setSelectedSuggestion(i)}
+            className={`w-full text-left p-3 rounded-lg text-sm transition-all ${
+              selectedSuggestion === i
+                ? 'bg-calm-ghost border border-calm-primary text-calm-light'
+                : 'bg-grounding-medium/50 text-gray-400 hover:bg-grounding-medium'
+            }`}
+          >
+            {selectedSuggestion === i && <span className="mr-2">✓</span>}
+            {suggestion}
+          </button>
+        ))}
+      </div>
+
+      {/* Actions */}
+      <div className="flex gap-2">
+        <button
+          onClick={onDismiss}
+          className="flex-1 px-4 py-2 rounded-lg bg-calm-primary text-grounding-darkest font-medium"
+        >
+          {selectedSuggestion !== null ? "Done, thanks!" : "Got it"}
+        </button>
+        {onTakeBreak && (
+          <button
+            onClick={onTakeBreak}
+            className="px-4 py-2 rounded-lg border border-gray-600 text-gray-300"
+          >
+            Take Break
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+## Integration Patterns
+
+### Before Purchases
+
+```tsx
+function CheckoutButton({ total, onCheckout }) {
+  const [showPause, setShowPause] = useState(false);
+
+  if (showPause) {
+    return (
+      <BreathePause
+        duration={5}
+        message={`You're about to spend $${total}`}
+        subtext="Take a moment to be sure this feels right"
+        onComplete={onCheckout}
+        onCancel={() => setShowPause(false)}
+      />
+    );
+  }
+
+  return (
+    <button onClick={() => setShowPause(true)}>
+      Complete Purchase (${total})
+    </button>
+  );
+}
+```
+
+### During Long Forms
+
+```tsx
+function MultiStepForm({ steps }) {
+  const [currentStep, setCurrentStep] = useState(0);
+  const [showBreak, setShowBreak] = useState(false);
+
+  const goToNextStep = () => {
+    // Offer break every 3 steps
+    if ((currentStep + 1) % 3 === 0 && currentStep < steps.length - 1) {
+      setShowBreak(true);
+    } else {
+      setCurrentStep(currentStep + 1);
+    }
+  };
+
+  if (showBreak) {
+    return (
+      <WellbeingCheck
+        message="You're making great progress"
+        suggestions={[
+          "Rest your eyes for a moment",
+          "Shake out your hands",
+          "You're doing well—keep going when ready"
+        ]}
+        onDismiss={() => {
+          setShowBreak(false);
+          setCurrentStep(currentStep + 1);
+        }}
+      />
+    );
+  }
+
+  return (
+    <FormStep
+      step={steps[currentStep]}
+      onNext={goToNextStep}
+    />
+  );
+}
+```
+
+### After Intense Actions
+
+```tsx
+function SendMessageButton({ message, recipient, onSend }) {
+  const [sent, setSent] = useState(false);
+
+  const handleSend = async () => {
+    await onSend(message, recipient);
+    setSent(true);
+  };
+
+  if (sent) {
+    return (
+      <div className="text-center p-6 space-y-4">
+        <div className="text-4xl">✉️</div>
+        <p className="text-healing-light">Message sent to {recipient}</p>
+        <p className="text-sm text-gray-400">
+          Take a breath. The message is on its way.
+        </p>
+        <button
+          onClick={() => setSent(false)}
+          className="mt-4 text-sm text-gray-500"
+        >
+          Send another
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <button onClick={handleSend}>
+      Send Message
+    </button>
+  );
+}
+```
+
+---
+
+## Timing Guidelines
+
+| Context | Recommended Pause | Skip After |
+|---------|------------------|------------|
+| Irreversible delete | 5-10 seconds | 2 seconds |
+| Purchase confirmation | 3-5 seconds | 2 seconds |
+| Session break reminder | Until dismissed | Immediate |
+| Context transition | 2-3 seconds | 1 second |
+| Task completion | Until user acts | Immediate |
+| Error recovery | 3 seconds | 1 second |
+
+---
+
+## Accessibility Considerations
+
+```tsx
+// Ensure pauses don't trap users
+<BreathePause
+  // Always provide skip/cancel options
+  onCancel={handleCancel}
+  skipLabel="Skip pause"
+
+  // Announce to screen readers
+  aria-live="polite"
+  role="status"
+/>
+
+// Respect user preferences
+const prefersReducedMotion = window.matchMedia(
+  '(prefers-reduced-motion: reduce)'
+).matches;
+
+if (prefersReducedMotion) {
+  // Skip or shorten breathing animations
+  duration = Math.min(duration, 2);
+}
+```
+
+---
+
+## Checklist
+
+- [ ] Add pause before irreversible actions
+- [ ] Implement session break reminders
+- [ ] Include skip options (after brief delay)
+- [ ] Add completion celebrations
+- [ ] Respect `prefers-reduced-motion`
+- [ ] Ensure pauses don't trap keyboard users
+- [ ] Test pause durations with users
+- [ ] Make pauses optional in settings
+
+---
+
+## Related Patterns
+
+- [Mindful Interactions](/docs/integration/mindful-interactions) - Broader awareness patterns
+- [Gentle Errors](/docs/integration/gentle-errors) - Breathing space after errors
+- [UI Wellness](/docs/integration/ui-wellness) - Visual calm between pauses

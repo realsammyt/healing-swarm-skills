@@ -1,0 +1,432 @@
+---
+sidebar_position: 3
+title: Gentle Errors
+description: Transform harsh errors into supportive recovery experiences
+---
+
+# Gentle Errors Pattern
+
+Errors are inevitable. Stress is not. This pattern transforms harsh error states into supportive experiences that help users recover with their dignity intact.
+
+---
+
+## The Problem
+
+Traditional error handling prioritizes technical accuracy over human experience:
+
+```
+❌ "Error 500: Internal Server Error"
+❌ "Something went wrong"
+❌ "Invalid input"
+❌ "Request failed"
+```
+
+These messages increase user stress, provide no guidance, and often lead to abandonment.
+
+## The Solution
+
+Gentle errors acknowledge the disruption, provide context, offer guidance, and maintain emotional safety.
+
+```
+✓ "We couldn't complete that action. Here's what might help..."
+✓ "That didn't work as expected. Take a breath—here's what we can try."
+✓ "We hit a snag. No data was lost. Let's figure this out together."
+```
+
+---
+
+## Anatomy of a Gentle Error
+
+```
+┌─────────────────────────────────────────────────────┐
+│  ⚠️  [Acknowledgment]                               │
+│                                                     │
+│  [Human-readable explanation]                       │
+│                                                     │
+│  [What this means for the user]                     │
+│                                                     │
+│  Suggestions:                                       │
+│  • [Actionable step 1]                              │
+│  • [Actionable step 2]                              │
+│  • [Actionable step 3]                              │
+│                                                     │
+│  [Primary Action]    [Secondary Action]             │
+│                                                     │
+│  ▼ Technical details (collapsed)                   │
+└─────────────────────────────────────────────────────┘
+```
+
+---
+
+## Implementation
+
+### React Component
+
+```tsx
+import React, { useState } from 'react';
+
+interface GentleErrorProps {
+  message: string;
+  explanation?: string;
+  impact?: string;
+  suggestions?: string[];
+  technicalDetails?: string;
+  onRetry?: () => void;
+  onDismiss?: () => void;
+  onGetHelp?: () => void;
+}
+
+export function GentleError({
+  message,
+  explanation,
+  impact,
+  suggestions = [],
+  technicalDetails,
+  onRetry,
+  onDismiss,
+  onGetHelp,
+}: GentleErrorProps) {
+  const [showTechnical, setShowTechnical] = useState(false);
+
+  return (
+    <div
+      role="alert"
+      aria-live="assertive"
+      className="rounded-xl border-2 border-amber-500/50 bg-amber-500/10 p-6 space-y-4"
+    >
+      {/* Acknowledgment */}
+      <div className="flex items-start gap-3">
+        <div className="p-2 rounded-full bg-amber-500/20">
+          <svg className="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+        </div>
+        <div className="flex-1">
+          <h3 className="font-semibold text-amber-200">{message}</h3>
+          {explanation && (
+            <p className="mt-1 text-sm text-gray-300">{explanation}</p>
+          )}
+        </div>
+      </div>
+
+      {/* Impact statement */}
+      {impact && (
+        <p className="text-sm text-gray-400 italic pl-11">
+          {impact}
+        </p>
+      )}
+
+      {/* Suggestions */}
+      {suggestions.length > 0 && (
+        <div className="pl-11 space-y-2">
+          <p className="text-sm font-medium text-gray-300">Things to try:</p>
+          <ul className="space-y-1">
+            {suggestions.map((suggestion, i) => (
+              <li key={i} className="flex items-center gap-2 text-sm text-gray-400">
+                <span className="text-healing-primary">→</span>
+                {suggestion}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* Actions */}
+      <div className="flex items-center gap-3 pl-11 pt-2">
+        {onRetry && (
+          <button
+            onClick={onRetry}
+            className="px-4 py-2 rounded-lg bg-healing-primary text-grounding-darkest font-medium hover:bg-healing-dark transition-colors"
+          >
+            Try Again
+          </button>
+        )}
+        {onGetHelp && (
+          <button
+            onClick={onGetHelp}
+            className="px-4 py-2 rounded-lg border border-gray-600 text-gray-300 hover:border-gray-500 transition-colors"
+          >
+            Get Help
+          </button>
+        )}
+        {onDismiss && (
+          <button
+            onClick={onDismiss}
+            className="px-4 py-2 text-sm text-gray-500 hover:text-gray-400 transition-colors"
+          >
+            Dismiss
+          </button>
+        )}
+      </div>
+
+      {/* Technical details (collapsed) */}
+      {technicalDetails && (
+        <div className="pl-11 pt-2">
+          <button
+            onClick={() => setShowTechnical(!showTechnical)}
+            className="text-xs text-gray-500 hover:text-gray-400 flex items-center gap-1"
+          >
+            <span>{showTechnical ? '▼' : '▶'}</span>
+            Technical details
+          </button>
+          {showTechnical && (
+            <pre className="mt-2 p-3 rounded bg-grounding-darkest text-xs text-gray-500 overflow-auto">
+              {technicalDetails}
+            </pre>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+---
+
+## Error Message Templates
+
+### Network Errors
+
+```tsx
+<GentleError
+  message="We couldn't reach our servers"
+  explanation="This usually means a temporary connection issue."
+  impact="Your work is saved locally and will sync when connection returns."
+  suggestions={[
+    "Check your internet connection",
+    "Try refreshing the page",
+    "Wait a moment and try again"
+  ]}
+  onRetry={handleRetry}
+/>
+```
+
+### Validation Errors
+
+```tsx
+<GentleError
+  message="Some information needs attention"
+  explanation="We noticed a few fields that need adjustment."
+  suggestions={[
+    "Email should include an @ symbol",
+    "Password needs at least 8 characters",
+    "Phone number should include area code"
+  ]}
+/>
+```
+
+### Permission Errors
+
+```tsx
+<GentleError
+  message="You don't have access to this"
+  explanation="This area requires different permissions than your current role."
+  impact="Your other work isn't affected."
+  suggestions={[
+    "Contact your administrator for access",
+    "Return to your dashboard",
+    "Try a different account"
+  ]}
+  onGetHelp={contactAdmin}
+/>
+```
+
+### Server Errors
+
+```tsx
+<GentleError
+  message="Something unexpected happened on our end"
+  explanation="Our team has been notified and is looking into it."
+  impact="Your data is safe. No changes were made."
+  suggestions={[
+    "Wait a few minutes and try again",
+    "Check our status page for updates",
+    "Contact support if this continues"
+  ]}
+  technicalDetails={`Error ID: ${errorId}\nTimestamp: ${timestamp}`}
+  onRetry={handleRetry}
+/>
+```
+
+### Form Submission Errors
+
+```tsx
+<GentleError
+  message="We couldn't save your changes"
+  explanation="Something interrupted the save process."
+  impact="Your changes are still in the form—nothing was lost."
+  suggestions={[
+    "Try saving again",
+    "Copy your changes somewhere safe",
+    "Refresh and re-enter if the problem continues"
+  ]}
+  onRetry={handleSave}
+/>
+```
+
+---
+
+## Contextual Tone Variants
+
+### Standard (Most Apps)
+
+```tsx
+message="We hit a small snag"
+explanation="Let's figure this out together."
+```
+
+### Professional (Business Apps)
+
+```tsx
+message="Action could not be completed"
+explanation="Please review the suggestions below."
+```
+
+### Technical (Developer Tools)
+
+```tsx
+message="Request failed with status 500"
+explanation="The server returned an internal error."
+technicalDetails={stackTrace}
+```
+
+### Friendly (Consumer Apps)
+
+```tsx
+message="Oops! That didn't quite work"
+explanation="No worries—here's what we can try."
+```
+
+---
+
+## Error State Styling
+
+### Color Guidelines
+
+```css
+/* Warning/Soft Error - Use for recoverable errors */
+--error-warning-bg: rgba(251, 191, 36, 0.1);
+--error-warning-border: rgba(251, 191, 36, 0.5);
+--error-warning-text: #fcd34d;
+
+/* Error - Use for failed actions */
+--error-bg: rgba(255, 107, 107, 0.1);
+--error-border: rgba(255, 107, 107, 0.5);
+--error-text: #fca5a5;
+
+/* Never use pure red #ff0000 - too aggressive */
+```
+
+### Animation
+
+```css
+/* Gentle attention pulse instead of harsh shake */
+@keyframes gentle-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0); }
+  50% { box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.2); }
+}
+
+.error-container {
+  animation: gentle-pulse 2s ease-in-out 2; /* Only pulse twice */
+}
+```
+
+---
+
+## Integration Examples
+
+### With React Query
+
+```tsx
+function DataComponent() {
+  const { data, error, refetch } = useQuery(['data'], fetchData);
+
+  if (error) {
+    return (
+      <GentleError
+        message="We couldn't load your data"
+        explanation={getErrorExplanation(error)}
+        suggestions={getErrorSuggestions(error)}
+        technicalDetails={error.message}
+        onRetry={refetch}
+      />
+    );
+  }
+
+  return <DataDisplay data={data} />;
+}
+```
+
+### With Form Libraries
+
+```tsx
+function ContactForm() {
+  const { errors, handleSubmit } = useForm();
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {Object.keys(errors).length > 0 && (
+        <GentleError
+          message="Please review the form"
+          suggestions={Object.values(errors).map(e => e.message)}
+        />
+      )}
+      {/* form fields */}
+    </form>
+  );
+}
+```
+
+### With Error Boundaries
+
+```tsx
+class GentleErrorBoundary extends React.Component {
+  state = { hasError: false, error: null };
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <GentleError
+          message="This section encountered an unexpected error"
+          explanation="The rest of the app is still working."
+          suggestions={[
+            "Try refreshing the page",
+            "Clear your browser cache",
+            "Contact support if this continues"
+          ]}
+          onRetry={() => window.location.reload()}
+        />
+      );
+    }
+
+    return this.props.children;
+  }
+}
+```
+
+---
+
+## Checklist
+
+- [ ] Replace all "Error" prefixes with human messages
+- [ ] Add impact statements (what was/wasn't affected)
+- [ ] Include actionable suggestions (not just "try again")
+- [ ] Provide retry mechanisms where appropriate
+- [ ] Hide technical details behind expansion
+- [ ] Use warning colors (amber) instead of danger (red) when possible
+- [ ] Remove aggressive animations (shake, flash)
+- [ ] Add `role="alert"` for accessibility
+- [ ] Test error messages with users
+
+---
+
+## Related Patterns
+
+- [UI Wellness](/docs/integration/ui-wellness) - Overall calming design
+- [Mindful Interactions](/docs/integration/mindful-interactions) - Add pauses after errors
+- [Accessibility Healing](/docs/integration/accessibility-healing) - Ensure errors are announced properly

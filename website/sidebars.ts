@@ -20,6 +20,23 @@ const sidebars: SidebarsConfig = {
         'skills/review',
         'skills/deploy',
         'skills/swarm',
+        'skills/integration',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Integration',
+      link: {
+        type: 'doc',
+        id: 'integration/index',
+      },
+      items: [
+        'integration/ui-wellness',
+        'integration/gentle-errors',
+        'integration/breathing-spaces',
+        'integration/mindful-interactions',
+        'integration/accessibility-healing',
+        'integration/ethical-data',
       ],
     },
     {

@@ -1,0 +1,452 @@
+---
+sidebar_position: 5
+title: Mindful Interactions
+description: Add intentional awareness to high-stakes interactions
+---
+
+# Mindful Interactions Pattern
+
+Every interaction is an opportunity for presence. This pattern adds awareness moments that help users act intentionally rather than reactively.
+
+---
+
+## The Problem
+
+Apps often encourage reactive behavior:
+- One-click purchases bypass consideration
+- Instant sends prevent reflection
+- Auto-advancing flows rush decisions
+- Notifications demand immediate response
+
+## The Solution
+
+Mindful interactions create micro-moments of awareness that support intentional action.
+
+---
+
+## Core Principles
+
+### 1. Pause Before, Not After
+It's easier to prevent regret than to undo damage.
+
+### 2. Suggest, Don't Force
+Awareness prompts should be bypassable, not blocking.
+
+### 3. Match Intensity to Stakes
+A "like" button needs no pause. Deleting an account does.
+
+### 4. Build the Habit Gradually
+Start with high-stakes actions, expand as users appreciate the pattern.
+
+---
+
+## Implementation Patterns
+
+### Confirmation with Awareness
+
+Instead of:
+```tsx
+// Standard confirmation
+<button onClick={() => confirm('Are you sure?') && deleteItem()}>
+  Delete
+</button>
+```
+
+Use:
+```tsx
+function MindfulDelete({ item, onDelete }) {
+  const [stage, setStage] = useState<'initial' | 'aware' | 'confirmed'>('initial');
+
+  if (stage === 'aware') {
+    return (
+      <div className="p-6 rounded-xl border border-amber-500/30 bg-amber-500/5 space-y-4">
+        <p className="text-amber-200">
+          You're about to delete "{item.name}"
+        </p>
+        <p className="text-sm text-gray-400">
+          This action cannot be undone. Take a moment to be sure.
+        </p>
+        <div className="flex gap-3 pt-2">
+          <button
+            onClick={() => {
+              setStage('confirmed');
+              onDelete();
+            }}
+            className="px-4 py-2 rounded-lg bg-amber-500 text-grounding-darkest"
+          >
+            Yes, delete
+          </button>
+          <button
+            onClick={() => setStage('initial')}
+            className="px-4 py-2 rounded-lg border border-gray-600 text-gray-300"
+          >
+            Keep it
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <button onClick={() => setStage('aware')}>
+      Delete
+    </button>
+  );
+}
+```
+
+### Intentional Sending
+
+```tsx
+function MindfulSend({ content, recipient, onSend }) {
+  const [showReview, setShowReview] = useState(false);
+
+  if (showReview) {
+    return (
+      <div className="space-y-4 p-6 rounded-xl bg-grounding-dark border border-grounding-medium">
+        <h3 className="font-medium text-healing-light">Review before sending</h3>
+
+        <div className="p-4 rounded-lg bg-grounding-darkest">
+          <p className="text-sm text-gray-400 mb-2">To: {recipient}</p>
+          <p className="text-gray-300">{content}</p>
+        </div>
+
+        <p className="text-sm text-gray-500 italic">
+          Once sent, this cannot be unsent. Does it say what you mean?
+        </p>
+
+        <div className="flex gap-3">
+          <button
+            onClick={() => {
+              onSend();
+              setShowReview(false);
+            }}
+            className="px-4 py-2 rounded-lg bg-healing-primary text-grounding-darkest"
+          >
+            Send now
+          </button>
+          <button
+            onClick={() => setShowReview(false)}
+            className="px-4 py-2 rounded-lg border border-gray-600 text-gray-300"
+          >
+            Edit more
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <button onClick={() => setShowReview(true)}>
+      Send
+    </button>
+  );
+}
+```
+
+### Progressive Disclosure
+
+Instead of showing everything at once:
+
+```tsx
+function MindfulForm({ sections }) {
+  const [visibleSections, setVisibleSections] = useState(1);
+  const [acknowledgments, setAcknowledgments] = useState<Set<number>>(new Set());
+
+  const acknowledgeSection = (index: number) => {
+    const newAck = new Set(acknowledgments);
+    newAck.add(index);
+    setAcknowledgments(newAck);
+
+    if (index === visibleSections - 1 && visibleSections < sections.length) {
+      setVisibleSections(visibleSections + 1);
+    }
+  };
+
+  return (
+    <div className="space-y-6">
+      {sections.slice(0, visibleSections).map((section, i) => (
+        <div key={i} className="space-y-4">
+          <h3 className="font-medium">{section.title}</h3>
+          {section.content}
+
+          {!acknowledgments.has(i) && (
+            <button
+              onClick={() => acknowledgeSection(i)}
+              className="text-sm text-calm-light hover:text-calm-primary"
+            >
+              I've reviewed this section →
+            </button>
+          )}
+        </div>
+      ))}
+
+      {visibleSections < sections.length && (
+        <p className="text-sm text-gray-500 italic">
+          Review each section to reveal the next...
+        </p>
+      )}
+    </div>
+  );
+}
+```
+
+---
+
+## Awareness Prompts
+
+### Pre-Action Awareness
+
+```tsx
+function AwarenessPrompt({ action, onProceed, onReflect }) {
+  return (
+    <div className="p-4 rounded-lg bg-calm-ghost border border-calm-primary/30 space-y-3">
+      <p className="text-calm-light">
+        Before you {action}, take a moment:
+      </p>
+      <ul className="text-sm text-gray-400 space-y-1 ml-4">
+        <li>• Is this what you intended?</li>
+        <li>• Are you in the right headspace?</li>
+        <li>• Will you feel good about this later?</li>
+      </ul>
+      <div className="flex gap-3 pt-2">
+        <button
+          onClick={onProceed}
+          className="px-4 py-2 rounded-lg bg-calm-primary text-grounding-darkest"
+        >
+          Yes, proceed
+        </button>
+        <button
+          onClick={onReflect}
+          className="px-4 py-2 rounded-lg border border-gray-600 text-gray-300"
+        >
+          Let me think
+        </button>
+      </div>
+    </div>
+  );
+}
+```
+
+### Emotional Check-In
+
+```tsx
+function EmotionalCheckIn({ onComplete }) {
+  const [selected, setSelected] = useState<string | null>(null);
+
+  const emotions = [
+    { id: 'calm', emoji: '😌', label: 'Calm' },
+    { id: 'focused', emoji: '🎯', label: 'Focused' },
+    { id: 'anxious', emoji: '😰', label: 'Anxious' },
+    { id: 'rushed', emoji: '⏱️', label: 'Rushed' },
+  ];
+
+  return (
+    <div className="space-y-4 p-6 rounded-xl bg-grounding-dark">
+      <p className="text-gray-300">How are you feeling right now?</p>
+
+      <div className="flex gap-2">
+        {emotions.map((emotion) => (
+          <button
+            key={emotion.id}
+            onClick={() => setSelected(emotion.id)}
+            className={`px-4 py-2 rounded-lg text-sm ${
+              selected === emotion.id
+                ? 'bg-healing-ghost border border-healing-primary'
+                : 'bg-grounding-medium/50 border border-transparent'
+            }`}
+          >
+            <span className="mr-2">{emotion.emoji}</span>
+            {emotion.label}
+          </button>
+        ))}
+      </div>
+
+      {selected && (
+        <div className="pt-4 space-y-3">
+          {(selected === 'anxious' || selected === 'rushed') ? (
+            <>
+              <p className="text-amber-300 text-sm">
+                Strong emotions can affect decisions. Would you like to:
+              </p>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => onComplete(selected, 'proceed')}
+                  className="px-4 py-2 rounded-lg border border-gray-600 text-gray-300"
+                >
+                  Continue anyway
+                </button>
+                <button
+                  onClick={() => onComplete(selected, 'pause')}
+                  className="px-4 py-2 rounded-lg bg-calm-primary text-grounding-darkest"
+                >
+                  Take a moment first
+                </button>
+              </div>
+            </>
+          ) : (
+            <button
+              onClick={() => onComplete(selected, 'proceed')}
+              className="px-4 py-2 rounded-lg bg-healing-primary text-grounding-darkest"
+            >
+              Continue
+            </button>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+---
+
+## Contextual Applications
+
+### Social Media
+
+```tsx
+// Before posting
+function MindfulPost({ content, onPost }) {
+  const wordCount = content.split(/\s+/).length;
+  const hasEmotionalWords = /angry|hate|furious|love|amazing/i.test(content);
+
+  if (hasEmotionalWords) {
+    return (
+      <AwarenessPrompt
+        action="share this emotional message publicly"
+        onProceed={onPost}
+        onReflect={() => alert('Take your time')}
+      />
+    );
+  }
+
+  return <button onClick={onPost}>Post</button>;
+}
+```
+
+### E-Commerce
+
+```tsx
+// Before purchase
+function MindfulCheckout({ cart, onCheckout }) {
+  const [reviewed, setReviewed] = useState(false);
+
+  if (!reviewed) {
+    return (
+      <div className="space-y-4">
+        <h3>Review your order</h3>
+        {cart.items.map(item => (
+          <div key={item.id}>{item.name} - ${item.price}</div>
+        ))}
+        <p className="text-sm text-gray-400">
+          Total: ${cart.total}
+        </p>
+        <button
+          onClick={() => setReviewed(true)}
+          className="w-full py-3 rounded-lg bg-grounding-medium text-gray-300"
+        >
+          I've reviewed my order
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <button
+      onClick={onCheckout}
+      className="w-full py-3 rounded-lg bg-healing-primary text-grounding-darkest"
+    >
+      Complete Purchase
+    </button>
+  );
+}
+```
+
+### Communication
+
+```tsx
+// Before sending to many recipients
+function MindfulBroadcast({ recipients, message, onSend }) {
+  if (recipients.length > 10) {
+    return (
+      <div className="p-4 rounded-lg bg-amber-500/10 border border-amber-500/30">
+        <p className="text-amber-200 mb-3">
+          You're about to message {recipients.length} people
+        </p>
+        <p className="text-sm text-gray-400 mb-4">
+          This will send to everyone simultaneously. Make sure your message is appropriate for all recipients.
+        </p>
+        <button onClick={onSend} className="px-4 py-2 rounded-lg bg-amber-500 text-grounding-darkest">
+          Send to all {recipients.length} people
+        </button>
+      </div>
+    );
+  }
+
+  return <button onClick={onSend}>Send</button>;
+}
+```
+
+---
+
+## Interaction Pacing
+
+```tsx
+function PacedActions({ actions, onAction }) {
+  const [lastAction, setLastAction] = useState<number | null>(null);
+  const [cooldown, setCooldown] = useState(false);
+
+  const handleAction = (action: typeof actions[0]) => {
+    if (cooldown) {
+      return; // Still in cooldown
+    }
+
+    onAction(action);
+    setLastAction(Date.now());
+    setCooldown(true);
+
+    // Brief cooldown between rapid actions
+    setTimeout(() => setCooldown(false), 1000);
+  };
+
+  return (
+    <div className="space-y-2">
+      {actions.map((action) => (
+        <button
+          key={action.id}
+          onClick={() => handleAction(action)}
+          disabled={cooldown}
+          className={cooldown ? 'opacity-50 cursor-wait' : ''}
+        >
+          {action.label}
+        </button>
+      ))}
+      {cooldown && (
+        <p className="text-xs text-gray-500">Taking a breath...</p>
+      )}
+    </div>
+  );
+}
+```
+
+---
+
+## Checklist
+
+- [ ] Add review step before sending/posting
+- [ ] Include emotional check-ins for high-stakes actions
+- [ ] Implement progressive disclosure for complex forms
+- [ ] Add awareness prompts before irreversible actions
+- [ ] Pace rapid interactions with brief cooldowns
+- [ ] Highlight when actions affect many people
+- [ ] Provide "let me think" escape routes
+- [ ] Test prompts don't feel condescending
+
+---
+
+## Related Patterns
+
+- [Breathing Spaces](/docs/integration/breathing-spaces) - Longer pauses between interactions
+- [Gentle Errors](/docs/integration/gentle-errors) - Awareness in error recovery
+- [Ethical Data](/docs/integration/ethical-data) - Mindful consent for data collection

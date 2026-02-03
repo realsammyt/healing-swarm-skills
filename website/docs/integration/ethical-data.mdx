@@ -1,0 +1,506 @@
+---
+sidebar_position: 7
+title: Ethical Data
+description: Respectful data practices that build trust
+---
+
+# Ethical Data Pattern
+
+How you handle user data is a healing act—or a harmful one. This pattern establishes respectful data practices that build trust, honor autonomy, and treat personal information as sacred.
+
+---
+
+## The Problem
+
+Most apps treat user data as a resource to extract:
+- Collect everything "just in case"
+- Bury consent in terms of service
+- Make deletion difficult or impossible
+- Share data without meaningful consent
+- Track behavior without transparency
+
+## The Solution
+
+Ethical data practices treat user information with the respect it deserves.
+
+---
+
+## Core Principles
+
+### 1. Minimal Collection
+Only collect what you genuinely need. If you're not sure you need it, you don't.
+
+### 2. Informed Consent
+Users should understand what they're agreeing to, in plain language.
+
+### 3. Easy Control
+Users should be able to access, export, and delete their data easily.
+
+### 4. Transparent Usage
+Be clear about how data is used, stored, and shared.
+
+### 5. Secure by Default
+Protect data as if it were your own medical records.
+
+---
+
+## Consent Patterns
+
+### Clear Consent Dialogs
+
+```tsx
+interface DataConsentProps {
+  dataTypes: Array<{
+    id: string;
+    name: string;
+    description: string;
+    required: boolean;
+    retention: string;
+  }>;
+  onConsent: (consented: string[]) => void;
+}
+
+function DataConsent({ dataTypes, onConsent }: DataConsentProps) {
+  const [consented, setConsented] = useState<Set<string>>(
+    new Set(dataTypes.filter(d => d.required).map(d => d.id))
+  );
+
+  const toggleConsent = (id: string, required: boolean) => {
+    if (required) return; // Can't toggle required data
+
+    const newConsented = new Set(consented);
+    if (newConsented.has(id)) {
+      newConsented.delete(id);
+    } else {
+      newConsented.add(id);
+    }
+    setConsented(newConsented);
+  };
+
+  return (
+    <div className="space-y-6 p-6 rounded-xl bg-grounding-dark border border-grounding-medium">
+      <div>
+        <h2 className="text-xl font-semibold text-white">Your Data, Your Choice</h2>
+        <p className="text-gray-400 mt-2">
+          We believe in transparency. Here's exactly what we collect and why.
+        </p>
+      </div>
+
+      <div className="space-y-4">
+        {dataTypes.map((dataType) => (
+          <div
+            key={dataType.id}
+            className={`p-4 rounded-lg border ${
+              consented.has(dataType.id)
+                ? 'border-healing-primary/50 bg-healing-ghost'
+                : 'border-grounding-medium bg-grounding-dark'
+            }`}
+          >
+            <div className="flex items-start gap-3">
+              <input
+                type="checkbox"
+                id={dataType.id}
+                checked={consented.has(dataType.id)}
+                onChange={() => toggleConsent(dataType.id, dataType.required)}
+                disabled={dataType.required}
+                className="mt-1"
+              />
+              <div className="flex-1">
+                <label
+                  htmlFor={dataType.id}
+                  className="font-medium text-gray-200 cursor-pointer"
+                >
+                  {dataType.name}
+                  {dataType.required && (
+                    <span className="ml-2 text-xs text-amber-400">(Required)</span>
+                  )}
+                </label>
+                <p className="text-sm text-gray-400 mt-1">
+                  {dataType.description}
+                </p>
+                <p className="text-xs text-gray-500 mt-2">
+                  Retention: {dataType.retention}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="flex justify-between items-center pt-4">
+        <button
+          onClick={() => onConsent(Array.from(consented))}
+          className="px-6 py-3 rounded-lg bg-healing-primary text-grounding-darkest font-medium"
+        >
+          Save My Choices
+        </button>
+        <a href="/privacy" className="text-sm text-calm-light hover:underline">
+          Read full privacy policy
+        </a>
+      </div>
+    </div>
+  );
+}
+```
+
+### Usage Example
+
+```tsx
+<DataConsent
+  dataTypes={[
+    {
+      id: 'email',
+      name: 'Email Address',
+      description: 'Used for account login and important notifications only.',
+      required: true,
+      retention: 'Until account deletion',
+    },
+    {
+      id: 'usage',
+      name: 'Usage Analytics',
+      description: 'Anonymous data about which features you use, to help us improve.',
+      required: false,
+      retention: '90 days, then deleted',
+    },
+    {
+      id: 'preferences',
+      name: 'Preferences',
+      description: 'Your settings and customizations for a personalized experience.',
+      required: false,
+      retention: 'Until you change them',
+    },
+  ]}
+  onConsent={handleConsent}
+/>
+```
+
+---
+
+## Data Access & Export
+
+### User Data Dashboard
+
+```tsx
+function DataDashboard({ userId }) {
+  const { data: userData, loading } = useUserData(userId);
+
+  return (
+    <div className="space-y-6">
+      <h2 className="text-2xl font-semibold">Your Data</h2>
+
+      {/* What we have */}
+      <section className="p-6 rounded-xl bg-grounding-dark">
+        <h3 className="font-medium text-white mb-4">Data We Store</h3>
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="text-left text-gray-400">
+              <th className="pb-2">Type</th>
+              <th className="pb-2">Last Updated</th>
+              <th className="pb-2">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {userData?.categories.map((category) => (
+              <tr key={category.id} className="border-t border-grounding-medium">
+                <td className="py-3 text-gray-300">{category.name}</td>
+                <td className="py-3 text-gray-400">{category.lastUpdated}</td>
+                <td className="py-3">
+                  <button className="text-calm-light hover:underline text-sm">
+                    View
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+
+      {/* Export */}
+      <section className="p-6 rounded-xl bg-grounding-dark">
+        <h3 className="font-medium text-white mb-2">Export Your Data</h3>
+        <p className="text-sm text-gray-400 mb-4">
+          Download a complete copy of all your data in a standard format.
+        </p>
+        <div className="flex gap-3">
+          <button className="px-4 py-2 rounded-lg border border-gray-600 text-gray-300">
+            Export as JSON
+          </button>
+          <button className="px-4 py-2 rounded-lg border border-gray-600 text-gray-300">
+            Export as CSV
+          </button>
+        </div>
+      </section>
+
+      {/* Delete */}
+      <section className="p-6 rounded-xl bg-red-500/10 border border-red-500/30">
+        <h3 className="font-medium text-red-300 mb-2">Delete Your Data</h3>
+        <p className="text-sm text-gray-400 mb-4">
+          Permanently delete all your data. This cannot be undone.
+        </p>
+        <button className="px-4 py-2 rounded-lg bg-red-500/20 text-red-300 border border-red-500/50">
+          Request Data Deletion
+        </button>
+      </section>
+    </div>
+  );
+}
+```
+
+---
+
+## Collection Minimization
+
+### Only Ask When Needed
+
+```tsx
+// Bad: Collect everything upfront
+function SignupForm() {
+  return (
+    <form>
+      <input name="email" required />
+      <input name="phone" required />
+      <input name="address" required />
+      <input name="birthday" required />
+      <input name="employer" required />
+      {/* Why do you need all this for signup? */}
+    </form>
+  );
+}
+
+// Good: Collect minimum, request more when needed
+function SignupForm() {
+  return (
+    <form>
+      <input name="email" required />
+      <input name="password" required />
+      {/* That's it for signup */}
+    </form>
+  );
+}
+
+// Later, when shipping something:
+function ShippingForm() {
+  return (
+    <div>
+      <p className="text-sm text-gray-400 mb-4">
+        We need your address to ship your order. We'll delete it after delivery.
+      </p>
+      <form>
+        <input name="address" required />
+        <input name="city" required />
+        {/* Asked only when needed, explained why */}
+      </form>
+    </div>
+  );
+}
+```
+
+### Just-in-Time Consent
+
+```tsx
+function FeatureWithDataNeed({ children }) {
+  const [hasConsent, setHasConsent] = useState(false);
+
+  if (!hasConsent) {
+    return (
+      <div className="p-6 rounded-xl bg-grounding-dark border border-grounding-medium">
+        <h3 className="font-medium text-white mb-2">
+          This feature needs location access
+        </h3>
+        <p className="text-sm text-gray-400 mb-4">
+          To show nearby healing centers, we need to know your location.
+          We'll only use it for this feature and won't store it.
+        </p>
+        <div className="flex gap-3">
+          <button
+            onClick={() => setHasConsent(true)}
+            className="px-4 py-2 rounded-lg bg-healing-primary text-grounding-darkest"
+          >
+            Allow location
+          </button>
+          <button className="px-4 py-2 rounded-lg border border-gray-600 text-gray-300">
+            Enter manually
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return children;
+}
+```
+
+---
+
+## Transparency Patterns
+
+### Data Usage Indicators
+
+```tsx
+function DataUsageIndicator({ feature, dataUsed }) {
+  return (
+    <div className="flex items-center gap-2 text-xs text-gray-500">
+      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <span>This {feature} uses: {dataUsed.join(', ')}</span>
+    </div>
+  );
+}
+
+// Usage
+<SearchResults>
+  <DataUsageIndicator
+    feature="search"
+    dataUsed={['your query', 'your location (if shared)']}
+  />
+</SearchResults>
+```
+
+### Privacy-First Defaults
+
+```tsx
+// Default to privacy-preserving options
+const defaultPrivacySettings = {
+  analytics: false,        // Opt-in, not opt-out
+  personalizedAds: false,  // Opt-in, not opt-out
+  dataSharing: false,      // Opt-in, not opt-out
+  accountRecovery: true,   // On by default for user benefit
+};
+
+function PrivacySettings() {
+  const [settings, setSettings] = useState(defaultPrivacySettings);
+
+  return (
+    <div className="space-y-4">
+      <div className="p-4 bg-healing-ghost rounded-lg">
+        <p className="text-sm text-healing-light">
+          All privacy-optional features are <strong>off by default</strong>.
+          We only collect what you explicitly allow.
+        </p>
+      </div>
+
+      {/* Settings toggles */}
+    </div>
+  );
+}
+```
+
+---
+
+## Secure Handling
+
+### Encryption Indicators
+
+```tsx
+function SecureInput({ label, ...props }) {
+  return (
+    <div>
+      <label className="block text-sm font-medium text-gray-300 mb-1">
+        {label}
+      </label>
+      <div className="relative">
+        <input
+          {...props}
+          className="w-full pl-10 pr-4 py-2 rounded-lg bg-grounding-dark border border-grounding-medium"
+        />
+        <div className="absolute left-3 top-1/2 -translate-y-1/2">
+          <svg className="w-4 h-4 text-healing-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+              d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+        </div>
+      </div>
+      <p className="text-xs text-gray-500 mt-1">
+        Encrypted in transit and at rest
+      </p>
+    </div>
+  );
+}
+```
+
+---
+
+## Retention & Deletion
+
+### Clear Retention Policies
+
+```tsx
+function RetentionPolicy({ dataType, period, reason }) {
+  return (
+    <div className="p-4 rounded-lg bg-grounding-dark/50 border border-grounding-medium">
+      <div className="flex justify-between items-start">
+        <div>
+          <h4 className="font-medium text-gray-200">{dataType}</h4>
+          <p className="text-sm text-gray-400 mt-1">{reason}</p>
+        </div>
+        <span className="px-2 py-1 rounded bg-grounding-medium text-xs text-gray-400">
+          {period}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+// Usage
+<div className="space-y-3">
+  <RetentionPolicy
+    dataType="Session logs"
+    period="30 days"
+    reason="For security monitoring and debugging"
+  />
+  <RetentionPolicy
+    dataType="Account data"
+    period="Until deletion"
+    reason="Required for your account to function"
+  />
+  <RetentionPolicy
+    dataType="Analytics"
+    period="90 days"
+    reason="To improve the app, then permanently deleted"
+  />
+</div>
+```
+
+---
+
+## Checklist
+
+### Collection
+- [ ] Only collect data you genuinely need
+- [ ] Ask for data at the point of need, not upfront
+- [ ] Explain why you need each piece of data
+- [ ] Provide alternatives when data isn't required
+
+### Consent
+- [ ] Use plain language, not legalese
+- [ ] Make consent specific, not bundled
+- [ ] Default to privacy-preserving options
+- [ ] Make it as easy to withdraw consent as to give it
+
+### Transparency
+- [ ] Provide a data dashboard showing what you have
+- [ ] Show which features use which data
+- [ ] Publish clear retention policies
+- [ ] Notify users of policy changes
+
+### Control
+- [ ] Allow easy data export
+- [ ] Enable granular privacy settings
+- [ ] Provide simple deletion process
+- [ ] Honor deletion requests completely
+
+### Security
+- [ ] Encrypt data in transit and at rest
+- [ ] Minimize access to personal data
+- [ ] Regular security audits
+- [ ] Breach notification procedures
+
+---
+
+## Related Patterns
+
+- [Mindful Interactions](/docs/integration/mindful-interactions) - Thoughtful consent flows
+- [Accessibility Healing](/docs/integration/accessibility-healing) - Inclusive privacy controls
+- [Gentle Errors](/docs/integration/gentle-errors) - Clear communication about data issues
