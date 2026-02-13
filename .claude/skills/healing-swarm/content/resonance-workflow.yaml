@@ -156,14 +156,14 @@ consent_framework:
 
   during_session:
     - Ongoing consent check at each phase transition
-    - Non-verbal signals for "pause" and "stop" established
+    - 'Non-verbal signals for "pause" and "stop" established'
     - Facilitator monitors for distress
     - Any participant can end their participation silently
 
   post_session:
     - Sharing is explicitly optional
     - No pressure to report specific experiences
-    - "I'd rather not share" is always honored
+    - '"I''d rather not share" is always honored'
     - Debrief focused on grounding, not performance
 
   power_dynamics:
@@ -263,7 +263,7 @@ quality_gates:
     - ~25% response rate honestly stated
     - Limited replication acknowledged
     - No telepathy or paranormal claims
-    - "May" and "might" language throughout
+    - '"May" and "might" language throughout'
     - Both connection and no-connection normalized
 
   interpersonal_safety:

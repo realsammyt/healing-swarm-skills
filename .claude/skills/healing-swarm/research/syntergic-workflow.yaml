@@ -160,7 +160,7 @@ research_domains:
       - Neuronal field hypothesis
       - The Lattice concept
       - Interaction between brain and conscious substrate
-      - "La Creación de la Experiencia" series
+      - '"La Creación de la Experiencia" series'
     evidence_status: theoretical
 
   transferred_potential:
@@ -284,7 +284,7 @@ quality_gates:
     - Every claim labeled with evidence level
     - Sample sizes stated for cited studies
     - Replication status noted
-    - "Suggests" not "proves" language
+    - '"Suggests" not "proves" language'
     - Theoretical vs empirical clearly distinguished
 
   cultural_sensitivity:

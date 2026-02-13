@@ -1,5 +1,20 @@
 # {{WORKFLOW_NAME}} Workflow
 # {{BRIEF_DESCRIPTION}}
+#
+# ─── YAML AUTHORING RULES ───────────────────────────────────────────────────────
+# Strings containing double quotes, single quotes, colons, or special characters
+# MUST be wrapped in quotes to produce valid YAML:
+#
+#   INVALID:  - "Suggests" language, not "proves"
+#   VALID:    - '"Suggests" language, not "proves"'
+#
+#   INVALID:  - "I'd rather not share" is honored
+#   VALID:    - '"I''d rather not share" is honored'
+#
+# Rule: If a YAML list item or value contains " or ' characters, wrap the entire
+# value in the OTHER quote type. Escape inner single quotes by doubling: ''
+# Values that are ENTIRELY a quoted string (like message: "text") are fine as-is.
+# ─────────────────────────────────────────────────────────────────────────────────
 
 name: {{workflow-name}}
 version: 1.0.0

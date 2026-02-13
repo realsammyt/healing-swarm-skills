@@ -208,7 +208,7 @@ quality_gates:
     - Grinberg properly attributed
     - Sample sizes noted
     - Limited replication acknowledged
-    - "Suggests" language used, not "proves"
+    - '"Suggests" language used, not "proves"'
 
   safety:
     - Medical disclaimer present

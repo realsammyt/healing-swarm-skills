@@ -368,7 +368,7 @@ quality_gates:
     - Grinberg properly attributed
     - Evidence levels stated
     - No guaranteed outcomes
-    - "Exploratory" language for Lattice content
+    - '"Exploratory" language for Lattice content'
 
   transpersonal_safety:
     - Enhanced safety framing for days 15+
