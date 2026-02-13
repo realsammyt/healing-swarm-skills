@@ -639,6 +639,36 @@ file_operations:
 
 ---
 
+## YAML Authoring Rules
+
+When creating or editing workflow YAML files, follow these rules to prevent syntax errors:
+
+**Quoting strings with special characters:**
+
+YAML list items containing double quotes (`"`), single quotes (`'`), colons (`:`), or hash (`#`) MUST be wrapped in quotes:
+
+```yaml
+# INVALID — YAML parses "Suggests" as a quoted scalar, then chokes on the rest
+- "Suggests" language used, not "proves"
+
+# VALID — entire value wrapped in single quotes
+- '"Suggests" language used, not "proves"'
+
+# VALID — value that is ENTIRELY a quoted string (no trailing text)
+message: "This is fine because the whole value is one quoted string"
+```
+
+**Escaping rules:**
+- To include `"` inside a value: wrap in single quotes `'...'`
+- To include `'` inside single-quoted value: double it `''`
+- Example: `- '"I''d rather not share" is honored'`
+
+**When in doubt:** wrap the value in single quotes.
+
+**Always run `npm run validate`** before committing workflow changes.
+
+---
+
 ## Loaded Context
 
 As Swarm Conductor, always load:

@@ -322,9 +322,8 @@ function main() {
     log('  ✗ Validation failed', 'red');
     const totalErrors =
       stats.workflows.errors.length +
-      stats.agents.errors.length +
-      stats.ethics.missing.length;
-    log(`    ${totalErrors} issue(s) found`, 'red');
+      stats.agents.errors.length;
+    log(`    ${totalErrors} error(s) found`, 'red');
   }
 
   log('═══════════════════════════════════════════════════════════════', 'cyan');
