@@ -21,6 +21,10 @@ const sidebars: SidebarsConfig = {
         'skills/deploy',
         'skills/swarm',
         'skills/integration',
+        'skills/coherence',
+        'skills/syntergic-research',
+        'skills/resonance',
+        'skills/orbital-journey',
       ],
     },
     {

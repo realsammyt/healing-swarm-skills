@@ -1,0 +1,91 @@
+---
+sidebar_position: 9
+title: Coherence Meditation
+description: Guided interhemispheric coherence practices based on Grinberg's self-allusive meditation
+---
+
+# coherence-meditation
+
+**Trigger:** `/coherence-meditation`
+
+Guided 20-minute interhemispheric coherence practices based on Grinberg's self-allusive meditation protocol.
+
+## Agents
+
+- **Consciousness Researcher** - Grinberg research and EEG coherence evidence
+- **Coherence Guide** - Self-allusive meditation practice design
+- **Content Writer** - Practice language and framing
+- **Ethics Guardian** - Safety and evidence claims review
+
+## Inputs
+
+| Input | Required | Description |
+|-------|----------|-------------|
+| `focus` | Yes | Focus area (e.g., "morning coherence", "stress reduction") |
+| `level` | No | `beginner`, `intermediate`, `advanced` |
+| `duration` | No | `10`, `20` (default), `30` minutes |
+
+## Outputs
+
+- `coherence-practice.md` - Complete guided meditation script
+- `evidence-brief.md` - Research context with honest limitations
+- `audio-timing.json` - Timing cues for audio recording
+
+## Examples
+
+**Beginner morning practice:**
+```bash
+/coherence-meditation "morning coherence" --level beginner
+```
+
+**Advanced healing support:**
+```bash
+/coherence-meditation "healing support" --level advanced --duration 30
+```
+
+**Quick stress reduction:**
+```bash
+/coherence-meditation "stress relief" --duration 10
+```
+
+## Practice Structure
+
+Based on Grinberg's 6-phase self-allusive meditation protocol:
+
+| Phase | Duration | Focus |
+|-------|----------|-------|
+| 1. Settling | 2-3 min | Grounding, initial awareness |
+| 2. Body Awareness | 4-5 min | Physical sensations, interoception |
+| 3. Emotional Field | 4-5 min | Emotions without losing body awareness |
+| 4. Thought Awareness | 4-5 min | Observing mental patterns |
+| 5. Unified Field | 4-5 min | All domains simultaneously ("high-inclusion") |
+| 6. Integration | 2-3 min | Grounding, return |
+
+Each phase **adds** to previous awareness rather than replacing it. The unified field phase — holding body, emotion, thought, and environment simultaneously — is the distinctive feature.
+
+## Research Basis
+
+> **Evidence level: Preliminary**
+>
+> Grinberg's EEG studies at UNAM suggest that self-allusive meditation may enhance
+> interhemispheric coherence (alpha 8-12 Hz and theta 4-8 Hz synchronization).
+> These findings are based on small sample sizes with limited independent
+> replication. Broader meditation neuroscience provides moderate support for
+> meditation-related EEG changes.
+
+## Quality Gates
+
+Before output is finalized:
+
+- 6-phase structure followed correctly
+- Evidence levels clearly labeled
+- Grinberg properly attributed (UNAM, 1970s-1994)
+- Small sample sizes and limited replication noted
+- "Suggests" language used, never "proves"
+- Medical disclaimer present
+- Permission to stop included at every phase
+- Variations for accessibility provided
+
+---
+
+*Coherence is the brain's natural state when given space. We facilitate, not force.*
