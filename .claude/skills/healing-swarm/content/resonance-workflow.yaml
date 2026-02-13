@@ -1,0 +1,333 @@
+# Resonance Pairing Workflow
+# Coordinates consciousness-researcher, resonance-facilitator, content-writer, ethics-guardian
+
+name: resonance-pairing-workflow
+version: 1.0.0
+description: |
+  Orchestrates the creation of paired and group meditation protocols based on
+  Grinberg's transferred potential research. Consent and safety are paramount —
+  ethics-guardian review is CRITICAL for all outputs.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse request and assess interpersonal practice needs
+    agent: orchestrator
+    actions:
+      - parse_request
+      - determine_group_size
+      - assess_experience_levels
+      - identify_safety_requirements
+      - flag_consent_requirements
+
+  - name: research
+    description: Gather transferred potential research and evidence
+    agent: consciousness-researcher
+    inputs:
+      - practice_type
+      - group_size
+    outputs:
+      - transferred-potential-evidence.md
+      - grinberg-pairing-protocol.md
+      - safety-considerations.md
+
+  - name: protocol_design
+    description: Design the paired/group practice protocol
+    agent: resonance-facilitator
+    inputs:
+      - transferred-potential-evidence.md
+      - grinberg-pairing-protocol.md
+      - group_size
+      - experience_levels
+    outputs:
+      - pairing-protocol.md
+      - participant-guide.md
+      - consent-framework.md
+      - facilitator-checklist.md
+      - boundary-guidelines.md
+
+  - name: content_creation
+    description: Polish language and create participant-facing materials
+    agent: content-writer
+    inputs:
+      - pairing-protocol.md
+      - participant-guide.md
+      - consent-framework.md
+    outputs:
+      - draft-protocol.md
+      - draft-participant-guide.md
+      - draft-consent-form.md
+
+  - name: ethics_review
+    description: CRITICAL review for consent, safety, and claims
+    agent: ethics-guardian
+    critical: true
+    inputs:
+      - draft-protocol.md
+      - draft-participant-guide.md
+      - draft-consent-form.md
+      - boundary-guidelines.md
+      - facilitator-checklist.md
+    outputs:
+      - ethics_approval
+      - consent_adequacy
+      - safety_assessment
+      - required_modifications
+      - power_dynamic_notes
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROTOCOL PARAMETERS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+protocol_parameters:
+  group_sizes:
+    dyad:
+      participants: 2
+      facilitator_required: false
+      description: Two people practicing together
+    small_group:
+      participants: 3-6
+      facilitator_required: true
+      description: Small group with facilitator
+    large_group:
+      participants: 7-20
+      facilitator_required: true
+      co_facilitator_required: true
+      description: Larger group with facilitation team
+
+  protocol_phases:
+    phase_1_individual_preparation:
+      duration: 5
+      description: Each participant practices coherence meditation separately
+      location: separate spaces if possible
+    phase_2_connection_establishment:
+      duration: 5-7
+      description: Participants come together, shared presence
+      options:
+        - Gentle eye contact
+        - Sitting in proximity
+        - Synchronized breathing
+      consent_required: true
+    phase_3_shared_meditation:
+      duration: 15-20
+      description: Synchronized meditation practice
+      guidance_level: minimal
+    phase_4_separation:
+      duration: 5-10
+      optional: true
+      description: Partners separate to different rooms while maintaining practice
+      note: Based on Grinberg's transferred potential protocol
+    phase_5_reunification:
+      duration: 5-10
+      description: Come back together, optional sharing
+      sharing_is_optional: true
+      privacy_respected: true
+
+  experience_levels:
+    first_time:
+      - Extended preparation phase
+      - More facilitator guidance
+      - Shorter shared meditation
+      - No separation phase
+      - Gentle debrief
+    experienced:
+      - Standard protocol
+      - Full phases including separation
+      - Minimal guidance during meditation
+    advanced:
+      - Extended meditation phase
+      - Longer separation phase
+      - Self-directed debrief
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CONSENT FRAMEWORK
+# ═══════════════════════════════════════════════════════════════════════════════
+
+consent_framework:
+  pre_session:
+    - Written or verbal informed consent from ALL participants
+    - Clear explanation of all phases
+    - Explicit right to withdraw at any time
+    - No pressure to participate in any specific phase
+    - Privacy commitment (what happens in session stays private)
+
+  during_session:
+    - Ongoing consent check at each phase transition
+    - Non-verbal signals for "pause" and "stop" established
+    - Facilitator monitors for distress
+    - Any participant can end their participation silently
+
+  post_session:
+    - Sharing is explicitly optional
+    - No pressure to report specific experiences
+    - "I'd rather not share" is always honored
+    - Debrief focused on grounding, not performance
+
+  power_dynamics:
+    - Teacher/student pairings require extra safeguards
+    - Employer/employee pairings not recommended
+    - Romantic partners: note potential bias in experience reporting
+    - Age differences: ensure meaningful consent
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTEGRATION PATTERNS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+integration:
+  sequential_execution:
+    - intake → research
+    - research → protocol_design
+    - protocol_design → content_creation
+    - content_creation → ethics_review [CRITICAL]
+
+  data_flow:
+    research_to_protocol:
+      - Transferred potential methodology
+      - Evidence for pairing effects
+      - Safety considerations
+    protocol_to_content:
+      - Raw protocol structure
+      - Facilitator notes
+      - Consent requirements
+    content_to_ethics:
+      - Polished participant materials
+      - Consent documents
+      - All claims and framing
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output_structure:
+  pairing-protocol.md:
+    sections:
+      - overview_and_purpose
+      - evidence_context
+      - preparation_requirements
+      - phase_by_phase_instructions
+      - facilitator_notes
+      - timing_guide
+      - safety_protocols
+      - debrief_guide
+
+  participant-guide.md:
+    sections:
+      - what_to_expect
+      - your_rights
+      - how_to_participate
+      - what_if_nothing_happens
+      - what_if_something_intense_happens
+      - after_the_session
+      - resources
+
+  consent-framework.md:
+    sections:
+      - what_you_are_consenting_to
+      - what_will_happen
+      - your_rights
+      - privacy_commitment
+      - right_to_withdraw
+      - signature_or_verbal_agreement
+
+  boundary-guidelines.md:
+    sections:
+      - physical_boundaries
+      - emotional_boundaries
+      - privacy_expectations
+      - facilitator_responsibilities
+      - participant_responsibilities
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  consent:
+    - Informed consent document complete and clear
+    - Right to withdraw explicitly stated
+    - Privacy commitments documented
+    - Power dynamics acknowledged
+    - No coercive language
+
+  safety:
+    - Grounding techniques included
+    - Distress protocol documented
+    - Facilitator monitoring instructions
+    - Exit available at every phase
+    - Mental health resources listed
+
+  evidence_honesty:
+    - ~25% response rate honestly stated
+    - Limited replication acknowledged
+    - No telepathy or paranormal claims
+    - "May" and "might" language throughout
+    - Both connection and no-connection normalized
+
+  interpersonal_safety:
+    - Boundary guidelines comprehensive
+    - Physical contact rules clear
+    - Sharing is optional
+    - No pressure for specific experiences
+    - Debrief is respectful
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  consent_inadequate:
+    action: halt_and_redesign
+    message: "Consent framework does not meet requirements"
+    continue: false
+    require: resonance_facilitator_revision
+
+  power_dynamic_concern:
+    action: flag_and_review
+    message: "Potential power dynamic imbalance identified"
+    continue: false
+    require: ethics_guardian_review
+
+  overclaims_detected:
+    action: revise_language
+    message: "Claims about connection exceed evidence"
+    continue: true
+    require: language_revision
+
+  safety_concern:
+    action: halt_and_review
+    message: "Interpersonal safety concern identified"
+    continue: false
+    require: full_ethics_review
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: First paired session for beginners
+    invocation: /resonance-pairing "first session" --group dyad --level first_time
+    expected_output:
+      - Simplified pairing protocol
+      - Participant guide with extra context
+      - Consent form
+      - No separation phase
+
+  - name: Group meditation circle
+    invocation: /resonance-pairing "group meditation" --group small_group --level experienced
+    expected_output:
+      - Full group protocol
+      - Participant guides for each person
+      - Facilitator checklist
+      - Consent forms
+      - Boundary guidelines
+
+  - name: Advanced transferred potential exploration
+    invocation: /resonance-pairing "transferred potential" --group dyad --level advanced
+    expected_output:
+      - Full protocol with separation phase
+      - Research context document
+      - Detailed consent including separation
+      - Facilitator notes on experience normalization

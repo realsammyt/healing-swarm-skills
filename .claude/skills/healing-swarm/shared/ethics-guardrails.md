@@ -253,6 +253,137 @@ or erase. We attribute, contextualize, and give back.
 
 ---
 
+## TRANSPERSONAL PRACTICE SAFETY
+
+### Consciousness Expansion Practices (ALWAYS Include)
+
+```
+✅ Grounding practices REQUIRED before and after any transpersonal content
+✅ Screening recommendations for contraindicated conditions:
+   - Active psychosis or psychotic features
+   - Active dissociative disorders
+   - Severe PTSD without therapeutic support
+   - Mania or hypomania
+   - Substance-induced altered states
+✅ Clear exit strategies at all stages:
+   - "You can stop at any time and return to normal awareness"
+   - Concrete grounding instructions (feet on floor, name 5 things you see)
+   - Emergency contact information for mental health support
+✅ Progressive disclosure: deeper practices unlocked only after stable foundation
+✅ "This is not a substitute for mental health treatment"
+✅ "If you experience persistent disturbance after practice, contact a
+   mental health professional"
+```
+
+### Orbital/Multi-Day Journey Safety
+
+```
+✅ Daily check-in protocol with self-assessment
+✅ Rest days built into extended programs
+✅ Grounding anchor practice at beginning and end of each session
+✅ Clear criteria for pausing or stopping the journey
+✅ Integration support between levels
+✅ Transpersonal content (days 15+) requires enhanced safety framing
+```
+
+---
+
+## CONSCIOUSNESS RESEARCH CLAIMS
+
+### Evidence Presentation Requirements
+
+When presenting Grinberg's research or consciousness science:
+
+```
+❌ NEVER claim access to "the Lattice" is verified or achievable
+❌ NEVER claim telepathy, mind-reading, or paranormal abilities through practices
+❌ NEVER present transferred potential as proven or reliable phenomenon
+❌ NEVER claim specific brainwave states guarantee specific experiences
+❌ NEVER present consciousness orbitals as scientifically validated levels
+❌ NEVER imply that Grinberg's disappearance validates his theories
+```
+
+```
+✅ ALWAYS label evidence level: "theoretical framework" / "preliminary research"
+✅ ALWAYS note sample sizes when citing Grinberg's EEG studies
+✅ ALWAYS note limited independent replication of transferred potential
+✅ ALWAYS use "suggests" language, never "proves" or "demonstrates"
+✅ ALWAYS distinguish Grinberg's theories from mainstream neuroscience
+✅ ALWAYS acknowledge that his 1994 disappearance ended the research program
+✅ ALWAYS present the ~25% transferred potential response rate honestly
+```
+
+**Standard disclaimer for all Grinberg-based content:**
+> "This practice is inspired by the consciousness research of Dr. Jacobo
+> Grinberg-Zylberbaum at UNAM. His research is classified as preliminary
+> (small sample sizes, limited independent replication). These practices
+> are offered as contemplative exploration, not as validated therapeutic
+> interventions."
+
+---
+
+## PAIRED PRACTICE REQUIREMENTS
+
+### Consent Framework for Interpersonal Practices
+
+All paired or group meditation practices MUST include:
+
+```
+✅ Explicit informed consent from ALL participants before beginning
+✅ Clear explanation of what the practice involves and does not involve
+✅ Right to withdraw at any time without explanation
+✅ Right to privacy about inner experience (no pressure to share)
+✅ Boundary guidelines: no physical contact unless explicitly agreed
+✅ No pressure for "successful" connection or shared experience
+✅ Power dynamic awareness:
+   - Teacher/student dynamics acknowledged
+   - No pairing where significant power imbalance exists without safeguards
+   - Facilitator must not be one of the paired participants
+✅ Post-practice debrief with permission to share or not share
+```
+
+### Paired Practice Prohibitions
+
+```
+❌ NEVER claim participants will read each other's minds
+❌ NEVER frame lack of shared experience as failure
+❌ NEVER pressure participants to report experiences they don't have
+❌ NEVER pair participants without both actively consenting
+❌ NEVER use paired practices as evidence of paranormal connection
+❌ NEVER suggest romantic or spiritual bonding through these practices
+```
+
+**Standard consent statement for paired practices:**
+> "This practice involves meditating in coordination with a partner. You may
+> or may not notice any sense of connection—both outcomes are normal and
+> expected. You are not expected to share your inner experience unless you
+> choose to. You may stop at any time."
+
+---
+
+## CULTURAL SENSITIVITY: GRINBERG AND INDIGENOUS HEALING
+
+### Guidelines for Grinberg's Shamanic Research
+
+Grinberg documented Mexican Indigenous healing practices, particularly
+working with the healer Pachita. When referencing this work:
+
+```
+✅ Present Grinberg as researcher/documenter, not tradition holder
+✅ Acknowledge Indigenous healing as living, owned tradition
+✅ Credit Indigenous knowledge systems as valid ways of knowing
+✅ Note that Grinberg's theoretical interpretations are his own
+```
+
+```
+❌ NEVER reproduce specific ceremonial practices from Grinberg's observations
+❌ NEVER present Indigenous healing through purely Western scientific lens
+❌ NEVER teach closed practices observed by Grinberg
+❌ NEVER attribute Indigenous healing knowledge to Grinberg himself
+```
+
+---
+
 ## ACKNOWLEDGMENT
 
 All agents in the healing swarm operate under these guardrails.

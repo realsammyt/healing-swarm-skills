@@ -121,6 +121,111 @@ skills:
       /mechanism-mapping "chakra activation" --to psychophysiology
 
   # ─────────────────────────────────────────────────────────────────────────────
+  # CONSCIOUSNESS SKILLS (Grinberg Research)
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: coherence-meditation
+    trigger: /coherence-meditation
+    description: |
+      Guided interhemispheric coherence practices based on Grinberg's
+      self-allusive meditation protocol. Produces 20-minute guided
+      meditations with evidence context and safety framing.
+    category: consciousness
+    agents:
+      - consciousness-researcher
+      - coherence-guide
+      - content-writer
+      - ethics-guardian
+    workflow: research/coherence-workflow.yaml
+    requires_ethics_approval: true
+    templates:
+      - content/templates/coherence-practice.md
+    outputs:
+      - coherence-practice.md
+      - evidence-brief.md
+      - audio-timing.json
+    example_usage: |
+      /coherence-meditation "morning coherence" --level beginner
+      /coherence-meditation "healing support" --level advanced --duration 30
+
+  - name: syntergic-research
+    trigger: /syntergic-research
+    description: |
+      Deep research into Grinberg's consciousness science with honest
+      evidence presentation. Bridges syntergic theory with mainstream
+      neuroscience and contextualizes shamanic observations.
+    category: research
+    agents:
+      - consciousness-researcher
+      - traditions-scholar
+      - clinical-researcher
+      - mechanisms-neuroscientist
+      - ethics-guardian
+    workflow: research/syntergic-workflow.yaml
+    requires_ethics_approval: true
+    outputs:
+      - syntergic-research-brief.md
+      - grinberg-bibliography.md
+      - shamanic-context.md
+      - honest-assessment.md
+    example_usage: |
+      /syntergic-research "syntergic theory overview" --depth quick
+      /syntergic-research "transferred potential experiments" --depth comprehensive
+
+  - name: resonance-pairing
+    trigger: /resonance-pairing
+    description: |
+      Paired and group meditation protocols based on Grinberg's
+      transferred potential research. Consent and safety are paramount.
+      Ethics review is CRITICAL for all outputs.
+    category: consciousness
+    agents:
+      - consciousness-researcher
+      - resonance-facilitator
+      - content-writer
+      - ethics-guardian
+    workflow: content/resonance-workflow.yaml
+    requires_ethics_approval: true
+    templates:
+      - content/templates/resonance-pairing.md
+    outputs:
+      - pairing-protocol.md
+      - participant-guide.md
+      - consent-framework.md
+      - boundary-guidelines.md
+    example_usage: |
+      /resonance-pairing "first session" --group dyad --level first_time
+      /resonance-pairing "group meditation" --group small_group --level experienced
+
+  - name: orbital-journey
+    trigger: /orbital-journey
+    description: |
+      Progressive multi-day journeys through Grinberg's consciousness
+      orbitals. Ethics review is CRITICAL for transpersonal content.
+      Includes comprehensive safety architecture and screening.
+    category: consciousness
+    agents:
+      - consciousness-researcher
+      - orbital-architect
+      - coherence-guide
+      - content-writer
+      - ethics-guardian
+    workflow: content/orbital-workflow.yaml
+    requires_ethics_approval: true
+    templates:
+      - content/templates/orbital-day.md
+    outputs:
+      - journey-map.md
+      - daily-practices/
+      - orbital-guide.md
+      - safety-protocols.md
+      - progress-tracker.md
+    example_usage: |
+      /orbital-journey --duration 7 --level beginner
+      /orbital-journey --duration 21 --level intermediate
+      /orbital-journey --duration 28 --level advanced
+
+  # ─────────────────────────────────────────────────────────────────────────────
   # DESIGN SKILLS
   # ─────────────────────────────────────────────────────────────────────────────
 
@@ -348,6 +453,23 @@ skills:
 # ═══════════════════════════════════════════════════════════════════════════════
 
 agents:
+  # Consciousness Research Agents
+  consciousness-researcher:
+    prompt: research/consciousness-researcher.md
+    tools: [WebSearch, WebFetch, Read, Glob, Grep]
+
+  coherence-guide:
+    prompt: content/coherence-guide.md
+    tools: [Read, Write, Glob]
+
+  resonance-facilitator:
+    prompt: content/resonance-facilitator.md
+    tools: [Read, Write, Glob]
+
+  orbital-architect:
+    prompt: content/orbital-architect.md
+    tools: [Read, Write, Glob, Grep]
+
   # Research Agents
   traditions-scholar:
     prompt: research/traditions-scholar.md

@@ -1,0 +1,440 @@
+# Orbital Journey Workflow
+# Coordinates consciousness-researcher, orbital-architect, coherence-guide,
+# content-writer, ethics-guardian
+
+name: orbital-journey-workflow
+version: 1.0.0
+description: |
+  Orchestrates the creation of progressive multi-day consciousness expansion
+  journeys based on Grinberg's consciousness orbitals model. Ethics review is
+  CRITICAL for all transpersonal content (days 15+).
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse journey request and determine parameters
+    agent: orchestrator
+    actions:
+      - parse_request
+      - determine_journey_duration
+      - assess_participant_readiness
+      - identify_screening_requirements
+      - set_safety_level
+
+  - name: orbital_research
+    description: Research consciousness orbitals and practice foundations
+    agent: consciousness-researcher
+    inputs:
+      - journey_duration
+      - participant_readiness
+    outputs:
+      - orbital-theory.md
+      - practice-foundations.md
+      - safety-research.md
+
+  - name: journey_architecture
+    description: Design the multi-day journey structure
+    agent: orbital-architect
+    inputs:
+      - orbital-theory.md
+      - practice-foundations.md
+      - safety-research.md
+      - journey_duration
+      - participant_readiness
+    outputs:
+      - journey-map.md
+      - daily-practice-outlines/
+      - orbital-guide.md
+      - safety-protocols.md
+      - progress-tracker.md
+
+  - name: daily_content_creation
+    description: Create individual day practices and content
+    agents:
+      - coherence-guide
+      - content-writer
+    inputs:
+      - journey-map.md
+      - daily-practice-outlines/
+      - practice-foundations.md
+    outputs:
+      - daily-practices/
+      - journal-prompts/
+      - integration-guides/
+
+  - name: ethics_review
+    description: CRITICAL review especially for transpersonal content
+    agent: ethics-guardian
+    critical: true
+    inputs:
+      - journey-map.md
+      - daily-practices/
+      - orbital-guide.md
+      - safety-protocols.md
+      - progress-tracker.md
+    outputs:
+      - ethics_approval
+      - transpersonal_safety_assessment
+      - screening_requirements
+      - required_modifications
+      - grounding_adequacy
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# JOURNEY PARAMETERS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+journey_parameters:
+  durations:
+    seven_day:
+      total_days: 7
+      orbital_coverage: bodily_only
+      description: Foundation practice — bodily/sensory awareness
+      safety_level: standard
+      orbitals:
+        days_1_7: bodily_sensory
+
+    twenty_one_day:
+      total_days: 21
+      orbital_coverage: full_spectrum
+      description: Complete journey through all orbitals
+      safety_level: enhanced
+      orbitals:
+        days_1_7: bodily_sensory
+        days_8_14: emotional
+        days_15_19: mental
+        days_20_21: transpersonal
+      integration_days: [7, 14, 19]
+
+    twenty_eight_day:
+      total_days: 28
+      orbital_coverage: full_with_lattice
+      description: Advanced journey including Lattice connection
+      safety_level: maximum
+      prerequisite: completed_21_day
+      orbitals:
+        days_1_7: bodily_sensory
+        days_8_14: emotional
+        days_15_19: mental
+        days_20_24: transpersonal
+        days_25_28: lattice_connection
+      integration_days: [7, 14, 19, 24]
+
+  orbital_levels:
+    bodily_sensory:
+      focus: Physical awareness, interoception, body scan, breath
+      practices:
+        - Body scan meditation
+        - Breath awareness
+        - Sensory grounding
+        - Interoceptive attention
+      safety: standard
+      grounding: built_into_practice
+
+    emotional:
+      focus: Feeling-field awareness without reaction, emotional witnessing
+      practices:
+        - Emotional body scan
+        - Feeling-tone awareness
+        - Non-reactive witnessing
+        - Emotional coherence practice
+      safety: enhanced
+      grounding: before_and_after
+      note: Some participants may encounter difficult emotions
+
+    mental:
+      focus: Witness consciousness, thought observation, meta-cognition
+      practices:
+        - Thought observation
+        - Meta-cognitive awareness
+        - Witness consciousness
+        - Self-allusive unified field
+      safety: enhanced
+      grounding: before_and_after
+      note: May trigger existential inquiry
+
+    transpersonal:
+      focus: Unity consciousness, field awareness
+      practices:
+        - Expanded awareness
+        - Field sensing
+        - Unity meditation
+        - Integration practice
+      safety: maximum
+      grounding: intensive_before_during_after
+      screening_required: true
+      exit_ramps: multiple
+      note: Requires screening for contraindicated conditions
+
+    lattice_connection:
+      focus: Sensing the underlying field (Grinberg's Lattice)
+      practices:
+        - Field awareness meditation
+        - Lattice sensing (theoretical frame)
+        - Integration and grounding
+      safety: maximum
+      grounding: intensive
+      screening_required: true
+      prerequisite: stable_transpersonal
+      theoretical_framing_required: true
+      note: Entirely theoretical — clearly labeled as exploratory
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DAILY STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+daily_structure:
+  morning_practice:
+    duration: 20-30
+    description: Primary orbital practice for the day
+    includes:
+      - Grounding anchor (2-3 min)
+      - Main practice (15-25 min)
+      - Integration (2-3 min)
+
+  midday_check_in:
+    duration: 5
+    description: Brief self-assessment and micro-practice
+    includes:
+      - Self-assessment (mood, groundedness, integration)
+      - Mini-grounding if needed
+      - Intention reminder
+
+  evening_reflection:
+    duration: 10-15
+    description: Journal prompt and settling practice
+    includes:
+      - Journal prompt specific to day's orbital
+      - Gentle settling practice
+      - Gratitude or appreciation moment
+      - Sleep preparation
+
+  integration_days:
+    description: Rest days between orbital transitions
+    activities:
+      - No new practices
+      - Gentle review of current orbital
+      - Extended journaling
+      - Walking or gentle movement
+      - Self-assessment for readiness to advance
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SCREENING AND SAFETY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+screening:
+  all_participants:
+    - Current mental health status self-assessment
+    - Meditation experience level
+    - Current therapeutic support (if any)
+    - Medical conditions that may affect practice
+    - Consent to stop if distress arises
+
+  transpersonal_screening:
+    contraindicated_conditions:
+      - Active psychosis or psychotic features
+      - Active dissociative disorders
+      - Severe untreated PTSD
+      - Current mania or hypomania
+      - Active substance use disorders
+      - Recent psychiatric hospitalization (within 6 months)
+    required_supports:
+      - Established meditation practice (minimum 3 months)
+      - Access to mental health professional
+      - Stable daily functioning
+      - Support person identified
+    recommendation: |
+      If any contraindicated conditions are present, the journey should
+      end at the mental orbital (day 19) or be limited to the 7-day
+      bodily program. This is not a limitation — it is appropriate care.
+
+safety_protocols:
+  grounding_practices:
+    - 5-4-3-2-1 sensory grounding
+    - Feet on floor, name what you see
+    - Cold water on wrists
+    - Walking slowly and deliberately
+    - Counting breaths backward from 10
+
+  distress_signals:
+    - Persistent anxiety lasting >2 hours after practice
+    - Difficulty distinguishing practice experience from reality
+    - Sleep disruption lasting >2 nights
+    - Emotional flooding that doesn't resolve with grounding
+    - Dissociative symptoms
+
+  distress_response:
+    - Stop all practices immediately
+    - Use grounding protocol
+    - Contact support person
+    - Seek professional help if symptoms persist
+    - Resume only with professional guidance
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTEGRATION PATTERNS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+integration:
+  sequential_execution:
+    - intake → orbital_research
+    - orbital_research → journey_architecture
+    - journey_architecture → daily_content_creation
+    - daily_content_creation → ethics_review [CRITICAL]
+
+  data_flow:
+    research_to_architecture:
+      - Orbital theory details
+      - Practice foundations for each level
+      - Safety research findings
+    architecture_to_content:
+      - Daily outlines with timing
+      - Practice specifications
+      - Safety framing requirements
+    content_to_ethics:
+      - All daily practices
+      - Journal prompts
+      - Safety protocols
+      - Screening documents
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output_structure:
+  journey-map.md:
+    sections:
+      - overview_and_intention
+      - orbital_progression
+      - day_by_day_summary
+      - integration_days
+      - safety_framework
+      - completion_and_integration
+
+  daily-practices/:
+    per_day:
+      - morning_practice.md
+      - midday_check_in.md
+      - evening_reflection.md
+      - journal_prompt.md
+
+  orbital-guide.md:
+    sections:
+      - what_are_consciousness_orbitals
+      - the_theoretical_framework
+      - evidence_assessment
+      - how_orbitals_map_to_practice
+      - what_to_expect_at_each_level
+      - this_is_a_model_not_a_map
+
+  safety-protocols.md:
+    sections:
+      - screening_questionnaire
+      - grounding_practices
+      - distress_signals_to_watch_for
+      - what_to_do_if_distressed
+      - when_to_stop
+      - professional_resources
+      - emergency_contacts
+
+  progress-tracker.md:
+    sections:
+      - daily_self_assessment
+      - orbital_readiness_checklist
+      - integration_notes
+      - practice_log
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  journey_structure:
+    - Progressive difficulty matches orbital model
+    - Integration days present at transitions
+    - Each day builds on previous
+    - No orbital skipping
+
+  safety_architecture:
+    - Screening present for transpersonal content
+    - Grounding at every session
+    - Exit ramps clearly documented
+    - Distress protocol comprehensive
+    - Professional resources listed
+
+  evidence_framing:
+    - Orbitals labeled as theoretical model
+    - Grinberg properly attributed
+    - Evidence levels stated
+    - No guaranteed outcomes
+    - "Exploratory" language for Lattice content
+
+  transpersonal_safety:
+    - Enhanced safety framing for days 15+
+    - Screening gate before transpersonal
+    - Multiple grounding anchors
+    - Clear exit criteria
+    - Not positioned as therapy substitute
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  screening_not_passed:
+    action: limit_journey
+    message: "Screening indicates shorter journey recommended"
+    continue: true
+    limit_to: bodily_orbital_only
+
+  safety_inadequate:
+    action: halt_and_redesign
+    message: "Safety protocols insufficient for this orbital level"
+    continue: false
+    require: orbital_architect_revision
+
+  transpersonal_overclaims:
+    action: revise_language
+    message: "Transpersonal content makes unsupported claims"
+    continue: true
+    require: evidence_language_revision
+
+  ethics_concerns:
+    action: halt_and_review
+    message: "Ethics review identified concerns"
+    continue: false
+    require: full_ethics_review
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: 7-day bodily awareness foundation
+    invocation: /orbital-journey --duration 7 --level beginner
+    expected_output:
+      - Journey map (7 days)
+      - 7 daily practice sets
+      - Orbital guide (bodily level only)
+      - Basic safety protocols
+
+  - name: 21-day full orbital journey
+    invocation: /orbital-journey --duration 21 --level intermediate
+    expected_output:
+      - Complete 21-day journey map
+      - 21 daily practice sets
+      - Full orbital guide
+      - Enhanced safety protocols
+      - Screening questionnaire
+      - Progress tracker
+
+  - name: 28-day advanced journey with Lattice
+    invocation: /orbital-journey --duration 28 --level advanced
+    expected_output:
+      - Complete 28-day journey map
+      - 28 daily practice sets
+      - Advanced orbital guide with Lattice
+      - Maximum safety protocols
+      - Full screening
+      - Professional support recommendations

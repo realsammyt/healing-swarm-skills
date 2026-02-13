@@ -1,0 +1,364 @@
+# Syntergic Research Workflow
+# Coordinates consciousness-researcher, traditions-scholar, clinical-researcher,
+# mechanisms-neuroscientist, ethics-guardian
+
+name: syntergic-research-workflow
+version: 1.0.0
+description: |
+  Deep research into Grinberg's consciousness science with honest evidence
+  presentation. Bridges syntergic theory with mainstream consciousness science,
+  and contextualizes Grinberg's shamanic observations within their cultural setting.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse research request and identify scope
+    agent: orchestrator
+    actions:
+      - parse_query
+      - identify_grinberg_topics
+      - determine_shamanic_context_needed
+      - identify_mainstream_bridges
+      - set_depth_level
+
+  - name: primary_research
+    description: Research Grinberg's published works and theories
+    agent: consciousness-researcher
+    parallel: true
+    inputs:
+      - query
+      - grinberg_topics
+    outputs:
+      - grinberg-primary-research.md
+      - grinberg-bibliography.md
+      - evidence-assessment.md
+
+  - name: traditions_research
+    description: Research shamanic and Indigenous healing context
+    agent: traditions-scholar
+    parallel: true
+    inputs:
+      - query
+      - shamanic_context_needed
+    outputs:
+      - shamanic-context.md
+      - cultural-sensitivity-notes.md
+
+  - name: clinical_context
+    description: Review mainstream consciousness research
+    agent: clinical-researcher
+    parallel: true
+    inputs:
+      - query
+      - mainstream_bridges
+    outputs:
+      - mainstream-evidence.md
+      - replication-status.md
+
+  - name: mechanism_analysis
+    description: Bridge Grinberg's theories with current neuroscience
+    agent: mechanisms-neuroscientist
+    inputs:
+      - grinberg-primary-research.md
+      - mainstream-evidence.md
+    outputs:
+      - mechanism-bridges.md
+      - theoretical-assessment.md
+
+  - name: synthesis
+    description: Integrate all research strands
+    agent: consciousness-researcher
+    inputs:
+      - grinberg-primary-research.md
+      - shamanic-context.md
+      - mainstream-evidence.md
+      - mechanism-bridges.md
+    outputs:
+      - syntergic-research-brief.md
+      - honest-assessment.md
+
+  - name: ethics_review
+    description: Review for evidence claims and cultural sensitivity
+    agent: ethics-guardian
+    inputs:
+      - syntergic-research-brief.md
+      - cultural-sensitivity-notes.md
+      - honest-assessment.md
+    outputs:
+      - ethics_approval
+      - required_modifications
+      - cultural_concerns
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DEPTH LEVELS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+depth_levels:
+  quick:
+    description: Overview of Grinberg's key concepts
+    consciousness_researcher:
+      - Key theories summary
+      - Major published works
+      - Basic evidence assessment
+    traditions_scholar:
+      - Brief Pachita context
+      - Cultural sensitivity notes
+    clinical_researcher:
+      - Top replication attempts
+      - Mainstream parallels
+    output: 3-5 page brief
+
+  standard:
+    description: Balanced research for typical needs
+    consciousness_researcher:
+      - Full theory exposition
+      - Published bibliography
+      - Detailed evidence assessment
+    traditions_scholar:
+      - Shamanic context with cultural framing
+      - Indigenous healing principles
+    clinical_researcher:
+      - Systematic evidence review
+      - Replication landscape
+    mechanisms_neuroscientist:
+      - Theory-neuroscience bridges
+      - Current consensus comparison
+    output: 8-15 page brief
+
+  comprehensive:
+    description: Deep scholarly dive
+    consciousness_researcher:
+      - Complete published works review
+      - Theory evolution over time
+      - Lab methodology analysis
+      - All experimental results
+    traditions_scholar:
+      - Full shamanic context
+      - Mexican Indigenous healing traditions
+      - Cross-cultural parallels
+    clinical_researcher:
+      - Complete replication landscape
+      - Statistical re-analysis
+      - Methodological critique
+    mechanisms_neuroscientist:
+      - Complete mechanism mapping
+      - Competing theoretical models
+      - Future research directions
+    output: 20-30 page brief
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RESEARCH DOMAINS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+research_domains:
+  syntergic_theory:
+    description: Grinberg's theoretical framework
+    key_topics:
+      - Neuronal field hypothesis
+      - The Lattice concept
+      - Interaction between brain and conscious substrate
+      - "La Creación de la Experiencia" series
+    evidence_status: theoretical
+
+  transferred_potential:
+    description: Correlated brain activity between separated meditators
+    key_topics:
+      - Original experiments (50+)
+      - ~25% response rate
+      - EEG methodology
+      - Replication attempts
+    evidence_status: preliminary
+
+  interhemispheric_coherence:
+    description: EEG synchronization during meditation
+    key_topics:
+      - Alpha band (8-12 Hz) coherence
+      - Theta band (4-8 Hz) coherence
+      - 20-minute meditation protocol
+      - Self-allusive meditation effects
+    evidence_status: preliminary_with_mainstream_support
+
+  consciousness_orbitals:
+    description: Discrete levels of awareness
+    key_topics:
+      - Bodily/sensory level
+      - Emotional level
+      - Mental/cognitive level
+      - Transpersonal level
+      - Unity consciousness
+    evidence_status: theoretical
+
+  shamanic_research:
+    description: Grinberg's work with traditional healers
+    key_topics:
+      - Work with Pachita
+      - Observed phenomena
+      - Cultural context
+      - Ethical considerations
+    evidence_status: observational
+    cultural_sensitivity: high
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTEGRATION PATTERNS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+integration:
+  parallel_execution:
+    - primary_research
+    - traditions_research
+    - clinical_context
+
+  sequential_execution:
+    - intake → primary_research + traditions_research + clinical_context
+    - primary_research + clinical_context → mechanism_analysis
+    - all_research → synthesis
+    - synthesis → ethics_review
+
+  data_flow:
+    primary_to_synthesis:
+      - Grinberg's specific claims
+      - Published evidence
+      - Theory structure
+    traditions_to_synthesis:
+      - Cultural context
+      - Shamanic framework
+      - Indigenous knowledge acknowledgment
+    clinical_to_mechanisms:
+      - Mainstream evidence parallels
+      - Replication status
+      - Methodological assessments
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output_structure:
+  syntergic-research-brief.md:
+    sections:
+      - executive_summary
+      - grinberg_biography_and_context
+      - syntergic_theory_exposition
+      - key_experimental_findings
+      - shamanic_research_context
+      - mainstream_science_bridges
+      - honest_assessment
+      - implications_for_practice
+      - gaps_and_future_directions
+      - complete_bibliography
+
+  grinberg-bibliography.md:
+    sections:
+      - books
+      - journal_articles
+      - conference_papers
+      - secondary_sources
+      - replication_studies
+
+  shamanic-context.md:
+    sections:
+      - mexican_indigenous_healing
+      - grinberg_and_pachita
+      - cultural_framing
+      - ethical_boundaries
+      - living_tradition_acknowledgment
+
+  honest-assessment.md:
+    sections:
+      - strengths_of_grinbergs_work
+      - methodological_limitations
+      - replication_challenges
+      - what_has_mainstream_support
+      - what_remains_theoretical
+      - what_is_unknown
+      - recommendation_for_practitioners
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  evidence_integrity:
+    - Every claim labeled with evidence level
+    - Sample sizes stated for cited studies
+    - Replication status noted
+    - "Suggests" not "proves" language
+    - Theoretical vs empirical clearly distinguished
+
+  cultural_sensitivity:
+    - Grinberg as researcher, not tradition holder
+    - Indigenous knowledge acknowledged as owned
+    - No closed practices reproduced
+    - Cultural reviewer approval for shamanic content
+
+  biographical_accuracy:
+    - UNAM affiliation noted
+    - Active period (1970s-1994) stated
+    - Disappearance acknowledged factually
+    - No speculation about disappearance
+
+  balanced_presentation:
+    - Strengths AND limitations presented
+    - Not dismissive of preliminary findings
+    - Not uncritical of unverified claims
+    - Bridges to mainstream where possible
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  primary_sources_unavailable:
+    action: note_and_use_secondary
+    message: "Some Grinberg primary sources unavailable; using secondary sources"
+    continue: true
+
+  cultural_sensitivity_concern:
+    action: flag_and_review
+    message: "Content may involve closed or sensitive practices"
+    continue: false
+    require: cultural_reviewer
+
+  overclaims_detected:
+    action: revise_language
+    message: "Evidence claims exceed available support"
+    continue: true
+    require: evidence_language_revision
+
+  ethics_concerns:
+    action: halt_and_review
+    message: "Ethics review identified concerns"
+    continue: false
+    require: manual_review
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Overview of syntergic theory
+    invocation: /syntergic-research "syntergic theory overview" --depth quick
+    expected_output:
+      - 3-5 page research brief
+      - Key concepts explained
+      - Evidence levels labeled
+      - Basic bibliography
+
+  - name: Transferred potential deep dive
+    invocation: /syntergic-research "transferred potential experiments" --depth comprehensive
+    expected_output:
+      - 20-30 page research brief
+      - All known experiments catalogued
+      - Replication landscape mapped
+      - Full bibliography
+      - Honest assessment of evidence
+
+  - name: Grinberg and shamanic healing
+    invocation: /syntergic-research "Grinberg Pachita shamanic research" --depth standard
+    expected_output:
+      - Research brief with cultural context
+      - Shamanic context document
+      - Cultural sensitivity review
+      - Ethics approval

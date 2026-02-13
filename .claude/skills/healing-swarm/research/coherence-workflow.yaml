@@ -1,0 +1,274 @@
+# Coherence Meditation Workflow
+# Coordinates consciousness-researcher, coherence-guide, content-writer, ethics-guardian
+
+name: coherence-meditation-workflow
+version: 1.0.0
+description: |
+  Orchestrates the creation of interhemispheric coherence meditation practices
+  based on Grinberg's self-allusive meditation protocol. Produces 20-minute
+  guided practices with evidence context and safety framing.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse meditation request and determine parameters
+    agent: orchestrator
+    actions:
+      - parse_request
+      - determine_experience_level
+      - identify_focus_area
+      - set_duration_target
+      - check_contraindications
+
+  - name: research
+    description: Gather Grinberg research and coherence evidence
+    agent: consciousness-researcher
+    inputs:
+      - focus_area
+      - experience_level
+    outputs:
+      - grinberg-context.md
+      - coherence-evidence.md
+      - self-allusive-protocol.md
+
+  - name: practice_creation
+    description: Design the coherence meditation practice
+    agent: coherence-guide
+    inputs:
+      - grinberg-context.md
+      - self-allusive-protocol.md
+      - experience_level
+      - duration_target
+    outputs:
+      - coherence-practice.md
+      - audio-timing.json
+      - practice-summary-card.md
+
+  - name: content_writing
+    description: Polish practice language and add framing
+    agent: content-writer
+    inputs:
+      - coherence-practice.md
+      - coherence-evidence.md
+      - practice-summary-card.md
+    outputs:
+      - draft-practice.md
+      - evidence-brief.md
+
+  - name: ethics_review
+    description: Review for safety and appropriate claims
+    agent: ethics-guardian
+    inputs:
+      - draft-practice.md
+      - evidence-brief.md
+      - audio-timing.json
+    outputs:
+      - ethics_approval
+      - required_modifications
+      - safety_additions
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PRACTICE PARAMETERS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+practice_parameters:
+  durations:
+    short:
+      total: 10
+      phases:
+        settling: 1-2
+        body_awareness: 2
+        emotional_field: 2
+        thought_awareness: 2
+        unified_field: 1-2
+        integration: 1
+    standard:
+      total: 20
+      phases:
+        settling: 2-3
+        body_awareness: 4-5
+        emotional_field: 4-5
+        thought_awareness: 4-5
+        unified_field: 4-5
+        integration: 2-3
+    extended:
+      total: 30
+      phases:
+        settling: 3-4
+        body_awareness: 5-7
+        emotional_field: 5-7
+        thought_awareness: 5-7
+        unified_field: 5-7
+        integration: 3-4
+
+  experience_levels:
+    beginner:
+      - Simplified phase transitions
+      - More guidance during silence
+      - Shorter unified field phase
+      - Extra grounding in integration
+    intermediate:
+      - Standard phase durations
+      - Balanced guidance and silence
+      - Full unified field practice
+    advanced:
+      - Extended silence periods
+      - Minimal verbal guidance
+      - Extended unified field phase
+      - Optional Lattice awareness (with safety framing)
+
+  focus_areas:
+    - general_coherence
+    - stress_reduction
+    - emotional_regulation
+    - creative_flow
+    - healing_support
+    - morning_awakening
+    - evening_settling
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTEGRATION PATTERNS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+integration:
+  sequential_execution:
+    - intake → research
+    - research → practice_creation
+    - practice_creation → content_writing
+    - content_writing → ethics_review
+
+  data_flow:
+    research_to_practice:
+      - Grinberg protocol specifics
+      - EEG coherence timing evidence
+      - Self-allusive awareness cues
+    practice_to_content:
+      - Raw practice script
+      - Timing structure
+      - Phase descriptions
+    content_to_ethics:
+      - Polished practice
+      - Evidence claims
+      - Safety framing
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output_structure:
+  coherence-practice.md:
+    sections:
+      - title_and_metadata
+      - overview_and_evidence
+      - before_you_begin
+      - phase_1_settling
+      - phase_2_body_awareness
+      - phase_3_emotional_field
+      - phase_4_thought_awareness
+      - phase_5_unified_field
+      - phase_6_integration
+      - variations
+      - building_a_practice
+      - attribution_and_disclaimer
+
+  evidence-brief.md:
+    sections:
+      - grinberg_overview
+      - self_allusive_meditation
+      - interhemispheric_coherence_evidence
+      - alpha_theta_synchronization
+      - limitations_and_honest_assessment
+      - references
+
+  audio-timing.json:
+    fields:
+      - total_duration_seconds
+      - phases_array
+      - bell_cues
+      - silence_periods
+      - transition_markers
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  practice_design:
+    - 6-phase structure followed
+    - Timing within specified ranges
+    - Transitions are smooth and invitational
+    - Permission to stop included at every phase
+    - Grounding available at any point
+
+  evidence_integration:
+    - Evidence levels clearly labeled
+    - Grinberg properly attributed
+    - Sample sizes noted
+    - Limited replication acknowledged
+    - "Suggests" language used, not "proves"
+
+  safety:
+    - Medical disclaimer present
+    - Mental health considerations noted
+    - Grounding techniques included
+    - Exit ramp available
+    - No outcome promises
+
+  accessibility:
+    - Seated, lying, and adapted variations
+    - Multi-sensory cues (not vision-only)
+    - Clear, simple language
+    - Modifications for different abilities
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  insufficient_research:
+    action: document_gap
+    message: "Limited research available for this specific focus area"
+    continue: true
+    note: "Practice can proceed with general coherence protocol"
+
+  safety_concern:
+    action: halt_and_review
+    message: "Safety concern identified in practice design"
+    continue: false
+    require: ethics_guardian_review
+
+  overclaims_detected:
+    action: revise
+    message: "Evidence claims exceed available support"
+    continue: true
+    require: language_revision
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Beginner morning coherence
+    invocation: /coherence-meditation "morning coherence" --level beginner --duration 20
+    expected_output:
+      - 20-minute guided practice script
+      - Evidence brief on interhemispheric coherence
+      - Audio timing JSON
+      - Practice summary card
+
+  - name: Advanced healing support
+    invocation: /coherence-meditation "healing support" --level advanced --duration 30
+    expected_output:
+      - 30-minute extended practice
+      - Enhanced evidence brief
+      - Extended silence periods in timing
+
+  - name: Quick stress reduction
+    invocation: /coherence-meditation "stress relief" --level beginner --duration 10
+    expected_output:
+      - 10-minute condensed practice
+      - Simplified evidence brief
+      - Compact timing structure

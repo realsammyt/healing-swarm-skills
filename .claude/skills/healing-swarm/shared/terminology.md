@@ -258,3 +258,67 @@ parallels in other traditions using this guide:
 **Note:** Parallels illuminate but do not equate. Each tradition has unique
 cosmology, practice forms, and transmission lineages that deserve individual
 respect.
+
+---
+
+## Consciousness Research Terminology (Grinberg)
+
+> Terms from the consciousness research of Dr. Jacobo Grinberg-Zylberbaum
+> (1946–1994), Mexican neurophysiologist at UNAM. All terms require explicit
+> evidence-level labeling when used in content.
+
+### Core Theoretical Concepts
+
+| Term | Definition | Evidence Status |
+|------|------------|-----------------|
+| Syntergic Theory | Brain creates a hypercomplex neuronal field (*campo neuronal*) that interacts with an underlying conscious substrate | Theoretical framework |
+| The Lattice (*la lattice*) | Non-local holographic matrix of consciousness underlying reality; the substrate that neuronal fields interact with | Theoretical (not empirically verified) |
+| Self-Allusive Meditation | Simultaneous awareness of bodily, emotional, mental, and external fields; Grinberg's meditative protocol | Practice with preliminary research |
+| Interhemispheric Coherence | Synchronization of neural activity between brain hemispheres, measured via EEG; enhanced by meditation | Research-supported (small samples) |
+| Transferred Potential | Correlated evoked potentials observed in separated meditation partners (~25% response rate across 50+ experiments) | Preliminary (limited independent replication) |
+| Consciousness Orbitals | Discrete levels of awareness: bodily → emotional → mental → transpersonal → unity | Theoretical model |
+| Neural Synergy (*sintergia*) | Integrated coherent brain activity in meditative states; the brain functioning as unified field | Research-supported (EEG studies) |
+| High-Inclusion Neuro Algorithms | Cognitive patterns enabling simultaneous multi-domain awareness; the neural correlate of self-allusive meditation | Theoretical |
+
+### Practice Mode Terms (Grinberg)
+
+| Mode | Description | Standard Term |
+|------|-------------|---------------|
+| Self-allusive practice | Individual interhemispheric coherence practice | "Coherence meditation" |
+| Transferred potential pairing | Two practitioners meditating together then separating | "Resonance pairing" |
+| Orbital progression | Multi-day journey through consciousness levels | "Orbital journey" |
+| Lattice connection | Advanced practice of sensing the underlying field | "Field awareness practice" |
+
+### Usage Guidelines
+
+**Formatting:** Italicize Grinberg-specific terms on first use: *syntergic theory*, *the Lattice*
+
+**Required context when referencing Grinberg's work:**
+> "Dr. Jacobo Grinberg-Zylberbaum (1946–1994) was a Mexican neurophysiologist
+> at UNAM who studied consciousness, meditation, and traditional healing.
+> His research program ended with his disappearance in 1994."
+
+**Evidence labeling:** ALWAYS pair Grinberg terms with their evidence status:
+- "Grinberg's *syntergic theory* (a theoretical framework, not empirically verified)..."
+- "Preliminary EEG studies suggest interhemispheric coherence increases during meditation (small sample sizes, limited replication)..."
+- "The *transferred potential* phenomenon (~25% response rate in Grinberg's lab; limited independent replication)..."
+
+**Cultural context:** Grinberg worked extensively with Mexican Indigenous healers,
+particularly the healer known as Pachita. When referencing this work:
+- Acknowledge Grinberg as researcher/observer, not tradition holder
+- Respect Indigenous healing as living, owned tradition
+- Do not reproduce specific ceremonial practices without community permission
+- Use "Grinberg documented..." not "Grinberg discovered..."
+
+### Cross-Reference with Existing Traditions
+
+| Grinberg Concept | TCM Parallel | Vedic Parallel | Western Parallel |
+|------------------|-------------|----------------|-----------------|
+| The Lattice | Tao (道) | Brahman | Universal consciousness |
+| Neuronal field | Wei Qi field | Pranamaya kosha | Biofield |
+| Self-allusive awareness | Wuji standing meditation | Dharana/Dhyana | Mindfulness |
+| Consciousness orbitals | — | Koshas/Chakra levels | Wilber's spectrum |
+| Interhemispheric coherence | Yin-yang balance | Ida-pingala balance | Hemispheric synchronization |
+
+**Note:** These parallels are suggestive, not equivalences. Each framework has
+distinct epistemological foundations and should be presented on its own terms.
