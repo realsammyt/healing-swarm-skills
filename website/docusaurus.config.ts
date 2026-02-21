@@ -58,19 +58,31 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          to: '/docs/skills',
-          label: 'Skills',
+          type: 'dropdown',
+          label: 'Explore',
           position: 'left',
-        },
-        {
-          to: '/docs/integration',
-          label: 'Integration',
-          position: 'left',
-        },
-        {
-          to: '/docs/components',
-          label: 'Components',
-          position: 'left',
+          items: [
+            {
+              to: '/docs/skills',
+              label: 'Skills',
+            },
+            {
+              to: '/docs/examples',
+              label: 'Examples',
+            },
+            {
+              to: '/docs/integration',
+              label: 'Integration',
+            },
+            {
+              to: '/docs/components',
+              label: 'Components',
+            },
+            {
+              to: '/docs/architecture',
+              label: 'Architecture',
+            },
+          ],
         },
         {
           to: '/docs/ethics',

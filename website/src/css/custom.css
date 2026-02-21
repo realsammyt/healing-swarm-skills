@@ -80,6 +80,91 @@
   color: var(--ifm-color-primary) !important;
 }
 
+/* Dropdown menu styling */
+.dropdown__menu {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
+  min-width: 180px;
+}
+
+.dropdown__link {
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.dropdown__link:hover {
+  background: rgba(45, 210, 132, 0.1);
+  color: var(--ifm-color-primary);
+}
+
+.dropdown__link--active {
+  color: var(--ifm-color-primary);
+  background: rgba(45, 210, 132, 0.08);
+}
+
+/* ============================================
+   Mobile Navigation
+   ============================================ */
+
+/* Mobile hamburger toggle */
+.navbar__toggle {
+  color: var(--ifm-font-color-base);
+}
+
+/* Mobile sidebar overlay */
+.navbar-sidebar {
+  background: var(--ifm-background-color);
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-sidebar__brand {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+
+.navbar-sidebar__items {
+  padding: 0.5rem;
+}
+
+.navbar-sidebar .menu__link {
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+}
+
+.navbar-sidebar .menu__link:hover {
+  background: rgba(45, 210, 132, 0.1);
+  color: var(--ifm-color-primary);
+}
+
+.navbar-sidebar .menu__link--active {
+  background: rgba(45, 210, 132, 0.1);
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+/* Mobile dropdown expand/collapse */
+.navbar-sidebar .menu__list-item-collapsible {
+  border-radius: 0.5rem;
+}
+
+.navbar-sidebar .menu__list-item-collapsible:hover {
+  background: rgba(45, 210, 132, 0.05);
+}
+
+.navbar-sidebar .menu__list .menu__list {
+  padding-left: 1rem;
+}
+
+/* Ensure close button is accessible */
+.navbar-sidebar__close {
+  padding: 1rem;
+}
+
 /* ============================================
    Hero Section
    ============================================ */
