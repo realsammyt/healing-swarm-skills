@@ -68,8 +68,14 @@
    ============================================ */
 
 .navbar {
-  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+
+/* Apply backdrop blur only when mobile sidebar is NOT open.
+   backdrop-filter on .navbar creates a containing block that breaks
+   position:fixed on the mobile sidebar (which is a child of <nav>). */
+.navbar:not(.navbar-sidebar--show) {
+  backdrop-filter: blur(10px);
 }
 
 .navbar__title {
