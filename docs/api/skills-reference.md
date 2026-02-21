@@ -9,17 +9,30 @@
 | Skill | Trigger | Category | Purpose |
 |-------|---------|----------|---------|
 | [healing-research](#healing-research) | `/healing-research` | research | Deep research into healing traditions and clinical evidence |
-| [healing-design](#healing-design) | `/healing-design` | design | Design healing application UX and visuals |
-| [healing-content](#healing-content) | `/healing-content` | content | Create prayers, evidence boxes, visualizations |
-| [healing-build](#healing-build) | `/healing-build` | build | Develop accessible, privacy-first applications |
-| [healing-review](#healing-review) | `/healing-review` | quality | Quality review (ethics, clinical, cultural, a11y) |
-| [healing-deploy](#healing-deploy) | `/healing-deploy` | deploy | Deploy and maintain applications |
-| [healing-swarm](#healing-swarm) | `/healing-swarm` | orchestrator | Full orchestrated development lifecycle |
+| [traditions-research](#traditions-research) | `/traditions-research` | research | Research specific healing traditions |
+| [clinical-research](#clinical-research) | `/clinical-research` | research | Systematic review of clinical evidence |
+| [mechanism-mapping](#mechanism-mapping) | `/mechanism-mapping` | research | Bridge traditional concepts with neuroscience |
+| [coherence-meditation](#coherence-meditation) | `/coherence-meditation` | consciousness | Guided interhemispheric coherence practices |
+| [syntergic-research](#syntergic-research) | `/syntergic-research` | research | Deep research into Grinberg's consciousness science |
+| [resonance-pairing](#resonance-pairing) | `/resonance-pairing` | consciousness | Paired/group transferred potential protocols |
+| [orbital-journey](#orbital-journey) | `/orbital-journey` | consciousness | Progressive multi-day consciousness expansion |
 | [whm-breathwork](#whm-breathwork) | `/whm-breathwork` | breathwork | Guided Wim Hof breathing protocols with safety architecture |
 | [whm-cold-exposure](#whm-cold-exposure) | `/whm-cold-exposure` | breathwork | Progressive cold adaptation protocols |
 | [whm-journey](#whm-journey) | `/whm-journey` | breathwork | Multi-week integrated WHM program (all 3 pillars) |
 | [language-awareness](#language-awareness) | `/language-awareness` | perception | Individual cognitive deautomatization practices |
 | [group-perception](#group-perception) | `/group-perception` | perception | Group perception exercises with consent frameworks |
+| [healing-design](#healing-design) | `/healing-design` | design | Design healing application UX and visuals |
+| [healing-ux](#healing-ux) | `/healing-ux` | design | UX design for healing contexts |
+| [sacred-visuals](#sacred-visuals) | `/sacred-visuals` | design | Visual system with healing aesthetics |
+| [healing-content](#healing-content) | `/healing-content` | content | Create prayers, evidence boxes, visualizations |
+| [healing-build](#healing-build) | `/healing-build` | build | Develop accessible, privacy-first applications |
+| [healing-review](#healing-review) | `/healing-review` | quality | Quality review (ethics, clinical, cultural, a11y) |
+| [ethics-review](#ethics-review) | `/ethics-review` | quality | Ethics and safety review |
+| [clinical-review](#clinical-review) | `/clinical-review` | quality | Verify clinical claims and citations |
+| [cultural-review](#cultural-review) | `/cultural-review` | quality | Cultural sensitivity review |
+| [a11y-audit](#a11y-audit) | `/a11y-audit` | quality | WCAG and healing-specific accessibility audit |
+| [healing-deploy](#healing-deploy) | `/healing-deploy` | deploy | Deploy and maintain applications |
+| [healing-swarm](#healing-swarm) | `/healing-swarm` | orchestrator | Full orchestrated development lifecycle |
 
 ---
 
@@ -71,6 +84,241 @@ Deep research into healing traditions and clinical evidence, coordinating multip
 
 ---
 
+## traditions-research
+
+**Trigger:** `/traditions-research`
+**Category:** research
+**Standalone:** Yes (single agent)
+
+### Description
+
+Research specific healing traditions with scholarly rigor. Covers TCM, Ayurveda, Western esoteric, Indigenous, and Jewish mystical traditions.
+
+### Agents
+
+- **traditions-scholar** - Ancient healing practices research
+
+### Examples
+
+```bash
+/traditions-research "Solomonic angel healing"
+/traditions-research "TCM meridian theory for upper extremity"
+```
+
+---
+
+## clinical-research
+
+**Trigger:** `/clinical-research`
+**Category:** research
+**Standalone:** Yes (single agent)
+
+### Description
+
+Systematic review of clinical evidence for healing modalities. Searches PubMed/PMC, assesses study quality, and reports findings with appropriate evidence language.
+
+### Agents
+
+- **clinical-researcher** - Clinical evidence review
+
+### Examples
+
+```bash
+/clinical-research "guided imagery pain reduction"
+/clinical-research "prayer health outcomes"
+```
+
+---
+
+## mechanism-mapping
+
+**Trigger:** `/mechanism-mapping`
+**Category:** research
+**Standalone:** Yes (single agent)
+
+### Description
+
+Bridge traditional healing concepts with modern neuroscience. Translate between ancient wisdom and scientific understanding without conflating the two.
+
+### Agents
+
+- **mechanisms-neuroscientist** - Science-tradition bridging
+
+### Examples
+
+```bash
+/mechanism-mapping "qi cultivation" --to neuroscience
+/mechanism-mapping "chakra activation" --to psychophysiology
+```
+
+---
+
+## coherence-meditation
+
+**Trigger:** `/coherence-meditation`
+**Category:** consciousness
+**Workflow:** `research/coherence-workflow.yaml`
+
+### Description
+
+Guided interhemispheric coherence practices based on Grinberg's self-allusive meditation protocol. Produces 20-minute guided meditations with evidence context and safety framing.
+
+### Inputs
+
+| Input | Type | Required | Description |
+|-------|------|----------|-------------|
+| `focus` | string | Yes | Focus area (e.g., "morning coherence", "stress reduction") |
+| `level` | enum | No | `beginner`, `intermediate`, `advanced` |
+| `duration` | number | No | `10`, `20` (default), `30` minutes |
+
+### Outputs
+
+| Output | Description |
+|--------|-------------|
+| `coherence-practice.md` | Complete guided meditation script |
+| `evidence-brief.md` | Research context with honest limitations |
+| `audio-timing.json` | Timing cues for audio recording |
+
+### Agents
+
+- **consciousness-researcher** - Grinberg research and EEG coherence evidence
+- **coherence-guide** - Self-allusive meditation practice design
+- **content-writer** - Practice language and framing
+- **ethics-guardian** - Safety and evidence claims review
+
+### Examples
+
+```bash
+/coherence-meditation "morning coherence" --level beginner
+/coherence-meditation "healing support" --level advanced --duration 30
+```
+
+---
+
+## syntergic-research
+
+**Trigger:** `/syntergic-research`
+**Category:** research
+**Workflow:** `research/syntergic-workflow.yaml`
+
+### Description
+
+Deep research into Grinberg's consciousness science with honest evidence presentation. Bridges syntergic theory with mainstream neuroscience and contextualizes shamanic observations.
+
+### Outputs
+
+| Output | Description |
+|--------|-------------|
+| `syntergic-research-brief.md` | Comprehensive research brief |
+| `grinberg-bibliography.md` | Complete bibliography |
+| `shamanic-context.md` | Shamanic observation context |
+| `honest-assessment.md` | Evidence level assessment |
+
+### Agents
+
+- **consciousness-researcher** - Grinberg research specialist
+- **traditions-scholar** - Cross-tradition context
+- **clinical-researcher** - Evidence evaluation
+- **mechanisms-neuroscientist** - Neuroscience bridging
+- **ethics-guardian** - Claims review
+
+### Examples
+
+```bash
+/syntergic-research "syntergic theory overview" --depth quick
+/syntergic-research "transferred potential experiments" --depth comprehensive
+```
+
+---
+
+## resonance-pairing
+
+**Trigger:** `/resonance-pairing`
+**Category:** consciousness
+**Workflow:** `content/resonance-workflow.yaml`
+
+### Description
+
+Paired and group meditation protocols based on Grinberg's transferred potential research. Consent and safety are paramount. Ethics review is CRITICAL for all outputs.
+
+### Inputs
+
+| Input | Type | Required | Description |
+|-------|------|----------|-------------|
+| `focus` | string | Yes | Session focus |
+| `group` | enum | No | `dyad`, `small_group`, `large_group` |
+| `level` | enum | No | `first_time`, `experienced`, `advanced` |
+
+### Outputs
+
+| Output | Description |
+|--------|-------------|
+| `pairing-protocol.md` | Complete pairing guide |
+| `participant-guide.md` | Participant preparation |
+| `consent-framework.md` | Informed consent protocol |
+| `boundary-guidelines.md` | Boundary and safety guidelines |
+
+### Agents
+
+- **consciousness-researcher** - Research context
+- **resonance-facilitator** - Pairing protocol design
+- **content-writer** - Script polishing
+- **ethics-guardian** - Consent and safety review
+
+### Examples
+
+```bash
+/resonance-pairing "first session" --group dyad --level first_time
+/resonance-pairing "group meditation" --group small_group --level experienced
+```
+
+---
+
+## orbital-journey
+
+**Trigger:** `/orbital-journey`
+**Category:** consciousness
+**Workflow:** `content/orbital-workflow.yaml`
+
+### Description
+
+Progressive multi-day journeys through Grinberg's consciousness orbitals. Ethics review is CRITICAL for transpersonal content. Includes comprehensive safety architecture and screening.
+
+### Inputs
+
+| Input | Type | Required | Description |
+|-------|------|----------|-------------|
+| `duration` | number | Yes | Journey duration in days (7, 14, 21, 28) |
+| `level` | enum | No | `beginner`, `intermediate`, `advanced` |
+
+### Outputs
+
+| Output | Description |
+|--------|-------------|
+| `journey-map.md` | Complete journey overview |
+| `daily-practices/` | Day-by-day practice guides |
+| `orbital-guide.md` | Orbital progression guide |
+| `safety-protocols.md` | Safety and grounding protocols |
+| `progress-tracker.md` | Journey tracking tool |
+
+### Agents
+
+- **consciousness-researcher** - Research context
+- **orbital-architect** - Journey structure design
+- **coherence-guide** - Meditation practice design
+- **content-writer** - Daily practice scripting
+- **ethics-guardian** - Safety architecture review
+
+### Examples
+
+```bash
+/orbital-journey --duration 7 --level beginner
+/orbital-journey --duration 21 --level intermediate
+/orbital-journey --duration 28 --level advanced
+```
+
+---
+
 ## healing-design
 
 **Trigger:** `/healing-design`
@@ -110,6 +358,52 @@ Design healing application user experience and visual elements, creating accessi
 
 # Full app design
 /healing-design "Sacred Healing Journey app" --scope full-app
+```
+
+---
+
+## healing-ux
+
+**Trigger:** `/healing-ux`
+**Category:** design
+**Standalone:** Yes (single agent)
+
+### Description
+
+Design user experience for healing contexts. Special attention to one-handed operation, vulnerable users, and therapeutic interaction patterns.
+
+### Agents
+
+- **ux-architect** - User experience architecture
+
+### Examples
+
+```bash
+/healing-ux "21-day healing journey"
+/healing-ux --for "injured hand user"
+```
+
+---
+
+## sacred-visuals
+
+**Trigger:** `/sacred-visuals`
+**Category:** design
+**Standalone:** Yes (single agent)
+
+### Description
+
+Design visual system with healing aesthetics. Colors, typography, sacred geometry, calming animations.
+
+### Agents
+
+- **visual-designer** - Visual design
+
+### Examples
+
+```bash
+/sacred-visuals --palette "Raphael healing green"
+/sacred-visuals --style "contemplative, scholarly"
 ```
 
 ---
@@ -254,6 +548,97 @@ Comprehensive quality review covering ethics compliance, clinical accuracy, cult
 
 # Critical issues only
 /healing-review ./app/ --severity critical-only
+```
+
+---
+
+## ethics-review
+
+**Trigger:** `/ethics-review`
+**Category:** quality
+**Standalone:** Yes (single agent)
+**Veto Power:** Yes
+
+### Description
+
+Ethics and safety review for healing content and features. Covers medical safety, psychological safety, cultural integrity, and privacy. Has veto power to block deployment.
+
+### Agents
+
+- **ethics-guardian** - Ethics and safety review
+
+### Examples
+
+```bash
+/ethics-review ./healing-app/
+/ethics-review "This practice will cure your condition"
+```
+
+---
+
+## clinical-review
+
+**Trigger:** `/clinical-review`
+**Category:** quality
+**Standalone:** Yes (single agent)
+
+### Description
+
+Verify clinical claims and citations. Check PMID validity, claim accuracy, and evidence representation.
+
+### Agents
+
+- **clinical-reviewer** - Clinical accuracy verification
+
+### Examples
+
+```bash
+/clinical-review ./content/evidence-boxes/
+```
+
+---
+
+## cultural-review
+
+**Trigger:** `/cultural-review`
+**Category:** quality
+**Standalone:** Yes (single agent)
+
+### Description
+
+Cultural sensitivity review for healing content. Attribution, representation, and appropriation assessment.
+
+### Agents
+
+- **cultural-reviewer** - Cultural sensitivity review
+
+### Examples
+
+```bash
+/cultural-review ./content/traditions/
+```
+
+---
+
+## a11y-audit
+
+**Trigger:** `/a11y-audit`
+**Category:** quality
+**Standalone:** Yes (single agent)
+
+### Description
+
+Accessibility audit for healing applications. WCAG compliance plus healing-specific accessibility needs (one-handed operation, cognitive accessibility, vulnerable user design).
+
+### Agents
+
+- **accessibility-auditor** - WCAG compliance auditing
+
+### Examples
+
+```bash
+/a11y-audit ./healing-app/
+/a11y-audit --healing-specific ./components/
 ```
 
 ---
@@ -594,10 +979,33 @@ Group and paired perception exercises with consent frameworks, facilitation guid
 ### Research Skills
 Research and evidence gathering.
 - healing-research
+- traditions-research (standalone)
+- clinical-research (standalone)
+- mechanism-mapping (standalone)
+- syntergic-research
+
+### Consciousness Skills
+Grinberg research-based practices.
+- coherence-meditation
+- resonance-pairing
+- orbital-journey
+
+### Breathwork Skills
+Wim Hof Method protocols with safety architecture.
+- whm-breathwork
+- whm-cold-exposure
+- whm-journey
+
+### Perception Skills
+Cognitive deautomatization and language awareness.
+- language-awareness
+- group-perception
 
 ### Design Skills
 UX and visual design.
 - healing-design
+- healing-ux (standalone)
+- sacred-visuals (standalone)
 
 ### Content Skills
 Content creation.
@@ -610,6 +1018,10 @@ Application development.
 ### Quality Skills
 Review and quality assurance.
 - healing-review
+- ethics-review (standalone, veto power)
+- clinical-review (standalone)
+- cultural-review (standalone)
+- a11y-audit (standalone)
 
 ### Deploy Skills
 Deployment and maintenance.
@@ -618,17 +1030,6 @@ Deployment and maintenance.
 ### Orchestrator Skills
 Full lifecycle coordination.
 - healing-swarm
-
-### Breathwork Skills
-Wim Hof Method protocols with safety architecture.
-- whm-breathwork
-- whm-cold-exposure
-- whm-journey
-
-### Perception Skills
-Cognitive deautomatization and language awareness.
-- language-awareness
-- group-perception
 
 ---
 

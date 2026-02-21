@@ -1,0 +1,99 @@
+---
+sidebar_position: 6
+title: BreathworkTimer
+description: Phase-aware WHM breathing timer with safety gates and count-up retention display
+---
+
+# BreathworkTimer
+
+A specialized timer component for Wim Hof Method breathing sessions. Designed with safety as the primary constraint — includes mandatory safety briefing, phase-aware displays, and a retention timer that counts UP (not down) to prevent competitive breath-holding.
+
+## Key Design Decisions
+
+- **Safety briefing gate**: Cannot be skipped. Users must acknowledge safety warnings before starting
+- **Retention counts UP**: Elapsed time display prevents targeting specific hold times
+- **No countdown pressure**: The gasp reflex determines when to breathe, not a timer
+- **Phase-aware UI**: Visual design changes with each breathing phase
+- **Audio cues**: Optional haptic and audio feedback for phase transitions
+
+## Phases
+
+| Phase | Display | Interaction |
+|-------|---------|-------------|
+| Safety Briefing | Warnings, acknowledge button | Must accept to proceed |
+| Settling | Calm animation, countdown | Automatic transition |
+| Power Breaths | Breath counter, rhythm guide | Visual/audio rhythm cue |
+| Retention | Elapsed time counting UP | Tap to end when ready |
+| Recovery Breath | 15-second hold indicator | Automatic countdown |
+| Rest | Rest timer between rounds | Automatic transition |
+| Closing | Session summary | Review and close |
+
+## Props
+
+```typescript
+interface BreathworkTimerProps {
+  rounds: number;           // Number of rounds (default: 3)
+  breathsPerRound: number;  // Power breaths per round (default: 30)
+  breathPace: number;       // Seconds per breath cycle (default: 2)
+  recoveryHold: number;     // Recovery hold seconds (default: 15)
+  restBetweenRounds: number; // Rest seconds (default: 30)
+  settlingDuration: number;  // Settling seconds (default: 120)
+  level: 'beginner' | 'intermediate' | 'advanced';
+  onPhaseChange?: (phase: Phase) => void;
+  onSessionComplete?: (summary: SessionSummary) => void;
+  audioEnabled?: boolean;
+  hapticEnabled?: boolean;
+}
+```
+
+## Session Summary
+
+After completion, the timer provides:
+
+```typescript
+interface SessionSummary {
+  totalDuration: number;      // Total session time
+  rounds: RoundSummary[];     // Per-round data
+  retentionTimes: number[];   // Retention durations (for personal tracking)
+  completed: boolean;
+}
+```
+
+## Accessibility
+
+- Screen reader announces phase transitions
+- Keyboard controls: Space to start/stop, Escape to exit
+- High contrast phase indicators
+- Audio cues for eyes-closed practice
+- Reduced motion mode available
+
+## Safety Architecture
+
+The component enforces these safety rules:
+
+1. **Safety briefing is non-skippable** — first-time users see full briefing; returning users see abbreviated version
+2. **Retention timer counts UP** — no target, no countdown, no competitive framing
+3. **"Tap when ready" for retention** — user decides when to breathe, not the timer
+4. **Emergency stop** — always accessible, returns to normal breathing guidance
+5. **Session does not auto-advance** during retention — user must actively choose to breathe
+
+## Usage
+
+```tsx
+<BreathworkTimer
+  rounds={3}
+  level="beginner"
+  audioEnabled={true}
+  onSessionComplete={(summary) => {
+    console.log('Session complete:', summary);
+  }}
+/>
+```
+
+## Component Spec
+
+Full specification available at: `build/components/breathwork-timer.md`
+
+---
+
+*"The timer serves the breath, not the other way around."*

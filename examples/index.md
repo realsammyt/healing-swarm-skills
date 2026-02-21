@@ -31,6 +31,50 @@ A minimal working example demonstrating the complete healing swarm skill lifecyc
 
 ---
 
+## WHM Breathwork
+
+A complete example demonstrating the Wim Hof Method breathwork skill lifecycle with safety-first design.
+
+### What This Example Shows
+
+1. **Research** --- Clinical evidence (Kox 2014, Muzik 2018) and Tummo tradition context
+2. **Protocol Design** --- 3-round breathing session with safety briefing
+3. **Safety Review** --- Physiological safety, no competitive framing
+4. **Final Output** --- Ready-to-use breathing protocol
+
+### The Skill
+
+| Property | Value |
+|----------|-------|
+| **Name** | `whm-morning-session` |
+| **Purpose** | Beginner 3-round WHM breathing session |
+| **Traditions** | Tummo (Tibetan inner heat), Pranayama |
+| **Evidence** | Moderate (Kox et al. 2014, Muzik et al. 2018) |
+
+---
+
+## Language Awareness
+
+A complete example demonstrating cognitive deautomatization practice design with psychological safety.
+
+### What This Example Shows
+
+1. **Research** --- Deautomatization evidence (Deikman 1966) and cross-tradition parallels
+2. **Protocol Design** --- 5-minute label delay practice with Pocket Exit grounding
+3. **Safety Review** --- Psychological safety, grounding adequacy checks
+4. **Final Output** --- Ready-to-use observation practice
+
+### The Skill
+
+| Property | Value |
+|----------|-------|
+| **Name** | `label-delay-practice` |
+| **Purpose** | 5-minute beginner observation practice |
+| **Traditions** | Zen (shikantaza), Phenomenology (epoché), Vipassana |
+| **Evidence** | Moderate (Deikman 1966, semantic satiation research) |
+
+---
+
 ## Step 1: Research
 
 Before creating content, we research the practice.

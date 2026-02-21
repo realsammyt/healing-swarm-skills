@@ -461,6 +461,128 @@ Coordinates all swarm agents for full development lifecycle.
 
 ---
 
+## Consciousness Agents
+
+### consciousness-researcher
+
+**File:** `research/consciousness-researcher.md`
+
+Specializes in Grinberg's consciousness science, EEG coherence research, and cross-tradition contemplative studies.
+
+**Expertise:**
+- Grinberg-Zylberbaum research (UNAM, 1970s-1994)
+- EEG coherence and transferred potential studies
+- Syntergic theory
+- Shamanic observation methodology
+- Cross-tradition consciousness research
+
+**Responsibilities:**
+- Grinberg research synthesis
+- Evidence-level assessment
+- Cross-tradition consciousness parallels
+- Honest limitations documentation
+
+**Outputs:**
+- Research briefs with evidence levels
+- Bibliography compilations
+- Shamanic context documents
+- Honest assessment reports
+
+**Key Context:**
+- `shared/ethics-guardrails.md`
+- `shared/citation-format.md`
+
+---
+
+### coherence-guide
+
+**File:** `content/coherence-guide.md`
+
+Designs self-allusive meditation practices based on Grinberg's 6-phase interhemispheric coherence protocol.
+
+**Expertise:**
+- Grinberg's 6-phase meditation protocol
+- Interhemispheric coherence techniques
+- "High-inclusion" unified field awareness
+- Progressive meditation instruction
+
+**Responsibilities:**
+- Coherence practice design (6-phase structure)
+- Audio timing specification
+- Meditation script creation
+- Level-appropriate progression
+
+**Outputs:**
+- Guided meditation scripts
+- Audio timing JSON
+- Practice progression guides
+
+**Key Context:**
+- `shared/ethics-guardrails.md`
+- `content/templates/coherence-practice.md`
+
+---
+
+### resonance-facilitator
+
+**File:** `content/resonance-facilitator.md`
+
+Designs paired and group meditation protocols based on Grinberg's transferred potential research.
+
+**Expertise:**
+- Transferred potential experiment protocols
+- Paired meditation facilitation
+- Consent framework design
+- Boundary management in group practice
+
+**Responsibilities:**
+- Pairing protocol design
+- Consent framework creation
+- Participant screening and preparation
+- Boundary and safety guidelines
+
+**Outputs:**
+- Pairing protocol guides
+- Participant preparation documents
+- Consent frameworks
+- Boundary guidelines
+
+**Key Context:**
+- `shared/ethics-guardrails.md`
+- `content/templates/resonance-pairing.md`
+
+---
+
+### orbital-architect
+
+**File:** `content/orbital-architect.md`
+
+Designs progressive multi-day consciousness journeys through Grinberg's orbital model.
+
+**Expertise:**
+- Grinberg's orbital consciousness model
+- Multi-day contemplative program design
+- Progressive challenge architecture
+- Safety screening for transpersonal content
+
+**Responsibilities:**
+- Journey structure and pacing
+- Daily practice sequencing
+- Orbital progression design
+- Safety architecture for advanced practices
+
+**Outputs:**
+- Journey maps
+- Daily practice guides
+- Orbital progression guides
+- Safety and screening protocols
+
+**Key Context:**
+- `shared/ethics-guardrails.md`
+- `content/templates/orbital-day.md`
+
+---
+
 ## Specialist Agents
 
 ### breathwork-coach
