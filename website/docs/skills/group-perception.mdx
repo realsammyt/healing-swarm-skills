@@ -1,0 +1,151 @@
+---
+sidebar_position: 17
+title: Group Perception
+description: Group and paired perception exercises with consent frameworks and facilitation guides
+---
+
+# group-perception
+
+**Trigger:** `/group-perception`
+
+Group and paired perception exercises with consent frameworks, facilitation guides, and debrief structures. Based on cognitive deautomatization research and contemplative group practice traditions.
+
+## Agents
+
+- **Language Awareness Guide** - Exercise design and facilitation
+- **Content Writer** - Script polishing
+- **Ethics Guardian** - Consent and safety review
+
+## Inputs
+
+| Input | Required | Description |
+|-------|----------|-------------|
+| `exercise` | Yes | Exercise type (see available exercises) |
+| `participants` | No | Number of participants |
+| `context` | No | Setting (workshop, retreat, classroom) |
+
+## Outputs
+
+- `facilitation-guide.md` - Complete facilitator script
+- `consent-framework.md` - Informed consent protocol
+- `debrief-questions.md` - Post-exercise discussion guide
+
+## Examples
+
+**Team workshop:**
+```bash
+/group-perception --exercise collective-label-delay --participants 8 --context "team workshop"
+```
+
+**Retreat pairs exercise:**
+```bash
+/group-perception --exercise conversion-drill --context "retreat"
+```
+
+**Classroom meaning exploration:**
+```bash
+/group-perception --exercise meaning-collapse-circle --participants 12 --context "philosophy class"
+```
+
+## Available Exercises
+
+### 1. Collective Label Delay (10 min, 3-12 people)
+
+Circle of participants with a shared object in center.
+
+| Phase | Duration | Activity |
+|-------|----------|----------|
+| Name Storm | 2 min | Everyone names the object rapidly |
+| Silence | 3 min | Look at the object without naming |
+| Texture Report | 5 min | Describe using only sensations, never the name |
+
+**Debrief:** "What showed up in the silence that wasn't there during the naming?"
+
+### 2. Pronoun Relay (15 min, 3-6 people)
+
+| Phase | Activity |
+|-------|----------|
+| 1 | Person A tells a story replacing "I" with "the body" |
+| 2 | Person B retells it replacing "I" with "the voice" |
+| 3 | Person C retells it replacing "I" with "the pattern" |
+| 4 | Group discussion: which version felt most honest? |
+
+**Debrief:** "What happens to the story when 'I' is removed?"
+
+### 3. Meaning Collapse Circle (15 min, 3-12 people)
+
+Choose a common phrase everyone knows ("I'm fine", "It is what it is"). Repeat in unison, increasingly slowly, for 3 minutes until it becomes pure sound. 2 minutes of silence. Each person shares one word or image.
+
+**Debrief:** "What was it like when the meaning left?"
+
+### 4. Map-Maker's Interrogation (20 min, 3-8 people)
+
+One person presents a belief. The group asks only:
+- "Who drew this map?"
+- "What did they leave out?"
+- "Where does the map want you NOT to go?"
+- "What would change if you burned the map?"
+
+Presenter listens and journals. No defending. 5 minutes silent reflection.
+
+**Debrief:** "What's different about questioning the frame instead of the content?"
+
+### 5. Conversion Drill (15 min, pairs)
+
+Partner A states an abstract emotional complaint. Partner B guides through Anchor + Motion + Tilt to create a physical metaphor. Example: "I'm overwhelmed" becomes "Feels like holding a wet sponge that won't stop getting heavier."
+
+**Debrief:** "What changed when the feeling had a body?"
+
+### 6. Silence Sit (30 min, 2-20 people)
+
+No speaking, reading, devices, or eye contact. Timer-based. At close: one minute of shared eye contact in pairs. Optional debrief: "What did the silence sound like?"
+
+> This is the most challenging group protocol. The deepest claim is that
+> silence is not absence but the *parent* of language.
+
+## Consent Framework
+
+**Read aloud before EVERY session:**
+
+> "This exercise involves [description]. You may notice shifts in how you
+> perceive language or yourself. This is expected and temporary.
+>
+> You are not expected to share your inner experience unless you choose to.
+> You may stop participating at any time without explanation. There is no
+> correct experience — whatever you notice is valid, including noticing nothing.
+>
+> Does everyone consent to participate?"
+
+- Wait for explicit verbal consent from each participant
+- Anyone who does not consent may observe silently or leave without judgment
+- Facilitator must NOT also be a participant
+
+## Facilitator Safety Guide
+
+| Issue | Response |
+|-------|----------|
+| Participant becomes distressed | Step outside together. Run grounding. No pressure to return |
+| Group won't stop talking during silence | Gently redirect. If persistent, shorten and debrief |
+| No one shares in debrief | Offer one observation yourself. Sit with silence. Close gracefully |
+| Someone dominates debrief | "Thank you — let's hear from someone who hasn't spoken yet" |
+| Participant refuses consent | Welcome observation or departure. No shame. Move on |
+| Persistent disorientation | Run full grounding. If unresolved in 10 min, suggest mental health professional |
+
+## Quality Gates
+
+Before output is finalized:
+
+- Consent script prepared and will be read aloud
+- All participants explicitly consented
+- Observation-only option offered
+- Facilitator is NOT also a participant
+- Grounding protocol ready (Pocket Exit)
+- Quiet space available for stepping out
+- Debrief questions prepared
+- "No sharing required" stated explicitly
+- Power dynamic awareness included
+- Mental health contact information available
+
+---
+
+*"Silence is not absence — it's the parent of language. Listen long enough and you'll hear where words come from."*

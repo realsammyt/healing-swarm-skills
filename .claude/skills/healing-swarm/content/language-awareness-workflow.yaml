@@ -1,0 +1,308 @@
+# Language Awareness Protocol Workflow
+# Coordinates research, language-awareness-guide, and quality agents
+
+name: language-awareness-workflow
+version: 1.0.0
+description: |
+  Orchestrates the creation of cognitive deautomatization and language
+  awareness protocols. Coordinates research agents for evidence gathering
+  and tradition mapping, the language-awareness-guide for protocol design,
+  and quality agents for psychological safety review.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse request and determine protocol parameters
+    agent: orchestrator
+    actions:
+      - parse_query
+      - determine_experience_level
+      - identify_practice_type (individual/group)
+      - check_psychological_safety_context
+      - set_protocol_parameters
+
+  - name: traditions_research
+    description: Research contemplative parallels to language awareness
+    agent: traditions-scholar
+    parallel: true
+    inputs:
+      - query
+      - practice_type
+    outputs:
+      - traditions-context.md
+      - zen_parallels
+      - dzogchen_connections
+      - phenomenology_context
+      - vipassana_links
+      - attribution_notes
+
+  - name: clinical_research
+    description: Review evidence for deautomatization practices
+    agent: clinical-researcher
+    parallel: true
+    inputs:
+      - query
+      - protocol_type
+    outputs:
+      - clinical-evidence.md
+      - safety_profile
+      - semantic_satiation_research
+      - meditation_adverse_effects
+      - depersonalization_safety
+
+  - name: protocol_design
+    description: Design the language awareness protocol
+    agent: language-awareness-guide
+    inputs:
+      - intake_parameters
+      - traditions_context
+      - clinical_evidence
+      - safety_profile
+    outputs:
+      - language-awareness-protocol.md
+      - grounding-guide.md
+      - practice-journal-prompts.md
+
+  - name: safety_review
+    description: Review protocol for psychological safety
+    agent: ethics-guardian
+    inputs:
+      - language-awareness-protocol.md
+      - clinical-evidence.md
+      - depersonalization_safety
+    outputs:
+      - safety_approval
+      - required_modifications
+      - concerns
+
+  - name: content_polish
+    description: Polish protocol language for clarity and warmth
+    agent: content-writer
+    inputs:
+      - language-awareness-protocol.md
+      - safety_approval
+      - required_modifications
+    outputs:
+      - final-protocol.md
+
+  - name: finalize
+    description: Produce final outputs
+    agent: orchestrator
+    inputs:
+      - final-protocol.md
+      - grounding-guide.md
+      - practice-journal-prompts.md
+      - safety_approval
+    outputs:
+      - language-awareness-protocol-final.md
+      - grounding-guide-final.md
+      - journal-prompts-final.md
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROTOCOL LEVELS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+protocol_levels:
+  observation:
+    description: "See the naming — notice automatic labeling"
+    weeks: 1-2
+    language_awareness_guide:
+      - Label delay (5-10 seconds)
+      - Thought-catching
+      - Pocket Exit grounding
+      - 3-5 minute sessions only
+      - Extra psychological safety framing
+    clinical_researcher:
+      - Semantic satiation baseline research
+      - Meditation beginner safety profile
+      - Depersonalization screening criteria
+    output: Single practice protocol with detailed grounding
+
+  interruption:
+    description: "Break the loop — create gaps in automatic naming"
+    weeks: 3-4
+    language_awareness_guide:
+      - "I" tracing
+      - Glitch sequences (meaning collapse)
+      - Noun fasting
+      - Adverb glitch
+      - 5-10 minute sessions
+    clinical_researcher:
+      - Extended deautomatization research
+      - Self-referential processing studies
+      - Safety of identity-observation practices
+    output: Multi-practice protocol with weekly structure
+
+  substitution:
+    description: "Rewire the map — replace labels with sensation"
+    weeks: 5-6
+    language_awareness_guide:
+      - Metaphor swap (Conversion-3)
+      - Scene peeling
+      - Yes/No dissolution
+      - Word-touch meditation
+      - 10-15 minute sessions
+    clinical_researcher:
+      - Embodied cognition research
+      - Interoception and perception studies
+      - Advanced practice safety
+    output: Multi-practice protocol with embodiment focus
+
+  integration:
+    description: "Live before description — flexible language engagement"
+    weeks: 7-8
+    language_awareness_guide:
+      - Extended silence blocks
+      - Sensation-body scan
+      - Un-naming walks
+      - Reintegration ritual
+      - 20-30 minute sessions
+    clinical_researcher:
+      - Long-term meditation effects
+      - Integration challenges in contemplative practice
+      - Post-retreat adjustment research
+    output: Comprehensive practice with daily integration
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GROUP PROTOCOL DESIGN
+# ═══════════════════════════════════════════════════════════════════════════════
+
+group_protocols:
+  available_exercises:
+    - name: collective_label_delay
+      participants: 3-12
+      duration: 10 min
+      facilitator_required: true
+      consent_required: true
+
+    - name: pronoun_relay
+      participants: 3-6
+      duration: 15 min
+      facilitator_required: true
+      consent_required: true
+
+    - name: meaning_collapse_circle
+      participants: 3-12
+      duration: 15 min
+      facilitator_required: true
+      consent_required: true
+
+    - name: map_makers_interrogation
+      participants: 3-8
+      duration: 20 min
+      facilitator_required: true
+      consent_required: true
+
+    - name: conversion_drill
+      participants: 2 (pairs)
+      duration: 15 min
+      facilitator_required: false
+      consent_required: true
+
+    - name: silence_sit
+      participants: 2-20
+      duration: 30 min
+      facilitator_required: false
+      consent_required: true
+
+  consent_requirements:
+    - Explicit informed consent from ALL participants
+    - Clear explanation of what practice involves
+    - Right to withdraw at any time without explanation
+    - No pressure to share inner experience
+    - Facilitator must not participate and facilitate simultaneously
+    - Post-exercise debrief with option to share or not
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  protocol_design:
+    - Grounding protocol present (Pocket Exit or Reintegration)
+    - Contraindication screening included
+    - Practice duration appropriate for level
+    - Exit strategy available at every stage
+    - "Nothing happened" normalized as valid outcome
+    - No mystification or hyperbolic framing
+    - Language framed as tool, not pathology
+    - Progression criteria based on comfort, not performance
+
+  safety_review:
+    - Depersonalization/derealization risk addressed
+    - Dissociative disorder contraindication present
+    - Psychosis/mania contraindication present
+    - Grounding adequacy confirmed
+    - No promises of specific perceptual experiences
+    - No "ego death" or "reality shattering" framing
+    - Mental health referral guidance included
+    - Medical disclaimer present
+
+  group_protocol:
+    - Consent framework complete
+    - Facilitator guidelines adequate
+    - No-share option explicit
+    - Withdrawal rights stated
+    - Power dynamic awareness included
+    - Debrief structure present
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  contraindication_detected:
+    action: halt_and_redirect
+    message: "Psychological contraindication identified"
+    continue: false
+    redirect: "Recommend mental health professional consultation"
+
+  safety_review_failed:
+    action: halt_and_revise
+    message: "Safety review identified psychological safety concerns"
+    continue: false
+    require: protocol_revision
+
+  destabilization_risk:
+    action: add_grounding
+    message: "Practice may cause excessive destabilization at current level"
+    continue: true
+    require: enhanced_grounding_protocol
+
+  overclaiming_detected:
+    action: revise_language
+    message: "Claims about perceptual transformation exceed evidence"
+    continue: true
+    require: language_downgrade
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Beginner label delay practice
+    invocation: /language-awareness "first practice" --level observation
+    expected_output:
+      - Single practice protocol with grounding
+      - Detailed safety screening
+      - 3-5 minute session
+      - Journal prompts
+
+  - name: Group perception exercise
+    invocation: /group-perception "team workshop" --exercise collective_label_delay
+    expected_output:
+      - Facilitation guide
+      - Consent framework
+      - Setup and materials list
+      - Debrief questions
+
+  - name: 8-week curriculum
+    invocation: /language-awareness "full program" --duration 8 --progressive
+    expected_output:
+      - 8-week progressive curriculum
+      - Weekly practice plans
+      - Grounding guide
+      - Journal prompts for each week

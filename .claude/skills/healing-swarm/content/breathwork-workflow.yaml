@@ -1,0 +1,307 @@
+# Breathwork Protocol Workflow
+# Coordinates research, breathwork-coach, and quality agents for WHM protocols
+
+name: breathwork-workflow
+version: 1.0.0
+description: |
+  Orchestrates the creation of Wim Hof Method breathing protocols by
+  coordinating research agents for evidence gathering, the breathwork-coach
+  for protocol design, and quality agents for safety review.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse request and determine protocol parameters
+    agent: orchestrator
+    actions:
+      - parse_query
+      - determine_experience_level
+      - identify_focus_area
+      - check_contraindication_context
+      - set_session_parameters
+
+  - name: traditions_research
+    description: Research breathwork traditions related to WHM
+    agent: traditions-scholar
+    parallel: true
+    inputs:
+      - query
+      - focus_area
+    outputs:
+      - traditions-context.md
+      - tummo_parallels
+      - pranayama_connections
+      - attribution_notes
+
+  - name: clinical_research
+    description: Review clinical evidence for WHM breathing
+    agent: clinical-researcher
+    parallel: true
+    inputs:
+      - query
+      - protocol_type
+    outputs:
+      - clinical-evidence.md
+      - safety_profile
+      - key_studies
+      - contraindications
+
+  - name: protocol_design
+    description: Design the breathwork protocol
+    agent: breathwork-coach
+    inputs:
+      - intake_parameters
+      - traditions_context
+      - clinical_evidence
+      - safety_profile
+    outputs:
+      - breathwork-protocol.md
+      - session-timing.json
+      - quick-reference.md
+
+  - name: safety_review
+    description: Review protocol for safety and ethics compliance
+    agent: ethics-guardian
+    inputs:
+      - breathwork-protocol.md
+      - clinical-evidence.md
+      - contraindications
+    outputs:
+      - safety_approval
+      - required_modifications
+      - concerns
+
+  - name: content_polish
+    description: Polish protocol language for warmth and clarity
+    agent: content-writer
+    inputs:
+      - breathwork-protocol.md
+      - safety_approval
+      - required_modifications
+    outputs:
+      - final-protocol.md
+      - audio-script.md
+
+  - name: finalize
+    description: Apply modifications and produce final outputs
+    agent: orchestrator
+    inputs:
+      - final-protocol.md
+      - session-timing.json
+      - quick-reference.md
+      - audio-script.md
+      - safety_approval
+    outputs:
+      - breathwork-protocol-final.md
+      - session-timing-final.json
+      - quick-reference-final.md
+      - audio-script-final.md
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROTOCOL LEVELS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+protocol_levels:
+  beginner:
+    description: First-time or new WHM practitioners
+    breathwork_coach:
+      - 3 rounds maximum
+      - 20-25 breaths per round
+      - Extended verbal guidance
+      - Conservative retention expectations
+      - Extra safety framing
+    clinical_researcher:
+      - Focus on safety literature
+      - Beginner-specific contraindications
+      - Hyperventilation risk profile
+    output: Single session protocol with detailed guidance
+
+  intermediate:
+    description: 2-6 weeks of consistent WHM practice
+    breathwork_coach:
+      - 3-4 rounds
+      - 30-35 breaths per round
+      - Balanced guidance and silence
+      - Natural retention progression
+      - Cold exposure readiness assessment
+    clinical_researcher:
+      - Expanded evidence review
+      - Adaptation mechanisms
+      - Cold integration safety
+    output: Multi-session protocol with weekly progression
+
+  advanced:
+    description: 6+ weeks of consistent WHM practice
+    breathwork_coach:
+      - 4-5 rounds
+      - 35-40 breaths per round
+      - Minimal guidance
+      - Extended retention
+      - Meditation integration
+      - Full cold exposure integration
+    clinical_researcher:
+      - Complete literature review
+      - Advanced physiology
+      - Long-term practice safety
+    output: Comprehensive training program with variations
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTEGRATION PATTERNS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+integration:
+  parallel_execution:
+    - traditions_research
+    - clinical_research
+
+  sequential_execution:
+    - "intake → traditions_research + clinical_research"
+    - "traditions_research + clinical_research → protocol_design"
+    - "protocol_design → safety_review"
+    - "safety_review → content_polish"
+    - "content_polish → finalize"
+
+  data_flow:
+    traditions_to_protocol:
+      - Historical context for Tummo breathing
+      - Pranayama parallels and distinctions
+      - Attribution text for cultural framing
+
+    clinical_to_protocol:
+      - Evidence-based timing ranges
+      - Safety parameters and contraindications
+      - Physiological mechanism descriptions
+
+    protocol_to_safety:
+      - Complete protocol for safety audit
+      - All claims for evidence verification
+      - Contraindication screening adequacy
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output_structure:
+  breathwork-protocol.md:
+    sections:
+      - safety_briefing
+      - overview_and_evidence
+      - contraindications
+      - environment_setup
+      - settling_phase
+      - round_instructions
+      - post_session
+      - variations
+      - troubleshooting
+      - progression_guidance
+      - attribution
+      - medical_disclaimer
+
+  session-timing.json:
+    sections:
+      - protocol_metadata
+      - phase_timings
+      - audio_cues
+      - breath_count_markers
+
+  quick-reference.md:
+    sections:
+      - safety_summary
+      - round_structure
+      - timing_overview
+      - key_reminders
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  protocol_design:
+    - Safety briefing present and complete
+    - All contraindications listed
+    - Position requirement stated (seated/lying)
+    - Water/driving warning included
+    - Breath counts within level-appropriate range
+    - Retention guidance is self-regulated (not target-driven)
+    - Recovery breath included after every retention
+    - Post-session grounding included
+    - Slow-standing reminder included
+
+  safety_review:
+    - No overclaiming on health outcomes
+    - Evidence language appropriate to evidence level
+    - Contraindications comprehensive
+    - Emergency instructions clear
+    - Red flags listed
+    - No competition framing
+    - No toxic toughness language
+    - Medical disclaimer present
+
+  content_polish:
+    - Language follows voice guide
+    - Tone is encouraging without pushing
+    - Safety language preserved (not softened)
+    - Accessibility accommodations included
+    - Attribution present
+    - Reading level appropriate
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  contraindication_detected:
+    action: halt_and_redirect
+    message: "User has indicated a contraindicated condition"
+    continue: false
+    redirect: "Recommend consulting healthcare provider before beginning WHM breathing"
+
+  safety_review_failed:
+    action: halt_and_revise
+    message: "Safety review identified concerns requiring protocol revision"
+    continue: false
+    require: protocol_revision
+
+  insufficient_evidence:
+    action: document_gap
+    message: "Clinical evidence insufficient for claimed benefit"
+    continue: true
+    note: "Reframe as traditional practice, not clinically validated outcome"
+
+  overclaiming_detected:
+    action: revise_language
+    message: "Claims exceed evidence level"
+    continue: true
+    require: language_downgrade
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Beginner WHM breathing session
+    invocation: /whm-breathwork "first session" --level beginner
+    expected_output:
+      - 3-round protocol with full guidance
+      - Detailed safety briefing
+      - Conservative timing
+      - Quick reference card
+
+  - name: Intermediate progression plan
+    invocation: /whm-breathwork "week 4 training" --level intermediate
+    expected_output:
+      - 4-round protocol with balanced guidance
+      - Weekly progression plan
+      - Cold exposure readiness note
+      - Audio timing JSON
+
+  - name: Advanced training session
+    invocation: /whm-breathwork "deep practice" --level advanced
+    expected_output:
+      - 4-5 round protocol with minimal guidance
+      - Extended retention support
+      - Meditation integration
+      - Multiple session variations

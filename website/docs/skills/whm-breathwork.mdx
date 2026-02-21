@@ -1,0 +1,102 @@
+---
+sidebar_position: 13
+title: WHM Breathwork
+description: Guided Wim Hof Method breathing protocols with comprehensive safety architecture
+---
+
+# whm-breathwork
+
+**Trigger:** `/whm-breathwork`
+
+Guided Wim Hof Method breathing protocols with comprehensive safety architecture. Designs progressive breathwork sessions covering the three-phase round structure: power breaths, retention, and recovery breath.
+
+## Agents
+
+- **Breathwork Coach** - WHM breathing protocol design and timing calibration
+- **Traditions Scholar** - Tummo and pranayama cross-tradition context
+- **Clinical Researcher** - Kox et al. 2014, Muzik et al. 2018 evidence review
+- **Content Writer** - Practice language and framing
+- **Ethics Guardian** - Safety and evidence claims review
+
+## Inputs
+
+| Input | Required | Description |
+|-------|----------|-------------|
+| `focus` | Yes | Session focus (e.g., "morning energy", "stress relief") |
+| `level` | No | `beginner` (default), `intermediate`, `advanced` |
+| `rounds` | No | Number of rounds (default: 3) |
+
+## Outputs
+
+- `breathwork-protocol.md` - Complete breathing session script
+- `timing.json` - Phase timing for timer integration
+- `safety-briefing.md` - Pre-session safety checklist
+
+## Examples
+
+**Beginner first session:**
+```bash
+/whm-breathwork "first session" --level beginner
+```
+
+**Advanced morning practice:**
+```bash
+/whm-breathwork "morning energy" --level advanced --rounds 4
+```
+
+**Stress relief session:**
+```bash
+/whm-breathwork "stress relief" --level intermediate
+```
+
+## Three-Phase Round Structure
+
+Each round follows this structure:
+
+| Phase | Description | Duration |
+|-------|-------------|----------|
+| 1. Power Breaths | Deep rhythmic breathing (30-40 breaths) | 1-2 min |
+| 2. Retention | Exhale and hold (NO target times) | Self-regulated |
+| 3. Recovery Breath | Deep inhale, hold 15 seconds | 15 sec |
+
+Rounds are repeated 3-4 times per session. Rest periods between rounds allow integration.
+
+## Safety Architecture
+
+> **CRITICAL SAFETY RULES** (included in every protocol):
+>
+> - NEVER practice in or near water (pools, baths, lakes, ocean)
+> - NEVER practice while driving or operating machinery
+> - NEVER practice while standing (risk of syncope)
+> - ALWAYS practice seated or lying on a safe surface
+> - STOP if you experience severe dizziness, chest pain, or panic
+> - Retention is self-regulated by the gasp reflex, never by timer targets
+
+## Research Basis
+
+> **Evidence level: Moderate (for immune modulation)**
+>
+> Kox et al. (2014, PNAS, n=24): Trained WHM practitioners showed voluntary
+> activation of the sympathetic nervous system and attenuation of the innate
+> immune response. Muzik et al. (2018, NeuroImage): Identified brain mechanisms
+> underlying WHM practice, including periaqueductal gray activation.
+>
+> Evidence for other claimed benefits varies. All protocols use appropriate
+> evidence language ("may help", "research suggests").
+
+## Quality Gates
+
+Before output is finalized:
+
+- Safety briefing present with all three critical warnings (water, driving, standing)
+- Contraindication screening included
+- Retention phase uses NO target times (self-regulated)
+- Timer counts UP (elapsed time), never countdown
+- "Competitive holding" framing explicitly prevented
+- Evidence claims matched to actual study findings
+- Medical disclaimer present
+- Permission to stop at every phase
+
+---
+
+*"The breath is the bridge between the conscious and the unconscious. We cross it with care."*

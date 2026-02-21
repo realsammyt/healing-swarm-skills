@@ -25,6 +25,11 @@ const sidebars: SidebarsConfig = {
         'skills/syntergic-research',
         'skills/resonance',
         'skills/orbital-journey',
+        'skills/whm-breathwork',
+        'skills/whm-cold-exposure',
+        'skills/whm-journey',
+        'skills/language-awareness',
+        'skills/group-perception',
       ],
     },
     {

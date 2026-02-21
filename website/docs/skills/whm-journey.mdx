@@ -1,0 +1,114 @@
+---
+sidebar_position: 15
+title: WHM Journey
+description: Multi-week integrated Wim Hof Method program combining all three pillars
+---
+
+# whm-journey
+
+**Trigger:** `/whm-journey`
+
+Multi-week integrated Wim Hof Method program combining all three pillars: breathing, cold exposure, and commitment (meditation/mindset). Available in 2-week intro, 4-week foundation, and 10-week comprehensive formats.
+
+## Agents
+
+- **Breathwork Coach** - Breathing protocol progression
+- **Cold Exposure Guide** - Cold adaptation progression
+- **Coherence Guide** - Meditation and commitment pillar
+- **Traditions Scholar** - Cross-tradition context (Tummo, pranayama)
+- **Clinical Researcher** - Evidence for combined practices
+- **Mechanisms Neuroscientist** - Physiological mechanism bridges
+- **Content Writer** - Program language and framing
+- **Ethics Guardian** - Comprehensive safety review
+
+## Inputs
+
+| Input | Required | Description |
+|-------|----------|-------------|
+| `duration` | Yes | `2-week`, `4-week`, `10-week` |
+| `focus` | No | Primary goal or health focus |
+| `experience` | No | `none`, `some-breathwork`, `experienced` |
+
+## Outputs
+
+- `journey-plan.md` - Complete multi-week program
+- `weekly-schedules/` - Week-by-week practice plans
+- `safety-guide.md` - Comprehensive safety reference
+- `progress-tracker.md` - Weekly check-in questions and criteria
+
+## Examples
+
+**2-week introduction:**
+```bash
+/whm-journey --duration 2-week --experience none
+```
+
+**4-week foundation:**
+```bash
+/whm-journey --duration 4-week --focus "stress resilience"
+```
+
+**Full 10-week program:**
+```bash
+/whm-journey --duration 10-week --focus "athletic recovery" --experience some-breathwork
+```
+
+## Journey Formats
+
+### 2-Week Introduction
+- Focus: Breathing basics + cold finish introduction
+- Pillar 1 (Breathing): 3 rounds, beginner timing
+- Pillar 2 (Cold): Level 1 cold finishes only
+- Pillar 3 (Commitment): 5-minute daily reflection
+
+### 4-Week Foundation
+- Focus: All three pillars with progressive depth
+- Pillar 1: Progresses from beginner to intermediate
+- Pillar 2: Progresses from cold finish to extended cold
+- Pillar 3: 10-minute daily meditation practice
+
+### 10-Week Comprehensive
+- Focus: Full WHM integration with advanced practices
+- Pillar 1: Full progression through advanced breathing
+- Pillar 2: Full cold adaptation through immersion
+- Pillar 3: Extended meditation and commitment practices
+- Includes rest weeks and integration periods
+
+## Three Pillars Integration
+
+| Pillar | Focus | Daily Practice |
+|--------|-------|---------------|
+| 1. Breathing | Controlled hyperventilation + retention | Morning session, 15-25 min |
+| 2. Cold Exposure | Progressive cold adaptation | After breathing or separate, 2-10 min |
+| 3. Commitment | Meditation, mindset, consistency | Evening, 5-20 min |
+
+> **CRITICAL SAFETY NOTE:** Full WHM breathing causes temporary hypocapnia
+> (low CO2), which can impair the urge to breathe. In water, this creates
+> drowning risk. Only use gentle, controlled breaths before cold exposure.
+> Never combine full breathing rounds with water immersion.
+
+## Progress Tracking
+
+Each week includes check-in questions:
+- How does your body respond to cold now vs. week 1?
+- What's your natural breath retention becoming?
+- What patterns do you notice in your commitment practice?
+
+Progression criteria are based on **comfort and consistency**, never endurance or competition.
+
+## Quality Gates
+
+Before output is finalized:
+
+- All three pillars represented with appropriate progression
+- Breathing-cold synergy safety note present
+- Rest days and integration periods included
+- Weekly check-in questions provided
+- Progression based on comfort, not performance
+- Medical disclaimer and contraindication screening
+- No "warrior" or competitive framing
+- Each pillar can be practiced independently if needed
+
+---
+
+*"The method works through consistency, not intensity. Show up gently, day after day."*

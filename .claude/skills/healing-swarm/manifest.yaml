@@ -226,6 +226,156 @@ skills:
       /orbital-journey --duration 28 --level advanced
 
   # ─────────────────────────────────────────────────────────────────────────────
+  # BREATHWORK SKILLS (Wim Hof Method)
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: whm-breathwork
+    trigger: /whm-breathwork
+    description: |
+      Wim Hof Method breathing protocols with comprehensive safety framing.
+      Produces guided breathing sessions with round structures, retention
+      guidance, and progressive training plans. Coordinates research,
+      protocol design, and safety review.
+    category: breathwork
+    agents:
+      - breathwork-coach
+      - traditions-scholar
+      - clinical-researcher
+      - content-writer
+      - ethics-guardian
+    workflow: content/breathwork-workflow.yaml
+    requires_ethics_approval: true
+    templates:
+      - content/templates/breathwork-protocol.md
+    outputs:
+      - breathwork-protocol.md
+      - session-timing.json
+      - quick-reference.md
+      - audio-script.md
+    example_usage: |
+      /whm-breathwork "first session" --level beginner
+      /whm-breathwork "week 4 training" --level intermediate
+      /whm-breathwork "deep practice" --level advanced
+
+  - name: whm-cold-exposure
+    trigger: /whm-cold-exposure
+    description: |
+      Progressive cold exposure protocols as part of the Wim Hof Method.
+      Produces safe, graduated cold training plans from cold shower finishes
+      through full cold immersion. Safety review is CRITICAL for all outputs.
+    category: breathwork
+    agents:
+      - cold-exposure-guide
+      - clinical-researcher
+      - traditions-scholar
+      - content-writer
+      - ethics-guardian
+    workflow: content/breathwork-workflow.yaml
+    requires_ethics_approval: true
+    templates:
+      - content/templates/cold-exposure-protocol.md
+    outputs:
+      - cold-exposure-protocol.md
+      - weekly-progression.md
+      - environment-guide.md
+      - safety-checklist.md
+    example_usage: |
+      /whm-cold-exposure "week 1 cold shower" --level 1
+      /whm-cold-exposure "cold immersion introduction" --level 4
+      /whm-cold-exposure "winter training" --season cold
+
+  - name: whm-journey
+    trigger: /whm-journey
+    description: |
+      Complete multi-week Wim Hof Method training journey integrating all
+      three pillars: breathing, cold exposure, and commitment (meditation).
+      Produces progressive weekly plans with daily practices, safety
+      protocols, and progress tracking.
+    category: breathwork
+    agents:
+      - breathwork-coach
+      - cold-exposure-guide
+      - coherence-guide
+      - traditions-scholar
+      - clinical-researcher
+      - mechanisms-neuroscientist
+      - content-writer
+      - ethics-guardian
+    workflow: content/whm-journey-workflow.yaml
+    requires_ethics_approval: true
+    templates:
+      - content/templates/breathwork-protocol.md
+      - content/templates/cold-exposure-protocol.md
+    outputs:
+      - journey-overview.md
+      - participant-guide.md
+      - weekly-plans/
+      - daily-practices/
+      - progress-tracker.md
+      - safety-protocols.md
+    example_usage: |
+      /whm-journey --duration 2 --level beginner
+      /whm-journey --duration 4 --level beginner
+      /whm-journey --duration 10 --level beginner
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # LANGUAGE AWARENESS SKILLS (Cognitive Deautomatization)
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: language-awareness
+    trigger: /language-awareness
+    description: |
+      Cognitive deautomatization and language awareness protocols. Produces
+      progressive practices for observing how language shapes perception,
+      from label delay to extended un-naming. Based on contemplative
+      traditions (Zen, Dzogchen, Phenomenology) and Chase Hughes' research.
+      Ethics review is CRITICAL for psychological safety.
+    category: perception
+    agents:
+      - language-awareness-guide
+      - traditions-scholar
+      - clinical-researcher
+      - content-writer
+      - ethics-guardian
+    workflow: content/language-awareness-workflow.yaml
+    requires_ethics_approval: true
+    templates:
+      - content/templates/language-awareness-protocol.md
+    outputs:
+      - language-awareness-protocol.md
+      - grounding-guide.md
+      - practice-journal-prompts.md
+    example_usage: |
+      /language-awareness "first practice" --level observation
+      /language-awareness "full program" --duration 8 --progressive
+      /language-awareness "meaning collapse" --level interruption
+
+  - name: group-perception
+    trigger: /group-perception
+    description: |
+      Group and paired perception exercises for collective language
+      awareness. Includes collective label delay, pronoun relay, meaning
+      collapse circle, map-maker's interrogation, conversion drill, and
+      silence sit. Consent framework required for all exercises.
+    category: perception
+    agents:
+      - language-awareness-guide
+      - content-writer
+      - ethics-guardian
+    requires_ethics_approval: true
+    templates:
+      - content/templates/group-perception-protocol.md
+    outputs:
+      - group-protocol.md
+      - facilitator-guide.md
+      - consent-framework.md
+      - debrief-questions.md
+    example_usage: |
+      /group-perception "team workshop" --exercise collective_label_delay
+      /group-perception "book club" --exercise meaning_collapse_circle
+      /group-perception "retreat" --exercise silence_sit --duration 30
+
+  # ─────────────────────────────────────────────────────────────────────────────
   # DESIGN SKILLS
   # ─────────────────────────────────────────────────────────────────────────────
 
@@ -319,6 +469,7 @@ skills:
     workflow: build/workflow.yaml
     component_specs:
       - build/components/meditation-timer.md
+      - build/components/breathwork-timer.md
       - build/components/journal-entry.md
       - build/components/progress-tracker.md
       - build/components/practice-guide.md
@@ -469,6 +620,20 @@ agents:
   orbital-architect:
     prompt: content/orbital-architect.md
     tools: [Read, Write, Glob, Grep]
+
+  # Breathwork Agents
+  breathwork-coach:
+    prompt: content/breathwork-coach.md
+    tools: [Read, Write, Glob]
+
+  cold-exposure-guide:
+    prompt: content/cold-exposure-guide.md
+    tools: [Read, Write, Glob]
+
+  # Language Awareness Agents
+  language-awareness-guide:
+    prompt: content/language-awareness-guide.md
+    tools: [Read, Write, Glob]
 
   # Research Agents
   traditions-scholar:
