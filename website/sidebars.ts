@@ -63,6 +63,10 @@ const sidebars: SidebarsConfig = {
         'examples/simple-meditation',
         'examples/whm-breathwork',
         'examples/language-awareness',
+        'examples/coherence-meditation',
+        'examples/group-perception',
+        'examples/cold-exposure',
+        'examples/healing-research',
       ],
     },
     {

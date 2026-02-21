@@ -75,6 +75,94 @@ A complete example demonstrating cognitive deautomatization practice design with
 
 ---
 
+## Coherence Meditation
+
+A complete example demonstrating Grinberg-based interhemispheric coherence meditation with the consciousness skills.
+
+### What This Example Shows
+
+1. **Research** --- Grinberg's EEG studies at UNAM and self-allusive meditation theory
+2. **Protocol Design** --- 6-phase additive awareness structure (20 minutes)
+3. **Safety Review** --- Preliminary evidence honestly labeled, disorientation guidance
+4. **Final Output** --- Ready-to-use coherence meditation protocol
+
+### The Skill
+
+| Property | Value |
+|----------|-------|
+| **Name** | `morning-coherence` |
+| **Purpose** | 20-minute beginner coherence meditation |
+| **Tradition** | Grinberg's self-allusive meditation (UNAM, 1970s-1994) |
+| **Evidence** | Preliminary (small sample EEG studies) |
+
+---
+
+## Group Perception
+
+A complete example demonstrating group perception facilitation with consent framework and structured debrief.
+
+### What This Example Shows
+
+1. **Research** --- Deautomatization theory applied to group settings
+2. **Protocol Design** --- Collective Label Delay workshop (3 phases, 20 min total)
+3. **Safety Review** --- Full consent framework, facilitator requirements, distress response
+4. **Final Output** --- Ready-to-facilitate group exercise
+
+### The Skill
+
+| Property | Value |
+|----------|-------|
+| **Name** | `collective-label-delay` |
+| **Purpose** | Team workshop exploring perception and language |
+| **Participants** | 8 people |
+| **Evidence** | Moderate (Deikman 1966, group dynamics research) |
+
+---
+
+## Cold Exposure
+
+A complete example demonstrating WHM cold exposure with progressive safety architecture.
+
+### What This Example Shows
+
+1. **Research** --- Cold adaptation physiology, norepinephrine response, afterdrop awareness
+2. **Protocol Design** --- Level 1 cold finish (15-30 sec) with progressive levels
+3. **Safety Review** --- Cardiovascular screening, head submersion prohibition, non-competitive framing
+4. **Final Output** --- Ready-to-use cold exposure introduction
+
+### The Skill
+
+| Property | Value |
+|----------|-------|
+| **Name** | `cold-finish-introduction` |
+| **Purpose** | First cold exposure experience |
+| **Level** | 1 — Cold Finish (gentlest entry) |
+| **Evidence** | Moderate (cold adaptation studies) |
+
+---
+
+## Healing Research
+
+A complete example demonstrating multi-agent research coordination across three specialized agents.
+
+### What This Example Shows
+
+1. **Traditions Scholar** --- TCM meridians, acupoints, classical texts
+2. **Clinical Researcher** --- Systematic reviews, RCTs, safety data
+3. **Mechanisms Neuroscientist** --- Fascial planes, mechanotransduction bridges
+4. **Synthesis** --- Evidence language calibrated to evidence level
+
+### The Research
+
+| Property | Value |
+|----------|-------|
+| **Topic** | Acupressure for hand ligament healing |
+| **Depth** | Comprehensive |
+| **Traditions** | Traditional Chinese Medicine (TCM) |
+| **Evidence** | Moderate (pain) / Limited (ligament-specific) |
+
+---
+
 ## Step 1: Research
 
 Before creating content, we research the practice.

@@ -1,0 +1,82 @@
+---
+sidebar_position: 7
+title: Healing Research Example
+description: Complete walkthrough of multi-agent research coordinating traditions, clinical evidence, and mechanism bridges
+---
+
+# Healing Research Example
+
+A complete example demonstrating the research skill lifecycle coordinating three specialized agents for a comprehensive research brief on acupressure for hand ligament healing.
+
+## The Research Query
+
+```bash
+/healing-research "acupressure for hand ligament healing" --depth comprehensive
+```
+
+| Property | Value |
+|----------|-------|
+| **Topic** | Acupressure for hand ligament healing |
+| **Depth** | Comprehensive |
+| **Traditions** | Traditional Chinese Medicine (TCM) |
+| **Evidence** | Moderate (pain) / Limited (ligament-specific) |
+
+## Multi-Agent Research Process
+
+Three agents work in parallel:
+
+| Agent | Role | Output |
+|-------|------|--------|
+| Traditions Scholar | TCM meridians, acupoints, classical texts | `traditions-research.md` |
+| Clinical Researcher | Systematic reviews, RCTs, safety data | `clinical-evidence.md` |
+| Mechanisms Neuroscientist | Fascial planes, mechanotransduction | `mechanism-bridges.md` |
+
+## Key Findings
+
+### TCM Framework
+- Six meridians traverse the hand and wrist
+- LI-4 (Hegu), LI-5 (Yangxi), SJ-5 (Waiguan) identified as primary points
+- WHO Standard Acupuncture Point Locations (2008) used for specificity
+
+### Clinical Evidence
+- **Pain relief**: Moderate evidence from systematic reviews
+- **Blood flow**: Pressure on acupoints increases local circulation
+- **Ligament healing**: No direct RCT evidence; theoretical support only
+- **Safety**: Generally safe when applied gently to non-acute injuries
+
+### Mechanism Bridges
+- 80% correspondence between meridians and fascial planes (Langevin & Yandow, 2002)
+- Mechanotransduction explains pressure → cellular signaling
+- TCM and science presented as complementary maps, not identical
+
+## Evidence Language Calibration
+
+| Claim | Level | Language |
+|-------|-------|---------|
+| Pain relief | Moderate | "Research suggests" |
+| Blood flow increase | Moderate | "Studies show" |
+| Ligament healing | Limited | "May theoretically support" |
+| Meridian-anatomy mapping | Emerging | "Some evidence suggests" |
+
+## Safety Review: Passed
+
+- Evidence language calibrated to evidence level
+- TCM properly attributed with era and source texts
+- No cure claims
+- "Complement to medical care" framing
+- Gentle pressure guidance (pain = stop)
+
+## Try It
+
+```bash
+/healing-research "acupressure for hand healing" --depth comprehensive
+/traditions-research "TCM meridian theory for upper extremity"
+/clinical-research "acupressure pain relief systematic review"
+/mechanism-mapping "qi cultivation" --to neuroscience
+```
+
+[View full example on GitHub →](https://github.com/realsammyt/healing-swarm-skills/tree/master/examples/healing-research)
+
+---
+
+*"Research with rigor. Honor all sources. Ground in evidence."*
