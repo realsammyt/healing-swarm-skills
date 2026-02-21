@@ -168,6 +168,15 @@ claude> /healing-swarm "Sacred Healing Journey" --focus "ligament healing"
 | [Deploy](docs/api/skills-reference.md#healing-deploy) | `/healing-deploy` | Deploy and maintain applications |
 | [Swarm](docs/api/skills-reference.md#healing-swarm) | `/healing-swarm` | Full orchestrated development lifecycle |
 
+### Consciousness Skills (Grinberg Research)
+
+| Skill | Trigger | Purpose |
+|-------|---------|---------|
+| [Coherence Meditation](docs/api/skills-reference.md#coherence-meditation) | `/coherence-meditation` | Guided interhemispheric coherence practices |
+| [Syntergic Research](docs/api/skills-reference.md#syntergic-research) | `/syntergic-research` | Deep research into Grinberg's consciousness science |
+| [Resonance Pairing](docs/api/skills-reference.md#resonance-pairing) | `/resonance-pairing` | Paired/group transferred potential protocols |
+| [Orbital Journey](docs/api/skills-reference.md#orbital-journey) | `/orbital-journey` | Progressive multi-day consciousness expansion |
+
 ### Breathwork Skills (Wim Hof Method)
 
 | Skill | Trigger | Purpose |
@@ -182,6 +191,20 @@ claude> /healing-swarm "Sacred Healing Journey" --focus "ligament healing"
 |-------|---------|---------|
 | [Language Awareness](docs/api/skills-reference.md#language-awareness) | `/language-awareness` | Individual cognitive deautomatization practices |
 | [Group Perception](docs/api/skills-reference.md#group-perception) | `/group-perception` | Group perception exercises with consent frameworks |
+
+### Standalone Skills
+
+| Skill | Trigger | Purpose |
+|-------|---------|---------|
+| [Traditions Research](docs/api/skills-reference.md#traditions-research) | `/traditions-research` | Research specific healing traditions |
+| [Clinical Research](docs/api/skills-reference.md#clinical-research) | `/clinical-research` | Systematic review of clinical evidence |
+| [Mechanism Mapping](docs/api/skills-reference.md#mechanism-mapping) | `/mechanism-mapping` | Bridge traditional concepts with neuroscience |
+| [Healing UX](docs/api/skills-reference.md#healing-ux) | `/healing-ux` | UX design for healing contexts |
+| [Sacred Visuals](docs/api/skills-reference.md#sacred-visuals) | `/sacred-visuals` | Visual system with healing aesthetics |
+| [Ethics Review](docs/api/skills-reference.md#ethics-review) | `/ethics-review` | Ethics and safety review |
+| [Clinical Review](docs/api/skills-reference.md#clinical-review) | `/clinical-review` | Verify clinical claims and citations |
+| [Cultural Review](docs/api/skills-reference.md#cultural-review) | `/cultural-review` | Cultural sensitivity review |
+| [Accessibility Audit](docs/api/skills-reference.md#a11y-audit) | `/a11y-audit` | WCAG and healing-specific accessibility audit |
 
 ---
 
@@ -330,8 +353,8 @@ Ready-to-use templates for common skill types:
 See the [examples](examples/) directory for working demonstrations:
 
 - **[Simple Meditation](examples/simple-meditation/)** - Complete skill lifecycle walkthrough
-- **[Breathwork Protocol](examples/)** - WHM breathing session with safety architecture
-- **[Language Awareness](examples/)** - Cognitive deautomatization practice with grounding
+- **[WHM Breathwork](examples/whm-breathwork/)** - WHM breathing session with safety architecture
+- **[Language Awareness](examples/language-awareness/)** - Cognitive deautomatization practice with grounding
 
 ---
 

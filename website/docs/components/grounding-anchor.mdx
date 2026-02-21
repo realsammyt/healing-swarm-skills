@@ -1,0 +1,110 @@
+---
+sidebar_position: 7
+title: GroundingAnchor
+description: Pocket Exit and Reintegration Ritual grounding protocols for deautomatization practices
+---
+
+# GroundingAnchor
+
+A grounding component for language awareness and deautomatization practices. Provides step-by-step guided grounding when users need to return to ordinary awareness. Includes both the quick Pocket Exit protocol and the full Reintegration Ritual.
+
+## Key Design Decisions
+
+- **Always accessible**: Available at any point during a practice session
+- **Two modes**: Quick grounding (Pocket Exit) and full grounding (Reintegration Ritual)
+- **Multi-sensory**: Combines touch, sight, breath, speech for reliable grounding
+- **Not dismissable during active practice**: Remains available until language feels normal
+- **Calm, non-urgent tone**: Grounding is a return, not an emergency
+
+## Grounding Protocols
+
+### Pocket Exit (Quick — 30 seconds)
+
+| Step | Instruction | Sense |
+|------|-------------|-------|
+| 1 | Tongue tip to roof of mouth, behind front teeth | Touch |
+| 2 | Left thumb to sternum center, press lightly | Touch |
+| 3 | Breathe: in for 4 heartbeats, out for 6 | Breath |
+| 4 | Look at nearest object — name it deliberately | Sight + Speech |
+| 5 | Say one useful number aloud | Speech + Cognition |
+
+### Reintegration Ritual (Full — 2-3 minutes)
+
+| Step | Instruction | Sense |
+|------|-------------|-------|
+| 1 | Open both eyes wide | Sight |
+| 2 | Wiggle toes, stretch fingers into unfamiliar shapes | Movement |
+| 3 | Touch the back of your neck | Touch |
+| 4 | Name 5 things you see, 4 you touch, 3 you hear | Multi-sensory |
+| 5 | Say one useful number aloud | Speech + Cognition |
+| 6 | Wait until language feels normal before moving on | Self-check |
+
+## Props
+
+```typescript
+interface GroundingAnchorProps {
+  mode: 'pocket-exit' | 'reintegration' | 'auto';
+  onComplete?: () => void;
+  onStepChange?: (step: number, total: number) => void;
+  autoAdvance?: boolean;         // Auto-advance between steps
+  stepDuration?: number;         // Seconds per step if auto-advancing
+  showProgress?: boolean;        // Show step progress indicator
+  size?: 'compact' | 'full';    // Compact for floating, full for dedicated view
+  audioGuided?: boolean;         // Audio instructions for each step
+}
+```
+
+## Usage
+
+### Floating Emergency Button
+
+```tsx
+<GroundingAnchor
+  mode="pocket-exit"
+  size="compact"
+  onComplete={() => setGrounded(true)}
+/>
+```
+
+### Full-Screen Return Protocol
+
+```tsx
+<GroundingAnchor
+  mode="reintegration"
+  size="full"
+  autoAdvance={true}
+  stepDuration={20}
+  audioGuided={true}
+  onComplete={() => navigateToSafety()}
+/>
+```
+
+### Auto-Select Based on Context
+
+```tsx
+<GroundingAnchor
+  mode="auto"  // Uses pocket-exit for mild, reintegration for strong disorientation
+  onComplete={() => resumeOrExit()}
+/>
+```
+
+## Accessibility
+
+- Large touch targets (minimum 48px)
+- High contrast text and indicators
+- Screen reader step-by-step narration
+- Works with eyes closed (audio mode)
+- No reliance on color alone for progress
+
+## Integration with Language Awareness
+
+This component is designed to pair with language awareness practice tools:
+
+- **Before practice**: Teach the Pocket Exit as preparation
+- **During practice**: Float as emergency return button
+- **After practice**: Run full grounding return sequence
+- **If distressed**: Auto-triggers full Reintegration Ritual
+
+---
+
+*"Grounding is not failure — it's the bridge back to ordinary awareness."*

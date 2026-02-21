@@ -61,6 +61,8 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'examples/simple-meditation',
+        'examples/whm-breathwork',
+        'examples/language-awareness',
       ],
     },
     {
@@ -102,6 +104,8 @@ const sidebars: SidebarsConfig = {
         'components/healing-progress',
         'components/practice-selector',
         'components/safety-consent',
+        'components/breathwork-timer',
+        'components/grounding-anchor',
       ],
     },
     'contributing',
