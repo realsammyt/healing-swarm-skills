@@ -156,6 +156,8 @@ claude> /healing-swarm "Sacred Healing Journey" --focus "ligament healing"
 
 ## Skills Overview
 
+### Core Development Skills
+
 | Skill | Trigger | Purpose |
 |-------|---------|---------|
 | [Research](docs/api/skills-reference.md#healing-research) | `/healing-research` | Deep research into healing traditions and clinical evidence |
@@ -165,6 +167,21 @@ claude> /healing-swarm "Sacred Healing Journey" --focus "ligament healing"
 | [Review](docs/api/skills-reference.md#healing-review) | `/healing-review` | Quality review (ethics, clinical, cultural, a11y) |
 | [Deploy](docs/api/skills-reference.md#healing-deploy) | `/healing-deploy` | Deploy and maintain applications |
 | [Swarm](docs/api/skills-reference.md#healing-swarm) | `/healing-swarm` | Full orchestrated development lifecycle |
+
+### Breathwork Skills (Wim Hof Method)
+
+| Skill | Trigger | Purpose |
+|-------|---------|---------|
+| [WHM Breathwork](docs/api/skills-reference.md#whm-breathwork) | `/whm-breathwork` | Guided Wim Hof breathing protocols with safety architecture |
+| [WHM Cold Exposure](docs/api/skills-reference.md#whm-cold-exposure) | `/whm-cold-exposure` | Progressive cold adaptation protocols |
+| [WHM Journey](docs/api/skills-reference.md#whm-journey) | `/whm-journey` | Multi-week integrated WHM program (all 3 pillars) |
+
+### Language Awareness Skills (Cognitive Deautomatization)
+
+| Skill | Trigger | Purpose |
+|-------|---------|---------|
+| [Language Awareness](docs/api/skills-reference.md#language-awareness) | `/language-awareness` | Individual cognitive deautomatization practices |
+| [Group Perception](docs/api/skills-reference.md#group-perception) | `/group-perception` | Group perception exercises with consent frameworks |
 
 ---
 
@@ -255,19 +272,25 @@ Ready-to-use templates for common skill types:
 ```
 
 **Research Swarm:**
-- 📚 Traditions Scholar - Ancient healing practices
-- 🔬 Clinical Researcher - Modern evidence
-- 🧠 Mechanisms Neuroscientist - Science-tradition bridges
+- Traditions Scholar - Ancient healing practices
+- Clinical Researcher - Modern evidence
+- Mechanisms Neuroscientist - Science-tradition bridges
 
 **Build Swarm:**
-- 🎨 UX Architect & Visual Designer - Healing-focused design
-- ✍️ Content Writer - Prayers, evidence, visualizations
-- 💻 App Developer - Accessible implementation
+- UX Architect & Visual Designer - Healing-focused design
+- Content Writer - Prayers, evidence, visualizations
+- App Developer - Accessible implementation
 
 **Quality Swarm:**
-- ⚖️ Ethics Guardian - Medical & psychological safety
-- 🔍 Clinical & Cultural Reviewers - Accuracy & sensitivity
-- ♿ Accessibility Auditor - WCAG compliance
+- Ethics Guardian - Medical & psychological safety
+- Clinical & Cultural Reviewers - Accuracy & sensitivity
+- Accessibility Auditor - WCAG compliance
+
+**Specialist Agents:**
+- Breathwork Coach - WHM breathing protocol design and safety
+- Cold Exposure Guide - Progressive cold adaptation protocols
+- Language Awareness Guide - Cognitive deautomatization practices
+- Coherence Guide - Interhemispheric coherence meditation
 
 ---
 
@@ -307,6 +330,8 @@ Ready-to-use templates for common skill types:
 See the [examples](examples/) directory for working demonstrations:
 
 - **[Simple Meditation](examples/simple-meditation/)** - Complete skill lifecycle walkthrough
+- **[Breathwork Protocol](examples/)** - WHM breathing session with safety architecture
+- **[Language Awareness](examples/)** - Cognitive deautomatization practice with grounding
 
 ---
 
@@ -366,6 +391,9 @@ This swarm integrates wisdom from:
 - Vedic/Ayurvedic healing traditions
 - Jewish mystical healing practices
 - Western contemplative traditions
+- Wim Hof Method and breathwork science (Kox et al. 2014, Muzik et al. 2018)
+- Cognitive deautomatization research (Deikman 1966, Hughes 2024)
+- Zen, Dzogchen, and phenomenological inquiry traditions
 - Modern clinical research
 
 We honor the lineage holders and practitioners who have preserved and transmitted this wisdom.

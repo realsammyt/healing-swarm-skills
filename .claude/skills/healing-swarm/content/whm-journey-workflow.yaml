@@ -1,0 +1,364 @@
+# WHM Journey Workflow
+# Full multi-week Wim Hof Method journey combining breathwork, cold exposure, and commitment/meditation
+
+name: whm-journey-workflow
+version: 1.0.0
+description: |
+  Orchestrates a comprehensive multi-week Wim Hof Method training journey
+  integrating all three pillars: breathing, cold exposure, and commitment
+  (meditation/mindset). Coordinates research, protocol design, safety review,
+  and progressive training plan generation.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse journey request and determine parameters
+    agent: orchestrator
+    actions:
+      - parse_query
+      - determine_journey_duration
+      - assess_starting_level
+      - check_contraindications
+      - set_journey_parameters
+
+  - name: research_phase
+    description: Gather evidence and traditional context for all three pillars
+    agents:
+      - traditions-scholar
+      - clinical-researcher
+      - mechanisms-neuroscientist
+    parallel: true
+    inputs:
+      - journey_parameters
+    outputs:
+      - traditions-research.md
+      - clinical-evidence.md
+      - mechanism-bridges.md
+      - safety-profile.md
+
+  - name: breathwork_design
+    description: Design progressive breathwork protocols for each week
+    agent: breathwork-coach
+    inputs:
+      - journey_parameters
+      - clinical_evidence
+      - traditions_context
+    outputs:
+      - weekly-breathwork-protocols/
+      - breathwork-progression.md
+      - session-timings/
+
+  - name: cold_exposure_design
+    description: Design progressive cold exposure protocols for each week
+    agent: cold-exposure-guide
+    inputs:
+      - journey_parameters
+      - clinical_evidence
+      - breathwork_progression
+    outputs:
+      - weekly-cold-protocols/
+      - cold-progression.md
+      - environment-guides/
+
+  - name: meditation_design
+    description: Design commitment/meditation practices for each week
+    agent: coherence-guide
+    inputs:
+      - journey_parameters
+      - traditions_context
+      - breathwork_progression
+    outputs:
+      - weekly-meditation-protocols/
+      - meditation-progression.md
+
+  - name: journey_integration
+    description: Integrate all three pillars into cohesive weekly plans
+    agent: orchestrator
+    inputs:
+      - weekly-breathwork-protocols/
+      - weekly-cold-protocols/
+      - weekly-meditation-protocols/
+    outputs:
+      - journey-map.md
+      - weekly-plans/
+      - daily-schedules/
+
+  - name: safety_review
+    description: Comprehensive safety review of entire journey
+    agent: ethics-guardian
+    inputs:
+      - journey-map.md
+      - weekly-plans/
+      - clinical-evidence.md
+      - safety-profile.md
+    outputs:
+      - safety_approval
+      - required_modifications
+      - week_specific_concerns
+
+  - name: content_polish
+    description: Polish all content for warmth, clarity, and consistency
+    agent: content-writer
+    inputs:
+      - journey-map.md
+      - weekly-plans/
+      - safety_approval
+      - required_modifications
+    outputs:
+      - final-journey-map.md
+      - final-weekly-plans/
+      - participant-guide.md
+
+  - name: finalize
+    description: Produce final journey package
+    agent: orchestrator
+    inputs:
+      - final-journey-map.md
+      - final-weekly-plans/
+      - participant-guide.md
+      - all-session-timings/
+      - safety_approval
+    outputs:
+      - whm-journey/
+      - journey-overview.md
+      - participant-guide.md
+      - weekly-plans/
+      - daily-practices/
+      - progress-tracker.md
+      - safety-protocols.md
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# JOURNEY DURATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+journey_durations:
+  2_week_introduction:
+    description: Brief introduction to the WHM for curious beginners
+    weeks: 2
+    breathwork_focus: Foundation technique only
+    cold_exposure_focus: Cold shower finish only
+    meditation_focus: Basic body awareness
+    daily_time: 15-20 minutes
+    weekly_plan:
+      week_1:
+        breathwork: "3 rounds, 20 breaths, gentle pace"
+        cold: "15-30s cold finish on shower days"
+        meditation: "5-min body scan post-breathwork"
+        practice_days: 3
+      week_2:
+        breathwork: "3 rounds, 25 breaths, steady pace"
+        cold: "30s cold finish on shower days"
+        meditation: "5-min body scan post-breathwork"
+        practice_days: 4
+
+  4_week_foundation:
+    description: Solid foundation in all three WHM pillars
+    weeks: 4
+    breathwork_focus: Technique mastery and natural retention extension
+    cold_exposure_focus: Cold shower progression
+    meditation_focus: Breath awareness and body scanning
+    daily_time: 20-30 minutes
+    weekly_plan:
+      week_1:
+        breathwork: "3 rounds, 25 breaths"
+        cold: "15-30s cold finish"
+        meditation: "5-min body scan"
+      week_2:
+        breathwork: "3 rounds, 30 breaths"
+        cold: "30-60s cold finish"
+        meditation: "5-min awareness practice"
+      week_3:
+        breathwork: "3-4 rounds, 30 breaths"
+        cold: "60-90s cold shower"
+        meditation: "7-min awareness practice"
+      week_4:
+        breathwork: "4 rounds, 30-35 breaths"
+        cold: "90-120s cold shower"
+        meditation: "10-min awareness + gratitude"
+
+  10_week_comprehensive:
+    description: Deep WHM training with full cold exposure progression
+    weeks: 10
+    breathwork_focus: Full technique with advanced variations
+    cold_exposure_focus: Cold shower through cold immersion
+    meditation_focus: Progressive meditation with commitment practices
+    daily_time: 30-45 minutes
+    phases:
+      foundation (weeks 1-3):
+        focus: "Technique, rhythm, comfort"
+        breathwork: "3 rounds building to 30 breaths"
+        cold: "Cold finish to 60-second cold shower"
+        meditation: "Body scan and breath awareness"
+      development (weeks 4-6):
+        focus: "Deepening, extending, integrating"
+        breathwork: "3-4 rounds, 30-35 breaths"
+        cold: "1-3 minute cold showers"
+        meditation: "Extended awareness, emotional field"
+      integration (weeks 7-10):
+        focus: "Advanced practice, cold immersion, full meditation"
+        breathwork: "4-5 rounds, 35-40 breaths"
+        cold: "Cold immersion introduction (with partner)"
+        meditation: "Full unified awareness practice"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THREE PILLARS INTEGRATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+pillar_integration:
+  daily_practice_order:
+    recommended:
+      - step_1: "Breathwork session (seated/lying)"
+      - step_2: "Brief meditation/body scan (2-5 min)"
+      - step_3: "Cold exposure (if scheduled)"
+      - step_4: "Post-practice observation (1-2 min)"
+    note: "Order can be adjusted. Some prefer cold before breathwork. Both are valid."
+
+  breathwork_cold_synergy:
+    description: |
+      WHM breathing before cold exposure can help manage the cold shock
+      response through improved autonomic regulation. However, NEVER
+      practice the full hyperventilation protocol immediately before
+      entering cold water — use only 2-3 calming breaths.
+    safety_note: |
+      Full WHM breathing causes temporary hypocapnia (low CO2), which
+      can impair the urge to breathe. In water, this creates drowning
+      risk. Only use gentle, controlled breaths before cold exposure.
+
+  rest_days:
+    frequency: "2-3 rest days per week"
+    purpose: "Adaptation occurs during rest, not during exposure"
+    guidance: |
+      Rest days are not optional. The body adapts to stress during
+      recovery. Overtraining reduces benefits and increases risk.
+      Light meditation on rest days is fine. Cold and breathwork
+      should rest together.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  journey_design:
+    - All three pillars represented in every active week
+    - Rest days built into every week (minimum 2)
+    - Progressive difficulty (no sudden jumps)
+    - Each week builds on previous (no orphan weeks)
+    - Regression guidance included (what to do when it's hard)
+    - Check-in protocol at end of each week
+
+  safety_review:
+    - Contraindication screening at journey start
+    - Weekly self-assessment protocol
+    - Clear criteria for pausing or stopping
+    - Cold immersion never without partner
+    - Breathwork-cold interaction safety addressed
+    - Emergency protocols for each pillar
+    - Medical disclaimer in every weekly plan
+
+  content_quality:
+    - Consistent voice across all materials
+    - Evidence language appropriate
+    - Attribution present for traditional parallels
+    - Accessibility accommodations in every practice
+    - No competition or comparison framing
+    - Encouragement without pressure
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROGRESS TRACKING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+progress_tracking:
+  weekly_check_in:
+    questions:
+      - "How did breathwork feel this week? (1-5 ease)"
+      - "How did cold exposure feel? (1-5 ease)"
+      - "Did you complete meditation practices? (days completed)"
+      - "Any symptoms or concerns?"
+      - "Energy level compared to last week? (lower / same / higher)"
+    progression_criteria:
+      advance: "3+ practice days, no adverse symptoms, 3+ ease rating"
+      maintain: "Fewer practice days or ease below 3"
+      reduce: "Adverse symptoms, significant discomfort, or missed week"
+
+  metrics_tracked:
+    breathwork:
+      - Breath count per round
+      - Approximate retention time (self-reported, not competitive)
+      - Subjective ease (1-5)
+      - Sensations noted
+    cold_exposure:
+      - Duration
+      - Approximate temperature
+      - Breathing control (1-5)
+      - Recovery time to warmth
+    meditation:
+      - Duration
+      - Practice type
+      - Subjective quality (1-5)
+
+  note: |
+    Tracking is for self-awareness, NOT for optimization or competition.
+    Frame all metrics as observation tools, not performance indicators.
+    "Notice where you are" not "measure your progress."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  contraindication_detected:
+    action: halt_and_redirect
+    message: "Contraindicated condition identified"
+    continue: false
+    redirect: "Recommend healthcare provider consultation"
+
+  adverse_symptom_reported:
+    action: pause_and_assess
+    message: "User reported adverse symptoms during practice"
+    continue: false
+    require: symptom_assessment_before_continuing
+
+  missed_week:
+    action: adjust_plan
+    message: "User missed a full week of practice"
+    continue: true
+    adjustment: "Repeat previous week's plan, do not advance"
+
+  safety_review_failed:
+    action: halt_and_revise
+    message: "Safety review identified journey-level concerns"
+    continue: false
+    require: journey_revision
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Quick WHM introduction
+    invocation: /whm-journey --duration 2 --level beginner
+    expected_output:
+      - 2-week journey plan
+      - Daily practice guides (breathwork + cold finish)
+      - Simple progress tracker
+      - Participant guide with safety info
+
+  - name: Standard WHM foundation
+    invocation: /whm-journey --duration 4 --level beginner
+    expected_output:
+      - 4-week progressive journey
+      - Weekly plans with all three pillars
+      - Session timing files
+      - Comprehensive participant guide
+
+  - name: Full WHM training
+    invocation: /whm-journey --duration 10 --level beginner
+    expected_output:
+      - 10-week comprehensive journey
+      - Phase-based progression
+      - Cold immersion introduction (weeks 7+)
+      - Full meditation integration
+      - Detailed safety protocols

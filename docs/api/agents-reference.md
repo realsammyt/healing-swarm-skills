@@ -22,6 +22,9 @@
 | [devops-specialist](#devops-specialist) | Deploy | Infrastructure |
 | [content-manager](#content-manager) | Deploy | Content management |
 | [swarm-conductor](#swarm-conductor) | Orchestrator | Swarm coordination |
+| [breathwork-coach](#breathwork-coach) | Specialist | WHM breathing protocol design |
+| [cold-exposure-guide](#cold-exposure-guide) | Specialist | Progressive cold adaptation |
+| [language-awareness-guide](#language-awareness-guide) | Specialist | Cognitive deautomatization practices |
 
 ---
 
@@ -455,6 +458,102 @@ Coordinates all swarm agents for full development lifecycle.
 **Key Context:**
 - All shared resources
 - All workflows
+
+---
+
+## Specialist Agents
+
+### breathwork-coach
+
+**File:** `content/breathwork-coach.md`
+
+Designs Wim Hof Method breathing protocols with comprehensive safety architecture covering the three-phase round structure (power breaths, retention, recovery breath).
+
+**Expertise:**
+- WHM three-phase breathing rounds
+- Progressive training design (beginner to advanced)
+- Breath retention safety (competitive holding prevention)
+- Tummo and pranayama cross-tradition context
+
+**Responsibilities:**
+- Breathing protocol design with timing calibration
+- Safety briefing creation (water, driving, standing contraindications)
+- Progressive session structuring
+- Timer specification (count-up, not countdown)
+
+**Outputs:**
+- Breathing session scripts
+- Timing JSON for timer integration
+- Quick reference cards
+- Safety briefings
+
+**Key Context:**
+- `shared/ethics-guardrails.md`
+- `content/templates/breathwork-protocol.md`
+- `content/breathwork-workflow.yaml`
+
+---
+
+### cold-exposure-guide
+
+**File:** `content/cold-exposure-guide.md`
+
+Designs progressive cold exposure protocols for WHM Pillar 2, from cold shower finishes through full cold immersion.
+
+**Expertise:**
+- Progressive cold adaptation (4 levels)
+- Afterdrop physiology and safety
+- Partner protocols for immersion
+- Temperature guidelines (Celsius/Fahrenheit)
+
+**Responsibilities:**
+- Cold exposure protocol design
+- Safety verification (partner requirements, medical screening)
+- Progression criteria and timing
+- Rewarming guidance
+
+**Outputs:**
+- Cold exposure protocol guides
+- Safety checklists
+- Progression criteria
+- Temperature reference tables
+
+**Key Context:**
+- `shared/ethics-guardrails.md`
+- `content/templates/cold-exposure-protocol.md`
+
+---
+
+### language-awareness-guide
+
+**File:** `content/language-awareness-guide.md`
+
+Designs cognitive deautomatization protocols based on research by Deikman (1966), semantic satiation studies, and Chase Hughes' *Tongue* (2024). Creates practices that reveal how language shapes perception.
+
+**Expertise:**
+- Label delay and un-naming practices
+- Pronoun and identity observation ("I" tracing)
+- Semantic satiation and meaning collapse
+- Group perception protocols (6 exercise types)
+- Cross-tradition parallels (Zen, Dzogchen, phenomenology, vipassana)
+
+**Responsibilities:**
+- Individual protocol design (4 progressive levels)
+- Group exercise facilitation guides
+- Psychological safety architecture (Pocket Exit, Reintegration Ritual)
+- Consent framework design for group exercises
+
+**Outputs:**
+- Language awareness practice protocols
+- Group facilitation scripts with consent frameworks
+- Grounding protocol guides
+- Perception journal prompts
+
+**Key Context:**
+- `shared/ethics-guardrails.md`
+- `content/templates/language-awareness-protocol.md`
+- `content/templates/group-perception-protocol.md`
+- `content/language-awareness-workflow.yaml`
 
 ---
 
