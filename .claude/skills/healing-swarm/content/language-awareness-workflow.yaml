@@ -125,7 +125,7 @@ protocol_levels:
     description: "Break the loop — create gaps in automatic naming"
     weeks: 3-4
     language_awareness_guide:
-      - "I" tracing
+      - '"I" tracing'
       - Glitch sequences (meaning collapse)
       - Noun fasting
       - Adverb glitch
@@ -226,7 +226,7 @@ quality_gates:
     - Contraindication screening included
     - Practice duration appropriate for level
     - Exit strategy available at every stage
-    - "Nothing happened" normalized as valid outcome
+    - '"Nothing happened" normalized as valid outcome'
     - No mystification or hyperbolic framing
     - Language framed as tool, not pathology
     - Progression criteria based on comfort, not performance
@@ -237,7 +237,7 @@ quality_gates:
     - Psychosis/mania contraindication present
     - Grounding adequacy confirmed
     - No promises of specific perceptual experiences
-    - No "ego death" or "reality shattering" framing
+    - 'No "ego death" or "reality shattering" framing'
     - Mental health referral guidance included
     - Medical disclaimer present
 
