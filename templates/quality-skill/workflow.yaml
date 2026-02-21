@@ -214,8 +214,8 @@ output_structure:
 
 quality_gates:
   ethics_review:
-    - All "NEVER do" items verified absent
-    - All "ALWAYS include" items verified present
+    - 'All "NEVER do" items verified absent'
+    - 'All "ALWAYS include" items verified present'
     - Safety considerations documented
 
   accessibility_review:
