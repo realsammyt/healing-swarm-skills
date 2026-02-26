@@ -49,6 +49,26 @@ shared_resources:
     required: true
     load_order: 5
 
+  - path: shared/crisis-response.md
+    description: Crisis response protocols for adverse reactions
+    required: true
+    load_order: 6
+
+  - path: shared/contraindications.md
+    description: Cross-reference contraindication database
+    required: true
+    load_order: 7
+
+  - path: shared/outcome-measurement.md
+    description: Privacy-first outcome measurement framework
+    required: false
+    load_order: 8
+
+  - path: shared/practice-pathways.md
+    description: Cross-skill integration and progressions
+    required: false
+    load_order: 9
+
 # ═══════════════════════════════════════════════════════════════════════════════
 # SKILL DEFINITIONS
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -693,6 +713,56 @@ agents:
   content-manager:
     prompt: deploy/content-manager.md
     tools: [Read, Write, Edit, Glob, Grep]
+
+  # Sound Healing Agents
+  sound-healing-guide:
+    prompt: content/sound-healing-guide.md
+    tools: [Read, Write, Glob]
+
+  # Somatic/Movement Agents
+  somatic-guide:
+    prompt: content/somatic-guide.md
+    tools: [Read, Write, Glob]
+
+  # Sleep/Dream Agents
+  sleep-healing-guide:
+    prompt: content/sleep-healing-guide.md
+    tools: [Read, Write, Glob]
+
+  # Nature Agents
+  nature-guide:
+    prompt: content/nature-guide.md
+    tools: [Read, Write, Glob]
+
+  # Water/Hydrotherapy Agents
+  water-guide:
+    prompt: content/water-guide.md
+    tools: [Read, Write, Glob]
+
+  # Grief/Bereavement Agents
+  grief-guide:
+    prompt: content/grief-guide.md
+    tools: [Read, Write, Glob]
+
+  # Expressive/Creative Agents
+  expressive-guide:
+    prompt: content/expressive-guide.md
+    tools: [Read, Write, Glob]
+
+  # Community Agents
+  community-facilitator:
+    prompt: content/community-facilitator.md
+    tools: [Read, Write, Glob]
+
+  # PNI Research Agents
+  pni-researcher:
+    prompt: research/pni-researcher.md
+    tools: [WebSearch, WebFetch, Read, Glob, Grep]
+
+  # Contemplative Inquiry Agents
+  contemplative-guide:
+    prompt: content/contemplative-guide.md
+    tools: [Read, Write, Glob]
 
   # Orchestration
   swarm-conductor:
