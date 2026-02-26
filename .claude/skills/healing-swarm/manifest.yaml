@@ -396,6 +396,326 @@ skills:
       /group-perception "retreat" --exercise silence_sit --duration 30
 
   # ─────────────────────────────────────────────────────────────────────────────
+  # SOUND HEALING SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: sound-healing
+    trigger: /sound-healing
+    description: |
+      Sound-based healing protocols (vocal toning, mantra, chanting, humming)
+    category: sound
+    agents:
+      - sound-healing-guide
+      - traditions-scholar
+      - clinical-researcher
+      - content-writer
+      - ethics-guardian
+    requires_ethics_approval: true
+    templates:
+      - content/templates/sound-protocol.md
+    outputs:
+      - sound-protocol.md
+      - session-timing.json
+      - quick-reference.md
+    example_usage: |
+      /sound-healing "humming practice" --level beginner
+
+  - name: sound-research
+    trigger: /sound-research
+    description: |
+      Evidence review for sound-based healing interventions
+    category: research
+    agents:
+      - sound-healing-guide
+      - clinical-researcher
+      - traditions-scholar
+    standalone: true
+    example_usage: |
+      /sound-research "vagal toning via humming"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SOMATIC/MOVEMENT HEALING SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: somatic-practice
+    trigger: /somatic-practice
+    description: |
+      Guided gentle movement protocols (qigong, tai chi, yoga, walking meditation)
+    category: movement
+    agents:
+      - somatic-guide
+      - traditions-scholar
+      - clinical-researcher
+      - content-writer
+      - ethics-guardian
+    requires_ethics_approval: true
+    templates:
+      - content/templates/movement-protocol.md
+    outputs:
+      - movement-protocol.md
+      - session-timing.json
+    example_usage: |
+      /somatic-practice "gentle qigong" --level beginner
+
+  - name: walking-meditation
+    trigger: /walking-meditation
+    description: |
+      Mindful movement for those who cannot sit. Walking meditation protocols.
+    category: movement
+    agents:
+      - somatic-guide
+      - content-writer
+      - ethics-guardian
+    requires_ethics_approval: true
+    standalone: true
+    example_usage: |
+      /walking-meditation "indoor kinhin" --duration 15
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SLEEP/DREAM HEALING SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: sleep-healing
+    trigger: /sleep-healing
+    description: |
+      Evening wind-down protocols, sleep hygiene, bedtime meditations, dream journaling
+    category: sleep
+    agents:
+      - sleep-healing-guide
+      - traditions-scholar
+      - clinical-researcher
+      - content-writer
+      - ethics-guardian
+    requires_ethics_approval: true
+    templates:
+      - content/templates/sleep-protocol.md
+    outputs:
+      - sleep-protocol.md
+      - evening-routine.md
+      - dream-journal-prompts.md
+    example_usage: |
+      /sleep-healing "evening wind-down" --level beginner
+
+  - name: dream-practice
+    trigger: /dream-practice
+    description: |
+      Dream journaling, dream incubation, lucid dreaming introduction
+    category: sleep
+    agents:
+      - sleep-healing-guide
+      - traditions-scholar
+      - content-writer
+      - ethics-guardian
+    requires_ethics_approval: true
+    standalone: true
+    example_usage: |
+      /dream-practice "dream journaling" --level beginner
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # NATURE-BASED HEALING SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: nature-healing
+    trigger: /nature-healing
+    description: |
+      Structured nature connection (forest bathing, earthing, sky gazing, garden therapy)
+    category: nature
+    agents:
+      - nature-guide
+      - traditions-scholar
+      - clinical-researcher
+      - content-writer
+      - ethics-guardian
+    requires_ethics_approval: true
+    templates:
+      - content/templates/nature-protocol.md
+    outputs:
+      - nature-protocol.md
+      - seasonal-guide.md
+    example_usage: |
+      /nature-healing "forest bathing" --level beginner --setting park
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # WATER/HYDROTHERAPY HEALING SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: water-healing
+    trigger: /water-healing
+    description: |
+      Therapeutic water practices (contrast therapy, ritual bathing education, thermal protocols)
+    category: water
+    agents:
+      - water-guide
+      - traditions-scholar
+      - clinical-researcher
+      - content-writer
+      - ethics-guardian
+    requires_ethics_approval: true
+    templates:
+      - content/templates/water-protocol.md
+    outputs:
+      - water-protocol.md
+      - safety-checklist.md
+    example_usage: |
+      /water-healing "contrast shower" --level beginner
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # GRIEF/BEREAVEMENT HEALING SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: grief-healing
+    trigger: /grief-healing
+    description: |
+      Grief-informed healing practices for processing loss (health, bereavement,
+      transitions). Enhanced psychological safety.
+    category: grief
+    agents:
+      - grief-guide
+      - traditions-scholar
+      - clinical-researcher
+      - content-writer
+      - ethics-guardian
+    requires_ethics_approval: true
+    templates:
+      - content/templates/grief-practice.md
+    outputs:
+      - grief-practice.md
+      - grounding-guide.md
+      - crisis-resources.md
+    example_usage: |
+      /grief-healing "acknowledging loss" --level foundation
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # EXPRESSIVE/CREATIVE HEALING SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: expressive-healing
+    trigger: /expressive-healing
+    description: |
+      Creative healing practices (therapeutic writing, art-as-process, bibliotherapy)
+    category: expressive
+    agents:
+      - expressive-guide
+      - traditions-scholar
+      - clinical-researcher
+      - content-writer
+      - ethics-guardian
+    requires_ethics_approval: true
+    templates:
+      - content/templates/expressive-protocol.md
+    outputs:
+      - expressive-protocol.md
+      - journal-prompts.md
+    example_usage: |
+      /expressive-healing "healing writing" --method pennebaker
+
+  - name: healing-journaling
+    trigger: /healing-journaling
+    description: |
+      Extended journaling protocols beyond simple prompts. Structured multi-day
+      writing sequences.
+    category: expressive
+    agents:
+      - expressive-guide
+      - content-writer
+    standalone: true
+    example_usage: |
+      /healing-journaling "4-day writing sequence" --focus healing
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # COMMUNITY/RELATIONAL HEALING SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: community-healing
+    trigger: /community-healing
+    description: |
+      Group healing circle protocols, shared practice frameworks, facilitation guides
+    category: community
+    agents:
+      - community-facilitator
+      - traditions-scholar
+      - content-writer
+      - ethics-guardian
+    requires_ethics_approval: true
+    templates:
+      - content/templates/community-protocol.md
+    outputs:
+      - community-protocol.md
+      - facilitator-guide.md
+      - consent-framework.md
+    example_usage: |
+      /community-healing "healing circle" --group_size 8
+
+  - name: relational-practice
+    trigger: /relational-practice
+    description: |
+      Dyadic healing practices for relationships (distinct from Grinberg resonance pairing)
+    category: community
+    agents:
+      - community-facilitator
+      - content-writer
+      - ethics-guardian
+    requires_ethics_approval: true
+    standalone: true
+    example_usage: |
+      /relational-practice "partner meditation" --level beginner
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # PNI RESEARCH SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: pni-research
+    trigger: /pni-research
+    description: |
+      Deep research into psychoneuroimmunology findings relevant to healing practices
+    category: research
+    agents:
+      - pni-researcher
+      - clinical-researcher
+      - mechanisms-neuroscientist
+    standalone: true
+    example_usage: |
+      /pni-research "meditation and immune function"
+
+  - name: pni-mapping
+    trigger: /pni-mapping
+    description: |
+      Map specific traditional practices to their PNI pathways
+    category: research
+    agents:
+      - pni-researcher
+      - traditions-scholar
+      - mechanisms-neuroscientist
+    standalone: true
+    example_usage: |
+      /pni-mapping "breathwork" --to immune-pathways
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CONTEMPLATIVE INQUIRY SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: contemplative-inquiry
+    trigger: /contemplative-inquiry
+    description: |
+      Guided self-inquiry from multiple traditions (Zen koan-inspired, Socratic,
+      Ignatian Examen)
+    category: perception
+    agents:
+      - contemplative-guide
+      - traditions-scholar
+      - clinical-researcher
+      - content-writer
+      - ethics-guardian
+    requires_ethics_approval: true
+    templates:
+      - content/templates/contemplative-protocol.md
+    outputs:
+      - inquiry-protocol.md
+      - reflection-prompts.md
+    example_usage: |
+      /contemplative-inquiry "what is healing" --level beginner
+
+  # ─────────────────────────────────────────────────────────────────────────────
   # DESIGN SKILLS
   # ─────────────────────────────────────────────────────────────────────────────
 
@@ -495,6 +815,9 @@ skills:
       - build/components/practice-guide.md
       - build/components/psalm-selector.md
       - build/components/acupoint-guide.md
+      - build/components/sound-guide.md
+      - build/components/movement-guide.md
+      - build/components/sleep-timer.md
     outputs:
       - application/
     example_usage: |
