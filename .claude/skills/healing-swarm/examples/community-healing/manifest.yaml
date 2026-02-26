@@ -1,0 +1,69 @@
+# Community Healing Example: Simple Healing Circle
+# A 45-minute healing circle protocol for 6-8 people.
+
+name: community-healing-circle
+version: 1.0.0
+description: |
+  A 45-minute simple healing circle protocol for 6-8 people. Introductory
+  level with full consent framework, confidentiality agreement, facilitator
+  guidance, and group safety architecture. Demonstrates the community-protocol
+  template with emphasis on consent, witnessing, and shared contemplative
+  presence.
+
+category: community
+difficulty: introductory
+duration_minutes: 45
+group_size: 6-8
+
+# Practice metadata
+practice:
+  type: healing-circle
+  traditions:
+    - Talking circles (Indigenous - respectful reference)
+    - Quaker silent worship (Western contemplative)
+    - Sangha practice (Buddhist community)
+    - Ubuntu philosophy (Southern African)
+  evidence_level: strong (social support research)
+  safety_level: high
+  facilitator_required: true
+
+# Files in this example
+files:
+  research:
+    - research/background.md
+    - research/evidence.md
+  content:
+    - content/healing-circle.md
+  quality:
+    - quality/review-report.md
+
+# Safety requirements
+safety:
+  facilitator_required: true
+  consent_framework: required
+  confidentiality_agreement: required
+  power_dynamic_assessment: required
+  distress_response_plan: required
+  facilitator_self_care: required
+  ethics_review: required
+
+# Template used
+template: content/templates/community-protocol.md
+
+# Agent responsible
+primary_agent: community-facilitator
+review_agents:
+  - ethics-guardian
+  - clinical-reviewer
+  - cultural-reviewer
+
+# Tags
+tags:
+  - community
+  - healing-circle
+  - group-practice
+  - introductory
+  - consent
+  - facilitator-led
+  - contemplative
+  - witnessing

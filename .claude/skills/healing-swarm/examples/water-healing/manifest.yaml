@@ -1,0 +1,41 @@
+name: contrast-shower
+description: >
+  A beginner contrast shower protocol based on Kneipp hydrotherapy
+  principles. Demonstrates the water protocol template with temperature
+  specifications, safety framing, and tradition attribution.
+version: 1.0.0
+
+type: water-healing
+level: beginner
+duration_minutes: 12
+water_type: shower
+
+traditions:
+  - name: Kneipp method
+    era: "Modern (Sebastian Kneipp, 1821-1897)"
+    origin: "Germany (Bad Wörishofen)"
+    elements: ["contrast hydrotherapy", "warm-cool alternation"]
+
+content_files:
+  - content/contrast-shower.md
+
+templates_used:
+  - content/templates/water-protocol.md
+
+agents_involved:
+  - water-guide
+  - content-writer
+  - clinical-reviewer
+  - ethics-guardian
+
+safety_requirements:
+  - drowning_warning: not_applicable_shower
+  - cardiac_warning: required
+  - temperature_limits: warm_100-104F_cool_65-75F
+  - non_slip_surface: required
+  - medical_disclaimer: required
+
+evidence_level: >
+  Contrast water therapy for recovery: moderate (Versey et al., 2013).
+  Kneipp hydrotherapy: moderate (limited modern RCTs, extensive
+  clinical tradition). Individual responses vary.
