@@ -45,6 +45,7 @@ function findAgentFiles(dir, results = []) {
         file !== 'shared' &&
         file !== 'templates' &&
         file !== 'components' &&  // Component specs are not agents
+        file !== 'examples' &&  // Worked examples (content outputs), not agents
         !file.startsWith('_') &&
         !file.startsWith('.')
       ) {

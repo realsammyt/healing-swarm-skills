@@ -21,6 +21,16 @@
 | [whm-journey](#whm-journey) | `/whm-journey` | breathwork | Multi-week integrated WHM program (all 3 pillars) |
 | [language-awareness](#language-awareness) | `/language-awareness` | perception | Individual cognitive deautomatization practices |
 | [group-perception](#group-perception) | `/group-perception` | perception | Group perception exercises with consent frameworks |
+| [sound-healing](#sound-healing) | `/sound-healing` | sound | Therapeutic sound practices — mantra, chanting, toning, singing bowl |
+| [somatic-practice](#somatic-practice) | `/somatic-practice` | movement | Gentle movement protocols — qigong, tai chi, yoga, walking meditation |
+| [sleep-healing](#sleep-healing) | `/sleep-healing` | sleep | Evening wind-down, bedtime meditation, dream journaling |
+| [nature-healing](#nature-healing) | `/nature-healing` | nature | Shinrin-yoku, earthing, garden therapy, Five Element observation |
+| [water-healing](#water-healing) | `/water-healing` | water | Contrast therapy, Kneipp method, ritual bathing education |
+| [grief-healing](#grief-healing) | `/grief-healing` | grief | Grief-informed practices across mourning traditions |
+| [expressive-healing](#expressive-healing) | `/expressive-healing` | expressive | Pennebaker writing, bibliotherapy, art-as-process |
+| [community-healing](#community-healing) | `/community-healing` | community | Healing circles, talking circles, group practice |
+| [contemplative-inquiry](#contemplative-inquiry) | `/contemplative-inquiry` | perception | Zen koan, self-inquiry, Socratic questioning, Ignatian Examen |
+| [pni-research](#pni-research) | `/pni-research` | research | Psychoneuroimmunology — mind-body-immune science |
 | [healing-design](#healing-design) | `/healing-design` | design | Design healing application UX and visuals |
 | [healing-ux](#healing-ux) | `/healing-ux` | design | UX design for healing contexts |
 | [sacred-visuals](#sacred-visuals) | `/sacred-visuals` | design | Visual system with healing aesthetics |
@@ -974,6 +984,409 @@ Group and paired perception exercises with consent frameworks, facilitation guid
 
 ---
 
+## sound-healing
+
+**Trigger:** `/sound-healing`
+**Category:** sound
+
+### Description
+
+Therapeutic sound practices spanning Vedic mantra, Psalm chanting, Gregorian chant, Tibetan singing bowl, and vagal toning. All protocols screen for hearing conditions and respect open/closed practice boundaries.
+
+### Inputs
+
+| Input | Type | Required | Description |
+|-------|------|----------|-------------|
+| `focus` | string | Yes | Practice focus (e.g., "vagal toning", "morning mantra") |
+| `level` | enum | No | `listening`, `humming`, `toning`, `chanting`, `extended` |
+| `tradition` | string | No | Specific tradition to draw from |
+
+### Outputs
+
+| Output | Description |
+|--------|-------------|
+| `sound-protocol.md` | Complete sound practice guide |
+| `safety-screening.md` | Hearing and contraindication screening |
+
+### Agents
+
+- **sound-healing-guide** - Sound practice protocol design
+- **traditions-scholar** - Tradition context and attribution
+- **clinical-researcher** - Vagal stimulation and sound therapy evidence
+- **ethics-guardian** - Safety and closed practice review
+
+### Examples
+
+```bash
+/sound-healing "morning humming practice" --level humming
+/sound-healing "vagal toning session" --tradition "cross-tradition"
+```
+
+---
+
+## somatic-practice
+
+**Trigger:** `/somatic-practice`
+**Category:** movement
+
+### Description
+
+Gentle movement protocols spanning qigong, tai chi, yoga, kinhin, and Feldenkrais. Every practice includes standing, seated, lying, and wheelchair modifications to ensure universal accessibility.
+
+### Inputs
+
+| Input | Type | Required | Description |
+|-------|------|----------|-------------|
+| `focus` | string | Yes | Practice focus (e.g., "morning qigong", "gentle yoga") |
+| `level` | enum | No | `gentle`, `moderate`, `dynamic` |
+| `modification` | enum | No | `standing`, `seated`, `lying`, `wheelchair` |
+
+### Outputs
+
+| Output | Description |
+|--------|-------------|
+| `movement-protocol.md` | Complete movement practice guide |
+| `modification-guide.md` | Adaptation guide for all positions |
+
+### Agents
+
+- **somatic-guide** - Movement protocol design
+- **traditions-scholar** - Tradition context and attribution
+- **clinical-researcher** - Movement therapy evidence
+- **ethics-guardian** - Safety and accessibility review
+
+### Examples
+
+```bash
+/somatic-practice "morning qigong" --level gentle
+/somatic-practice "chair yoga" --modification seated --level gentle
+```
+
+---
+
+## sleep-healing
+
+**Trigger:** `/sleep-healing`
+**Category:** sleep
+
+### Description
+
+Evening wind-down, bedtime meditation, and dream journaling practices drawing from Asclepian dream temples, Tibetan dream yoga, TCM organ clock, and Ayurvedic dinacharya. Screen paradox acknowledged. CBT-I referral provided for persistent insomnia.
+
+### Inputs
+
+| Input | Type | Required | Description |
+|-------|------|----------|-------------|
+| `focus` | string | Yes | Practice focus (e.g., "evening wind-down", "dream journaling") |
+| `phase` | enum | No | `wind-down`, `bedtime`, `dream-work` |
+| `tradition` | string | No | Specific tradition to draw from |
+
+### Outputs
+
+| Output | Description |
+|--------|-------------|
+| `sleep-protocol.md` | Complete sleep practice guide |
+| `screen-paradox-note.md` | Digital delivery paradox acknowledgment |
+
+### Agents
+
+- **sleep-healing-guide** - Sleep practice protocol design
+- **traditions-scholar** - Tradition context and attribution
+- **clinical-researcher** - Sleep science evidence
+- **ethics-guardian** - Safety and referral review
+
+### Examples
+
+```bash
+/sleep-healing "evening wind-down" --phase wind-down
+/sleep-healing "dream journaling" --phase dream-work --tradition "Tibetan"
+```
+
+---
+
+## nature-healing
+
+**Trigger:** `/nature-healing`
+**Category:** nature
+
+### Description
+
+Nature-based healing practices including shinrin-yoku, earthing, garden therapy, and Five Element observation, supported by 60+ forest bathing studies. Urban and indoor alternatives are always provided for accessibility.
+
+### Inputs
+
+| Input | Type | Required | Description |
+|-------|------|----------|-------------|
+| `focus` | string | Yes | Practice focus (e.g., "forest bathing", "garden therapy") |
+| `setting` | enum | No | `forest`, `garden`, `urban`, `indoor` |
+| `season` | string | No | Season for practice adaptation |
+
+### Outputs
+
+| Output | Description |
+|--------|-------------|
+| `nature-protocol.md` | Complete nature practice guide |
+| `urban-alternatives.md` | Urban and indoor adaptation guide |
+
+### Agents
+
+- **nature-guide** - Nature practice protocol design
+- **traditions-scholar** - Tradition context and attribution
+- **clinical-researcher** - Forest bathing and nature therapy evidence
+- **ethics-guardian** - Safety and accessibility review
+
+### Examples
+
+```bash
+/nature-healing "forest bathing" --setting forest --season "spring"
+/nature-healing "indoor nature practice" --setting indoor
+```
+
+---
+
+## water-healing
+
+**Trigger:** `/water-healing`
+**Category:** water
+
+### Description
+
+Water and hydrotherapy practices including contrast therapy, mikveh education, onsen, Kneipp method, and Finnish sauna. Drowning and cardiac risk warnings are non-negotiable safety requirements.
+
+### Inputs
+
+| Input | Type | Required | Description |
+|-------|------|----------|-------------|
+| `focus` | string | Yes | Practice focus (e.g., "contrast therapy", "Kneipp walk") |
+| `modality` | enum | No | `contrast`, `warm`, `cold`, `ritual` |
+| `level` | string | No | Experience level |
+
+### Outputs
+
+| Output | Description |
+|--------|-------------|
+| `water-protocol.md` | Complete water practice guide |
+| `safety-checklist.md` | Drowning and cardiac risk safety checklist |
+
+### Agents
+
+- **water-guide** - Water practice protocol design
+- **traditions-scholar** - Tradition context and attribution
+- **clinical-researcher** - Hydrotherapy evidence
+- **ethics-guardian** - Safety and risk review
+
+### Examples
+
+```bash
+/water-healing "contrast shower" --modality contrast
+/water-healing "Kneipp method introduction" --modality cold --level beginner
+```
+
+---
+
+## grief-healing
+
+**Trigger:** `/grief-healing`
+**Category:** grief
+
+### Description
+
+Grief-informed practices across mourning traditions including Jewish mourning, Buddhist impermanence, Dia de los Muertos, and Celtic keening. Highest psychological sensitivity with crisis resources, minimum 3 exit ramps, and suicidal ideation screening.
+
+### Inputs
+
+| Input | Type | Required | Description |
+|-------|------|----------|-------------|
+| `focus` | string | Yes | Practice focus (e.g., "acute loss support", "anniversary ritual") |
+| `stage` | enum | No | `acute`, `ongoing`, `anniversary`, `complicated` |
+| `tradition` | string | No | Specific tradition to draw from |
+
+### Outputs
+
+| Output | Description |
+|--------|-------------|
+| `grief-protocol.md` | Complete grief practice guide |
+| `crisis-resources.md` | Crisis hotlines and referral resources |
+| `exit-ramps.md` | Minimum 3 exit ramps for practice |
+
+### Agents
+
+- **grief-guide** - Grief practice protocol design
+- **traditions-scholar** - Tradition context and attribution
+- **clinical-researcher** - Bereavement and grief evidence
+- **ethics-guardian** - Safety, crisis screening, and exit ramp review
+
+### Examples
+
+```bash
+/grief-healing "acute loss support" --stage acute
+/grief-healing "anniversary ritual" --stage anniversary --tradition "Jewish"
+```
+
+---
+
+## expressive-healing
+
+**Trigger:** `/expressive-healing`
+**Category:** expressive
+
+### Description
+
+Creative and expressive healing practices including Pennebaker writing (200+ studies), bibliotherapy, mandala, ikebana, and sacred poetry. Strongest privacy protections. No artistic skill required. Navajo sand painting noted as closed practice.
+
+### Inputs
+
+| Input | Type | Required | Description |
+|-------|------|----------|-------------|
+| `focus` | string | Yes | Practice focus (e.g., "expressive writing", "mandala creation") |
+| `modality` | enum | No | `writing`, `art`, `poetry`, `movement` |
+| `privacy-level` | enum | No | `private`, `shared`, `facilitated` |
+
+### Outputs
+
+| Output | Description |
+|--------|-------------|
+| `expressive-protocol.md` | Complete expressive practice guide |
+| `privacy-guide.md` | Privacy protections and data handling |
+
+### Agents
+
+- **expressive-guide** - Expressive practice protocol design
+- **traditions-scholar** - Tradition context and attribution
+- **clinical-researcher** - Pennebaker and expressive therapy evidence
+- **ethics-guardian** - Privacy, closed practice, and safety review
+
+### Examples
+
+```bash
+/expressive-healing "expressive writing" --modality writing --privacy-level private
+/expressive-healing "mandala creation" --modality art
+```
+
+---
+
+## community-healing
+
+**Trigger:** `/community-healing`
+**Category:** community
+
+### Description
+
+Group and relational healing practices including talking circles, Mussar, Sangha, Quaker meeting, Ubuntu, and 12-Step. Trained facilitator required. Full consent framework, confidentiality, and power dynamics awareness.
+
+### Inputs
+
+| Input | Type | Required | Description |
+|-------|------|----------|-------------|
+| `focus` | string | Yes | Practice focus (e.g., "healing circle", "talking circle") |
+| `format` | enum | No | `circle`, `dyad`, `sangha`, `meeting` |
+| `participants` | number | No | Number of participants |
+
+### Outputs
+
+| Output | Description |
+|--------|-------------|
+| `facilitation-guide.md` | Complete facilitation guide |
+| `consent-framework.md` | Participant consent protocol |
+| `confidentiality-agreement.md` | Group confidentiality agreement |
+
+### Agents
+
+- **community-facilitator** - Group practice facilitation design
+- **traditions-scholar** - Tradition context and attribution
+- **clinical-researcher** - Group healing and social support evidence
+- **ethics-guardian** - Consent, confidentiality, and power dynamics review
+
+### Examples
+
+```bash
+/community-healing "healing circle" --format circle --participants 8
+/community-healing "dyad practice" --format dyad
+```
+
+---
+
+## contemplative-inquiry
+
+**Trigger:** `/contemplative-inquiry`
+**Category:** perception
+
+### Description
+
+Deep inquiry and contemplation practices including Zen koan, Advaitic self-inquiry, Socratic questioning, Ignatian Examen, and ACT cognitive defusion. Dzogchen noted as closed/reference-only. 4 progressive levels from structured to silent.
+
+### Inputs
+
+| Input | Type | Required | Description |
+|-------|------|----------|-------------|
+| `focus` | string | Yes | Practice focus (e.g., "self-inquiry", "koan practice") |
+| `method` | enum | No | `koan`, `self-inquiry`, `socratic`, `examen`, `defusion` |
+| `level` | enum | No | `structured`, `guided`, `open`, `silent` |
+
+### Outputs
+
+| Output | Description |
+|--------|-------------|
+| `inquiry-protocol.md` | Complete inquiry practice guide |
+| `tradition-context.md` | Tradition context and attribution |
+
+### Agents
+
+- **contemplative-guide** - Inquiry practice protocol design
+- **traditions-scholar** - Tradition context and attribution
+- **clinical-researcher** - Contemplative practice evidence
+- **ethics-guardian** - Closed practice and safety review
+
+### Examples
+
+```bash
+/contemplative-inquiry "self-inquiry" --method self-inquiry --level structured
+/contemplative-inquiry "koan practice" --method koan --level guided
+```
+
+---
+
+## pni-research
+
+**Trigger:** `/pni-research`
+**Category:** research
+
+### Description
+
+Psychoneuroimmunology research bridging traditional healing with documented PNI pathways. Covers HPA axis, vagal tone, telomeres, placebo mechanisms, wound healing, and social-immune interactions. Maps traditional healing to documented PNI pathways with honest limitations.
+
+### Inputs
+
+| Input | Type | Required | Description |
+|-------|------|----------|-------------|
+| `query` | string | Yes | Research topic (e.g., "meditation immune response", "social bonding oxytocin") |
+| `pathway` | enum | No | `hpa`, `vagal`, `telomere`, `placebo`, `social` |
+| `depth` | enum | No | `quick`, `standard`, `comprehensive` |
+
+### Outputs
+
+| Output | Description |
+|--------|-------------|
+| `pni-brief.md` | PNI research summary |
+| `practice-mapping.md` | Traditional practice to PNI pathway mapping |
+| `limitations.md` | Honest limitations and gaps in evidence |
+
+### Agents
+
+- **pni-researcher** - PNI pathway research
+- **clinical-researcher** - Clinical evidence review
+- **mechanisms-neuroscientist** - Neuroscience mechanism bridging
+- **ethics-guardian** - Claims and evidence integrity review
+
+### Examples
+
+```bash
+/pni-research "meditation immune response" --pathway vagal --depth standard
+/pni-research "social bonding healing" --pathway social --depth comprehensive
+```
+
+---
+
 ## Skill Categories
 
 ### Research Skills
@@ -1000,6 +1413,47 @@ Wim Hof Method protocols with safety architecture.
 Cognitive deautomatization and language awareness.
 - language-awareness
 - group-perception
+- contemplative-inquiry
+
+### Sound Healing Skills
+Therapeutic sound and vibratory practices.
+- sound-healing
+
+### Movement Skills
+Somatic and movement-based practices.
+- somatic-practice
+
+### Sleep Skills
+Sleep quality and dream work.
+- sleep-healing
+
+### Nature Skills
+Nature-based healing practices.
+- nature-healing
+
+### Water Skills
+Water and hydrotherapy practices.
+- water-healing
+
+### Grief Skills
+Grief and bereavement support.
+- grief-healing
+
+### Expressive Skills
+Creative and expressive healing.
+- expressive-healing
+
+### Community Skills
+Group and relational healing.
+- community-healing
+
+### Contemplative Skills
+Deep inquiry and contemplation.
+- contemplative-inquiry
+
+### PNI Research Skills
+Psychoneuroimmunology research bridge.
+- pni-research
 
 ### Design Skills
 UX and visual design.

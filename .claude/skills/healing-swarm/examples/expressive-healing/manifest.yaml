@@ -1,0 +1,64 @@
+# Expressive Healing Example: Pennebaker Healing Writing
+# A 4-day expressive writing practice adapted for healing contexts.
+
+name: expressive-healing-writing
+version: 1.0.0
+description: |
+  A 20-minute expressive writing practice using the Pennebaker protocol
+  adapted for healing contexts. Includes a 4-day writing sequence,
+  emotional safety scaffolding, and grounding techniques. Demonstrates
+  the expressive-protocol template with evidence-based writing method.
+
+category: expressive
+difficulty: intermediate
+duration_minutes: 20
+expression_type: writing
+
+# Practice metadata
+practice:
+  type: pennebaker-adapted
+  traditions:
+    - Pennebaker expressive writing method (1986+)
+    - Bibliotherapy (ancient Greece through contemporary)
+    - Contemplative journaling traditions
+  evidence_level: strong
+  safety_level: high
+
+# Files in this example
+files:
+  research:
+    - research/background.md
+    - research/evidence.md
+  content:
+    - content/healing-writing.md
+  quality:
+    - quality/review-report.md
+
+# Safety requirements
+safety:
+  emotional_safety_framing: required
+  exit_ramps: 1
+  grounding_protocol: required
+  privacy_notice: required
+  temporary_distress_warning: required
+  ethics_review: required
+
+# Template used
+template: content/templates/expressive-protocol.md
+
+# Agent responsible
+primary_agent: expressive-guide
+review_agents:
+  - ethics-guardian
+  - clinical-reviewer
+
+# Tags
+tags:
+  - expressive
+  - writing
+  - pennebaker
+  - journaling
+  - emotional-processing
+  - intermediate
+  - evidence-based
+  - 4-day-sequence

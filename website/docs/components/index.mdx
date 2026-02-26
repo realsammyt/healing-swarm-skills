@@ -47,6 +47,31 @@ A collection of React components for documenting healing practices and adding he
   </a>
 </div>
 
+## Practice Components (v1.1.0)
+
+New component specifications for practice-specific UI elements. These extend the core component library with specialized interfaces for sound, movement, and sleep practices.
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+  <div className="block p-6 rounded-lg border-2 border-healing-border bg-grounding-dark/50">
+    <h3 className="text-healing-light font-bold mb-2">SoundGuide</h3>
+    <p className="text-grounding-light text-sm">Audio-visual guide for sound healing practices — frequency visualization, toning cues, tradition-specific notation, and hearing safety gates.</p>
+  </div>
+
+  <div className="block p-6 rounded-lg border-2 border-calm-border bg-grounding-dark/50">
+    <h3 className="text-calm-light font-bold mb-2">MovementGuide</h3>
+    <p className="text-grounding-light text-sm">Adaptive movement instruction with standing, seated, lying, and wheelchair modification toggles. Pain boundary awareness built in.</p>
+  </div>
+
+  <div className="block p-6 rounded-lg border-2 border-sacred-gold bg-grounding-dark/50">
+    <h3 className="text-sacred-gold-light font-bold mb-2">SleepTimer</h3>
+    <p className="text-grounding-light text-sm">Wind-down timer with progressive dimming, screen paradox acknowledgment, and gentle audio fade. Integrates with sleep protocol templates.</p>
+  </div>
+</div>
+
+:::info Component Specs
+Practice component specifications are available in the skill system at `build/components/sound-guide.md`, `build/components/movement-guide.md`, and `build/components/sleep-timer.md`. These define the full API surface, accessibility requirements, and design token usage for implementation.
+:::
+
 ## Integration Components
 
 Drop-in components for adding healing properties to any project. These work standalone and can be integrated into apps, games, and narratives.
