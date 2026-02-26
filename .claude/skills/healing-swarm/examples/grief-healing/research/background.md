@@ -97,7 +97,7 @@ Talmud Moed Katan 27a-b.*
 Buddhist traditions approach grief through the lens of impermanence
 (*anicca* in Pali), one of the Three Marks of Existence.
 
-**Maranasati** (Pali: mindfulness of death):
+*Maranasati* (Pali: mindfulness of death):
 - Systematic contemplation of the inevitability of death
 - Not morbid but clarifying — impermanence as teacher
 - Practiced in Theravada traditions as one of the 40 meditation subjects

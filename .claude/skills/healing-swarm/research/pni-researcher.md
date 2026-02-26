@@ -97,7 +97,7 @@ The HPA axis is the most well-documented mind-body-immune pathway:
 - Healing practices that reduce psychological stress may normalize HPA axis function
 
 **Key research:**
-- Kiecolt-Glaser JK et al. (2005). Stress delays wound healing by 25-40% in controlled studies. PMID: 8629858 (original 1995 study); replicated across multiple paradigms
+- Kiecolt-Glaser JK et al. (1995). Stress delays wound healing by 25-40% in controlled studies. PMID: 8629858; replicated across multiple paradigms
 - Segerstrom SC, Miller GE (2004). Meta-analysis: chronic stress reliably suppresses cellular immunity. PMID: 15250815
 - Bower JE, Irwin MR (2016). Mind-body therapies and control of inflammatory biology. *Brain, Behavior, and Immunity*, 51, 1-11. PMID: 26116436
 
@@ -113,7 +113,7 @@ The vagus nerve as the body's anti-inflammatory highway:
 **Key research:**
 - Tracey KJ (2002). The inflammatory reflex. *Nature*, 420, 853-859. PMID: 12490958
 - Thayer JF, Sternberg EM (2010). Neural aspects of immunomodulation. *International Immunology*, 22(8), 625-638. PMID: 20554812
-- Bower JE, Irwin MR (2016). Mind-body practices improve vagal tone markers. PMID: 26116436
+- Bower JE, Irwin MR (2016). (See also HPA axis section above.) Mind-body therapies and control of inflammatory biology — also reports vagal tone enhancement as a mediating pathway. PMID: 26116436
 
 ### Meditation and Telomere Length
 
