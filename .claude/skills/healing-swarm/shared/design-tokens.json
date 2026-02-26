@@ -417,5 +417,109 @@
       "transitions": "0.01ms",
       "animations": "none"
     }
+  },
+
+  "practiceStates": {
+    "active": {
+      "color": "#2dd284",
+      "background": "rgba(45, 210, 132, 0.1)",
+      "border": "2px solid #2dd284",
+      "description": "Practice currently in progress"
+    },
+    "paused": {
+      "color": "#fbbf24",
+      "background": "rgba(251, 191, 36, 0.08)",
+      "border": "2px solid rgba(251, 191, 36, 0.4)",
+      "description": "Practice temporarily paused by user"
+    },
+    "transitioning": {
+      "color": "#38bdf8",
+      "background": "rgba(56, 189, 248, 0.08)",
+      "border": "2px solid rgba(56, 189, 248, 0.3)",
+      "description": "Moving between practice phases"
+    },
+    "completing": {
+      "color": "#86efac",
+      "background": "rgba(134, 239, 172, 0.1)",
+      "border": "2px solid rgba(134, 239, 172, 0.4)",
+      "description": "Practice winding down to completion"
+    },
+    "safetyPause": {
+      "color": "#ff5459",
+      "background": "rgba(255, 84, 89, 0.12)",
+      "border": "3px solid #ff5459",
+      "description": "Practice paused due to safety concern or adverse reaction"
+    }
+  },
+
+  "timerStates": {
+    "inhale": {
+      "color": "#38bdf8",
+      "background": "rgba(56, 189, 248, 0.12)",
+      "border": "2px solid rgba(56, 189, 248, 0.4)",
+      "description": "Inhalation phase — cool, expansive blue"
+    },
+    "hold": {
+      "color": "#8b5cf6",
+      "background": "rgba(139, 92, 246, 0.1)",
+      "border": "2px solid rgba(139, 92, 246, 0.4)",
+      "description": "Breath retention phase — still, contemplative violet"
+    },
+    "exhale": {
+      "color": "#2dd284",
+      "background": "rgba(45, 210, 132, 0.1)",
+      "border": "2px solid rgba(45, 210, 132, 0.4)",
+      "description": "Exhalation phase — releasing, calming green"
+    },
+    "retention": {
+      "color": "#f97316",
+      "background": "rgba(249, 115, 22, 0.1)",
+      "border": "2px solid rgba(249, 115, 22, 0.4)",
+      "description": "Extended hold after exhale — warm, grounding orange"
+    },
+    "recovery": {
+      "color": "#94a3b8",
+      "background": "rgba(148, 163, 184, 0.08)",
+      "border": "2px solid rgba(148, 163, 184, 0.3)",
+      "description": "Recovery breathing between rounds — neutral, restful"
+    }
+  },
+
+  "completion": {
+    "gentleGlow": {
+      "boxShadow": "0 0 30px rgba(45, 210, 132, 0.2)",
+      "description": "Soft, subtle glow on practice completion — not celebratory, simply acknowledging"
+    },
+    "confirmationColor": "#86efac",
+    "confirmationBackground": "rgba(134, 239, 172, 0.08)",
+    "confirmationBorder": "1px solid rgba(134, 239, 172, 0.2)",
+    "textColor": "#94a3b8",
+    "textColorEmphasis": "#f1f5f9",
+    "fadeInDuration": "800ms",
+    "description": "Non-gamified completion tokens. No badges, no streaks, no scores. A quiet acknowledgment that the practice is done."
+  },
+
+  "severity": {
+    "absolute": {
+      "color": "#ff5459",
+      "background": "rgba(255, 84, 89, 0.12)",
+      "border": "2px solid #ff5459",
+      "label": "Absolute — never do",
+      "description": "Contraindication severity: practice poses serious risk, no safe modification"
+    },
+    "relative": {
+      "color": "#f59e0b",
+      "background": "rgba(245, 158, 11, 0.1)",
+      "border": "2px solid rgba(245, 158, 11, 0.5)",
+      "label": "Relative — with modifications",
+      "description": "Contraindication severity: practice may be safe with specific adaptations"
+    },
+    "caution": {
+      "color": "#fbbf24",
+      "background": "rgba(251, 191, 36, 0.08)",
+      "border": "2px solid rgba(251, 191, 36, 0.3)",
+      "label": "Caution — proceed carefully",
+      "description": "Contraindication severity: practice likely safe but warrants awareness"
+    }
   }
 }
