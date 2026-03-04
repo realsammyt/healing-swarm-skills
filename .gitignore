@@ -51,6 +51,9 @@ temp/
 # Healing swarm state (local development state)
 .claude/healing-swarm-state.json
 
+# Agent worktrees (temporary agent infrastructure)
+.claude/worktrees/
+
 # Generated content (if generating locally)
 healing-app-output/
 

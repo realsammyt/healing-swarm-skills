@@ -220,6 +220,7 @@ function main() {
   agentFiles = agentFiles.filter((f) => !f.includes(path.sep + 'shared' + path.sep));
   agentFiles = agentFiles.filter((f) => !f.includes(path.sep + 'templates' + path.sep));
   agentFiles = agentFiles.filter((f) => !f.includes(path.sep + 'components' + path.sep));  // Component specs, not agents
+  agentFiles = agentFiles.filter((f) => !f.includes(path.sep + 'examples' + path.sep));  // Worked examples (content outputs), not agents
 
   // Apply file filter if specified
   if (FILE_FILTER) {

@@ -192,6 +192,66 @@ claude> /healing-swarm "Sacred Healing Journey" --focus "ligament healing"
 | [Language Awareness](docs/api/skills-reference.md#language-awareness) | `/language-awareness` | Individual cognitive deautomatization practices |
 | [Group Perception](docs/api/skills-reference.md#group-perception) | `/group-perception` | Group perception exercises with consent frameworks |
 
+### Sound & Vibratory Healing
+
+| Skill | Trigger | Purpose |
+|-------|---------|---------|
+| [Sound Healing](docs/api/skills-reference.md#sound-healing) | `/sound-healing` | Vedic mantra, Psalm chanting, Gregorian chant, singing bowl, vagal toning |
+
+### Somatic & Movement Healing
+
+| Skill | Trigger | Purpose |
+|-------|---------|---------|
+| [Somatic Practice](docs/api/skills-reference.md#somatic-practice) | `/somatic-practice` | Qigong, tai chi, yoga, kinhin, Feldenkrais — with standing/seated/lying/wheelchair mods |
+
+### Sleep & Dream Healing
+
+| Skill | Trigger | Purpose |
+|-------|---------|---------|
+| [Sleep Healing](docs/api/skills-reference.md#sleep-healing) | `/sleep-healing` | Asclepian dream temples, Tibetan dream yoga, TCM organ clock, Ayurvedic dinacharya |
+
+### Nature-Based Healing
+
+| Skill | Trigger | Purpose |
+|-------|---------|---------|
+| [Nature Healing](docs/api/skills-reference.md#nature-healing) | `/nature-healing` | Shinrin-yoku, earthing, garden therapy, Five Element observation |
+
+### Water & Hydrotherapy
+
+| Skill | Trigger | Purpose |
+|-------|---------|---------|
+| [Water Healing](docs/api/skills-reference.md#water-healing) | `/water-healing` | Contrast therapy, Kneipp method, mikveh education, Finnish sauna |
+
+### Grief & Bereavement Healing
+
+| Skill | Trigger | Purpose |
+|-------|---------|---------|
+| [Grief Healing](docs/api/skills-reference.md#grief-healing) | `/grief-healing` | Jewish mourning, Buddhist impermanence, Dia de los Muertos, Celtic keening |
+
+### Expressive & Creative Healing
+
+| Skill | Trigger | Purpose |
+|-------|---------|---------|
+| [Expressive Healing](docs/api/skills-reference.md#expressive-healing) | `/expressive-healing` | Pennebaker writing, bibliotherapy, mandala, ikebana, sacred poetry |
+
+### Community & Relational Healing
+
+| Skill | Trigger | Purpose |
+|-------|---------|---------|
+| [Community Healing](docs/api/skills-reference.md#community-healing) | `/community-healing` | Healing circles, talking circles, Sangha, Quaker meeting, Ubuntu, 12-Step |
+
+### Contemplative Inquiry
+
+| Skill | Trigger | Purpose |
+|-------|---------|---------|
+| [Contemplative Inquiry](docs/api/skills-reference.md#contemplative-inquiry) | `/contemplative-inquiry` | Zen koan, Advaitic self-inquiry, Socratic questioning, Ignatian Examen |
+
+### PNI Research Bridge
+
+| Skill | Trigger | Purpose |
+|-------|---------|---------|
+| [PNI Research](docs/api/skills-reference.md#pni-research) | `/pni-research` | Psychoneuroimmunology — mind-body-immune science bridging |
+
 ### Standalone Skills
 
 | Skill | Trigger | Purpose |
@@ -218,9 +278,9 @@ claude> /healing-swarm "Sacred Healing Journey" --focus "ligament healing"
 
 ### Reference
 
-- **[Skills Reference](docs/api/skills-reference.md)** - All skills with triggers and options
-- **[Agents Reference](docs/api/agents-reference.md)** - All agents with responsibilities
-- **[Shared Resources](docs/api/shared-resources.md)** - Ethics, terminology, design tokens
+- **[Skills Reference](docs/api/skills-reference.md)** - All 47 skills with triggers and options
+- **[Agents Reference](docs/api/agents-reference.md)** - All 26 agents with responsibilities
+- **[Shared Resources](docs/api/shared-resources.md)** - Ethics, safety, terminology, design tokens
 - **[Workflows Reference](docs/api/workflows-reference.md)** - Workflow patterns
 
 ### Architecture
@@ -315,6 +375,18 @@ Ready-to-use templates for common skill types:
 - Language Awareness Guide - Cognitive deautomatization practices
 - Coherence Guide - Interhemispheric coherence meditation
 
+**Practice Agents (v1.1.0):**
+- Sound Healing Guide - Mantra, chanting, singing bowl, vagal toning
+- Somatic Guide - Qigong, tai chi, yoga with universal modifications
+- Sleep Healing Guide - Dream work, wind-down, organ clock practices
+- Nature Guide - Forest bathing, earthing, garden therapy
+- Water Guide - Contrast therapy, Kneipp method, sauna protocols
+- Grief Guide - Mourning traditions with crisis safety architecture
+- Expressive Guide - Writing, art, poetry with privacy protections
+- Community Facilitator - Healing circles with consent frameworks
+- Contemplative Guide - Koan, self-inquiry, Examen practices
+- PNI Researcher - Mind-body-immune pathway mapping
+
 ---
 
 ## Ethical Foundation
@@ -348,13 +420,43 @@ Ready-to-use templates for common skill types:
 
 ---
 
+## Safety Infrastructure (v1.1.0)
+
+Every skill in the healing swarm is underpinned by mandatory safety resources:
+
+| Resource | Purpose |
+|----------|---------|
+| **[Crisis Response](docs/api/shared-resources.md#crisis-response)** | RECOGNIZE-STOP-GROUND-ASSESS-RESPOND-FOLLOW-UP adverse reaction framework |
+| **[Contraindications Database](docs/api/shared-resources.md#contraindications)** | 12 conditions x 7 practice categories with Absolute/Relative/Caution severity |
+| **[Outcome Measurement](docs/api/shared-resources.md#outcome-measurement)** | Privacy-first validated instruments (VAS, PHQ-9, GAD-7, PSQI, PSS, WHO-5) |
+| **[Practice Pathways](docs/api/shared-resources.md#practice-pathways)** | Cross-skill integration with user archetypes and seasonal adjustments |
+
+---
+
 ## Examples
 
 See the [examples](examples/) directory for working demonstrations:
 
+**Core Examples:**
+
 - **[Simple Meditation](examples/simple-meditation/)** - Complete skill lifecycle walkthrough
 - **[WHM Breathwork](examples/whm-breathwork/)** - WHM breathing session with safety architecture
 - **[Language Awareness](examples/language-awareness/)** - Cognitive deautomatization practice with grounding
+
+**Practice Skill Examples (v1.1.0):**
+
+10 complete worked examples with research background, clinical evidence, practice content, and quality review:
+
+- **Sound Healing** - Humming practice with vagal stimulation research
+- **Somatic Movement** - Gentle qigong with standing/seated/lying/wheelchair modifications
+- **Sleep Healing** - Evening wind-down with screen paradox acknowledgment
+- **Nature Healing** - Forest bathing introduction with urban alternatives
+- **Water Healing** - Contrast shower protocol with cardiac safety
+- **Grief Healing** - Acknowledging loss with crisis resources and exit ramps
+- **Expressive Healing** - Writing practice with privacy protections
+- **Community Healing** - Healing circle with consent framework and facilitation guide
+- **Contemplative Inquiry** - Self-inquiry with tradition context
+- **PNI Research** - Mind-body-immune pathway mapping with honest limitations
 
 ---
 
@@ -412,11 +514,18 @@ This project is licensed under CC-BY-NC-SA-4.0 (Attribution-NonCommercial-ShareA
 This swarm integrates wisdom from:
 - Traditional Chinese Medicine (4,000+ years)
 - Vedic/Ayurvedic healing traditions
-- Jewish mystical healing practices
-- Western contemplative traditions
+- Jewish mystical healing practices (Psalm chanting, mourning structures, Mussar)
+- Western contemplative traditions (Ignatian Examen, Quaker meeting)
 - Wim Hof Method and breathwork science (Kox et al. 2014, Muzik et al. 2018)
 - Cognitive deautomatization research (Deikman 1966, Hughes 2024)
 - Zen, Dzogchen, and phenomenological inquiry traditions
+- Japanese healing arts (shinrin-yoku, ikebana, onsen)
+- Tibetan practices (singing bowl, dream yoga)
+- Celtic and Latin American traditions (keening, Dia de los Muertos)
+- Ubuntu philosophy and 12-Step traditions
+- Psychoneuroimmunology and mind-body-immune research
+- Pennebaker expressive writing research (200+ studies)
+- Forest bathing science (60+ studies)
 - Modern clinical research
 
 We honor the lineage holders and practitioners who have preserved and transmitted this wisdom.

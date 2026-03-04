@@ -1,0 +1,89 @@
+# Somatic Movement Example: Gentle Qigong Sequence
+# A complete example of the somatic/movement healing skill pipeline
+
+name: gentle-qigong
+display_name: "Gentle Qigong: Standing and Seated Practice"
+description: >
+  A 15-minute gentle qigong sequence adapted from traditional Chinese
+  energy cultivation practices. Combines breath-synchronized movement
+  with body awareness for nervous system regulation and gentle
+  mobilization. Full standing, seated, lying, and wheelchair modifications
+  included.
+
+version: "1.0.0"
+status: complete
+
+# Practice metadata
+practice:
+  tradition: "Qigong (Traditional Chinese Medicine, c. 300 BCE)"
+  type: coordinated_sequence
+  level: beginner
+  duration_minutes: 15
+  equipment_required: false
+  partner_required: false
+  positions:
+    - standing
+    - seated_chair
+    - seated_floor
+    - lying
+    - wheelchair
+
+# Evidence classification
+evidence:
+  level: moderate
+  key_studies:
+    - citation: "Jahnke R, et al. Am J Health Promot. 2010;24(6):e1-e25."
+      pmid: "20594090"
+      finding: "Meta-analysis of 77 RCTs: qigong/tai chi improved bone density, cardiopulmonary fitness, balance, quality of life, and self-efficacy"
+    - citation: "Wang C, et al. BMC Complement Altern Med. 2014;14:173."
+      pmid: "24886638"
+      finding: "Systematic review: tai chi/qigong showed positive effects on depression and anxiety (multiple RCTs)"
+    - citation: "Wayne PM, et al. Arch Intern Med. 2012;172(10):731-738."
+      pmid: "22025508"
+      finding: "Tai chi improved balance and reduced falls in older adults (RCT, n=195)"
+
+# Safety classification
+safety:
+  risk_level: low
+  contraindications:
+    - acute_injury_to_moving_area
+    - severe_balance_disorder_without_support
+    - recent_surgery_without_clearance
+    - acute_cardiovascular_event
+  requires_medical_screening: false
+  modifications_included:
+    - standing
+    - seated
+    - lying
+    - wheelchair
+
+# Pipeline artifacts
+artifacts:
+  research:
+    - research/background.md
+    - research/evidence.md
+  content:
+    - content/gentle-qigong.md
+  quality:
+    - quality/review-report.md
+
+# Agent involvement
+agents:
+  primary: somatic-guide
+  research: clinical-researcher
+  review:
+    - ethics-guardian
+    - clinical-reviewer
+    - accessibility-auditor
+
+# Tags
+tags:
+  - somatic
+  - movement
+  - qigong
+  - beginner
+  - no-equipment
+  - balance
+  - nervous-system
+  - gentle-movement
+  - wheelchair-accessible

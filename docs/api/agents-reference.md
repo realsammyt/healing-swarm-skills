@@ -25,6 +25,16 @@
 | [breathwork-coach](#breathwork-coach) | Specialist | WHM breathing protocol design |
 | [cold-exposure-guide](#cold-exposure-guide) | Specialist | Progressive cold adaptation |
 | [language-awareness-guide](#language-awareness-guide) | Specialist | Cognitive deautomatization practices |
+| [sound-healing-guide](#sound-healing-guide) | Specialist | Sound healing protocol design |
+| [somatic-guide](#somatic-guide) | Specialist | Movement and somatic practice design |
+| [sleep-healing-guide](#sleep-healing-guide) | Specialist | Sleep and dream practice design |
+| [nature-guide](#nature-guide) | Specialist | Nature connection protocol design |
+| [water-guide](#water-guide) | Specialist | Water and hydrotherapy protocol design |
+| [grief-guide](#grief-guide) | Specialist | Grief support protocol design |
+| [expressive-guide](#expressive-guide) | Specialist | Creative and expressive healing design |
+| [community-facilitator](#community-facilitator) | Specialist | Group healing circle facilitation |
+| [contemplative-guide](#contemplative-guide) | Specialist | Contemplative inquiry protocol design |
+| [pni-researcher](#pni-researcher) | Research | Psychoneuroimmunology research |
 
 ---
 
@@ -676,6 +686,321 @@ Designs cognitive deautomatization protocols based on research by Deikman (1966)
 - `content/templates/language-awareness-protocol.md`
 - `content/templates/group-perception-protocol.md`
 - `content/language-awareness-workflow.yaml`
+
+---
+
+### sound-healing-guide
+
+**File:** `content/sound-healing-guide.md`
+
+Designs therapeutic sound practices spanning Vedic mantra, Psalm chanting, Gregorian chant, Tibetan singing bowl, and vagal toning.
+
+**Expertise:**
+- Vedic mantra traditions
+- Sacred chanting (Psalm, Gregorian)
+- Tibetan singing bowl protocols
+- Vagal toning techniques
+- Hearing safety screening
+
+**Responsibilities:**
+- Sound protocol design with tradition attribution
+- Safety screening (hearing conditions, seizure disorders)
+- Progressive level structuring (listening through extended chanting)
+- Open/closed practice boundary enforcement
+
+**Outputs:**
+- Sound practice protocols
+- Safety screening checklists
+- Tradition context documents
+- Progressive curricula
+
+**Key Context:**
+- `shared/ethics-guardrails.md`
+- `content/templates/sound-protocol.md`
+
+---
+
+### somatic-guide
+
+**File:** `content/somatic-guide.md`
+
+Designs gentle movement protocols with universal accessibility modifications.
+
+**Expertise:**
+- Qigong and tai chi forms
+- Yoga adaptations
+- Kinhin (Zen walking meditation)
+- Feldenkrais awareness through movement
+- Polyvagal-informed movement
+
+**Responsibilities:**
+- Movement protocol design with 4 modification levels
+- Standing/seated/lying/wheelchair adaptations
+- Pain boundary enforcement (within comfort, never through pain)
+- Biomechanical safety screening
+
+**Outputs:**
+- Movement practice protocols
+- Modification guides (4 positions)
+- Safety screening checklists
+- Progressive training plans
+
+**Key Context:**
+- `shared/ethics-guardrails.md`
+- `content/templates/movement-protocol.md`
+
+---
+
+### sleep-healing-guide
+
+**File:** `content/sleep-healing-guide.md`
+
+Designs sleep quality and dream work protocols across traditions.
+
+**Expertise:**
+- Asclepian dream temple practices
+- Tibetan dream yoga (milam)
+- TCM organ clock theory
+- Ayurvedic dinacharya (daily routines)
+- CBT-I referral criteria
+
+**Responsibilities:**
+- Sleep protocol design with screen paradox acknowledgment
+- Dream practice design with contraindication awareness
+- CBT-I referral for persistent insomnia (>3 months)
+- Progressive level structuring
+
+**Outputs:**
+- Sleep practice protocols
+- Screen paradox notes
+- Dream practice guides
+- CBT-I referral criteria documents
+
+**Key Context:**
+- `shared/ethics-guardrails.md`
+- `content/templates/sleep-protocol.md`
+
+---
+
+### nature-guide
+
+**File:** `content/nature-guide.md`
+
+Designs nature connection and forest bathing protocols with urban alternatives.
+
+**Expertise:**
+- Shinrin-yoku (forest bathing)
+- Earthing/grounding practices
+- Horticultural therapy
+- Five Element nature observation
+- Urban nature connection
+
+**Responsibilities:**
+- Nature protocol design with environmental privilege awareness
+- Urban/indoor alternative provision (never as "lesser")
+- Seasonal and weather adaptation
+- Safety screening (allergies, mobility, weather)
+
+**Outputs:**
+- Nature practice protocols
+- Urban alternative guides
+- Seasonal adaptation notes
+- Environmental accessibility assessments
+
+**Key Context:**
+- `shared/ethics-guardrails.md`
+- `content/templates/nature-protocol.md`
+
+---
+
+### water-guide
+
+**File:** `content/water-guide.md`
+
+Designs water and hydrotherapy protocols with non-negotiable safety requirements.
+
+**Expertise:**
+- Contrast therapy (hot/cold cycling)
+- Kneipp method (5 pillars)
+- Finnish sauna protocols
+- Ritual bathing education (mikveh, onsen)
+- Drowning prevention
+
+**Responsibilities:**
+- Water protocol design with cardiac and drowning safety
+- Temperature and duration guidelines
+- Relationship to existing cold-exposure skill
+- Cultural context for ritual bathing (education, not instruction)
+
+**Outputs:**
+- Water therapy protocols
+- Safety checklists (non-negotiable)
+- Temperature reference tables
+- Cultural context documents
+
+**Key Context:**
+- `shared/ethics-guardrails.md`
+- `content/templates/water-protocol.md`
+
+---
+
+### grief-guide
+
+**File:** `content/grief-guide.md`
+
+Designs grief support protocols with the highest psychological sensitivity in the system.
+
+**Expertise:**
+- Jewish mourning structures (shiva, shloshim, yahrzeit)
+- Buddhist impermanence practices
+- Dia de los Muertos traditions
+- Celtic keening
+- Complicated grief recognition
+
+**Responsibilities:**
+- Grief protocol design with minimum 3 exit ramps per practice
+- Crisis resource placement (at least 3 locations per document)
+- Suicidal ideation screening integration
+- Stage-appropriate content (acute through complicated)
+
+**Outputs:**
+- Grief practice protocols
+- Crisis resource documents
+- Exit ramp guides
+- Screening integration notes
+
+**Key Context:**
+- `shared/ethics-guardrails.md`
+- `shared/crisis-response.md`
+- `content/templates/grief-practice.md`
+
+---
+
+### expressive-guide
+
+**File:** `content/expressive-guide.md`
+
+Designs creative and expressive healing protocols with strongest privacy protections.
+
+**Expertise:**
+- Pennebaker expressive writing (200+ studies)
+- Bibliotherapy
+- Mandala creation
+- Ikebana (Japanese flower arranging)
+- Sacred poetry traditions
+
+**Responsibilities:**
+- Expressive protocol design with privacy-first architecture
+- No artistic skill requirements (process over product)
+- Closed practice boundary enforcement (Navajo sand painting)
+- Journal and writing privacy protections
+
+**Outputs:**
+- Expressive practice protocols
+- Privacy protection guides
+- Process-focused instructions
+- Tradition attribution documents
+
+**Key Context:**
+- `shared/ethics-guardrails.md`
+- `content/templates/expressive-protocol.md`
+
+---
+
+### community-facilitator
+
+**File:** `content/community-facilitator.md`
+
+Designs group healing circle facilitation guides with consent and safety architecture.
+
+**Expertise:**
+- Talking circle facilitation
+- Mussar practice groups
+- Buddhist Sangha structure
+- Quaker meeting for worship
+- Ubuntu philosophy
+- 12-Step traditions
+
+**Responsibilities:**
+- Facilitation guide design with trained facilitator requirement
+- Full consent framework creation
+- Confidentiality agreement templates
+- Power dynamic awareness and mitigation
+
+**Outputs:**
+- Facilitation guides
+- Consent frameworks
+- Confidentiality agreements
+- Power dynamic assessments
+- Participant preparation documents
+
+**Key Context:**
+- `shared/ethics-guardrails.md`
+- `content/templates/community-protocol.md`
+
+---
+
+### contemplative-guide
+
+**File:** `content/contemplative-guide.md`
+
+Designs contemplative inquiry protocols from structured reflection to silent investigation.
+
+**Expertise:**
+- Zen koan practice
+- Advaitic self-inquiry (Ramana Maharshi)
+- Socratic questioning method
+- Ignatian Examen
+- ACT cognitive defusion
+- Dzogchen (closed practice awareness)
+
+**Responsibilities:**
+- Inquiry protocol design with progressive safety requirements
+- Closed tradition enforcement (Dzogchen reference only)
+- Level-appropriate progression (structured → guided → open → silent)
+- Integration with language awareness practices
+
+**Outputs:**
+- Inquiry practice protocols
+- Tradition context documents
+- Progressive curricula
+- Safety requirement escalation guides
+
+**Key Context:**
+- `shared/ethics-guardrails.md`
+- `content/templates/contemplative-protocol.md`
+
+---
+
+### pni-researcher
+
+**File:** `research/pni-researcher.md`
+
+Specializes in psychoneuroimmunology — the science of mind-body-immune connections.
+
+**Expertise:**
+- HPA axis stress pathways
+- Vagal tone and parasympathetic function
+- Telomere biology and cellular aging
+- Placebo and nocebo mechanisms
+- Wound healing psychophysiology
+- Social-immune connections
+
+**Responsibilities:**
+- PNI pathway research and documentation
+- Traditional practice → biological pathway mapping
+- Honest limitations documentation
+- Evidence strength calibration for PNI claims
+
+**Outputs:**
+- PNI research briefs
+- Practice-to-pathway mapping documents
+- Limitations assessments
+- Evidence-calibrated summaries
+
+**Key Context:**
+- `shared/ethics-guardrails.md`
+- `shared/citation-format.md`
 
 ---
 

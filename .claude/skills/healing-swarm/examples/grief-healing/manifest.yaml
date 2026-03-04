@@ -1,0 +1,64 @@
+# Grief Healing Example: Acknowledging Loss
+# A foundational practice for sitting with loss of any kind.
+
+name: grief-healing-acknowledging-loss
+version: 1.0.0
+description: |
+  A gentle 15-minute "sitting with loss" practice for someone who has
+  experienced any kind of loss (health, relationship, bereavement, life
+  transition). Foundational level, maximally safe. Demonstrates the
+  grief-practice template with enhanced safety architecture.
+
+category: grief
+difficulty: foundational
+duration_minutes: 15
+loss_type: any
+
+# Practice metadata
+practice:
+  type: acknowledgment
+  traditions:
+    - Buddhist impermanence meditation (Maranasati)
+    - Continuing bonds theory (contemporary)
+    - Mindfulness-based grief intervention
+  evidence_level: moderate
+  safety_level: maximum
+
+# Files in this example
+files:
+  research:
+    - research/background.md
+    - research/evidence.md
+  content:
+    - content/acknowledging-loss.md
+  quality:
+    - quality/review-report.md
+
+# Safety requirements
+safety:
+  crisis_resources: required
+  exit_ramps: 3
+  suicidal_ideation_screening: required
+  professional_referral: required
+  grounding_protocol: extended
+  ethics_review: required
+
+# Template used
+template: content/templates/grief-practice.md
+
+# Agent responsible
+primary_agent: grief-guide
+review_agents:
+  - ethics-guardian
+  - clinical-reviewer
+
+# Tags
+tags:
+  - grief
+  - bereavement
+  - loss
+  - health-loss
+  - foundational
+  - beginner
+  - maximally-safe
+  - contemplative

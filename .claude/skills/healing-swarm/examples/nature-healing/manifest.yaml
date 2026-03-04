@@ -1,0 +1,55 @@
+name: forest-bathing-intro
+description: >
+  A 30-minute introductory forest bathing (shinrin-yoku) practice for
+  beginners. Demonstrates the nature protocol template with sensory
+  engagement structure, urban alternative, tradition attribution, and
+  safety framing for outdoor practice.
+version: 1.0.0
+
+type: nature-healing
+level: beginner
+duration_minutes: 30
+setting: park-or-forest
+season: all-seasons
+
+traditions:
+  - name: "Shinrin-yoku (forest bathing)"
+    era: "Contemporary (formalized 1982, Shinto roots centuries older)"
+    origin: "Japan"
+    elements: ["forest immersion", "sensory engagement", "slow walking"]
+  - name: Attention Restoration Theory
+    era: "Contemporary (Kaplan, 1995)"
+    elements: ["soft fascination", "directed attention recovery"]
+
+content_files:
+  - content/forest-bathing-intro.md
+
+research_files:
+  - research/background.md
+  - research/evidence.md
+
+quality_files:
+  - quality/review-report.md
+
+templates_used:
+  - content/templates/nature-protocol.md
+
+agents_involved:
+  - nature-guide
+  - content-writer
+  - clinical-reviewer
+  - cultural-reviewer
+  - ethics-guardian
+
+safety_requirements:
+  - outdoor_safety: weather_terrain_wildlife_sun
+  - medical_disclaimer: required
+  - allergies: pollen_plant_contact
+  - accessibility: seated_and_indoor_alternatives
+  - urban_alternative: included
+
+evidence_level: >
+  Forest bathing and cortisol reduction: moderate-strong (60+ studies,
+  primarily from Japan and South Korea). Green space and mental health:
+  strong (large epidemiological studies). Nature sounds and stress:
+  moderate (Buxton et al., 2021). Individual responses vary.

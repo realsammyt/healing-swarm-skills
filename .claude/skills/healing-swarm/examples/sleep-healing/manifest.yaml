@@ -1,0 +1,54 @@
+name: evening-wind-down
+description: >
+  A 20-minute beginner evening wind-down practice combining sleep hygiene
+  principles with gentle body scan relaxation. Demonstrates the sleep
+  protocol template with tradition attribution, medical disclaimer, and
+  progressive descent structure.
+version: 1.0.0
+
+type: sleep-healing
+level: beginner
+duration_minutes: 20
+optimal_time: evening
+
+traditions:
+  - name: Ayurvedic dinacharya
+    era: "Classical (Charaka Samhita, c. 200 BCE)"
+    elements: ["evening routine", "warm milk", "oiling feet"]
+  - name: Progressive muscle relaxation
+    era: "Modern (Jacobson, 1930s)"
+    elements: ["body scan", "tension-release"]
+  - name: Sleep hygiene (behavioral sleep medicine)
+    era: "Contemporary (1970s-present)"
+    elements: ["stimulus control", "environment optimization"]
+
+content_files:
+  - content/evening-wind-down.md
+
+research_files:
+  - research/background.md
+  - research/evidence.md
+
+quality_files:
+  - quality/review-report.md
+
+templates_used:
+  - content/templates/sleep-protocol.md
+
+agents_involved:
+  - sleep-healing-guide
+  - content-writer
+  - clinical-reviewer
+  - ethics-guardian
+
+safety_requirements:
+  - medical_disclaimer: required
+  - contraindications: listed
+  - screen_safety: dark_mode_mandatory
+  - auto_shutoff: required
+  - referral_triggers: cbti_for_chronic_insomnia
+
+evidence_level: >
+  Sleep hygiene components: strong evidence.
+  Body scan for sleep: moderate evidence (Black et al., 2015).
+  Combined protocol: moderate evidence (Murawski et al., 2018).

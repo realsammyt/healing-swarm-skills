@@ -1,0 +1,58 @@
+# PNI Research Example
+# Example session: "How does meditation affect immune function?"
+# Demonstrates the PNI Research Bridge agent's output formats
+
+name: pni-meditation-immune-function
+description: >
+  PNI research session exploring the psychoneuroimmunological mechanisms
+  by which meditation practices may affect immune function. Covers HPA axis
+  modulation, vagal tone enhancement, telomere biology, NK cell activity,
+  and inflammatory marker changes.
+
+type: research
+agent: pni-researcher
+
+topic: "How does meditation affect immune function?"
+
+outputs:
+  - type: pni-brief
+    path: research/pni-brief.md
+    description: >
+      Full PNI mechanism brief covering meditation and immune function,
+      with traditional parallels, honest limitations, and practical
+      implications.
+
+  - type: practice-mapping
+    path: research/practice-mapping.md
+    description: >
+      Maps six healing practices (WHM breathwork, loving-kindness meditation,
+      yoga, tai chi, guided imagery, expressive writing) to their documented
+      PNI pathways with evidence levels and key citations.
+
+loaded_context:
+  - shared/ethics-guardrails.md
+  - shared/terminology.md
+  - shared/citation-format.md
+
+research_domains:
+  - stress-immune-axis
+  - vagal-inflammatory-reflex
+  - meditation-telomere-biology
+  - placebo-mechanisms
+  - visualization-immune-function
+  - breathwork-inflammatory-markers
+
+evidence_levels_used:
+  - Strong (HPA axis, stress-immune connection)
+  - Moderate (vagal tone, inflammatory markers, tai chi)
+  - Preliminary (telomere-meditation link, NK cell visualization, LKM-specific)
+  - Theoretical (full mechanistic models)
+
+traditions_referenced:
+  - Traditional Chinese Medicine (qi, wei qi)
+  - Vedic traditions (prana, pranayama)
+  - Tibetan Buddhism (tummo)
+  - Theravada Buddhism (metta, vipassana)
+  - Western integrative medicine
+
+date_created: 2026-02-26

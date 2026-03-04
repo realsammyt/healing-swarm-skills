@@ -1,0 +1,67 @@
+# Contemplative Inquiry Example
+# Example session: "What does healing mean to you?"
+# Demonstrates the Contemplative Inquiry Guide agent's output formats
+
+name: contemplative-inquiry-healing-meaning
+description: >
+  Complete contemplative inquiry session exploring the question
+  "What does healing mean to you?" Includes research background on
+  inquiry as healing, evidence review for ACT/defusion and
+  philosophical counseling, a 20-minute guided practice, and
+  quality review report.
+
+type: content
+agent: contemplative-guide
+
+topic: "What does healing mean to you?"
+
+inquiry_level: structured-reflection
+difficulty: beginner
+duration_minutes: 20
+
+outputs:
+  - type: research-background
+    path: research/background.md
+    description: >
+      History of inquiry as healing: Socratic method, Zen koan,
+      Advaita self-inquiry, ACT defusion. How questioning assumptions
+      relates to psychological flexibility and healing.
+
+  - type: evidence-review
+    path: research/evidence.md
+    description: >
+      Evidence review covering ACT/cognitive defusion outcomes,
+      metacognitive therapy research, philosophical counseling
+      evidence, and contemplative pedagogy findings.
+
+  - type: guided-practice
+    path: content/healing-inquiry.md
+    description: >
+      A 20-minute beginner-level guided contemplative inquiry
+      practice using the contemplative-protocol template. Question:
+      "What does healing mean to you?"
+
+  - type: quality-review
+    path: quality/review-report.md
+    description: >
+      Quality review verifying safety framing, evidence honesty,
+      tradition attribution, grounding adequacy, and template
+      compliance.
+
+loaded_context:
+  - shared/ethics-guardrails.md
+  - shared/terminology.md
+  - shared/voice-guide.md
+
+traditions_referenced:
+  - Socratic questioning (5th century BCE)
+  - Ignatian Examen (16th century)
+  - Acceptance and Commitment Therapy (Hayes, 1999)
+  - Metacognitive therapy (Wells, 2009)
+
+integration_points:
+  - language-awareness (deautomatization precedes inquiry)
+  - consciousness-researcher (Grinberg's self-allusive meditation has inquiry quality)
+  - grief-healing (meaning-making through questioning)
+
+date_created: 2026-02-26
