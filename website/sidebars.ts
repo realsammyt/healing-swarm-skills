@@ -83,6 +83,9 @@ const sidebars: SidebarsConfig = {
         "examples/group-perception",
         "examples/cold-exposure",
         "examples/healing-research",
+        "examples/aqal-checkin",
+        "examples/shadow-work",
+        "examples/spectrum-meditation",
       ],
     },
     {
