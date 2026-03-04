@@ -38,6 +38,7 @@ This repository is more than a collection of AI skills—it's an invitation to p
 We believe that **everyone deserves access to healing wisdom**. Not just those who can afford expensive programs. Not just those lucky enough to live near great teachers. Everyone.
 
 This framework helps you:
+
 - **Learn and grow** by exploring healing traditions with proper guidance
 - **Build tools** that support your own healing journey
 - **Share what works** with others who might benefit
@@ -45,6 +46,7 @@ This framework helps you:
 ### For Communities
 
 Healing doesn't happen in isolation. We heal **with** each other—in families, in neighborhoods, in communities of practice. This repository provides a foundation for:
+
 - **Local healing circles** to create resources tailored to their traditions
 - **Practitioners** to build ethical digital tools for their communities
 - **Cultural groups** to document and share their healing wisdom on their own terms
@@ -52,6 +54,7 @@ Healing doesn't happen in isolation. We heal **with** each other—in families, 
 ### For the World
 
 The challenges we face—stress, anxiety, chronic illness, disconnection—are global. The solutions must be too. But global doesn't mean homogeneous. It means:
+
 - **Many traditions** contributing their unique wisdom
 - **Many perspectives** enriching the collective understanding
 - **Many builders** creating tools for their specific contexts
@@ -67,20 +70,21 @@ The skills, templates, and documentation here represent one way of doing things.
 ### What You Bring Matters
 
 You have insights this framework doesn't have:
+
 - **Your tradition** may have practices not yet documented here
 - **Your community** may have needs we haven't anticipated
 - **Your experience** may reveal gaps we couldn't see
 
 ### How to Grow This
 
-| If you have... | You can contribute... |
-|----------------|----------------------|
-| Healing knowledge | New skills for your tradition |
-| Technical skills | Better tooling and validation |
-| Design sense | Improved templates and examples |
-| Writing ability | Clearer documentation |
-| Testing rigor | Quality improvements |
-| Fresh eyes | Questions that reveal assumptions |
+| If you have...    | You can contribute...             |
+| ----------------- | --------------------------------- |
+| Healing knowledge | New skills for your tradition     |
+| Technical skills  | Better tooling and validation     |
+| Design sense      | Improved templates and examples   |
+| Writing ability   | Clearer documentation             |
+| Testing rigor     | Quality improvements              |
+| Fresh eyes        | Questions that reveal assumptions |
 
 The ethics guardrails ensure safety. Everything else is open for enhancement.
 
@@ -158,113 +162,113 @@ claude> /healing-swarm "Sacred Healing Journey" --focus "ligament healing"
 
 ### Core Development Skills
 
-| Skill | Trigger | Purpose |
-|-------|---------|---------|
+| Skill                                                     | Trigger             | Purpose                                                     |
+| --------------------------------------------------------- | ------------------- | ----------------------------------------------------------- |
 | [Research](docs/api/skills-reference.md#healing-research) | `/healing-research` | Deep research into healing traditions and clinical evidence |
-| [Design](docs/api/skills-reference.md#healing-design) | `/healing-design` | Design healing application UX and visuals |
-| [Content](docs/api/skills-reference.md#healing-content) | `/healing-content` | Create prayers, evidence boxes, visualizations |
-| [Build](docs/api/skills-reference.md#healing-build) | `/healing-build` | Develop accessible, privacy-first applications |
-| [Review](docs/api/skills-reference.md#healing-review) | `/healing-review` | Quality review (ethics, clinical, cultural, a11y) |
-| [Deploy](docs/api/skills-reference.md#healing-deploy) | `/healing-deploy` | Deploy and maintain applications |
-| [Swarm](docs/api/skills-reference.md#healing-swarm) | `/healing-swarm` | Full orchestrated development lifecycle |
+| [Design](docs/api/skills-reference.md#healing-design)     | `/healing-design`   | Design healing application UX and visuals                   |
+| [Content](docs/api/skills-reference.md#healing-content)   | `/healing-content`  | Create prayers, evidence boxes, visualizations              |
+| [Build](docs/api/skills-reference.md#healing-build)       | `/healing-build`    | Develop accessible, privacy-first applications              |
+| [Review](docs/api/skills-reference.md#healing-review)     | `/healing-review`   | Quality review (ethics, clinical, cultural, a11y)           |
+| [Deploy](docs/api/skills-reference.md#healing-deploy)     | `/healing-deploy`   | Deploy and maintain applications                            |
+| [Swarm](docs/api/skills-reference.md#healing-swarm)       | `/healing-swarm`    | Full orchestrated development lifecycle                     |
 
 ### Consciousness Skills (Grinberg Research)
 
-| Skill | Trigger | Purpose |
-|-------|---------|---------|
-| [Coherence Meditation](docs/api/skills-reference.md#coherence-meditation) | `/coherence-meditation` | Guided interhemispheric coherence practices |
-| [Syntergic Research](docs/api/skills-reference.md#syntergic-research) | `/syntergic-research` | Deep research into Grinberg's consciousness science |
-| [Resonance Pairing](docs/api/skills-reference.md#resonance-pairing) | `/resonance-pairing` | Paired/group transferred potential protocols |
-| [Orbital Journey](docs/api/skills-reference.md#orbital-journey) | `/orbital-journey` | Progressive multi-day consciousness expansion |
+| Skill                                                                     | Trigger                 | Purpose                                             |
+| ------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------- |
+| [Coherence Meditation](docs/api/skills-reference.md#coherence-meditation) | `/coherence-meditation` | Guided interhemispheric coherence practices         |
+| [Syntergic Research](docs/api/skills-reference.md#syntergic-research)     | `/syntergic-research`   | Deep research into Grinberg's consciousness science |
+| [Resonance Pairing](docs/api/skills-reference.md#resonance-pairing)       | `/resonance-pairing`    | Paired/group transferred potential protocols        |
+| [Orbital Journey](docs/api/skills-reference.md#orbital-journey)           | `/orbital-journey`      | Progressive multi-day consciousness expansion       |
 
 ### Breathwork Skills (Wim Hof Method)
 
-| Skill | Trigger | Purpose |
-|-------|---------|---------|
-| [WHM Breathwork](docs/api/skills-reference.md#whm-breathwork) | `/whm-breathwork` | Guided Wim Hof breathing protocols with safety architecture |
-| [WHM Cold Exposure](docs/api/skills-reference.md#whm-cold-exposure) | `/whm-cold-exposure` | Progressive cold adaptation protocols |
-| [WHM Journey](docs/api/skills-reference.md#whm-journey) | `/whm-journey` | Multi-week integrated WHM program (all 3 pillars) |
+| Skill                                                               | Trigger              | Purpose                                                     |
+| ------------------------------------------------------------------- | -------------------- | ----------------------------------------------------------- |
+| [WHM Breathwork](docs/api/skills-reference.md#whm-breathwork)       | `/whm-breathwork`    | Guided Wim Hof breathing protocols with safety architecture |
+| [WHM Cold Exposure](docs/api/skills-reference.md#whm-cold-exposure) | `/whm-cold-exposure` | Progressive cold adaptation protocols                       |
+| [WHM Journey](docs/api/skills-reference.md#whm-journey)             | `/whm-journey`       | Multi-week integrated WHM program (all 3 pillars)           |
 
 ### Language Awareness Skills (Cognitive Deautomatization)
 
-| Skill | Trigger | Purpose |
-|-------|---------|---------|
-| [Language Awareness](docs/api/skills-reference.md#language-awareness) | `/language-awareness` | Individual cognitive deautomatization practices |
-| [Group Perception](docs/api/skills-reference.md#group-perception) | `/group-perception` | Group perception exercises with consent frameworks |
+| Skill                                                                 | Trigger               | Purpose                                            |
+| --------------------------------------------------------------------- | --------------------- | -------------------------------------------------- |
+| [Language Awareness](docs/api/skills-reference.md#language-awareness) | `/language-awareness` | Individual cognitive deautomatization practices    |
+| [Group Perception](docs/api/skills-reference.md#group-perception)     | `/group-perception`   | Group perception exercises with consent frameworks |
 
 ### Sound & Vibratory Healing
 
-| Skill | Trigger | Purpose |
-|-------|---------|---------|
+| Skill                                                       | Trigger          | Purpose                                                                   |
+| ----------------------------------------------------------- | ---------------- | ------------------------------------------------------------------------- |
 | [Sound Healing](docs/api/skills-reference.md#sound-healing) | `/sound-healing` | Vedic mantra, Psalm chanting, Gregorian chant, singing bowl, vagal toning |
 
 ### Somatic & Movement Healing
 
-| Skill | Trigger | Purpose |
-|-------|---------|---------|
+| Skill                                                             | Trigger             | Purpose                                                                                 |
+| ----------------------------------------------------------------- | ------------------- | --------------------------------------------------------------------------------------- |
 | [Somatic Practice](docs/api/skills-reference.md#somatic-practice) | `/somatic-practice` | Qigong, tai chi, yoga, kinhin, Feldenkrais — with standing/seated/lying/wheelchair mods |
 
 ### Sleep & Dream Healing
 
-| Skill | Trigger | Purpose |
-|-------|---------|---------|
+| Skill                                                       | Trigger          | Purpose                                                                            |
+| ----------------------------------------------------------- | ---------------- | ---------------------------------------------------------------------------------- |
 | [Sleep Healing](docs/api/skills-reference.md#sleep-healing) | `/sleep-healing` | Asclepian dream temples, Tibetan dream yoga, TCM organ clock, Ayurvedic dinacharya |
 
 ### Nature-Based Healing
 
-| Skill | Trigger | Purpose |
-|-------|---------|---------|
+| Skill                                                         | Trigger           | Purpose                                                          |
+| ------------------------------------------------------------- | ----------------- | ---------------------------------------------------------------- |
 | [Nature Healing](docs/api/skills-reference.md#nature-healing) | `/nature-healing` | Shinrin-yoku, earthing, garden therapy, Five Element observation |
 
 ### Water & Hydrotherapy
 
-| Skill | Trigger | Purpose |
-|-------|---------|---------|
+| Skill                                                       | Trigger          | Purpose                                                          |
+| ----------------------------------------------------------- | ---------------- | ---------------------------------------------------------------- |
 | [Water Healing](docs/api/skills-reference.md#water-healing) | `/water-healing` | Contrast therapy, Kneipp method, mikveh education, Finnish sauna |
 
 ### Grief & Bereavement Healing
 
-| Skill | Trigger | Purpose |
-|-------|---------|---------|
+| Skill                                                       | Trigger          | Purpose                                                                    |
+| ----------------------------------------------------------- | ---------------- | -------------------------------------------------------------------------- |
 | [Grief Healing](docs/api/skills-reference.md#grief-healing) | `/grief-healing` | Jewish mourning, Buddhist impermanence, Dia de los Muertos, Celtic keening |
 
 ### Expressive & Creative Healing
 
-| Skill | Trigger | Purpose |
-|-------|---------|---------|
+| Skill                                                                 | Trigger               | Purpose                                                            |
+| --------------------------------------------------------------------- | --------------------- | ------------------------------------------------------------------ |
 | [Expressive Healing](docs/api/skills-reference.md#expressive-healing) | `/expressive-healing` | Pennebaker writing, bibliotherapy, mandala, ikebana, sacred poetry |
 
 ### Community & Relational Healing
 
-| Skill | Trigger | Purpose |
-|-------|---------|---------|
+| Skill                                                               | Trigger              | Purpose                                                                   |
+| ------------------------------------------------------------------- | -------------------- | ------------------------------------------------------------------------- |
 | [Community Healing](docs/api/skills-reference.md#community-healing) | `/community-healing` | Healing circles, talking circles, Sangha, Quaker meeting, Ubuntu, 12-Step |
 
 ### Contemplative Inquiry
 
-| Skill | Trigger | Purpose |
-|-------|---------|---------|
+| Skill                                                                       | Trigger                  | Purpose                                                                |
+| --------------------------------------------------------------------------- | ------------------------ | ---------------------------------------------------------------------- |
 | [Contemplative Inquiry](docs/api/skills-reference.md#contemplative-inquiry) | `/contemplative-inquiry` | Zen koan, Advaitic self-inquiry, Socratic questioning, Ignatian Examen |
 
 ### PNI Research Bridge
 
-| Skill | Trigger | Purpose |
-|-------|---------|---------|
+| Skill                                                     | Trigger         | Purpose                                                   |
+| --------------------------------------------------------- | --------------- | --------------------------------------------------------- |
 | [PNI Research](docs/api/skills-reference.md#pni-research) | `/pni-research` | Psychoneuroimmunology — mind-body-immune science bridging |
 
 ### Standalone Skills
 
-| Skill | Trigger | Purpose |
-|-------|---------|---------|
-| [Traditions Research](docs/api/skills-reference.md#traditions-research) | `/traditions-research` | Research specific healing traditions |
-| [Clinical Research](docs/api/skills-reference.md#clinical-research) | `/clinical-research` | Systematic review of clinical evidence |
-| [Mechanism Mapping](docs/api/skills-reference.md#mechanism-mapping) | `/mechanism-mapping` | Bridge traditional concepts with neuroscience |
-| [Healing UX](docs/api/skills-reference.md#healing-ux) | `/healing-ux` | UX design for healing contexts |
-| [Sacred Visuals](docs/api/skills-reference.md#sacred-visuals) | `/sacred-visuals` | Visual system with healing aesthetics |
-| [Ethics Review](docs/api/skills-reference.md#ethics-review) | `/ethics-review` | Ethics and safety review |
-| [Clinical Review](docs/api/skills-reference.md#clinical-review) | `/clinical-review` | Verify clinical claims and citations |
-| [Cultural Review](docs/api/skills-reference.md#cultural-review) | `/cultural-review` | Cultural sensitivity review |
-| [Accessibility Audit](docs/api/skills-reference.md#a11y-audit) | `/a11y-audit` | WCAG and healing-specific accessibility audit |
+| Skill                                                                   | Trigger                | Purpose                                       |
+| ----------------------------------------------------------------------- | ---------------------- | --------------------------------------------- |
+| [Traditions Research](docs/api/skills-reference.md#traditions-research) | `/traditions-research` | Research specific healing traditions          |
+| [Clinical Research](docs/api/skills-reference.md#clinical-research)     | `/clinical-research`   | Systematic review of clinical evidence        |
+| [Mechanism Mapping](docs/api/skills-reference.md#mechanism-mapping)     | `/mechanism-mapping`   | Bridge traditional concepts with neuroscience |
+| [Healing UX](docs/api/skills-reference.md#healing-ux)                   | `/healing-ux`          | UX design for healing contexts                |
+| [Sacred Visuals](docs/api/skills-reference.md#sacred-visuals)           | `/sacred-visuals`      | Visual system with healing aesthetics         |
+| [Ethics Review](docs/api/skills-reference.md#ethics-review)             | `/ethics-review`       | Ethics and safety review                      |
+| [Clinical Review](docs/api/skills-reference.md#clinical-review)         | `/clinical-review`     | Verify clinical claims and citations          |
+| [Cultural Review](docs/api/skills-reference.md#cultural-review)         | `/cultural-review`     | Cultural sensitivity review                   |
+| [Accessibility Audit](docs/api/skills-reference.md#a11y-audit)          | `/a11y-audit`          | WCAG and healing-specific accessibility audit |
 
 ---
 
@@ -355,27 +359,32 @@ Ready-to-use templates for common skill types:
 ```
 
 **Research Swarm:**
+
 - Traditions Scholar - Ancient healing practices
 - Clinical Researcher - Modern evidence
 - Mechanisms Neuroscientist - Science-tradition bridges
 
 **Build Swarm:**
+
 - UX Architect & Visual Designer - Healing-focused design
 - Content Writer - Prayers, evidence, visualizations
 - App Developer - Accessible implementation
 
 **Quality Swarm:**
+
 - Ethics Guardian - Medical & psychological safety
 - Clinical & Cultural Reviewers - Accuracy & sensitivity
 - Accessibility Auditor - WCAG compliance
 
 **Specialist Agents:**
+
 - Breathwork Coach - WHM breathing protocol design and safety
 - Cold Exposure Guide - Progressive cold adaptation protocols
 - Language Awareness Guide - Cognitive deautomatization practices
 - Coherence Guide - Interhemispheric coherence meditation
 
 **Practice Agents (v1.1.0):**
+
 - Sound Healing Guide - Mantra, chanting, singing bowl, vagal toning
 - Somatic Guide - Qigong, tai chi, yoga with universal modifications
 - Sleep Healing Guide - Dream work, wind-down, organ clock practices
@@ -424,12 +433,12 @@ Ready-to-use templates for common skill types:
 
 Every skill in the healing swarm is underpinned by mandatory safety resources:
 
-| Resource | Purpose |
-|----------|---------|
-| **[Crisis Response](docs/api/shared-resources.md#crisis-response)** | RECOGNIZE-STOP-GROUND-ASSESS-RESPOND-FOLLOW-UP adverse reaction framework |
+| Resource                                                                         | Purpose                                                                       |
+| -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| **[Crisis Response](docs/api/shared-resources.md#crisis-response)**              | RECOGNIZE-STOP-GROUND-ASSESS-RESPOND-FOLLOW-UP adverse reaction framework     |
 | **[Contraindications Database](docs/api/shared-resources.md#contraindications)** | 12 conditions x 7 practice categories with Absolute/Relative/Caution severity |
-| **[Outcome Measurement](docs/api/shared-resources.md#outcome-measurement)** | Privacy-first validated instruments (VAS, PHQ-9, GAD-7, PSQI, PSS, WHO-5) |
-| **[Practice Pathways](docs/api/shared-resources.md#practice-pathways)** | Cross-skill integration with user archetypes and seasonal adjustments |
+| **[Outcome Measurement](docs/api/shared-resources.md#outcome-measurement)**      | Privacy-first validated instruments (VAS, PHQ-9, GAD-7, PSQI, PSS, WHO-5)     |
+| **[Practice Pathways](docs/api/shared-resources.md#practice-pathways)**          | Cross-skill integration with user archetypes and seasonal adjustments         |
 
 ---
 
@@ -470,14 +479,14 @@ We welcome contributions that align with our ethical foundation. The guardrails 
 
 ### Ways to Contribute
 
-| Contribution | Impact |
-|--------------|--------|
-| **Add a new skill** | Extend the swarm's capabilities |
-| **Document a tradition** | Preserve and share healing wisdom |
-| **Improve documentation** | Help others learn faster |
-| **Report issues** | Make the framework more robust |
-| **Ask questions** | Reveal assumptions we missed |
-| **Share your use case** | Inspire others |
+| Contribution              | Impact                            |
+| ------------------------- | --------------------------------- |
+| **Add a new skill**       | Extend the swarm's capabilities   |
+| **Document a tradition**  | Preserve and share healing wisdom |
+| **Improve documentation** | Help others learn faster          |
+| **Report issues**         | Make the framework more robust    |
+| **Ask questions**         | Reveal assumptions we missed      |
+| **Share your use case**   | Inspire others                    |
 
 ### Quick Start
 
@@ -512,6 +521,7 @@ This project is licensed under CC-BY-NC-SA-4.0 (Attribution-NonCommercial-ShareA
 ## Acknowledgments
 
 This swarm integrates wisdom from:
+
 - Traditional Chinese Medicine (4,000+ years)
 - Vedic/Ayurvedic healing traditions
 - Jewish mystical healing practices (Psalm chanting, mourning structures, Mussar)
@@ -526,6 +536,8 @@ This swarm integrates wisdom from:
 - Psychoneuroimmunology and mind-body-immune research
 - Pennebaker expressive writing research (200+ studies)
 - Forest bathing science (60+ studies)
+- Integral theory and developmental psychology (Wilber, Piaget, Cook-Greuter, Kegan)
+- Grinberg's consciousness research (UNAM, 1970s-1994)
 - Modern clinical research
 
 We honor the lineage holders and practitioners who have preserved and transmitted this wisdom.
@@ -534,4 +546,64 @@ And we honor you—for being here, for caring enough to explore this, for consid
 
 ---
 
-*"The capacity for healing is intrinsic to consciousness. We build tools that support what life already knows how to do. And we build them together—because that's how healing has always worked."*
+## Development Timeline
+
+A chronological record of major additions. [Full detailed timeline on the website →](https://realsammyt.github.io/healing-swarm-skills/docs/changelog)
+
+### 2026-03-04 — Integral Theory Skills & Website Showcase
+
+- **5 skills:** AQAL Check-In, Shadow Integration, Spectrum Meditation, Integral Psychograph, Perspective Practice
+- **3 agents:** Integral Researcher, Integral Guide, Shadow Facilitator
+- **5 workflows:** integral-research, aqal-checkin, shadow-work, spectrum-meditation, perspective
+- **3 templates:** aqal-checkin, shadow-process, spectrum-meditation
+- Website showcase updated with integral theory and consciousness content
+
+### 2026-02-26 — Safety Infrastructure & Practice Skills (v1.1.0)
+
+- **15 skills:** Sound Healing, Somatic Practice, Sleep Healing, Nature Healing, Water Healing, Grief Healing, Expressive Healing, Community Healing, Contemplative Inquiry, PNI Research, and 5 more
+- **10 agents:** Sound Healing Guide, Somatic Guide, Sleep Guide, Nature Guide, Water Guide, Grief Guide, Expressive Guide, Community Facilitator, Contemplative Guide, PNI Researcher
+- **Safety infrastructure:** Crisis response protocols, contraindications database, outcome measurement, practice pathways
+- **10 worked examples** for all new practice skills
+
+### 2026-02-20 — WHM Breathwork & Language Awareness
+
+- **5 skills:** WHM Breathwork, WHM Cold Exposure, WHM Journey, Language Awareness, Group Perception
+- **3 agents:** Breathwork Coach, Cold Exposure Guide, Language Awareness Guide
+- **3 workflows:** breathwork, whm-journey, language-awareness
+- Complete documentation and 4 comprehensive worked examples
+
+### 2026-02-12 — Grinberg Consciousness Skills
+
+- **4 skills:** Coherence Meditation, Syntergic Research, Resonance Pairing, Orbital Journey
+- **4 agents:** Consciousness Researcher, Coherence Guide, Resonance Facilitator, Orbital Architect
+- **4 workflows:** coherence, syntergic, resonance, orbital
+- **3 templates:** coherence-practice, resonance-pairing, orbital-day
+
+### 2026-02-02 — Healing Integration & Website Launch
+
+- **4 skills:** Healing Integration, Healing Gamification, Narrative Healing, Game Healing
+- Website migrated from Jekyll to Docusaurus with healing UI components
+
+### 2026-02-02 — Initial Release (v1.0.0)
+
+- **16 core skills:** Research, Design, Content, Build, Review, Deploy, Swarm + 9 standalone
+- **12 agents:** Research, Build, Quality, and Orchestration swarms
+- **5 shared resources:** Ethics guardrails, terminology, voice guide, design tokens, citations
+- **4 templates:** Agent prompt, component spec, content, workflow
+- Validation tooling, CI/CD, documentation
+
+#### Cumulative Totals
+
+| Category | Count |
+|----------|-------|
+| Skills | 47 |
+| Agents | 26 |
+| Workflows | 20 |
+| Templates | 10 |
+| Shared Resources | 9 |
+| Worked Examples | 13 |
+| Traditions Integrated | 20+ |
+
+---
+
+_"The capacity for healing is intrinsic to consciousness. We build tools that support what life already knows how to do. And we build them together—because that's how healing has always worked."_

@@ -8,9 +8,56 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [1.1.0] — Unreleased
+## [Unreleased]
 
 ### Added
+- **Development Timeline** (`website/docs/changelog.mdx`): Chronological record of all
+  features, skills, agents, workflows, and templates with retroactive history from
+  initial release through current date.
+- **README Development Timeline**: Condensed timeline section in README.md linking
+  to the full website timeline.
+- **CLAUDE.md**: Project-level instructions enforcing timeline updates whenever new
+  features are added.
+
+---
+
+## [1.2.0] — 2026-03-04
+
+### Added
+- **Integral Theory Skills** (Ken Wilber): 5 new skills based on AQAL metatheory —
+  AQAL Check-In (`/aqal-check-in`), Shadow Integration (`/shadow-work`), Spectrum
+  Meditation (`/spectrum-meditation`), Integral Psychograph (`/integral-psychograph`),
+  Perspective Practice (`/perspective-practice`).
+- **Integral Agents**: Integral Researcher, Integral Guide, Shadow Facilitator.
+- **Integral Workflows**: integral-research, aqal-checkin, shadow-work,
+  spectrum-meditation, perspective (5 workflow files).
+- **Integral Templates**: aqal-checkin, shadow-process, spectrum-meditation
+  (3 content templates).
+- **Grinberg Consciousness Skills**: 4 skills based on Jacobo Grinberg-Zylberbaum's
+  research — Coherence Meditation, Syntergic Research, Resonance Pairing, Orbital Journey.
+- **Consciousness Agents**: Consciousness Researcher, Coherence Guide, Resonance
+  Facilitator, Orbital Architect.
+- **Consciousness Workflows**: coherence, syntergic, resonance, orbital.
+- **Consciousness Templates**: coherence-practice, resonance-pairing, orbital-day.
+- **Website Examples**: 3 integral theory worked examples (AQAL, shadow work,
+  spectrum meditation), 1 coherence meditation example.
+- **Homepage**: Updated to showcase integral theory and consciousness skills.
+- **Acknowledgments**: Added Wilber, Grinberg, and developmental psychology traditions.
+
+### Changed
+- `shared/terminology.md`: Added AQAL terms, Grinberg terms (Syntergic Theory,
+  Lattice, Transferred Potential, Consciousness Orbitals).
+- `shared/ethics-guardrails.md`: Added pre/trans fallacy safety, shadow work scope
+  exclusions, state training contraindications, transpersonal safety, paired practice
+  consent requirements.
+- Agent architecture page: Listed new research and build agents.
+
+---
+
+## [1.1.0] — 2026-02-26
+
+### Added
+
 - **Crisis Response Protocols** (`shared/crisis-response.md`): Structured
   adverse reaction protocols for breathwork, cold exposure, meditation,
   transpersonal, paired, and physical practices. Includes RECOGNIZE-STOP-
@@ -37,6 +84,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - This CHANGELOG file.
 
 ### Security
+
 - All outcome measurement data required to be stored locally per ADR-002.
 - Crisis resource display requirements codified (accessible from any practice
   screen, not buried in menus).
@@ -49,6 +97,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 #### Core Infrastructure
+
 - **Swarm Conductor** (`orchestrator/swarm-conductor.md`): Central orchestration
   agent for coordinating all swarm activities and agent delegation.
 - **Orchestrator Workflow** (`orchestrator/workflow.yaml`): Workflow definitions
@@ -57,6 +106,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   workflows, shared resources, and swarm configuration.
 
 #### Shared Resources
+
 - **Ethics Guardrails** (`shared/ethics-guardrails.md`): Mandatory safety
   framework covering medical safety, psychological safety, cultural integrity,
   data privacy, transpersonal practice safety, consciousness research claims,
@@ -76,6 +126,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   traditional sources.
 
 #### Content Skills
+
 - **Breathwork Coach** (`content/breathwork-coach.md`): Guided breathwork
   facilitation including WHM protocol support.
 - **Breathwork Workflow** (`content/breathwork-workflow.yaml`): Structured
@@ -110,6 +161,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   through healing practices.
 
 #### Research Skills
+
 - **Clinical Researcher** (`research/clinical-researcher.md`): Evidence
   review and clinical research analysis.
 - **Consciousness Researcher** (`research/consciousness-researcher.md`):
@@ -124,6 +176,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `research/syntergic-workflow.yaml`): Structured research protocols.
 
 #### Quality Skills
+
 - **Ethics Guardian** (`quality/ethics-guardian.md`): Ethics review and
   guardrail enforcement agent.
 - **Clinical Reviewer** (`quality/clinical-reviewer.md`): Medical accuracy
@@ -135,16 +188,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Quality Workflow** (`quality/workflow.yaml`): Quality assurance pipeline.
 
 #### Design Skills
+
 - **UX Architect** (`design/ux-architect.md`): Healing application UX design.
 - **Visual Designer** (`design/visual-designer.md`): Visual design for
   therapeutic contexts.
 - **Design Workflow** (`design/workflow.yaml`): Design process workflows.
 
 #### Build Skills
+
 - **App Developer** (`build/app-developer.md`): Healing application development.
 - **Build Workflow** (`build/workflow.yaml`): Build and compilation workflows.
 
 #### Deploy Skills
+
 - **Content Manager** (`deploy/content-manager.md`): Content deployment
   and management.
 - **DevOps Specialist** (`deploy/devops-specialist.md`): Infrastructure
@@ -152,6 +208,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Deploy Workflow** (`deploy/workflow.yaml`): Deployment pipeline workflows.
 
 #### Templates
+
 - **Agent Prompt Template** (`_templates/agent-prompt.template.md`): Standard
   template for creating new agent prompts.
 - **Component Spec Template** (`_templates/component-spec.template.md`):
@@ -162,6 +219,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   workflow definitions.
 
 #### Documentation and Website
+
 - Project README with comprehensive overview
 - Contributing guidelines
 - Architecture decision records (ADRs)
