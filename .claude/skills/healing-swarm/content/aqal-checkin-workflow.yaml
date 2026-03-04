@@ -1,0 +1,219 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# YAML AUTHORING RULES (read before editing):
+#   - Strings with embedded double quotes MUST be wrapped in single quotes
+#     VALID:   - '"Suggests" language used, not "proves"'
+#     INVALID: - "Suggests" language used, not "proves"
+#   - Inner single quotes must be doubled:
+#     VALID:   - '"I''d rather not share" is always honored'
+#   - Always run `npm run validate` before committing
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# AQAL Check-In Workflow
+# Coordinates integral-researcher, integral-guide, content-writer, ethics-guardian
+
+name: aqal-checkin-workflow
+version: 1.0.0
+description: |
+  Creates structured four-quadrant self-inquiry practices based on Wilber's
+  AQAL framework. Guides users through interior/exterior and individual/collective
+  perspectives on any situation.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse check-in request and determine parameters
+    agent: orchestrator
+    actions:
+      - parse_situation
+      - determine_depth
+      - identify_focus_quadrant
+      - check_for_sensitive_content
+
+  - name: research
+    description: Gather AQAL framework context and evidence
+    agent: integral-researcher
+    inputs:
+      - situation
+      - depth
+    outputs:
+      - quadrant-framework.md
+      - evidence-context.md
+
+  - name: practice_creation
+    description: Design the four-quadrant inquiry
+    agent: integral-guide
+    inputs:
+      - quadrant-framework.md
+      - situation
+      - depth
+      - focus_quadrant
+    outputs:
+      - aqal-checkin.md
+      - integration-notes.md
+
+  - name: content_writing
+    description: Polish inquiry language and framing
+    agent: content-writer
+    inputs:
+      - aqal-checkin.md
+      - evidence-context.md
+    outputs:
+      - draft-checkin.md
+      - evidence-brief.md
+
+  - name: ethics_review
+    description: Review for appropriate framing and safety
+    agent: ethics-guardian
+    inputs:
+      - draft-checkin.md
+      - evidence-brief.md
+    outputs:
+      - ethics_approval
+      - required_modifications
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PRACTICE PARAMETERS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+practice_parameters:
+  depths:
+    brief:
+      total: 5-7
+      description: Quick scan, one prompt per quadrant
+    standard:
+      total: 15-20
+      description: Full inquiry with synthesis
+    deep:
+      total: 30-40
+      description: Extended journaling with cross-quadrant dialogue
+
+  focus_options:
+    - all_quadrants
+    - interior
+    - exterior
+    - individual
+    - collective
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTEGRATION PATTERNS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+integration:
+  sequential_execution:
+    - intake → research
+    - research → practice_creation
+    - practice_creation → content_writing
+    - content_writing → ethics_review
+
+  data_flow:
+    research_to_practice:
+      - Quadrant descriptions and inquiry prompts
+      - Evidence context for AQAL framework
+    practice_to_content:
+      - Raw inquiry structure
+      - Quadrant-specific prompts
+    content_to_ethics:
+      - Polished check-in
+      - Evidence claims
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output_structure:
+  aqal-checkin.md:
+    sections:
+      - title_and_metadata
+      - grounding
+      - upper_left_inquiry
+      - upper_right_inquiry
+      - lower_left_inquiry
+      - lower_right_inquiry
+      - synthesis
+      - closing_and_grounding
+      - attribution_and_disclaimer
+
+  integration-notes.md:
+    sections:
+      - cross_quadrant_patterns
+      - overlooked_dimensions
+      - next_step_suggestions
+
+  evidence-brief.md:
+    sections:
+      - aqal_framework_status
+      - component_evidence
+      - limitations
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  practice_design:
+    - All four quadrants addressed
+    - No quadrant collapsed into another
+    - Synthesis step included
+    - Grounding at beginning and end
+
+  evidence_integration:
+    - AQAL labeled as theoretical framework
+    - Perspective-taking labeled as research-supported
+    - No claims of AQAL as validated instrument
+    - Wilber properly attributed
+
+  safety:
+    - No diagnostic or clinical language
+    - Invitational tone throughout
+    - Permission to skip any quadrant
+    - '"Nothing particular" normalized as valid response'
+
+  accessibility:
+    - Clear, jargon-free prompts
+    - Written and spoken versions
+    - Time adaptations available
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  sensitive_content:
+    action: add_safety_framing
+    message: "Situation may involve sensitive material"
+    continue: true
+    note: "Add professional resource suggestions"
+
+  clinical_language:
+    action: revise
+    message: "Remove diagnostic or clinical framing"
+    continue: true
+    require: language_revision
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Career change check-in
+    invocation: /aqal-check-in "navigating a career change"
+    expected_output:
+      - Four-quadrant inquiry tailored to career transition
+      - Cross-quadrant synthesis
+      - Evidence brief
+
+  - name: Brief morning orientation
+    invocation: /aqal-check-in "start of day" --depth brief
+    expected_output:
+      - Quick 5-minute four-quadrant scan
+      - Simple synthesis
+
+  - name: Deep health situation inquiry
+    invocation: /aqal-check-in "managing chronic illness" --depth deep
+    expected_output:
+      - Extended journaling version
+      - Professional resource suggestions included
+      - Extra safety framing

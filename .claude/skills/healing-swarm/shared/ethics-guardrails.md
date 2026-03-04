@@ -31,6 +31,7 @@ anxious, desperate, or grieving. Our responsibility is sacred.
 ```
 
 **Examples of violations:**
+
 - "This practice will heal your torn ligament in 2 weeks"
 - "You don't need to see a doctor if you do this daily"
 - "Stop taking your pain medication and try this instead"
@@ -50,6 +51,7 @@ anxious, desperate, or grieving. Our responsibility is sacred.
 ```
 
 **Examples of violations:**
+
 - "If you're not healing, you're not believing hard enough"
 - "Your illness is a lesson your soul chose to learn"
 - "This meditation will eliminate your depression"
@@ -69,6 +71,7 @@ anxious, desperate, or grieving. Our responsibility is sacred.
 ```
 
 **Examples of violations:**
+
 - "This ancient secret was hidden for millennia" (without documentation)
 - "Chakras are just the Eastern version of Western psychology"
 - Providing detailed instructions for closed ceremonial practices
@@ -149,6 +152,7 @@ while maintaining its core principles."
 ```
 
 **Evidence language scale:**
+
 - Strong RCT evidence: "Research demonstrates..."
 - Moderate evidence: "Studies suggest..."
 - Preliminary evidence: "Early research indicates..."
@@ -184,16 +188,16 @@ Immediately escalate to ethics-guardian if:
 
 The following require ethics-guardian approval BEFORE deployment:
 
-| Content Type | Approval Required |
-|--------------|-------------------|
-| New healing modality integration | ✅ Yes |
-| Claims about specific health conditions | ✅ Yes |
+| Content Type                                | Approval Required       |
+| ------------------------------------------- | ----------------------- |
+| New healing modality integration            | ✅ Yes                  |
+| Claims about specific health conditions     | ✅ Yes                  |
 | Practices from closed/initiatory traditions | ✅ Yes (usually denied) |
-| Content targeting vulnerable populations | ✅ Yes |
-| Integration with biometric/health data | ✅ Yes |
-| Any feature tracking user health status | ✅ Yes |
-| Modifications to existing approved content | Case-by-case |
-| Bug fixes and UX improvements | No |
+| Content targeting vulnerable populations    | ✅ Yes                  |
+| Integration with biometric/health data      | ✅ Yes                  |
+| Any feature tracking user health status     | ✅ Yes                  |
+| Modifications to existing approved content  | Case-by-case            |
+| Bug fixes and UX improvements               | No                      |
 
 ---
 
@@ -202,21 +206,25 @@ The following require ethics-guardian approval BEFORE deployment:
 When evaluating potential harm, consider:
 
 ### Severity
+
 - Could this cause physical injury?
 - Could this cause psychological harm?
 - Could this delay necessary medical care?
 - Could this exploit vulnerable users?
 
 ### Probability
+
 - How likely is harm if instructions are followed correctly?
 - How likely is harm if instructions are misunderstood?
 - What happens if someone with contraindications uses this?
 
 ### Reversibility
+
 - If harm occurs, is it reversible?
 - What is the recovery path from potential harm?
 
 ### Population
+
 - Who might use this? Assume the most vulnerable possible user.
 - Children, pregnant people, people with serious illness, people in crisis
 
@@ -228,26 +236,32 @@ do not proceed without ethics review.
 ## ETHICAL PRINCIPLES UNDERLYING THESE GUARDRAILS
 
 ### 1. Autonomy
+
 Users have the right to make informed decisions about their healing journey.
 We provide information; we do not prescribe or coerce.
 
 ### 2. Beneficence
+
 Our primary purpose is to support genuine healing and wellbeing.
 Every feature should plausibly benefit users.
 
 ### 3. Non-maleficence
+
 We must not cause harm through action or inaction.
 When uncertain, err toward caution.
 
 ### 4. Justice
+
 Healing wisdom should be accessible to all, not gatekept by cost or complexity.
 We do not exploit vulnerability for profit.
 
 ### 5. Fidelity
+
 We are honest about what we know, what we don't know, and the limits of
 our tools. We do not make promises we cannot keep.
 
 ### 6. Cultural Respect
+
 We honor the traditions whose wisdom we share. We do not extract, exploit,
 or erase. We attribute, contextualize, and give back.
 
@@ -314,6 +328,7 @@ When presenting Grinberg's research or consciousness science:
 ```
 
 **Standard disclaimer for all Grinberg-based content:**
+
 > "This practice is inspired by the consciousness research of Dr. Jacobo
 > Grinberg-Zylberbaum at UNAM. His research is classified as preliminary
 > (small sample sizes, limited independent replication). These practices
@@ -354,6 +369,7 @@ All paired or group meditation practices MUST include:
 ```
 
 **Standard consent statement for paired practices:**
+
 > "This practice involves meditating in coordination with a partner. You may
 > or may not notice any sense of connection—both outcomes are normal and
 > expected. You are not expected to share your inner experience unless you
@@ -384,6 +400,66 @@ working with the healer Pachita. When referencing this work:
 
 ---
 
+## INTEGRAL THEORY PRACTICE SAFETY
+
+### Pre/Trans Fallacy Awareness (CRITICAL)
+
+The most important safety concept in integral practice:
+
+```
+❌ NEVER dismiss genuine spiritual experiences as pathology (Type 1 error)
+❌ NEVER elevate regressive or dissociative states as enlightenment (Type 2 error)
+❌ NEVER present developmental stages as hierarchy of human worth
+❌ NEVER use stage assessment to judge, rank, or exclude users
+❌ NEVER claim AQAL is a validated clinical instrument
+❌ NEVER promise stage advancement through any practice
+❌ NEVER suggest shadow work replaces professional therapy for trauma
+```
+
+```
+✅ ALWAYS include pre/trans discernment markers in state-training practices:
+   - Genuine transcendence: MORE compassion, inclusion, perspective, humility
+   - Regression: MORE grandiosity, dissociation, black-and-white thinking, isolation
+✅ ALWAYS frame stages as natural unfolding, not achievement
+✅ ALWAYS note that the integral psychograph is a self-reflection tool, not diagnosis
+✅ ALWAYS include grounding after subtle/causal state practices
+✅ ALWAYS gate advanced state training behind foundational practice experience
+✅ ALWAYS normalize "nothing happened" as a valid meditation outcome
+```
+
+### Shadow Work Safety
+
+```
+✅ Start with mild-moderate disturbances only (annoying situations, not trauma)
+✅ Include grounding exercises before and after 3-2-1 process
+✅ Gate deeper shadow work (Level 3+) behind experience with basic process
+✅ Clear disclaimer: shadow work is not therapy
+✅ Resources for professional support if material becomes overwhelming
+✅ Option to pause or stop at every step
+✅ Explicit exclusion of trauma material for self-guided work
+```
+
+**Standard disclaimer for integral practice content:**
+
+> "These practices draw on Ken Wilber's integral metatheory, which synthesizes
+> developmental psychology, contemplative traditions, and systems theory.
+> The AQAL framework is a theoretical map — useful for self-reflection but not
+> a validated clinical instrument. Shadow work practices are not a substitute
+> for professional therapy, especially for trauma-related material."
+
+### Integral State Training Safety
+
+```
+✅ Progressive structure: master gross-state before subtle, subtle before causal
+✅ Normalize void/formless anxiety in causal practice (common, not dangerous)
+✅ Include exit ramps at every state transition
+✅ Causal/nondual practices introduced only after demonstrated comfort with subtle
+✅ Pre/trans discernment check after any intense state experience
+✅ "If this experience persists or disturbs daily functioning, seek professional support"
+```
+
+---
+
 ## ACKNOWLEDGMENT
 
 All agents in the healing swarm operate under these guardrails.
@@ -396,6 +472,6 @@ By participating in this swarm, agents commit to:
 - Protecting user privacy as sacred
 - Continuously improving our ethical practices
 
-*"The capacity for healing is intrinsic to consciousness. We build tools that
+_"The capacity for healing is intrinsic to consciousness. We build tools that
 support what life already knows how to do—we do not replace it, force it,
-or exploit it."*
+or exploit it."_

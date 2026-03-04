@@ -1,0 +1,251 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# YAML AUTHORING RULES (read before editing):
+#   - Strings with embedded double quotes MUST be wrapped in single quotes
+#     VALID:   - '"Suggests" language used, not "proves"'
+#     INVALID: - "Suggests" language used, not "proves"
+#   - Inner single quotes must be doubled:
+#     VALID:   - '"I''d rather not share" is always honored'
+#   - Always run `npm run validate` before committing
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Shadow Work Workflow
+# Coordinates integral-researcher, shadow-facilitator, content-writer, ethics-guardian
+
+name: shadow-work-workflow
+version: 1.0.0
+description: |
+  Creates guided 3-2-1 shadow integration practices with safety architecture.
+  Moves through third-person observation, second-person dialogue, and
+  first-person identification to approach disowned aspects of self.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse shadow work request and assess intensity
+    agent: orchestrator
+    actions:
+      - parse_shadow_figure
+      - assess_emotional_charge
+      - assign_intensity_level
+      - screen_for_contraindications
+      - check_scope_exclusions
+
+  - name: research
+    description: Gather evidence on shadow work mechanisms
+    agent: integral-researcher
+    inputs:
+      - shadow_topic
+      - intensity_level
+    outputs:
+      - shadow-evidence.md
+      - mechanism-context.md
+
+  - name: protocol_design
+    description: Design the 3-2-1 process for this specific shadow
+    agent: shadow-facilitator
+    inputs:
+      - shadow-evidence.md
+      - shadow_figure
+      - intensity_level
+    outputs:
+      - shadow-practice.md
+      - safety-checklist.md
+
+  - name: content_writing
+    description: Polish facilitation language and framing
+    agent: content-writer
+    inputs:
+      - shadow-practice.md
+      - mechanism-context.md
+    outputs:
+      - draft-practice.md
+      - evidence-brief.md
+
+  - name: ethics_review
+    description: CRITICAL safety and scope review
+    agent: ethics-guardian
+    inputs:
+      - draft-practice.md
+      - safety-checklist.md
+      - evidence-brief.md
+    outputs:
+      - ethics_approval
+      - required_modifications
+      - safety_additions
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PRACTICE PARAMETERS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+practice_parameters:
+  intensity_levels:
+    gentle:
+      duration: 15
+      description: Mild annoyances and everyday friction
+      grounding: Standard before and after
+      scope: Level 1 material only
+    moderate:
+      duration: 20
+      description: Recurring patterns with moderate charge
+      grounding: Enhanced with somatic awareness
+      scope: Level 1-2 material
+    deep:
+      duration: 25
+      description: Significant charge, extended facilitation
+      grounding: Full protocol with somatic tracking
+      scope: Level 1-3 material
+      gate: Prior experience with Levels 1-2 required
+
+  scope_exclusions:
+    - Traumatic memories
+    - Active grief
+    - Suicidal or self-harm ideation
+    - Active psychosis or dissociation
+    - Material in current therapy
+    - Childhood attachment wounds without support
+
+  shadow_types:
+    - person
+    - quality
+    - situation
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTEGRATION PATTERNS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+integration:
+  sequential_execution:
+    - intake → research
+    - research → protocol_design
+    - protocol_design → content_writing
+    - content_writing → ethics_review
+
+  data_flow:
+    research_to_protocol:
+      - Shadow work mechanism evidence
+      - Source tradition context (Gestalt, IFS, Jung)
+    protocol_to_content:
+      - Raw 3-2-1 process script
+      - Safety checklist
+      - Intensity-appropriate prompts
+    content_to_ethics:
+      - Polished practice
+      - Evidence claims
+      - Safety framing
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output_structure:
+  shadow-practice.md:
+    sections:
+      - title_and_metadata
+      - important_notice_and_disclaimer
+      - pre_practice_safety_check
+      - grounding
+      - step_3_face_it
+      - step_2_talk_to_it
+      - step_1_be_it
+      - integration_and_grounding
+      - post_practice_notes
+      - attribution
+
+  safety-checklist.md:
+    sections:
+      - pre_practice_screening
+      - during_practice_monitoring
+      - post_practice_grounding
+      - when_to_seek_help
+
+  evidence-brief.md:
+    sections:
+      - mechanism_overview
+      - source_tradition_evidence
+      - protocol_evidence_status
+      - limitations
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  safety_critical:
+    - Trauma exclusion stated prominently at start
+    - '"Not therapy" disclaimer clearly visible'
+    - Intensity level appropriate to material
+    - Grounding before and after
+    - Permission to stop at every step
+    - Mental health resources included (988 Lifeline)
+    - Pre/trans discernment markers included
+
+  practice_design:
+    - 3-2-1 sequence followed correctly
+    - Pronoun shifts clear (they → you → I)
+    - Somatic awareness cues included
+    - Integration step not skipped
+    - Self-compassion language present
+
+  evidence_integration:
+    - Protocol labeled as preliminary
+    - Source mechanisms labeled with evidence levels
+    - '"Suggests" language, not "proves"'
+    - ILP properly attributed (Wilber, Patten, Leonard, Morelli, 2008)
+
+  accessibility:
+    - Written and guided versions
+    - Journal alternative available
+    - Clear, jargon-free language
+    - Time adaptations noted
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  trauma_material_detected:
+    action: halt_and_redirect
+    message: "This material may require professional support"
+    continue: false
+    require: professional_referral
+
+  intensity_mismatch:
+    action: adjust
+    message: "Intensity level adjusted for safety"
+    continue: true
+    note: "Default to lower intensity when uncertain"
+
+  overclaims_detected:
+    action: revise
+    message: "Evidence claims exceed available support"
+    continue: true
+    require: language_revision
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Gentle shadow work with frustrating person
+    invocation: /shadow-work "my critical boss" --intensity gentle
+    expected_output:
+      - 15-minute Level 1 practice
+      - Standard grounding
+      - Evidence brief
+
+  - name: Moderate quality exploration
+    invocation: /shadow-work "arrogance I notice in others" --type quality --intensity moderate
+    expected_output:
+      - 20-minute Level 2 practice
+      - Enhanced grounding with somatic awareness
+      - Journal protocol included
+
+  - name: Deep pattern work
+    invocation: /shadow-work "my need to control" --intensity deep
+    expected_output:
+      - 25-minute Level 3 practice
+      - Full safety architecture
+      - Gate verification included

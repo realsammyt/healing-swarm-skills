@@ -1,0 +1,279 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# YAML AUTHORING RULES (read before editing):
+#   - Strings with embedded double quotes MUST be wrapped in single quotes
+#     VALID:   - '"Suggests" language used, not "proves"'
+#     INVALID: - "Suggests" language used, not "proves"
+#   - Inner single quotes must be doubled:
+#     VALID:   - '"I''d rather not share" is always honored'
+#   - Always run `npm run validate` before committing
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Integral Theory Research Workflow
+# Coordinates integral-researcher, traditions-scholar, clinical-researcher,
+# mechanisms-neuroscientist, ethics-guardian
+
+name: integral-research-workflow
+version: 1.0.0
+description: |
+  Deep research into Ken Wilber's integral metatheory with honest evidence
+  assessment. Traces concepts to source traditions, evaluates independent
+  evidence bases, and produces research briefs with clear evidence labeling.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse research request and identify integral concepts
+    agent: orchestrator
+    actions:
+      - parse_request
+      - identify_integral_concepts
+      - determine_research_depth
+      - map_to_source_traditions
+
+  - name: primary_research
+    description: Research the integral concept in Wilber's framework
+    agent: integral-researcher
+    parallel_group: research
+    inputs:
+      - integral_concept
+      - research_depth
+    outputs:
+      - integral-framework.md
+      - wilber-synthesis.md
+      - evidence-assessment.md
+
+  - name: traditions_research
+    description: Trace concept to source traditions
+    agent: traditions-scholar
+    parallel_group: research
+    inputs:
+      - source_traditions
+      - integral_concept
+    outputs:
+      - tradition-sources.md
+      - cultural-context.md
+
+  - name: clinical_context
+    description: Assess clinical evidence for components
+    agent: clinical-researcher
+    parallel_group: research
+    inputs:
+      - component_claims
+    outputs:
+      - clinical-evidence.md
+      - study-quality.md
+
+  - name: mechanism_analysis
+    description: Bridge integral concepts with neuroscience
+    agent: mechanisms-neuroscientist
+    inputs:
+      - integral-framework.md
+      - clinical-evidence.md
+    outputs:
+      - mechanism-bridges.md
+
+  - name: synthesis
+    description: Synthesize all research into comprehensive brief
+    agent: integral-researcher
+    inputs:
+      - integral-framework.md
+      - tradition-sources.md
+      - clinical-evidence.md
+      - mechanism-bridges.md
+    outputs:
+      - research-brief.md
+      - evidence-summary.md
+      - limitations.md
+
+  - name: ethics_review
+    description: Review for evidence overclaims and safety
+    agent: ethics-guardian
+    inputs:
+      - research-brief.md
+      - evidence-summary.md
+    outputs:
+      - ethics_approval
+      - required_modifications
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RESEARCH PARAMETERS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+research_parameters:
+  depths:
+    quick:
+      - Single concept overview
+      - Key evidence levels
+      - Primary source identification
+    standard:
+      - Full concept analysis
+      - Source tradition mapping
+      - Evidence assessment per component
+      - Critiques and limitations
+    comprehensive:
+      - All standard plus
+      - Cross-tradition comparison
+      - Clinical evidence review
+      - Mechanism analysis
+      - Full bibliography
+
+  evidence_tiers:
+    established:
+      description: Independent empirical support from multiple research groups
+      examples:
+        - Developmental stage models (Piaget, Kohlberg, Cook-Greuter)
+        - Meditation efficacy (MBSR/MBCT meta-analyses)
+    research_supported:
+      description: Moderate empirical support, some replication
+      examples:
+        - Multiple intelligences
+        - Perspective-taking interventions
+        - Therapeutic alliance
+    preliminary:
+      description: Early research, limited replication
+      examples:
+        - ILP outcome studies
+        - 3-2-1 process case studies
+        - Integral coaching results
+    theoretical:
+      description: Wilber's synthesis, not independently tested
+      examples:
+        - AQAL as integrated framework
+        - Holarchy theory
+        - Wilber-Combs lattice
+    speculative:
+      description: Conjectural, minimal empirical grounding
+      examples:
+        - Kosmic habits
+        - Involutionary givens
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTEGRATION PATTERNS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+integration:
+  parallel_execution:
+    - primary_research + traditions_research + clinical_context
+
+  sequential_execution:
+    - intake → research_group
+    - research_group → mechanism_analysis
+    - mechanism_analysis → synthesis
+    - synthesis → ethics_review
+
+  data_flow:
+    research_to_synthesis:
+      - Integral framework analysis
+      - Source tradition context
+      - Clinical evidence per component
+      - Mechanism bridges
+    synthesis_to_ethics:
+      - Complete research brief
+      - Evidence level claims
+      - Limitations assessment
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output_structure:
+  research-brief.md:
+    sections:
+      - executive_summary
+      - theoretical_framework
+      - source_traditions
+      - wilber_synthesis
+      - evidence_assessment_table
+      - critiques_and_limitations
+      - implications_for_practice
+      - references
+
+  evidence-summary.md:
+    sections:
+      - component_evidence_table
+      - methodology_notes
+      - replication_status
+      - honest_assessment
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  evidence_honesty:
+    - Evidence tiers clearly labeled per component
+    - Wilber properly attributed as synthesizer, not originator
+    - Source traditions credited independently
+    - Sample sizes noted where applicable
+    - Replication status stated
+    - '"Suggests" language, not "proves" or "demonstrates"'
+
+  balanced_assessment:
+    - Critiques from Visser, Meyerhoff included
+    - Limitations stated honestly
+    - AQAL labeled as theoretical framework
+    - No claims of empirical validation for AQAL as a system
+
+  cultural_integrity:
+    - Source traditions credited with specificity
+    - Living practitioners acknowledged
+    - Adaptations from traditional forms noted
+
+  safety:
+    - Pre/trans fallacy awareness included
+    - Developmental stages not presented as hierarchy of worth
+    - No claims of stage assessment capability
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  insufficient_evidence:
+    action: document_gap
+    message: "Limited research available for this integral concept"
+    continue: true
+    note: "Label as theoretical or speculative"
+
+  overclaims_detected:
+    action: revise
+    message: "Evidence claims exceed available support"
+    continue: true
+    require: language_revision
+
+  cultural_concern:
+    action: halt_and_review
+    message: "Cultural sensitivity concern with source tradition"
+    continue: false
+    require: cultural_reviewer
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: AQAL framework overview
+    invocation: /integral-research "AQAL framework" --depth quick
+    expected_output:
+      - Brief overview of quadrants, levels, lines, states, types
+      - Evidence tier labeling
+      - Key references
+
+  - name: Shadow work evidence assessment
+    invocation: /integral-research "3-2-1 shadow process evidence" --depth comprehensive
+    expected_output:
+      - Full research brief
+      - Source tradition analysis (Gestalt, IFS, Jung)
+      - Clinical evidence per mechanism
+      - Limitations and honest assessment
+
+  - name: State training research
+    invocation: /integral-research "gross-subtle-causal state training" --depth standard
+    expected_output:
+      - Vedantic three-body mapping
+      - Meditation research per state realm
+      - Evidence assessment table
+      - Pre/trans safety analysis

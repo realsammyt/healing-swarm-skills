@@ -1,0 +1,114 @@
+---
+sidebar_position: 19
+title: Spectrum Meditation
+description: Integral three-body meditation moving through gross, subtle, and causal states with a nondual pointer
+---
+
+# spectrum-meditation
+
+**Trigger:** `/spectrum-meditation`
+
+A structured meditation sequence that traverses the full spectrum of awareness — from the gross physical body through the subtle energetic field to the causal witness, culminating in a nondual pointer that invites rest in open awareness prior to any object. Based on the integral meditation framework of Ken Wilber and informed by contemplative neuroscience.
+
+## Agents
+
+- **Integral Researcher** - Three-body framework research and neuroscience evidence
+- **Integral Guide** - Meditation sequence design and facilitation language
+- **Content Writer** - Practice scripts, transitions, and closing integration
+- **Ethics Guardian** - Safety review and honest evidence claims
+
+## Inputs
+
+| Input      | Required | Description                                                            |
+| ---------- | -------- | ---------------------------------------------------------------------- |
+| `focus`    | Yes      | Intention or theme for the session (e.g., "clarity", "open awareness") |
+| `duration` | No       | `15`, `25` (default), `40` minutes                                     |
+| `level`    | No       | `beginner`, `intermediate` (default), `advanced`                       |
+| `body`     | No       | Start from a specific body: `gross`, `subtle`, `causal`                |
+
+## Outputs
+
+- `spectrum-practice.md` - Complete guided meditation script with timed phases
+- `evidence-brief.md` - Research context with honest evidence levels per phase
+- `audio-timing.json` - Timing cues for audio recording or facilitation
+
+## Examples
+
+**Standard 25-minute spectrum practice:**
+
+```bash
+/spectrum-meditation "open awareness"
+```
+
+**Beginner 15-minute practice with clarity focus:**
+
+```bash
+/spectrum-meditation "mental clarity" --duration 15 --level beginner
+```
+
+**Advanced 40-minute practice:**
+
+```bash
+/spectrum-meditation "dissolution into presence" --duration 40 --level advanced
+```
+
+**Starting from the subtle body:**
+
+```bash
+/spectrum-meditation "energy and aliveness" --body subtle
+```
+
+## Three-Body Practice
+
+The spectrum sequence moves through three bodies, each revealing a different dimension of experience, followed by a nondual pointer:
+
+| Phase              | Body      | Description                                                                  | Duration (25 min) |
+| ------------------ | --------- | ---------------------------------------------------------------------------- | ----------------- |
+| 1. Settling        | —         | Grounding, breath orientation, arriving                                      | 3 min             |
+| 2. Gross Body      | Physical  | Sensory awareness, interoception, physical form, breath and body sensations  | 6 min             |
+| 3. Subtle Body     | Energetic | Felt sense, emotional tone, energy currents, luminous awareness              | 6 min             |
+| 4. Causal Body     | Witness   | Pure witnessing awareness, the one who observes, formless presence           | 6 min             |
+| 5. Nondual Pointer | —         | Recognition that awareness and its objects are not-two; open, self-releasing | 3 min             |
+| 6. Integration     | —         | Gradual return, grounding, brief reflection                                  | 1 min             |
+
+**Gross body** practices rest on well-researched foundations of focused attention meditation — deliberate, sustained attention on a chosen object such as the breath or body sensations.
+
+**Subtle body** inquiry moves into the felt sense and emotional field. Evidence here is more preliminary; the "subtle body" as a phenomenological construct is widely reported across traditions but does not map directly to a single neuroscientific referent.
+
+**Causal body** practice cultivates the witness perspective — resting as the observing awareness rather than identifying with any particular content. This parallels open monitoring or "choiceless awareness" practices with growing neuroscientific study.
+
+**Nondual pointer** invites a recognition rather than a practice — a brief, non-effortful pointing toward the awareness in which gross, subtle, and causal all arise. This is theoretical and tradition-based; it is not evaluated as a discrete technique in controlled research.
+
+## Research Basis
+
+> **Evidence level: Mixed — Research-supported (focused attention, open awareness); Preliminary (subtle body); Theoretical (integral sequence)**
+>
+> Focused attention meditation (gross body phase) has extensive empirical support for attention
+> regulation, stress reduction, and neuroplasticity (Lutz et al., 2008; Tang et al., 2015).
+> Open monitoring / choiceless awareness (causal witness phase) is supported by growing
+> contemplative neuroscience literature (Brandmeyer et al., 2019). Subtle body awareness
+> lacks direct RCT validation as a construct; practices involving somatic and felt-sense
+> awareness show preliminary support in therapeutic contexts (Levine, 2010; Gendlin, 1978).
+> The integral three-body sequence as a structured progression is a theoretical framework
+> synthesized by Wilber (2006) and has not been evaluated as an integrated protocol in
+> controlled trials. The nondual pointer is drawn from non-dual contemplative traditions
+> (Advaita Vedanta, Dzogchen, Zen) and remains phenomenologically reported rather than
+> empirically operationalized.
+
+## Quality Gates
+
+Before output is finalized:
+
+- All three body phases present and sequenced correctly
+- Nondual pointer framed as invitation, not instruction or claim
+- Evidence levels labeled per phase; theoretical status of sequence noted
+- "Subtle body" presented as phenomenological description, not verified mechanism
+- Beginner scripts avoid tradition-specific jargon without explanation
+- Advanced scripts may include tradition-specific language with context
+- Medical disclaimer present; not a substitute for mental health treatment
+- Permission to rest in any phase without moving forward included
+- Grounding instructions at beginning and end
+
+---
+
+_The spectrum is not a ladder to climb. It is the full range of what you already are, waiting to be recognized._

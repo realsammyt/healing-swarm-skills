@@ -1,0 +1,223 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# YAML AUTHORING RULES (read before editing):
+#   - Strings with embedded double quotes MUST be wrapped in single quotes
+#     VALID:   - '"Suggests" language used, not "proves"'
+#     INVALID: - "Suggests" language used, not "proves"
+#   - Inner single quotes must be doubled:
+#     VALID:   - '"I''d rather not share" is always honored'
+#   - Always run `npm run validate` before committing
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Perspective Practice Workflow
+# Coordinates integral-researcher, integral-guide, content-writer, ethics-guardian
+
+name: perspective-practice-workflow
+version: 1.0.0
+description: |
+  Creates quadrant perspective-taking exercises that guide users through
+  viewing life situations from all four AQAL quadrants. Builds cognitive
+  flexibility and empathic understanding.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse situation and determine practice approach
+    agent: orchestrator
+    actions:
+      - parse_situation
+      - determine_complexity
+      - identify_stakeholders
+      - check_for_sensitive_content
+
+  - name: research
+    description: Gather perspective-taking research and AQAL context
+    agent: integral-researcher
+    inputs:
+      - situation
+      - complexity
+    outputs:
+      - perspective-evidence.md
+      - quadrant-context.md
+
+  - name: practice_creation
+    description: Design the perspective-taking practice
+    agent: integral-guide
+    inputs:
+      - perspective-evidence.md
+      - situation
+      - stakeholders
+      - complexity
+    outputs:
+      - perspective-practice.md
+      - synthesis-prompts.md
+
+  - name: content_writing
+    description: Polish inquiry language and framing
+    agent: content-writer
+    inputs:
+      - perspective-practice.md
+      - perspective-evidence.md
+    outputs:
+      - draft-practice.md
+      - evidence-brief.md
+
+  - name: ethics_review
+    description: Review for balanced framing and safety
+    agent: ethics-guardian
+    inputs:
+      - draft-practice.md
+      - evidence-brief.md
+    outputs:
+      - ethics_approval
+      - required_modifications
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PRACTICE PARAMETERS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+practice_parameters:
+  complexity_levels:
+    simple:
+      description: Personal situation, few stakeholders
+      quadrant_time: 3-5 min each
+      total: 15-20 min
+    complex:
+      description: Multi-stakeholder, systemic dimensions
+      quadrant_time: 5-7 min each
+      total: 25-35 min
+    systemic:
+      description: Organizational or societal scale
+      quadrant_time: 7-10 min each
+      total: 35-45 min
+
+  output_formats:
+    - guided_reflection
+    - journaling_worksheet
+    - discussion_guide
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTEGRATION PATTERNS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+integration:
+  sequential_execution:
+    - intake → research
+    - research → practice_creation
+    - practice_creation → content_writing
+    - content_writing → ethics_review
+
+  data_flow:
+    research_to_practice:
+      - Perspective-taking research evidence
+      - AQAL quadrant descriptions
+    practice_to_content:
+      - Raw perspective-taking exercise
+      - Quadrant-specific prompts
+      - Synthesis questions
+    content_to_ethics:
+      - Polished practice
+      - Evidence claims
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output_structure:
+  perspective-practice.md:
+    sections:
+      - title_and_metadata
+      - situation_framing
+      - grounding
+      - upper_left_perspective
+      - upper_right_perspective
+      - lower_left_perspective
+      - lower_right_perspective
+      - synthesis_and_surprises
+      - next_steps
+      - attribution_and_disclaimer
+
+  synthesis-prompts.md:
+    sections:
+      - cross_quadrant_connections
+      - blind_spot_identification
+      - action_implications
+
+  evidence-brief.md:
+    sections:
+      - perspective_taking_research
+      - aqal_framework_status
+      - limitations
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  practice_design:
+    - All four quadrants addressed
+    - No quadrant privileged over others
+    - Synthesis highlights overlooked dimensions
+    - Grounding at beginning and end
+
+  evidence_integration:
+    - Perspective-taking labeled as research-supported
+    - AQAL framework labeled as theoretical
+    - '"Studies suggest" language for perspective-taking evidence'
+    - Wilber properly attributed
+
+  safety:
+    - No judgment of perspectives found
+    - Invitational tone throughout
+    - Permission to skip quadrants
+    - Professional resources for distressing situations
+
+  accessibility:
+    - Written and spoken versions
+    - Journal worksheet alternative
+    - Clear, non-academic language
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  sensitive_content:
+    action: add_safety_framing
+    message: "Situation involves sensitive material"
+    continue: true
+    note: "Add professional resource suggestions"
+
+  quadrant_collapse:
+    action: revise
+    message: "Quadrant perspectives need clearer differentiation"
+    continue: true
+    require: practice_revision
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Personal conflict
+    invocation: /perspective-practice "conflict with my partner about finances"
+    expected_output:
+      - Four-quadrant perspective exercise
+      - Synthesis with blind-spot identification
+      - Evidence brief
+
+  - name: Organizational decision
+    invocation: /perspective-practice "team restructuring" --complexity complex
+    expected_output:
+      - Extended multi-stakeholder perspective exercise
+      - Discussion guide format
+      - Cross-quadrant action implications
+
+  - name: Systemic analysis
+    invocation: /perspective-practice "healthcare accessibility in my community" --complexity systemic
+    expected_output:
+      - Full systemic perspective exercise
+      - Policy and personal dimensions
+      - Extended synthesis
