@@ -54,7 +54,6 @@ shared_resources:
 # ═══════════════════════════════════════════════════════════════════════════════
 
 skills:
-
   # ─────────────────────────────────────────────────────────────────────────────
   # RESEARCH SKILLS
   # ─────────────────────────────────────────────────────────────────────────────
@@ -119,6 +118,126 @@ skills:
     example_usage: |
       /mechanism-mapping "qi cultivation" --to neuroscience
       /mechanism-mapping "chakra activation" --to psychophysiology
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # INTEGRAL THEORY SKILLS (Wilber)
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: aqal-check-in
+    trigger: /aqal-check-in
+    description: |
+      Structured four-quadrant self-inquiry based on Wilber's AQAL framework.
+      Guides users through interior/exterior and individual/collective
+      perspectives on any situation.
+    category: integral
+    agents:
+      - integral-researcher
+      - integral-guide
+      - content-writer
+      - ethics-guardian
+    workflow: content/aqal-checkin-workflow.yaml
+    requires_ethics_approval: true
+    templates:
+      - content/templates/aqal-checkin.md
+    outputs:
+      - aqal-checkin.md
+      - integration-notes.md
+      - evidence-brief.md
+    example_usage: |
+      /aqal-check-in "navigating a career change"
+      /aqal-check-in "start of day" --depth brief
+      /aqal-check-in "managing chronic illness" --depth deep
+
+  - name: shadow-work
+    trigger: /shadow-work
+    description: |
+      Guided 3-2-1 shadow integration practice for approaching disowned
+      aspects of self. Three intensity levels with safety architecture.
+      Ethics review is CRITICAL for all outputs.
+    category: integral
+    agents:
+      - integral-researcher
+      - shadow-facilitator
+      - content-writer
+      - ethics-guardian
+    workflow: content/shadow-work-workflow.yaml
+    requires_ethics_approval: true
+    templates:
+      - content/templates/shadow-process.md
+    outputs:
+      - shadow-practice.md
+      - safety-checklist.md
+      - evidence-brief.md
+    example_usage: |
+      /shadow-work "my critical boss" --intensity gentle
+      /shadow-work "arrogance I notice in others" --type quality --intensity moderate
+      /shadow-work "my need to control" --intensity deep
+
+  - name: spectrum-meditation
+    trigger: /spectrum-meditation
+    description: |
+      Progressive three-body state-training meditation moving through
+      gross, subtle, and causal realms. Based on Wilber's integral
+      state model drawing from Vedantic three-body doctrine.
+    category: integral
+    agents:
+      - integral-researcher
+      - integral-guide
+      - content-writer
+      - ethics-guardian
+    workflow: content/spectrum-meditation-workflow.yaml
+    requires_ethics_approval: true
+    templates:
+      - content/templates/spectrum-meditation.md
+    outputs:
+      - spectrum-meditation.md
+      - timing-structure.json
+      - evidence-brief.md
+    example_usage: |
+      /spectrum-meditation --scope foundation --duration 15
+      /spectrum-meditation --scope intermediate --duration 20
+      /spectrum-meditation --scope full_spectrum --duration 30
+
+  - name: integral-psychograph
+    trigger: /integral-psychograph
+    description: |
+      Self-reflection tool for exploring multiple developmental lines.
+      NOT a clinical assessment — a contemplative self-inquiry exercise.
+      Uses established developmental models (Piaget, Cook-Greuter, Kohlberg).
+    category: integral
+    agents:
+      - integral-researcher
+      - ethics-guardian
+    workflow: research/integral-research-workflow.yaml
+    requires_ethics_approval: true
+    outputs:
+      - psychograph-reflection.md
+      - evidence-brief.md
+    example_usage: |
+      /integral-psychograph --lines cognitive,moral,interpersonal
+      /integral-psychograph --depth deep
+
+  - name: perspective-practice
+    trigger: /perspective-practice
+    description: |
+      Quadrant perspective-taking exercise for viewing life situations
+      from all four AQAL perspectives. Builds cognitive flexibility
+      and empathic understanding.
+    category: integral
+    agents:
+      - integral-researcher
+      - integral-guide
+      - content-writer
+      - ethics-guardian
+    workflow: content/perspective-workflow.yaml
+    requires_ethics_approval: true
+    outputs:
+      - perspective-practice.md
+      - synthesis-prompts.md
+      - evidence-brief.md
+    example_usage: |
+      /perspective-practice "conflict with my partner about finances"
+      /perspective-practice "team restructuring" --complexity complex
 
   # ─────────────────────────────────────────────────────────────────────────────
   # CONSCIOUSNESS SKILLS (Grinberg Research)
@@ -604,6 +723,19 @@ skills:
 # ═══════════════════════════════════════════════════════════════════════════════
 
 agents:
+  # Integral Theory Agents
+  integral-researcher:
+    prompt: research/integral-researcher.md
+    tools: [WebSearch, WebFetch, Read, Glob, Grep]
+
+  integral-guide:
+    prompt: content/integral-guide.md
+    tools: [Read, Write, Glob]
+
+  shadow-facilitator:
+    prompt: content/shadow-facilitator.md
+    tools: [Read, Write, Glob]
+
   # Consciousness Research Agents
   consciousness-researcher:
     prompt: research/consciousness-researcher.md

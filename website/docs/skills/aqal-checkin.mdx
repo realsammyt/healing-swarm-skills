@@ -1,0 +1,100 @@
+---
+sidebar_position: 17
+title: AQAL Check-In
+description: Structured self-inquiry across all four quadrants of the AQAL integral framework
+---
+
+# aqal-check-in
+
+**Trigger:** `/aqal-check-in`
+
+Structured self-inquiry that guides users through Ken Wilber's AQAL framework, exploring experience across all four quadrants — interior individual, exterior individual, interior collective, and exterior collective — to surface a complete, balanced picture of a situation or moment.
+
+## Agents
+
+- **Integral Researcher** - AQAL framework research and quadrant mapping
+- **Integral Guide** - Practice design and quadrant inquiry facilitation
+- **Content Writer** - Inquiry language, framing, and synthesis
+- **Ethics Guardian** - Safety review and honest evidence claims
+
+## Inputs
+
+| Input       | Required | Description                                                              |
+| ----------- | -------- | ------------------------------------------------------------------------ |
+| `situation` | Yes      | The situation, challenge, or moment to explore (free text)               |
+| `depth`     | No       | `brief` (quick scan), `standard` (default), `deep` (full inquiry)        |
+| `focus`     | No       | Emphasize a quadrant: `interior`, `exterior`, `individual`, `collective` |
+
+## Outputs
+
+- `aqal-checkin.md` - Four-quadrant inquiry with observations and synthesis
+- `integration-notes.md` - Cross-quadrant patterns and next-step suggestions
+- `evidence-brief.md` - Research context with honest evidence levels
+
+## Examples
+
+**Standard check-in on a work conflict:**
+
+```bash
+/aqal-check-in "tension with my team around a project deadline"
+```
+
+**Deep inquiry into a health situation:**
+
+```bash
+/aqal-check-in "recovering from illness" --depth deep
+```
+
+**Brief morning orientation:**
+
+```bash
+/aqal-check-in "start of day" --depth brief
+```
+
+**Focus on collective dimensions:**
+
+```bash
+/aqal-check-in "feeling isolated in my community" --focus collective
+```
+
+## The Four Quadrants
+
+The AQAL model maps any situation across two axes — interior/exterior and individual/collective — yielding four irreducible perspectives:
+
+| Quadrant         | Shorthand | Inquiry Domain                                      |
+| ---------------- | --------- | --------------------------------------------------- |
+| Upper-Left (UL)  | I         | Subjective experience, feelings, thoughts, meaning  |
+| Upper-Right (UR) | It        | Observable behavior, physiology, measurable actions |
+| Lower-Left (LL)  | We        | Shared meaning, culture, relational dynamics        |
+| Lower-Right (LR) | Its       | Systems, structures, institutions, environment      |
+
+Each quadrant is considered real and irreducible — no single perspective fully captures the whole. The check-in does not privilege any quadrant; it surfaces what each reveals.
+
+## Research Basis
+
+> **Evidence level: Mixed — Research-supported components; Theoretical framework**
+>
+> Individual components of the AQAL check-in draw on well-supported research domains:
+> mindfulness-based self-inquiry has robust support across clinical and non-clinical populations
+> (Kabat-Zinn, 2003; Hölzel et al., 2011), and structured perspective-taking improves
+> cognitive flexibility and empathy (Davis, 1983; Galinsky et al., 2005). The AQAL framework
+> itself is a theoretical synthesis by Ken Wilber (2000) that has not been validated as an
+> integrated assessment instrument in controlled trials. The four-quadrant structure is
+> philosophically grounded but remains meta-theoretical rather than empirically derived.
+
+## Quality Gates
+
+Before output is finalized:
+
+- All four quadrants addressed without collapsing one into another
+- Evidence levels clearly labeled per component
+- AQAL properly attributed to Wilber; theoretical status noted
+- No claims that AQAL itself is empirically validated as a system
+- Language remains invitational, not prescriptive
+- Synthesis highlights cross-quadrant patterns without forcing resolution
+- Medical or clinical framing avoided; no diagnostic language
+- Permission to skip or revisit any quadrant included
+
+---
+
+_Every situation has four faces. The check-in helps you see all of them._

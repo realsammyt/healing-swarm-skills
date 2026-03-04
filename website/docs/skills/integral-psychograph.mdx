@@ -1,0 +1,107 @@
+---
+sidebar_position: 20
+title: Integral Psychograph
+description: Self-assessment across multiple developmental lines using the integral psychograph framework
+---
+
+# integral-psychograph
+
+**Trigger:** `/integral-psychograph`
+
+A guided self-reflection tool that maps perceived development across 6–8 distinct developmental lines — cognitive, emotional, moral, interpersonal, somatic, aesthetic, spiritual, and self-identity — producing a personal psychograph that reveals uneven development and potential growth edges.
+
+## Agents
+
+- **Integral Researcher** - Developmental line research and psychograph framework
+- **Ethics Guardian** - Scope boundaries, evidence accuracy, clinical disclaimer
+
+## Inputs
+
+| Input    | Required | Description                                                                  |
+| -------- | -------- | ---------------------------------------------------------------------------- |
+| `focus`  | No       | Emphasize specific lines (e.g., `emotional`, `moral`, `cognitive`)           |
+| `lines`  | No       | Number of lines to assess: `6`, `8` (default)                                |
+| `format` | No       | `narrative` (default), `table`, `visual` — output format for the psychograph |
+
+## Outputs
+
+- `psychograph.md` - Self-assessment across all selected developmental lines
+- `growth-edges.md` - Summary of least-developed lines and suggested practices
+- `evidence-brief.md` - Research context with evidence levels per line
+
+## Examples
+
+**Standard 8-line psychograph:**
+
+```bash
+/integral-psychograph
+```
+
+**Focused on emotional and moral lines:**
+
+```bash
+/integral-psychograph --focus emotional,moral
+```
+
+**6-line assessment in table format:**
+
+```bash
+/integral-psychograph --lines 6 --format table
+```
+
+**Narrative format for journaling context:**
+
+```bash
+/integral-psychograph --format narrative
+```
+
+## Developmental Lines
+
+The psychograph assesses multiple relatively independent streams of development. Each line can be at a different stage — high cognitive development does not guarantee equivalent emotional or moral development.
+
+| Line          | Domain                                                         | Established Research Basis               |
+| ------------- | -------------------------------------------------------------- | ---------------------------------------- |
+| Cognitive     | Logic, abstraction, perspective complexity                     | Piaget (1952), Commons et al. (1984)     |
+| Moral         | Ethical reasoning, care, justice, responsibility               | Kohlberg (1969), Gilligan (1982)         |
+| Self-Identity | Ego development, self-concept complexity                       | Loevinger (1976), Cook-Greuter (2004)    |
+| Emotional     | Emotional awareness, regulation, empathy                       | Mayer & Salovey (1997), Greenberg (2002) |
+| Interpersonal | Relational skill, attachment, perspective-taking               | Selman (1980), Ainsworth (1978)          |
+| Somatic       | Body awareness, interoception, somatic intelligence            | Levine (2010), Damasio (1999)            |
+| Aesthetic     | Appreciation of beauty, creative sensitivity, symbolic meaning | Gardner (1983) — partially               |
+| Spiritual     | Sense of meaning, transcendence, nondual recognition           | Fowler (1981), Helminiak (1987)          |
+
+The integral psychograph as a unified assessment tool is a theoretical synthesis (Wilber, 2000; 2006). Individual lines draw on established developmental psychology research; the integrated multi-line framework has not been validated as a combined instrument in controlled trials.
+
+> **Assessment note:** This is a self-reflection tool for personal insight and growth orientation. It is NOT a clinical assessment, diagnostic instrument, or psychological evaluation. Results should not be used for clinical, hiring, educational, or legal purposes. For clinical developmental assessment, work with a licensed psychologist.
+
+## Research Basis
+
+> **Evidence level: Mixed — Established (individual lines); Theoretical (integrated psychograph tool)**
+>
+> Individual developmental lines assessed in this skill draw on decades of established psychological
+> research: Piaget's cognitive stages, Kohlberg's and Gilligan's moral development frameworks,
+> Loevinger's and Cook-Greuter's ego development research, and Mayer & Salovey's emotional
+> intelligence work all have substantial empirical literatures. The integral psychograph as a
+> tool that combines these lines into a unified self-assessment profile is a theoretical
+> synthesis developed by Ken Wilber (2000, 2006) and has not been validated as an integrated
+> instrument in randomized or normative studies. Self-report assessments of development are
+> subject to well-documented biases including social desirability and limited self-insight
+> into higher developmental stages.
+
+## Quality Gates
+
+Before output is finalized:
+
+- "Not a clinical assessment" disclaimer present and prominent
+- Each line's evidence base noted individually
+- Theoretical status of integrated psychograph clearly stated
+- Wilber properly attributed; limitations of self-report noted
+- No stage labels presented as definitive or fixed
+- Growth edges framed as invitations, not deficits
+- Language avoids hierarchical judgment between lines or stages
+- No diagnostic, clinical, or evaluative language
+- Output calibrated to be honest about uncertainty in self-assessment
+
+---
+
+_Development is not a race. The psychograph shows where the terrain is uneven — and where the most interesting climbing remains._

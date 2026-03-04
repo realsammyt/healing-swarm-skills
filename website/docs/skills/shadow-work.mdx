@@ -1,0 +1,109 @@
+---
+sidebar_position: 18
+title: Shadow Integration
+description: Guided shadow work using the 3-2-1 Process to meet and integrate disowned aspects of self
+---
+
+# shadow-work
+
+**Trigger:** `/shadow-work`
+
+Guided shadow integration practice using the 3-2-1 Process — a structured method for approaching disowned, projected, or avoided aspects of self through three progressive steps: third-person observation, second-person dialogue, and first-person identification.
+
+## Agents
+
+- **Integral Researcher** - Shadow work research and mechanism evidence
+- **Shadow Facilitator** - 3-2-1 process design and facilitation language
+- **Content Writer** - Practice scripts, prompts, and integration framing
+- **Ethics Guardian** - Safety review, trauma screening, and scope boundaries
+
+## Inputs
+
+| Input       | Required | Description                                                               |
+| ----------- | -------- | ------------------------------------------------------------------------- |
+| `charge`    | Yes      | The person, quality, or situation carrying emotional charge (free text)   |
+| `intensity` | No       | `gentle` (default), `moderate`, `deep` — sets depth of inquiry            |
+| `type`      | No       | `person`, `quality`, `situation` — helps tailor the facilitation approach |
+
+## Outputs
+
+- `shadow-practice.md` - Full 3-2-1 guided practice script
+- `integration-notes.md` - Reflections, patterns identified, integration suggestions
+- `evidence-brief.md` - Research context with honest evidence levels
+
+## Examples
+
+**Gentle practice with a frustrating colleague:**
+
+```bash
+/shadow-work "my critical boss" --intensity gentle
+```
+
+**Moderate inquiry into a recurring quality:**
+
+```bash
+/shadow-work "arrogance I notice in others" --type quality --intensity moderate
+```
+
+**Deep practice with a charged relationship:**
+
+```bash
+/shadow-work "my estranged father" --intensity deep
+```
+
+**Situation-based shadow work:**
+
+```bash
+/shadow-work "situations where I feel humiliated" --type situation
+```
+
+## The 3-2-1 Process
+
+The 3-2-1 Process moves through three phases, each shifting the grammatical and psychological relationship to the shadow figure:
+
+| Step           | Pronoun   | Practice                                                                    |
+| -------------- | --------- | --------------------------------------------------------------------------- |
+| 3 — Face It    | He/She/It | Describe the figure in third person: qualities, behaviors, what charges you |
+| 2 — Talk To It | You       | Speak directly to the figure; invite it to respond; listen                  |
+| 1 — Be It      | I         | Speak as the figure; own the quality as a disowned part of self             |
+
+The sequence creates a deliberate movement from distance (observation) through relationship (dialogue) to integration (identification). What was "out there" and threatening is recognized as "in here" and potentially useful.
+
+**Three intensity levels:**
+
+- **Gentle** - Shorter prompts, lighter touch, emphasis on grounding and safety. Appropriate for first-time users or mild charge.
+- **Moderate** - Deeper inquiry, more time in dialogue phase, reflective synthesis included.
+- **Deep** - Extended facilitation, somatic tracking included, full integration synthesis. Not appropriate for trauma material or crisis states.
+
+> **Safety note:** This skill is not therapy and does not replace trauma treatment. Users experiencing active trauma symptoms, flashbacks, dissociation, or crisis states should work with a licensed mental health professional rather than using this skill.
+
+## Research Basis
+
+> **Evidence level: Mixed — Preliminary (integrated protocol); Research-supported (underlying mechanisms)**
+>
+> The 3-2-1 Process as an integrated protocol has not been evaluated in controlled clinical trials.
+> The underlying therapeutic mechanisms draw on modalities with stronger evidence bases:
+> Internal Family Systems (IFS) therapy has growing empirical support for parts-based work
+> (Schwartz & Sweezy, 2019; Hodgdon et al., 2021); Gestalt empty-chair dialogue has moderate
+> support for emotional processing (Greenberg, 2002); Jungian shadow theory, while clinically
+> influential, rests primarily on case study and theoretical literature rather than RCT evidence.
+> The general principle of approaching avoided emotional material — rather than suppressing it —
+> is supported across multiple therapeutic traditions (Hayes et al., 1996).
+
+## Quality Gates
+
+Before output is finalized:
+
+- Trauma and crisis exclusion clearly stated at the start of output
+- Intensity level appropriately matched to facilitation depth
+- Grounding instructions included at beginning and end
+- Explicit permission to pause or stop at any point
+- Shadow figures treated with curiosity, not judgment
+- "Not therapy" and scope limitation stated explicitly
+- No diagnostic language or clinical interpretation
+- Evidence levels labeled per component; protocol's preliminary status noted
+- Integration framing avoids toxic positivity or forced resolution
+
+---
+
+_What we refuse to own in ourselves, we meet as fate. The 3-2-1 Process turns that meeting into a choice._

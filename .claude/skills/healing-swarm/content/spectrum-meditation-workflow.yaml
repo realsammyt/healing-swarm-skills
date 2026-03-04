@@ -1,0 +1,257 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# YAML AUTHORING RULES (read before editing):
+#   - Strings with embedded double quotes MUST be wrapped in single quotes
+#     VALID:   - '"Suggests" language used, not "proves"'
+#     INVALID: - "Suggests" language used, not "proves"
+#   - Inner single quotes must be doubled:
+#     VALID:   - '"I''d rather not share" is always honored'
+#   - Always run `npm run validate` before committing
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Spectrum Meditation Workflow
+# Coordinates integral-researcher, integral-guide, content-writer, ethics-guardian
+
+name: spectrum-meditation-workflow
+version: 1.0.0
+description: |
+  Creates progressive three-body state-training meditations moving through
+  gross, subtle, and causal realms. Based on Wilber's integral state model
+  drawing from Vedantic three-body doctrine.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse meditation request and determine state scope
+    agent: orchestrator
+    actions:
+      - parse_request
+      - determine_state_scope
+      - assess_practitioner_level
+      - check_contraindications
+      - set_duration_target
+
+  - name: research
+    description: Gather state-training research and tradition context
+    agent: integral-researcher
+    inputs:
+      - state_scope
+      - practitioner_level
+    outputs:
+      - state-training-evidence.md
+      - tradition-context.md
+
+  - name: practice_creation
+    description: Design the spectrum meditation practice
+    agent: integral-guide
+    inputs:
+      - state-training-evidence.md
+      - tradition-context.md
+      - state_scope
+      - practitioner_level
+      - duration_target
+    outputs:
+      - spectrum-meditation.md
+      - timing-structure.json
+
+  - name: content_writing
+    description: Polish meditation language and add safety framing
+    agent: content-writer
+    inputs:
+      - spectrum-meditation.md
+      - state-training-evidence.md
+    outputs:
+      - draft-meditation.md
+      - evidence-brief.md
+
+  - name: ethics_review
+    description: CRITICAL review for state training safety
+    agent: ethics-guardian
+    inputs:
+      - draft-meditation.md
+      - evidence-brief.md
+      - timing-structure.json
+    outputs:
+      - ethics_approval
+      - required_modifications
+      - safety_additions
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PRACTICE PARAMETERS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+practice_parameters:
+  state_scopes:
+    foundation:
+      realms: [gross]
+      duration: 10-15
+      description: Body and breath awareness only
+      level: All practitioners
+    intermediate:
+      realms: [gross, subtle]
+      duration: 20
+      description: Body awareness plus inner imagery
+      level: Some meditation experience
+    advanced:
+      realms: [gross, subtle, causal]
+      duration: 25-30
+      description: Full three-body practice
+      level: Demonstrated stability in gross and subtle
+      gate: Prior experience required
+    full_spectrum:
+      realms: [gross, subtle, causal, nondual_pointer]
+      duration: 25-30
+      description: Three-body plus nondual pointer
+      level: Experienced practitioners only
+      gate: Demonstrated stability in all three realms
+
+  contraindications:
+    - Active psychosis or psychotic features
+    - Active dissociative disorders
+    - Severe PTSD without therapeutic support
+    - Mania or hypomania
+    - Substance-induced altered states
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTEGRATION PATTERNS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+integration:
+  sequential_execution:
+    - intake → research
+    - research → practice_creation
+    - practice_creation → content_writing
+    - content_writing → ethics_review
+
+  data_flow:
+    research_to_practice:
+      - State-training evidence per realm
+      - Vedantic three-body context
+      - Safety considerations for each state
+    practice_to_content:
+      - Raw meditation script
+      - Timing structure
+      - Exit ramp language
+    content_to_ethics:
+      - Polished meditation
+      - Evidence claims
+      - Safety architecture
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output_structure:
+  spectrum-meditation.md:
+    sections:
+      - title_and_metadata
+      - grounding
+      - gross_realm_practice
+      - transition_to_subtle
+      - subtle_realm_practice
+      - transition_to_causal
+      - causal_realm_practice
+      - nondual_pointer
+      - integration_and_grounding
+      - pre_trans_check
+      - attribution_and_disclaimer
+
+  timing-structure.json:
+    fields:
+      - total_duration_seconds
+      - realms_array
+      - transition_markers
+      - silence_periods
+      - exit_ramp_cues
+
+  evidence-brief.md:
+    sections:
+      - state_training_overview
+      - evidence_per_realm
+      - vedantic_source_context
+      - limitations
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  state_training_safety:
+    - Contraindication screening mentioned
+    - Exit ramps at every state transition
+    - Grounding at beginning and end
+    - Pre/trans discernment check after practice
+    - '"If this feels overwhelming" language at each transition'
+    - Causal void-anxiety normalized
+    - Nondual pointer brief and non-prescriptive
+
+  progressive_structure:
+    - Gross realm mastered before subtle
+    - Subtle stable before causal
+    - Causal stable before nondual pointer
+    - Each realm adds to previous, not replaces
+
+  evidence_integration:
+    - Gross realm labeled research-supported
+    - Subtle realm labeled preliminary
+    - Causal and nondual labeled theoretical
+    - Vedantic source properly attributed
+    - '"Contemplative traditions describe" language for subtle/causal'
+
+  accessibility:
+    - Foundation version available for all
+    - Seated, lying, adapted variations
+    - Multi-sensory cues
+    - Clear, jargon-free language
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  contraindication_detected:
+    action: halt_and_redirect
+    message: "Contraindication for state training detected"
+    continue: false
+    require: professional_referral
+
+  level_mismatch:
+    action: adjust
+    message: "State scope adjusted for practitioner level"
+    continue: true
+    note: "Default to foundation when uncertain"
+
+  safety_concern:
+    action: halt_and_review
+    message: "Safety concern in state training design"
+    continue: false
+    require: ethics_guardian_review
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Foundation body meditation
+    invocation: /spectrum-meditation --scope foundation --duration 15
+    expected_output:
+      - 15-minute gross-realm practice
+      - Body and breath awareness
+      - Evidence brief
+
+  - name: Intermediate two-body practice
+    invocation: /spectrum-meditation --scope intermediate --duration 20
+    expected_output:
+      - 20-minute gross + subtle practice
+      - Exit ramps included
+      - Pre/trans check
+
+  - name: Full spectrum advanced
+    invocation: /spectrum-meditation --scope full_spectrum --duration 30
+    expected_output:
+      - 30-minute all-realm practice
+      - Full safety architecture
+      - Gate verification
+      - Pre/trans discernment check

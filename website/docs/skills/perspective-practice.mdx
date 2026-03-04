@@ -1,0 +1,119 @@
+---
+sidebar_position: 21
+title: Perspective Practice
+description: Structured quadrant perspective-taking on life situations using the integral four-quadrant framework
+---
+
+# perspective-practice
+
+**Trigger:** `/perspective-practice`
+
+A structured contemplative and reflective practice that guides users through four distinct perspectives on a life situation — subjective experience, observable behavior, shared relational meaning, and systemic context — using the integral four-quadrant framework to reveal blind spots and expand understanding.
+
+## Agents
+
+- **Integral Researcher** - Perspective-taking research and four-quadrant framework evidence
+- **Integral Guide** - Practice design, facilitation prompts, and synthesis framing
+- **Content Writer** - Inquiry language, transitions, and integration output
+- **Ethics Guardian** - Safety review, scope boundaries, and evidence accuracy
+
+## Inputs
+
+| Input       | Required | Description                                                                       |
+| ----------- | -------- | --------------------------------------------------------------------------------- |
+| `situation` | Yes      | The life situation to explore (free text)                                         |
+| `depth`     | No       | `brief` (2–3 questions per quadrant), `standard` (default), `deep` (full inquiry) |
+| `emphasis`  | No       | Quadrant to deepen: `UL`, `UR`, `LL`, `LR`                                        |
+| `output`    | No       | `synthesis` (default), `journal`, `dialogue`                                      |
+
+## Outputs
+
+- `perspective-map.md` - Four perspectives on the situation with observations per quadrant
+- `synthesis.md` - Cross-quadrant patterns, insights, and integration suggestions
+- `evidence-brief.md` - Research context with honest evidence levels
+
+## Examples
+
+**Standard perspective practice on a relationship difficulty:**
+
+```bash
+/perspective-practice "conflict with my partner about money"
+```
+
+**Deep inquiry into a career decision:**
+
+```bash
+/perspective-practice "whether to leave my job" --depth deep
+```
+
+**Brief orientation on a recurring situation:**
+
+```bash
+/perspective-practice "feeling stuck creatively" --depth brief
+```
+
+**Emphasize systemic quadrant on a health challenge:**
+
+```bash
+/perspective-practice "managing chronic fatigue" --emphasis LR
+```
+
+**Journal format for reflective writing:**
+
+```bash
+/perspective-practice "navigating a family transition" --output journal
+```
+
+## Quadrant Perspective-Taking
+
+Each of the four quadrants offers a genuinely different perspective on any situation. The practice moves through each, treating each as a real and necessary lens rather than a redundant restatement:
+
+| Quadrant         | Lens                      | Key Questions                                                                                               |
+| ---------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Upper-Left (UL)  | I — Interior individual   | How do I feel about this? What meaning does it hold? What do I notice inside?                               |
+| Upper-Right (UR) | It — Exterior individual  | What is actually happening? What behaviors and actions are observable? What do the measurable facts show?   |
+| Lower-Left (LL)  | We — Interior collective  | What relational or cultural dynamics are at play? What do we understand together? What is the shared story? |
+| Lower-Right (LR) | Its — Exterior collective | What systems, structures, or institutions are involved? What environmental or economic factors shape this?  |
+
+**Why four perspectives?**
+
+Single-perspective analysis — thinking only from feelings, or only from facts, or only from relationship dynamics — systematically under-sees. The practice is not about finding the "right" perspective but about noticing what each perspective reveals that the others cannot. Synthesis becomes possible once all four are genuinely inhabited.
+
+**Perspective-taking as practice:**
+
+The practice is embodied and contemplative, not purely analytical. Each quadrant is approached with a pause, a settling, and an honest inquiry — not a rapid checklist. The integration phase looks for resonances, tensions, and surprises across quadrants.
+
+## Research Basis
+
+> **Evidence level: Mixed — Research-supported (perspective-taking); Theoretical (four-quadrant structure)**
+>
+> Perspective-taking as a cognitive and emotional capacity is among the most robustly studied
+> constructs in social psychology and developmental research. Deliberate perspective-taking
+> improves empathy, reduces bias, increases cognitive flexibility, and supports better
+> decision-making under social complexity (Davis, 1983; Galinsky & Moskowitz, 2000;
+> Batson et al., 2003). The specific practice of taking multiple structured perspectives
+> on one's own life situations draws on reflective practice traditions with support in
+> coaching and organizational psychology contexts (Schon, 1983; Argyris & Schon, 1978).
+> The four-quadrant structure is a theoretical framework synthesized by Ken Wilber (2000)
+> as a meta-map of perspectives rather than as an empirically derived instrument. The
+> quadrant organization has not been validated as a distinct combination in controlled trials,
+> though its component perspectives — first-person, third-person, relational, systemic —
+> each have independent support in relevant literatures.
+
+## Quality Gates
+
+Before output is finalized:
+
+- All four quadrants addressed as genuinely distinct perspectives
+- No quadrant collapsed into or treated as subordinate to another
+- Perspective-taking evidence clearly separated from four-quadrant framework evidence
+- Wilber's framework cited as theoretical synthesis; empirical status noted
+- Integration synthesis does not force artificial resolution of genuine tensions
+- Facilitation language is invitational, not prescriptive
+- Output format (synthesis / journal / dialogue) honored
+- Medical or clinical framing avoided; no diagnostic language
+- Users not directed to take any particular action based on output
+
+---
+
+_Every situation is larger than any one view of it. The practice is learning to hold all four at once._
