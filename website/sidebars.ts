@@ -131,6 +131,7 @@ const sidebars: SidebarsConfig = {
         "components/grounding-anchor",
       ],
     },
+    "changelog",
     "contributing",
   ],
 };
