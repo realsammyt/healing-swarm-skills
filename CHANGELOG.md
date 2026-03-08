@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **3 new templates**: archaeoacoustic-toning, holotechnica-recipe, umwelt-exercise
 - **Shared resources**: Hyperhumanism terminology, archaeoacoustic/umwelt/holotechnica
   safety guardrails, extended contraindication matrix
+- **3 worked examples**: archaeoacoustic toning, holotechnica stack, umwelt practice
 - **6 skill documentation pages** with evidence-level labeling
 - **Development Timeline** (`website/docs/changelog.mdx`): Chronological record of all
   features, skills, agents, workflows, and templates with retroactive history from

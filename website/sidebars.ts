@@ -92,6 +92,9 @@ const sidebars: SidebarsConfig = {
         "examples/aqal-checkin",
         "examples/shadow-work",
         "examples/spectrum-meditation",
+        "examples/archaeoacoustic-toning",
+        "examples/holotechnica-stack",
+        "examples/umwelt-practice",
       ],
     },
     {

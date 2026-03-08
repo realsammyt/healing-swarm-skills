@@ -556,6 +556,7 @@ A chronological record of major additions. [Full detailed timeline on the websit
 - **4 agents:** Hyperhumanism Researcher, Archaeoacoustic Guide, Holotechnica Architect, Umwelt Facilitator
 - **6 workflows:** archaeoacoustic-toning, sound-consciousness, holotechnica, hyperhumanism, umwelt, cyberdelic-research
 - **3 templates:** archaeoacoustic-toning, holotechnica-recipe, umwelt-exercise
+- **3 worked examples:** archaeoacoustic toning, holotechnica stack, umwelt practice
 - Shared resources updated: terminology, ethics-guardrails, contraindications
 
 ### 2026-03-04 — Integral Theory Skills & Website Showcase
@@ -609,7 +610,7 @@ A chronological record of major additions. [Full detailed timeline on the websit
 | Workflows             | 26    |
 | Templates             | 13    |
 | Shared Resources      | 9     |
-| Worked Examples       | 13    |
+| Worked Examples       | 16    |
 | Traditions Integrated | 20+   |
 
 ---

@@ -226,8 +226,8 @@ export function ExampleShowcase(): JSX.Element {
               <div className={styles.exampleFeature}>
                 <span className={styles.featureIcon}>✓</span>
                 <span>
-                  30+ skills across meditation, breathwork, integral theory, and
-                  more
+                  53 skills across meditation, breathwork, integral theory,
+                  archaeoacoustics, and more
                 </span>
               </div>
               <div className={styles.exampleFeature}>
@@ -240,6 +240,13 @@ export function ExampleShowcase(): JSX.Element {
                 <span className={styles.featureIcon}>✓</span>
                 <span>
                   Coherence meditation and consciousness research (Grinberg)
+                </span>
+              </div>
+              <div className={styles.exampleFeature}>
+                <span className={styles.featureIcon}>✓</span>
+                <span>
+                  Archaeoacoustic toning, holotechnica stacks, and umwelt
+                  practice (Carl Hayden Smith)
                 </span>
               </div>
               <div className={styles.exampleFeature}>
