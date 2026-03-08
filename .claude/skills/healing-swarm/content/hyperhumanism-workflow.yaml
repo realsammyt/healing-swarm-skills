@@ -1,0 +1,258 @@
+# Hyperhumanism Inquiry Workflow
+# Coordinates hyperhumanism-researcher, umwelt-facilitator, content-writer, ethics-guardian
+
+name: hyperhumanism-workflow
+version: 1.0.0
+description: |
+  Orchestrates guided philosophical inquiry on consciousness, technology, and
+  innate human capacities. Based on Carl Hayden Smith's Hyperhumanism framework.
+  Four phases: inventory, audit, reclamation, practice design.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse inquiry topic and determine focus
+    agent: orchestrator
+    actions:
+      - parse_request
+      - determine_inquiry_focus
+      - set_duration_target
+      - identify_capacity_domain
+
+  - name: research
+    description: Gather hyperhumanism context and capacity evidence
+    agent: hyperhumanism-researcher
+    inputs:
+      - inquiry_focus
+      - capacity_domain
+    outputs:
+      - hyperhumanism-context.md
+      - capacity-evidence.md
+      - technology-landscape.md
+
+  - name: inquiry_design
+    description: Design the four-phase inquiry experience
+    agent: umwelt-facilitator
+    inputs:
+      - hyperhumanism-context.md
+      - capacity-evidence.md
+      - technology-landscape.md
+      - inquiry_focus
+      - duration_target
+    outputs:
+      - inquiry-guide.md
+      - capacity-inventory-template.md
+      - micro-practice-design.md
+
+  - name: content_writing
+    description: Polish inquiry language for warmth and clarity
+    agent: content-writer
+    inputs:
+      - inquiry-guide.md
+      - capacity-inventory-template.md
+      - micro-practice-design.md
+      - capacity-evidence.md
+    outputs:
+      - draft-inquiry.md
+      - evidence-brief.md
+
+  - name: ethics_review
+    description: Review for appropriate framing — not anti-technology or shaming
+    agent: ethics-guardian
+    inputs:
+      - draft-inquiry.md
+      - evidence-brief.md
+      - micro-practice-design.md
+    outputs:
+      - ethics_approval
+      - framing_assessment
+      - required_modifications
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PRACTICE PARAMETERS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+practice_parameters:
+  durations:
+    brief:
+      total: 15
+      phases:
+        inventory: 5
+        audit: 3
+        reclamation: 4
+        practice_design: 3
+
+    standard:
+      total: 25
+      phases:
+        inventory: 7
+        audit: 5
+        reclamation: 7
+        practice_design: 6
+
+    deep:
+      total: 35
+      phases:
+        inventory: 10
+        audit: 7
+        reclamation: 10
+        practice_design: 8
+
+  inquiry_phases:
+    inventory:
+      description: Identify innate capacities you already possess
+      prompts:
+        - What can your body do without any technology?
+        - When do you feel most alive, most present, most yourself?
+        - What capacities did your ancestors have that you still carry?
+      capacities:
+        - breath
+        - wonder
+        - awe
+        - memory
+        - ritual
+        - imagination
+        - dreaming
+        - movement
+        - intuition
+        - empathy
+        - creativity
+        - presence
+
+    audit:
+      description: Where have these capacities been outsourced?
+      prompts:
+        - Which of these capacities do you now delegate to devices or apps?
+        - When did the outsourcing happen? Was it conscious or gradual?
+        - What do you gain and what do you lose in the exchange?
+      framing: NOT anti-technology. Curious, not judgmental.
+
+    reclamation:
+      description: Which capacity to reclaim? Why this one?
+      prompts:
+        - Which capacity feels most important to reconnect with?
+        - What would change if you exercised this capacity daily?
+        - What's the smallest step toward reclamation?
+
+    practice_design:
+      description: Design a concrete micro-practice (5-10 min daily)
+      parameters:
+        - duration: 5-10 minutes
+        - frequency: daily or near-daily
+        - equipment: none required
+        - location: wherever you already are
+      output: A specific, concrete practice the user can begin today
+
+  focus_areas:
+    - relationship_with_technology
+    - reclaiming_wonder
+    - presence_practice
+    - creative_capacity
+    - embodied_knowing
+    - memory_and_imagination
+    - ritual_and_meaning
+    - sensory_awareness
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTEGRATION PATTERNS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+integration:
+  sequential_execution:
+    - intake → research
+    - research → inquiry_design
+    - inquiry_design → content_writing
+    - content_writing → ethics_review
+
+  data_flow:
+    research_to_design:
+      - Hyperhumanism framework context
+      - Evidence for innate capacity value
+      - Technology landscape for audit phase
+    design_to_content:
+      - Four-phase inquiry script
+      - Capacity inventory template
+      - Micro-practice specifications
+    content_to_ethics:
+      - Polished inquiry guide
+      - Framing for anti-technology bias check
+      - Evidence claims
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  framing:
+    - NOT anti-technology (curious, not judgmental)
+    - NO shame or guilt about technology use
+    - Technology as catalyst, not enemy
+    - Reclamation as addition, not subtraction
+    - Practical outcomes (micro-practice), not just reflection
+
+  inquiry_design:
+    - All four phases present and balanced
+    - Prompts are open-ended, not leading
+    - Multiple capacity domains represented
+    - Micro-practice is concrete and actionable
+    - No equipment required for micro-practice
+
+  evidence_framing:
+    - Hyperhumanism labeled as theoretical framework
+    - Innate capacity research cited where available
+    - '"Suggests" language throughout'
+    - Smith properly attributed
+
+  safety:
+    - No pathologizing of technology use
+    - Grounding in practical action
+    - Option to explore at own pace
+    - No claims about technology causing harm
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  anti_technology_framing:
+    action: revise
+    message: Inquiry has shifted from curious to judgmental about technology
+    continue: true
+    require: reframe_as_curious_exploration
+
+  shame_guilt_detected:
+    action: revise
+    message: Language creates shame about technology use
+    continue: true
+    require: reframe_as_empowering_choice
+
+  impractical_micro_practice:
+    action: simplify
+    message: Designed micro-practice requires equipment or special conditions
+    continue: true
+    require: simplify_to_accessible_practice
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Technology relationship inquiry
+    invocation: /hyperhumanism-inquiry "my relationship with technology"
+    expected_output:
+      - 25-minute guided inquiry
+      - Capacity inventory
+      - Technology audit (non-judgmental)
+      - Reclamation commitment
+      - Designed micro-practice
+
+  - name: Focused wonder reclamation
+    invocation: /hyperhumanism-inquiry "reclaiming wonder" --focus awe
+    expected_output:
+      - Focused inquiry on awe/wonder capacity
+      - Evidence on benefits of awe experiences
+      - Practical wonder micro-practice
+      - Journal prompts

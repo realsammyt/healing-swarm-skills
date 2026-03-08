@@ -11,6 +11,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
+- **Hyperhumanism & Sound Consciousness Skills** (Carl Hayden Smith): 6 new skills —
+  Archaeoacoustic Toning (`/archaeoacoustic-toning`), Sound Consciousness
+  (`/sound-consciousness`), Holotechnica Stack (`/holotechnica-stack`),
+  Hyperhumanism Inquiry (`/hyperhumanism-inquiry`), Umwelt Practice
+  (`/umwelt-practice`), Cyberdelic Research (`/cyberdelic-research`)
+- **4 new agents**: Hyperhumanism Researcher, Archaeoacoustic Guide, Holotechnica
+  Architect, Umwelt Facilitator
+- **6 new workflows**: archaeoacoustic-toning, sound-consciousness, holotechnica,
+  hyperhumanism, umwelt, cyberdelic-research
+- **3 new templates**: archaeoacoustic-toning, holotechnica-recipe, umwelt-exercise
+- **Shared resources**: Hyperhumanism terminology, archaeoacoustic/umwelt/holotechnica
+  safety guardrails, extended contraindication matrix
+- **3 worked examples**: archaeoacoustic toning, holotechnica stack, umwelt practice
+- **6 skill documentation pages** with evidence-level labeling
 - **Development Timeline** (`website/docs/changelog.mdx`): Chronological record of all
   features, skills, agents, workflows, and templates with retroactive history from
   initial release through current date.
@@ -24,6 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.2.0] — 2026-03-04
 
 ### Added
+
 - **Integral Theory Skills** (Ken Wilber): 5 new skills based on AQAL metatheory —
   AQAL Check-In (`/aqal-check-in`), Shadow Integration (`/shadow-work`), Spectrum
   Meditation (`/spectrum-meditation`), Integral Psychograph (`/integral-psychograph`),
@@ -45,6 +61,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Acknowledgments**: Added Wilber, Grinberg, and developmental psychology traditions.
 
 ### Changed
+
 - `shared/terminology.md`: Added AQAL terms, Grinberg terms (Syntergic Theory,
   Lattice, Transferred Potential, Consciousness Orbitals).
 - `shared/ethics-guardrails.md`: Added pre/trans fallacy safety, shadow work scope

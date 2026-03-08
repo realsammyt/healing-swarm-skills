@@ -460,6 +460,157 @@ The most important safety concept in integral practice:
 
 ---
 
+## ARCHAEOACOUSTIC PRACTICE SAFETY
+
+### Audio Safety
+
+```
+✅ All frequencies must be within safe listening range (20 Hz – 20,000 Hz)
+✅ Volume must NEVER exceed comfortable listening levels
+✅ Hearing screening required before any sustained toning practice
+✅ Participants with tinnitus: low-volume humming only, no sustained single-frequency exposure
+✅ Participants with hearing aids: remove or adjust before proximity to speakers or bowls
+✅ Participants with epilepsy: some rhythmic sound patterns may be triggering — consult healthcare provider
+```
+
+### Vocal Safety
+
+```
+✅ Vocal warm-up required before toning at specific frequencies
+✅ No sustained toning for more than 5 minutes at a single frequency without pause
+✅ Throat discomfort = immediate stop
+✅ Voice rest recommended after extended sessions (30+ minutes)
+✅ Hydration available during all sessions
+```
+
+### Archaeoacoustic Evidence Framing
+
+```
+❌ NEVER claim frequencies "heal," "cure," or "activate" specific conditions
+❌ NEVER claim "DNA activation" or "cellular restructuring" at specific frequencies
+❌ NEVER present 432 Hz as a "natural frequency" or "frequency of the universe"
+❌ NEVER claim ancient builders had knowledge modern science lacks about consciousness
+```
+
+```
+✅ Acoustic measurements of ancient sites ARE documented (Jahn & Dunne 1992; Smith et al. 2023)
+✅ Claims about consciousness effects at specific frequencies are PRELIMINARY
+✅ "The site resonates at this frequency" is verifiable
+✅ "This frequency produces specific consciousness effects" requires honest evidence framing
+✅ EEG prefrontal shift at 110 Hz: ONE study (Cook et al. 2008, n=30) — interesting but not definitive
+```
+
+**Standard disclaimer for archaeoacoustic content:**
+
+> "Archaeoacoustic research documents measurable resonant frequencies in ancient
+> built environments. While the acoustic properties are well-documented, claims
+> about specific consciousness effects at these frequencies remain preliminary.
+> These practices are offered as contemplative exploration informed by
+> archaeoacoustic research, not as validated therapeutic interventions."
+
+---
+
+## UMWELT PRACTICE SAFETY
+
+### Dissociation Risk
+
+Perceiving-as-other exercises involve deliberate perceptual shifting.
+This requires careful screening and safety architecture.
+
+```
+❌ CONTRAINDICATED for:
+   - Active dissociative disorders (DID, DPDR, dissociative amnesia)
+   - Active derealization or depersonalization episodes
+   - Psychotic features or active psychosis
+   - Severe PTSD with dissociative features
+```
+
+```
+✅ Grounding anchors REQUIRED between every perceiving-as-other segment
+✅ Explicit return-to-default protocol REQUIRED at end of every practice
+✅ Time limit: perceiving-as-other segments should not exceed 5 minutes without grounding
+✅ Frame as "imagination exercise," not "becoming another entity"
+✅ "Imagine what it might be like to sense as..." NOT "You are now sensing as..."
+✅ Participants can stop at any point — this is ALWAYS stated
+```
+
+### Return-to-Default Protocol (REQUIRED)
+
+Every umwelt practice MUST end with:
+
+```
+1. Name 5 things you can see
+2. Name your full name aloud
+3. Touch a solid surface and describe its texture
+4. State today's date and your location
+5. Take 3 normal breaths before standing
+```
+
+**Standard disclaimer for umwelt practices:**
+
+> "This practice uses guided imagination to explore different ways of sensing.
+> You remain yourself throughout — this is an exercise in empathic imagination,
+> not an alteration of your identity. If at any point you feel disoriented or
+> disconnected from yourself, stop and use the grounding protocol."
+
+---
+
+## HOLOTECHNICA STACKING SAFETY
+
+### Pharmaco-Technology Hard Exclusion
+
+```
+❌ NEVER include substance-based ingredients in any Holotechnica stack
+❌ This includes: psychedelics, entheogens, alcohol, caffeine-based protocols, nootropics
+❌ If a user requests pharmaco-technology inclusion, decline with clear explanation
+```
+
+**Standard refusal statement:**
+
+> "Holotechnica stacks in this system use endo-technologies only — practices
+> that use your body's innate capacities. Substance-based approaches are outside
+> our scope. If you're interested in those approaches, consult a qualified
+> professional."
+
+### Additive Contraindication Logic
+
+```
+✅ If ANY ingredient in a stack is contraindicated for the user, the ENTIRE stack is contraindicated
+✅ Cross-check every ingredient against the contraindications database
+✅ Example: if breathwork is contraindicated (asthma, cardiovascular), any stack containing breathwork is contraindicated
+✅ Document which ingredient triggered the contraindication
+```
+
+### Stacking Intensity Limits
+
+```
+✅ Simple stacks (2 ingredients, ≤15 min): Standard safety
+✅ Standard stacks (3-4 ingredients, ≤30 min): Enhanced safety — grounding between ingredients
+✅ Extended stacks (5+ ingredients, ≤45 min): Maximum safety — grounding between every ingredient, integration journaling required
+❌ NEVER exceed 5 ingredients in a single stack for beginners
+❌ NEVER exceed 45 minutes total stack duration
+```
+
+### Altered Traits vs Altered States
+
+```
+✅ Holotechnica targets altered TRAITS (lasting change), not just altered STATES (temporary peaks)
+✅ Preparation and integration phases are NOT optional
+✅ Every stack includes: intention-setting → practice → integration journaling
+✅ Frame outcomes as "may support over time" not "will produce immediately"
+❌ NEVER promise specific altered states from specific ingredient combinations
+```
+
+**Standard disclaimer for holotechnica content:**
+
+> "This experience stack combines individually researched practices into a
+> designed sequence. While each ingredient has its own evidence base, the
+> specific combination is a theoretical framework. Effects vary between
+> individuals. The goal is lasting positive change (altered traits), not
+> temporary peak experiences."
+
+---
+
 ## ACKNOWLEDGMENT
 
 All agents in the healing swarm operate under these guardrails.

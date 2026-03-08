@@ -414,3 +414,88 @@ distinct epistemological foundations and should be presented on its own terms.
 **Note:** Wilber explicitly synthesizes across these traditions. His framework
 claims to include, not replace, each tradition's insights. Present parallels
 as Wilber's own cross-referencing, not as independent discovery.
+
+---
+
+## Hyperhumanism & Sound Consciousness Terminology (Smith)
+
+> Terms from the work of Carl Hayden Smith, Founder and Director of the Museum
+> of Consciousness at Balliol College, Oxford University. Co-founder of the
+> Cyberdelics Society. Developer of the Hyperhumanism framework.
+
+### Core Theoretical Concepts
+
+| Term                             | Definition                                                                                                                                                  | Evidence Status                                                                  |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| Hyperhumanism                    | Framework positioning technology as catalyst for innate human capacities rather than replacement; resisting "outsourcing our magic"                         | Theoretical framework                                                            |
+| Endo-technology                  | Internal practices — breathwork, sound, trance, hypnosis, meditation, visualization, dreaming, hypnagogic techniques                                        | Established (individual practices well-researched)                               |
+| Cyberdelic                       | External consciousness technology — sound/light machines, neurofeedback, binaural beats, VR/AR/XR, TMS, mindfulness apps                                    | Mixed (individual technologies vary widely)                                      |
+| Pharmaco-technology              | Substance-based approaches to altered states (psychedelics, entheogens) — EXCLUDED from all healing-swarm practices                                         | N/A (hard exclusion)                                                             |
+| Holotechnica                     | Combining endo-technologies into structured "experience stacks" — recipes for consciousness exploration; holo (whole) + technica (technique)                | Theoretical (individual components researched)                                   |
+| Altered States vs Altered Traits | Critical distinction: states are temporary peak experiences; traits are lasting developmental changes. Holotechnica targets traits                          | Research-supported (Goleman & Davidson 2017)                                     |
+| Archaeoacoustics                 | Study of sound properties in ancient built environments; how architecture was intentionally designed for acoustic/consciousness effects                     | Preliminary (Jahn & Dunne 1992; Smith et al. 2023)                               |
+| Sacred Frequencies               | Resonant frequencies found in ancient sites: 117 Hz (King's Chamber, Giza), 139.01 Hz (Saqqara), 369 Hz, 432 Hz (Egyptian temples)                          | Preliminary (acoustic measurements confirmed; consciousness effects preliminary) |
+| Museum of Consciousness          | Interactive audio-based exhibit installation for cultivating altered states; Smith's primary research platform at Oxford                                    | Documented (Smith et al. 2021, EVA)                                              |
+| Milliere's 6D Model              | Six dimensions of self-consciousness: sense of agency, sense of ownership, sense of self-location, first-person perspective, sense of unity, narrative self | Theoretical (Milliere 2017; philosophical framework)                             |
+| Umwelt                           | An organism's subjective perceptual world; the sensory environment as experienced by a particular being (von Uexkull 1934)                                  | Established (ethology/biosemiotics)                                              |
+| Umwelt Hacking                   | Deliberately shifting perceptual frames to experience sensing-as-other — "Can we sense like a forest, a mycelium network, or an octopus?"                   | Theoretical (Smith's framework)                                                  |
+| Experience Stacking              | Combining multiple endo-technologies in deliberate sequence for compounding effects; core method of Holotechnica                                            | Theoretical (individual components researched)                                   |
+| Consciousness Recipe             | A designed sequence of endo-technology ingredients with preparation, transitions, and integration; output of Holotechnica                                   | Theoretical                                                                      |
+
+### Practice Mode Terms (Smith)
+
+| Mode                            | Description                                                               | Standard Term            |
+| ------------------------------- | ------------------------------------------------------------------------- | ------------------------ |
+| Archaeoacoustic toning          | Vocal toning at sacred site resonant frequencies                          | "Archaeoacoustic toning" |
+| Sound consciousness exploration | Museum of Consciousness-style audio experience with self-assessment       | "Sound consciousness"    |
+| Holotechnica stacking           | Combining endo-technologies into consciousness recipes                    | "Holotechnica stack"     |
+| Hyperhumanist inquiry           | Philosophical inquiry on innate capacities and technology                 | "Hyperhumanism inquiry"  |
+| Umwelt practice                 | Sensory augmentation and perceiving-as-other exercises                    | "Umwelt practice"        |
+| Cyberdelic research             | Evidence review of consciousness technologies and endo-technology science | "Cyberdelic research"    |
+
+### Usage Guidelines
+
+**Formatting:** Italicize Smith-specific terms on first use: _hyperhumanism_, _holotechnica_, _umwelt hacking_
+
+**Required context when referencing Smith's work:**
+
+> "Carl Hayden Smith is the Founder and Director of the Museum of Consciousness
+> at Balliol College, Oxford University, and co-founder of the Cyberdelics
+> Society. His Hyperhumanism framework positions technology as a catalyst for
+> innate human capacities rather than a replacement."
+
+**Evidence labeling:** ALWAYS pair Smith terms with their evidence status:
+
+- "Smith's _hyperhumanism_ framework (a theoretical position, not an empirical claim)..."
+- "Archaeoacoustic measurements confirm resonant frequencies in ancient sites (Jahn & Dunne 1992, n=6 sites); consciousness effects are preliminary..."
+- "_Holotechnica_ combines individually researched practices into designed stacks; the stacking methodology itself is theoretical..."
+
+**HARD EXCLUSION — Pharmaco-technologies:**
+
+- NEVER include substance-based practices in any healing-swarm content
+- This applies to all Holotechnica stacks — ingredients are endo-technologies ONLY
+- If a user requests pharmaco-technology inclusion, decline and explain the exclusion
+
+### Key Frequencies Reference
+
+| Frequency | Site                                  | Source            | Evidence                                 |
+| --------- | ------------------------------------- | ----------------- | ---------------------------------------- |
+| 110 Hz    | Hal Saflieni Hypogeum, Malta          | Jahn & Dunne 1992 | EEG prefrontal shift (preliminary, n=30) |
+| 117 Hz    | King's Chamber, Great Pyramid of Giza | Smith et al. 2023 | Acoustic measurement confirmed           |
+| 139.01 Hz | Step Pyramid, Saqqara                 | Smith et al. 2023 | Acoustic measurement confirmed           |
+| 369 Hz    | Egyptian temples (various)            | Smith et al. 2023 | Acoustic measurement confirmed           |
+| 432 Hz    | Egyptian temples (various)            | Smith et al. 2023 | Acoustic measurement confirmed           |
+
+### Cross-Reference with Existing Traditions
+
+| Smith Concept          | Sound Healing Parallel               | Grinberg Parallel                            | Vedic Parallel                  | Integral Parallel      |
+| ---------------------- | ------------------------------------ | -------------------------------------------- | ------------------------------- | ---------------------- |
+| Archaeoacoustic toning | Vocal toning at specific frequencies | —                                            | Mantra at specific pitches      | —                      |
+| Holotechnica stacking  | —                                    | Self-allusive multi-domain awareness         | Integral Life Practice          | Integral Life Practice |
+| Umwelt hacking         | —                                    | Consciousness orbitals (expanded awareness)  | Pratyahara (sensory withdrawal) | State training         |
+| Hyperhumanism          | —                                    | —                                            | Svadhyaya (self-study)          | Lines of development   |
+| Altered traits         | —                                    | Interhemispheric coherence as lasting change | Samskara purification           | Stage development      |
+| Endo-technology        | Sound healing practices              | Meditation as consciousness technology       | Yoga/pranayama                  | Shadow process, ILP    |
+
+**Note:** Smith's framework explicitly synthesizes across traditions and technologies.
+Present his work as an integrative framework, not a standalone tradition.

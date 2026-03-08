@@ -1,0 +1,309 @@
+# Archaeoacoustic Toning Workflow
+# Coordinates hyperhumanism-researcher, archaeoacoustic-guide, content-writer, ethics-guardian
+
+name: archaeoacoustic-toning-workflow
+version: 1.0.0
+description: |
+  Orchestrates the creation of vocal toning practices at sacred site resonant
+  frequencies based on Carl Hayden Smith's archaeoacoustic research. Produces
+  guided toning sessions with frequency-specific segments, evidence context,
+  and safety framing.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse toning request and determine parameters
+    agent: orchestrator
+    actions:
+      - parse_request
+      - determine_depth_level
+      - identify_frequency_set
+      - set_duration_target
+      - check_contraindications
+
+  - name: research
+    description: Gather archaeoacoustic evidence and frequency data
+    agent: hyperhumanism-researcher
+    inputs:
+      - frequency_set
+      - depth_level
+    outputs:
+      - archaeoacoustic-context.md
+      - frequency-evidence.md
+      - site-history.md
+
+  - name: practice_creation
+    description: Design the toning practice protocol
+    agent: archaeoacoustic-guide
+    inputs:
+      - archaeoacoustic-context.md
+      - frequency-evidence.md
+      - site-history.md
+      - depth_level
+      - duration_target
+    outputs:
+      - toning-protocol.md
+      - session-timing.json
+      - quick-reference.md
+
+  - name: content_writing
+    description: Polish practice language and add framing
+    agent: content-writer
+    inputs:
+      - toning-protocol.md
+      - frequency-evidence.md
+      - quick-reference.md
+    outputs:
+      - draft-protocol.md
+      - evidence-brief.md
+
+  - name: ethics_review
+    description: Review for safety and appropriate evidence claims
+    agent: ethics-guardian
+    inputs:
+      - draft-protocol.md
+      - evidence-brief.md
+      - session-timing.json
+    outputs:
+      - ethics_approval
+      - required_modifications
+      - safety_additions
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PRACTICE PARAMETERS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+practice_parameters:
+  depths:
+    foundation:
+      total_minutes: 15
+      frequencies: 1
+      vocal_production: false
+      description: Single frequency, listening and gentle humming only
+      structure:
+        grounding: 2
+        frequency_intro: 2
+        listening: 4
+        gentle_humming: 4
+        silence_integration: 2
+        closing: 1
+
+    standard:
+      total_minutes: 20
+      frequencies: 2-3
+      vocal_production: true
+      description: Multiple frequencies with vocal matching
+      structure:
+        grounding: 2
+        warm_up_humming: 3
+        per_frequency:
+          listening: 1
+          humming: 1.5
+          open_vocal_tone: 1.5
+          harmonics_exploration: 1
+        silence_integration: 2
+        closing: 1
+
+    deep:
+      total_minutes: 25
+      frequencies: 4
+      vocal_production: true
+      description: Full spectrum with harmonics exploration
+      structure:
+        grounding: 2
+        warm_up_humming: 3
+        per_frequency:
+          listening: 1
+          humming: 1.5
+          open_vocal_tone: 1.5
+          harmonics_exploration: 1
+        extended_silence: 3
+        closing: 2
+
+  frequencies:
+    - hz: 110
+      site: Hal Saflieni Hypogeum, Malta
+      source: Jahn & Dunne 1992
+      evidence: EEG prefrontal shift (preliminary, n=30)
+      note: Not from Smith's research but related archaeoacoustic finding
+
+    - hz: 117
+      site: King's Chamber, Great Pyramid of Giza
+      source: Smith et al. 2023
+      evidence: Acoustic measurement confirmed
+
+    - hz: 139.01
+      site: Step Pyramid, Saqqara
+      source: Smith et al. 2023
+      evidence: Acoustic measurement confirmed
+
+    - hz: 369
+      site: Egyptian temples (various)
+      source: Smith et al. 2023
+      evidence: Acoustic measurement confirmed
+
+    - hz: 432
+      site: Egyptian temples (various)
+      source: Smith et al. 2023
+      evidence: Acoustic measurement confirmed
+
+  frequency_segment_structure:
+    listen:
+      duration_seconds: 60
+      instruction: Absorb the reference tone with eyes closed
+    hum:
+      duration_seconds: 90
+      instruction: Gently hum at or near the frequency
+    open_vocal_tone:
+      duration_seconds: 90
+      instruction: Open vowel toning at the frequency
+    explore_harmonics:
+      duration_seconds: 60
+      instruction: Explore natural overtones above the fundamental
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTEGRATION PATTERNS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+integration:
+  sequential_execution:
+    - intake → research
+    - research → practice_creation
+    - practice_creation → content_writing
+    - content_writing → ethics_review
+
+  data_flow:
+    research_to_practice:
+      - Frequency measurements and site context
+      - Archaeoacoustic evidence with honest limitations
+      - Historical context for each site
+    practice_to_content:
+      - Raw toning protocol with timing
+      - Quick reference card
+      - Frequency descriptions
+    content_to_ethics:
+      - Polished protocol
+      - Evidence claims for review
+      - Safety framing adequacy
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT STRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output_structure:
+  toning-protocol.md:
+    sections:
+      - title_and_metadata
+      - overview_and_evidence
+      - safety_briefing
+      - grounding_anchor
+      - warm_up
+      - frequency_segments
+      - silence_integration
+      - closing_and_grounding
+      - variations
+      - troubleshooting
+      - journal_prompt
+      - attribution_and_disclaimer
+
+  session-timing.json:
+    fields:
+      - total_duration_seconds
+      - phases_array
+      - frequency_segments
+      - bell_cues
+      - silence_periods
+
+  quick-reference.md:
+    sections:
+      - frequency_table
+      - session_structure
+      - safety_reminders
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  practice_design:
+    - Warm-up phase included before toning
+    - Grounding bookends (opening and closing)
+    - Silence intervals between frequency segments
+    - Volume guidance explicit and conservative
+    - Self-selected pitch encouraged where possible
+
+  evidence_framing:
+    - Acoustic measurements cited with sources
+    - Consciousness effects labeled as preliminary
+    - '"Documented resonance" not "sacred frequency"'
+    - Sample sizes noted
+    - No 432 Hz conspiracy claims
+
+  safety:
+    - Hearing screening referenced
+    - Vocal strain awareness included
+    - Volume never exceeds comfortable levels
+    - Contraindications listed
+    - Medical disclaimer present
+    - Stop-if symptoms listed
+
+  accessibility:
+    - Listening-only variation included
+    - Humming-only variation for vocal limitations
+    - Seated position (any comfortable arrangement)
+    - No musical training required
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  insufficient_research:
+    action: document_gap
+    message: Limited archaeoacoustic data for requested frequency
+    continue: true
+    note: Practice can proceed with available frequencies
+
+  safety_concern:
+    action: halt_and_review
+    message: Safety concern identified in toning protocol
+    continue: false
+    require: ethics_guardian_review
+
+  overclaims_detected:
+    action: revise
+    message: Evidence claims exceed archaeoacoustic data
+    continue: true
+    require: language_revision
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Foundation listening at King's Chamber frequency
+    invocation: '/archaeoacoustic-toning "King''s Chamber 117 Hz" --depth foundation'
+    expected_output:
+      - 15-minute listening practice
+      - Single frequency (117 Hz)
+      - Historical context for the Great Pyramid
+      - Evidence brief
+
+  - name: Standard Egyptian temple toning
+    invocation: /archaeoacoustic-toning "Egyptian temple series" --depth standard
+    expected_output:
+      - 20-minute toning practice
+      - 2-3 frequencies with vocal matching
+      - Site context for each frequency
+      - Session timing JSON
+
+  - name: Deep full-spectrum exploration
+    invocation: /archaeoacoustic-toning "full spectrum" --depth deep
+    expected_output:
+      - 25-minute practice with all frequencies
+      - Harmonics exploration
+      - Extended silence integration
+      - Complete evidence brief

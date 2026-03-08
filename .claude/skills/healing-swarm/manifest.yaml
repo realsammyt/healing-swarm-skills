@@ -553,6 +553,137 @@ skills:
       /sound-research "vagal toning via humming"
 
   # ─────────────────────────────────────────────────────────────────────────────
+  # HYPERHUMANISM & SOUND CONSCIOUSNESS SKILLS (Carl Hayden Smith)
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: archaeoacoustic-toning
+    trigger: /archaeoacoustic-toning
+    description: |
+      Guided vocal toning practices based on resonant frequencies of ancient
+      sacred sites. Progressive structure: listen, hum, tone, harmonics, silence.
+    category: sound
+    agents:
+      - hyperhumanism-researcher
+      - archaeoacoustic-guide
+      - content-writer
+      - ethics-guardian
+    requires_ethics_approval: true
+    workflow: content/archaeoacoustic-toning-workflow.yaml
+    templates:
+      - content/templates/archaeoacoustic-toning.md
+    outputs:
+      - toning-practice.md
+      - resonance-body-map.md
+      - evidence-brief.md
+    example_usage: |
+      /archaeoacoustic-toning "110 Hz King's Chamber" --depth standard
+
+  - name: sound-consciousness
+    trigger: /sound-consciousness
+    description: |
+      Museum of Consciousness-style audio experiences with Milliere 6D
+      self-assessment. Short consciousness samples with assessment between each.
+    category: sound
+    agents:
+      - hyperhumanism-researcher
+      - archaeoacoustic-guide
+      - content-writer
+      - ethics-guardian
+    requires_ethics_approval: true
+    workflow: content/sound-consciousness-workflow.yaml
+    outputs:
+      - consciousness-exhibit.md
+      - self-assessment-form.md
+      - evidence-brief.md
+    example_usage: |
+      /sound-consciousness "mindfulness samples" --duration 20
+
+  - name: holotechnica-stack
+    trigger: /holotechnica-stack
+    description: |
+      Personalized endo-technology experience stacks targeting altered traits.
+      NO pharmaco-technologies (HARD EXCLUSION).
+    category: consciousness
+    agents:
+      - hyperhumanism-researcher
+      - holotechnica-architect
+      - content-writer
+      - ethics-guardian
+    requires_ethics_approval: true
+    workflow: content/holotechnica-workflow.yaml
+    templates:
+      - content/templates/holotechnica-recipe.md
+    outputs:
+      - holotechnica-recipe.md
+      - ingredient-matrix.md
+      - integration-journal.md
+      - evidence-brief.md
+    example_usage: |
+      /holotechnica-stack "morning activation" --depth simple --duration 15
+
+  - name: hyperhumanism-inquiry
+    trigger: /hyperhumanism-inquiry
+    description: |
+      Guided philosophical inquiry on consciousness, technology, and innate
+      human capacities. Four phases: inventory, audit, reclamation, practice design.
+    category: consciousness
+    agents:
+      - hyperhumanism-researcher
+      - umwelt-facilitator
+      - content-writer
+      - ethics-guardian
+    requires_ethics_approval: true
+    workflow: content/hyperhumanism-workflow.yaml
+    outputs:
+      - inquiry-guide.md
+      - capacity-inventory.md
+      - micro-practice-design.md
+    example_usage: |
+      /hyperhumanism-inquiry "my relationship with technology"
+
+  - name: umwelt-practice
+    trigger: /umwelt-practice
+    description: |
+      Sensory augmentation exercises for perceiving-as-other and extending
+      the sensorium. CONTRAINDICATED for dissociative disorders.
+    category: consciousness
+    agents:
+      - hyperhumanism-researcher
+      - umwelt-facilitator
+      - content-writer
+      - ethics-guardian
+    requires_ethics_approval: true
+    workflow: content/umwelt-workflow.yaml
+    templates:
+      - content/templates/umwelt-exercise.md
+    outputs:
+      - umwelt-practice.md
+      - sensory-map.md
+      - grounding-guide.md
+    example_usage: |
+      /umwelt-practice "forest sensing" --level perceiving_as_other
+
+  - name: cyberdelic-research
+    trigger: /cyberdelic-research
+    description: |
+      Deep research into consciousness technologies and endo-technology
+      science. Covers evidence base, archaeoacoustics, consciousness models.
+    category: research
+    agents:
+      - hyperhumanism-researcher
+      - traditions-scholar
+      - clinical-researcher
+      - ethics-guardian
+    standalone: true
+    workflow: research/cyberdelic-research-workflow.yaml
+    outputs:
+      - research-brief.md
+      - evidence-synthesis.md
+      - technology-assessment.md
+    example_usage: |
+      /cyberdelic-research "endo-technology evidence base" --depth standard
+
+  # ─────────────────────────────────────────────────────────────────────────────
   # SOMATIC/MOVEMENT HEALING SKILLS
   # ─────────────────────────────────────────────────────────────────────────────
 
@@ -1172,6 +1303,23 @@ agents:
   # Sound Healing Agents
   sound-healing-guide:
     prompt: content/sound-healing-guide.md
+    tools: [Read, Write, Glob]
+
+  # Hyperhumanism & Sound Consciousness Agents (Carl Hayden Smith)
+  hyperhumanism-researcher:
+    prompt: research/hyperhumanism-researcher.md
+    tools: [WebSearch, WebFetch, Read, Glob, Grep]
+
+  archaeoacoustic-guide:
+    prompt: content/archaeoacoustic-guide.md
+    tools: [Read, Write, Glob]
+
+  holotechnica-architect:
+    prompt: content/holotechnica-architect.md
+    tools: [Read, Write, Glob]
+
+  umwelt-facilitator:
+    prompt: content/umwelt-facilitator.md
     tools: [Read, Write, Glob]
 
   # Somatic/Movement Agents

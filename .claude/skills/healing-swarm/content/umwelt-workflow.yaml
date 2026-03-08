@@ -1,0 +1,256 @@
+# Umwelt Practice Workflow
+# Coordinates hyperhumanism-researcher, umwelt-facilitator, content-writer, ethics-guardian
+
+name: umwelt-workflow
+version: 1.0.0
+description: |
+  Orchestrates sensory augmentation exercises for perceiving-as-other and
+  extending the sensorium. Based on Carl Hayden Smith's umwelt hacking
+  concept. Requires grounding and return-to-default protocol.
+  CONTRAINDICATED for dissociative disorders.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse practice request and screen for dissociation risk
+    agent: orchestrator
+    actions:
+      - parse_request
+      - determine_practice_level
+      - identify_target_organism
+      - screen_for_dissociation
+      - check_contraindications
+
+  - name: research
+    description: Gather umwelt research and organism sensory data
+    agent: hyperhumanism-researcher
+    inputs:
+      - target_organism
+      - practice_level
+    outputs:
+      - umwelt-context.md
+      - organism-sensory-profile.md
+      - embodied-cognition-evidence.md
+
+  - name: practice_design
+    description: Design the sensory augmentation practice
+    agent: umwelt-facilitator
+    inputs:
+      - umwelt-context.md
+      - organism-sensory-profile.md
+      - embodied-cognition-evidence.md
+      - practice_level
+      - duration_target
+    outputs:
+      - umwelt-practice.md
+      - sensory-map-template.md
+      - grounding-guide.md
+
+  - name: content_writing
+    description: Polish practice language with safety framing
+    agent: content-writer
+    inputs:
+      - umwelt-practice.md
+      - sensory-map-template.md
+      - embodied-cognition-evidence.md
+    outputs:
+      - draft-practice.md
+      - evidence-brief.md
+
+  - name: ethics_review
+    description: Review for dissociation safety and appropriate framing
+    agent: ethics-guardian
+    critical: true
+    inputs:
+      - draft-practice.md
+      - grounding-guide.md
+      - evidence-brief.md
+    outputs:
+      - ethics_approval
+      - dissociation_safety_assessment
+      - return_to_default_adequacy
+      - required_modifications
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PRACTICE PARAMETERS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+practice_parameters:
+  levels:
+    sensory_inventory:
+      duration: 10-15
+      description: Notice all active senses — no perceptual shifting
+      safety: standard
+      screening: none_additional
+      content:
+        - Notice visual field (center and periphery)
+        - Notice auditory landscape (near and far)
+        - Notice tactile sensations (skin, clothing, air)
+        - Notice proprioception (body position in space)
+        - Notice interoception (heartbeat, breath, temperature)
+        - Notice thermoception (warm and cool areas)
+        - Notice vestibular sense (balance, orientation)
+
+    sensory_foregrounding:
+      duration: 15-20
+      description: Foreground usually-background senses
+      safety: enhanced
+      screening: standard_mental_health
+      content:
+        - Select one background sense to foreground
+        - Sustained attention on proprioception (3-5 min)
+        - Sustained attention on interoception (3-5 min)
+        - Sustained attention on thermoception (3-5 min)
+        - Notice what changes when background becomes foreground
+        - Grounding between each sense focus
+
+    perceiving_as_other:
+      duration: 20-25
+      description: Guided imagination of sensing as another organism
+      safety: maximum
+      screening: full_tier_2_required
+      content:
+        - Grounding anchor (2 min)
+        - Organism introduction (what we know about its senses)
+        - Guided imagination (MAX 5 min segments)
+        - Grounding between segments (2 min)
+        - Return-to-default protocol (required)
+      contraindicated:
+        - Active dissociative disorders
+        - Active derealization or depersonalization
+        - Active psychosis
+        - Severe PTSD with dissociative features
+
+    integration:
+      duration: 5-10
+      description: Reflect on what the shift revealed
+      safety: standard
+      screening: none_additional
+      content:
+        - Compare sensory map before and after
+        - What did foregrounding/shifting reveal?
+        - What do you notice about your default umwelt?
+        - Journal prompts
+
+  target_organisms:
+    - name: forest
+      senses: Chemical signaling, root networks, light spectrum, seasonal timing
+      framing: '"Imagine a network of awareness through soil and air..."'
+
+    - name: mycelium_network
+      senses: Chemical gradients, moisture, nutrient detection, network signaling
+      framing: '"Imagine sensing as a vast underground network..."'
+
+    - name: octopus
+      senses: Distributed intelligence, chemotactile, color without color vision, body morphing
+      framing: '"Imagine intelligence distributed through eight arms..."'
+
+    - name: bat
+      senses: Echolocation, ultrasonic hearing, spatial mapping through sound
+      framing: '"Imagine building a world from echoes..."'
+
+    - name: whale
+      senses: Low-frequency communication, pressure sensing, magnetic navigation
+      framing: '"Imagine hearing across vast distances of water..."'
+
+  return_to_default_protocol:
+    required: true
+    steps:
+      - Name 5 things you can see
+      - Name your full name aloud
+      - Touch a solid surface and describe its texture
+      - State today's date and your location
+      - Take 3 normal breaths before standing
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  practice_design:
+    - Level-appropriate content
+    - Grounding between perceiving-as-other segments
+    - Return-to-default protocol at end
+    - Perceiving-as-other segments max 5 minutes
+    - Imagination framing throughout
+
+  safety:
+    - Dissociation screening for Level 3
+    - Return-to-default protocol present and complete
+    - '"Imagine" framing, not "you are now"'
+    - Stop-anytime messaging
+    - Contraindication list present
+
+  evidence_framing:
+    - Umwelt concept attributed (von Uexkull 1934)
+    - Embodied cognition research cited where available
+    - No claims of actual perceptual access
+    - '"Imagination exercise" framing consistent'
+
+  accessibility:
+    - Can be done seated anywhere
+    - No special equipment
+    - Adapted for vision or hearing limitations
+    - Written alternative for verbalization steps
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  dissociation_screening_failed:
+    action: limit_level
+    message: Screening indicates perceiving-as-other is contraindicated
+    continue: true
+    limit_to: sensory_inventory_or_foregrounding
+
+  missing_grounding:
+    action: add_grounding
+    message: Perceiving-as-other segment lacks grounding interval
+    continue: true
+    require: add_grounding_before_and_after
+
+  missing_return_to_default:
+    action: halt_and_add
+    message: Practice missing return-to-default protocol
+    continue: false
+    require: add_return_to_default_protocol
+
+  overclaims_about_perception:
+    action: revise
+    message: Language implies actual perceptual access to organism experience
+    continue: true
+    require: reframe_as_imagination
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Sensory inventory practice
+    invocation: /umwelt-practice "sensory inventory" --level inventory
+    expected_output:
+      - 15-minute sensory awareness practice
+      - Sensory map template
+      - No perceptual shifting
+      - Safe for all practitioners
+
+  - name: Forest perceiving-as-other
+    invocation: /umwelt-practice "forest sensing" --level perceiving_as_other
+    expected_output:
+      - 25-minute practice with screening
+      - Forest sensory profile
+      - Guided imagination (max 5 min segments)
+      - Grounding intervals
+      - Return-to-default protocol
+
+  - name: Sensory foregrounding
+    invocation: /umwelt-practice "proprioception focus" --level foregrounding
+    expected_output:
+      - 20-minute practice
+      - Proprioception foregrounding guide
+      - Before/after sensory map
+      - Gentle grounding throughout

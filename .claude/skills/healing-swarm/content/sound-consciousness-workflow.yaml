@@ -1,0 +1,230 @@
+# Sound Consciousness Workflow
+# Coordinates hyperhumanism-researcher, archaeoacoustic-guide, content-writer, ethics-guardian
+
+name: sound-consciousness-workflow
+version: 1.0.0
+description: |
+  Orchestrates the creation of Museum of Consciousness-style audio experiences
+  with Milliere 6D self-assessment. Produces guided sessions featuring short
+  consciousness samples with self-assessment between each.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse consciousness exploration request
+    agent: orchestrator
+    actions:
+      - parse_request
+      - determine_sample_types
+      - set_duration_target
+      - check_contraindications
+      - screen_for_dissociation_risk
+
+  - name: research
+    description: Gather consciousness research and assessment models
+    agent: hyperhumanism-researcher
+    inputs:
+      - sample_types
+      - duration_target
+    outputs:
+      - consciousness-models.md
+      - milliere-6d-reference.md
+      - sample-evidence.md
+
+  - name: exhibit_design
+    description: Design consciousness samples and experience flow
+    agent: archaeoacoustic-guide
+    inputs:
+      - consciousness-models.md
+      - milliere-6d-reference.md
+      - sample-evidence.md
+      - duration_target
+    outputs:
+      - exhibit-design.md
+      - sample-scripts/
+      - grounding-anchors.md
+
+  - name: assessment_design
+    description: Create self-assessment instruments
+    agent: archaeoacoustic-guide
+    inputs:
+      - milliere-6d-reference.md
+      - exhibit-design.md
+    outputs:
+      - self-assessment-form.md
+      - scoring-guide.md
+
+  - name: content_writing
+    description: Polish experience language and add framing
+    agent: content-writer
+    inputs:
+      - exhibit-design.md
+      - sample-scripts/
+      - self-assessment-form.md
+      - sample-evidence.md
+    outputs:
+      - consciousness-exhibit.md
+      - evidence-brief.md
+
+  - name: ethics_review
+    description: Review for dissociation safety and evidence claims
+    agent: ethics-guardian
+    critical: true
+    inputs:
+      - consciousness-exhibit.md
+      - self-assessment-form.md
+      - evidence-brief.md
+      - grounding-anchors.md
+    outputs:
+      - ethics_approval
+      - dissociation_safety_assessment
+      - required_modifications
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PRACTICE PARAMETERS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+practice_parameters:
+  durations:
+    standard:
+      total: 20
+      samples: 3-4
+      assessment_time: 2-3 min per sample
+    extended:
+      total: 30
+      samples: 5-6
+      assessment_time: 2-3 min per sample
+
+  sample_types:
+    - type: mindfulness_meditation
+      duration: 3-5 min
+      description: Brief guided mindfulness with body awareness
+      evidence: Well-established
+
+    - type: sound_journey
+      duration: 3-5 min
+      description: Guided sound listening with attention direction
+      evidence: Moderate (sound therapy research)
+
+    - type: breath_awareness
+      duration: 3-5 min
+      description: Breath-focused awareness practice
+      evidence: Well-established
+
+    - type: body_scan
+      duration: 3-5 min
+      description: Progressive body awareness scan
+      evidence: Well-established
+
+    - type: silence_practice
+      duration: 2-3 min
+      description: Sustained silence with open awareness
+      evidence: Moderate (meditation research)
+
+    - type: introspection
+      duration: 3-5 min
+      description: Guided self-inquiry with specific prompts
+      evidence: Preliminary (phenomenological methods)
+
+  milliere_6d_dimensions:
+    - dimension: sense_of_agency
+      prompt: '"How much do you feel in control of your actions right now?" (1-7)'
+    - dimension: sense_of_ownership
+      prompt: '"How much does your body feel like YOUR body right now?" (1-7)'
+    - dimension: sense_of_self_location
+      prompt: '"How clearly can you locate where YOU are in space?" (1-7)'
+    - dimension: first_person_perspective
+      prompt: '"How strongly do you experience the world from a single viewpoint?" (1-7)'
+    - dimension: sense_of_unity
+      prompt: '"How unified or fragmented does your experience feel?" (1-7)'
+    - dimension: narrative_self
+      prompt: '"How present is your life story / personal narrative right now?" (1-7)'
+
+  session_structure:
+    opening:
+      - Safety briefing and consent
+      - Baseline 6D self-assessment
+      - Grounding anchor
+    per_sample:
+      - Brief introduction (30 sec)
+      - Consciousness sample (3-5 min)
+      - Grounding anchor (30 sec)
+      - 6D self-assessment (2 min)
+      - Brief journaling (1 min optional)
+    closing:
+      - Final grounding
+      - Comparison reflection (baseline vs. current)
+      - Integration journaling
+      - Return-to-baseline protocol
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SAFETY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+safety:
+  contraindicated_conditions:
+    - Active psychosis or psychotic features
+    - Active dissociative disorders
+    - Severe derealization or depersonalization
+    - Recent psychiatric hospitalization (within 3 months)
+
+  required_safety_features:
+    - Dissociation screening before session
+    - Grounding anchor between every sample
+    - Return-to-baseline protocol at end
+    - Option to stop at any point
+    - No pressure to report specific experiences
+
+  grounding_anchor:
+    - Feel your feet on the floor
+    - Notice the weight of your body
+    - Name one thing you can hear
+    - Take two normal breaths
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  experience_design:
+    - Samples progress from familiar to novel
+    - Grounding anchors between every sample
+    - No sample exceeds 5 minutes
+    - Return-to-baseline protocol at end
+
+  assessment_integrity:
+    - 6D dimensions clearly explained
+    - No leading questions
+    - '"No right answer" framing throughout'
+    - Baseline measurement at start
+
+  safety:
+    - Dissociation screening included
+    - Grounding between every sample
+    - Stop-anytime messaging
+    - Medical disclaimer present
+    - Professional referral information
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Standard mindfulness-focused session
+    invocation: /sound-consciousness "mindfulness samples" --duration 20
+    expected_output:
+      - 20-minute guided experience
+      - 3-4 consciousness samples
+      - 6D self-assessment after each
+      - Evidence brief
+
+  - name: Extended introspection journey
+    invocation: /sound-consciousness "introspection journey" --depth deep
+    expected_output:
+      - 30-minute guided experience
+      - 5-6 consciousness samples
+      - Full 6D tracking across session
+      - Comparison reflection

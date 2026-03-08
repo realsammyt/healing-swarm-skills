@@ -1,0 +1,234 @@
+# Cyberdelic Research Workflow
+# Coordinates hyperhumanism-researcher, traditions-scholar, clinical-researcher, ethics-guardian
+
+name: cyberdelic-research-workflow
+version: 1.0.0
+description: |
+  Orchestrates deep research into consciousness technologies and endo-technology
+  science. Covers endo-technology evidence base, archaeoacoustic frequency
+  research, consciousness assessment models, and altered states vs traits
+  literature. Parallel research stages for efficiency.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse research request and determine scope
+    agent: orchestrator
+    actions:
+      - parse_request
+      - determine_research_domains
+      - set_depth_level
+      - identify_key_questions
+
+  - name: primary_research
+    description: Core research into Smith's work and endo-technology evidence
+    agent: hyperhumanism-researcher
+    parallel: true
+    inputs:
+      - research_domains
+      - key_questions
+    outputs:
+      - smith-literature-review.md
+      - endo-technology-evidence.md
+      - archaeoacoustic-research.md
+      - consciousness-models.md
+
+  - name: traditions_research
+    description: Historical and cultural context for consciousness technologies
+    agent: traditions-scholar
+    parallel: true
+    inputs:
+      - research_domains
+    outputs:
+      - traditions-context.md
+      - historical-sound-practices.md
+
+  - name: clinical_context
+    description: Clinical evidence for individual endo-technology practices
+    agent: clinical-researcher
+    parallel: true
+    inputs:
+      - research_domains
+    outputs:
+      - clinical-evidence.md
+      - altered-traits-literature.md
+
+  - name: synthesis
+    description: Synthesize all research streams into coherent output
+    agent: hyperhumanism-researcher
+    inputs:
+      - smith-literature-review.md
+      - endo-technology-evidence.md
+      - archaeoacoustic-research.md
+      - consciousness-models.md
+      - traditions-context.md
+      - clinical-evidence.md
+      - altered-traits-literature.md
+    outputs:
+      - research-brief.md
+      - evidence-synthesis.md
+      - technology-assessment.md
+
+  - name: ethics_review
+    description: Review for evidence standards and appropriate claims
+    agent: ethics-guardian
+    inputs:
+      - research-brief.md
+      - evidence-synthesis.md
+      - technology-assessment.md
+    outputs:
+      - ethics_approval
+      - evidence_standards_assessment
+      - required_modifications
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RESEARCH PARAMETERS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+research_parameters:
+  domains:
+    endo_technology_evidence:
+      description: Evidence base for internal consciousness practices
+      key_sources:
+        - Meditation research (systematic reviews)
+        - Breathwork studies (WHM, pranayama)
+        - Sound therapy and vagal stimulation
+        - Visualization and guided imagery
+        - Hypnagogic/hypnopompic research
+      output: Per-practice evidence summaries with quality ratings
+
+    archaeoacoustic_research:
+      description: Acoustic properties of ancient built environments
+      key_sources:
+        - Jahn & Dunne 1992 (JASA)
+        - Cook et al. 2008 (110 Hz EEG study)
+        - Smith et al. 2023 (EVA London)
+        - Smith et al. 2021 (Museum of Consciousness)
+      output: Frequency data, consciousness claims assessment
+
+    consciousness_assessment_models:
+      description: Models for measuring consciousness states and traits
+      key_sources:
+        - Milliere 6D model (2017)
+        - Hood mysticism scale
+        - Phenomenological approaches
+        - Neurophenomenology (Varela)
+      output: Model comparison, applicability assessment
+
+    altered_states_vs_traits:
+      description: What makes temporary states become lasting traits?
+      key_sources:
+        - Goleman & Davidson 2017 (Altered Traits)
+        - Long-term meditation research
+        - Neuroplasticity evidence
+        - Practice dosage research
+      output: State-to-trait mechanisms, evidence quality
+
+  depth_levels:
+    quick:
+      description: Summary-level research
+      expected_output: 2-3 page brief
+    standard:
+      description: Thorough research with citations
+      expected_output: 5-8 page research document
+    comprehensive:
+      description: Deep research with full bibliography
+      expected_output: 10-15 page research document with annotated bibliography
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTEGRATION PATTERNS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+integration:
+  parallel_execution:
+    - primary_research | traditions_research | clinical_context
+  sequential_after_parallel:
+    - "all parallel stages → synthesis"
+    - "synthesis → ethics_review"
+
+  data_flow:
+    parallel_to_synthesis:
+      - Smith literature and framework analysis
+      - Endo-technology evidence per practice
+      - Archaeological acoustics data
+      - Historical and cultural context
+      - Clinical evidence quality assessment
+      - Altered traits mechanisms
+    synthesis_to_ethics:
+      - Integrated research brief
+      - Evidence claims for review
+      - Technology assessments
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  evidence_standards:
+    - All claims supported by citations
+    - Sample sizes noted for empirical studies
+    - Evidence levels clearly labeled (theoretical/preliminary/moderate/well-established)
+    - Limitations stated for every finding
+    - '"Suggests" language, never "proves"'
+
+  source_quality:
+    - Primary sources preferred over secondary
+    - Peer-reviewed sources prioritized
+    - Conference proceedings accepted (EVA, etc.)
+    - Pre-prints noted as such
+    - Smith's theoretical work labeled as theoretical
+
+  synthesis_quality:
+    - Multiple research streams integrated coherently
+    - Contradictions between sources acknowledged
+    - Evidence gaps identified
+    - Recommendations grounded in evidence level
+    - Pharmaco-technology exclusion maintained
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  insufficient_sources:
+    action: document_gap
+    message: Limited research available for this domain
+    continue: true
+    note: State what is known and what remains unknown
+
+  conflicting_evidence:
+    action: present_both
+    message: Research streams conflict on this topic
+    continue: true
+    note: Present both sides with evidence quality assessment
+
+  overclaims_detected:
+    action: revise
+    message: Synthesis exceeds evidence quality
+    continue: true
+    require: language_revision_to_match_evidence
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Endo-technology evidence overview
+    invocation: /cyberdelic-research "endo-technology evidence base" --depth standard
+    expected_output:
+      - Evidence summary per endo-technology
+      - Quality ratings
+      - Gap analysis
+      - Recommendations
+
+  - name: Comprehensive archaeoacoustic review
+    invocation: /cyberdelic-research "archaeoacoustic consciousness effects" --depth comprehensive
+    expected_output:
+      - Full literature review
+      - Annotated bibliography
+      - Evidence quality assessment
+      - Honest limitations analysis
+      - Technology assessment
