@@ -18,11 +18,11 @@ contraindications is not bureaucratic caution — it is an expression of care.
 
 ## SEVERITY LEVELS
 
-| Level | Label | Meaning | Action |
-|-------|-------|---------|--------|
-| **Absolute** | NEVER do | Practice poses serious risk; no safe modification exists | Do NOT recommend. Redirect to safe alternatives |
-| **Relative** | WITH MODIFICATIONS | Practice may be safe with specific adaptations | Recommend modified version only. State modifications clearly |
-| **Caution** | PROCEED CAREFULLY | Practice is likely safe but warrants awareness | Note the consideration. Encourage self-monitoring. Recommend slower progression |
+| Level        | Label              | Meaning                                                  | Action                                                                          |
+| ------------ | ------------------ | -------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| **Absolute** | NEVER do           | Practice poses serious risk; no safe modification exists | Do NOT recommend. Redirect to safe alternatives                                 |
+| **Relative** | WITH MODIFICATIONS | Practice may be safe with specific adaptations           | Recommend modified version only. State modifications clearly                    |
+| **Caution**  | PROCEED CAREFULLY  | Practice is likely safe but warrants awareness           | Note the consideration. Encourage self-monitoring. Recommend slower progression |
 
 ---
 
@@ -30,16 +30,16 @@ contraindications is not bureaucratic caution — it is an expression of care.
 
 ### Pregnancy
 
-| Practice | Severity | Notes |
-|----------|----------|-------|
-| **Breathwork (WHM)** | Absolute | Breath holds and hyperventilation contraindicated. Risk of fetal hypoxia, syncope |
-| **Cold exposure (immersion)** | Absolute | Risk of cold shock, vasoconstriction affecting placental blood flow |
+| Practice                              | Severity | Notes                                                                                        |
+| ------------------------------------- | -------- | -------------------------------------------------------------------------------------------- |
+| **Breathwork (WHM)**                  | Absolute | Breath holds and hyperventilation contraindicated. Risk of fetal hypoxia, syncope            |
+| **Cold exposure (immersion)**         | Absolute | Risk of cold shock, vasoconstriction affecting placental blood flow                          |
 | **Cold exposure (brief cool shower)** | Relative | Brief cool (not cold) exposure may be acceptable in second trimester with provider clearance |
-| **Intensive meditation (>30 min)** | Caution | May surface intense emotions; ensure grounding support available |
-| **Transpersonal practices** | Absolute | Destabilization risk during vulnerable period |
-| **Paired practices** | Caution | Ensure comfort and consent; emotional sensitivity heightened |
-| **Movement/somatic** | Relative | Avoid supine positions after first trimester, modify for balance changes, avoid inversions |
-| **Sound healing** | Caution | Generally safe; avoid extremely low frequencies near abdomen |
+| **Intensive meditation (>30 min)**    | Caution  | May surface intense emotions; ensure grounding support available                             |
+| **Transpersonal practices**           | Absolute | Destabilization risk during vulnerable period                                                |
+| **Paired practices**                  | Caution  | Ensure comfort and consent; emotional sensitivity heightened                                 |
+| **Movement/somatic**                  | Relative | Avoid supine positions after first trimester, modify for balance changes, avoid inversions   |
+| **Sound healing**                     | Caution  | Generally safe; avoid extremely low frequencies near abdomen                                 |
 
 **Required:** Healthcare provider clearance before any practice during pregnancy.
 
@@ -47,15 +47,15 @@ contraindications is not bureaucratic caution — it is an expression of care.
 
 ### Cardiovascular Disease
 
-| Practice | Severity | Notes |
-|----------|----------|-------|
-| **Breathwork (WHM)** | Absolute | Breath holds, forced hyperventilation contraindicated. Risk of arrhythmia, syncope |
-| **Cold exposure** | Absolute | Cold shock triggers sympathetic surge, vasoconstriction. Risk of cardiac event |
-| **Intensive meditation** | Caution | Generally safe; monitor if meditation-induced relaxation causes significant blood pressure drop |
-| **Transpersonal practices** | Relative | Avoid practices that produce intense sympathetic arousal |
-| **Paired practices** | Caution | Generally safe; emotional intensity may raise heart rate and blood pressure |
-| **Movement/somatic** | Relative | Modify intensity; avoid breath holds, inversions, and sudden position changes |
-| **Sound healing** | Caution | Generally safe; avoid startling percussive sounds |
+| Practice                    | Severity | Notes                                                                                           |
+| --------------------------- | -------- | ----------------------------------------------------------------------------------------------- |
+| **Breathwork (WHM)**        | Absolute | Breath holds, forced hyperventilation contraindicated. Risk of arrhythmia, syncope              |
+| **Cold exposure**           | Absolute | Cold shock triggers sympathetic surge, vasoconstriction. Risk of cardiac event                  |
+| **Intensive meditation**    | Caution  | Generally safe; monitor if meditation-induced relaxation causes significant blood pressure drop |
+| **Transpersonal practices** | Relative | Avoid practices that produce intense sympathetic arousal                                        |
+| **Paired practices**        | Caution  | Generally safe; emotional intensity may raise heart rate and blood pressure                     |
+| **Movement/somatic**        | Relative | Modify intensity; avoid breath holds, inversions, and sudden position changes                   |
+| **Sound healing**           | Caution  | Generally safe; avoid startling percussive sounds                                               |
 
 **Required:** Cardiologist clearance before any breathwork, cold exposure, or physically intensive practice.
 
@@ -63,15 +63,15 @@ contraindications is not bureaucratic caution — it is an expression of care.
 
 ### Epilepsy / Seizure Disorders
 
-| Practice | Severity | Notes |
-|----------|----------|-------|
-| **Breathwork (WHM)** | Absolute | Hyperventilation is a known seizure trigger. Breath holds lower seizure threshold |
-| **Cold exposure** | Relative | Seizure in water is drowning risk. Land-based cold exposure with supervision may be acceptable |
-| **Intensive meditation** | Relative | Extended sessions may lower seizure threshold in some individuals. Keep sessions moderate length |
-| **Transpersonal practices** | Absolute | Altered states may trigger seizures in susceptible individuals |
-| **Paired practices** | Caution | Safe if no seizure-provoking elements; partner should know seizure first aid |
-| **Movement/somatic** | Caution | Avoid flashing lights, rapid spinning, hyperventilation components |
-| **Sound healing** | Relative | Avoid binaural beats and photic driving; some frequencies may lower seizure threshold |
+| Practice                    | Severity | Notes                                                                                            |
+| --------------------------- | -------- | ------------------------------------------------------------------------------------------------ |
+| **Breathwork (WHM)**        | Absolute | Hyperventilation is a known seizure trigger. Breath holds lower seizure threshold                |
+| **Cold exposure**           | Relative | Seizure in water is drowning risk. Land-based cold exposure with supervision may be acceptable   |
+| **Intensive meditation**    | Relative | Extended sessions may lower seizure threshold in some individuals. Keep sessions moderate length |
+| **Transpersonal practices** | Absolute | Altered states may trigger seizures in susceptible individuals                                   |
+| **Paired practices**        | Caution  | Safe if no seizure-provoking elements; partner should know seizure first aid                     |
+| **Movement/somatic**        | Caution  | Avoid flashing lights, rapid spinning, hyperventilation components                               |
+| **Sound healing**           | Relative | Avoid binaural beats and photic driving; some frequencies may lower seizure threshold            |
 
 **Required:** Neurologist clearance. Ensure seizure action plan is available.
 
@@ -79,15 +79,15 @@ contraindications is not bureaucratic caution — it is an expression of care.
 
 ### Psychotic Disorders (Schizophrenia, Schizoaffective)
 
-| Practice | Severity | Notes |
-|----------|----------|-------|
-| **Breathwork (WHM)** | Absolute | Altered states may exacerbate psychotic symptoms |
-| **Cold exposure** | Relative | Brief, moderate cold exposure may be safe when stable; avoid extremes |
-| **Intensive meditation** | Absolute | Extended meditation, sensory deprivation, and silence can trigger or worsen psychotic episodes |
-| **Transpersonal practices** | Absolute | Reality-boundary practices contraindicated |
-| **Paired practices** | Absolute | Interpersonal intensity and boundary dissolution risk |
-| **Movement/somatic** | Caution | Gentle, structured movement generally safe. Avoid dissociation-prone practices |
-| **Sound healing** | Relative | Gentle, structured sound safe; avoid hypnotic or trance-inducing modalities |
+| Practice                    | Severity | Notes                                                                                          |
+| --------------------------- | -------- | ---------------------------------------------------------------------------------------------- |
+| **Breathwork (WHM)**        | Absolute | Altered states may exacerbate psychotic symptoms                                               |
+| **Cold exposure**           | Relative | Brief, moderate cold exposure may be safe when stable; avoid extremes                          |
+| **Intensive meditation**    | Absolute | Extended meditation, sensory deprivation, and silence can trigger or worsen psychotic episodes |
+| **Transpersonal practices** | Absolute | Reality-boundary practices contraindicated                                                     |
+| **Paired practices**        | Absolute | Interpersonal intensity and boundary dissolution risk                                          |
+| **Movement/somatic**        | Caution  | Gentle, structured movement generally safe. Avoid dissociation-prone practices                 |
+| **Sound healing**           | Relative | Gentle, structured sound safe; avoid hypnotic or trance-inducing modalities                    |
 
 **Required:** Psychiatrist clearance. Only gentle, grounding practices when stable.
 
@@ -95,15 +95,15 @@ contraindications is not bureaucratic caution — it is an expression of care.
 
 ### Dissociative Disorders (DID, DPDR, Dissociative Amnesia)
 
-| Practice | Severity | Notes |
-|----------|----------|-------|
-| **Breathwork (WHM)** | Absolute | Hyperventilation may trigger dissociative episodes |
-| **Cold exposure** | Relative | Brief cold may actually ground; however, intense cold can trigger dissociation. Use only with therapeutic guidance |
-| **Intensive meditation** | Absolute | Body scans, prolonged silence, and eyes-closed meditation may trigger dissociation |
-| **Transpersonal practices** | Absolute | Boundary dissolution is the core risk for this population |
-| **Paired practices** | Absolute | Interpersonal enmeshment risk with dissociative conditions |
-| **Movement/somatic** | Relative | Grounding movement (walking, gentle yoga) beneficial; avoid practices that invoke "leaving the body" |
-| **Sound healing** | Relative | Grounding sounds safe; avoid trance-inducing or hypnotic modalities |
+| Practice                    | Severity | Notes                                                                                                              |
+| --------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Breathwork (WHM)**        | Absolute | Hyperventilation may trigger dissociative episodes                                                                 |
+| **Cold exposure**           | Relative | Brief cold may actually ground; however, intense cold can trigger dissociation. Use only with therapeutic guidance |
+| **Intensive meditation**    | Absolute | Body scans, prolonged silence, and eyes-closed meditation may trigger dissociation                                 |
+| **Transpersonal practices** | Absolute | Boundary dissolution is the core risk for this population                                                          |
+| **Paired practices**        | Absolute | Interpersonal enmeshment risk with dissociative conditions                                                         |
+| **Movement/somatic**        | Relative | Grounding movement (walking, gentle yoga) beneficial; avoid practices that invoke "leaving the body"               |
+| **Sound healing**           | Relative | Grounding sounds safe; avoid trance-inducing or hypnotic modalities                                                |
 
 **Required:** Therapist specializing in dissociative disorders must be actively involved.
 
@@ -111,15 +111,15 @@ contraindications is not bureaucratic caution — it is an expression of care.
 
 ### PTSD (Post-Traumatic Stress Disorder)
 
-| Practice | Severity | Notes |
-|----------|----------|-------|
-| **Breathwork (WHM)** | Relative | Gentle breathwork may help; intensive breathwork may trigger flashbacks. Start very slowly |
-| **Cold exposure** | Relative | May trigger trauma responses depending on trauma type. Approach gradually with therapist awareness |
-| **Intensive meditation** | Relative | Body scans and silence can surface trauma. Use shorter sessions, open eyes, therapist-informed approach |
-| **Transpersonal practices** | Absolute | Risk of retraumatization and destabilization without therapeutic containment |
-| **Paired practices** | Relative | May be beneficial for safe connection; requires strong consent protocols and trauma-informed facilitation |
-| **Movement/somatic** | Caution | Often very beneficial (yoga, tai chi for PTSD well-studied). Trauma-informed instruction essential |
-| **Sound healing** | Caution | Generally safe; be aware of sound triggers (drums, sudden percussion may startle) |
+| Practice                    | Severity | Notes                                                                                                     |
+| --------------------------- | -------- | --------------------------------------------------------------------------------------------------------- |
+| **Breathwork (WHM)**        | Relative | Gentle breathwork may help; intensive breathwork may trigger flashbacks. Start very slowly                |
+| **Cold exposure**           | Relative | May trigger trauma responses depending on trauma type. Approach gradually with therapist awareness        |
+| **Intensive meditation**    | Relative | Body scans and silence can surface trauma. Use shorter sessions, open eyes, therapist-informed approach   |
+| **Transpersonal practices** | Absolute | Risk of retraumatization and destabilization without therapeutic containment                              |
+| **Paired practices**        | Relative | May be beneficial for safe connection; requires strong consent protocols and trauma-informed facilitation |
+| **Movement/somatic**        | Caution  | Often very beneficial (yoga, tai chi for PTSD well-studied). Trauma-informed instruction essential        |
+| **Sound healing**           | Caution  | Generally safe; be aware of sound triggers (drums, sudden percussion may startle)                         |
 
 **Required:** Trauma-informed therapist involvement recommended for all intensive practices.
 
@@ -127,15 +127,15 @@ contraindications is not bureaucratic caution — it is an expression of care.
 
 ### Bipolar Disorder
 
-| Practice | Severity | Notes |
-|----------|----------|-------|
-| **Breathwork (WHM)** | Absolute | Stimulating breathwork may trigger manic episodes. Even in euthymic states, risk is elevated |
-| **Cold exposure** | Relative | Brief cold exposure may be safe when euthymic; avoid during manic or depressive episodes |
-| **Intensive meditation** | Relative | Moderate meditation safe when stable; extended retreat settings may destabilize. Monitor sleep carefully |
-| **Transpersonal practices** | Absolute | Mystical experiences may trigger mania or be indistinguishable from manic grandiosity |
-| **Paired practices** | Relative | Safe when euthymic with appropriate boundaries; avoid during mood episodes |
-| **Movement/somatic** | Caution | Regular, moderate movement beneficial for mood stability |
-| **Sound healing** | Caution | Generally safe; avoid intensely stimulating modalities |
+| Practice                    | Severity | Notes                                                                                                    |
+| --------------------------- | -------- | -------------------------------------------------------------------------------------------------------- |
+| **Breathwork (WHM)**        | Absolute | Stimulating breathwork may trigger manic episodes. Even in euthymic states, risk is elevated             |
+| **Cold exposure**           | Relative | Brief cold exposure may be safe when euthymic; avoid during manic or depressive episodes                 |
+| **Intensive meditation**    | Relative | Moderate meditation safe when stable; extended retreat settings may destabilize. Monitor sleep carefully |
+| **Transpersonal practices** | Absolute | Mystical experiences may trigger mania or be indistinguishable from manic grandiosity                    |
+| **Paired practices**        | Relative | Safe when euthymic with appropriate boundaries; avoid during mood episodes                               |
+| **Movement/somatic**        | Caution  | Regular, moderate movement beneficial for mood stability                                                 |
+| **Sound healing**           | Caution  | Generally safe; avoid intensely stimulating modalities                                                   |
 
 **Required:** Psychiatrist clearance. Monitor for sleep disruption (early warning of mood episode).
 
@@ -143,15 +143,15 @@ contraindications is not bureaucratic caution — it is an expression of care.
 
 ### Respiratory Conditions (Asthma, COPD)
 
-| Practice | Severity | Notes |
-|----------|----------|-------|
-| **Breathwork (WHM)** | Absolute | Forced breathing patterns may trigger bronchospasm, air trapping, or respiratory failure |
-| **Cold exposure** | Relative | Cold air is a common asthma trigger. Cold water immersion may be tolerated with medical clearance |
-| **Intensive meditation** | Caution | Safe; breath-focused meditation should use observation, not manipulation, of breath |
-| **Transpersonal practices** | Caution | Avoid any component involving breath manipulation |
-| **Paired practices** | Caution | Safe; ensure rescue inhaler accessible |
-| **Movement/somatic** | Relative | Moderate activity generally safe; have rescue medication available |
-| **Sound healing** | Caution | Generally safe; toning/chanting may be modified for those with limited lung capacity |
+| Practice                    | Severity | Notes                                                                                             |
+| --------------------------- | -------- | ------------------------------------------------------------------------------------------------- |
+| **Breathwork (WHM)**        | Absolute | Forced breathing patterns may trigger bronchospasm, air trapping, or respiratory failure          |
+| **Cold exposure**           | Relative | Cold air is a common asthma trigger. Cold water immersion may be tolerated with medical clearance |
+| **Intensive meditation**    | Caution  | Safe; breath-focused meditation should use observation, not manipulation, of breath               |
+| **Transpersonal practices** | Caution  | Avoid any component involving breath manipulation                                                 |
+| **Paired practices**        | Caution  | Safe; ensure rescue inhaler accessible                                                            |
+| **Movement/somatic**        | Relative | Moderate activity generally safe; have rescue medication available                                |
+| **Sound healing**           | Caution  | Generally safe; toning/chanting may be modified for those with limited lung capacity              |
 
 **Required:** Pulmonologist clearance before breathwork. Rescue inhaler must be within reach during any practice.
 
@@ -159,15 +159,15 @@ contraindications is not bureaucratic caution — it is an expression of care.
 
 ### Recent Surgery (Within 6 Weeks)
 
-| Practice | Severity | Notes |
-|----------|----------|-------|
-| **Breathwork (WHM)** | Absolute | Breath holds increase intra-abdominal/thoracic pressure. Risk to surgical sites |
-| **Cold exposure** | Relative | May impair wound healing via vasoconstriction. Surgeon clearance required |
-| **Intensive meditation** | Caution | Safe; comfortable positioning may be challenging |
-| **Transpersonal practices** | Relative | Anesthesia after-effects may interact; wait until fully recovered |
-| **Paired practices** | Caution | Safe if physically comfortable |
-| **Movement/somatic** | Absolute to Relative | Depends entirely on surgery type and location. Follow surgeon's activity restrictions |
-| **Sound healing** | Caution | Generally safe |
+| Practice                    | Severity             | Notes                                                                                 |
+| --------------------------- | -------------------- | ------------------------------------------------------------------------------------- |
+| **Breathwork (WHM)**        | Absolute             | Breath holds increase intra-abdominal/thoracic pressure. Risk to surgical sites       |
+| **Cold exposure**           | Relative             | May impair wound healing via vasoconstriction. Surgeon clearance required             |
+| **Intensive meditation**    | Caution              | Safe; comfortable positioning may be challenging                                      |
+| **Transpersonal practices** | Relative             | Anesthesia after-effects may interact; wait until fully recovered                     |
+| **Paired practices**        | Caution              | Safe if physically comfortable                                                        |
+| **Movement/somatic**        | Absolute to Relative | Depends entirely on surgery type and location. Follow surgeon's activity restrictions |
+| **Sound healing**           | Caution              | Generally safe                                                                        |
 
 **Required:** Surgeon clearance before resuming any physically active practice.
 
@@ -175,15 +175,15 @@ contraindications is not bureaucratic caution — it is an expression of care.
 
 ### Chronic Pain Conditions (Fibromyalgia, Chronic Back Pain, Neuropathy)
 
-| Practice | Severity | Notes |
-|----------|----------|-------|
-| **Breathwork (WHM)** | Relative | Gentle breathwork may help pain management; intensive protocols may sensitize. Start slowly |
-| **Cold exposure** | Relative | Brief cold may help some conditions (inflammation); may worsen others (neuropathy). Individualized approach |
-| **Intensive meditation** | Caution | Mindfulness-based pain management well-studied. Body scans may increase pain awareness initially |
-| **Transpersonal practices** | Caution | Avoid if pain is destabilizing; may be appropriate for stable, psychologically supported individuals |
-| **Paired practices** | Caution | Safe with appropriate physical accommodations |
-| **Movement/somatic** | Relative | Often very beneficial; must be adapted to individual capacity. "Start low, go slow" |
-| **Sound healing** | Caution | Generally safe; may provide analgesic benefit |
+| Practice                    | Severity | Notes                                                                                                       |
+| --------------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
+| **Breathwork (WHM)**        | Relative | Gentle breathwork may help pain management; intensive protocols may sensitize. Start slowly                 |
+| **Cold exposure**           | Relative | Brief cold may help some conditions (inflammation); may worsen others (neuropathy). Individualized approach |
+| **Intensive meditation**    | Caution  | Mindfulness-based pain management well-studied. Body scans may increase pain awareness initially            |
+| **Transpersonal practices** | Caution  | Avoid if pain is destabilizing; may be appropriate for stable, psychologically supported individuals        |
+| **Paired practices**        | Caution  | Safe with appropriate physical accommodations                                                               |
+| **Movement/somatic**        | Relative | Often very beneficial; must be adapted to individual capacity. "Start low, go slow"                         |
+| **Sound healing**           | Caution  | Generally safe; may provide analgesic benefit                                                               |
 
 **Required:** Pain specialist or primary care provider awareness recommended.
 
@@ -191,15 +191,15 @@ contraindications is not bureaucratic caution — it is an expression of care.
 
 ### Hypertension
 
-| Practice | Severity | Notes |
-|----------|----------|-------|
-| **Breathwork (WHM)** | Relative | Breath holds increase blood pressure. Gentle, slow breathing (extended exhale) may actually help. Avoid forced techniques |
-| **Cold exposure** | Absolute | Cold triggers vasoconstriction and acute blood pressure spike. Dangerous for uncontrolled hypertension |
-| **Intensive meditation** | Caution | Generally beneficial for blood pressure; well-studied |
-| **Transpersonal practices** | Caution | Avoid intensely arousing practices |
-| **Paired practices** | Caution | Safe |
-| **Movement/somatic** | Caution | Regular moderate movement beneficial; avoid heavy straining, breath holds, inversions |
-| **Sound healing** | Caution | Generally safe |
+| Practice                    | Severity | Notes                                                                                                                     |
+| --------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| **Breathwork (WHM)**        | Relative | Breath holds increase blood pressure. Gentle, slow breathing (extended exhale) may actually help. Avoid forced techniques |
+| **Cold exposure**           | Absolute | Cold triggers vasoconstriction and acute blood pressure spike. Dangerous for uncontrolled hypertension                    |
+| **Intensive meditation**    | Caution  | Generally beneficial for blood pressure; well-studied                                                                     |
+| **Transpersonal practices** | Caution  | Avoid intensely arousing practices                                                                                        |
+| **Paired practices**        | Caution  | Safe                                                                                                                      |
+| **Movement/somatic**        | Caution  | Regular moderate movement beneficial; avoid heavy straining, breath holds, inversions                                     |
+| **Sound healing**           | Caution  | Generally safe                                                                                                            |
 
 **Required:** Primary care provider clearance. Blood pressure should be reasonably controlled before beginning practices.
 
@@ -207,15 +207,15 @@ contraindications is not bureaucratic caution — it is an expression of care.
 
 ### Diabetes (Type 1 and Type 2)
 
-| Practice | Severity | Notes |
-|----------|----------|-------|
-| **Breathwork (WHM)** | Relative | WHM may affect blood glucose levels. Monitor before and after. Avoid if glucose is unstable |
-| **Cold exposure** | Relative | Impaired thermoregulation and peripheral neuropathy increase risk. Brief, supervised only. Monitor glucose |
-| **Intensive meditation** | Caution | Safe; may improve stress-related glucose fluctuations |
-| **Transpersonal practices** | Caution | Ensure glucose monitoring during extended sessions |
-| **Paired practices** | Caution | Safe |
-| **Movement/somatic** | Caution | Beneficial; monitor blood glucose before and after. Have fast-acting glucose available |
-| **Sound healing** | Caution | Safe |
+| Practice                    | Severity | Notes                                                                                                      |
+| --------------------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| **Breathwork (WHM)**        | Relative | WHM may affect blood glucose levels. Monitor before and after. Avoid if glucose is unstable                |
+| **Cold exposure**           | Relative | Impaired thermoregulation and peripheral neuropathy increase risk. Brief, supervised only. Monitor glucose |
+| **Intensive meditation**    | Caution  | Safe; may improve stress-related glucose fluctuations                                                      |
+| **Transpersonal practices** | Caution  | Ensure glucose monitoring during extended sessions                                                         |
+| **Paired practices**        | Caution  | Safe                                                                                                       |
+| **Movement/somatic**        | Caution  | Beneficial; monitor blood glucose before and after. Have fast-acting glucose available                     |
+| **Sound healing**           | Caution  | Safe                                                                                                       |
 
 **Required:** Endocrinologist or primary care awareness. Glucose monitoring supplies must be accessible.
 
@@ -250,6 +250,7 @@ Before recommending any practice, agents MUST gather the following:
 ### Tier 3: Practice-Specific Screening
 
 **Before breathwork (WHM):**
+
 ```
 ✅ "Have you ever fainted or felt close to fainting?"
 ✅ "Do you have epilepsy or a seizure disorder?"
@@ -258,6 +259,7 @@ Before recommending any practice, agents MUST gather the following:
 ```
 
 **Before cold exposure:**
+
 ```
 ✅ "Do you have any heart or circulatory conditions?"
 ✅ "Do you have Raynaud's disease or cold sensitivity?"
@@ -266,6 +268,7 @@ Before recommending any practice, agents MUST gather the following:
 ```
 
 **Before intensive meditation (retreat, extended sessions):**
+
 ```
 ✅ "Have you experienced dissociation or depersonalization?"
 ✅ "Do you have a history of psychosis or mania?"
@@ -274,6 +277,7 @@ Before recommending any practice, agents MUST gather the following:
 ```
 
 **Before transpersonal practices:**
+
 ```
 ✅ All Tier 2 questions are REQUIRED
 ✅ "Have you done transpersonal or consciousness practices before?"
@@ -327,20 +331,20 @@ any modifications."
 
 ### Conditions to Practices — Summary View
 
-| Condition | WHM Breathwork | Cold Exposure | Intensive Meditation | Transpersonal | Paired | Movement | Sound |
-|-----------|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| Pregnancy | ABS | ABS | CAU | ABS | CAU | REL | CAU |
-| Cardiovascular disease | ABS | ABS | CAU | REL | CAU | REL | CAU |
-| Epilepsy | ABS | REL | REL | ABS | CAU | CAU | REL |
-| Psychotic disorders | ABS | REL | ABS | ABS | ABS | CAU | REL |
-| Dissociative disorders | ABS | REL | ABS | ABS | ABS | REL | REL |
-| PTSD | REL | REL | REL | ABS | REL | CAU | CAU |
-| Bipolar disorder | ABS | REL | REL | ABS | REL | CAU | CAU |
-| Asthma/COPD | ABS | REL | CAU | CAU | CAU | REL | CAU |
-| Recent surgery | ABS | REL | CAU | REL | CAU | ABS-REL | CAU |
-| Chronic pain | REL | REL | CAU | CAU | CAU | REL | CAU |
-| Hypertension | REL | ABS | CAU | CAU | CAU | CAU | CAU |
-| Diabetes | REL | REL | CAU | CAU | CAU | CAU | CAU |
+| Condition              | WHM Breathwork | Cold Exposure | Intensive Meditation | Transpersonal | Paired | Movement | Sound |
+| ---------------------- | :------------: | :-----------: | :------------------: | :-----------: | :----: | :------: | :---: |
+| Pregnancy              |      ABS       |      ABS      |         CAU          |      ABS      |  CAU   |   REL    |  CAU  |
+| Cardiovascular disease |      ABS       |      ABS      |         CAU          |      REL      |  CAU   |   REL    |  CAU  |
+| Epilepsy               |      ABS       |      REL      |         REL          |      ABS      |  CAU   |   CAU    |  REL  |
+| Psychotic disorders    |      ABS       |      REL      |         ABS          |      ABS      |  ABS   |   CAU    |  REL  |
+| Dissociative disorders |      ABS       |      REL      |         ABS          |      ABS      |  ABS   |   REL    |  REL  |
+| PTSD                   |      REL       |      REL      |         REL          |      ABS      |  REL   |   CAU    |  CAU  |
+| Bipolar disorder       |      ABS       |      REL      |         REL          |      ABS      |  REL   |   CAU    |  CAU  |
+| Asthma/COPD            |      ABS       |      REL      |         CAU          |      CAU      |  CAU   |   REL    |  CAU  |
+| Recent surgery         |      ABS       |      REL      |         CAU          |      REL      |  CAU   | ABS-REL  |  CAU  |
+| Chronic pain           |      REL       |      REL      |         CAU          |      CAU      |  CAU   |   REL    |  CAU  |
+| Hypertension           |      REL       |      ABS      |         CAU          |      CAU      |  CAU   |   CAU    |  CAU  |
+| Diabetes               |      REL       |      REL      |         CAU          |      CAU      |  CAU   |   CAU    |  CAU  |
 
 **Legend:** ABS = Absolute (never), REL = Relative (with modifications), CAU = Caution (proceed carefully)
 
@@ -383,17 +387,133 @@ any modifications."
 
 When a practice is contraindicated, redirect to these generally safe options:
 
-| Instead of... | Suggest... |
-|---------------|-----------|
-| WHM breathwork | Gentle coherent breathing (5-second inhale, 5-second exhale) |
-| Cold immersion | Cool (not cold) compresses on wrists and neck |
-| Extended silent meditation | Short guided meditation (5-10 minutes) with eyes open |
-| Transpersonal practices | Gratitude journaling, gentle nature walks, prayer |
-| Intensive paired practice | Solo practice with journaling or gentle group discussion |
-| Vigorous movement | Gentle stretching, chair-based movement, restorative yoga |
-| Loud sound healing | Soft ambient sound, nature recordings, quiet humming |
+| Instead of...              | Suggest...                                                   |
+| -------------------------- | ------------------------------------------------------------ |
+| WHM breathwork             | Gentle coherent breathing (5-second inhale, 5-second exhale) |
+| Cold immersion             | Cool (not cold) compresses on wrists and neck                |
+| Extended silent meditation | Short guided meditation (5-10 minutes) with eyes open        |
+| Transpersonal practices    | Gratitude journaling, gentle nature walks, prayer            |
+| Intensive paired practice  | Solo practice with journaling or gentle group discussion     |
+| Vigorous movement          | Gentle stretching, chair-based movement, restorative yoga    |
+| Loud sound healing         | Soft ambient sound, nature recordings, quiet humming         |
 
 ---
 
-*"Knowing what to offer is wisdom. Knowing what to withhold is compassion.
-The space between the two is where safe practice lives."*
+_"Knowing what to offer is wisdom. Knowing what to withhold is compassion.
+The space between the two is where safe practice lives."_
+
+---
+
+## ARCHAEOACOUSTIC & SOUND CONSCIOUSNESS CONTRAINDICATIONS
+
+### Archaeoacoustic Toning
+
+| Condition                                           | Severity | Notes                                                                                                            |
+| --------------------------------------------------- | :------: | ---------------------------------------------------------------------------------------------------------------- |
+| Active ear infection                                |   ABS    | No sustained frequency exposure during active infection                                                          |
+| Recent ear surgery                                  |   ABS    | No practice until cleared by ENT specialist                                                                      |
+| Tinnitus                                            |   REL    | Low-volume humming only; avoid sustained single-frequency exposure; no singing bowls near head                   |
+| Hyperacusis / sound sensitivity                     |   REL    | Reduce volume significantly; listening-only variation; allow earplugs                                            |
+| Hearing aids                                        |   CAU    | Remove or adjust before proximity to speakers or bowls                                                           |
+| Vocal cord conditions (nodules, polyps, laryngitis) |   ABS    | Listening-only variation; no vocal production                                                                    |
+| Recent jaw or dental surgery                        |   REL    | Listening-only or very gentle humming; no sustained toning                                                       |
+| Epilepsy                                            |   REL    | Some rhythmic sound patterns may be triggering; consult healthcare provider; avoid strobe-like rhythmic patterns |
+| Severe respiratory infection                        |   ABS    | No vocal practices until recovered                                                                               |
+
+**Practice-Specific Screening:**
+
+```
+✅ "Do you have any hearing conditions, including tinnitus or hearing loss?"
+✅ "Do you wear hearing aids?"
+✅ "Do you have any throat or vocal cord conditions?"
+✅ "Have you had recent ear, jaw, or dental surgery?"
+✅ "Do you have epilepsy or a seizure disorder?"
+```
+
+### Sound Consciousness (Museum of Consciousness-style)
+
+| Condition                              | Severity | Notes                                                 |
+| -------------------------------------- | :------: | ----------------------------------------------------- |
+| Active psychosis                       |   ABS    | Consciousness-shifting exercises contraindicated      |
+| Active dissociative disorders          |   ABS    | Altered state induction contraindicated               |
+| Severe derealization/depersonalization |   ABS    | Perceptual shifting exercises may worsen symptoms     |
+| Epilepsy                               |   REL    | Avoid rhythmic auditory stimulation; consult provider |
+| All archaeoacoustic toning conditions  |    —     | Apply same screening as toning above                  |
+
+---
+
+## UMWELT PRACTICE CONTRAINDICATIONS
+
+| Condition                                           | Severity | Notes                                                         |
+| --------------------------------------------------- | :------: | ------------------------------------------------------------- |
+| Active dissociative disorders (DID, DPDR)           |   ABS    | Perceiving-as-other involves deliberate perceptual shifting   |
+| Active derealization                                |   ABS    | Practice may worsen existing derealization                    |
+| Active depersonalization                            |   ABS    | Practice may worsen existing depersonalization                |
+| Active psychosis or psychotic features              |   ABS    | Perceptual shifting contraindicated                           |
+| Severe PTSD with dissociative features              |   ABS    | Dissociation risk too high                                    |
+| Unstable mental health without professional support |   REL    | Limit to sensory inventory level only; no perceiving-as-other |
+
+**Practice-Specific Screening (required for ALL umwelt practices):**
+
+```
+✅ All Tier 2 mental health screening questions
+✅ "Have you ever experienced feeling detached from your body or feeling that the world isn't real?"
+✅ "Do you have a current therapist or mental health professional?"
+✅ "Have you done perception-shifting or consciousness practices before?"
+```
+
+**Level Restrictions:**
+
+| Level                 | Conditions for Access                                               |
+| --------------------- | ------------------------------------------------------------------- |
+| Sensory Inventory     | Universal — no additional screening                                 |
+| Sensory Foregrounding | Standard screening; caution with dissociative history               |
+| Perceiving-as-Other   | Full Tier 2 screening required; ABS for all conditions listed above |
+| Integration           | Universal                                                           |
+
+---
+
+## HOLOTECHNICA STACKING CONTRAINDICATIONS
+
+### Additive Contraindication Logic
+
+**CRITICAL RULE:** If ANY ingredient in a holotechnica stack is contraindicated for the user, the ENTIRE stack is contraindicated.
+
+| Ingredient            | Cross-Reference                                                                        |
+| --------------------- | -------------------------------------------------------------------------------------- |
+| Breathwork            | Check breathwork contraindications (asthma, cardiovascular, pregnancy, epilepsy, etc.) |
+| Sound/toning          | Check archaeoacoustic toning contraindications above                                   |
+| Visualization         | Generally safe; caution with psychotic features                                        |
+| Body scan             | Generally safe; caution with severe trauma (body awareness may be triggering)          |
+| Movement              | Check somatic/movement contraindications                                               |
+| Silence/meditation    | Check intensive meditation contraindications                                           |
+| Hypnagogic techniques | Check transpersonal practice contraindications; ABS for psychosis, dissociation        |
+| Sensory foregrounding | Check umwelt practice contraindications above                                          |
+
+**Hard Exclusion:** Pharmaco-technologies are NEVER included as ingredients. No exceptions.
+
+### Stacking-Specific Screening
+
+```
+✅ Screen for EACH ingredient individually before designing stack
+✅ If any ingredient is flagged, either remove that ingredient or find safe alternative
+✅ Document screening results for transparency
+✅ "We checked each component against your health information. Here's what we found..."
+```
+
+---
+
+## CROSS-REFERENCE QUICK LOOKUP — EXTENDED
+
+| Condition              | Archaeoacoustic Toning | Sound Consciousness | Umwelt Practice | Holotechnica Stack |
+| ---------------------- | :--------------------: | :-----------------: | :-------------: | :----------------: |
+| Ear infection/surgery  |          ABS           |         ABS         |       CAU       | Check ingredients  |
+| Tinnitus               |          REL           |         REL         |       CAU       | Check ingredients  |
+| Vocal cord conditions  |          ABS           |         CAU         |       CAU       | Check ingredients  |
+| Epilepsy               |          REL           |         REL         |       CAU       | Check ingredients  |
+| Psychotic disorders    |          CAU           |         ABS         |       ABS       | Check ingredients  |
+| Dissociative disorders |          CAU           |         ABS         |       ABS       | Check ingredients  |
+| PTSD (dissociative)    |          CAU           |         ABS         |       ABS       | Check ingredients  |
+| Pregnancy              |          CAU           |         CAU         |       CAU       | Check ingredients  |
+
+**Legend:** ABS = Absolute (never), REL = Relative (with modifications), CAU = Caution (proceed carefully)

@@ -1,0 +1,307 @@
+# Holotechnica Stack Workflow
+# Coordinates hyperhumanism-researcher, holotechnica-architect, content-writer, ethics-guardian
+
+name: holotechnica-workflow
+version: 1.0.0
+description: |
+  Orchestrates the creation of personalized endo-technology experience stacks
+  targeting altered traits. Combines individually researched practices into
+  designed consciousness recipes with preparation and integration phases.
+  NO pharmaco-technologies (HARD EXCLUSION).
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Parse stack request and screen contraindications
+    agent: orchestrator
+    actions:
+      - parse_request
+      - determine_depth_level
+      - identify_trait_target
+      - check_contraindications_per_ingredient
+      - verify_no_pharmaco_technologies
+
+  - name: ingredient_research
+    description: Research evidence for each requested ingredient
+    agent: hyperhumanism-researcher
+    inputs:
+      - requested_ingredients
+      - trait_target
+    outputs:
+      - ingredient-evidence.md
+      - contraindication-matrix.md
+      - stacking-rationale.md
+
+  - name: stack_design
+    description: Design the experience stack sequence
+    agent: holotechnica-architect
+    inputs:
+      - ingredient-evidence.md
+      - contraindication-matrix.md
+      - stacking-rationale.md
+      - depth_level
+      - trait_target
+    outputs:
+      - holotechnica-recipe.md
+      - ingredient-matrix.md
+      - transition-guide.md
+
+  - name: timing_calibration
+    description: Calibrate timing for each ingredient and transition
+    agent: holotechnica-architect
+    inputs:
+      - holotechnica-recipe.md
+      - depth_level
+    outputs:
+      - timing-sequence.json
+      - grounding-intervals.md
+
+  - name: content_writing
+    description: Polish recipe language and add framing
+    agent: content-writer
+    inputs:
+      - holotechnica-recipe.md
+      - ingredient-matrix.md
+      - ingredient-evidence.md
+      - timing-sequence.json
+    outputs:
+      - draft-recipe.md
+      - integration-journal.md
+      - evidence-brief.md
+
+  - name: ethics_review
+    description: Review for safety, contraindications, and evidence claims
+    agent: ethics-guardian
+    inputs:
+      - draft-recipe.md
+      - ingredient-matrix.md
+      - contraindication-matrix.md
+      - integration-journal.md
+      - evidence-brief.md
+    outputs:
+      - ethics_approval
+      - contraindication_verification
+      - pharmaco_exclusion_verified
+      - required_modifications
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PRACTICE PARAMETERS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+practice_parameters:
+  depths:
+    simple:
+      ingredients: 2
+      total_minutes: 15
+      safety_level: standard
+      description: Two endo-technologies with preparation and integration
+      structure:
+        preparation: 2
+        ingredient_1: 5
+        transition: 1
+        ingredient_2: 5
+        integration: 2
+
+    standard:
+      ingredients: 3-4
+      total_minutes: 30
+      safety_level: enhanced
+      description: Multiple ingredients with grounding between each
+      structure:
+        preparation: 3
+        per_ingredient: 5-7
+        transition_with_grounding: 1-2
+        integration: 3-5
+
+    extended:
+      ingredients: 5+
+      total_minutes: 45
+      safety_level: maximum
+      description: Full stack with grounding between every ingredient
+      structure:
+        preparation: 3-5
+        per_ingredient: 5-7
+        grounding_between_each: 2
+        extended_integration: 5-7
+
+  ingredient_library:
+    - name: breathwork
+      type: endo-technology
+      evidence: Well-established
+      contraindications: Asthma, cardiovascular, pregnancy, epilepsy
+
+    - name: sound_toning
+      type: endo-technology
+      evidence: Moderate
+      contraindications: Hearing conditions, vocal cord issues
+
+    - name: visualization
+      type: endo-technology
+      evidence: Well-established
+      contraindications: Generally safe; caution with psychotic features
+
+    - name: body_scan
+      type: endo-technology
+      evidence: Well-established
+      contraindications: Caution with severe trauma
+
+    - name: movement
+      type: endo-technology
+      evidence: Well-established
+      contraindications: Physical limitations, recent surgery
+
+    - name: silence
+      type: endo-technology
+      evidence: Moderate
+      contraindications: Caution with severe anxiety
+
+    - name: hypnagogic_techniques
+      type: endo-technology
+      evidence: Preliminary
+      contraindications: Psychosis, dissociative disorders
+
+    - name: sensory_foregrounding
+      type: endo-technology
+      evidence: Preliminary
+      contraindications: Dissociative disorders
+
+  hard_exclusion:
+    - pharmaco_technologies
+    - psychedelics
+    - entheogens
+    - alcohol_based_protocols
+    - caffeine_protocols
+    - nootropics
+
+  trait_targets:
+    - sustained_calm
+    - focused_attention
+    - emotional_regulation
+    - body_awareness
+    - creative_flow
+    - resilience
+    - present_moment_awareness
+    - interoceptive_sensitivity
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTEGRATION PATTERNS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+integration:
+  sequential_execution:
+    - intake → ingredient_research
+    - ingredient_research → stack_design
+    - stack_design → timing_calibration
+    - timing_calibration → content_writing
+    - content_writing → ethics_review
+
+  data_flow:
+    research_to_design:
+      - Per-ingredient evidence summaries
+      - Contraindication matrix
+      - Stacking rationale and synergy notes
+    design_to_timing:
+      - Ingredient sequence
+      - Transition requirements
+      - Grounding interval needs
+    timing_to_content:
+      - Minute-by-minute sequence
+      - Transition scripts
+      - Integration prompts
+    content_to_ethics:
+      - Complete recipe
+      - Evidence claims per ingredient
+      - Contraindication verification
+      - Pharmaco-exclusion confirmation
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  stack_design:
+    - Preparation phase present
+    - Integration phase present
+    - Grounding between ingredients (enhanced/maximum)
+    - Trait target clearly identified
+    - No more than 2 ingredients for beginners
+
+  contraindication_check:
+    - Every ingredient checked individually
+    - Additive logic applied (any flagged = stack flagged)
+    - Pharmaco-technology exclusion verified
+    - Screening documentation present
+
+  evidence_framing:
+    - Per-ingredient evidence levels stated
+    - Stacking methodology labeled as theoretical
+    - '"May support" language, not "will produce"'
+    - Individual vs. combination evidence distinguished
+
+  safety:
+    - Additive contraindication logic documented
+    - Pharmaco-exclusion confirmed
+    - Intensity limits respected
+    - Medical disclaimer present
+    - Integration journaling included
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  pharmaco_technology_requested:
+    action: reject_ingredient
+    message: Pharmaco-technologies are excluded from all stacks
+    continue: true
+    require: substitute_endo_technology
+
+  ingredient_contraindicated:
+    action: remove_or_substitute
+    message: Ingredient contraindicated for this user
+    continue: true
+    require: alternative_ingredient_or_reduced_stack
+
+  too_many_ingredients:
+    action: simplify
+    message: Stack exceeds recommended complexity for experience level
+    continue: true
+    require: reduce_to_appropriate_depth
+
+  safety_concern:
+    action: halt_and_review
+    message: Safety concern identified in stack design
+    continue: false
+    require: ethics_guardian_review
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Simple morning activation
+    invocation: /holotechnica-stack "morning activation" --depth simple --duration 15
+    expected_output:
+      - 15-minute recipe (breathwork + body scan)
+      - Ingredient matrix with evidence
+      - Integration journal prompts
+      - Quick reference card
+
+  - name: Standard focus stack
+    invocation: /holotechnica-stack "focused attention" --depth standard --duration 30
+    expected_output:
+      - 30-minute recipe (breathwork + sound toning + visualization)
+      - Grounding between each ingredient
+      - Full evidence brief
+      - Trait-targeting rationale
+
+  - name: Extended deep exploration
+    invocation: /holotechnica-stack "deep exploration" --depth extended --duration 45
+    expected_output:
+      - 45-minute recipe (5 ingredients)
+      - Maximum safety framing
+      - Grounding between every ingredient
+      - Extended integration journaling

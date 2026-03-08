@@ -550,6 +550,14 @@ And we honor you—for being here, for caring enough to explore this, for consid
 
 A chronological record of major additions. [Full detailed timeline on the website →](https://realsammyt.github.io/healing-swarm-skills/docs/changelog)
 
+### 2026-03-08 — Hyperhumanism & Sound Consciousness Skills (Carl Hayden Smith)
+
+- **6 skills:** Archaeoacoustic Toning, Sound Consciousness, Holotechnica Stack, Hyperhumanism Inquiry, Umwelt Practice, Cyberdelic Research
+- **4 agents:** Hyperhumanism Researcher, Archaeoacoustic Guide, Holotechnica Architect, Umwelt Facilitator
+- **6 workflows:** archaeoacoustic-toning, sound-consciousness, holotechnica, hyperhumanism, umwelt, cyberdelic-research
+- **3 templates:** archaeoacoustic-toning, holotechnica-recipe, umwelt-exercise
+- Shared resources updated: terminology, ethics-guardrails, contraindications
+
 ### 2026-03-04 — Integral Theory Skills & Website Showcase
 
 - **5 skills:** AQAL Check-In, Shadow Integration, Spectrum Meditation, Integral Psychograph, Perspective Practice
@@ -594,15 +602,15 @@ A chronological record of major additions. [Full detailed timeline on the websit
 
 #### Cumulative Totals
 
-| Category | Count |
-|----------|-------|
-| Skills | 47 |
-| Agents | 26 |
-| Workflows | 20 |
-| Templates | 10 |
-| Shared Resources | 9 |
-| Worked Examples | 13 |
-| Traditions Integrated | 20+ |
+| Category              | Count |
+| --------------------- | ----- |
+| Skills                | 53    |
+| Agents                | 30    |
+| Workflows             | 26    |
+| Templates             | 13    |
+| Shared Resources      | 9     |
+| Worked Examples       | 13    |
+| Traditions Integrated | 20+   |
 
 ---
 
