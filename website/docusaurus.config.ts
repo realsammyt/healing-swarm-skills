@@ -1,152 +1,161 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
+import { themes as prismThemes } from "prism-react-renderer";
+import type { Config } from "@docusaurus/types";
+import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: 'Healing Swarm Skills',
-  tagline: 'AI-assisted tools for ethical healing applications',
-  favicon: 'img/favicon.svg',
+  title: "Healing Swarm Skills",
+  tagline: "AI-assisted tools for ethical healing applications",
+  favicon: "img/favicon.svg",
 
-  url: 'https://realsammyt.github.io',
-  baseUrl: '/healing-swarm-skills/',
+  url: "https://realsammyt.github.io",
+  baseUrl: "/healing-swarm-skills/",
 
-  organizationName: 'realsammyt',
-  projectName: 'healing-swarm-skills',
+  organizationName: "realsammyt",
+  projectName: "healing-swarm-skills",
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
 
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
+
+  scripts: [
+    {
+      src: "https://gc.zgo.at/count.js",
+      async: true,
+      "data-goatcounter": "https://healing-swarm.goatcounter.com/count",
+    },
+  ],
 
   presets: [
     [
-      'classic',
+      "classic",
       {
         docs: {
-          sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/realsammyt/healing-swarm-skills/tree/master/website/',
+          sidebarPath: "./sidebars.ts",
+          editUrl:
+            "https://github.com/realsammyt/healing-swarm-skills/tree/master/website/",
         },
         blog: false,
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       } satisfies Preset.Options,
     ],
   ],
 
   themeConfig: {
-    image: 'img/healing-swarm-social.png',
+    image: "img/healing-swarm-social.png",
     colorMode: {
-      defaultMode: 'dark',
+      defaultMode: "dark",
       disableSwitch: false,
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Healing Swarm Skills',
+      title: "Healing Swarm Skills",
       logo: {
-        alt: 'Healing Swarm Logo',
-        src: 'img/logo.svg',
+        alt: "Healing Swarm Logo",
+        src: "img/logo.svg",
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'docsSidebar',
-          position: 'left',
-          label: 'Docs',
+          type: "docSidebar",
+          sidebarId: "docsSidebar",
+          position: "left",
+          label: "Docs",
         },
         {
-          type: 'dropdown',
-          label: 'Explore',
-          position: 'left',
+          type: "dropdown",
+          label: "Explore",
+          position: "left",
           items: [
             {
-              to: '/docs/skills',
-              label: 'Skills',
+              to: "/docs/skills",
+              label: "Skills",
             },
             {
-              to: '/docs/examples',
-              label: 'Examples',
+              to: "/docs/examples",
+              label: "Examples",
             },
             {
-              to: '/docs/integration',
-              label: 'Integration',
+              to: "/docs/integration",
+              label: "Integration",
             },
             {
-              to: '/docs/components',
-              label: 'Components',
+              to: "/docs/components",
+              label: "Components",
             },
             {
-              to: '/docs/architecture',
-              label: 'Architecture',
+              to: "/docs/architecture",
+              label: "Architecture",
             },
           ],
         },
         {
-          to: '/docs/ethics',
-          label: 'Ethics',
-          position: 'left',
+          to: "/docs/ethics",
+          label: "Ethics",
+          position: "left",
         },
         {
-          href: 'https://github.com/realsammyt/healing-swarm-skills',
-          label: 'GitHub',
-          position: 'right',
+          href: "https://github.com/realsammyt/healing-swarm-skills",
+          label: "GitHub",
+          position: "right",
         },
       ],
     },
     footer: {
-      style: 'dark',
+      style: "dark",
       links: [
         {
-          title: 'Learn',
+          title: "Learn",
           items: [
             {
-              label: 'Getting Started',
-              to: '/docs/getting-started',
+              label: "Getting Started",
+              to: "/docs/getting-started",
             },
             {
-              label: 'Skills Reference',
-              to: '/docs/skills',
+              label: "Skills Reference",
+              to: "/docs/skills",
             },
             {
-              label: 'Examples',
-              to: '/docs/examples',
+              label: "Examples",
+              to: "/docs/examples",
             },
           ],
         },
         {
-          title: 'Framework',
+          title: "Framework",
           items: [
             {
-              label: 'Architecture',
-              to: '/docs/architecture',
+              label: "Architecture",
+              to: "/docs/architecture",
             },
             {
-              label: 'Ethics Framework',
-              to: '/docs/ethics',
+              label: "Ethics Framework",
+              to: "/docs/ethics",
             },
             {
-              label: 'Components',
-              to: '/docs/components',
+              label: "Components",
+              to: "/docs/components",
             },
           ],
         },
         {
-          title: 'Community',
+          title: "Community",
           items: [
             {
-              label: 'GitHub',
-              href: 'https://github.com/realsammyt/healing-swarm-skills',
+              label: "GitHub",
+              href: "https://github.com/realsammyt/healing-swarm-skills",
             },
             {
-              label: 'Contributing',
-              to: '/docs/contributing',
+              label: "Contributing",
+              to: "/docs/contributing",
             },
             {
-              label: 'Discussions',
-              href: 'https://github.com/realsammyt/healing-swarm-skills/discussions',
+              label: "Discussions",
+              href: "https://github.com/realsammyt/healing-swarm-skills/discussions",
             },
           ],
         },
@@ -156,7 +165,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ['bash', 'yaml', 'typescript'],
+      additionalLanguages: ["bash", "yaml", "typescript"],
     },
   } satisfies Preset.ThemeConfig,
 };
