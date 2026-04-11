@@ -274,7 +274,7 @@ Court-ordered supervised visitation is almost never anyone's preferred arrangeme
 
 1. **Pilgrimage visits** (Turner, 1969; Turner & Turner, 1978). Christian, Hindu, Islamic pilgrimage. The pilgrim does not possess the holy site; they are briefly received by it. They return home changed not because the visit was long but because it was real. *The hour is not a fragment of a better life that was taken away. The hour is the whole visit, received as itself.*
 
-2. **Shiva visits** (Jewish tradition; Diamant, 1998; Wolfson, 1996). The visitor waits in silence until the mourner speaks, brings presence rather than explanation, resists the urge to fix. A model of *witnessed presence without performance*.
+2. **Shiva visits** (Jewish tradition; Diamant, 1998; Wolfson, 2005). The visitor waits in silence until the mourner speaks, brings presence rather than explanation, resists the urge to fix. A model of *witnessed presence without performance*.
 
 3. **Liturgical time** (Heschel, 1951, *The Sabbath*). Ritual time differs from clock time. The beginning can be marked. The ending can be marked. The middle can belong to something other than the ticking clock.
 
@@ -531,7 +531,7 @@ The convergences above are notable, but so are the divergences. Traditions disag
 
 **Christ, G. H. (2000).** *Healing children's grief: Surviving a parent's death from cancer.* Oxford University Press.
 
-**Coelho, A., & Barbosa, A. (2017).** Family Anticipatory Grief: An Integrative Literature Review. *American Journal of Hospice and Palliative Medicine, 34*(8). [verification needed]
+**Coelho, A., & Barbosa, A. (2017).** Family Anticipatory Grief: An Integrative Literature Review. *American Journal of Hospice and Palliative Medicine, 34*(8), 774–785. doi:10.1177/1049909116647960. PMID 27151972. **VERIFIED 2026-04-11.**
 
 **Cohen, S., & Wills, T. A. (1985).** Stress, social support, and the buffering hypothesis. *Psychological Bulletin, 98*(2), 310-357.
 
@@ -555,7 +555,7 @@ The convergences above are notable, but so are the divergences. Traditions disag
 
 **Freeman, J., Epston, D., & Lobovits, D. (1997).** *Playful approaches to serious problems: Narrative therapy with children.* Norton.
 
-**Garand, L., et al. (2012).** Anticipatory grief in new family caregivers of persons with mild cognitive impairment and dementia. *Journal of the American Geriatrics Society.* [verification needed]
+**Garand, L., Lingler, J. H., Deardorf, K. E., DeKosky, S. T., Schulz, R., Reynolds, C. F., 3rd, & Dew, M. A. (2012).** Anticipatory grief in new family caregivers of persons with mild cognitive impairment and dementia. *Alzheimer Disease and Associated Disorders, 26*(2), 159–165. doi:10.1097/WAD.0b013e31822f9051. **VERIFIED 2026-04-11 — journal corrected from "J Am Geriatr Soc" to "Alzheimer Disease and Associated Disorders."**
 
 **Hesse, E. (2008).** The Adult Attachment Interview. In Cassidy & Shaver (Eds.), *Handbook of attachment* (2nd ed.). Guilford.
 
@@ -563,9 +563,9 @@ The convergences above are notable, but so are the divergences. Traditions disag
 
 **Hulsegge, J., & Verheul, A. (1987).** *Snoezelen: Another world.* Rompa.
 
-**Johannessen, A., Engedal, K., & Thorsen, K. (2015).** Adult children of parents with young-onset dementia. *Dementia.* [verification needed]
+**Johannessen, A., Engedal, K., & Thorsen, K. (2015).** "Adult children of parents with young-onset dementia narrate the experiences of their youth through metaphors." *Journal of Multidisciplinary Healthcare, 8*, 245–254. doi:10.2147/JMDH.S84069. **VERIFIED 2026-04-11 — journal corrected from "Dementia" to "Journal of Multidisciplinary Healthcare."** See also follow-up: Johannessen, A., Engedal, K., & Thorsen, K. (2016). Coping efforts and resilience among adult children who grew up with a parent with young-onset dementia: A qualitative follow-up study. *International Journal of Qualitative Studies on Health and Well-being, 11*, 30535. doi:10.3402/qhw.v11.30535.
 
-**Kaiser, S., & Panegyres, P. K. (2006).** The psychosocial impact of young onset dementia on spouses. *American Journal of Alzheimer's Disease and Other Dementias, 21*(6). [verification needed]
+**Kaiser, S., & Panegyres, P. K. (2006).** "The psychosocial impact of young onset dementia on spouses." *American Journal of Alzheimer's Disease and Other Dementias, 21*(6), 398–402. PMID 17267371. **VERIFIED 2026-04-11.**
 
 **Kelly, J. B., & Lamb, M. E. (2000).** Using child development research to make appropriate custody decisions. *Family and Conciliation Courts Review, 38*(3).
 
@@ -591,7 +591,9 @@ The convergences above are notable, but so are the divergences. Traditions disag
 
 **Meuser, T. M., & Marwit, S. J. (2001).** Stage-sensitive model of grief in dementia caregiving. *The Gerontologist, 41*(5), 658-670.
 
-**Millenaar, J. K., et al. (2016).** Systematic review of younger-onset dementia caregiver experience. [verification needed]
+**Millenaar, J. K., Bakker, C., Koopmans, R. T. C. M., Verhey, F. R. J., Kurz, A., & de Vugt, M. E. (2016).** "The care needs and experiences with the use of services of people with young-onset dementia and their caregivers: A systematic review." *International Journal of Geriatric Psychiatry, 31*(12), 1261–1276. doi:10.1002/gps.4502. PMID 27271788. **VERIFIED 2026-04-11.**
+
+**Bakker, C., de Vugt, M. E., van Vliet, D., Verhey, F. R. J., Pijnenburg, Y. A. L., Vernooij-Dassen, M. J. F. J., & Koopmans, R. T. C. M. (2013).** "The use of formal and informal care in early onset dementia: Results from the NeedYD study." *American Journal of Geriatric Psychiatry, 21*(1), 37–45. doi:10.1016/j.jagp.2012.10.004. **ADDED 2026-04-11** as the specific Bakker-first-authored NeedYD paper anchoring the "Bakker et al. series" previously cited generically.
 
 **Neimeyer, R. A. (Ed.). (2001).** *Meaning Reconstruction and the Experience of Loss.* APA.
 
@@ -609,7 +611,7 @@ The convergences above are notable, but so are the divergences. Traditions disag
 
 **Porges, S. W. (2011).** *The polyvagal theory.* Norton.
 
-**Pulido, M. L., Forrester, S. P., & Lacina, J. M. (2011).** Supervised visitation outcomes. [verification needed]
+**Pulido, M. L., Forrester, S. P., & Lacina, J. M. (2011).** Raising the bar: Why supervised visitation providers should be required to meet standards for service provision. *Family Court Review, 49*(2), 379–387. doi:10.1111/j.1744-1617.2011.01377.x. **VERIFIED 2026-04-11 with scope correction: the paper argues for provider standards and training, not a direct outcomes study. Thread-5 attribution should be softened accordingly.**
 
 **Rappe, E. (2005).** *The influence of a green environment and horticultural activities on elderly well-being.* University of Helsinki. [verification needed]
 
@@ -623,7 +625,7 @@ The convergences above are notable, but so are the divergences. Traditions disag
 
 **Sacks, O. (2007).** *Musicophilia: Tales of music and the brain.* Knopf.
 
-**Saini, M., Van Wert, M., & Gofman, J. (2012).** Supervised visitation in high-conflict custody. [verification needed]
+**Saini, M., Van Wert, M., & Gofman, J. (2012).** Parent–child supervised visitation within child welfare and custody dispute contexts: An exploratory comparison of two distinct models of practice. *Children and Youth Services Review, 34*(1), 163–168. doi:10.1016/j.childyouth.2011.09.011. **VERIFIED 2026-04-11 with scope correction: the paper is an exploratory comparison of two models; supervisor-neutrality is NOT the central finding. Thread-5 attribution should be softened accordingly.**
 
 **Siegel, K., et al. (1996).** Psychosocial adjustment of children with a terminally ill parent. *Journal of the American Academy of Child and Adolescent Psychiatry.*
 
@@ -687,7 +689,7 @@ The convergences above are notable, but so are the divergences. Traditions disag
 **Jewish traditions:**
 - Heschel, A. J. (1951). *The Sabbath.* Farrar, Straus and Giroux.
 - Lamm, M. (1969/2000). *The Jewish Way in Death and Mourning* (revised ed.). Jonathan David.
-- Wolfson, R. (1996). *A Time to Mourn, A Time to Comfort.* Jewish Lights. [verification needed]
+- Wolfson, R. (2005). *A Time to Mourn, A Time to Comfort: A Guide to Jewish Bereavement* (2nd ed.). Jewish Lights. **VERIFIED 2026-04-11 — year corrected from 1996 to 2005; no 1996 edition exists. First edition was Wolfson, R. (1993), Federation of Jewish Men's Clubs.**
 
 **Islamic and Sufi traditions:**
 - Schimmel, A. (1975). *Mystical Dimensions of Islam.* University of North Carolina Press.
