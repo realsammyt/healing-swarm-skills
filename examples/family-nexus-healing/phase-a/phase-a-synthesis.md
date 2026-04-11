@@ -49,7 +49,7 @@ Seven principles, non-negotiable:
 4. **Empower, don't control.** The family's autonomy is sacred. Practices are offered; nothing is imposed.
 5. **Privacy as sanctuary.** Given court involvement, privacy is load-bearing. Phase C is local-first, no telemetry, no accounts. Nothing leaves the device unless the user exports.
 6. **Accessible to all.** The Phase C Father mode targets WCAG AAA specifically because of cognitive load considerations.
-7. **Continuous improvement.** The progression logic in §6.2 allows revision as the family's needs change.
+7. **Continuous improvement.** The progression logic in §5's configuration matrices allows revision as the family's needs change; the clinician handoff sheet in Phase B will be the family therapist's channel for reporting back what is and isn't working.
 
 ### 1.4 The younger-onset constraint
 
@@ -72,7 +72,43 @@ Court-ordered supervised visitation is a structural container this family did no
 
 ### 1.6 Crisis response integration
 
-Every protocol in Phase B will reference the healing-swarm Crisis Response framework: **RECOGNIZE · STOP · GROUND · ASSESS · RESPOND · FOLLOW-UP**. Each protocol will include a tailored "signals to slow down or stop" section specifying what agitation, withdrawal, or distress looks like in that configuration, and what to do next. Escalation paths — 988, local crisis lines, one user-entered trusted contact — are built into the app's Mother mode as the one feature that *encourages* reaching outside.
+**Crisis response takes precedence over every other practice in this document.** If anyone in the family is in acute distress, the practices described here yield. The family's existing care team, local crisis services, and the escalation paths below come first.
+
+**The healing-swarm Crisis Response framework** structures the response to any adverse reaction or acute distress:
+
+- **RECOGNIZE** — notice the signals (detailed per configuration in §5 and in each Phase B protocol's "signals to slow down or stop" section)
+- **STOP** — pause the practice; stopping is always a win, never a failure
+- **GROUND** — return attention to body, breath, safe sensory anchors
+- **ASSESS** — is this within the range of ordinary distress, or is professional help needed now?
+- **RESPOND** — match the response to the assessment (continue gently / pause / escalate)
+- **FOLLOW-UP** — check in later, notice what the signals were, adjust future practice
+
+**Escalation paths (US — spell out before use for non-US readers):**
+- **988 Suicide & Crisis Lifeline** (call or text 988) — active 24/7 in the US for anyone in mental health crisis, including caregivers, people with a diagnosis, and children/teens
+- **Local crisis line** — the family should identify and save their local mobile crisis / emergency mental health contact for their city before it is needed
+- **One trusted contact** — a named person the mother, father, or supervisor can call outside the clinical system
+- **Pediatric mental health** — for either child in acute distress, the family's pediatrician and the children's school counselor are first-line contacts
+- **The existing care team** — the family therapist, the father's neurologist/primary care physician, the visit supervisor, any social worker assigned to the court case — all are part of the crisis response system, not separate from it
+
+**Pediatric crisis signals** in children 5–8 worth treating as escalation triggers:
+- Persistent nightmares more than 2 weeks
+- New school refusal or significant shift in school functioning
+- Any statement about wanting to disappear, go away, or not exist
+- Self-harm behavior (hitting self, picking at skin to injury, pulling hair)
+- Dissociation or freeze responses during or after visits
+- Significant regression sustained beyond a few days
+- Withdrawal from previously loved activities sustained beyond a week
+
+These are not ordinary stress responses in the acute-and-then-settle pattern; they are signals that the child needs additional adult support beyond what home practices can provide.
+
+**Adult crisis signals** worth treating as immediate escalation:
+- Any thoughts of self-harm or harm to others
+- Inability to care for the children
+- Dissociation sustained across hours
+- Acute hopelessness that does not respond to ordinary supports
+- In the father specifically: any crisis post-diagnosis or at a capability-loss transition (see §5.1 for the specific suicidality note)
+
+Each Phase B protocol will reference this framework and include a tailored "signals to slow down or stop" section specifying what distress looks like in that configuration, and what to do next. The app's Mother mode (§5.5 in Phase C) will include an "I'm at the edge" button as the one feature that actively *encourages* reaching outside.
 
 ### 1.7 Reading order recommendation
 
@@ -194,7 +230,7 @@ A father under 50 is losing narrative memory. His body still knows how to walk, 
 
 **Contemplative traditions privileging presence over narrative** — six are represented, each in specificity: Zen shikantaza ("just sitting," presence that does not require the person to go anywhere or achieve a state), Dzogchen's rigpa (pristine awareness as already-present nature — noted with the explicit caveat that Dzogchen has teacher-transmission requirements and cannot be learned from a research chapter; the existence of the tradition is evidence that sophisticated practitioners across cultures have found something real in presence-prior-to-narrative), Quaker silent meeting (expectant waiting as a form of worship, "silence together is a form of meeting, not a failure of meeting"), Sufi *dhikr khafi* (silent remembrance held in the heart, presence as devotion), Christian apophatic traditions (*The Cloud of Unknowing*, Thomas Keating's Centering Prayer — presence through unknowing, love held beyond words), and Hindu *nirvikalpa samadhi* (absorption without construct). Across very different metaphysical frameworks, these traditions converge on a claim the research chapter summarizes bluntly: *the most valuable form of being-together may not require narrative cognition from either party*.
 
-**Somatic co-regulation** grounds this claim in neurophysiology. Stephen Porges's polyvagal theory (Porges, 2011) proposes that the ventral vagal complex supports social engagement and calm connection through face, voice, and breath — and *does not require intact declarative memory to function*. Deb Dana (2018, 2020) translated polyvagal theory into clinical tools — humming, long exhales, soft eye contact, warm-toned voice — teachable to non-specialists including family members. Mother-infant attunement research (Tronick et al., 1978; Beebe & Lachmann, 2002) established that rich, mutually regulating connection occurs before language and persists as the substrate of connection after language arrives. The implication, which the research chapter names as its central load-bearing sentence: **a father who cannot narrate can still co-regulate. His nervous system can still settle his children's nervous systems.** This may be the most important single claim for Phase B protocol design.
+**Somatic co-regulation** grounds this claim in neurophysiology. Stephen Porges's polyvagal theory (Porges, 2011) proposes that the ventral vagal complex supports social engagement and calm connection through face, voice, and breath — and *does not require intact declarative memory to function*. Deb Dana (2018, 2020) translated polyvagal theory into clinical tools — humming, long exhales, soft eye contact, warm-toned voice — teachable to non-specialists including family members. Mother-infant attunement research (Tronick et al., 1978; Beebe & Lachmann, 2002) established that rich, mutually regulating connection occurs before language and persists as the substrate of connection after language arrives. The implication, which the research chapter names as its central load-bearing sentence: **a father who cannot narrate may still co-regulate. His nervous system may still be able to settle his children's nervous systems.** The hedging matters — individual variation in polyvagal function under progressive cognitive change is substantial, and the practice question is always "does it help *today, with this child, with this configuration*," not a universal prescription. Even so, this may be the most important single claim for Phase B protocol design.
 
 **Younger-onset dignity** is distinct from late-life care. The father is physically strong, still carries identity from work and role, and may still have substantial capacity that prescribed-disengagement framings obscure. Kate Swaffer's advocacy (Swaffer, 2015, 2016) against prescribed disengagement is directly applicable: the father is a person with a diagnosis, not a diagnosis with a person attached. Dignity preservation means *preserving his role as father*, keeping him an active agent in his children's lives for as long as possible. He chooses what to do during visits, within scaffolding that helps him succeed. He is not managed; he is *supported*.
 
@@ -214,7 +250,7 @@ A container is not a cage. A container is what allows something precious to be c
 
 **Peer isolation's double absence.** Cohen and Wills (1985) established the social-support buffering hypothesis; Berkman and Syme (1979) demonstrated that social network integration independently predicts mortality; Holt-Lunstad et al. (2015) showed social isolation carries mortality risk comparable to smoking. For younger caregivers, isolation takes a distinct double form: absence from her own peer group (whose concerns don't map) and absence from older caregiver communities (where her concerns don't map). Both parties leave the encounters feeling that something important did not meet. The practical implication: *finding one other person in a similar situation may matter more than finding a large community*. Dementia Alliance International (DAI) and country-specific younger-onset networks provide the main pathway. One peer who understands without translation is worth more than a twenty-person group where she has to explain her life each time.
 
-**Traditions of the held-holder** — those who carry while being carried — include: Shekhinah (the Jewish mystical feminine divine presence, the one who suffers alongside rather than observes from above); Guan Yin (the Mahayana bodhisattva "who hears the cries of the world," whose hearing changes the sufferer's relation to suffering rather than removing it); Mary / Mater Dolorosa (the mother of sorrows in Christian tradition, whose Pietà and Stabat Mater name witnessed sorrow as a form of love, not a failure of faith); Ubuntu ("umuntu ngumuntu ngabantu" — a person is a person through other persons; Desmond Tutu, John Mbiti — the mother is structurally not alone because personhood itself is relational); Sangha (Buddhist community of practice as one of the three refuges — belonging to a community of practice is itself a practice); bikkur cholim (Jewish visiting the sick as *mitzvah*, commanded, the obligation on the community rather than the sufferer — a reframe that reduces the psychological cost of asking for help); Grandmother-keeper traditions (various Indigenous lineages, with care for openness — witnessed continuity across generations); the Vedantic Divine Mother (fierce and sheltering, sometimes the one who cuts away what must be cut — integration of love and limit); and the Sufi *murshid* (one trusted companion on the path). These traditions do not say the same thing. They say, in their own languages, that the holder is held.
+**Traditions of the held-holder** — those who carry while being carried — include: Shekhinah (the Jewish mystical feminine divine presence, the one who suffers alongside rather than observes from above); Guan Yin (the Mahayana bodhisattva "who hears the cries of the world," whose hearing changes the sufferer's relation to suffering rather than removing it); Mary / Mater Dolorosa (the mother of sorrows in Christian tradition, whose Pietà and Stabat Mater name witnessed sorrow as a form of love, not a failure of faith); Ubuntu ("umuntu ngumuntu ngabantu" — a person is a person through other persons; Desmond Tutu, John Mbiti — the mother is structurally not alone because personhood itself is relational); Sangha (Buddhist community of practice as one of the three refuges — belonging to a community of practice is itself a practice); bikkur cholim (Jewish visiting the sick as *mitzvah*, commanded, the obligation on the community rather than the sufferer — a reframe that reduces the psychological cost of asking for help); the Indigenous philosophical orientation of kinship-as-web ("all my relations" — see Kimmerer's *Braiding Sweetgrass* as an openly published Potawatomi source, and note that specific Indigenous elder-keeper roles belong to their own lineages and are not transferable as practices); the Devi tradition in openly published Hindu sources (the *Devi Mahatmya* / *Durga Saptashati*, where the Divine Mother is simultaneously fierce and sheltering — integration of love and limit — noted at the philosophical level only, with the explicit caveat that specific Shakta and Sri Vidya initiatory practices are lineage-restricted and not referenced here); and the recognition, across the Sufi tradition, of the value of one trusted companion on the path — the *murshid* in its own lineage context is a realized spiritual guide within a specific path and is named here philosophically, not as a role this family should seek outside proper Sufi channels. These traditions do not say the same thing. They say, in their own languages, that the holder is held.
 
 **Boundary and self-care practices across traditions** offer more than bath-and-candle imagery: Mussar (Jewish ethical-cultivation tradition, *middot* work — knowing each day where one's inner reserves actually are); Ignatian Examen (the Jesuit daily review of *consolations* and *desolations* — patterns surface over time); Kneipp water therapy (brief cold-water applications as physical-emotional reset — under a minute, accessible, free); metta for the caregiver herself (Buddhist loving-kindness practice that begins with self rather than other — the step caregivers most often skip); contemplative silence as container (one weekly hour of deliberate silence may restore more than an hour of scheduled leisure); and Sabbath practice (commanded rest, not optional self-care — the frame may help mothers who cannot give themselves permission to rest).
 
@@ -399,7 +435,7 @@ The convergences above are notable, but so are the divergences. Traditions disag
 | Dimension | Content |
 |---|---|
 | **Core need** | Preserved dignity; role-as-father maintained across declining capacity; sensory anchors that don't depend on narrative; daily rhythm; the capacity to *arrive settled* before visits with his children; a sustainable form of agency |
-| **Contraindications** | **Absolute:** practices requiring intact executive sequencing on hard days; anything that frames him as patient rather than person. **Relative:** breathwork practices with retention components (consult the Contraindications Database for interactions with any medications); long solo silent practice without a familiar touchstone (may be disorienting). **Caution:** cold water exposure (Kneipp) — safe for most but verify no cardiac contraindications; contemplative practices that surface existential content without a held container |
+| **Contraindications** | **Absolute:** practices requiring intact executive sequencing on hard days; anything that frames him as patient rather than person; any practice or visit plan that assumes driving capacity (driving status must be verified with the care team at each stage of the condition and is a load-bearing safety question for younger-onset populations who are still physically capable). **Relative:** breathwork practices with retention components (consult the Contraindications Database for interactions with any medications); long solo silent practice without a familiar touchstone (may be disorienting). **Caution:** cold water exposure (Kneipp) — safe for most but verify no cardiac contraindications; contemplative practices that surface existential content without a held container; **first-year-post-diagnosis suicidality risk** — the younger-onset dementia literature (Draper et al. 2010; Erlangsen et al. 2008) documents elevated suicide risk in the immediate post-diagnosis window and at major capability-loss transitions; any practice involving existential content should be paired with care-team awareness, and the crisis response path in §1.6 applies with full weight. *If any flag crosses into crisis territory, see §1.6.* |
 | **Candidate practices** | Daily dignity rhythm (one recurring sensory anchor done the same way every day — Sound Healing Guide); 15-minute pre-visit centering practice (quiet room, warm drink, familiar music, simple breath — Contemplative Guide); connection-capsules on good days (voice recording a bedtime story, writing a simple letter — Expressive Guide with caregiver-assist); slow qigong or gentle walking (Somatic Guide); hand-washing ritual and scent anchoring (Water Guide); silent presence practice from a tradition that resonates (Contemplative Guide) |
 | **Progression stubs** | **Entry:** one daily anchor practice (5 min) + one weekly connection-capsule attempt if capacity permits. **Middle:** daily anchor + 2-3 weekly practices from the menu. **Deepening:** as his condition progresses, practices shift *toward simpler* — more silence, more sensory, less narrative |
 
@@ -408,7 +444,7 @@ The convergences above are notable, but so are the divergences. Traditions disag
 | Dimension | Content |
 |---|---|
 | **Core need** | Container for her own grief and overwhelm; sustainable rhythm; boundaries that honor both love and limit; young-caregiver-specific peer connection; a named escalation path before the edge; fast-reset practices for the minutes between demands |
-| **Contraindications** | **Absolute:** any practice that pathologizes her grief, overwhelm, or anger. **Relative:** breathwork practices without an in-person teacher check if she has a trauma history (Contraindications DB cross-check); intensive retreats or silent weeks that remove her from the children (unworkable logistically; also, unsafe if children have no alternative caregiver). **Caution:** writing practices that surface complicated feelings without a container for them (pair with trusted contact or therapist); grief practices on weeks where baseline is already collapsing — return to anchor only |
+| **Contraindications** | **Absolute:** any practice that pathologizes her grief, overwhelm, or anger. **Relative:** breathwork practices without an in-person teacher check if she has a trauma history (Contraindications DB cross-check); intensive retreats or silent weeks that remove her from the children. **Caution:** writing practices that surface complicated feelings without a container (pair with trusted contact or therapist); grief practices on weeks where baseline is already collapsing — return to anchor only; **maternal suicidality / complicated-grief risk** — if she reports intrusive thoughts of self-harm, inability to care for the children, or persistent dissociation, activate the escalation path in §1.6 *before* continuing any practice; **substance use as coping** — the anticipatory-grief literature notes elevated alcohol and substance use in young caregivers; any increase in use patterns is a signal the container needs reinforcement, not more demand. *If any flag crosses into crisis territory, see §1.6.* |
 | **Candidate practices** | Daily anchor under 5 min (Ignatian Examen, metta for herself, Mussar check-in — Contemplative / Community Facilitator); weekly grief window (one scheduled hour with candle, music, writing — Grief Guide); weekly rest container (modified Sabbath, 4-24 hours — Community Facilitator / Traditions Scholar); fast reset (Kneipp cold water, 3 breaths, named phrase — Water / Somatic Guide); peer connection pathway (DAI and younger-onset networks — Community Facilitator); specific-ask list practice (pre-written, actionable); "I'm at the edge" escalation path (crisis lines + 1 trusted contact + 1 professional contact, written down); weekly private letter to the father whether or not sent (Expressive Guide); loving-kindness practice for herself (Contemplative Guide) |
 | **Progression stubs** | **Entry:** daily anchor + weekly grief window, established before anything else is added. **Middle:** +weekly rest container, +fast-reset practice, +pursuing one peer connection. **Deepening:** integration with ongoing life outside the acute container; more peer connection; her own creative or spiritual work if she wants it |
 
@@ -426,7 +462,7 @@ The convergences above are notable, but so are the divergences. Traditions disag
 | Dimension | Content |
 |---|---|
 | **Core need** | Private interior channel for her emerging narrative capacity; explicit permission not to be a second parent; honest developmentally-appropriate information; structure for mixed feelings; protection from parentification; a role she can actually do (not role as caregiver) |
-| **Contraindications** | **Absolute:** anything that reinforces parentification (asking her to "help Mommy" with emotional labor, asking her to watch her brother during stressful visits, asking her to keep secrets). **Relative:** intensive journaling practices without adult support (may surface content she can't process alone — pair with mother or therapist available to receive what she brings out); group grief settings (may be too abstract; prefer family or individual) |
+| **Contraindications** | **Absolute:** anything that reinforces parentification (asking her to "help Mommy" with emotional labor, asking her to watch her brother during stressful visits); **anything asking her to keep grief, visit content, or feelings secret from the other parent or from a trusted adult** — secret-keeping is elevated in this family's configuration (court involvement, supervised visits) and at 8 she is developmentally at the age where she can be asked and should never be. **Relative:** intensive journaling practices without adult support (may surface content she can't process alone — pair with mother or therapist available to receive what she brings out); group grief settings (may be too abstract; prefer family or individual). *If any flag crosses into crisis territory, see §1.6, including the pediatric crisis signals subsection.* |
 | **Candidate practices** | Simple prompted journal, private unless she chooses to share (Expressive Guide); pre-visit and post-visit drawing ritual (Expressive Guide); explicit "your job is to be 8" messaging from mother (mother-with-kids protocol); individual one-on-one time with mother that is NOT about Daddy (Sleep / Community Facilitator — protected time just for her); narrative externalization ("the Forgetting is not Daddy") — explained age-appropriately (Expressive Guide); connection to a similarly-situated peer if available (another child in a family with a chronically ill parent — Community Facilitator); simple somatic practices she can do herself (Somatic Guide) |
 | **Progression stubs** | **Entry:** journal + one-on-one protected time with mother. **Middle:** +visit-day journal practice, +age-appropriate externalization conversation, +protection from parentification explicit in daily structure. **Deepening:** growing self-authorship; supported mourning if and when grief surfaces more fully in adolescence |
 
@@ -444,7 +480,7 @@ The convergences above are notable, but so are the divergences. Traditions disag
 | Dimension | Content |
 |---|---|
 | **Core need** | Shared sensory presence; clear structured time with beginning and ending rituals; activities accessible to the father's current cognition, developmentally right for the children, readable by the supervisor; dignity preservation for the father (never perform his own decline); emotional safety for the children (they don't manage his feelings); *presence is the practice, not accomplishment* |
-| **Contraindications** | **Absolute:** anything requiring the father to remember, plan, or execute complex sequences; anything secret from the supervisor; anything asking children to manage the father's affect or keep secrets; activities with fall risk or complex equipment. **Relative:** competitive games (the scorekeeping may spotlight cognitive limits); crowded or noisy environments; long unstructured stretches; activities requiring reading small print or complex instructions; breathwork with retention (consult DB). **Caution:** looking at old photos (can be beautiful or destabilizing — watch for signs; if the father becomes confused or distressed, redirect to a sensory activity) |
+| **Contraindications** | **Absolute:** anything requiring the father to remember, plan, or execute complex sequences; anything secret from the supervisor; anything asking children to manage the father's affect or keep secrets; activities with fall risk or complex equipment. **Relative:** competitive games (the scorekeeping may spotlight cognitive limits); crowded or noisy environments; long unstructured stretches; activities requiring reading small print or complex instructions; breathwork with retention (consult DB); **disinhibition or significant condition progression** — some progressive cognitive conditions (frontotemporal variants especially) can produce disinhibition that may put the father at risk of behavior outside the agreed container; if this appears or intensifies, the container itself must be renegotiated with the care team and the court, not absorbed within the existing visit structure. **Caution:** **looking at old photos, including any photo-based activity or prepared photo book** — can be beautiful or destabilizing. The preparer (presumably the mother, with input from the care team) is responsible for selecting images the father tolerates on his current baseline rather than on the baseline of the relationship. The supervisor must be briefed in advance that photos may destabilize; observable distress signals to watch for include sudden silence, pulling away from the image, repeated confused questions, tearfulness the father cannot settle. If any of these appear, redirect without fanfare to a sensory anchor (water, breath, touch, song). Either the mother or the supervisor can call a stop. **End-of-visit distress / separation difficulty** — visit endings are a known stress point when cognition is shifting; the beginning-and-ending rituals described in §3.5 exist specifically to make transitions readable and to give everyone a graceful way out. The supervisor should be briefed to assist with closure. *If any flag crosses into crisis territory, see §1.6, and consult both the adult and pediatric crisis signals subsections.* |
 | **Candidate practices** | Slow walk in a quiet park with leaf/stone gathering (Nature Guide); two picture books read aloud (Expressive Guide — children can read to him); shared coloring or drawing (Expressive Guide); singing 2-3 simple songs everyone knows (Sound Healing Guide); sensory bin play (Somatic / Expressive Guide); sitting together by flowing water (Water Guide); simple snack preparation if location permits (Somatic Guide); "name three things you can see/hear/feel" sensory game (Contemplative Guide); small photo book prepared in advance (Expressive Guide); quiet closing circle — one thing each person is glad about from today (Community Facilitator); beginning and ending rituals (small consistent gestures — Traditions Scholar / Community Facilitator) |
 | **Progression stubs** | **Entry:** 2-3 low-demand activities per visit, same structure every time, shortest tolerable visit length, prominent exit ramps. **Middle:** visit has 4-5 possible activities, rotate based on day; connection-capsule attempts on good days. **Deepening:** as the father's condition progresses, visits shift *toward simpler* — more silence, more sensory, more just-being; the children's older selves will hold more of the narrative |
 
@@ -729,4 +765,68 @@ This list is also reproduced in each individual thread's own bibliography with t
 
 *End of Phase A Synthesis.*
 
-*The six research threads remain available in full at `research/thread-1` through `research/thread-6`. The Phase A gate verdict, appended after quality review by Ethics Guardian, Clinical Reviewer, and Cultural Reviewer, will document whether this synthesis advances to Phase B.*
+*The six research threads remain available in full at `research/thread-1` through `research/thread-6`.*
+
+---
+
+## Phase A Gate Verdict
+
+| Reviewer | Verdict | Review Document |
+|---|---|---|
+| Ethics Guardian | PASS WITH REVISIONS | `quality-review/ethics-review.md` |
+| Clinical Reviewer | PASS WITH REVISIONS | `quality-review/clinical-review.md` |
+| Cultural Reviewer | PASS WITH REVISIONS | `quality-review/cultural-review.md` |
+
+**Gate: PASSED on 2026-04-11 (with revisions applied and deferred as documented below).**
+
+All three reviewers returned PASS WITH REVISIONS (no BLOCK verdicts). None of the reviews identified an issue that prevented the synthesis from advancing to Phase B. All reviewers agreed that the ethical posture of the document is sound, the research is honestly represented, and the "may help" discipline is maintained throughout.
+
+### Safety-critical revisions applied inline
+
+The following revisions were applied directly to the synthesis before advancing:
+
+1. **§1.6 Crisis Response** expanded from one paragraph to a full subsection. Framework unpacked, 988 spelled out, pediatric crisis signals added (persistent nightmares, school refusal, statements of wanting to disappear, self-harm behavior, dissociation, regression, withdrawal), adult crisis signals added, explicit precedence statement added ("Crisis response takes precedence over every other practice in this document").
+2. **§1.3 item 7** broken reference to §6.2 fixed to §5's configuration matrices, with addition of feedback channel note.
+3. **§3.3** polyvagal load-bearing sentence softened from "can still" to "may still" for both clauses, with individual-variation hedging added.
+4. **§5.1 (Father alone)** added driving/machinery as **Absolute** contraindication (load-bearing safety question for younger-onset populations still physically capable) and first-year-post-diagnosis suicidality risk as **Caution** with explicit care-team and §1.6 reference.
+5. **§5.2 (Mother alone)** added maternal suicidality / complicated-grief risk and substance-use-as-coping as **Caution** flags with explicit §1.6 activation.
+6. **§5.4 (8yo girl)** added "anything asking her to keep grief, visit content, or feelings secret from the other parent or from a trusted adult" to **Absolute** contraindications.
+7. **§5.6 (Father with kids — supervised)** added disinhibition / condition-progression as **Relative** flag triggering care-team renegotiation of the container; expanded photo-based-activity **Caution** to specify who selects, who calls a stop, observable distress signals, and supervisor briefing; added end-of-visit distress as **Caution**.
+8. **§5 configurations** cross-referenced to §1.6 — each matrix now closes with "If any flag crosses into crisis territory, see §1.6."
+9. **§3.4** Sufi *murshid* reference softened to philosophical invocation only, with explicit note that it is not a role the family should seek outside proper Sufi channels; Vedantic Divine Mother reference specified to the openly published *Devi Mahatmya* / *Durga Saptashati* tradition with explicit caveat about closed Shakta / Sri Vidya initiatory practices; "Grandmother-keeper traditions (various Indigenous lineages)" replaced with Kimmerer's openly published Potawatomi work as the specific source, with explicit note that Indigenous elder-keeper roles belong to their own lineages and are not transferable as practices.
+
+### Revisions deferred to Phase B authoring
+
+The following revisions are documented here and will be addressed during Phase B protocol authoring, where they can be applied in the natural context of writing practical protocols. Deferral does NOT mean ignored — it means the revision belongs to the next phase's work, not the synthesis's.
+
+**Citation and attribution:**
+- §3.1 Garand/Schulz attribution verification for the pre-loss grief comparison claim (substitute or add Schulz et al. 2003; soften phrasing)
+- §3.3 Snoezelen empirical claim needs review-level citation (Chung & Lai 2009 Cochrane) or framing softening
+- §3.1, §4.2 Celtic caoineadh attribution (Bourke, Ó Crualaoich, or Lysaght)
+- §3.6 primary Islamic source(s) — Ghazali's *Ihya*, Hamza Yusuf, Sherman Jackson, or Omid Safi on *sabr* and *tawakkul*
+- §3.6 Hindu primary-text translator citations (Gita: Easwaran, Feuerstein, or Bryant; Yoga Sutras)
+- §3.1, §3.6 Mesoamerican Indigenous (Nahua) roots of Día de los Muertos explicitly acknowledged
+- §3.6 *Mitákuye Oyás'iŋ* attribution to specific Lakota author or Deloria
+- §3.5 Punshon/Quaker visiting resolved or reframed to rely on Pink Dandelion 2008
+- Main, Kaplan & Cassidy 1985 pagination completed
+
+**Accessibility and audience:**
+- §3.1–3.6 technical-term glossing (or alternatively, §1 audience clarification that body chapters are clinician-readable while Phase B handoff and Phase C Mother mode are mother-accessible) — this is a Phase B decision because the one-page handoff and the app microcopy will be where the mother meets the material
+
+**Privacy and consent:**
+- §1 clarification of family identifiability (archetype vs. specific-altered-real) and repository-commit implications
+- Consent checkpoint: the mother reviews §3.4 and §5.2 and consents to their framing before Phase B cites back
+- §3.4 "warning signs" framing note (signals-the-mother-may-watch-for-in-herself, not observations)
+- §3.5 supervisor framing fallback note (supervisors may not adopt the welcome-witness framing)
+
+**Continuous improvement:**
+- §5 add "retire when" row to progression stubs for full practice retirement, not only simplification
+- Revision mechanism subsection naming clinician feedback channel and versioned Phase B
+
+### What the gate verdict means
+
+The synthesis **advances to Phase B** with the safety-critical revisions applied and the remaining revisions tracked in this gate footer. Phase B protocol authoring will reference this footer as the revision backlog and apply each deferred item in context (e.g., the Islamic citation gap resolves naturally when Phase B authors a protocol that draws on *sabr*; the accessibility question resolves when the Phase B clinician handoff and Phase C Mother-mode microcopy are authored).
+
+**The next task** is to write the Phase B implementation plan, informed by the outputs of this synthesis and grounded in the configuration matrices of §5. See `docs/superpowers/plans/2026-04-11-family-nexus-healing-phase-b.md` (to be created).
+
+*Phase A is complete.*
