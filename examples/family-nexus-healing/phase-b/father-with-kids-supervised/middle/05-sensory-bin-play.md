@@ -28,7 +28,7 @@ Phase A synthesis §3.3 discusses the Snoezelen principle — low-demand, high-s
 
 ## ⚠ When NOT to use this
 
-- **Absolute:** any filler that is a choking hazard for the 5yo (small beads, small buttons, coins, anything under ~2cm that can be swallowed)
+- **Absolute:** any filler that is a choking hazard for the 5yo — nothing smaller than the width of a toilet-paper tube (~3.2 cm / small-parts choke test cylinder standard). **Water beads are Absolute: do not use** — they are a known serious pediatric ingestion hazard and have been subject to product-safety recalls; they expand in the digestive tract and can cause life-threatening bowel obstruction. Small beads, small buttons, coins, marbles, and anything a 5yo could swallow are prohibited. **The 5yo is never alone with the bin; an adult must be within arm's reach at all times.** Any hand-to-mouth behavior by the 5yo is a full-stop signal — redirect immediately and consider whether this is the right practice for this child today
 - **Relative:** fillers that scatter widely and require intensive cleanup (water beads, small foam bits) in visit locations where cleanup would be a burden
 - **Caution:** if the father has any tendency to put small objects in his mouth (rare but relevant in some progressive conditions); if a child has texture sensitivities that make a specific filler distressing
 - **If any flag crosses into crisis territory, see `00-crisis-response-card.md`.**
