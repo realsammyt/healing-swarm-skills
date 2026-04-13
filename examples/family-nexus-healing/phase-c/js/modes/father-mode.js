@@ -138,7 +138,7 @@ async function renderHome(container, protocols) {
     container.innerHTML = `
       <div class="father-home">
         <h1>${getGreeting()}</h1>
-        <p class="father-subtitle">No practices loaded yet.</p>
+        <p class="father-subtitle">Still loading. One moment.</p>
       </div>
     `;
     return;

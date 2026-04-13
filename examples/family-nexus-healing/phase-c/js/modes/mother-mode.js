@@ -109,7 +109,7 @@ function renderGriefWindowOverlay(griefInfo) {
   const progress = ((total - remaining) / total) * 100;
 
   return `
-    <div class="grief-window-overlay" role="dialog" aria-label="Grief window active">
+    <div class="grief-window-overlay" role="dialog" aria-label="Your grief window">
       <div class="grief-window-content">
         <div class="grief-window-header">
           <h2>This time is yours</h2>
@@ -196,9 +196,9 @@ async function renderRightNow(container, protocols) {
 
       <div class="mother-word-input">
         <input type="text" id="mother-word" class="mother-word-field"
-               placeholder="Or one word..."
+               placeholder="One word..."
                maxlength="50"
-               aria-label="Describe how you feel in one word">
+               aria-label="One word for how you feel">
         <button class="btn-primary mother-save-word" aria-label="Save">Save</button>
       </div>
     </div>
@@ -487,7 +487,7 @@ async function renderMySpace(container) {
         <input type="tel" id="trusted-contact" class="mother-tel-input"
                value="${escapeHtml(trustedContact)}"
                placeholder="e.g. 555-123-4567"
-               aria-label="Trusted person phone number">
+               aria-label="Phone number for someone you trust">
 
         <label for="therapist-contact">My therapist</label>
         <input type="tel" id="therapist-contact" class="mother-tel-input"

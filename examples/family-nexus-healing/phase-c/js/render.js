@@ -18,9 +18,9 @@ export function renderModeScreen(container, mode, protocols) {
   };
 
   const modeDescriptions = {
-    family: 'Protocols for when you are together with the children.',
-    father: 'Your own practice. One step at a time.',
-    mother: 'Your private container. These are for you.'
+    family: 'For when you are together.',
+    father: 'One thing at a time. No rush.',
+    mother: 'This is yours.'
   };
 
   // Group protocols by category
@@ -78,7 +78,7 @@ export function renderModeScreen(container, mode, protocols) {
         <div class="protocol-card"
              tabindex="0"
              role="button"
-             aria-label="Open protocol: ${escapeHtml(p.title)}"
+             aria-label="Open practice: ${escapeHtml(p.title)}"
              data-protocol-id="${escapeHtml(p.id)}">
           <div class="protocol-card-title">${escapeHtml(p.title)}</div>
           <div class="protocol-card-meta">
@@ -124,8 +124,8 @@ export function renderProtocolDetail(container, protocol, mode) {
         </button>
       </nav>
       <div class="protocol-detail">
-        <h1>Protocol not found</h1>
-        <p>This protocol could not be loaded.</p>
+        <h1>Practice not found</h1>
+        <p>This practice could not be loaded.</p>
       </div>
     `;
     return;
@@ -167,7 +167,7 @@ export function renderProtocolDetail(container, protocol, mode) {
   // Summary
   if (protocol.summary && protocol.summary.length > 0) {
     html += '<div class="protocol-section">';
-    html += '<h2>Why this practice</h2>';
+    html += '<h2>Why this helps</h2>';
     for (const para of protocol.summary) {
       html += `<p>${escapeHtml(para)}</p>`;
     }
@@ -177,7 +177,7 @@ export function renderProtocolDetail(container, protocol, mode) {
   // Steps
   if (protocol.steps && protocol.steps.length > 0) {
     html += '<div class="protocol-section">';
-    html += '<h2>The practice</h2>';
+    html += '<h2>The steps</h2>';
     for (const step of protocol.steps) {
       html += `
         <div class="step">
@@ -192,7 +192,7 @@ export function renderProtocolDetail(container, protocol, mode) {
     // Protocols without numbered steps but with raw practice text
     // (e.g. protocols using sub-headings like "Option A / Option B")
     html += '<div class="protocol-section">';
-    html += '<h2>The practice</h2>';
+    html += '<h2>The steps</h2>';
     const paragraphs = protocol.practiceText.split(/\n\n+/);
     for (const para of paragraphs) {
       const trimmed = para.trim();
@@ -217,7 +217,7 @@ export function renderProtocolDetail(container, protocol, mode) {
   // Contraindications
   if (protocol.contraindications && protocol.contraindications.length > 0) {
     html += '<div class="protocol-section">';
-    html += '<h2>When not to use this</h2>';
+    html += '<h2>Not the right time if</h2>';
     html += '<div class="warning-list">';
     for (const item of protocol.contraindications) {
       html += `<p>${escapeHtml(item)}</p>`;
@@ -228,7 +228,7 @@ export function renderProtocolDetail(container, protocol, mode) {
   // Signals
   if (protocol.signals && protocol.signals.length > 0) {
     html += '<div class="protocol-section">';
-    html += '<h2>Signals to slow down or stop</h2>';
+    html += '<h2>Pause or stop if</h2>';
     html += '<div class="signal-list">';
     for (const item of protocol.signals) {
       html += `<p>${escapeHtml(item)}</p>`;
@@ -239,7 +239,7 @@ export function renderProtocolDetail(container, protocol, mode) {
   // Modifications
   if (protocol.modifications && protocol.modifications.length > 0) {
     html += '<div class="protocol-section">';
-    html += '<h2>Modifications</h2>';
+    html += '<h2>On a hard day</h2>';
     html += '<ul class="modification-list">';
     for (const item of protocol.modifications) {
       html += `<li>${escapeHtml(item)}</li>`;
@@ -250,7 +250,7 @@ export function renderProtocolDetail(container, protocol, mode) {
   // Traditions
   if (protocol.traditions && protocol.traditions.length > 0) {
     html += '<div class="protocol-section">';
-    html += '<h2>Traditions honored</h2>';
+    html += '<h2>Where this comes from</h2>';
     html += '<div class="tradition-list">';
     for (const item of protocol.traditions) {
       html += `<p>${escapeHtml(item)}</p>`;

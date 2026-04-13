@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#2d8a4e">
-  <meta name="description" content="Healing protocols for families navigating change — offline, private, and yours.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f8f6f2">
+  <meta name="description" content="Healing practices for families navigating change — offline, private, and yours.">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Healing">
@@ -24,7 +24,7 @@
 
   <main id="app">
 
-    <!-- Landing screen -->
+    <!-- Landing screen — the first breath -->
     <section id="landing" class="screen active" role="main" aria-label="Choose your mode">
 
       <h1>Who needs this right now?</h1>
@@ -59,8 +59,8 @@
         </p>
         <p>
           You are not the first family to walk this. Across centuries and
-          cultures — Jewish, Buddhist, Christian, Islamic, Indigenous, Japanese,
-          African, secular — families have met this same territory. They
+          cultures &mdash; Jewish, Buddhist, Christian, Islamic, Indigenous, Japanese,
+          African, secular &mdash; families have met this same territory. They
           found practices for it. Small things. Holdable things. Ways to be
           present when memory fades. Ways to stay whole in a new shape.
         </p>
@@ -70,10 +70,10 @@
 
         <h3>What this is</h3>
         <p>
-          36 practices in three modes — one for the family together,
+          36 practices in three modes &mdash; one for the family together,
           one for the father, one for the mother. Each one is simple enough
           for a tired person at the end of a long day. Each is grounded in
-          research and traditional wisdom. Each says "may help" — because
+          research and traditional wisdom. Each says "may help" &mdash; because
           nothing here is a prescription, and nothing poses as a cure.
         </p>
 
@@ -82,7 +82,7 @@
           <li>Not a treatment plan, diagnosis, or substitute for your therapist,
             doctor, or supervisor.</li>
           <li>Not a cure. "Healing" here means preserving connection, dignity,
-            and the capacity to move through grief — not restoring what has
+            and the capacity to move through grief &mdash; not restoring what has
             changed.</li>
           <li>Not a surveillance tool. Nothing leaves this device. No accounts,
             no analytics, no tracking. Your data is yours alone.</li>
@@ -110,15 +110,15 @@
           <li><strong>Stopping is a win.</strong> Pause at any step.
             Skip any week. This will be here when you come back.</li>
           <li><strong>Install it.</strong> Add to your home screen
-            (iPhone: Share > Add to Home Screen; Android: menu >
-            Install). Then it works offline — no internet needed.</li>
+            (iPhone: Share &gt; Add to Home Screen; Android: menu &gt;
+            Install). Then it works offline &mdash; no internet needed.</li>
         </ol>
 
         <h3>Privacy</h3>
         <p>
           <strong>Your data never leaves this device.</strong> No servers,
-          no logins, no cookies, no tracking. Everything — your felt-log,
-          visit schedule, grief-window times — stays on your phone and
+          no logins, no cookies, no tracking. Everything &mdash; your felt-log,
+          visit schedule, grief-window times &mdash; stays on your phone and
           nowhere else. You can export a backup or delete everything
           with one tap. No one else can see it.
         </p>
@@ -150,12 +150,12 @@
     </section>
 
     <!-- Mode screens (populated by JS) -->
-    <section id="family-screen" class="screen" role="main" aria-label="Family protocols"></section>
-    <section id="father-screen" class="screen" role="main" aria-label="Father protocols"></section>
-    <section id="mother-screen" class="screen" role="main" aria-label="Mother protocols"></section>
+    <section id="family-screen" class="screen" role="main" aria-label="Family practices"></section>
+    <section id="father-screen" class="screen" role="main" aria-label="Father practices"></section>
+    <section id="mother-screen" class="screen" role="main" aria-label="Mother practices"></section>
 
-    <!-- Protocol detail view -->
-    <section id="protocol-view" class="screen" role="main" aria-label="Protocol detail"></section>
+    <!-- Practice detail view -->
+    <section id="protocol-view" class="screen" role="main" aria-label="Practice detail"></section>
 
   </main>
 
@@ -173,7 +173,7 @@
       });
     }
 
-    // About section toggle
+    // About section toggle — gentle expand/collapse
     document.addEventListener('DOMContentLoaded', function () {
       var toggle = document.getElementById('about-toggle');
       var section = document.getElementById('about-section');
@@ -186,7 +186,10 @@
             section.removeAttribute('hidden');
             toggle.setAttribute('aria-expanded', 'true');
             toggle.textContent = 'Hide';
-            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Gentle scroll to the about section
+            setTimeout(function () {
+              section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 50);
           } else {
             section.setAttribute('hidden', '');
             toggle.setAttribute('aria-expanded', 'false');
@@ -200,7 +203,10 @@
           section.setAttribute('hidden', '');
           toggle.setAttribute('aria-expanded', 'false');
           toggle.textContent = 'What is this?';
-          toggle.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Gentle scroll back to the landing
+          setTimeout(function () {
+            toggle.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 50);
         });
       }
     });

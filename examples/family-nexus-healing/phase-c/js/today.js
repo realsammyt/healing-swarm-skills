@@ -23,7 +23,7 @@ const TIME_BLOCKS = [
   },
   {
     name: 'afternoon',
-    label: 'This afternoon',
+    label: 'Good afternoon',
     start: 11,
     end: 17,
     categories: ['father-with-kids-supervised/entry', 'each-child-alone'],
@@ -31,7 +31,7 @@ const TIME_BLOCKS = [
   },
   {
     name: 'evening',
-    label: 'This evening',
+    label: 'Good evening',
     start: 17,
     end: 20,
     categories: ['mother-with-kids/daily-regulation', 'each-child-alone'],
@@ -39,7 +39,7 @@ const TIME_BLOCKS = [
   },
   {
     name: 'night',
-    label: 'Bedtime',
+    label: 'Almost bedtime',
     start: 20,
     end: 24,
     categories: ['mother-with-kids/daily-regulation', 'each-child-alone'],
@@ -48,7 +48,7 @@ const TIME_BLOCKS = [
   {
     // Early morning wraps back to night
     name: 'late-night',
-    label: 'Late night',
+    label: 'Still up?',
     start: 0,
     end: 5,
     categories: ['mother-with-kids/daily-regulation'],
@@ -162,7 +162,7 @@ export async function renderTodayScreen(protocols, container) {
       <div class="today-visit-banner" role="alert">
         <div class="visit-banner-icon" aria-hidden="true">&#128197;</div>
         <div class="visit-banner-text">
-          <strong>Visit day ${isVisitToday(nextVisit) ? 'is here' : 'is coming'}</strong>
+          <strong>${isVisitToday(nextVisit) ? 'Visit day' : 'A visit is coming'}</strong>
           <span>${escapeHtml(dayLabel)}</span>
         </div>
       </div>
@@ -173,7 +173,7 @@ export async function renderTodayScreen(protocols, container) {
   html += `
     <div class="today-greeting">
       <h2>${escapeHtml(timeBlock.label)}</h2>
-      <p class="today-subtext">Here are some practices for right now.</p>
+      <p class="today-subtext">Something you might try together.</p>
     </div>
   `;
 

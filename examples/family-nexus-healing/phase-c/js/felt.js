@@ -98,8 +98,8 @@ async function saveNames() {
 
 function renderNameEditor() {
   let html = '<div class="felt-name-editor">';
-  html += '<h3>Set family names</h3>';
-  html += '<p class="felt-name-hint">Tap a name to change it.</p>';
+  html += '<h3>Our names</h3>';
+  html += '<p class="felt-name-hint">Tap to change.</p>';
 
   for (let i = 0; i < familyNames.length; i++) {
     html += `
@@ -116,7 +116,7 @@ function renderNameEditor() {
 
   html += `
     <button class="btn-primary felt-name-save" style="margin-top: var(--space-md); width: 100%;">
-      Save Names
+      Save
     </button>
   </div>`;
   return html;
@@ -131,7 +131,7 @@ async function renderEntries(familyMember) {
   }
 
   if (entries.length === 0) {
-    return '<p class="felt-empty">No entries yet. How are you feeling?</p>';
+    return '<p class="felt-empty">Nothing here yet.</p>';
   }
 
   let html = '<div class="felt-entries">';
@@ -167,7 +167,7 @@ async function renderFamilyView() {
   }
 
   if (entries.length === 0) {
-    return '<p class="felt-empty">No entries from anyone yet.</p>';
+    return '<p class="felt-empty">No one has shared yet.</p>';
   }
 
   // Group by date
@@ -181,7 +181,7 @@ async function renderFamilyView() {
   }
 
   let html = '<div class="felt-family-view">';
-  html += '<h3>How we have been feeling</h3>';
+  html += '<h3>What we have each been carrying</h3>';
 
   for (const [date, dayEntries] of Object.entries(byDate)) {
     html += `<div class="felt-day-group">`;
@@ -270,7 +270,7 @@ export async function renderFeltLog(container) {
     // Input area
     html += `
       <div class="felt-input-area">
-        <div class="felt-prompt">How are you feeling, ${escapeHtml(member)}?</div>
+        <div class="felt-prompt">${escapeHtml(member)}, how are you?</div>
 
         <div class="felt-word-input">
           <input type="text"
@@ -278,13 +278,13 @@ export async function renderFeltLog(container) {
                  class="felt-word-field"
                  placeholder="One word..."
                  maxlength="50"
-                 aria-label="Describe how you feel in one word">
-          <button class="btn-primary felt-save-word" aria-label="Save word">Save</button>
+                 aria-label="One word for how you feel">
+          <button class="btn-primary felt-save-word" aria-label="Save">Save</button>
         </div>
 
-        <div class="felt-or">or pick a color</div>
+        <div class="felt-or">or a color</div>
 
-        <div class="felt-color-picker" role="group" aria-label="Pick a feeling color">
+        <div class="felt-color-picker" role="group" aria-label="Pick a color">
     `;
 
     for (const color of FEELING_COLORS) {
@@ -310,8 +310,8 @@ export async function renderFeltLog(container) {
 
     // Review together button
     html += `
-      <button class="felt-review-btn" data-tab="-2" aria-label="Review how the family has been feeling">
-        Review together
+      <button class="felt-review-btn" data-tab="-2" aria-label="See what everyone shared">
+        See it together
       </button>
     `;
   }
