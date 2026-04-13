@@ -638,3 +638,101 @@ p:last-child {
 .mt-xl { margin-top: var(--space-xl); }
 .mb-md { margin-bottom: var(--space-md); }
 .mb-lg { margin-bottom: var(--space-lg); }
+
+/* --------------------------------------------------------------------------
+   About section (landing page context)
+   -------------------------------------------------------------------------- */
+
+.about-toggle {
+  display: block;
+  margin: var(--space-lg) auto 0;
+  padding: var(--space-sm) var(--space-md);
+  background: none;
+  border: 1px solid var(--color-border, #d0d0d0);
+  border-radius: var(--radius-md, 8px);
+  color: var(--color-text-secondary, #666);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.about-toggle:hover,
+.about-toggle:focus-visible {
+  border-color: var(--color-text, #333);
+  color: var(--color-text, #333);
+}
+
+.about-section {
+  max-width: 600px;
+  margin: var(--space-lg) auto;
+  padding: var(--space-lg);
+  text-align: left;
+  line-height: 1.7;
+  color: var(--color-text, #1a1a1a);
+}
+
+.about-section[hidden] {
+  display: none;
+}
+
+.about-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-md);
+  text-align: center;
+  color: var(--color-text, #1a1a1a);
+}
+
+.about-section h3 {
+  font-size: 1.1rem;
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+  color: var(--color-text, #1a1a1a);
+}
+
+.about-section p {
+  margin-bottom: var(--space-md);
+  font-size: 1rem;
+}
+
+.about-section ul,
+.about-section ol {
+  margin-bottom: var(--space-md);
+  padding-left: var(--space-lg);
+}
+
+.about-section li {
+  margin-bottom: var(--space-sm);
+  font-size: 1rem;
+}
+
+.about-section hr {
+  border: none;
+  border-top: 1px solid var(--color-border, #e0e0e0);
+  margin: var(--space-xl) 0;
+}
+
+.about-closing {
+  text-align: center;
+  font-size: 1.05rem;
+  color: var(--color-text-secondary, #555);
+  margin-bottom: var(--space-sm);
+}
+
+.about-close-btn {
+  display: block;
+  margin: var(--space-lg) auto 0;
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--color-accent, #2d8a4e);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md, 8px);
+  font-size: 1rem;
+  cursor: pointer;
+  min-height: 48px;
+  transition: background 200ms ease;
+}
+
+.about-close-btn:hover,
+.about-close-btn:focus-visible {
+  background: var(--color-accent-dark, #246e3e);
+}
