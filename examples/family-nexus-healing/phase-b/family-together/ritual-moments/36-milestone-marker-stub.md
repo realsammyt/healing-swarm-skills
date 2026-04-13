@@ -28,7 +28,7 @@ Choose ONE. The same one can be used every milestone, or different milestones ca
 
 ## When NOT to use this
 
-- **Absolute:** any configuration that violates the court-ordered arrangement or safety boundaries. If the milestone falls on a day when the family cannot legally or safely be together, the father-absent version is used.
+- **Absolute:** any configuration that violates the court-ordered arrangement or safety boundaries. If supervised visitation is in effect, this practice must occur within the structure of an approved visit or an approved family-together occasion. If there is any doubt, check with the visit supervisor or the family's legal representative first. If the milestone falls on a day when the family cannot legally or safely be together, the father-absent version is used.
 - **Relative:** high-stakes milestone events where performance pressure is inescapable — large family gatherings, formal celebrations with extended family present, events where multiple people have expectations about how the father should appear or behave. This practice is for the private family moment, not the public performance.
 - **Caution:** anything that frames the milestone as a comparison ("last year, Daddy could..."). The marker honors today. If a child spontaneously mentions a comparison, that is their processing and should be received gently (see protocol 14, *How Was Your Heart Today?*), but the adults do not introduce the comparison.
 - **If any signal crosses into crisis territory, see `00-crisis-response-card.md`.**

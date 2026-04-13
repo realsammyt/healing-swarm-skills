@@ -31,6 +31,7 @@ None of this requires belief. It requires sixty seconds.
 
 - **MATERNAL SUICIDALITY FLAG (Caution):** If you are experiencing intrusive thoughts of self-harm, inability to care for the children, or persistent dissociation, this 60-second practice may help in the immediate moment but is not sufficient on its own. After using it, activate the escalation path. Call 988 (US) or your local crisis line. See `00-crisis-response-card.md` and `34-im-at-the-edge-escalation.md`.
 - **SUBSTANCE USE FLAG (Caution):** This practice is not a substitute for addressing substance use patterns. If you notice that you need the fast reset multiple times a day, every day, that frequency is a signal the container needs reinforcement. Talk to your therapist. See `00-crisis-response-card.md`.
+- **CARDIAC CAVEAT (Option A only):** The cold-water dive reflex causes bradycardia (heart rate slowing) and peripheral vasoconstriction. This is safe for most people. **If you have a known heart condition, cardiac arrhythmia, or uncontrolled high blood pressure, use Option B or C instead of cold water.** The Kneipp hydrotherapy tradition itself recognizes this contraindication. When in doubt, ask your doctor before using the cold-water option.
 - **If any flag crosses into crisis territory, see `00-crisis-response-card.md`.**
 
 ## The practice
