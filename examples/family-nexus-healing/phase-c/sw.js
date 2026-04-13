@@ -5,7 +5,7 @@
  * Zero network calls once cached.
  */
 
-const CACHE_NAME = 'family-nexus-v2';
+const CACHE_NAME = 'family-nexus-v3';
 
 /**
  * Core files that must be cached for the app to work offline.
@@ -66,13 +66,45 @@ self.addEventListener('activate', (event) => {
 });
 
 // ---------------------------------------------------------------------------
-// Fetch — cache-first, fall back to network
+// Fetch — stale-while-revalidate for HTML, cache-first for everything else
 // ---------------------------------------------------------------------------
 
 self.addEventListener('fetch', (event) => {
   // Only handle GET requests
   if (event.request.method !== 'GET') return;
 
+  const url = new URL(event.request.url);
+  const isHTML = event.request.destination === 'document'
+    || url.pathname.endsWith('.html')
+    || url.pathname === '/'
+    || url.pathname === '';
+
+  if (isHTML) {
+    // Stale-while-revalidate for HTML: serve cache immediately, refresh in background
+    // This means updates appear on the NEXT visit without the user doing anything
+    event.respondWith(
+      caches.match(event.request).then((cached) => {
+        const networkFetch = fetch(event.request).then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const responseToCache = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, responseToCache);
+            });
+          }
+          return networkResponse;
+        }).catch(() => {
+          // Offline — cached version is all we have, and that's fine
+          return cached;
+        });
+
+        // Return cached immediately if available, otherwise wait for network
+        return cached || networkFetch;
+      })
+    );
+    return;
+  }
+
+  // Cache-first for all other assets (CSS, JS, JSON, images)
   event.respondWith(
     caches.match(event.request).then((cached) => {
       if (cached) {
