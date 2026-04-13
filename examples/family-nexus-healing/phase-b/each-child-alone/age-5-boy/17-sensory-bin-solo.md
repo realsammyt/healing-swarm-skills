@@ -45,6 +45,7 @@ The sensory engagement is the regulation mechanism. He does not have to name wha
 - **Escalating energy** (throwing filler, slamming cups, yelling at the bin): the regulation has tipped into dysregulation. The mother gently says "let's close the bin for now" and offers an alternative (held body, a walk outside, the 90-second co-regulation hum).
 - **Hand-to-mouth behavior:** immediate redirect. If persistent, swap to water play.
 - **Complete disinterest over weeks:** fine. Not every child regulates through tactile play. The bin waits. Other practices carry the work.
+- **Magical-thinking self-blame:** if the child's play or words during bin time reveal self-blame about the father's condition ("I'm making Daddy's rocks sad"), see `mother-with-kids/processing-confusion/13-why-cant-daddy-live-with-us-script.md` for the age-appropriate response: "It's not because of you."
 - **If any signal sustains beyond this session, see pediatric crisis signals in `00-crisis-response-card.md`.**
 
 ## Modifications

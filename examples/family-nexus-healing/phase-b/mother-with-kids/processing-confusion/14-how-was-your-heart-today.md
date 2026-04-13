@@ -38,7 +38,7 @@ This is not an interrogation. It is a daily or weekly touchpoint that the mother
    - "That makes sense."
    - A nod. A hand squeeze. A quiet "mm."
 4. **Do not follow up unless the child invites it.** If the child says "my heart was sad today" and then goes quiet, the practice is complete. The child has been heard. If the child says "my heart was sad today because of Daddy" and pauses — they may want to say more. Let them. If they do not, say "I'm glad you told me" and let it rest.
-5. **The mother may share her own.** After the child has answered (or chosen not to), the mother can say: "My heart was [color/weather/word] today." This models that adults have hearts too, and that naming inner states is a normal human activity. Keep it honest but not heavy. "My heart was tired today" is enough. "My heart was drowning" is too much for a child to hold.
+5. **The mother may share her own — briefly, to model, not to process.** After the child has answered (or chosen not to), the mother can say: "My heart was [color/weather/word] today." This models that adults have hearts too, and that naming inner states is a normal human activity. Keep it honest but not heavy. "My heart was tired today" is enough. "My heart was drowning" is too much for a child to hold. **If the mother finds herself wanting to say more than one sentence about her own heart, that is information that she needs her own grief window** (see `mother-alone/container-practice/29-weekly-grief-window.md`), **not the children's ears.** The Absolute contraindication from Phase A §5.5 applies here: the children must never become the mother's emotional caregivers.
 
 ## Holding-parent voice (mother)
 

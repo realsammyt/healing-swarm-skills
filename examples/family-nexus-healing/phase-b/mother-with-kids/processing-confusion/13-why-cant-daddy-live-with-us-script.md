@@ -40,7 +40,7 @@ If the mother needs to introduce the situation proactively:
 
 "I want to tell you something about Daddy. Daddy's brain works in a different way now. It's called [progressive cognitive change / a brain illness — the mother chooses her own words]. It means he forgets things sometimes, and he gets confused sometimes, and it's harder for him to take care of you by himself right now. That's why he lives in a different place, and that's why we visit him with [the supervisor's name] there.
 
-It's not because of anything you did. It's not something you can catch. It's not something you can fix. And it doesn't mean Daddy doesn't love you — he loves you very much.
+It's not because of anything you did. It's not something you can catch, like a cold. It's not something you can fix. And it doesn't mean Daddy doesn't love you — he loves you very much.
 
 We're going to take care of each other. And there are other grown-ups helping too — [name the therapist, the supervisor, the grandmother, whoever is in the circle].
 
@@ -102,7 +102,7 @@ The mother may find herself grieving during or after this conversation. That is 
 
 - **In the 5yo:** crying (hold him; the answer was heard and is being processed through the body; do not add more words), asking the same question repeatedly in the same conversation (answer once more with the same words; then: "we can talk about it again tomorrow"), magical-thinking elaboration ("I'll make Daddy better by being good") — gently correct once: "nothing you do will make this different. You are already good enough."
 - **In the 8yo:** going very quiet after the conversation (processing; give her space; check in later), becoming angry at the mother ("why did you LET this happen?") — receive the anger without defending: "I hear you. You're angry. That makes sense." Asking for more detail than the mother has ("what exactly is wrong with his brain?") — be honest about what you know and don't know: "I don't have all the answers. Here's what I do know: [repeat the core frame]."
-- **In yourself (the mother):** if tears come while you are speaking, pause, breathe, resume. The children can see that you are human. If you cannot resume, say "I need a minute" and take a brief break. Return within 2 minutes. Do not abandon the conversation entirely — come back and close it: "Okay. I'm here. Do you have any more questions right now?"
+- **In yourself (the mother):** *Tears* while speaking are normal and the children can see that you are human — pause, breathe, resume. **But genuine dysregulation is different from tears.** If you find yourself unable to speak, unable to stop crying, or losing the thread of what you are saying — this is your body telling you to pause. Say: "I need a minute. I love you. We will come back to this." Leave the room briefly if you can. Return within 5 minutes to close the conversation with one sentence: "I'm okay. We can talk more tomorrow." If you cannot return within 5 minutes, send a trusted adult to the child with the same message. **Do not abandon the conversation entirely** without closing it — a child left mid-conversation about a parent's illness will fill the silence with their own worst fears. Even a brief closing ("I love you, we're okay, we'll talk more") is enough.
 - **If any child signal sustains beyond this session, see pediatric crisis signals in `00-crisis-response-card.md`.**
 
 ## Modifications

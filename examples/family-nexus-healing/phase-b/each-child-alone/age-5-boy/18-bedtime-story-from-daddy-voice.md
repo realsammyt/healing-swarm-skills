@@ -22,7 +22,7 @@ This practice is optional. It depends on whether a connection-capsule recording 
 
 - This is NOT a replacement for the mother's bedtime ritual. It is an optional addition — played before or after the mother's own story or song, as part of the existing bedtime shape.
 - The mother decides each night whether to play it. On nights when the recording would surface grief rather than comfort (the child is already sad, the mother is at the edge, the visit was hard), she skips it without comment. The child does not need to know why it was skipped.
-- **Consent is ongoing.** If the father later asks that the recording not be used, it is not used. If the child asks that it stop, it stops. See `25-bedtime-story-voice-recording.md` for the full consent framework.
+- **Consent is ongoing.** If the father later asks that the recording not be used, it is not used. If the child asks that it stop, it stops. See `25-bedtime-story-voice-recording.md` for the full consent framework. **If the father's condition progresses to the point where he can no longer meaningfully give or withdraw consent,** the decision about continued use of the recording rests with the person holding his healthcare power of attorney, or — if no POA is designated — with the family therapist in consultation with the care team. This is not a remote contingency in a younger-onset progressive condition; it is a foreseeable reality that should be discussed with the care team early, ideally before the recording is made.
 
 ## ⚠ When NOT to use this
 
@@ -45,6 +45,7 @@ This practice is optional. It depends on whether a connection-capsule recording 
 - **The child begins to refuse the recording consistently** (asks "no Daddy story" more nights than not): honor it without question. The recording may return later, at a different age, or never. Both are fine.
 - **The child becomes more activated by the recording than settled** (increased nightmares on recording nights, increased clinginess, increased "I want Daddy" distress that does not settle): pause the recording for two weeks. Return to the mother's own bedtime voice only. If the pattern repeats on reintroduction, the recording may not be serving this child at this stage.
 - **The child wants to hear it on repeat** (asks for the same story three times): allow it for a time. Repetition is how 5-year-olds process. If the repetition becomes compulsive (cannot sleep without it, escalating if it is not available), the mother may gently introduce a limit: "one Daddy story, then one Mommy story, then sleep."
+- **Magical-thinking self-blame:** if the child says things like "Daddy sounds different because I was bad" or "I want to fix Daddy's voice," see `mother-with-kids/processing-confusion/13-why-cant-daddy-live-with-us-script.md` for the age-appropriate response. Said once, calmly: "It's not because of you. It's not something you can catch, like a cold. It's not something you can fix."
 - **If any signal sustains beyond this session, see pediatric crisis signals in `00-crisis-response-card.md`.**
 
 ## Modifications
