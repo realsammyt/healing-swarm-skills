@@ -5,7 +5,7 @@
  * Zero network calls once cached.
  */
 
-const CACHE_NAME = 'family-nexus-v1';
+const CACHE_NAME = 'family-nexus-v2';
 
 /**
  * Core files that must be cached for the app to work offline.
@@ -18,9 +18,16 @@ const CORE_ASSETS = [
   './css/base.css',
   './css/modes.css',
   './css/a11y.css',
+  './css/components.css',
   './js/app.js',
   './js/router.js',
   './js/render.js',
+  './js/storage.js',
+  './js/today.js',
+  './js/felt.js',
+  './js/modes/family-mode.js',
+  './js/modes/father-mode.js',
+  './js/modes/mother-mode.js',
   './data/protocols.json'
 ];
 

@@ -1,12 +1,16 @@
 /**
  * app.js — Main entry point for Family Nexus Healing PWA
  *
- * Loads protocol data, initializes the router, and wires up
- * rendering in response to navigation events.
+ * Loads protocol data, initializes storage, sets up the router,
+ * and wires up mode-specific rendering.
  */
 
 import { initRouter, onNavigate, navigate } from './router.js';
-import { renderModeScreen, renderProtocolDetail } from './render.js';
+import { renderProtocolDetail } from './render.js';
+import { initDB, saveSetting, getSetting } from './storage.js';
+import { renderFamilyMode, resetFamilyMode } from './modes/family-mode.js';
+import { renderFatherMode, resetFatherMode } from './modes/father-mode.js';
+import { renderMotherMode, resetMotherMode } from './modes/mother-mode.js';
 
 // ---------------------------------------------------------------------------
 // State
@@ -59,8 +63,14 @@ async function loadProtocols() {
 
 function bindModeButtons() {
   document.querySelectorAll('.mode-btn[data-mode]').forEach((btn) => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
       const mode = btn.dataset.mode;
+      // Save last-used mode
+      try {
+        await saveSetting('last-mode', mode);
+      } catch (e) {
+        // Storage not critical for navigation
+      }
       navigate(mode);
     });
   });
@@ -70,7 +80,7 @@ function bindModeButtons() {
 // Route Handler
 // ---------------------------------------------------------------------------
 
-function handleRoute(route) {
+async function handleRoute(route) {
   const { screen, mode, protocolId } = route;
 
   // Track current mode for back-navigation from protocol detail
@@ -78,12 +88,28 @@ function handleRoute(route) {
     currentMode = mode;
   }
 
-  // Render mode screens on first visit
-  if (screen === 'family-screen' || screen === 'father-screen' || screen === 'mother-screen') {
-    currentMode = mode;
+  // Render mode screens using mode-specific orchestrators
+  if (screen === 'family-screen') {
+    currentMode = 'family';
     const container = document.getElementById(screen);
     if (container) {
-      renderModeScreen(container, mode, protocolsByMode[mode] || []);
+      await renderFamilyMode(container, protocolsByMode.family || []);
+    }
+  }
+
+  if (screen === 'father-screen') {
+    currentMode = 'father';
+    const container = document.getElementById(screen);
+    if (container) {
+      await renderFatherMode(container, protocolsByMode.father || []);
+    }
+  }
+
+  if (screen === 'mother-screen') {
+    currentMode = 'mother';
+    const container = document.getElementById(screen);
+    if (container) {
+      await renderMotherMode(container, protocolsByMode.mother || []);
     }
   }
 
@@ -102,6 +128,13 @@ function handleRoute(route) {
       renderProtocolDetail(container, protocol, currentMode);
     }
   }
+
+  // Reset mode state when navigating to landing
+  if (screen === 'landing') {
+    resetFamilyMode();
+    resetFatherMode();
+    resetMotherMode();
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -109,7 +142,15 @@ function handleRoute(route) {
 // ---------------------------------------------------------------------------
 
 async function init() {
-  // Load data first
+  // Initialize storage
+  try {
+    await initDB();
+    console.log('[App] Storage initialized');
+  } catch (err) {
+    console.warn('[App] Storage initialization failed (app will still work):', err);
+  }
+
+  // Load data
   await loadProtocols();
 
   // Bind landing page buttons
