@@ -497,8 +497,8 @@ function renderFullPractice(container, protocols) {
       <button class="father-step-exit" aria-label="Exit practice">
         <span aria-hidden="true">&larr;</span> Exit
       </button>
-      <button class="father-step-done btn-primary" aria-label="Finished">
-        Done
+      <button class="father-step-done btn-primary" aria-label="Well done">
+        Well done
       </button>
     </div>
   `;

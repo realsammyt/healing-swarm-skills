@@ -775,6 +775,105 @@
   border-color: var(--mode-accent);
 }
 
+/* ---------------------------------------------------------------------------
+   Full Practice View (for protocols without numbered steps)
+   These protocols use Option A / Option B sub-headings instead of numbered
+   steps. The view is a warm, scrollable card — not a step-by-step — with
+   generous spacing, clear sub-headings, and readable paragraph text.
+   --------------------------------------------------------------------------- */
+
+.father-full-practice {
+  width: 100%;
+  max-width: var(--content-max-width);
+  padding: var(--space-xl) var(--space-lg);
+  margin: var(--space-lg) auto var(--space-xl);
+  background: var(--surface-card);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 2px 8px var(--surface-card-shadow),
+              0 6px 20px var(--surface-card-shadow);
+  border-left: 4px solid var(--mode-accent);
+  overflow-y: auto;
+  max-height: 65vh;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+.father-practice-subheading {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--mode-accent);
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1.5px solid var(--mode-accent-light);
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+.father-full-practice .father-practice-subheading:first-child {
+  margin-top: 0;
+}
+
+.father-practice-paragraph {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--mode-text);
+  margin-bottom: var(--space-md);
+  letter-spacing: 0.005em;
+}
+
+.father-practice-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-sm) 0 var(--space-lg);
+}
+
+.father-practice-list li {
+  position: relative;
+  padding-left: var(--space-xl);
+  margin-bottom: var(--space-sm);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--mode-text);
+}
+
+.father-practice-list li::before {
+  content: '';
+  position: absolute;
+  left: var(--space-sm);
+  top: 0.65em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--mode-accent);
+  opacity: 0.5;
+}
+
+/* Father mode AAA overrides for full practice */
+[data-mode="father"] .father-full-practice {
+  font-size: 1.15rem;
+  line-height: 1.85;
+  padding: var(--space-2xl) var(--space-xl);
+  max-height: 70vh;
+}
+
+[data-mode="father"] .father-practice-subheading {
+  font-size: 1.3rem;
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-lg);
+}
+
+[data-mode="father"] .father-practice-paragraph {
+  font-size: 1.15rem;
+  line-height: 1.85;
+}
+
+[data-mode="father"] .father-practice-list li {
+  font-size: 1.15rem;
+  line-height: 1.85;
+  margin-bottom: var(--space-md);
+}
+
 /* Settings view */
 .father-settings {
   width: 100%;
