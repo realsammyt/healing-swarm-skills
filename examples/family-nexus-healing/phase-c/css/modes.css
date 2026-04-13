@@ -1,0 +1,139 @@
+/* ==========================================================================
+   modes.css — Three mode themes for Family Nexus Healing PWA
+
+   Each mode sets CSS custom properties on [data-mode], which are consumed
+   by base.css components. The mode switch is instant via data attribute.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Landing / Default
+   -------------------------------------------------------------------------- */
+
+[data-mode="landing"] {
+  --mode-bg: #f7f9f7;
+  --mode-accent: #4a7a5a;
+  --mode-accent-light: #edf3ee;
+  --mode-text: #1a2e1a;
+  --mode-text-secondary: #5a7a5a;
+}
+
+/* --------------------------------------------------------------------------
+   Family Mode — Warm Green
+
+   Together with the children. Warm, grounded, safe.
+   -------------------------------------------------------------------------- */
+
+[data-mode="family"] {
+  --mode-bg: #f0f7f0;
+  --mode-accent: #2d8a4e;
+  --mode-accent-light: #e8f5e9;
+  --mode-text: #1a2e1a;
+  --mode-text-secondary: #4a6a4a;
+}
+
+[data-mode="family"] .mode-btn {
+  border: 1px solid #e8f5e9;
+}
+
+[data-mode="family"] .protocol-card {
+  border-left: 3px solid #2d8a4e;
+}
+
+[data-mode="family"] .nav-back {
+  color: #2d8a4e;
+}
+
+[data-mode="family"] .btn-primary {
+  background-color: #2d8a4e;
+}
+
+/* --------------------------------------------------------------------------
+   Father Mode — Steady Blue
+
+   His own practice. Calm, clear, dignified.
+   -------------------------------------------------------------------------- */
+
+[data-mode="father"] {
+  --mode-bg: #f0f4f8;
+  --mode-accent: #3a6ea5;
+  --mode-accent-light: #e3eef7;
+  --mode-text: #1a2a3a;
+  --mode-text-secondary: #4a6a8a;
+}
+
+[data-mode="father"] .mode-btn {
+  border: 1px solid #e3eef7;
+}
+
+[data-mode="father"] .protocol-card {
+  border-left: 3px solid #3a6ea5;
+}
+
+[data-mode="father"] .nav-back {
+  color: #3a6ea5;
+}
+
+[data-mode="father"] .btn-primary {
+  background-color: #3a6ea5;
+}
+
+/* --------------------------------------------------------------------------
+   Mother Mode — Quiet Purple
+
+   Her private container. Held, warm, unhurried.
+   -------------------------------------------------------------------------- */
+
+[data-mode="mother"] {
+  --mode-bg: #f5f0f8;
+  --mode-accent: #7a4fa0;
+  --mode-accent-light: #f0e8f5;
+  --mode-text: #2a1a3a;
+  --mode-text-secondary: #6a4a8a;
+}
+
+[data-mode="mother"] .mode-btn {
+  border: 1px solid #f0e8f5;
+}
+
+[data-mode="mother"] .protocol-card {
+  border-left: 3px solid #7a4fa0;
+}
+
+[data-mode="mother"] .nav-back {
+  color: #7a4fa0;
+}
+
+[data-mode="mother"] .btn-primary {
+  background-color: #7a4fa0;
+}
+
+/* --------------------------------------------------------------------------
+   Mode Transition
+
+   The body background and text color transition smoothly between modes.
+   All child elements inherit the custom properties instantly.
+   -------------------------------------------------------------------------- */
+
+body {
+  transition: background-color 200ms ease,
+              color 200ms ease;
+}
+
+/* --------------------------------------------------------------------------
+   Mode-specific surface adjustments
+   -------------------------------------------------------------------------- */
+
+[data-mode="family"] .warning-list {
+  background-color: #fff8e1;
+  border-left-color: #f9a825;
+}
+
+[data-mode="father"] .warning-list {
+  background-color: #fff3e0;
+  border-left-color: #ef6c00;
+}
+
+[data-mode="mother"] .warning-list {
+  background-color: #fce4ec;
+  border-left-color: #c62828;
+}

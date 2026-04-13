@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2d8a4e">
+  <meta name="description" content="Healing protocols for families navigating change — offline, private, and yours.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Healing">
+
+  <title>Family Nexus Healing</title>
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/modes.css">
+  <link rel="stylesheet" href="css/a11y.css">
+</head>
+<body data-mode="landing">
+
+  <main id="app">
+
+    <!-- Landing screen -->
+    <section id="landing" class="screen active" role="main" aria-label="Choose your mode">
+      <h1>Who are you right now?</h1>
+      <div class="mode-buttons" role="group" aria-label="Mode selection">
+        <button data-mode="family" class="mode-btn mode-family" aria-label="Family mode — together with the children">
+          <span class="mode-label">Family</span>
+          <span class="mode-desc">Together with the children</span>
+        </button>
+        <button data-mode="father" class="mode-btn mode-father" aria-label="Father mode — your own practice">
+          <span class="mode-label">Father</span>
+          <span class="mode-desc">Your own practice</span>
+        </button>
+        <button data-mode="mother" class="mode-btn mode-mother" aria-label="Mother mode — your private container">
+          <span class="mode-label">Mother</span>
+          <span class="mode-desc">Your private container</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Mode screens (populated by JS) -->
+    <section id="family-screen" class="screen" role="main" aria-label="Family protocols"></section>
+    <section id="father-screen" class="screen" role="main" aria-label="Father protocols"></section>
+    <section id="mother-screen" class="screen" role="main" aria-label="Mother protocols"></section>
+
+    <!-- Protocol detail view -->
+    <section id="protocol-view" class="screen" role="main" aria-label="Protocol detail"></section>
+
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+
+  <script>
+    // Service worker registration — runs immediately, non-blocking
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('sw.js').then(function (reg) {
+          console.log('[SW] Registered:', reg.scope);
+        }).catch(function (err) {
+          console.warn('[SW] Registration failed:', err);
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>

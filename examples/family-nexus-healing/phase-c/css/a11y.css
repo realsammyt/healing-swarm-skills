@@ -1,0 +1,243 @@
+/* ==========================================================================
+   a11y.css — WCAG AAA overrides for Father mode
+
+   Father mode targets WCAG AAA (7:1 contrast minimum) with larger text,
+   reduced cognitive load, enhanced focus indicators, and generous touch
+   targets. These overrides are designed for a user who may be experiencing
+   cognitive changes and needs maximum clarity and calm.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   AAA Contrast and Typography
+   -------------------------------------------------------------------------- */
+
+[data-mode="father"] {
+  /* Override text to darker shade for 7:1 contrast against #f0f4f8 bg */
+  --mode-text: #0a1a2a;
+  --mode-text-secondary: #2a3a4a;
+
+  /* Larger base font */
+  font-size: clamp(18px, 2.5vw, 24px);
+  line-height: 1.8;
+
+  /* Reduced cognitive load — narrower measure */
+  --content-max-width: 35ch;
+}
+
+/* --------------------------------------------------------------------------
+   Enhanced Focus Indicators
+   -------------------------------------------------------------------------- */
+
+[data-mode="father"] {
+  --focus-width: 4px;
+  --focus-color: #3a6ea5;
+}
+
+[data-mode="father"] :focus-visible {
+  outline: 4px solid #3a6ea5;
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   Protocol Cards — One at a Time, Clear and Spacious
+   -------------------------------------------------------------------------- */
+
+[data-mode="father"] .protocol-card {
+  padding: 2rem;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  border-left-width: 4px;
+}
+
+[data-mode="father"] .protocol-card-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+[data-mode="father"] .protocol-card-summary {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  -webkit-line-clamp: 4;
+}
+
+[data-mode="father"] .protocol-card-meta {
+  font-size: 0.95rem;
+}
+
+[data-mode="father"] .protocol-card-meta span {
+  padding: 0.35rem 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons — Giant Touch Targets
+   -------------------------------------------------------------------------- */
+
+[data-mode="father"] .btn-primary {
+  min-height: 72px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+}
+
+[data-mode="father"] .mode-btn {
+  min-height: 96px;
+  padding: 1.5rem 2rem;
+}
+
+[data-mode="father"] .mode-label {
+  font-size: 1.5rem;
+}
+
+[data-mode="father"] .mode-desc {
+  font-size: 1rem;
+}
+
+[data-mode="father"] .nav-back {
+  font-size: 1.1rem;
+  padding: 0.75rem 1rem;
+  min-height: 48px;
+}
+
+/* --------------------------------------------------------------------------
+   Steps — One at a Time, Centered, Clear
+   -------------------------------------------------------------------------- */
+
+[data-mode="father"] .step {
+  font-size: 1.25rem;
+  text-align: center;
+  padding: 2rem;
+  border-left-width: 4px;
+}
+
+[data-mode="father"] .step-number {
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+[data-mode="father"] .step-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+[data-mode="father"] .step-body {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  text-align: left;
+}
+
+/* --------------------------------------------------------------------------
+   Protocol Detail — Spacious, Clear Hierarchy
+   -------------------------------------------------------------------------- */
+
+[data-mode="father"] .protocol-detail h1 {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+[data-mode="father"] .protocol-detail-meta {
+  justify-content: center;
+  font-size: 1rem;
+}
+
+[data-mode="father"] .protocol-section h2 {
+  font-size: clamp(1.35rem, 3.5vw, 1.75rem);
+  text-align: center;
+}
+
+[data-mode="father"] .protocol-section {
+  margin-bottom: 2.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Warnings — High Contrast, Unmissable
+   -------------------------------------------------------------------------- */
+
+[data-mode="father"] .warning-list {
+  padding: 1.5rem;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  border-left-width: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   Signals — Clear and Gentle
+   -------------------------------------------------------------------------- */
+
+[data-mode="father"] .signal-list {
+  padding: 1.5rem;
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+/* --------------------------------------------------------------------------
+   Modifications — Readable
+   -------------------------------------------------------------------------- */
+
+[data-mode="father"] .modification-list li {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   Traditions — Gentle, Unhurried
+   -------------------------------------------------------------------------- */
+
+[data-mode="father"] .tradition-list p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* --------------------------------------------------------------------------
+   Scrolling — Gentle, Oversized Scrollbar for Motor Accessibility
+   -------------------------------------------------------------------------- */
+
+[data-mode="father"] ::-webkit-scrollbar {
+  width: 12px;
+}
+
+[data-mode="father"] ::-webkit-scrollbar-thumb {
+  background: #3a6ea5;
+  border-radius: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   Category Groups — Simplified
+   -------------------------------------------------------------------------- */
+
+[data-mode="father"] .category-group-title {
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+  padding-bottom: 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   Protocol List Header
+   -------------------------------------------------------------------------- */
+
+[data-mode="father"] .protocol-list-header h2 {
+  text-align: center;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+[data-mode="father"] .protocol-list-header p {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion — Reinforced for Father Mode
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  [data-mode="father"] * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
