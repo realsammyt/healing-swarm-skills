@@ -3,6 +3,10 @@
 
    Covers: tabs, today screen, felt-log, father single-card,
    mother check-in, grief window, edge button, visit banners.
+
+   Every component should feel warm and held. Protocol cards feel
+   like holding something in your hand. Buttons invite. The grief
+   window is a quiet room. The edge button is calm urgency.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -15,9 +19,10 @@
   width: 100%;
   max-width: var(--content-max-width);
   background: var(--surface-card);
-  border-radius: var(--radius-md);
-  box-shadow: 0 1px 3px var(--surface-card-shadow);
-  margin-bottom: var(--space-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 3px var(--surface-card-shadow),
+              0 2px 8px var(--surface-card-shadow);
+  margin-bottom: var(--space-xl);
   overflow: hidden;
 }
 
@@ -29,12 +34,14 @@
   color: var(--mode-text-secondary);
   background: transparent;
   border: none;
-  border-bottom: 2px solid transparent;
+  border-bottom: 2.5px solid transparent;
   cursor: pointer;
-  transition: color var(--transition-fast),
-              border-color var(--transition-fast),
-              background-color var(--transition-fast);
+  transition: color var(--transition-normal),
+              border-color var(--transition-normal),
+              background-color var(--transition-normal);
   text-align: center;
+  min-height: 48px;
+  letter-spacing: 0.01em;
 }
 
 .mode-tab:hover {
@@ -59,27 +66,31 @@
 }
 
 /* --------------------------------------------------------------------------
-   Today Screen (Family mode)
+   Today Screen (Family mode) — warm greeting, gentle suggestions
    -------------------------------------------------------------------------- */
 
 .today-greeting {
   text-align: center;
   margin-bottom: var(--space-xl);
+  padding: var(--space-md) 0;
 }
 
 .today-greeting h2 {
   margin-bottom: var(--space-xs);
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 .today-subtext {
   color: var(--mode-text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
 }
 
 .today-suggestions {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-lg);
   width: 100%;
 }
 
@@ -91,25 +102,28 @@
   display: flex;
   align-items: center;
   gap: var(--space-md);
-  padding: var(--space-md) var(--space-lg);
-  margin-bottom: var(--space-lg);
-  background-color: #fff8e1;
-  border-radius: var(--radius-md);
-  border-left: 3px solid #f9a825;
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  background-color: #fef8ec;
+  border-radius: var(--radius-lg);
+  border-left: 4px solid #e5a636;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .visit-banner-icon {
   font-size: 1.5rem;
+  flex-shrink: 0;
 }
 
 .visit-banner-text {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 
 .visit-banner-text strong {
   font-size: 0.95rem;
+  color: var(--mode-text);
 }
 
 .visit-banner-text span {
@@ -118,11 +132,14 @@
 }
 
 /* --------------------------------------------------------------------------
-   Emergency Footer (Family mode)
+   Emergency Footer (Family mode) — calm urgency, not alarm
+
+   Noticeable but not scary. Warm amber-coral, steady presence.
+   "I am here if you need me" not "EMERGENCY DANGER."
    -------------------------------------------------------------------------- */
 
 .emergency-spacer {
-  height: 80px;
+  height: 88px;
 }
 
 .emergency-footer {
@@ -130,9 +147,13 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: var(--space-md);
-  background: var(--mode-bg);
-  border-top: 1px solid var(--mode-accent-light);
+  padding: var(--space-md) var(--space-lg);
+  background: linear-gradient(
+    0deg,
+    var(--mode-bg) 60%,
+    transparent 100%
+  );
+  padding-top: var(--space-xl);
   z-index: 100;
   display: flex;
   justify-content: center;
@@ -144,29 +165,36 @@
   gap: var(--space-sm);
   padding: var(--space-md) var(--space-xl);
   background-color: var(--surface-card);
-  border: 2px solid #e57373;
-  border-radius: var(--radius-lg);
-  color: #c62828;
+  border: 2px solid #e0a070;
+  border-radius: var(--radius-xl);
+  color: #9a5a30;
   font-size: 0.95rem;
   font-weight: 500;
   text-decoration: none;
-  transition: background-color var(--transition-fast);
+  transition: background-color var(--transition-normal),
+              border-color var(--transition-normal),
+              box-shadow var(--transition-normal);
   max-width: var(--content-max-width);
   width: 100%;
   justify-content: center;
+  min-height: 52px;
+  box-shadow: 0 2px 6px rgba(160, 100, 50, 0.08);
+  letter-spacing: 0.01em;
 }
 
 .emergency-btn:hover {
-  background-color: #ffebee;
+  background-color: #fdf5ef;
+  border-color: #ca8a5a;
+  box-shadow: 0 3px 10px rgba(160, 100, 50, 0.12);
 }
 
 .emergency-btn:focus-visible {
-  outline: 3px solid #c62828;
-  outline-offset: 2px;
+  outline: 3px solid #b87a4a;
+  outline-offset: 3px;
 }
 
 .emergency-icon {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -178,25 +206,26 @@
   gap: 0;
   width: 100%;
   background: var(--surface-card);
-  border-radius: var(--radius-md);
-  box-shadow: 0 1px 2px var(--surface-card-shadow);
-  margin-bottom: var(--space-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 3px var(--surface-card-shadow);
+  margin-bottom: var(--space-xl);
   overflow: hidden;
 }
 
 .felt-tab {
   flex: 1;
-  padding: var(--space-sm) var(--space-xs);
+  padding: var(--space-md) var(--space-xs);
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--mode-text-secondary);
   background: transparent;
   border: none;
-  border-bottom: 2px solid transparent;
+  border-bottom: 2.5px solid transparent;
   cursor: pointer;
-  transition: color var(--transition-fast),
-              border-color var(--transition-fast);
+  transition: color var(--transition-normal),
+              border-color var(--transition-normal);
   text-align: center;
+  min-height: 44px;
 }
 
 .felt-tab-active {
@@ -216,10 +245,12 @@
 }
 
 .felt-prompt {
-  font-size: 1.1rem;
+  font-size: 1.12rem;
   font-weight: 500;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
   text-align: center;
+  color: var(--mode-text);
+  letter-spacing: -0.005em;
 }
 
 .felt-input-area {
@@ -229,66 +260,79 @@
 .felt-word-input {
   display: flex;
   gap: var(--space-sm);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 
+/* Word input — soft, inviting, not clinical */
 .felt-word-field {
   flex: 1;
-  padding: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
   border: 2px solid var(--mode-accent-light);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   font-size: 1rem;
   background: var(--surface-card);
   color: var(--mode-text);
+  transition: border-color var(--transition-normal),
+              box-shadow var(--transition-normal);
+  min-height: 48px;
 }
 
 .felt-word-field:focus {
   border-color: var(--mode-accent);
   outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--mode-accent) 12%, transparent);
 }
 
 .felt-word-field::placeholder {
   color: var(--mode-text-secondary);
-  opacity: 0.6;
+  opacity: 0.55;
+  font-style: italic;
 }
 
 .felt-or {
   text-align: center;
   color: var(--mode-text-secondary);
-  font-size: 0.85rem;
-  margin-bottom: var(--space-md);
+  font-size: 0.82rem;
+  margin-bottom: var(--space-lg);
+  letter-spacing: 0.03em;
+  text-transform: lowercase;
 }
 
+/* Color picker — beautiful, tappable swatches */
 .felt-color-picker {
   display: flex;
   justify-content: center;
   gap: var(--space-md);
   flex-wrap: wrap;
+  padding: var(--space-sm) 0;
 }
 
 .felt-color-btn {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   border: 3px solid transparent;
   cursor: pointer;
-  transition: transform var(--transition-fast),
-              border-color var(--transition-fast);
+  transition: transform var(--transition-normal),
+              border-color var(--transition-normal),
+              box-shadow var(--transition-normal);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .felt-color-btn:hover {
-  transform: scale(1.15);
+  transform: scale(1.18);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .felt-color-btn:focus-visible {
   outline: 3px solid var(--mode-accent);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
-/* Entries */
+/* Entries — warm cards */
 
 .felt-history {
-  margin-top: var(--space-lg);
+  margin-top: var(--space-xl);
 }
 
 .felt-entries {
@@ -301,17 +345,19 @@
   display: flex;
   align-items: center;
   gap: var(--space-md);
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-md);
   background: var(--surface-card);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 2px var(--surface-card-shadow);
 }
 
 .felt-entry-swatch {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   flex-shrink: 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .felt-entry-text {
@@ -330,7 +376,9 @@
   text-align: center;
   color: var(--mode-text-secondary);
   font-style: italic;
-  padding: var(--space-xl) 0;
+  padding: var(--space-2xl) 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .felt-review-btn {
@@ -339,17 +387,20 @@
   margin-top: var(--space-xl);
   padding: var(--space-md);
   background: var(--surface-card);
-  border: 1px solid var(--mode-accent-light);
-  border-radius: var(--radius-md);
+  border: 1.5px solid var(--mode-accent-light);
+  border-radius: var(--radius-lg);
   color: var(--mode-accent);
   font-weight: 500;
   text-align: center;
   cursor: pointer;
-  transition: background-color var(--transition-fast);
+  transition: background-color var(--transition-normal),
+              border-color var(--transition-normal);
+  min-height: 48px;
 }
 
 .felt-review-btn:hover {
   background-color: var(--mode-accent-light);
+  border-color: var(--mode-accent);
 }
 
 /* Family view */
@@ -357,17 +408,18 @@
 .felt-family-view h3 {
   text-align: center;
   margin-bottom: var(--space-lg);
+  font-weight: 500;
 }
 
 .felt-day-group {
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-xl);
 }
 
 .felt-day-label {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   color: var(--mode-text-secondary);
   margin-bottom: var(--space-sm);
   padding-bottom: var(--space-xs);
@@ -384,9 +436,10 @@
   display: flex;
   align-items: center;
   gap: var(--space-md);
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-md);
   background: var(--surface-card);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 2px var(--surface-card-shadow);
 }
 
 .felt-family-name {
@@ -399,61 +452,73 @@
 /* Name editor */
 
 .felt-name-editor {
-  padding: var(--space-lg);
+  padding: var(--space-xl);
 }
 
 .felt-name-editor h3 {
   margin-bottom: var(--space-sm);
+  font-weight: 500;
 }
 
 .felt-name-hint {
   font-size: 0.85rem;
   color: var(--mode-text-secondary);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
+  line-height: 1.6;
 }
 
 .felt-name-row {
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
 }
 
 .felt-name-input {
   width: 100%;
-  padding: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
   border: 2px solid var(--mode-accent-light);
   border-radius: var(--radius-md);
   font-size: 1rem;
   background: var(--surface-card);
   color: var(--mode-text);
+  transition: border-color var(--transition-normal),
+              box-shadow var(--transition-normal);
+  min-height: 48px;
 }
 
 .felt-name-input:focus {
   border-color: var(--mode-accent);
   outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--mode-accent) 12%, transparent);
 }
 
 /* --------------------------------------------------------------------------
    Father Mode — Single-Card Interface
+
+   Maximum simplicity. One card. One "Begin." Held.
    -------------------------------------------------------------------------- */
 
 .father-home {
   text-align: center;
   margin-bottom: var(--space-xl);
   width: 100%;
+  padding-top: var(--space-md);
 }
 
 .father-subtitle {
   color: var(--mode-text-secondary);
   font-size: 1.1rem;
+  line-height: 1.6;
 }
 
+/* The protocol card — warm, elevated, inviting */
 .father-card {
   width: 100%;
   max-width: var(--content-max-width);
-  padding: var(--space-xl);
+  padding: var(--space-2xl) var(--space-xl);
   background: var(--surface-card);
-  border-radius: var(--radius-lg);
-  border-left: 4px solid var(--mode-accent);
-  box-shadow: 0 2px 8px var(--surface-card-shadow);
+  border-radius: var(--radius-xl);
+  border-left: 5px solid var(--mode-accent);
+  box-shadow: 0 2px 6px var(--surface-card-shadow),
+              0 8px 24px var(--surface-card-shadow);
   margin-bottom: var(--space-xl);
   text-align: center;
 }
@@ -461,47 +526,72 @@
 .father-card-title {
   font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: var(--space-md);
-  line-height: 1.3;
+  margin-bottom: var(--space-lg);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
 }
 
 .father-card-meta {
   display: flex;
   justify-content: center;
   gap: var(--space-sm);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
   font-size: 0.95rem;
   color: var(--mode-text-secondary);
 }
 
 .father-card-meta span {
-  padding: var(--space-xs) var(--space-sm);
+  padding: var(--space-xs) var(--space-md);
   background: var(--mode-accent-light);
   border-radius: var(--radius-sm);
 }
 
 .father-card-summary {
-  font-size: 1.05rem;
-  line-height: 1.6;
+  font-size: 1.08rem;
+  line-height: 1.7;
   color: var(--mode-text-secondary);
 }
 
-/* The Begin button — THE LARGEST ELEMENT */
+/* --------------------------------------------------------------------------
+   The Begin button — THE LARGEST ELEMENT
+
+   "I'm here for you." A gentle giant. Impossible to miss.
+   Warm, calm, inviting. Not clinical. A warm hand.
+   -------------------------------------------------------------------------- */
+
 .father-begin-btn {
   display: block;
   width: 100%;
   max-width: var(--content-max-width);
-  min-height: 80px;
-  font-size: 1.75rem;
+  min-height: 88px;
+  font-size: 1.85rem;
   font-weight: 700;
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-2xl);
   margin-bottom: var(--space-xl);
   letter-spacing: 0.02em;
+  box-shadow: 0 3px 8px rgba(74, 125, 170, 0.15),
+              0 8px 20px rgba(74, 125, 170, 0.1);
+  transition: transform var(--transition-normal),
+              box-shadow var(--transition-normal),
+              background-color var(--transition-normal);
 }
 
+.father-begin-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 125, 170, 0.2),
+              0 12px 28px rgba(74, 125, 170, 0.14);
+}
+
+.father-begin-btn:active {
+  transform: translateY(0);
+}
+
+/* Even larger in father mode */
 [data-mode="father"] .father-begin-btn {
-  min-height: 96px;
-  font-size: 2rem;
+  min-height: 100px;
+  font-size: 2.1rem;
+  border-radius: 2rem;
+  padding: 1.5rem 2rem;
 }
 
 /* Card navigation arrows */
@@ -509,7 +599,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-lg);
+  gap: var(--space-xl);
   margin-bottom: var(--space-xl);
 }
 
@@ -517,24 +607,30 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background: var(--surface-card);
-  border: 1px solid var(--mode-accent-light);
+  border: 1.5px solid var(--mode-accent-light);
   font-size: 1.25rem;
   color: var(--mode-accent);
   cursor: pointer;
-  transition: background-color var(--transition-fast);
+  transition: background-color var(--transition-normal),
+              border-color var(--transition-normal),
+              box-shadow var(--transition-normal);
+  box-shadow: 0 1px 3px var(--surface-card-shadow);
 }
 
 .father-nav-arrow:hover {
   background-color: var(--mode-accent-light);
+  border-color: var(--mode-accent);
+  box-shadow: 0 2px 6px var(--surface-card-shadow);
 }
 
 .father-card-indicator {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--mode-text-secondary);
+  letter-spacing: 0.02em;
 }
 
 /* Settings row */
@@ -544,23 +640,32 @@
 }
 
 .father-settings-btn {
-  padding: var(--space-sm) var(--space-md);
-  font-size: 0.85rem;
+  padding: var(--space-sm) var(--space-lg);
+  font-size: 0.88rem;
   color: var(--mode-text-secondary);
   cursor: pointer;
-  border-radius: var(--radius-sm);
-  transition: background-color var(--transition-fast);
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-normal),
+              color var(--transition-normal);
+  min-height: 44px;
 }
 
 .father-settings-btn:hover {
   background-color: var(--mode-accent-light);
+  color: var(--mode-text);
 }
 
 .father-home-link {
   text-align: center;
 }
 
-/* Step-by-step view */
+/* --------------------------------------------------------------------------
+   Step-by-step view — centered, spacious, breathable
+
+   Progress: simple dots / gentle bar, not clinical numbers.
+   Each step: one centered thought with space to breathe.
+   -------------------------------------------------------------------------- */
+
 .father-progress {
   width: 100%;
   max-width: var(--content-max-width);
@@ -569,10 +674,11 @@
 
 .father-progress-text {
   display: block;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--mode-text-secondary);
   text-align: center;
   margin-bottom: var(--space-sm);
+  letter-spacing: 0.01em;
 }
 
 .father-progress-bar {
@@ -587,47 +693,53 @@
   height: 100%;
   background: var(--mode-accent);
   border-radius: 3px;
-  transition: width var(--transition-normal);
+  transition: width var(--transition-slow);
 }
 
+/* Each step card — centered, warm, generous */
 .father-step {
   width: 100%;
   max-width: var(--content-max-width);
-  padding: var(--space-xl);
+  padding: var(--space-2xl) var(--space-xl);
   background: var(--surface-card);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   text-align: center;
   margin-bottom: var(--space-xl);
+  box-shadow: 0 2px 6px var(--surface-card-shadow),
+              0 6px 18px var(--surface-card-shadow);
 }
 
 .father-step-number {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 50%;
   background: var(--mode-accent);
   color: var(--color-white);
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
+  box-shadow: 0 2px 6px color-mix(in srgb, var(--mode-accent) 30%, transparent);
 }
 
 .father-step-title {
-  font-size: 1.4rem;
+  font-size: 1.45rem;
   font-weight: 700;
   line-height: 1.4;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
+  letter-spacing: -0.01em;
 }
 
 .father-step-body {
-  font-size: 1.1rem;
-  line-height: 1.7;
+  font-size: 1.12rem;
+  line-height: 1.75;
   color: var(--mode-text-secondary);
   text-align: left;
 }
 
+/* Step navigation — warm buttons, not clinical */
 .father-step-nav {
   display: flex;
   justify-content: space-between;
@@ -640,8 +752,10 @@
 .father-step-next,
 .father-step-done {
   flex: 1;
-  min-height: 56px;
-  font-size: 1.1rem;
+  min-height: 60px;
+  font-size: 1.12rem;
+  border-radius: var(--radius-lg);
+  letter-spacing: 0.01em;
 }
 
 .father-step-exit {
@@ -649,55 +763,16 @@
   min-height: 56px;
   font-size: 1rem;
   color: var(--mode-text-secondary);
-  border-radius: var(--radius-md);
-  background: var(--surface-card);
-  border: 1px solid var(--mode-accent-light);
-}
-
-/* Full Practice View (protocols without numbered steps) */
-.father-full-practice {
-  width: 100%;
-  max-width: var(--content-max-width);
-  padding: var(--space-lg);
-  background: var(--surface-card);
   border-radius: var(--radius-lg);
-  text-align: left;
-  margin-bottom: var(--space-xl);
-  max-height: 60vh;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  background: var(--surface-card);
+  border: 1.5px solid var(--mode-accent-light);
+  transition: background-color var(--transition-normal),
+              border-color var(--transition-normal);
 }
 
-.father-practice-subheading {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--mode-accent);
-  margin-top: var(--space-lg);
-  margin-bottom: var(--space-sm);
-}
-
-.father-practice-subheading:first-child {
-  margin-top: 0;
-}
-
-.father-practice-paragraph {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--mode-text);
-  margin-bottom: var(--space-md);
-}
-
-.father-practice-list {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--mode-text);
-  margin-bottom: var(--space-md);
-  padding-left: var(--space-lg);
-  list-style-type: disc;
-}
-
-.father-practice-list li {
-  margin-bottom: var(--space-xs);
+.father-step-exit:hover {
+  background-color: var(--mode-accent-light);
+  border-color: var(--mode-accent);
 }
 
 /* Settings view */
@@ -709,13 +784,15 @@
 .father-settings h2 {
   margin-bottom: var(--space-xl);
   text-align: center;
+  font-weight: 500;
 }
 
 .father-setting-group {
   margin-bottom: var(--space-xl);
-  padding: var(--space-lg);
+  padding: var(--space-xl);
   background: var(--surface-card);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 3px var(--surface-card-shadow);
 }
 
 .father-setting-label {
@@ -727,19 +804,22 @@
 .father-setting-desc {
   font-size: 0.9rem;
   color: var(--mode-text-secondary);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
+  line-height: 1.6;
 }
 
 .father-toggle {
   display: inline-block;
-  padding: var(--space-sm) var(--space-lg);
-  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-lg);
   border: 2px solid var(--mode-accent-light);
   background: var(--surface-card);
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color var(--transition-fast),
-              border-color var(--transition-fast);
+  transition: background-color var(--transition-normal),
+              border-color var(--transition-normal),
+              color var(--transition-normal);
+  min-height: 48px;
 }
 
 .father-toggle-on {
@@ -751,12 +831,21 @@
 .father-time-input {
   display: block;
   width: 100%;
-  padding: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
   border: 2px solid var(--mode-accent-light);
-  border-radius: var(--radius-md);
-  font-size: 1.1rem;
+  border-radius: var(--radius-lg);
+  font-size: 1.12rem;
   background: var(--surface-card);
   color: var(--mode-text);
+  transition: border-color var(--transition-normal),
+              box-shadow var(--transition-normal);
+  min-height: 52px;
+}
+
+.father-time-input:focus {
+  border-color: var(--mode-accent);
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--mode-accent) 12%, transparent);
 }
 
 .father-settings-back {
@@ -767,82 +856,99 @@
   color: var(--mode-accent);
   font-size: 1rem;
   cursor: pointer;
+  min-height: 48px;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-normal);
 }
 
-/* Visit banner (Father mode) */
+.father-settings-back:hover {
+  background-color: var(--mode-accent-light);
+}
+
+/* Visit banner (Father mode) — gentle, contextual */
 .father-visit-banner {
   width: 100%;
   max-width: var(--content-max-width);
-  padding: var(--space-md) var(--space-lg);
-  margin-bottom: var(--space-lg);
-  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  border-radius: var(--radius-lg);
   text-align: center;
   font-weight: 500;
+  line-height: 1.5;
 }
 
 .father-visit-tomorrow {
-  background: #e3eef7;
+  background: #e4eef6;
   color: #2a4a6a;
 }
 
 .father-visit-today {
-  background: #fff8e1;
+  background: #fef8ec;
   color: #5a4a1a;
 }
 
 .father-visit-soon {
-  background: #fff3e0;
+  background: #fef5e8;
   color: #5a3a0a;
 }
 
 .father-visit-urgent {
-  background: #e8f5e9;
+  background: #e8f2ea;
   color: #1a3a1a;
   font-weight: 600;
 }
 
 /* --------------------------------------------------------------------------
    Mother Mode — Private Container
+
+   The purple palette: a quiet room with the door closed.
+   Warm purple, like twilight, like a held space.
    -------------------------------------------------------------------------- */
 
-/* Check-in */
+/* Check-in — soft, inviting, personal */
 .mother-checkin {
   text-align: center;
   margin-bottom: var(--space-xl);
+  padding: var(--space-md) 0;
 }
 
 .mother-checkin h2 {
-  margin-bottom: var(--space-lg);
-  font-weight: 500;
+  margin-bottom: var(--space-xl);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
 }
 
+/* Color picker — beautiful swatches, generous spacing */
 .mother-color-picker {
   display: flex;
   justify-content: center;
-  gap: var(--space-md);
+  gap: var(--space-lg);
   flex-wrap: wrap;
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  padding: var(--space-sm) 0;
 }
 
 .mother-color-btn {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   border: 3px solid transparent;
   cursor: pointer;
-  transition: transform var(--transition-fast),
-              border-color var(--transition-fast),
-              box-shadow var(--transition-fast);
+  transition: transform var(--transition-normal),
+              border-color var(--transition-normal),
+              box-shadow var(--transition-normal);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
 .mother-color-btn:hover {
-  transform: scale(1.15);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transform: scale(1.18);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
 }
 
 .mother-color-btn:focus-visible {
   outline: 3px solid var(--mode-accent);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 .mother-word-input {
@@ -854,25 +960,30 @@
 
 .mother-word-field {
   flex: 1;
-  padding: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
   border: 2px solid var(--mode-accent-light);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   font-size: 1rem;
   background: var(--surface-card);
   color: var(--mode-text);
+  transition: border-color var(--transition-normal),
+              box-shadow var(--transition-normal);
+  min-height: 48px;
 }
 
 .mother-word-field:focus {
   border-color: var(--mode-accent);
   outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--mode-accent) 12%, transparent);
 }
 
 .mother-word-field::placeholder {
   color: var(--mode-text-secondary);
-  opacity: 0.6;
+  opacity: 0.55;
+  font-style: italic;
 }
 
-/* Recent entries (subtle) */
+/* Recent entries (subtle, warm) */
 .mother-recent {
   display: flex;
   align-items: center;
@@ -895,29 +1006,31 @@
 
 .mother-recent-swatch {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .mother-recent-word {
   font-size: 0.85rem;
   font-weight: 500;
-  padding: 2px var(--space-sm);
+  padding: 3px var(--space-sm);
   background: var(--mode-accent-light);
   border-radius: var(--radius-sm);
 }
 
-/* Fast resets */
+/* Fast resets — grid of gentle action buttons */
 .mother-fast-resets {
   margin-bottom: var(--space-xl);
 }
 
 .mother-fast-resets h3 {
   text-align: center;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
   font-weight: 500;
   font-size: 1rem;
+  letter-spacing: -0.005em;
 }
 
 .mother-reset-grid {
@@ -930,48 +1043,53 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: var(--space-lg);
+  padding: var(--space-xl) var(--space-lg);
   background: var(--surface-card);
-  border: 1px solid var(--mode-accent-light);
-  border-radius: var(--radius-md);
+  border: 1.5px solid var(--mode-accent-light);
+  border-radius: var(--radius-lg);
   cursor: pointer;
-  transition: background-color var(--transition-fast),
-              transform var(--transition-fast);
+  transition: background-color var(--transition-normal),
+              transform var(--transition-normal),
+              border-color var(--transition-normal),
+              box-shadow var(--transition-normal);
   text-align: center;
+  min-height: 100px;
 }
 
 .mother-reset-btn:hover {
   background-color: var(--mode-accent-light);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  border-color: var(--mode-accent);
+  box-shadow: 0 3px 10px var(--surface-card-shadow-hover);
 }
 
 .mother-reset-btn:focus-visible {
   outline: var(--focus-width) solid var(--focus-color);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 .mother-reset-icon {
-  font-size: 1.5rem;
-  margin-bottom: var(--space-xs);
+  font-size: 1.6rem;
+  margin-bottom: var(--space-sm);
 }
 
 .mother-reset-label {
   font-weight: 600;
   font-size: 0.95rem;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .mother-reset-desc {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   color: var(--mode-text-secondary);
-  line-height: 1.3;
+  line-height: 1.4;
 }
 
-/* My Space sections */
+/* My Space sections — warm dividers */
 .mother-section {
   margin-bottom: var(--space-2xl);
   padding-bottom: var(--space-xl);
-  border-bottom: 1px solid var(--mode-accent-light);
+  border-bottom: 1px solid color-mix(in srgb, var(--mode-accent-light) 80%, transparent);
 }
 
 .mother-section:last-child {
@@ -980,12 +1098,14 @@
 
 .mother-section h3 {
   margin-bottom: var(--space-sm);
+  font-weight: 600;
 }
 
 .mother-section-desc {
   font-size: 0.9rem;
   color: var(--mode-text-secondary);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  line-height: 1.6;
 }
 
 .mother-select,
@@ -994,13 +1114,16 @@
 .mother-tel-input {
   display: block;
   width: 100%;
-  padding: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
   margin-bottom: var(--space-md);
   border: 2px solid var(--mode-accent-light);
   border-radius: var(--radius-md);
   font-size: 1rem;
   background: var(--surface-card);
   color: var(--mode-text);
+  transition: border-color var(--transition-normal),
+              box-shadow var(--transition-normal);
+  min-height: 48px;
 }
 
 .mother-select:focus,
@@ -1009,6 +1132,7 @@
 .mother-tel-input:focus {
   border-color: var(--mode-accent);
   outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--mode-accent) 12%, transparent);
 }
 
 .mother-grief-form label,
@@ -1023,9 +1147,9 @@
 
 .mother-grief-current {
   margin-top: var(--space-md);
-  padding: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
   background: var(--mode-accent-light);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   font-size: 0.9rem;
   display: flex;
   align-items: center;
@@ -1040,14 +1164,21 @@
   color: var(--mode-text-secondary);
   font-size: 1.2rem;
   cursor: pointer;
-  padding: 2px 6px;
+  padding: 4px 8px;
   border-radius: var(--radius-sm);
+  transition: color var(--transition-fast),
+              background var(--transition-fast);
+  min-height: 36px;
+  min-width: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mother-remove-grief:hover,
 .mother-remove-visit:hover {
-  color: #c62828;
-  background: #ffebee;
+  color: #b04a5a;
+  background: #fdf0f2;
 }
 
 .mother-visit-list {
@@ -1061,10 +1192,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-md);
   background: var(--surface-card);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   font-size: 0.9rem;
+  box-shadow: 0 1px 2px var(--surface-card-shadow);
 }
 
 .mother-data-actions {
@@ -1076,17 +1208,20 @@
 .mother-clear-btn {
   flex: 1;
   padding: var(--space-md);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color var(--transition-fast);
+  transition: background-color var(--transition-normal),
+              color var(--transition-normal),
+              border-color var(--transition-normal);
+  min-height: 48px;
 }
 
 .mother-export-btn {
   background: var(--mode-accent-light);
   color: var(--mode-accent);
-  border: 1px solid var(--mode-accent);
+  border: 1.5px solid var(--mode-accent);
 }
 
 .mother-export-btn:hover {
@@ -1096,20 +1231,24 @@
 
 .mother-clear-btn {
   background: var(--surface-card);
-  color: #c62828;
-  border: 1px solid #e57373;
+  color: #b04a5a;
+  border: 1.5px solid #dca0aa;
 }
 
 .mother-clear-btn:hover {
-  background: #ffebee;
+  background: #fdf0f2;
+  border-color: #b04a5a;
 }
 
 /* --------------------------------------------------------------------------
-   Edge Button & Overlay (Mother mode)
+   Edge Button & Overlay (Mother mode) — calm urgency
+
+   "I'm at the edge." Visible without being alarming.
+   Warm amber-coral, not panic-red. Steady, present.
    -------------------------------------------------------------------------- */
 
 .edge-spacer {
-  height: 72px;
+  height: 80px;
 }
 
 .edge-footer {
@@ -1117,9 +1256,13 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: var(--space-sm) var(--space-md);
-  background: var(--mode-bg);
-  border-top: 1px solid var(--mode-accent-light);
+  padding: var(--space-md) var(--space-lg);
+  background: linear-gradient(
+    0deg,
+    var(--mode-bg) 60%,
+    transparent 100%
+  );
+  padding-top: var(--space-xl);
   z-index: 100;
   display: flex;
   justify-content: center;
@@ -1131,61 +1274,91 @@
   gap: var(--space-sm);
   padding: var(--space-md) var(--space-xl);
   background: var(--surface-card);
-  border: 2px solid #ce93d8;
-  border-radius: var(--radius-lg);
-  color: #6a1b9a;
+  border: 2px solid #d4a0b0;
+  border-radius: var(--radius-xl);
+  color: #8a4a5a;
   font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
   max-width: var(--content-max-width);
   width: 100%;
   justify-content: center;
-  transition: background-color var(--transition-fast);
+  transition: background-color var(--transition-normal),
+              border-color var(--transition-normal),
+              box-shadow var(--transition-normal);
+  min-height: 52px;
+  box-shadow: 0 2px 6px rgba(140, 80, 100, 0.08);
+  letter-spacing: 0.01em;
 }
 
 .edge-btn:hover {
-  background-color: #f3e5f5;
+  background-color: #fdf5f7;
+  border-color: #ba7a8a;
+  box-shadow: 0 3px 10px rgba(140, 80, 100, 0.12);
 }
 
 .edge-btn:focus-visible {
-  outline: 3px solid #7a4fa0;
-  outline-offset: 2px;
+  outline: 3px solid #8a5eaa;
+  outline-offset: 3px;
 }
 
 .edge-btn-icon {
   font-size: 1.1rem;
 }
 
-/* Edge overlay */
+/* --------------------------------------------------------------------------
+   Edge overlay — held, dark, warm
+
+   The world goes quiet. You are not alone.
+   -------------------------------------------------------------------------- */
+
 .edge-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(42, 26, 58, 0.95);
+  background: linear-gradient(
+    160deg,
+    rgba(36, 22, 50, 0.96) 0%,
+    rgba(28, 18, 42, 0.98) 100%
+  );
   z-index: 200;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--space-xl);
+  animation: edgeFadeIn 400ms ease-out;
+}
+
+@keyframes edgeFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .edge-overlay {
+    animation: none;
+  }
 }
 
 .edge-content {
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
   text-align: center;
   color: var(--color-white);
 }
 
 .edge-content h2 {
-  color: var(--color-white);
+  color: #f0e8f5;
   font-size: 1.5rem;
-  margin-bottom: var(--space-md);
-  font-weight: 500;
+  margin-bottom: var(--space-lg);
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 .edge-message {
-  color: #e1bee7;
+  color: #d4b8e0;
   margin-bottom: var(--space-xl);
   font-size: 0.95rem;
+  line-height: 1.7;
 }
 
 .edge-contacts {
@@ -1198,70 +1371,85 @@
 .edge-contact {
   display: flex;
   flex-direction: column;
-  padding: var(--space-lg);
-  border-radius: var(--radius-md);
+  padding: var(--space-xl) var(--space-lg);
+  border-radius: var(--radius-lg);
   text-decoration: none;
-  transition: transform var(--transition-fast);
+  transition: transform var(--transition-normal),
+              box-shadow var(--transition-normal);
+  min-height: 64px;
+  justify-content: center;
 }
 
 .edge-contact:hover {
   transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
 .edge-contact:focus-visible {
   outline: 3px solid var(--color-white);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
+/* 988 — warm coral, not alarm red */
 .edge-contact-988 {
-  background: #c62828;
+  background: linear-gradient(135deg, #b84a4a, #a84050);
   color: var(--color-white);
 }
 
 .edge-contact-trusted {
-  background: #4a148c;
+  background: linear-gradient(135deg, #5a2a80, #4a1a6a);
   color: var(--color-white);
 }
 
 .edge-contact-therapist {
-  background: #311b92;
+  background: linear-gradient(135deg, #3a2070, #2a1860);
   color: var(--color-white);
 }
 
 .edge-contact-label {
   font-weight: 600;
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   margin-bottom: 4px;
 }
 
 .edge-contact-action {
   font-size: 0.85rem;
-  opacity: 0.85;
+  opacity: 0.8;
 }
 
 .edge-hint {
   font-size: 0.85rem;
-  color: #e1bee7;
+  color: #c4a8d4;
   font-style: italic;
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
 }
 
 .edge-close {
   padding: var(--space-md) var(--space-xl);
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-lg);
   color: var(--color-white);
   font-size: 0.95rem;
   cursor: pointer;
-  transition: background-color var(--transition-fast);
+  transition: background-color var(--transition-normal),
+              border-color var(--transition-normal);
+  min-height: 48px;
 }
 
 .edge-close:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 /* --------------------------------------------------------------------------
-   Grief Window Overlay
+   Grief Window Overlay — a quiet, held space
+
+   When active, the screen becomes sanctuary. Soft background.
+   A timer that doesn't pressure. Space to feel.
+
+   CSS candle-flicker animation (reduced motion respected).
    -------------------------------------------------------------------------- */
 
 .grief-window-overlay {
@@ -1270,24 +1458,63 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+/* Subtle ambient glow behind the timer — like candlelight */
+.grief-window-overlay::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--mode-accent) 8%, transparent) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: candleGlow 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes candleGlow {
+  0%, 100% { opacity: 0.5; transform: translate(-50%, -60%) scale(1); }
+  25% { opacity: 0.7; transform: translate(-50%, -60%) scale(1.04); }
+  50% { opacity: 0.55; transform: translate(-50%, -60%) scale(1.01); }
+  75% { opacity: 0.65; transform: translate(-50%, -60%) scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grief-window-overlay::before {
+    animation: none;
+    opacity: 0.5;
+  }
 }
 
 .grief-window-content {
   text-align: center;
   padding: var(--space-xl);
+  position: relative;
+  z-index: 1;
 }
 
 .grief-window-header h2 {
-  font-weight: 500;
+  font-weight: 400;
   margin-bottom: var(--space-sm);
+  letter-spacing: -0.01em;
 }
 
 .grief-window-header p {
   color: var(--mode-text-secondary);
   font-size: 0.95rem;
   margin-bottom: var(--space-2xl);
+  line-height: 1.7;
 }
 
+/* Timer — gentle circle, warm accent, no pressure */
 .grief-timer {
   display: flex;
   justify-content: center;
@@ -1296,8 +1523,8 @@
 
 .grief-timer-circle {
   position: relative;
-  width: 160px;
-  height: 160px;
+  width: 170px;
+  height: 170px;
 }
 
 .grief-timer-svg {
@@ -1315,40 +1542,47 @@
 }
 
 .grief-timer-number {
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 2.25rem;
+  font-weight: 500;
   color: var(--mode-accent);
+  letter-spacing: -0.02em;
 }
 
 .grief-timer-label {
   font-size: 0.8rem;
   color: var(--mode-text-secondary);
+  margin-top: 2px;
+  letter-spacing: 0.02em;
 }
 
 .grief-window-gentle {
   color: var(--mode-text-secondary);
   font-style: italic;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   margin-bottom: var(--space-xl);
+  line-height: 1.7;
 }
 
 .grief-window-close {
   padding: var(--space-md) var(--space-xl);
   background: transparent;
-  border: 1px solid var(--mode-accent-light);
-  border-radius: var(--radius-md);
+  border: 1.5px solid var(--mode-accent-light);
+  border-radius: var(--radius-lg);
   color: var(--mode-text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   cursor: pointer;
-  transition: background-color var(--transition-fast);
+  transition: background-color var(--transition-normal),
+              border-color var(--transition-normal);
+  min-height: 48px;
 }
 
 .grief-window-close:hover {
   background-color: var(--mode-accent-light);
+  border-color: var(--mode-accent);
 }
 
 /* --------------------------------------------------------------------------
-   Responsive
+   Responsive — graceful at every size
    -------------------------------------------------------------------------- */
 
 @media (max-width: 400px) {
@@ -1370,17 +1604,25 @@
 
   .felt-color-picker,
   .mother-color-picker {
-    gap: var(--space-sm);
+    gap: var(--space-md);
   }
 
   .felt-color-btn {
-    width: 38px;
-    height: 38px;
+    width: 42px;
+    height: 42px;
   }
 
   .mother-color-btn {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .father-card {
+    padding: var(--space-xl);
+  }
+
+  .father-step {
+    padding: var(--space-xl);
   }
 }
 
