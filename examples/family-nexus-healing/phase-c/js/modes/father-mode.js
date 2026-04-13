@@ -108,16 +108,16 @@ async function getVisitBanner() {
   let urgency = '';
 
   if (hoursUntil <= 0.25) {
-    message = 'Visit starting soon';
+    message = 'Almost time. You are ready.';
     urgency = 'urgent';
   } else if (hoursUntil <= 2) {
-    message = 'Visit in about ' + Math.round(hoursUntil * 60) + ' minutes';
+    message = 'Visit in about ' + Math.round(hoursUntil * 60) + ' minutes. Breathe.';
     urgency = 'soon';
   } else if (hoursUntil <= 24) {
-    message = 'Visit later today';
+    message = 'You have a visit today';
     urgency = 'today';
   } else {
-    message = 'Visit tomorrow';
+    message = 'Visit tomorrow. Today is preparation.';
     urgency = 'tomorrow';
   }
 
@@ -163,7 +163,7 @@ async function renderHome(container, protocols) {
   html += `
     <div class="father-home">
       <h1>${getGreeting()}</h1>
-      <p class="father-subtitle">Here is a practice for you.</p>
+      <p class="father-subtitle">One thing. No rush.</p>
     </div>
   `;
 
@@ -209,7 +209,7 @@ async function renderHome(container, protocols) {
   html += `
     <div class="father-settings-row">
       <button class="father-settings-btn" aria-label="Settings" data-father-view="settings">
-        &#9881; ${caregiverAssist ? 'Caregiver assist: on' : 'Settings'}
+        &#9881; ${caregiverAssist ? 'Helper mode: on' : 'Settings'}
       </button>
     </div>
   `;
@@ -268,9 +268,15 @@ async function renderHome(container, protocols) {
 // ---------------------------------------------------------------------------
 
 function renderStep(container, protocols) {
-  if (!selectedProtocol || !selectedProtocol.steps || selectedProtocol.steps.length === 0) {
+  if (!selectedProtocol) {
     currentView = 'home';
     renderHome(container, protocols);
+    return;
+  }
+
+  // If this protocol has no numbered steps, show the full practice view instead
+  if (!selectedProtocol.steps || selectedProtocol.steps.length === 0) {
+    renderFullPractice(container, protocols);
     return;
   }
 
@@ -284,7 +290,7 @@ function renderStep(container, protocols) {
   // Progress indicator
   html += `
     <div class="father-progress">
-      <span class="father-progress-text">Step ${step.number || (currentStepIndex + 1)} of ${steps.length}</span>
+      <span class="father-progress-text">${step.number || (currentStepIndex + 1)} of ${steps.length}</span>
       <div class="father-progress-bar">
         <div class="father-progress-fill" style="width: ${((currentStepIndex + 1) / steps.length) * 100}%"></div>
       </div>
@@ -309,13 +315,13 @@ function renderStep(container, protocols) {
 
   if (!isFirst) {
     html += `
-      <button class="father-step-back btn-primary" aria-label="Previous step">
+      <button class="father-step-back btn-primary" aria-label="Go back">
         <span aria-hidden="true">&larr;</span> Back
       </button>
     `;
   } else {
     html += `
-      <button class="father-step-exit" aria-label="Exit practice">
+      <button class="father-step-exit" aria-label="Leave practice">
         <span aria-hidden="true">&larr;</span> Exit
       </button>
     `;
@@ -323,8 +329,8 @@ function renderStep(container, protocols) {
 
   if (isLast) {
     html += `
-      <button class="father-step-done btn-primary" aria-label="Finished">
-        Done
+      <button class="father-step-done btn-primary" aria-label="Well done">
+        Well done
       </button>
     `;
   } else {
@@ -376,6 +382,152 @@ function renderStep(container, protocols) {
 }
 
 // ---------------------------------------------------------------------------
+// Rendering: Full Practice View (for protocols without numbered steps)
+// ---------------------------------------------------------------------------
+
+/**
+ * Render a block of practice text — handles bullet lists and plain paragraphs.
+ */
+function renderPracticeBlock(text) {
+  if (!text) return '';
+
+  const lines = text.split('\n');
+  let html = '';
+  let inList = false;
+  let plainLines = [];
+
+  function flushPlain() {
+    if (plainLines.length > 0) {
+      html += `<p class="father-practice-paragraph">${escapeHtml(plainLines.join(' ').trim())}</p>`;
+      plainLines = [];
+    }
+  }
+
+  for (const line of lines) {
+    const bulletMatch = line.match(/^-\s+(.+)/);
+    if (bulletMatch) {
+      flushPlain();
+      if (!inList) {
+        html += '<ul class="father-practice-list">';
+        inList = true;
+      }
+      html += `<li>${escapeHtml(bulletMatch[1].trim())}</li>`;
+    } else {
+      if (inList) {
+        html += '</ul>';
+        inList = false;
+      }
+      const trimmed = line.trim();
+      if (trimmed) {
+        plainLines.push(trimmed);
+      } else {
+        flushPlain();
+      }
+    }
+  }
+
+  if (inList) html += '</ul>';
+  flushPlain();
+
+  return html;
+}
+
+/**
+ * Render the full practice text as a scrollable card.
+ * Used for protocols whose practice section uses sub-headings (e.g. Option A/B/C)
+ * instead of numbered steps. The "Begin" button still works — it shows the full
+ * practice as one readable view instead of stepping through individual items.
+ */
+function renderFullPractice(container, protocols) {
+  const p = selectedProtocol;
+  let html = '';
+
+  // Title
+  html += `
+    <div class="father-step" style="max-width: 100%;">
+      <h2 class="father-step-title">${escapeHtml(p.title)}</h2>
+    </div>
+  `;
+
+  // Practice text: either the practiceText field or the summary as fallback
+  html += '<div class="father-full-practice">';
+
+  if (p.practiceText) {
+    // Render practice text with basic structure preservation.
+    // Split on double newlines for paragraphs, preserve sub-headings and lists.
+    const paragraphs = p.practiceText.split(/\n\n+/);
+    for (const para of paragraphs) {
+      const trimmed = para.trim();
+      if (!trimmed) continue;
+
+      // Check if this paragraph starts with a sub-heading pattern
+      // e.g. "### Step 1: Choose..." or "Step 1: Choose..." or "Option A: Breath..."
+      const subHeadingMatch = trimmed.match(/^(?:#{1,4}\s+)?(Step \d+:.*|Option [A-Z]:.*)/i);
+      if (subHeadingMatch) {
+        // Split into heading line and rest
+        const lines = trimmed.split('\n');
+        // Strip any leading ### from the heading text for display
+        const headingText = lines[0].replace(/^#{1,4}\s+/, '');
+        html += `<h3 class="father-practice-subheading">${escapeHtml(headingText)}</h3>`;
+        if (lines.length > 1) {
+          const restLines = lines.slice(1);
+          // Check if the rest is a bullet list
+          const restText = restLines.join('\n').trim();
+          html += renderPracticeBlock(restText);
+        }
+      } else {
+        // Check if the whole paragraph is a bullet list
+        html += renderPracticeBlock(trimmed);
+      }
+    }
+  } else if (p.summary && p.summary.length > 0) {
+    // Fallback: show summary if no practice text
+    for (const para of p.summary) {
+      html += `<p class="father-practice-paragraph">${escapeHtml(para)}</p>`;
+    }
+  } else {
+    html += `<p class="father-practice-paragraph">This practice does not have detailed steps. Please refer to the full protocol description.</p>`;
+  }
+
+  html += '</div>';
+
+  // Done button
+  html += `
+    <div class="father-step-nav">
+      <button class="father-step-exit" aria-label="Exit practice">
+        <span aria-hidden="true">&larr;</span> Exit
+      </button>
+      <button class="father-step-done btn-primary" aria-label="Finished">
+        Done
+      </button>
+    </div>
+  `;
+
+  container.innerHTML = html;
+
+  // Bind navigation
+  const doneBtn = container.querySelector('.father-step-done');
+  const exitBtn = container.querySelector('.father-step-exit');
+
+  if (doneBtn) {
+    doneBtn.addEventListener('click', () => {
+      currentView = 'home';
+      selectedProtocol = null;
+      currentStepIndex = 0;
+      renderHome(container, protocols);
+    });
+  }
+  if (exitBtn) {
+    exitBtn.addEventListener('click', () => {
+      currentView = 'home';
+      selectedProtocol = null;
+      currentStepIndex = 0;
+      renderHome(container, protocols);
+    });
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Rendering: Settings View
 // ---------------------------------------------------------------------------
 
@@ -393,9 +545,9 @@ async function renderSettings(container, protocols) {
 
       <div class="father-setting-group">
         <label for="father-caregiver-toggle" class="father-setting-label">
-          Caregiver assist
+          Someone is helping me
         </label>
-        <p class="father-setting-desc">Shows more context for each step. Useful if a caregiver is helping you.</p>
+        <p class="father-setting-desc">Shows more detail for each step, so a helper can follow along.</p>
         <button id="father-caregiver-toggle"
                 class="father-toggle ${caregiverAssist ? 'father-toggle-on' : ''}"
                 role="switch"
@@ -407,9 +559,9 @@ async function renderSettings(container, protocols) {
 
       <div class="father-setting-group">
         <label for="father-anchor-time" class="father-setting-label">
-          Daily anchor time
+          My anchor time
         </label>
-        <p class="father-setting-desc">Set a time for your daily dignity practice to appear.</p>
+        <p class="father-setting-desc">A time each day for your practice to appear.</p>
         <input type="time" id="father-anchor-time" class="father-time-input"
                value="${escapeHtml(dailyAnchorTime)}"
                aria-label="Daily anchor time">

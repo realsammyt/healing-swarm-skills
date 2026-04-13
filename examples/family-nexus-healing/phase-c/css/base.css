@@ -1,5 +1,8 @@
 /* ==========================================================================
    base.css — Foundation styles for Family Nexus Healing PWA
+
+   Design philosophy: warm hand on your back, not a medical interface.
+   Every pixel serves the family. Calm over busy. Warmth over clinical.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -56,43 +59,47 @@ a {
    -------------------------------------------------------------------------- */
 
 :root {
-  /* Base palette */
-  --color-white: #ffffff;
-  --color-black: #111111;
+  /* Base palette — warm neutrals, not stark */
+  --color-white: #fffcf9;
+  --color-black: #1a1714;
 
   /* Mode colors — overridden by [data-mode] selectors in modes.css */
-  --mode-bg: #f7f9f7;
-  --mode-accent: #2d8a4e;
-  --mode-accent-light: #e8f5e9;
-  --mode-text: #1a2e1a;
-  --mode-text-secondary: #4a6a4a;
+  --mode-bg: #f8f6f2;
+  --mode-accent: #3d8b5e;
+  --mode-accent-light: #edf5ef;
+  --mode-text: #2c2a26;
+  --mode-text-secondary: #6b6860;
 
-  /* Surfaces */
-  --surface-card: var(--color-white);
-  --surface-card-shadow: rgba(0, 0, 0, 0.06);
+  /* Surfaces — warm, slightly creamy */
+  --surface-card: #fffdf9;
+  --surface-card-shadow: rgba(62, 50, 30, 0.06);
+  --surface-card-shadow-hover: rgba(62, 50, 30, 0.1);
 
   /* Focus */
   --focus-width: 3px;
   --focus-color: var(--mode-accent);
 
-  /* Spacing */
+  /* Spacing — generous, breathing */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
   --space-lg: 1.5rem;
   --space-xl: 2rem;
   --space-2xl: 3rem;
+  --space-3xl: 4rem;
 
-  /* Radii */
-  --radius-sm: 0.375rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
+  /* Radii — soft, rounded, held */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+  --radius-2xl: 2.25rem;
 
-  /* Transitions */
-  --transition-fast: 150ms ease;
-  --transition-normal: 200ms ease;
-  --transition-slow: 300ms ease;
+  /* Transitions — gentle, never jarring */
+  --transition-fast: 180ms ease-out;
+  --transition-normal: 280ms ease-out;
+  --transition-slow: 400ms ease-out;
+  --transition-breath: 600ms cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Layout */
   --content-max-width: 600px;
@@ -100,34 +107,37 @@ a {
 }
 
 /* --------------------------------------------------------------------------
-   Typography
+   Typography — entrainment through rhythm
    -------------------------------------------------------------------------- */
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont,
+    Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   font-size: clamp(16px, 1.8vw, 20px);
-  line-height: 1.6;
+  line-height: 1.65;
+  letter-spacing: 0.005em;
   color: var(--mode-text);
   background-color: var(--mode-bg);
-  transition: background-color var(--transition-normal),
+  transition: background-color var(--transition-breath),
               color var(--transition-normal);
 }
 
 h1, h2, h3, h4 {
-  line-height: 1.3;
+  line-height: 1.35;
   color: var(--mode-text);
   font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 h1 {
   font-size: clamp(1.5rem, 4vw, 2.25rem);
   letter-spacing: -0.02em;
+  font-weight: 500;
 }
 
 h2 {
   font-size: clamp(1.25rem, 3vw, 1.75rem);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
 h3 {
@@ -158,12 +168,15 @@ p:last-child {
   min-height: 100vh;
   min-height: 100dvh;
   padding: var(--content-padding);
+  opacity: 0;
+  transition: opacity var(--transition-slow);
 }
 
 .screen.active {
   display: flex;
   flex-direction: column;
   align-items: center;
+  opacity: 1;
 }
 
 .screen-content {
@@ -172,31 +185,39 @@ p:last-child {
 }
 
 /* --------------------------------------------------------------------------
-   Landing Screen
+   Landing Screen — the first breath
    -------------------------------------------------------------------------- */
 
 #landing {
   justify-content: center;
   text-align: center;
-  padding: var(--space-2xl) var(--content-padding);
+  padding: var(--space-3xl) var(--content-padding);
+  background: linear-gradient(
+    180deg,
+    var(--mode-bg) 0%,
+    color-mix(in srgb, var(--mode-bg) 92%, #e8dfd0) 100%
+  );
 }
 
 #landing h1 {
-  margin-bottom: var(--space-2xl);
-  font-weight: 500;
+  margin-bottom: var(--space-3xl);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 4.5vw, 2.5rem);
   color: var(--mode-text);
+  letter-spacing: -0.02em;
+  line-height: 1.4;
 }
 
 .mode-buttons {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-lg);
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
 }
 
 /* --------------------------------------------------------------------------
-   Mode Button
+   Mode Button — emotionally resonant, inviting
    -------------------------------------------------------------------------- */
 
 .mode-btn {
@@ -204,48 +225,80 @@ p:last-child {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 80px;
-  padding: var(--space-lg) var(--space-xl);
-  border-radius: var(--radius-lg);
+  min-height: 96px;
+  padding: var(--space-xl) var(--space-xl);
+  border-radius: var(--radius-xl);
   background-color: var(--surface-card);
-  box-shadow: 0 1px 3px var(--surface-card-shadow),
-              0 2px 8px var(--surface-card-shadow);
+  box-shadow: 0 1px 2px var(--surface-card-shadow),
+              0 4px 12px var(--surface-card-shadow),
+              0 0 0 1px rgba(0, 0, 0, 0.02);
   transition: transform var(--transition-normal),
               box-shadow var(--transition-normal),
-              background-color var(--transition-normal);
+              background-color var(--transition-normal),
+              border-color var(--transition-normal);
   text-align: center;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Subtle left-edge color preview strip */
+.mode-btn::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12%;
+  bottom: 12%;
+  width: 4px;
+  border-radius: 0 4px 4px 0;
+  transition: width var(--transition-normal),
+              opacity var(--transition-normal);
+  opacity: 0.7;
+}
+
+.mode-family::before { background-color: #4a9e6b; }
+.mode-father::before { background-color: #5a8aba; }
+.mode-mother::before { background-color: #9a70b8; }
+
 .mode-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 2px 6px var(--surface-card-shadow),
-              0 4px 16px var(--surface-card-shadow);
+  transform: translateY(-3px);
+  box-shadow: 0 2px 4px var(--surface-card-shadow),
+              0 8px 24px var(--surface-card-shadow-hover),
+              0 0 0 1px rgba(0, 0, 0, 0.03);
+}
+
+.mode-btn:hover::before {
+  width: 5px;
+  opacity: 1;
 }
 
 .mode-btn:active {
-  transform: translateY(0);
+  transform: translateY(-1px);
 }
 
 .mode-btn:focus-visible {
   outline: var(--focus-width) solid var(--focus-color);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 .mode-label {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 600;
   margin-bottom: var(--space-xs);
+  letter-spacing: -0.01em;
 }
 
 .mode-desc {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: var(--mode-text-secondary);
+  line-height: 1.4;
+  letter-spacing: 0.005em;
 }
 
-/* Mode-specific button accents */
-.mode-family .mode-label { color: #2d8a4e; }
-.mode-father .mode-label { color: #3a6ea5; }
-.mode-mother .mode-label { color: #7a4fa0; }
+/* Mode-specific button accents — warm, differentiated */
+.mode-family .mode-label { color: #3d8b5e; }
+.mode-father .mode-label { color: #4a7daa; }
+.mode-mother .mode-label { color: #8a5eaa; }
 
 /* --------------------------------------------------------------------------
    Navigation Bar (within mode screens)
@@ -258,7 +311,7 @@ p:last-child {
   width: 100%;
   max-width: var(--content-max-width);
   padding: var(--space-md) 0;
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-xl);
 }
 
 .nav-back {
@@ -270,7 +323,9 @@ p:last-child {
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--mode-accent);
-  transition: background-color var(--transition-fast);
+  transition: background-color var(--transition-fast),
+              color var(--transition-fast);
+  min-height: 44px;
 }
 
 .nav-back:hover {
@@ -289,44 +344,49 @@ p:last-child {
 }
 
 /* --------------------------------------------------------------------------
-   Protocol Card
+   Protocol Card — like holding a card in your hand
    -------------------------------------------------------------------------- */
 
 .protocol-card {
   width: 100%;
   max-width: var(--content-max-width);
-  padding: var(--space-lg);
+  padding: var(--space-xl) var(--space-lg);
   margin-bottom: var(--space-md);
   background-color: var(--surface-card);
-  border-radius: var(--radius-md);
-  box-shadow: 0 1px 3px var(--surface-card-shadow);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 2px var(--surface-card-shadow),
+              0 3px 10px var(--surface-card-shadow);
   transition: transform var(--transition-normal),
               box-shadow var(--transition-normal);
   cursor: pointer;
+  border-left: 4px solid var(--mode-accent);
+  position: relative;
 }
 
 .protocol-card:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px var(--surface-card-shadow);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px var(--surface-card-shadow),
+              0 6px 20px var(--surface-card-shadow-hover);
 }
 
 .protocol-card:focus-visible {
   outline: var(--focus-width) solid var(--focus-color);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 .protocol-card-title {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 600;
   margin-bottom: var(--space-sm);
   color: var(--mode-text);
+  line-height: 1.35;
 }
 
 .protocol-card-meta {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-sm);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
   font-size: 0.8rem;
   color: var(--mode-text-secondary);
 }
@@ -337,11 +397,12 @@ p:last-child {
   padding: var(--space-xs) var(--space-sm);
   background-color: var(--mode-accent-light);
   border-radius: var(--radius-sm);
+  letter-spacing: 0.01em;
 }
 
 .protocol-card-summary {
-  font-size: 0.9rem;
-  line-height: 1.5;
+  font-size: 0.92rem;
+  line-height: 1.6;
   color: var(--mode-text-secondary);
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -358,35 +419,36 @@ p:last-child {
   max-width: var(--content-max-width);
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-md);
 }
 
 .protocol-list-header {
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 
 .protocol-list-header h2 {
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-sm);
 }
 
 .protocol-list-header p {
   color: var(--mode-text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
 }
 
 /* Category group within a protocol list */
 .category-group {
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-xl);
 }
 
 .category-group-title {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   color: var(--mode-text-secondary);
   padding-bottom: var(--space-sm);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
   border-bottom: 1px solid var(--mode-accent-light);
 }
 
@@ -400,7 +462,7 @@ p:last-child {
 }
 
 .protocol-detail h1 {
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 
 .protocol-detail-meta {
@@ -414,10 +476,11 @@ p:last-child {
 .protocol-detail-meta .tag {
   display: inline-flex;
   align-items: center;
-  padding: var(--space-xs) var(--space-sm);
+  padding: 0.3rem 0.7rem;
   background-color: var(--mode-accent-light);
   border-radius: var(--radius-sm);
   color: var(--mode-text-secondary);
+  letter-spacing: 0.01em;
 }
 
 .protocol-section {
@@ -434,26 +497,26 @@ p:last-child {
   margin-bottom: var(--space-sm);
 }
 
-/* Steps */
+/* Steps — held, clear, spacious */
 .step {
-  padding: var(--space-lg);
-  margin-bottom: var(--space-md);
+  padding: var(--space-xl) var(--space-lg);
+  margin-bottom: var(--space-lg);
   background-color: var(--mode-accent-light);
-  border-radius: var(--radius-md);
-  border-left: 3px solid var(--mode-accent);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--mode-accent);
 }
 
 .step-number {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 2rem;
+  height: 2rem;
   margin-bottom: var(--space-sm);
   border-radius: 50%;
   background-color: var(--mode-accent);
   color: var(--color-white);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 600;
 }
 
@@ -461,25 +524,26 @@ p:last-child {
   font-weight: 600;
   margin-bottom: var(--space-sm);
   color: var(--mode-text);
+  line-height: 1.4;
 }
 
 .step-body {
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.7;
   color: var(--mode-text-secondary);
 }
 
-/* Warnings / Contraindications */
+/* Warnings / Contraindications — warm amber, not alarm-red */
 .warning-list {
-  padding: var(--space-lg);
-  background-color: #fff8e1;
-  border-radius: var(--radius-md);
-  border-left: 3px solid #f9a825;
+  padding: var(--space-xl) var(--space-lg);
+  background-color: #fef8ec;
+  border-radius: var(--radius-lg);
+  border-left: 4px solid #e5a636;
 }
 
 .warning-list p {
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.7;
   margin-bottom: var(--space-sm);
 }
 
@@ -489,14 +553,14 @@ p:last-child {
 
 /* Signals */
 .signal-list {
-  padding: var(--space-lg);
+  padding: var(--space-xl) var(--space-lg);
   background-color: var(--mode-accent-light);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
 }
 
 .signal-list p {
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.7;
   margin-bottom: var(--space-sm);
 }
 
@@ -507,27 +571,28 @@ p:last-child {
 
 .modification-list li {
   position: relative;
-  padding-left: var(--space-md);
+  padding-left: var(--space-lg);
   margin-bottom: var(--space-md);
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .modification-list li::before {
   content: '';
   position: absolute;
   left: 0;
-  top: 0.6em;
-  width: 6px;
-  height: 6px;
+  top: 0.65em;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background-color: var(--mode-accent);
+  opacity: 0.7;
 }
 
 /* Traditions */
 .tradition-list p {
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.7;
   color: var(--mode-text-secondary);
   margin-bottom: var(--space-sm);
   padding-left: var(--space-md);
@@ -535,7 +600,7 @@ p:last-child {
 }
 
 /* --------------------------------------------------------------------------
-   Primary Button
+   Primary Button — warm, inviting, substantial
    -------------------------------------------------------------------------- */
 
 .btn-primary {
@@ -544,22 +609,27 @@ p:last-child {
   justify-content: center;
   min-height: 56px;
   padding: var(--space-md) var(--space-xl);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   background-color: var(--mode-accent);
   color: var(--color-white);
   font-size: 1.1rem;
   font-weight: 600;
+  letter-spacing: 0.01em;
   transition: background-color var(--transition-fast),
-              transform var(--transition-fast);
+              transform var(--transition-fast),
+              box-shadow var(--transition-fast);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .btn-primary:hover {
-  filter: brightness(1.1);
+  filter: brightness(1.08);
   transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
 }
 
 .btn-primary:active {
   transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
 .btn-primary:focus-visible {
@@ -577,7 +647,7 @@ p:last-child {
 }
 
 /* --------------------------------------------------------------------------
-   Motion
+   Motion — the app breathes
    -------------------------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
@@ -596,7 +666,7 @@ p:last-child {
 }
 
 /* --------------------------------------------------------------------------
-   Scrollbar (subtle)
+   Scrollbar (subtle, warm)
    -------------------------------------------------------------------------- */
 
 ::-webkit-scrollbar {
@@ -608,9 +678,8 @@ p:last-child {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--mode-text-secondary);
+  background: color-mix(in srgb, var(--mode-text-secondary) 40%, transparent);
   border-radius: 3px;
-  opacity: 0.3;
 }
 
 /* --------------------------------------------------------------------------
@@ -640,35 +709,43 @@ p:last-child {
 .mb-lg { margin-bottom: var(--space-lg); }
 
 /* --------------------------------------------------------------------------
-   About section (landing page context)
+   About section (landing page context) — gentle, secondary
    -------------------------------------------------------------------------- */
 
 .about-toggle {
-  display: block;
-  margin: var(--space-lg) auto 0;
-  padding: var(--space-sm) var(--space-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-xl) auto 0;
+  padding: var(--space-sm) var(--space-lg);
   background: none;
-  border: 1px solid var(--color-border, #d0d0d0);
-  border-radius: var(--radius-md, 8px);
-  color: var(--color-text-secondary, #666);
-  font-size: 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--mode-text-secondary) 25%, transparent);
+  border-radius: var(--radius-2xl);
+  color: var(--mode-text-secondary);
+  font-size: 0.88rem;
   cursor: pointer;
-  transition: all 200ms ease;
+  transition: all var(--transition-normal);
+  min-height: 44px;
+  letter-spacing: 0.01em;
 }
 
 .about-toggle:hover,
 .about-toggle:focus-visible {
-  border-color: var(--color-text, #333);
-  color: var(--color-text, #333);
+  border-color: var(--mode-text-secondary);
+  color: var(--mode-text);
+  background: rgba(0, 0, 0, 0.02);
 }
 
 .about-section {
   max-width: 600px;
-  margin: var(--space-lg) auto;
-  padding: var(--space-lg);
+  margin: var(--space-xl) auto;
+  padding: var(--space-xl) var(--space-lg);
   text-align: left;
-  line-height: 1.7;
-  color: var(--color-text, #1a1a1a);
+  line-height: 1.75;
+  color: var(--mode-text);
+  background: var(--surface-card);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 2px 8px var(--surface-card-shadow);
 }
 
 .about-section[hidden] {
@@ -676,22 +753,26 @@ p:last-child {
 }
 
 .about-section h2 {
-  font-size: 1.5rem;
-  margin-bottom: var(--space-md);
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: var(--space-lg);
   text-align: center;
-  color: var(--color-text, #1a1a1a);
+  color: var(--mode-text);
+  letter-spacing: -0.01em;
 }
 
 .about-section h3 {
-  font-size: 1.1rem;
-  margin-top: var(--space-lg);
+  font-size: 1.05rem;
+  margin-top: var(--space-xl);
   margin-bottom: var(--space-sm);
-  color: var(--color-text, #1a1a1a);
+  color: var(--mode-text);
+  font-weight: 600;
 }
 
 .about-section p {
   margin-bottom: var(--space-md);
-  font-size: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.75;
 }
 
 .about-section ul,
@@ -702,37 +783,44 @@ p:last-child {
 
 .about-section li {
   margin-bottom: var(--space-sm);
-  font-size: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
 }
 
 .about-section hr {
   border: none;
-  border-top: 1px solid var(--color-border, #e0e0e0);
+  border-top: 1px solid color-mix(in srgb, var(--mode-text-secondary) 15%, transparent);
   margin: var(--space-xl) 0;
 }
 
 .about-closing {
   text-align: center;
-  font-size: 1.05rem;
-  color: var(--color-text-secondary, #555);
+  font-size: 1rem;
+  color: var(--mode-text-secondary);
   margin-bottom: var(--space-sm);
+  line-height: 1.7;
 }
 
 .about-close-btn {
   display: block;
-  margin: var(--space-lg) auto 0;
-  padding: var(--space-sm) var(--space-lg);
-  background: var(--color-accent, #2d8a4e);
+  margin: var(--space-xl) auto 0;
+  padding: var(--space-md) var(--space-xl);
+  background: var(--mode-accent);
   color: white;
   border: none;
-  border-radius: var(--radius-md, 8px);
+  border-radius: var(--radius-lg);
   font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
-  min-height: 48px;
-  transition: background 200ms ease;
+  min-height: 52px;
+  transition: all var(--transition-normal);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  letter-spacing: 0.01em;
 }
 
 .about-close-btn:hover,
 .about-close-btn:focus-visible {
-  background: var(--color-accent-dark, #246e3e);
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
 }

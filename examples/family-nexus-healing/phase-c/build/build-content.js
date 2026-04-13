@@ -292,6 +292,13 @@ function parseProtocol(filePath) {
   const practiceSection = sections['the practice'] || '';
   const steps = extractSteps(practiceSection);
 
+  // If steps extraction found nothing but the practice section has content,
+  // store the raw practice text. This happens when protocols use sub-headings
+  // (### Option A / ### Option B) instead of numbered lists (1. Step one).
+  const practiceText = (steps.length === 0 && practiceSection.length > 0)
+    ? cleanMarkdown(practiceSection)
+    : null;
+
   // Contraindications: "when not to use this"
   const contraSectionKey = Object.keys(sections).find(k =>
     k.includes('when not to use this')
@@ -328,6 +335,7 @@ function parseProtocol(filePath) {
     energyCost: energy || null,
     summary,
     steps,
+    practiceText,
     contraindications,
     signals,
     modifications,

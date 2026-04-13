@@ -654,6 +654,52 @@
   border: 1px solid var(--mode-accent-light);
 }
 
+/* Full Practice View (protocols without numbered steps) */
+.father-full-practice {
+  width: 100%;
+  max-width: var(--content-max-width);
+  padding: var(--space-lg);
+  background: var(--surface-card);
+  border-radius: var(--radius-lg);
+  text-align: left;
+  margin-bottom: var(--space-xl);
+  max-height: 60vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.father-practice-subheading {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--mode-accent);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.father-practice-subheading:first-child {
+  margin-top: 0;
+}
+
+.father-practice-paragraph {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--mode-text);
+  margin-bottom: var(--space-md);
+}
+
+.father-practice-list {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--mode-text);
+  margin-bottom: var(--space-md);
+  padding-left: var(--space-lg);
+  list-style-type: disc;
+}
+
+.father-practice-list li {
+  margin-bottom: var(--space-xs);
+}
+
 /* Settings view */
 .father-settings {
   width: 100%;

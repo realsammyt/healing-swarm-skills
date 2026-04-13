@@ -129,10 +129,10 @@ export async function renderFamilyMode(container, protocols) {
 
   // Emergency button (fixed footer)
   html += `
-    <div class="emergency-footer" role="complementary" aria-label="Emergency help">
-      <a href="tel:988" class="emergency-btn" aria-label="Call 988 Suicide and Crisis Lifeline">
+    <div class="emergency-footer" role="complementary" aria-label="Help">
+      <a href="tel:988" class="emergency-btn" aria-label="Call 988">
         <span class="emergency-icon" aria-hidden="true">&#9829;</span>
-        <span class="emergency-text">Need help now? Tap to call 988</span>
+        <span class="emergency-text">988 is here if you need it</span>
       </a>
     </div>
   `;

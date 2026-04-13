@@ -3,61 +3,78 @@
 
    Father mode targets WCAG AAA (7:1 contrast minimum) with larger text,
    reduced cognitive load, enhanced focus indicators, and generous touch
-   targets. These overrides are designed for a user who may be experiencing
-   cognitive changes and needs maximum clarity and calm.
+   targets.
+
+   Design philosophy: make a confused person feel held, not overwhelmed.
+   The world's simplest, kindest interface. One thing on screen.
+   Giant buttons. Text so large it's impossible to miss.
+
+   Typography as entrainment: slower rhythm, more space between lines,
+   heavier weight. The text breathes with him.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   AAA Contrast and Typography
+   AAA Contrast, Typography, and Rhythm
    -------------------------------------------------------------------------- */
 
 [data-mode="father"] {
   /* Override text to darker shade for 7:1 contrast against #f0f4f8 bg */
   --mode-text: #0a1a2a;
-  --mode-text-secondary: #2a3a4a;
+  --mode-text-secondary: #28384a;
 
-  /* Larger base font */
-  font-size: clamp(18px, 2.5vw, 24px);
-  line-height: 1.8;
+  /* Larger base font — slower reading rhythm */
+  font-size: clamp(19px, 2.8vw, 26px);
+  line-height: 1.85;
+  letter-spacing: 0.01em;
 
-  /* Reduced cognitive load — narrower measure */
-  --content-max-width: 35ch;
+  /* Reduced cognitive load — narrower measure, fewer words per line */
+  --content-max-width: 34ch;
+
+  /* Even softer radii — nothing sharp */
+  --radius-sm: 0.625rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
 }
 
 /* --------------------------------------------------------------------------
-   Enhanced Focus Indicators
+   Enhanced Focus Indicators — unmissable, warm
    -------------------------------------------------------------------------- */
 
 [data-mode="father"] {
   --focus-width: 4px;
-  --focus-color: #3a6ea5;
+  --focus-color: #4a7daa;
 }
 
 [data-mode="father"] :focus-visible {
-  outline: 4px solid #3a6ea5;
-  outline-offset: 3px;
+  outline: 4px solid #4a7daa;
+  outline-offset: 4px;
 }
 
 /* --------------------------------------------------------------------------
-   Protocol Cards — One at a Time, Clear and Spacious
+   Protocol Cards — spacious, warm, one at a time
    -------------------------------------------------------------------------- */
 
 [data-mode="father"] .protocol-card {
-  padding: 2rem;
+  padding: 2rem 1.75rem;
   font-size: 1.25rem;
-  line-height: 1.7;
-  border-left-width: 4px;
+  line-height: 1.75;
+  border-left-width: 5px;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 2px 6px var(--surface-card-shadow),
+              0 6px 18px var(--surface-card-shadow);
 }
 
 [data-mode="father"] .protocol-card-title {
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   font-weight: 700;
   line-height: 1.4;
+  letter-spacing: -0.01em;
 }
 
 [data-mode="father"] .protocol-card-summary {
-  font-size: 1.1rem;
-  line-height: 1.7;
+  font-size: 1.12rem;
+  line-height: 1.75;
   -webkit-line-clamp: 4;
 }
 
@@ -66,78 +83,97 @@
 }
 
 [data-mode="father"] .protocol-card-meta span {
-  padding: 0.35rem 0.75rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 0.5rem;
 }
 
 /* --------------------------------------------------------------------------
-   Buttons — Giant Touch Targets
+   Buttons — Giant Touch Targets, warm and inviting
+
+   The "Begin" button should be impossible to miss.
+   Every button feels like "I'm here for you."
    -------------------------------------------------------------------------- */
 
 [data-mode="father"] .btn-primary {
-  min-height: 72px;
+  min-height: 76px;
   font-size: 1.5rem;
   font-weight: 600;
-  padding: 1rem 2rem;
-  border-radius: 1rem;
+  padding: 1.25rem 2.25rem;
+  border-radius: 1.25rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 3px 8px rgba(74, 125, 170, 0.2);
+}
+
+[data-mode="father"] .btn-primary:hover {
+  box-shadow: 0 4px 14px rgba(74, 125, 170, 0.28);
 }
 
 [data-mode="father"] .mode-btn {
-  min-height: 96px;
-  padding: 1.5rem 2rem;
+  min-height: 100px;
+  padding: 1.75rem 2rem;
+  border-radius: 1.5rem;
 }
 
 [data-mode="father"] .mode-label {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
 [data-mode="father"] .mode-desc {
-  font-size: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
 }
 
 [data-mode="father"] .nav-back {
-  font-size: 1.1rem;
-  padding: 0.75rem 1rem;
-  min-height: 48px;
+  font-size: 1.15rem;
+  padding: 0.75rem 1.15rem;
+  min-height: 52px;
+  border-radius: 0.75rem;
 }
 
 /* --------------------------------------------------------------------------
-   Steps — One at a Time, Centered, Clear
+   Steps — Centered, clear, generous breathing room
+
+   Each step: one thought. Lots of space. Simple progress.
    -------------------------------------------------------------------------- */
 
 [data-mode="father"] .step {
   font-size: 1.25rem;
   text-align: center;
-  padding: 2rem;
-  border-left-width: 4px;
+  padding: 2.25rem 2rem;
+  border-left-width: 5px;
+  border-radius: var(--radius-xl);
 }
 
 [data-mode="father"] .step-number {
-  width: 2.25rem;
-  height: 2.25rem;
-  font-size: 1.1rem;
-  margin-bottom: 0.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
 }
 
 [data-mode="father"] .step-title {
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
 }
 
 [data-mode="father"] .step-body {
-  font-size: 1.15rem;
-  line-height: 1.8;
+  font-size: 1.18rem;
+  line-height: 1.85;
   text-align: left;
 }
 
 /* --------------------------------------------------------------------------
-   Protocol Detail — Spacious, Clear Hierarchy
+   Protocol Detail — Spacious, Clear Hierarchy, Held
    -------------------------------------------------------------------------- */
 
 [data-mode="father"] .protocol-detail h1 {
   font-size: clamp(1.75rem, 5vw, 2.5rem);
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 [data-mode="father"] .protocol-detail-meta {
@@ -151,18 +187,19 @@
 }
 
 [data-mode="father"] .protocol-section {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.75rem;
 }
 
 /* --------------------------------------------------------------------------
-   Warnings — High Contrast, Unmissable
+   Warnings — High Contrast, Clear but Not Alarming
    -------------------------------------------------------------------------- */
 
 [data-mode="father"] .warning-list {
-  padding: 1.5rem;
-  font-size: 1.15rem;
-  line-height: 1.8;
-  border-left-width: 4px;
+  padding: 1.75rem;
+  font-size: 1.18rem;
+  line-height: 1.85;
+  border-left-width: 5px;
+  border-radius: var(--radius-xl);
 }
 
 /* --------------------------------------------------------------------------
@@ -170,19 +207,20 @@
    -------------------------------------------------------------------------- */
 
 [data-mode="father"] .signal-list {
-  padding: 1.5rem;
-  font-size: 1.15rem;
-  line-height: 1.8;
+  padding: 1.75rem;
+  font-size: 1.18rem;
+  line-height: 1.85;
+  border-radius: var(--radius-xl);
 }
 
 /* --------------------------------------------------------------------------
-   Modifications — Readable
+   Modifications — Readable, Spacious
    -------------------------------------------------------------------------- */
 
 [data-mode="father"] .modification-list li {
-  font-size: 1.15rem;
-  line-height: 1.8;
-  margin-bottom: 1.25rem;
+  font-size: 1.18rem;
+  line-height: 1.85;
+  margin-bottom: 1.35rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -190,31 +228,32 @@
    -------------------------------------------------------------------------- */
 
 [data-mode="father"] .tradition-list p {
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-size: 1.12rem;
+  line-height: 1.85;
 }
 
 /* --------------------------------------------------------------------------
-   Scrolling — Gentle, Oversized Scrollbar for Motor Accessibility
+   Scrolling — Oversized Scrollbar for Motor Accessibility
    -------------------------------------------------------------------------- */
 
 [data-mode="father"] ::-webkit-scrollbar {
-  width: 12px;
+  width: 14px;
 }
 
 [data-mode="father"] ::-webkit-scrollbar-thumb {
-  background: #3a6ea5;
-  border-radius: 6px;
+  background: #7aaaca;
+  border-radius: 7px;
+  border: 3px solid var(--mode-bg);
 }
 
 /* --------------------------------------------------------------------------
-   Category Groups — Simplified
+   Category Groups — Simplified, Clear
    -------------------------------------------------------------------------- */
 
 [data-mode="father"] .category-group-title {
-  font-size: 1rem;
-  letter-spacing: 0.03em;
-  padding-bottom: 0.75rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  padding-bottom: 0.85rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -228,7 +267,18 @@
 
 [data-mode="father"] .protocol-list-header p {
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.12rem;
+  line-height: 1.75;
+}
+
+/* --------------------------------------------------------------------------
+   Landing Page Adjustments for Father Mode
+   -------------------------------------------------------------------------- */
+
+[data-mode="father"] #landing h1 {
+  font-size: clamp(1.8rem, 5vw, 2.75rem);
+  line-height: 1.45;
+  font-weight: 500;
 }
 
 /* --------------------------------------------------------------------------

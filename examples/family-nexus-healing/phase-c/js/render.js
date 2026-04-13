@@ -188,6 +188,30 @@ export function renderProtocolDetail(container, protocol, mode) {
       `;
     }
     html += '</div>';
+  } else if (protocol.practiceText) {
+    // Protocols without numbered steps but with raw practice text
+    // (e.g. protocols using sub-headings like "Option A / Option B")
+    html += '<div class="protocol-section">';
+    html += '<h2>The practice</h2>';
+    const paragraphs = protocol.practiceText.split(/\n\n+/);
+    for (const para of paragraphs) {
+      const trimmed = para.trim();
+      if (!trimmed) continue;
+
+      // Detect sub-heading patterns, with or without ### prefix
+      const subHeadingMatch = trimmed.match(/^(?:#{1,4}\s+)?(Step \d+:.*|Option [A-Z]:.*)/i);
+      if (subHeadingMatch) {
+        const lines = trimmed.split('\n');
+        const headingText = lines[0].replace(/^#{1,4}\s+/, '');
+        html += `<h3>${escapeHtml(headingText)}</h3>`;
+        if (lines.length > 1) {
+          html += renderPracticeBlockDetail(lines.slice(1).join('\n').trim());
+        }
+      } else {
+        html += renderPracticeBlockDetail(trimmed);
+      }
+    }
+    html += '</div>';
   }
 
   // Contraindications
@@ -237,6 +261,54 @@ export function renderProtocolDetail(container, protocol, mode) {
   html += '</div>'; // protocol-detail
 
   container.innerHTML = html;
+}
+
+/**
+ * Render a block of practice text — handles bullet lists and plain paragraphs.
+ * Used by renderProtocolDetail for protocols with practiceText instead of steps.
+ */
+function renderPracticeBlockDetail(text) {
+  if (!text) return '';
+
+  const lines = text.split('\n');
+  let html = '';
+  let inList = false;
+  let plainLines = [];
+
+  function flushPlain() {
+    if (plainLines.length > 0) {
+      html += `<p>${escapeHtml(plainLines.join(' ').trim())}</p>`;
+      plainLines = [];
+    }
+  }
+
+  for (const line of lines) {
+    const bulletMatch = line.match(/^-\s+(.+)/);
+    if (bulletMatch) {
+      flushPlain();
+      if (!inList) {
+        html += '<ul>';
+        inList = true;
+      }
+      html += `<li>${escapeHtml(bulletMatch[1].trim())}</li>`;
+    } else {
+      if (inList) {
+        html += '</ul>';
+        inList = false;
+      }
+      const trimmed = line.trim();
+      if (trimmed) {
+        plainLines.push(trimmed);
+      } else {
+        flushPlain();
+      }
+    }
+  }
+
+  if (inList) html += '</ul>';
+  flushPlain();
+
+  return html;
 }
 
 /**

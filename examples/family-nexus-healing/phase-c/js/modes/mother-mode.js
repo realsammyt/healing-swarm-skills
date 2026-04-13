@@ -33,10 +33,10 @@ const FEELING_COLORS = [
 ];
 
 const FAST_RESETS = [
-  { id: 'ground', label: 'Ground', icon: '&#9673;', desc: 'feet on floor, name 5 things' },
-  { id: 'soften', label: 'Soften', icon: '&#9825;', desc: 'relax jaw, drop shoulders' },
-  { id: 'release', label: 'Release', icon: '&#10047;', desc: 'shake hands, sigh out' },
-  { id: 'fuel', label: 'Fuel up', icon: '&#9752;', desc: 'water, snack, 2 minutes rest' }
+  { id: 'ground', label: 'Ground', icon: '&#9673;', desc: 'Feet on floor. Name five things you see.' },
+  { id: 'soften', label: 'Soften', icon: '&#9825;', desc: 'Unclench your jaw. Let your shoulders drop.' },
+  { id: 'release', label: 'Release', icon: '&#10047;', desc: 'Shake your hands. Sigh it out.' },
+  { id: 'fuel', label: 'Fuel', icon: '&#9752;', desc: 'Water. A bite of something. Two minutes.' }
 ];
 
 // ---------------------------------------------------------------------------
@@ -112,8 +112,8 @@ function renderGriefWindowOverlay(griefInfo) {
     <div class="grief-window-overlay" role="dialog" aria-label="Grief window active">
       <div class="grief-window-content">
         <div class="grief-window-header">
-          <h2>This is your time</h2>
-          <p>Your grief window is open. Whatever comes, let it come.</p>
+          <h2>This time is yours</h2>
+          <p>Whatever comes, let it come.</p>
         </div>
 
         <div class="grief-timer">
@@ -132,10 +132,10 @@ function renderGriefWindowOverlay(griefInfo) {
           </div>
         </div>
 
-        <p class="grief-window-gentle">You do not have to do anything with this time.</p>
+        <p class="grief-window-gentle">You don't have to do anything. Just be here.</p>
 
-        <button class="grief-window-close" aria-label="Close grief window early">
-          I am ready to close this
+        <button class="grief-window-close" aria-label="Close grief window">
+          I'm ready to close this
         </button>
       </div>
     </div>
@@ -176,9 +176,9 @@ async function renderRightNow(container, protocols) {
   // Quick check-in
   html += `
     <div class="mother-checkin">
-      <h2>How are you right now?</h2>
+      <h2>Right now, how are you?</h2>
 
-      <div class="mother-color-picker" role="group" aria-label="Pick a feeling color">
+      <div class="mother-color-picker" role="group" aria-label="Pick a color">
   `;
 
   for (const color of FEELING_COLORS) {
@@ -222,7 +222,7 @@ async function renderRightNow(container, protocols) {
   // Fast resets
   html += `
     <div class="mother-fast-resets">
-      <h3>Fast resets</h3>
+      <h3>Quick resets</h3>
       <div class="mother-reset-grid">
   `;
 
@@ -396,7 +396,7 @@ async function renderMySpace(container) {
     <div class="mother-section">
       <h3>Grief window</h3>
       <p class="mother-section-desc">
-        Choose a time each week for your grief. Outside this window, grief content will not appear.
+        A time each week that belongs to your grief. Outside this window, it stays quiet.
       </p>
 
       <div class="mother-grief-form">
@@ -426,7 +426,7 @@ async function renderMySpace(container) {
         </select>
 
         <button class="btn-primary mother-save-grief" style="margin-top: var(--space-md); width: 100%;">
-          Save Grief Window
+          Save
         </button>
       </div>
   `;
@@ -445,8 +445,8 @@ async function renderMySpace(container) {
   // --- Visit Schedule ---
   html += `
     <div class="mother-section">
-      <h3>Visit schedule</h3>
-      <p class="mother-section-desc">Add upcoming visit dates so the app can help you prepare.</p>
+      <h3>Visits</h3>
+      <p class="mother-section-desc">Add upcoming dates so you can prepare at your own pace.</p>
 
       <div class="mother-visit-form">
         <label for="visit-date">Date</label>
@@ -454,7 +454,7 @@ async function renderMySpace(container) {
                aria-label="Visit date"
                min="${new Date().toISOString().split('T')[0]}">
         <button class="btn-primary mother-add-visit" style="margin-top: var(--space-md); width: 100%;">
-          Add Visit
+          Add
         </button>
       </div>
   `;
@@ -477,26 +477,26 @@ async function renderMySpace(container) {
   // --- Emergency Contacts ---
   html += `
     <div class="mother-section">
-      <h3>My support people</h3>
+      <h3>My people</h3>
       <p class="mother-section-desc">
-        These numbers appear when you tap "I'm at the edge." They stay on your device only.
+        These numbers appear when you tap "I need to reach out." They stay on your device only.
       </p>
 
       <div class="mother-contacts-form">
-        <label for="trusted-contact">Trusted person phone</label>
+        <label for="trusted-contact">Someone I trust</label>
         <input type="tel" id="trusted-contact" class="mother-tel-input"
                value="${escapeHtml(trustedContact)}"
                placeholder="e.g. 555-123-4567"
                aria-label="Trusted person phone number">
 
-        <label for="therapist-contact">Therapist phone</label>
+        <label for="therapist-contact">My therapist</label>
         <input type="tel" id="therapist-contact" class="mother-tel-input"
                value="${escapeHtml(therapistContact)}"
                placeholder="e.g. 555-987-6543"
                aria-label="Therapist phone number">
 
         <button class="btn-primary mother-save-contacts" style="margin-top: var(--space-md); width: 100%;">
-          Save Contacts
+          Save
         </button>
       </div>
     </div>
@@ -506,10 +506,10 @@ async function renderMySpace(container) {
   html += `
     <div class="mother-section">
       <h3>Your data</h3>
-      <p class="mother-section-desc">Everything stays on this device. You can export a backup or clear all data.</p>
+      <p class="mother-section-desc">Everything stays on this device.</p>
       <div class="mother-data-actions">
-        <button class="mother-export-btn" aria-label="Export all data as backup">Export backup</button>
-        <button class="mother-clear-btn" aria-label="Clear all data from this device">Clear all data</button>
+        <button class="mother-export-btn" aria-label="Export backup">Export backup</button>
+        <button class="mother-clear-btn" aria-label="Clear everything">Clear everything</button>
       </div>
     </div>
   `;
@@ -588,7 +588,7 @@ async function renderMySpace(container) {
         await saveSetting('therapist-contact', therapist);
         // Visual feedback
         saveContactsBtn.textContent = 'Saved';
-        setTimeout(() => { saveContactsBtn.textContent = 'Save Contacts'; }, 1500);
+        setTimeout(() => { saveContactsBtn.textContent = 'Save'; }, 1500);
       } catch (e) {
         console.error('[Mother] Failed to save contacts:', e);
       }
@@ -619,7 +619,7 @@ async function renderMySpace(container) {
   const clearBtn = container.querySelector('.mother-clear-btn');
   if (clearBtn) {
     clearBtn.addEventListener('click', async () => {
-      if (!confirm('This will permanently delete all your data from this device. This cannot be undone. Are you sure?')) {
+      if (!confirm('This will delete everything from this device. It cannot be undone. Are you sure?')) {
         return;
       }
       try {
@@ -647,10 +647,10 @@ async function renderEdgeOverlay(container) {
   } catch (e) { /* ignore */ }
 
   let html = `
-    <div class="edge-overlay" role="dialog" aria-label="You are at the edge. Here is help.">
+    <div class="edge-overlay" role="dialog" aria-label="People who can help">
       <div class="edge-content">
         <h2>You are not alone</h2>
-        <p class="edge-message">These are people who can help right now.</p>
+        <p class="edge-message">People who can help right now.</p>
 
         <div class="edge-contacts">
           <a href="tel:988" class="edge-contact edge-contact-988">
@@ -679,15 +679,15 @@ async function renderEdgeOverlay(container) {
 
   if (!trustedContact && !therapistContact) {
     html += `
-      <p class="edge-hint">You can add your trusted person and therapist numbers in My Space &gt; My support people.</p>
+      <p class="edge-hint">You can add your people in My Space.</p>
     `;
   }
 
   html += `
         </div>
 
-        <button class="edge-close" aria-label="Close this screen">
-          I am okay for now
+        <button class="edge-close" aria-label="Close">
+          I'm okay for now
         </button>
       </div>
     </div>
@@ -714,7 +714,7 @@ export async function renderMotherMode(container, protocols) {
       <button class="nav-back" onclick="window.location.hash='#/'" aria-label="Back to home">
         <span aria-hidden="true">&larr;</span> Home
       </button>
-      <span class="nav-title">Your Space</span>
+      <span class="nav-title">Your space</span>
     </nav>
   `;
 
@@ -741,10 +741,10 @@ export async function renderMotherMode(container, protocols) {
 
   // Edge button (fixed, always reachable)
   html += `
-    <div class="edge-footer" role="complementary" aria-label="Crisis support">
-      <button class="edge-btn" aria-label="I am at the edge — get help now">
+    <div class="edge-footer" role="complementary" aria-label="Reach out">
+      <button class="edge-btn" aria-label="Reach out for help">
         <span class="edge-btn-icon" aria-hidden="true">&#9829;</span>
-        <span class="edge-btn-text">I'm at the edge</span>
+        <span class="edge-btn-text">I need to reach out</span>
       </button>
     </div>
   `;
