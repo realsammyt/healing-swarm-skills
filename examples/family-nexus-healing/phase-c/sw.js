@@ -1,16 +1,12 @@
 /**
  * Service Worker — Family Nexus Healing PWA
  *
- * Cache-first strategy. After the first load, the entire app works offline.
- * Zero network calls once cached.
+ * Network-first with cache fallback for ALL resources.
+ * This ensures deploys propagate immediately while still working offline.
  */
 
-const CACHE_NAME = 'family-nexus-v3';
+const CACHE_NAME = 'family-nexus-v4';
 
-/**
- * Core files that must be cached for the app to work offline.
- * These are pre-cached on install.
- */
 const CORE_ASSETS = [
   './',
   './index.html',
@@ -32,22 +28,19 @@ const CORE_ASSETS = [
 ];
 
 // ---------------------------------------------------------------------------
-// Install — pre-cache core assets
+// Install — pre-cache core assets, activate immediately
 // ---------------------------------------------------------------------------
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(CORE_ASSETS);
-    }).then(() => {
-      // Activate immediately, don't wait for existing tabs to close
-      return self.skipWaiting();
-    })
+    }).then(() => self.skipWaiting())
   );
 });
 
 // ---------------------------------------------------------------------------
-// Activate — clean up old caches
+// Activate — clean up old caches, take control immediately
 // ---------------------------------------------------------------------------
 
 self.addEventListener('activate', (event) => {
@@ -58,84 +51,45 @@ self.addEventListener('activate', (event) => {
           .filter((name) => name !== CACHE_NAME)
           .map((name) => caches.delete(name))
       );
-    }).then(() => {
-      // Take control of all open clients immediately
-      return self.clients.claim();
-    })
+    }).then(() => self.clients.claim())
   );
 });
 
 // ---------------------------------------------------------------------------
-// Fetch — stale-while-revalidate for HTML, cache-first for everything else
+// Fetch — network-first, fall back to cache
+//
+// Why network-first instead of cache-first:
+// - Deploys propagate IMMEDIATELY (no more unregistering service workers)
+// - Offline still works perfectly (cache is the fallback)
+// - Slightly slower on repeat visits when online (network round-trip)
+//   but this app is small enough that the difference is imperceptible
 // ---------------------------------------------------------------------------
 
 self.addEventListener('fetch', (event) => {
-  // Only handle GET requests
   if (event.request.method !== 'GET') return;
 
-  const url = new URL(event.request.url);
-  const isHTML = event.request.destination === 'document'
-    || url.pathname.endsWith('.html')
-    || url.pathname === '/'
-    || url.pathname === '';
-
-  if (isHTML) {
-    // Stale-while-revalidate for HTML: serve cache immediately, refresh in background
-    // This means updates appear on the NEXT visit without the user doing anything
-    event.respondWith(
-      caches.match(event.request).then((cached) => {
-        const networkFetch = fetch(event.request).then((networkResponse) => {
-          if (networkResponse && networkResponse.status === 200) {
-            const responseToCache = networkResponse.clone();
-            caches.open(CACHE_NAME).then((cache) => {
-              cache.put(event.request, responseToCache);
-            });
-          }
-          return networkResponse;
-        }).catch(() => {
-          // Offline — cached version is all we have, and that's fine
-          return cached;
-        });
-
-        // Return cached immediately if available, otherwise wait for network
-        return cached || networkFetch;
-      })
-    );
-    return;
-  }
-
-  // Cache-first for all other assets (CSS, JS, JSON, images)
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      if (cached) {
-        return cached;
-      }
-
-      // Not in cache — try network, then cache the response for future use
-      return fetch(event.request).then((networkResponse) => {
-        // Only cache successful responses from our own origin
-        if (
-          networkResponse &&
-          networkResponse.status === 200 &&
-          networkResponse.type === 'basic'
-        ) {
+    fetch(event.request)
+      .then((networkResponse) => {
+        // Got a fresh response — cache it for offline use
+        if (networkResponse && networkResponse.status === 200 && networkResponse.type === 'basic') {
           const responseToCache = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => {
             cache.put(event.request, responseToCache);
           });
         }
         return networkResponse;
-      }).catch(() => {
-        // Network failed and not in cache — return a fallback for navigation
-        if (event.request.mode === 'navigate') {
-          return caches.match('./index.html');
-        }
-        // For other resources, just fail
-        return new Response('', {
-          status: 408,
-          statusText: 'Offline — resource not cached'
+      })
+      .catch(() => {
+        // Network failed — serve from cache (offline mode)
+        return caches.match(event.request).then((cached) => {
+          if (cached) return cached;
+          // Last resort for navigation: serve cached index.html
+          if (event.request.mode === 'navigate') {
+            return caches.match('./index.html');
+          }
+          return new Response('', { status: 408, statusText: 'Offline' });
         });
-      });
-    })
+      })
   );
 });

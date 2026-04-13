@@ -784,18 +784,11 @@
 
 .father-full-practice {
   width: 100%;
-  max-width: var(--content-max-width);
+  max-width: 720px;
   padding: var(--space-xl) var(--space-lg);
   margin: var(--space-lg) auto var(--space-xl);
-  background: var(--surface-card);
-  border-radius: var(--radius-xl);
-  box-shadow: 0 2px 8px var(--surface-card-shadow),
-              0 6px 20px var(--surface-card-shadow);
-  border-left: 4px solid var(--mode-accent);
-  overflow-y: auto;
-  max-height: 65vh;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
+  /* No max-height, no inner scroll — content flows naturally at full page height.
+     The page itself scrolls. No double scrollbars. */
 }
 
 .father-practice-subheading {
@@ -854,7 +847,7 @@
   font-size: 1.15rem;
   line-height: 1.85;
   padding: var(--space-2xl) var(--space-xl);
-  max-height: 70vh;
+  max-width: 640px;
 }
 
 [data-mode="father"] .father-practice-subheading {
