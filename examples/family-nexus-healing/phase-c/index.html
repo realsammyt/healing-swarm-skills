@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f8f6f2">
+  <meta name="description" content="Healing practices for families navigating change — offline, private, and yours.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Healing">
+
+  <title>Family Nexus Healing</title>
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/modes.css">
+  <link rel="stylesheet" href="css/a11y.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body data-mode="landing">
+
+  <main id="app">
+
+    <!-- Landing screen — the first breath -->
+    <section id="landing" class="screen active" role="main" aria-label="Choose your mode">
+
+      <h1>Who needs this right now?</h1>
+
+      <div class="mode-buttons" role="group" aria-label="Mode selection">
+        <button data-mode="family" class="mode-btn mode-family" aria-label="Family mode — all of us together">
+          <span class="mode-label">Family</span>
+          <span class="mode-desc">All of us together</span>
+        </button>
+        <button data-mode="father" class="mode-btn mode-father" aria-label="Father mode — just for you">
+          <span class="mode-label">Father</span>
+          <span class="mode-desc">Just for you</span>
+        </button>
+        <button data-mode="mother" class="mode-btn mode-mother" aria-label="Mother mode — your space, your pace">
+          <span class="mode-label">Mother</span>
+          <span class="mode-desc">Your space, your pace</span>
+        </button>
+      </div>
+
+      <button id="about-toggle" class="about-toggle" aria-expanded="false" aria-controls="about-section">
+        What is this?
+      </button>
+
+      <div id="about-section" class="about-section" role="region" aria-label="About this app" hidden>
+
+        <h2>A companion for your family</h2>
+
+        <p>
+          Your family is carrying something that doesn't have an easy name.
+          A parent whose mind is changing. Children who feel it before anyone
+          explains. A love that has to find a new shape.
+        </p>
+        <p>
+          You are not the first family to walk this. Across centuries and
+          cultures &mdash; Jewish, Buddhist, Christian, Islamic, Indigenous, Japanese,
+          African, secular &mdash; families have met this same territory. They
+          found practices for it. Small things. Holdable things. Ways to be
+          present when memory fades. Ways to stay whole in a new shape.
+        </p>
+        <p>
+          This app gathers what they found.
+        </p>
+
+        <h3>What this is</h3>
+        <p>
+          36 practices in three modes &mdash; one for the family together,
+          one for the father, one for the mother. Each one is simple enough
+          for a tired person at the end of a long day. Each is grounded in
+          research and traditional wisdom. Each says "may help" &mdash; because
+          nothing here is a prescription, and nothing poses as a cure.
+        </p>
+
+        <h3>What this is not</h3>
+        <ul>
+          <li>Not a treatment plan, diagnosis, or substitute for your therapist,
+            doctor, or supervisor.</li>
+          <li>Not a cure. "Healing" here means preserving connection, dignity,
+            and the capacity to move through grief &mdash; not restoring what has
+            changed.</li>
+          <li>Not a surveillance tool. Nothing leaves this device. No accounts,
+            no analytics, no tracking. Your data is yours alone.</li>
+        </ul>
+
+        <h3>How it was built</h3>
+        <p>
+          The practices draw on grief research, attachment theory, dementia-care
+          science, polyvagal theory, and the healing traditions of more than a
+          dozen cultures. Every citation was verified. Ethics, clinical, and
+          cultural reviewers checked the material before any practice was written.
+        </p>
+        <p>
+          Each practice includes safety checks, signals to slow down or stop,
+          modifications for hard days, and attribution for every tradition
+          referenced.
+        </p>
+
+        <h3>How to use it</h3>
+        <ol>
+          <li><strong>Pick your mode.</strong> Tap the one that fits today.
+            You can always switch.</li>
+          <li><strong>One practice.</strong> Not six. Not a program.
+            One practice, done when you can. That is enough.</li>
+          <li><strong>Stopping is a win.</strong> Pause at any step.
+            Skip any week. This will be here when you come back.</li>
+          <li><strong>Install it.</strong> Add to your home screen
+            (iPhone: Share &gt; Add to Home Screen; Android: menu &gt;
+            Install). Then it works offline &mdash; no internet needed.</li>
+        </ol>
+
+        <h3>Privacy</h3>
+        <p>
+          <strong>Your data never leaves this device.</strong> No servers,
+          no logins, no cookies, no tracking. Everything &mdash; your felt-log,
+          visit schedule, grief-window times &mdash; stays on your phone and
+          nowhere else. You can export a backup or delete everything
+          with one tap. No one else can see it.
+        </p>
+
+        <h3>If you need help right now</h3>
+        <p>
+          Call or text <strong>988</strong> (Suicide &amp; Crisis Lifeline,
+          US, 24/7). The Mother mode has a button that connects you to 988
+          and your trusted contacts in one tap.
+        </p>
+
+        <hr>
+
+        <p class="about-closing">
+          <em>Other families have walked this path. You are walking it now.
+          These practices are here if they help.</em>
+        </p>
+        <p class="about-closing">
+          <em>Take what fits. Set down what doesn't. You know your family
+          better than any app does.</em>
+        </p>
+
+        <button id="about-close" class="btn-secondary about-close-btn">
+          Close
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- Mode screens (populated by JS) -->
+    <section id="family-screen" class="screen" role="main" aria-label="Family practices"></section>
+    <section id="father-screen" class="screen" role="main" aria-label="Father practices"></section>
+    <section id="mother-screen" class="screen" role="main" aria-label="Mother practices"></section>
+
+    <!-- Practice detail view -->
+    <section id="protocol-view" class="screen" role="main" aria-label="Practice detail"></section>
+
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+
+  <script>
+    // Service worker registration — runs immediately, non-blocking
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('sw.js').then(function (reg) {
+          console.log('[SW] Registered:', reg.scope);
+        }).catch(function (err) {
+          console.warn('[SW] Registration failed:', err);
+        });
+      });
+    }
+
+    // About section toggle — gentle expand/collapse
+    document.addEventListener('DOMContentLoaded', function () {
+      var toggle = document.getElementById('about-toggle');
+      var section = document.getElementById('about-section');
+      var closeBtn = document.getElementById('about-close');
+
+      if (toggle && section) {
+        toggle.addEventListener('click', function () {
+          var isHidden = section.hasAttribute('hidden');
+          if (isHidden) {
+            section.removeAttribute('hidden');
+            toggle.setAttribute('aria-expanded', 'true');
+            toggle.textContent = 'Hide';
+            // Gentle scroll to the about section
+            setTimeout(function () {
+              section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 50);
+          } else {
+            section.setAttribute('hidden', '');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.textContent = 'What is this?';
+          }
+        });
+      }
+
+      if (closeBtn && section && toggle) {
+        closeBtn.addEventListener('click', function () {
+          section.setAttribute('hidden', '');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.textContent = 'What is this?';
+          // Gentle scroll back to the landing
+          setTimeout(function () {
+            toggle.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 50);
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

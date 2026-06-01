@@ -502,6 +502,7 @@ skills:
       - content-writer
       - ethics-guardian
     requires_ethics_approval: true
+    standalone: true
     templates:
       - content/templates/group-perception-protocol.md
     outputs:
@@ -530,6 +531,7 @@ skills:
       - content-writer
       - ethics-guardian
     requires_ethics_approval: true
+    standalone: true
     templates:
       - content/templates/sound-protocol.md
     outputs:
@@ -699,6 +701,7 @@ skills:
       - content-writer
       - ethics-guardian
     requires_ethics_approval: true
+    standalone: true
     templates:
       - content/templates/movement-protocol.md
     outputs:
@@ -737,6 +740,7 @@ skills:
       - content-writer
       - ethics-guardian
     requires_ethics_approval: true
+    standalone: true
     templates:
       - content/templates/sleep-protocol.md
     outputs:
@@ -777,6 +781,7 @@ skills:
       - content-writer
       - ethics-guardian
     requires_ethics_approval: true
+    standalone: true
     templates:
       - content/templates/nature-protocol.md
     outputs:
@@ -801,6 +806,7 @@ skills:
       - content-writer
       - ethics-guardian
     requires_ethics_approval: true
+    standalone: true
     templates:
       - content/templates/water-protocol.md
     outputs:
@@ -826,6 +832,7 @@ skills:
       - content-writer
       - ethics-guardian
     requires_ethics_approval: true
+    standalone: true
     templates:
       - content/templates/grief-practice.md
     outputs:
@@ -851,6 +858,7 @@ skills:
       - content-writer
       - ethics-guardian
     requires_ethics_approval: true
+    standalone: true
     templates:
       - content/templates/expressive-protocol.md
     outputs:
@@ -887,6 +895,7 @@ skills:
       - content-writer
       - ethics-guardian
     requires_ethics_approval: true
+    standalone: true
     templates:
       - content/templates/community-protocol.md
     outputs:
@@ -957,6 +966,7 @@ skills:
       - content-writer
       - ethics-guardian
     requires_ethics_approval: true
+    standalone: true
     templates:
       - content/templates/contemplative-protocol.md
     outputs:

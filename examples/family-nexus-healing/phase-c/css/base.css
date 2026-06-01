@@ -1,0 +1,826 @@
+/* ==========================================================================
+   base.css — Foundation styles for Family Nexus Healing PWA
+
+   Design philosophy: warm hand on your back, not a medical interface.
+   Every pixel serves the family. Calm over busy. Warmth over clinical.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Reset
+   -------------------------------------------------------------------------- */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   Custom Properties — Color Tokens
+   --------------------------------------------------------------------------
+   Mode-specific overrides live in modes.css.
+   These are the defaults (landing / family mode fallback).
+   -------------------------------------------------------------------------- */
+
+:root {
+  /* Base palette — warm neutrals, not stark */
+  --color-white: #fffcf9;
+  --color-black: #1a1714;
+
+  /* Mode colors — overridden by [data-mode] selectors in modes.css */
+  --mode-bg: #f8f6f2;
+  --mode-accent: #3d8b5e;
+  --mode-accent-light: #edf5ef;
+  --mode-text: #2c2a26;
+  --mode-text-secondary: #6b6860;
+
+  /* Surfaces — warm, slightly creamy */
+  --surface-card: #fffdf9;
+  --surface-card-shadow: rgba(62, 50, 30, 0.06);
+  --surface-card-shadow-hover: rgba(62, 50, 30, 0.1);
+
+  /* Focus */
+  --focus-width: 3px;
+  --focus-color: var(--mode-accent);
+
+  /* Spacing — generous, breathing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* Radii — soft, rounded, held */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+  --radius-2xl: 2.25rem;
+
+  /* Transitions — gentle, never jarring */
+  --transition-fast: 180ms ease-out;
+  --transition-normal: 280ms ease-out;
+  --transition-slow: 400ms ease-out;
+  --transition-breath: 600ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout */
+  --content-max-width: 720px;
+  --content-padding: var(--space-lg);
+}
+
+/* --------------------------------------------------------------------------
+   Typography — entrainment through rhythm
+   -------------------------------------------------------------------------- */
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont,
+    Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  font-size: clamp(16px, 1.8vw, 20px);
+  line-height: 1.65;
+  letter-spacing: 0.005em;
+  color: var(--mode-text);
+  background-color: var(--mode-bg);
+  transition: background-color var(--transition-breath),
+              color var(--transition-normal);
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.35;
+  color: var(--mode-text);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  letter-spacing: -0.015em;
+}
+
+h3 {
+  font-size: clamp(1.1rem, 2.5vw, 1.375rem);
+}
+
+p {
+  margin-bottom: var(--space-md);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Layout
+   -------------------------------------------------------------------------- */
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.screen {
+  display: none;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: var(--content-padding);
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+}
+
+.screen.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 1;
+}
+
+.screen-content {
+  width: 100%;
+  max-width: var(--content-max-width);
+}
+
+/* --------------------------------------------------------------------------
+   Landing Screen — the first breath
+   -------------------------------------------------------------------------- */
+
+#landing {
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-3xl) var(--content-padding);
+  background: linear-gradient(
+    180deg,
+    var(--mode-bg) 0%,
+    color-mix(in srgb, var(--mode-bg) 92%, #e8dfd0) 100%
+  );
+}
+
+#landing h1 {
+  margin-bottom: var(--space-3xl);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 4.5vw, 2.5rem);
+  color: var(--mode-text);
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+}
+
+.mode-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  width: 100%;
+  max-width: 420px;
+}
+
+/* --------------------------------------------------------------------------
+   Mode Button — emotionally resonant, inviting
+   -------------------------------------------------------------------------- */
+
+.mode-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 96px;
+  padding: var(--space-xl) var(--space-xl);
+  border-radius: var(--radius-xl);
+  background-color: var(--surface-card);
+  box-shadow: 0 1px 2px var(--surface-card-shadow),
+              0 4px 12px var(--surface-card-shadow),
+              0 0 0 1px rgba(0, 0, 0, 0.02);
+  transition: transform var(--transition-normal),
+              box-shadow var(--transition-normal),
+              background-color var(--transition-normal),
+              border-color var(--transition-normal);
+  text-align: center;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle left-edge color preview strip */
+.mode-btn::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12%;
+  bottom: 12%;
+  width: 4px;
+  border-radius: 0 4px 4px 0;
+  transition: width var(--transition-normal),
+              opacity var(--transition-normal);
+  opacity: 0.7;
+}
+
+.mode-family::before { background-color: #4a9e6b; }
+.mode-father::before { background-color: #5a8aba; }
+.mode-mother::before { background-color: #9a70b8; }
+
+.mode-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 2px 4px var(--surface-card-shadow),
+              0 8px 24px var(--surface-card-shadow-hover),
+              0 0 0 1px rgba(0, 0, 0, 0.03);
+}
+
+.mode-btn:hover::before {
+  width: 5px;
+  opacity: 1;
+}
+
+.mode-btn:active {
+  transform: translateY(-1px);
+}
+
+.mode-btn:focus-visible {
+  outline: var(--focus-width) solid var(--focus-color);
+  outline-offset: 3px;
+}
+
+.mode-label {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+  letter-spacing: -0.01em;
+}
+
+.mode-desc {
+  font-size: 0.9rem;
+  color: var(--mode-text-secondary);
+  line-height: 1.4;
+  letter-spacing: 0.005em;
+}
+
+/* Mode-specific button accents — warm, differentiated */
+.mode-family .mode-label { color: #3d8b5e; }
+.mode-father .mode-label { color: #4a7daa; }
+.mode-mother .mode-label { color: #8a5eaa; }
+
+/* --------------------------------------------------------------------------
+   Navigation Bar (within mode screens)
+   -------------------------------------------------------------------------- */
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--content-max-width);
+  padding: var(--space-md) 0;
+  margin-bottom: var(--space-xl);
+}
+
+.nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--mode-accent);
+  transition: background-color var(--transition-fast),
+              color var(--transition-fast);
+  min-height: 44px;
+}
+
+.nav-back:hover {
+  background-color: var(--mode-accent-light);
+}
+
+.nav-back:focus-visible {
+  outline: var(--focus-width) solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+.nav-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--mode-text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Protocol Card — like holding a card in your hand
+   -------------------------------------------------------------------------- */
+
+.protocol-card {
+  width: 100%;
+  max-width: var(--content-max-width);
+  padding: var(--space-xl) var(--space-lg);
+  margin-bottom: var(--space-md);
+  background-color: var(--surface-card);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 2px var(--surface-card-shadow),
+              0 3px 10px var(--surface-card-shadow);
+  transition: transform var(--transition-normal),
+              box-shadow var(--transition-normal);
+  cursor: pointer;
+  border-left: 4px solid var(--mode-accent);
+  position: relative;
+}
+
+.protocol-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px var(--surface-card-shadow),
+              0 6px 20px var(--surface-card-shadow-hover);
+}
+
+.protocol-card:focus-visible {
+  outline: var(--focus-width) solid var(--focus-color);
+  outline-offset: 3px;
+}
+
+.protocol-card-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  color: var(--mode-text);
+  line-height: 1.35;
+}
+
+.protocol-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  font-size: 0.8rem;
+  color: var(--mode-text-secondary);
+}
+
+.protocol-card-meta span {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-xs) var(--space-sm);
+  background-color: var(--mode-accent-light);
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.01em;
+}
+
+.protocol-card-summary {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--mode-text-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Protocol List
+   -------------------------------------------------------------------------- */
+
+.protocol-list {
+  width: 100%;
+  max-width: var(--content-max-width);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.protocol-list-header {
+  margin-bottom: var(--space-lg);
+}
+
+.protocol-list-header h2 {
+  margin-bottom: var(--space-sm);
+}
+
+.protocol-list-header p {
+  color: var(--mode-text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* Category group within a protocol list */
+.category-group {
+  margin-bottom: var(--space-xl);
+}
+
+.category-group-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--mode-text-secondary);
+  padding-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
+  border-bottom: 1px solid var(--mode-accent-light);
+}
+
+/* --------------------------------------------------------------------------
+   Protocol Detail View
+   -------------------------------------------------------------------------- */
+
+.protocol-detail {
+  width: 100%;
+  max-width: var(--content-max-width);
+}
+
+.protocol-detail h1 {
+  margin-bottom: var(--space-lg);
+}
+
+.protocol-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+  font-size: 0.85rem;
+}
+
+.protocol-detail-meta .tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.7rem;
+  background-color: var(--mode-accent-light);
+  border-radius: var(--radius-sm);
+  color: var(--mode-text-secondary);
+  letter-spacing: 0.01em;
+}
+
+.protocol-section {
+  margin-bottom: var(--space-xl);
+}
+
+.protocol-section h2 {
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--mode-accent-light);
+}
+
+.protocol-section h3 {
+  margin-bottom: var(--space-sm);
+}
+
+/* Steps — held, clear, spacious */
+.step {
+  padding: var(--space-xl) var(--space-lg);
+  margin-bottom: var(--space-lg);
+  background-color: var(--mode-accent-light);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--mode-accent);
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: var(--space-sm);
+  border-radius: 50%;
+  background-color: var(--mode-accent);
+  color: var(--color-white);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.step-title {
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  color: var(--mode-text);
+  line-height: 1.4;
+}
+
+.step-body {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--mode-text-secondary);
+}
+
+/* Warnings / Contraindications — warm amber, not alarm-red */
+.warning-list {
+  padding: var(--space-xl) var(--space-lg);
+  background-color: #fef8ec;
+  border-radius: var(--radius-lg);
+  border-left: 4px solid #e5a636;
+}
+
+.warning-list p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-sm);
+}
+
+.warning-list p:last-child {
+  margin-bottom: 0;
+}
+
+/* Signals */
+.signal-list {
+  padding: var(--space-xl) var(--space-lg);
+  background-color: var(--mode-accent-light);
+  border-radius: var(--radius-lg);
+}
+
+.signal-list p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-sm);
+}
+
+/* Modifications */
+.modification-list {
+  padding-left: var(--space-lg);
+}
+
+.modification-list li {
+  position: relative;
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-md);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.modification-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--mode-accent);
+  opacity: 0.7;
+}
+
+/* Traditions */
+.tradition-list p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--mode-text-secondary);
+  margin-bottom: var(--space-sm);
+  padding-left: var(--space-md);
+  border-left: 2px solid var(--mode-accent-light);
+}
+
+/* --------------------------------------------------------------------------
+   Primary Button — warm, inviting, substantial
+   -------------------------------------------------------------------------- */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-lg);
+  background-color: var(--mode-accent);
+  color: var(--color-white);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: background-color var(--transition-fast),
+              transform var(--transition-fast),
+              box-shadow var(--transition-fast);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.btn-primary:focus-visible {
+  outline: var(--focus-width) solid var(--focus-color);
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   Focus Styles
+   -------------------------------------------------------------------------- */
+
+:focus-visible {
+  outline: var(--focus-width) solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Motion — the app breathes
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .mode-btn:hover,
+  .protocol-card:hover,
+  .btn-primary:hover {
+    transform: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Scrollbar (subtle, warm)
+   -------------------------------------------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--mode-text-secondary) 40%, transparent);
+  border-radius: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   Utility
+   -------------------------------------------------------------------------- */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mt-xl { margin-top: var(--space-xl); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+
+/* --------------------------------------------------------------------------
+   About section (landing page context) — gentle, secondary
+   -------------------------------------------------------------------------- */
+
+.about-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-xl) auto 0;
+  padding: var(--space-sm) var(--space-lg);
+  background: none;
+  border: 1px solid color-mix(in srgb, var(--mode-text-secondary) 25%, transparent);
+  border-radius: var(--radius-2xl);
+  color: var(--mode-text-secondary);
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  min-height: 44px;
+  letter-spacing: 0.01em;
+}
+
+.about-toggle:hover,
+.about-toggle:focus-visible {
+  border-color: var(--mode-text-secondary);
+  color: var(--mode-text);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.about-section {
+  max-width: 600px;
+  margin: var(--space-xl) auto;
+  padding: var(--space-xl) var(--space-lg);
+  text-align: left;
+  line-height: 1.75;
+  color: var(--mode-text);
+  background: var(--surface-card);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 2px 8px var(--surface-card-shadow);
+}
+
+.about-section[hidden] {
+  display: none;
+}
+
+.about-section h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: var(--space-lg);
+  text-align: center;
+  color: var(--mode-text);
+  letter-spacing: -0.01em;
+}
+
+.about-section h3 {
+  font-size: 1.05rem;
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-sm);
+  color: var(--mode-text);
+  font-weight: 600;
+}
+
+.about-section p {
+  margin-bottom: var(--space-md);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.about-section ul,
+.about-section ol {
+  margin-bottom: var(--space-md);
+  padding-left: var(--space-lg);
+}
+
+.about-section li {
+  margin-bottom: var(--space-sm);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.about-section hr {
+  border: none;
+  border-top: 1px solid color-mix(in srgb, var(--mode-text-secondary) 15%, transparent);
+  margin: var(--space-xl) 0;
+}
+
+.about-closing {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--mode-text-secondary);
+  margin-bottom: var(--space-sm);
+  line-height: 1.7;
+}
+
+.about-close-btn {
+  display: block;
+  margin: var(--space-xl) auto 0;
+  padding: var(--space-md) var(--space-xl);
+  background: var(--mode-accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  min-height: 52px;
+  transition: all var(--transition-normal);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  letter-spacing: 0.01em;
+}
+
+.about-close-btn:hover,
+.about-close-btn:focus-visible {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}

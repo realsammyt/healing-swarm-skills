@@ -23,7 +23,7 @@
   ],
   "type": "module",
   "scripts": {
-    "validate": "node scripts/validate-skills.js",
+    "validate": "node scripts/validate-skills.js && node scripts/validate-manifest.js",
     "validate:manifest": "node scripts/validate-manifest.js",
     "validate:workflows": "node scripts/validate-skills.js --file *.yaml",
     "validate:agents": "node scripts/validate-skills.js --file *.md",
@@ -32,9 +32,7 @@
     "create-skill": "node scripts/create-skill.js",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "test": "vitest",
-    "build:docs": "node scripts/build-docs.js",
-    "serve-docs": "bundle exec jekyll serve --livereload"
+    "test": "vitest"
   },
   "devDependencies": {
     "eslint": "^8.57.0",

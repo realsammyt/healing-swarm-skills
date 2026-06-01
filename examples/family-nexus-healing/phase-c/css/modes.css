@@ -1,0 +1,154 @@
+/* ==========================================================================
+   modes.css — Three mode themes for Family Nexus Healing PWA
+
+   Each mode sets CSS custom properties on [data-mode], which are consumed
+   by base.css components. The mode switch breathes — gentle, 600ms.
+
+   Family = garden warmth. Father = steady sky. Mother = twilight sanctuary.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Landing / Default — neutral warmth, welcoming
+   -------------------------------------------------------------------------- */
+
+[data-mode="landing"] {
+  --mode-bg: #f8f6f2;
+  --mode-accent: #5a8a6a;
+  --mode-accent-light: #eef4ef;
+  --mode-text: #2c2a26;
+  --mode-text-secondary: #7a766e;
+}
+
+/* --------------------------------------------------------------------------
+   Family Mode — Warm Garden Green
+
+   Together with the children. Like sunlight through leaves.
+   Friendly, inclusive, the children can see this too.
+   -------------------------------------------------------------------------- */
+
+[data-mode="family"] {
+  --mode-bg: #f4f8f2;
+  --mode-accent: #3d8b5e;
+  --mode-accent-light: #e8f2ea;
+  --mode-text: #1e2e20;
+  --mode-text-secondary: #5a7a5e;
+
+  /* Warmer card surfaces for family */
+  --surface-card: #fefdfb;
+  --surface-card-shadow: rgba(40, 60, 30, 0.06);
+  --surface-card-shadow-hover: rgba(40, 60, 30, 0.1);
+}
+
+[data-mode="family"] .mode-btn {
+  border: 1.5px solid #dceade;
+}
+
+[data-mode="family"] .protocol-card {
+  border-left: 4px solid #3d8b5e;
+}
+
+[data-mode="family"] .nav-back {
+  color: #3d8b5e;
+}
+
+[data-mode="family"] .btn-primary {
+  background-color: #3d8b5e;
+}
+
+/* --------------------------------------------------------------------------
+   Father Mode — Steady Sky Blue
+
+   His own practice. Calm, clear, dignified.
+   Like a steady horizon — unhurried, reliable, held.
+   -------------------------------------------------------------------------- */
+
+[data-mode="father"] {
+  --mode-bg: #f0f4f8;
+  --mode-accent: #4a7daa;
+  --mode-accent-light: #e4eef6;
+  --mode-text: #1a2a3a;
+  --mode-text-secondary: #506a85;
+
+  --surface-card: #fcfdfe;
+  --surface-card-shadow: rgba(30, 50, 80, 0.06);
+  --surface-card-shadow-hover: rgba(30, 50, 80, 0.1);
+}
+
+[data-mode="father"] .mode-btn {
+  border: 1.5px solid #d4e4f0;
+}
+
+[data-mode="father"] .protocol-card {
+  border-left: 4px solid #4a7daa;
+}
+
+[data-mode="father"] .nav-back {
+  color: #4a7daa;
+}
+
+[data-mode="father"] .btn-primary {
+  background-color: #4a7daa;
+}
+
+/* --------------------------------------------------------------------------
+   Mother Mode — Twilight Purple
+
+   Her private container. Like a quiet room with the door closed.
+   Warm purple — the color of twilight, of a held space.
+   -------------------------------------------------------------------------- */
+
+[data-mode="mother"] {
+  --mode-bg: #f5f1f8;
+  --mode-accent: #8a5eaa;
+  --mode-accent-light: #f0e8f5;
+  --mode-text: #2a1e36;
+  --mode-text-secondary: #7a6890;
+
+  --surface-card: #fdfbfe;
+  --surface-card-shadow: rgba(60, 30, 80, 0.06);
+  --surface-card-shadow-hover: rgba(60, 30, 80, 0.1);
+}
+
+[data-mode="mother"] .mode-btn {
+  border: 1.5px solid #e4d8ee;
+}
+
+[data-mode="mother"] .protocol-card {
+  border-left: 4px solid #8a5eaa;
+}
+
+[data-mode="mother"] .nav-back {
+  color: #8a5eaa;
+}
+
+[data-mode="mother"] .btn-primary {
+  background-color: #8a5eaa;
+}
+
+/* --------------------------------------------------------------------------
+   Mode Transition — the app breathes between modes
+   -------------------------------------------------------------------------- */
+
+body {
+  transition: background-color 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              color 300ms ease-out;
+}
+
+/* --------------------------------------------------------------------------
+   Mode-specific surface adjustments — warm warnings, not alarms
+   -------------------------------------------------------------------------- */
+
+[data-mode="family"] .warning-list {
+  background-color: #fef8ec;
+  border-left-color: #e5a636;
+}
+
+[data-mode="father"] .warning-list {
+  background-color: #fef5e8;
+  border-left-color: #d48a2a;
+}
+
+[data-mode="mother"] .warning-list {
+  background-color: #fdf0f2;
+  border-left-color: #c4586a;
+}
