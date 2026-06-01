@@ -1,0 +1,179 @@
+# HANDOFF — Opus 4.8 Optimization Effort
+
+> **Living document.** This is the single source of truth for where the Opus 4.8
+> optimization work stands and what to do next. Any agent starting a fresh
+> conversation should read this first, then update it before ending a session.
+> If anything here disagrees with reality, reality wins — fix the doc.
+
+**Last updated:** 2026-06-01 by Claude (Opus 4.8) — Phases 0 + 1 complete + committed
+**Active branch:** `feat/family-nexus-healing`
+**Driving plan:** [`docs/plans/2026-05-31-opus-4-8-optimization.md`](docs/plans/2026-05-31-opus-4-8-optimization.md)
+
+---
+
+## 1. Read-this-first orientation (for a fresh agent)
+
+1. Read this whole file.
+2. Read the driving plan above (the phase detail lives there, not here).
+3. Run `npm run validate` to confirm ground truth before trusting any count.
+4. Check the **Phase status** table below for what's done and what's next.
+5. Check **Open questions** — do not guess on these; they're the human's to call.
+6. When you finish a unit of work, update Sections 3, 5, and 7 of this file.
+
+**Ground truth (always re-verify with the validator, never trust a doc):**
+
+| Thing     | Actual | Source |
+| --------- | ------ | ------ |
+| Skills    | 52     | `manifest.yaml` |
+| Agents    | 38     | `npm run validate` |
+| Workflows | 36     | `npm run validate` |
+
+---
+
+## 2. What this effort is
+
+Optimizing the repo for Opus 4.8. No shipped code calls the Anthropic API, so
+this is **not** about model-ID bumps. It's four levers, all currently off:
+
+1. **Triggering** — zero `SKILL.md` files; skills only fire on exact slash commands.
+2. **Model tiering** — no agent pins a model.
+3. **Parallel dispatch** — orchestrator describes parallelism but never invokes it.
+4. **Enforceable gates** — quality gates are prose; ethics veto is honor-system.
+
+Full reasoning and per-task detail are in the driving plan.
+
+---
+
+## 3. Phase status
+
+Statuses: `Not started` · `In progress` · `Blocked` · `Done`.
+Update the status, the date, and the note whenever you touch a phase.
+
+| Phase | Title | Status | Updated | Note |
+| ----- | ----- | ------ | ------- | ---- |
+| 0 | Make validators honest | Done | 2026-05-31 | `npm run validate` runs both validators clean; standalone-aware workflow check, dup-trigger + existence checks added; 10 workflow-less skills marked `standalone` |
+| 1 | Quick-win cleanup + honesty fixes | Done | 2026-05-31 | `packages/` + 3 empty template dirs deleted; dead scripts (build:docs, serve-docs) + Jekyll `.gitignore` block removed; ethics/claims gates now exit non-zero; CI `npm ci`; eslint/prettier/vitest configs added |
+| 2 | Eliminate doc drift + automate | Not started | 2026-05-31 | Counts wrong everywhere; build `sync-timeline.js` |
+| 3 | SKILL.md generation + description rewrites | Not started | 2026-05-31 | Highest Opus 4.8 impact |
+| 4 | Model tiering + prompt slimming | Not started | 2026-05-31 | Add `model:` field; cut 350-680-line prompts |
+| 5 | Parallel orchestration + enforceable gates | Not started | 2026-05-31 | Fan-out + JSON gate contract |
+| 6 | Runtime decision | Not started | 2026-05-31 | Recommendation: thin harness for ethics/a11y veto only |
+
+**Suggested order:** 0 → 1 → 2 first (low risk). Phase 3 is highest impact and
+can run alongside 1-2. Phase 5 follows the Phase 6 runtime call. Each phase
+leaves the repo shippable; none requires the next.
+
+---
+
+## 4. Decisions locked (do not relitigate without the human)
+
+1. **Skill format:** generate native `SKILL.md` from the manifest; keep
+   `manifest.yaml` as source of truth. (Not a hard cutover.)
+2. **Empty `packages/{cli,core,web}`:** delete for now.
+3. **Runtime:** undecided — plan recommends Path A (LLM executor) plus a thin
+   harness for the ethics/accessibility veto only. Confirm before building Path B.
+4. **Scope:** full, phased.
+
+---
+
+## 5. Open questions owned by the human (get answers before acting)
+
+1. **Auto-trigger sensitive skills?** Should `/shadow-work`, `/orbital-journey`,
+   `/resonance-pairing` stay slash-command-only after `SKILL.md` migration, or be
+   discoverable? (Blocks finalizing Phase 3 descriptions.)
+2. **Model-downgrade tolerance?** Sonnet/Haiku acceptable for user-facing healing
+   content, or Opus everywhere for voice/safety consistency? (Blocks Phase 4 tiers.)
+3. **`family-nexus-healing`: example or shipped skill?** Determines whether it's
+   counted and folded into timelines. (Blocks Phase 2 closure.)
+4. **Canonical "skill" definition?** Totals say 53, manifest has 52; does the
+   orchestrator count? Pin this before automating counts. (Blocks Phase 2.)
+5. **DAG-rename appetite?** The single-notation parallelism change touches ~24
+   workflow files. (Blocks the schema-unification part of Phase 5.)
+
+---
+
+## 6. Key facts a fresh agent will want (so you don't re-discover them)
+
+- **The validators currently lie.** `validate-manifest.js` errors on legitimate
+  `standalone` skills and warns on every skill for a dead `requires` check. It is
+  NOT in the default `npm run validate` (only `validate-skills.js` runs). Fix in
+  Phase 0 before trusting it.
+- **Two gates are theater.** `scripts/check-ethics.js` and `scripts/lint-prompts.js`
+  both end `process.exit(0)` unconditionally. The medical-claims regex only matches
+  the literal quoted string `"will cure"`. Phase 1 fixes these.
+- **Dead scripts:** `npm run build:docs` (missing `scripts/build-docs.js`) and
+  `serve-docs` (Jekyll, replaced by Docusaurus). Remove in Phase 1.
+- **The real app** is `examples/family-nexus-healing/phase-c/` (a client-side PWA),
+  not `packages/web` (empty).
+- **Dangling references (verify before acting):** some manifest skills point at
+  workflow files that may not exist (e.g. `coherence-workflow.yaml`,
+  `syntergic-workflow.yaml`, `archaeoacoustic-toning-workflow.yaml`).
+- **Five review agents** produced the source findings on 2026-05-31; their detail
+  is distilled into the driving plan. No need to re-run them unless the repo
+  changed materially.
+- **The flagged "dangling" workflow refs were false alarms.** All of
+  `coherence-workflow.yaml`, `syntergic-workflow.yaml`,
+  `archaeoacoustic-toning-workflow.yaml` (and the rest) exist on disk. The new
+  existence checks in `validate-manifest.js` confirm zero dangling references.
+- **10 workflow-less skills were marked `standalone: true`** in Phase 0 so the
+  honest validator passes: `group-perception`, `sound-healing`,
+  `somatic-practice`, `sleep-healing`, `nature-healing`, `water-healing`,
+  `grief-healing`, `expressive-healing`, `community-healing`,
+  `contemplative-inquiry`. They genuinely have no orchestrated workflow. This is a
+  low-risk reconciliation, not a Phase-5 "generate a workflow vs mark improvised"
+  decision — that choice is still open. Standalone count: 17 → 27.
+- **`scripts/create-skill.js` is BROKEN** — genuine syntax error
+  (`Unexpected end of input`, file ends ~line 525 truncated). `npm run
+  create-skill` cannot run today. Not in Phase 0/1 scope; Phase 3 already plans to
+  rewrite this script, so fix it there. CI does not run it, so no gate is blocked.
+- **Claims linter is now context-aware.** `lint-prompts.js` flags affirmative,
+  unquoted outcome promises ("the breathing will heal your nervous system") but
+  skips claim phrases quoted inside anti-pattern / "DON'T use" teaching blocks
+  (✗, "overclaiming", review-session examples). This keeps the gate trustworthy
+  instead of crying wolf on pedagogical examples. The 3 exempt ethics agents
+  (`deploy/content-manager`, `deploy/devops-specialist`,
+  `quality/accessibility-auditor`) are an explicit allowlist in `check-ethics.js`.
+
+---
+
+## 7. Activity log (newest first — append, don't overwrite)
+
+- **2026-05-31** — **Phases 0 + 1 complete** via a 3-agent parallel run
+  (partitioned by file; no conflicts). Phase 0: `validate-manifest.js` is now
+  honest — standalone-aware workflow requirement, real `requires_ethics_approval`
+  type check (was a 100%-false-positive warning), duplicate-trigger detection,
+  and existence checks for every workflow/template/agent reference; wired into
+  `npm run validate`; 10 workflow-less skills marked `standalone`. Phase 1:
+  deleted `packages/{cli,core,web}` + 3 empty template dirs; removed dead scripts
+  `build:docs`/`serve-docs` and the Jekyll `.gitignore` block; made
+  `check-ethics.js` (allowlist + non-zero exit) and `lint-prompts.js` (broadened,
+  context-aware regex + non-zero exit) real gates; CI switched to `npm ci`; added
+  `eslint.config.js` (flat, works on installed eslint 8.57), `.prettierrc`,
+  `vitest.config.js` (`passWithNoTests`). All gates verified green:
+  validate / check:ethics / lint:prompts / validate:manifest / npm test all
+  EXIT 0. Found (not fixed): `scripts/create-skill.js` has a real syntax error —
+  defer to Phase 3. Committed to `feat/family-nexus-healing` (with the driving
+  plan + this handoff).
+- **2026-05-31** — Wired the handoff automation (global, all projects): a
+  `SessionStart` hook (`~/.claude/hooks/handoff-surface.mjs`) that auto-surfaces
+  this file, a portable `/handoff` skill + template, and a convention in the
+  global `CLAUDE.md`. Hook pipe-tested green. No change to the Opus 4.8 phases.
+- **2026-05-31** — Five-agent parallel review of the repo. Wrote driving plan
+  (`docs/plans/2026-05-31-opus-4-8-optimization.md`) and this handoff. Four
+  decisions locked (Section 4). No code changed yet; all phases Not started.
+
+---
+
+## 8. Update protocol (keep this doc honest)
+
+Update this file **at the end of any session that touched the effort**, and
+before handing off or clearing context. Minimum updates:
+
+- **Phase status table (Section 3):** status + date + one-line note.
+- **Activity log (Section 7):** one dated line on what you did.
+- **Decisions / Open questions (Sections 4-5):** move items between them as the
+  human answers; never delete a resolved question, mark it resolved with the answer.
+- **`Last updated` line at the top:** date + who.
+
+Keep it tight. This is a state file, not a narrative. Detail belongs in the
+driving plan or in commit messages.

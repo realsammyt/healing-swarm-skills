@@ -63,10 +63,4 @@ healing-app-output/
 credentials.json
 secrets.json
 
-# Jekyll
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-Gemfile.lock
-vendor/
+examples/family-nexus-healing/phase-c/.netlify/

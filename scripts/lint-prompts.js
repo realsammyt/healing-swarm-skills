@@ -171,12 +171,23 @@ function lintAgentPrompt(filePath) {
     }
   }
 
-  // Check for common issues
-  if (/"will (cure|heal|fix|treat)"/i.test(content)) {
-    issues.errors.push('Avoid promising outcomes: "will cure/heal" - use "may help"');
+  // Check for common issues. Scan real prose (no literal-quote requirement) for
+  // outcome-promising language. Done line-by-line so we can skip demonstrative
+  // examples: a claim phrase quoted inside a "DON'T use" list or an anti-pattern
+  // block (✗ / ❌ / "overclaiming" / a review session catching a violation) is
+  // the prompt teaching what NOT to say, not the agent making the claim. Flagging
+  // those would train maintainers to ignore the gate. Affirmative, unquoted prose
+  // like "the breathing will heal your nervous system" still gets caught.
+  const claimRe = /\b(will|can|guaranteed to)\s+(cure|heal|fix|treat)\b/i;
+  const negContextRe = /["'“”‘’]|✗|❌|🚫|don'?t|do not|\bavoid\b|overclaim|\bviolation\b|instead of|\breplace\b/i;
+  for (const line of content.split(/\r?\n/)) {
+    if (claimRe.test(line) && !negContextRe.test(line)) {
+      issues.errors.push(`Avoid promising outcomes (e.g. "will/can cure/heal/fix/treat") - use "may help" — found: ${line.trim()}`);
+      break;
+    }
   }
 
-  if (/"science proves"/i.test(content)) {
+  if (/\bscience proves\b/i.test(content)) {
     issues.warnings.push('Use "research suggests" instead of "science proves"');
   }
 
@@ -249,7 +260,10 @@ function main() {
   log('═══════════════════════════════════════════════════════════════', 'cyan');
   console.log('');
 
-  // Advisory mode - always pass
+  // Real gate: errors fail the build; warnings and suggestions stay advisory.
+  if (totalErrors > 0) {
+    process.exit(1);
+  }
   process.exit(0);
 }
 
