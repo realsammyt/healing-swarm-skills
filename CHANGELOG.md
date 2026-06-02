@@ -37,6 +37,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   largest worked example to date — a three-phase build culminating in a client-side
   PWA with three modes, 21 quality-gated protocols, offline support, and
   accessibility/privacy by construction. Reference code only; not a shipped skill.
+- **Skill auto-discovery (Opus 4.8)**: 52 generated `SKILL.md` files give every
+  skill a WHAT + WHEN description so skills can be discovered by intent, not only by
+  exact slash command. Sensitive skills (shadow-work, resonance-pairing,
+  orbital-journey, umwelt-practice, grief-healing, language-awareness) carry explicit
+  "Do NOT auto-launch" guards. Source of the descriptions:
+  `.claude/skills/healing-swarm/skill-discovery.yaml`; generator + discovery linter:
+  `scripts/generate-skills.js` (wired into `npm run validate`). `scripts/create-skill.js`
+  repaired (was a syntax error) and updated to scaffold a discovery entry.
 - **Count automation**: `scripts/sync-timeline.js` (canonical counts + `--check`
   drift gate) and `scripts/generate-reference.js` (regenerates the skills/agents
   reference docs from the manifest). Both wired into `npm run validate` and CI.

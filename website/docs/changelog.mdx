@@ -10,6 +10,31 @@ A living record of every feature, skill, workflow, template, and infrastructure 
 
 ---
 
+## 2026-06-02 — Opus 4.8 Auto-Discovery & Count Automation
+
+**Branch `feat/family-nexus-healing` | Triggering + doc-drift optimization (no new skills)**
+
+Skills are now auto-discoverable by semantic match, not just exact slash commands,
+and the headline counts can no longer drift from the manifest. Counts unchanged.
+
+### Infrastructure
+
+- **52 `SKILL.md` files generated** from the manifest, one per skill, with
+  WHAT + WHEN descriptions for Opus 4.8 / Claude Code auto-discovery. Sensitive
+  skills (shadow-work, resonance-pairing, orbital-journey, umwelt-practice,
+  grief-healing, language-awareness) carry explicit "Do NOT auto-launch" guards.
+- **`scripts/generate-skills.js`** — codegen + discovery linter (every skill has a
+  third-person "Use when" description; sensitive skills must carry a guard).
+- **`.claude/skills/healing-swarm/skill-discovery.yaml`** — the trigger-optimized
+  description source, 1:1 with the manifest.
+- **`scripts/sync-timeline.js` + `scripts/generate-reference.js`** — canonical
+  counts and reference docs derived from the manifest, with `--check` drift gates
+  wired into `npm run validate` and CI.
+- **`scripts/create-skill.js`** fixed (was a syntax error) and updated to scaffold a
+  discovery entry alongside the manifest entry.
+
+---
+
 ## 2026-04-13 — Family Nexus Healing (Worked Example)
 
 **Branch `feat/family-nexus-healing` | Largest worked example: a full client-side PWA built with the swarm**

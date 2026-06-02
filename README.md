@@ -550,6 +550,13 @@ And we honor you—for being here, for caring enough to explore this, for consid
 
 A chronological record of major additions. [Full detailed timeline on the website →](https://realsammyt.github.io/healing-swarm-skills/docs/changelog)
 
+### 2026-06-02 — Opus 4.8 Auto-Discovery & Count Automation
+
+- **Auto-discovery:** 52 generated `SKILL.md` files give every skill a WHAT + WHEN description, so Opus 4.8 / Claude Code can discover skills by intent, not just exact slash commands
+- **Conservative guards:** sensitive skills (shadow-work, resonance-pairing, orbital-journey, umwelt-practice, grief-healing, language-awareness) carry explicit "Do NOT auto-launch" guards
+- **Drift-proof counts:** `sync-timeline.js` + `generate-reference.js` derive all counts and reference docs from the manifest, enforced by `--check` gates in CI; `create-skill.js` repaired
+- No new skills, agents, or workflows — counts unchanged (52 / 38 / 25)
+
 ### 2026-04-13 — Family Nexus Healing (Worked Example)
 
 - **1 worked example:** `examples/family-nexus-healing/` — a full client-side PWA built end-to-end with the swarm (research → content → quality gates → deployable app)

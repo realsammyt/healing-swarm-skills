@@ -23,7 +23,7 @@
   ],
   "type": "module",
   "scripts": {
-    "validate": "node scripts/validate-skills.js && node scripts/validate-manifest.js && node scripts/sync-timeline.js --check && node scripts/generate-reference.js --check",
+    "validate": "node scripts/validate-skills.js && node scripts/validate-manifest.js && node scripts/sync-timeline.js --check && node scripts/generate-reference.js --check && node scripts/generate-skills.js --check",
     "validate:manifest": "node scripts/validate-manifest.js",
     "validate:workflows": "node scripts/validate-skills.js --file *.yaml",
     "validate:agents": "node scripts/validate-skills.js --file *.md",
@@ -33,6 +33,8 @@
     "sync:check": "node scripts/sync-timeline.js --check",
     "generate:reference": "node scripts/generate-reference.js",
     "generate:check": "node scripts/generate-reference.js --check",
+    "generate:skills": "node scripts/generate-skills.js",
+    "skills:check": "node scripts/generate-skills.js --check",
     "create-skill": "node scripts/create-skill.js",
     "lint": "eslint .",
     "format": "prettier --write .",

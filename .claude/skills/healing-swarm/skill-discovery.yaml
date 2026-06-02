@@ -1,0 +1,357 @@
+# Skill discovery descriptions — source of truth for SKILL.md frontmatter.
+#
+# Each entry is the WHAT + WHEN (+ guard) description that Claude Code reads to
+# decide when to auto-trigger a skill. The manifest stays the structural source
+# of truth (agents, workflow, outputs); this file owns the trigger-optimized
+# prose. `scripts/generate-skills.js` merges the two into one SKILL.md per skill.
+#
+# Rules (enforced by `node scripts/generate-skills.js --check`):
+#   - one entry per manifest skill, names must match exactly
+#   - every description contains a "Use when" clause, third person
+#   - skills listed in `sensitive` MUST carry an explicit "Do NOT" guard
+#
+# Sensitive skills bias toward NOT auto-firing on loose conversational cues.
+sensitive:
+  - shadow-work
+  - resonance-pairing
+  - orbital-journey
+  - umwelt-practice
+  - grief-healing
+  - language-awareness
+
+descriptions:
+  # ── Research ────────────────────────────────────────────────────────────────
+  healing-research: |-
+    Produces an evidence-grounded research brief on a healing tradition or
+    modality, weaving together history, clinical studies, and proposed
+    mechanisms. Use when the user asks to research a healing practice, wants the
+    evidence behind a modality, or asks how a traditional technique might work.
+    Do NOT use to write the practice itself (use the matching practice skill) or
+    to verify citations in finished content (use clinical-review).
+
+  traditions-research: |-
+    Researches a single healing tradition (TCM, Ayurveda, Western esoteric,
+    Indigenous, Jewish mystical) with scholarly attribution. Use when the user
+    names one tradition and wants its history, lineage, or technique detail.
+    Do NOT use for cross-tradition clinical evidence (use clinical-research) or
+    for translating concepts into neuroscience (use mechanism-mapping).
+
+  clinical-research: |-
+    Systematic review of clinical evidence for a healing modality, with
+    study-quality assessment and honest evidence levels. Use when the user wants
+    the science, study results, or 'does it actually work' for a specific
+    intervention. Do NOT use for tradition history (use traditions-research) or
+    to check citations already written (use clinical-review).
+
+  mechanism-mapping: |-
+    Bridges a traditional healing concept to modern neuroscience and physiology,
+    naming what's established versus speculative. Use when the user asks how an
+    ancient practice works in the body, or wants qi/chakra-style concepts
+    translated into mechanisms. Do NOT use for outcome evidence (use
+    clinical-research).
+
+  syntergic-research: |-
+    Researches Grinberg's syntergic theory and consciousness experiments with
+    honest framing against mainstream neuroscience. Use when the user asks about
+    Grinberg, syntergic theory, transferred potential, or the science of
+    consciousness research. Do NOT use to design a paired practice (use
+    resonance-pairing).
+
+  sound-research: |-
+    Reviews the evidence for sound-based interventions (toning, chanting,
+    vibration, music). Use when the user wants the research behind sound healing
+    or a specific sound technique's effects. Do NOT use to write a sound practice
+    (use sound-healing).
+
+  cyberdelic-research: |-
+    Researches consciousness technologies and endo-technology science, including
+    archaeoacoustics and Smith's hyperhumanism evidence base. Use when the user
+    wants the evidence or models behind cyberdelic or endo-technology claims.
+    Do NOT use to build an experience stack (use holotechnica-stack).
+
+  pni-research: |-
+    Researches psychoneuroimmunology findings relevant to healing (stress,
+    immunity, mind-body pathways). Use when the user asks how practices affect
+    the immune system or wants PNI evidence. Do NOT use to map a single practice
+    to its pathways (use pni-mapping).
+
+  pni-mapping: |-
+    Maps one specific practice to the psychoneuroimmune pathways it may act on.
+    Use when the user names a single practice and wants its immune or
+    neuroendocrine pathway picture. Do NOT use for a broad PNI literature review
+    (use pni-research).
+
+  # ── Integral (Wilber) ───────────────────────────────────────────────────────
+  aqal-check-in: |-
+    Guides a four-quadrant (AQAL) self-inquiry across interior/exterior and
+    individual/collective views of a situation. Use when the user wants a
+    structured reflection on a decision, a day, or a life situation through
+    Wilber's quadrants. Do NOT present it as a clinical assessment.
+
+  shadow-work: |-
+    Builds a guided 3-2-1 shadow-integration practice with layered safety for
+    approaching disowned parts of self. Sensitive: use only when the user
+    explicitly asks for shadow work, 3-2-1, or working with a trigger or
+    projection, and offer it gently. Do NOT auto-launch from general venting,
+    conflict, or distress, and never for acute trauma or crisis (point to
+    grief-healing or crisis resources instead).
+
+  spectrum-meditation: |-
+    Produces a progressive gross/subtle/causal state meditation from Wilber's
+    three-body model. Use when the user wants state-training or a three-body
+    meditation, or asks to move through subtle and causal states. Do NOT use for
+    trauma processing.
+
+  integral-psychograph: |-
+    A contemplative self-reflection across developmental lines (cognitive, moral,
+    interpersonal). Use when the user wants to reflect on their own development
+    across several lines. Do NOT present it as a clinical or diagnostic
+    assessment.
+
+  perspective-practice: |-
+    A quadrant perspective-taking exercise for seeing a situation from all four
+    AQAL viewpoints. Use when the user wants to understand a conflict or decision
+    from multiple angles, or to build empathy. Do NOT use for clinical
+    assessment.
+
+  # ── Consciousness (Grinberg) ────────────────────────────────────────────────
+  coherence-meditation: |-
+    Produces a guided interhemispheric coherence meditation in Grinberg's
+    self-allusive style, with evidence context. Use when the user wants a
+    coherence, balance, or whole-brain meditation. Do NOT present
+    consciousness-field claims as established fact.
+
+  resonance-pairing: |-
+    Designs paired or small-group meditation protocols from Grinberg's
+    transferred-potential work, with consent and boundary frameworks. Sensitive:
+    use only when the user explicitly asks for a paired, dyad, or group resonance
+    practice. Do NOT auto-launch from general relationship talk, and keep the
+    consent framework. For everyday relationship practices use
+    relational-practice instead.
+
+  orbital-journey: |-
+    Designs a multi-day transpersonal journey through Grinberg's consciousness
+    orbitals, with screening and safety architecture. Sensitive: use only when
+    the user explicitly asks for a multi-day consciousness journey or orbital
+    program. Do NOT auto-launch, and screen for crisis, psychosis risk, or
+    dissociation first.
+
+  # ── Breathwork (Wim Hof Method) ─────────────────────────────────────────────
+  whm-breathwork: |-
+    Builds a Wim Hof Method breathing session with round structure, retention
+    guidance, and medical safety framing. Use when the user asks for WHM, Wim
+    Hof, or power-breathing protocols. Always keep the safety guards (never in
+    water, never while driving) and screen for cardiovascular conditions and
+    pregnancy.
+
+  whm-cold-exposure: |-
+    Builds a graduated cold-exposure plan, from cold-shower finishes to
+    immersion, with safety review. Use when the user asks for cold exposure, cold
+    showers, or ice-bath training. Screen for cardiovascular conditions and never
+    recommend unsupervised open-water immersion.
+
+  whm-journey: |-
+    Builds a multi-week Wim Hof program integrating breathing, cold, and
+    commitment. Use when the user wants a full WHM journey or a progressive
+    multi-pillar plan. Carries the breathing and cold safety guards; screen
+    contraindications before week one.
+
+  # ── Perception / language ───────────────────────────────────────────────────
+  language-awareness: |-
+    Builds progressive cognitive-deautomatization practices for noticing how
+    language shapes perception, with grounding. Sensitive: use when the user asks
+    to observe labeling, un-name experience, or work with Zen/Dzogchen-style
+    perception. Do NOT push past grounding; stop if depersonalization or
+    derealization shows up.
+
+  group-perception: |-
+    Designs group and paired perception exercises (collective label delay,
+    meaning-collapse circle, silence sit) with a consent framework. Use when the
+    user is facilitating a workshop, circle, or team session on perception. Keep
+    the consent and debrief steps.
+
+  contemplative-inquiry: |-
+    Guides self-inquiry drawn from Zen koan, Socratic, and Ignatian Examen
+    methods. Use when the user wants reflective questioning on a theme like 'what
+    is healing' or a values question. Do NOT use for clinical assessment.
+
+  # ── Sound ───────────────────────────────────────────────────────────────────
+  sound-healing: |-
+    Builds a vocal sound-healing practice (toning, mantra, chanting, humming)
+    with timing and safety notes. Use when the user wants a sound, chant, toning,
+    or humming practice. Do NOT use for the research behind sound (use
+    sound-research).
+
+  archaeoacoustic-toning: |-
+    Builds a vocal toning practice tuned to the resonant frequencies of ancient
+    sacred sites, structured listen-hum-tone-harmonics-silence. Use when the user
+    asks about sacred-site frequencies, archaeoacoustics, or resonant toning.
+    Frame frequency claims honestly.
+
+  sound-consciousness: |-
+    Builds a Museum-of-Consciousness style audio sequence with Milliere
+    six-dimension self-assessment between samples. Use when the user wants short
+    consciousness-shifting sound samples with self-assessment. Frame state claims
+    as subjective.
+
+  # ── Consciousness (Smith / hyperhumanism) ───────────────────────────────────
+  holotechnica-stack: |-
+    Designs a personalized endo-technology experience stack (breath, sound,
+    movement, attention) toward a chosen trait, with additive safety logic. Use
+    when the user wants to combine non-drug practices into a stack. Do NOT include
+    any pharmacological or psychedelic 'technologies' (hard exclusion).
+
+  hyperhumanism-inquiry: |-
+    Guides a four-phase philosophical inquiry (inventory, audit, reclamation,
+    practice) on technology and innate human capacity, from Smith's hyperhumanism.
+    Use when the user wants to examine their relationship with technology or
+    reclaim an outsourced capacity.
+
+  umwelt-practice: |-
+    Builds sensory-augmentation exercises for perceiving-as-other and extending
+    the sensorium, with grounding. Sensitive: use when the user wants to explore
+    other-than-human perception or sensory expansion. Do NOT use with dissociative
+    disorders; keep grounding present and stop on derealization.
+
+  # ── Movement ────────────────────────────────────────────────────────────────
+  somatic-practice: |-
+    Builds a gentle movement protocol (qigong, tai chi, yoga, walking meditation)
+    with pacing and cautions. Use when the user wants slow, mindful, or gentle
+    movement. Screen for injury and mobility limits. For walking specifically,
+    walking-meditation is more focused.
+
+  walking-meditation: |-
+    Builds a walking-meditation practice for people who can't sit comfortably.
+    Use when the user asks for kinhin, mindful walking, or movement-based
+    meditation. Adapt for indoor, outdoor, and limited-mobility settings.
+
+  # ── Sleep / dream ───────────────────────────────────────────────────────────
+  sleep-healing: |-
+    Builds an evening wind-down: sleep hygiene, bedtime meditation, and
+    dream-journal prompts. Use when the user wants help winding down, sleeping
+    better, or a bedtime practice. For dream work specifically, use
+    dream-practice.
+
+  dream-practice: |-
+    Builds dream journaling, incubation, and a gentle lucid-dreaming
+    introduction. Use when the user asks about dreams, dream recall, or lucid
+    dreaming. For general sleep quality, use sleep-healing.
+
+  # ── Nature / water ──────────────────────────────────────────────────────────
+  nature-healing: |-
+    Builds a structured nature-connection practice (forest bathing, earthing, sky
+    gazing, garden therapy) with seasonal options. Use when the user wants to
+    practice outdoors or connect with nature for healing.
+
+  water-healing: |-
+    Builds therapeutic water practices (contrast showers, Kneipp method, ritual
+    bathing) with thermal-safety checks. Use when the user wants hydrotherapy,
+    contrast therapy, or bathing practices. Screen for cardiovascular conditions
+    and warn on extreme temperatures.
+
+  # ── Grief ───────────────────────────────────────────────────────────────────
+  grief-healing: |-
+    Builds grief-informed practices for loss (bereavement, health changes,
+    transitions) with strong psychological safety and crisis resources.
+    Sensitive: use when the user names grief, loss, or mourning and wants a
+    practice. Go gently, keep crisis resources visible, and do NOT rush the
+    process or pathologize normal grief.
+
+  # ── Expressive ──────────────────────────────────────────────────────────────
+  expressive-healing: |-
+    Builds creative healing practices (Pennebaker expressive writing,
+    art-as-process, bibliotherapy). Use when the user wants to process through
+    writing, art, or reading. For extended multi-day writing sequences, use
+    healing-journaling.
+
+  healing-journaling: |-
+    Builds structured multi-day writing sequences that go beyond single prompts.
+    Use when the user wants a several-day journaling program around a theme. For a
+    single creative-writing session, use expressive-healing.
+
+  # ── Community / relational ──────────────────────────────────────────────────
+  community-healing: |-
+    Designs group healing-circle protocols and facilitation guides with a consent
+    framework. Use when the user is running a healing circle, talking circle, or
+    group practice. For two-person practices, use relational-practice.
+
+  relational-practice: |-
+    Builds dyadic healing practices for everyday relationships and partners. Use
+    when the user wants a two-person practice for connection or repair. This is
+    distinct from Grinberg transferred-potential work (use resonance-pairing for
+    that).
+
+  # ── PNI handled above; Contemplative handled above ──────────────────────────
+
+  # ── Design ──────────────────────────────────────────────────────────────────
+  healing-design: |-
+    Produces UX and visual design for a healing app: journeys, wireframes, and a
+    design system tuned for vulnerable users. Use when the user wants to design a
+    healing application's experience or interface. For UX only, use healing-ux;
+    for visuals only, use sacred-visuals.
+
+  healing-ux: |-
+    Designs the user experience for a healing context, with one-handed operation
+    and therapeutic interaction patterns. Use when the user wants user journeys or
+    interaction design without the full visual system. For visuals, use
+    sacred-visuals.
+
+  sacred-visuals: |-
+    Designs the visual system for a healing app: palette, typography, sacred
+    geometry, calming motion. Use when the user wants the look and feel, colors,
+    or visual style. For interaction design, use healing-ux.
+
+  # ── Content ─────────────────────────────────────────────────────────────────
+  healing-content: |-
+    Writes healing content: prayers, invocations, evidence boxes, historical
+    notes, guided visualizations, practice instructions, and journal prompts. Use
+    when the user wants written healing material with proper attribution and
+    honest evidence framing.
+
+  # ── Build ───────────────────────────────────────────────────────────────────
+  healing-build: |-
+    Builds accessible, privacy-first healing app code: meditation timers,
+    journals, trackers, practice guides. Use when the user wants to implement or
+    scaffold a healing application or component. For design first, use
+    healing-design.
+
+  # ── Quality ─────────────────────────────────────────────────────────────────
+  healing-review: |-
+    Runs a full quality review of healing content or an app across ethics,
+    clinical accuracy, cultural sensitivity, and accessibility. Use when the user
+    wants everything checked before shipping. For a single lens, use
+    ethics-review, clinical-review, cultural-review, or a11y-audit.
+
+  ethics-review: |-
+    Reviews healing content for medical safety, psychological safety, cultural
+    integrity, and privacy, with veto power over unsafe outputs. Use when the user
+    wants an ethics or safety check, or before releasing sensitive content. This
+    gate can block release.
+
+  clinical-review: |-
+    Verifies clinical claims and citations: PMID/DOI validity, claim accuracy, and
+    evidence-level wording. Use when the user wants existing content fact-checked.
+    For new evidence research, use clinical-research.
+
+  cultural-review: |-
+    Reviews healing content for attribution, representation, and appropriation.
+    Use when the user wants traditional or cross-cultural content checked for
+    sensitivity. Names specific traditions rather than vague generalities.
+
+  a11y-audit: |-
+    Audits a healing app for WCAG compliance plus healing-specific accessibility
+    (one-handed use, calm defaults, crisis access). Use when the user wants an
+    accessibility check on an interface or component.
+
+  # ── Deploy ──────────────────────────────────────────────────────────────────
+  healing-deploy: |-
+    Deploys and maintains a healing app: static hosting, monitoring, and content
+    updates. Use when the user wants to ship, host, or update a built healing
+    application.
+
+  # ── Orchestration ───────────────────────────────────────────────────────────
+  healing-swarm: |-
+    Orchestrates the whole swarm through research, design, content, build,
+    quality, and deployment to produce a complete healing app. Use when the user
+    wants an end-to-end build rather than a single artifact. For one stage only,
+    call that stage's skill directly.

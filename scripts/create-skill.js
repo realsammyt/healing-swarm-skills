@@ -21,7 +21,6 @@ const __dirname = path.dirname(__filename);
 
 // Paths
 const SKILLS_DIR = path.join(__dirname, '..', '.claude', 'skills', 'healing-swarm');
-const TEMPLATES_DIR = path.join(__dirname, '..', 'templates');
 
 // ANSI colors for terminal output
 const colors = {
@@ -111,6 +110,20 @@ ${config.inputs.map((i) => `      - ${i}: string`).join('\n')}
       - ethics-guardrails
       - voice-guide
       - terminology
+`;
+}
+
+function generateDiscoveryEntry(config) {
+  // Skeleton for skill-discovery.yaml — the WHAT + WHEN (+ guard) description
+  // that drives Opus 4.8 / Claude Code auto-discovery. Edit before generating.
+  return `# Add this under 'descriptions:' in
+# .claude/skills/healing-swarm/skill-discovery.yaml
+# Then run: npm run generate:skills
+
+  healing-${config.name}: |-
+    ${config.description} Use when the user asks for <situation A>, wants
+    <phrase B>, or mentions <C>. Do NOT use for <the adjacent skill's job>
+    (use <that-skill> instead).
 `;
 }
 
@@ -493,6 +506,11 @@ async function main() {
   fs.writeFileSync(manifestPath, generateManifestEntry(config));
   print(`  ✓ Created manifest entry: manifest-entry.yaml`, 'green');
 
+  // Generate discovery entry (drives SKILL.md auto-discovery)
+  const discoveryPath = path.join(skillDir, 'discovery-entry.yaml');
+  fs.writeFileSync(discoveryPath, generateDiscoveryEntry(config));
+  print(`  ✓ Created discovery entry: discovery-entry.yaml`, 'green');
+
   // Success message
   console.log('\n');
   print('╔══════════════════════════════════════════════════════════════╗', 'green');
@@ -502,10 +520,12 @@ async function main() {
   print('\nNext steps:', 'yellow');
   console.log('  1. Edit the agent prompt(s) to customize behavior');
   console.log('  2. Update the workflow stages as needed');
-  console.log('  3. Add the manifest entry to manifest.yaml:');
+  console.log('  3. Add the manifest entry (manifest-entry.yaml) to manifest.yaml:');
   console.log(`     ${path.join(SKILLS_DIR, 'manifest.yaml')}`);
-  console.log('  4. Run validation: npm run validate');
-  console.log('  5. Copy to Claude Code and test:');
+  console.log('  4. Add the discovery entry (discovery-entry.yaml) to skill-discovery.yaml,');
+  console.log('     then generate the SKILL.md: npm run generate:skills');
+  console.log('  5. Run validation: npm run validate');
+  console.log('  6. Copy to Claude Code and test:');
   console.log('     cp -r .claude/skills/healing-swarm ~/.claude/skills/');
   console.log(`     claude> /healing-${skillName} "test query"`);
 
@@ -521,4 +541,3 @@ main().catch((err) => {
   print(`\nError: ${err.message}`, 'red');
   process.exit(1);
 });
-`;

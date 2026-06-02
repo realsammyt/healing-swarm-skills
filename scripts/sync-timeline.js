@@ -91,6 +91,7 @@ export function computeCounts() {
     (full, name) =>
       name.endsWith('.yaml') &&
       name !== 'manifest.yaml' &&
+      name !== 'skill-discovery.yaml' &&
       !full.split(path.sep).includes('examples')
   ).length;
 

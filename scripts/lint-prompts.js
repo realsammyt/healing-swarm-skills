@@ -132,7 +132,8 @@ function findAgentFiles(dir, results = []) {
       ) {
         findAgentFiles(filePath, results);
       }
-    } else if (file.endsWith('.md')) {
+    } else if (file.endsWith('.md') && file !== 'SKILL.md') {
+      // SKILL.md files are generated skill descriptors, not agent prompts.
       results.push(filePath);
     }
   }
