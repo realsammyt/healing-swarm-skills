@@ -247,6 +247,27 @@ VERIFY:
 
 ## Audit Output Format
 
+### Gate result (machine-readable, REQUIRED)
+
+Emit this fenced JSON block **first**, so the gate harness
+(`scripts/check-gates.js`) can enforce the verdict deterministically:
+
+```json
+{
+  "gate": "accessibility",
+  "status": "pass",
+  "blocking": true,
+  "issues": [
+    { "severity": "critical", "location": "component:control", "finding": "below WCAG AA", "fix": "the specific remediation" }
+  ]
+}
+```
+
+`status` is `pass`, `fail`, or `veto`. The `accessibility` gate **always halts**
+the pipeline on `fail`/`veto` (WCAG AA is the non-negotiable floor). Where
+possible, back findings with an axe-core run via your `Bash` tool. Then give the
+human-readable report:
+
 ### Full Audit Report
 
 ```markdown

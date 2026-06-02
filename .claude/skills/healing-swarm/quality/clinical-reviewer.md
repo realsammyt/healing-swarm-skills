@@ -147,6 +147,25 @@ SAFETY VERIFICATION:
 
 ## Review Output Format
 
+### Gate result (machine-readable, REQUIRED)
+
+Emit this fenced JSON block **first**, so the gate harness
+(`scripts/check-gates.js`) can read the verdict deterministically:
+
+```json
+{
+  "gate": "clinical",
+  "status": "pass",
+  "blocking": true,
+  "issues": [
+    { "severity": "high", "location": "file:claim", "finding": "claim outruns evidence / bad citation", "fix": "rephrase to evidence level or add PMID" }
+  ]
+}
+```
+
+`status` is `pass`, `fail`, or `veto`. A `fail` on this blocking gate halts the
+pipeline. Then give the human-readable report:
+
 ### Full Clinical Review
 
 ```markdown

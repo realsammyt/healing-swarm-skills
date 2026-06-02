@@ -24,12 +24,18 @@ stages:
   - name: traditions_research
     description: Research traditional healing practices and sources
     agent: traditions-scholar
-    parallel: true
+    # Fan out one traditions-scholar task per identified tradition — each is an
+    # independent literature search. The conductor emits one Task per tradition
+    # in a single turn and awaits all, then the per-tradition findings merge.
+    fan_out:
+      over: identified_traditions
+      agent: traditions-scholar
+      await: all
     inputs:
       - query
       - identified_traditions
     outputs:
-      - traditions-research.md
+      - traditions-research.md  # merged from per-tradition findings
       - primary_sources
       - cross_cultural_parallels
 

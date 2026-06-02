@@ -210,6 +210,26 @@ outcome promise ("will heal / cure / fix").
 
 ## Review Output Format
 
+### Gate result (machine-readable, REQUIRED)
+
+Emit this fenced JSON block **first**, so the gate harness
+(`scripts/check-gates.js`) can enforce the verdict deterministically:
+
+```json
+{
+  "gate": "ethics",
+  "status": "pass",
+  "blocking": true,
+  "issues": [
+    { "severity": "critical", "location": "file:section", "finding": "what's wrong", "fix": "what to change" }
+  ]
+}
+```
+
+`status` is `pass`, `fail`, or `veto`. The `ethics` gate **always halts** the
+pipeline on `fail`/`veto`, regardless of any other signal. Then give the
+human-readable report:
+
 ### Review Report
 
 ```markdown

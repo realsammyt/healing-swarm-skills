@@ -38,7 +38,9 @@
     "create-skill": "node scripts/create-skill.js",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "test": "vitest"
+    "check:gates": "node scripts/check-gates.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "devDependencies": {
     "eslint": "^8.57.0",

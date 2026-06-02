@@ -39,6 +39,14 @@ stages:
   - name: content_creation
     description: Write the content using templates
     agent: content-writer
+    # Fan out: each requested artifact (prayer, visualization, practice,
+    # evidence-box, journal-prompt) is independent. Generate them concurrently
+    # instead of one serial pass — the conductor emits one Task per item in a
+    # single turn and awaits all before review.
+    fan_out:
+      over: content_requirements.items
+      agent: content-writer
+      await: all
     inputs:
       - content_type
       - template
@@ -46,7 +54,7 @@ stages:
       - evidence_summaries
       - voice_guidelines
     outputs:
-      - draft_content.md
+      - draft_content.md  # one per fanned item, collected into content_library/
 
   - name: quality_review
     description: Multi-agent review of content
@@ -245,6 +253,13 @@ content_metadata:
 batch_operations:
   create_content_library:
     description: Generate complete content library for an app
+    # Fan out across every item in the content plan — each artifact is
+    # independent, so dispatch them concurrently (one Task per item) and await
+    # all before the quality gate.
+    fan_out:
+      over: content_plan.items
+      agent: content-writer
+      await: all
     inputs:
       - content_plan.yaml
       - research_brief.md

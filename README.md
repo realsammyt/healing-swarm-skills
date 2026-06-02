@@ -298,6 +298,7 @@ claude> /healing-swarm "Sacred Healing Journey" --focus "ligament healing"
 - **[ADR-001: Ethics-First Architecture](docs/adr/001-ethics-first-architecture.md)**
 - **[ADR-002: Local-First Data Storage](docs/adr/002-local-first-data.md)**
 - **[ADR-003: Multi-Agent Quality Review](docs/adr/003-multi-agent-quality.md)**
+- **[ADR-004: Runtime Model and Gate Enforcement](docs/adr/004-runtime-and-gate-enforcement.md)**
 
 ---
 

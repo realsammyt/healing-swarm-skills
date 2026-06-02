@@ -53,6 +53,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `content/content-writer.md` (they already live in `content/templates/`); new
   shared reference `shared/evidence-language.md` holds the canonical evidence-level
   phrase table, replacing per-agent copies (10 shared resources, was 9).
+- **Enforceable gates + thin veto harness (ADR-004)**: every reviewer now emits a
+  machine-readable gate contract (fenced JSON `{ gate, status, blocking, issues }`).
+  `scripts/check-gates.js` parses it and halts on a failed veto gate; `ethics` and
+  `accessibility` veto on fail regardless of other signals. Unit-tested
+  (`scripts/check-gates.test.js`). `npm run check:gates -- <path>`.
+- **Parallel dispatch**: explicit fan-out directives added to the swarm-conductor
+  prompt and to the content + research workflows (per-artifact and per-tradition),
+  turning described parallelism into instructed behavior.
+- **Auditable safety context**: the six sensitive skills now declare
+  `requires: [crisis-response, contraindications]`, enforced by a new
+  `validate-manifest.js` check sourced from the `skill-discovery.yaml` sensitive
+  list. Runtime decision recorded in ADR-004 (Path A + thin veto harness).
 - **Count automation**: `scripts/sync-timeline.js` (canonical counts + `--check`
   drift gate) and `scripts/generate-reference.js` (regenerates the skills/agents
   reference docs from the manifest). Both wired into `npm run validate` and CI.
