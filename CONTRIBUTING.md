@@ -179,6 +179,28 @@ We provide starter templates for common skill types:
 
 See [Creating Skills Guide](docs/guides/creating-skills.md) for detailed instructions.
 
+### Keep the Timeline and Counts in Sync
+
+Adding a skill, agent, workflow, template, or worked example? The headline counts
+and reference docs are **generated from the manifest**, not hand-maintained. Don't
+edit counts by hand.
+
+```bash
+# See the canonical counts derived from the manifest + filesystem
+npm run sync:timeline
+
+# Regenerate the skills/agents reference docs from the manifest
+npm run generate:reference
+
+# Both are enforced by `npm run validate` and in CI:
+#   - sync-timeline --check fails the build if README / changelog counts drift
+#   - generate-reference --check fails the build if the reference docs are stale
+```
+
+Then add a dated entry (newest first) to the **Development Timeline** in both
+`README.md` and `website/docs/changelog.mdx`. The cumulative-totals tables in those
+files must match `npm run sync:timeline` exactly, or CI will reject the PR.
+
 ### 3. Pull Request Guidelines
 
 **PR Title Format:**
@@ -200,6 +222,7 @@ See [Creating Skills Guide](docs/guides/creating-skills.md) for detailed instruc
 - [ ] Ethics guardrails respected
 - [ ] Accessibility requirements met
 - [ ] Attribution complete (for traditional content)
+- [ ] Timeline updated and counts in sync (`npm run validate` passes)
 
 ### 4. Review Process
 

@@ -282,8 +282,8 @@ claude> /healing-swarm "Sacred Healing Journey" --focus "ligament healing"
 
 ### Reference
 
-- **[Skills Reference](docs/api/skills-reference.md)** - All 47 skills with triggers and options
-- **[Agents Reference](docs/api/agents-reference.md)** - All 26 agents with responsibilities
+- **[Skills Reference](docs/api/skills-reference.md)** - All 52 skills with triggers and options
+- **[Agents Reference](docs/api/agents-reference.md)** - All 38 agents with responsibilities
 - **[Shared Resources](docs/api/shared-resources.md)** - Ethics, safety, terminology, design tokens
 - **[Workflows Reference](docs/api/workflows-reference.md)** - Workflow patterns
 
@@ -550,6 +550,12 @@ And we honor you—for being here, for caring enough to explore this, for consid
 
 A chronological record of major additions. [Full detailed timeline on the website →](https://realsammyt.github.io/healing-swarm-skills/docs/changelog)
 
+### 2026-04-13 — Family Nexus Healing (Worked Example)
+
+- **1 worked example:** `examples/family-nexus-healing/` — a full client-side PWA built end-to-end with the swarm (research → content → quality gates → deployable app)
+- Three modes plus family-together, 21 quality-gated protocols, offline service worker, accessibility and privacy-first
+- Reference/demonstration code only — not a shipped skill, not counted in skill/agent/workflow totals
+
 ### 2026-03-08 — Hyperhumanism & Sound Consciousness Skills (Carl Hayden Smith)
 
 - **6 skills:** Archaeoacoustic Toning, Sound Consciousness, Holotechnica Stack, Hyperhumanism Inquiry, Umwelt Practice, Cyberdelic Research
@@ -605,12 +611,12 @@ A chronological record of major additions. [Full detailed timeline on the websit
 
 | Category              | Count |
 | --------------------- | ----- |
-| Skills                | 53    |
-| Agents                | 30    |
-| Workflows             | 26    |
-| Templates             | 13    |
+| Skills                | 52    |
+| Agents                | 38    |
+| Workflows             | 25    |
+| Templates             | 28    |
 | Shared Resources      | 9     |
-| Worked Examples       | 16    |
+| Worked Examples       | 18    |
 | Traditions Integrated | 20+   |
 
 ---

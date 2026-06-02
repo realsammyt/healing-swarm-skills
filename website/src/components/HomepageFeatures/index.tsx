@@ -226,7 +226,7 @@ export function ExampleShowcase(): JSX.Element {
               <div className={styles.exampleFeature}>
                 <span className={styles.featureIcon}>✓</span>
                 <span>
-                  53 skills across meditation, breathwork, integral theory,
+                  52 skills across meditation, breathwork, integral theory,
                   archaeoacoustics, and more
                 </span>
               </div>

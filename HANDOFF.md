@@ -5,7 +5,7 @@
 > conversation should read this first, then update it before ending a session.
 > If anything here disagrees with reality, reality wins — fix the doc.
 
-**Last updated:** 2026-06-01 by Claude (Opus 4.8) — Phases 0 + 1 complete + committed
+**Last updated:** 2026-06-02 by Claude (Opus 4.8) — Phase 2 complete (doc drift killed + automated)
 **Active branch:** `feat/family-nexus-healing`
 **Driving plan:** [`docs/plans/2026-05-31-opus-4-8-optimization.md`](docs/plans/2026-05-31-opus-4-8-optimization.md)
 
@@ -24,9 +24,15 @@
 
 | Thing     | Actual | Source |
 | --------- | ------ | ------ |
-| Skills    | 52     | `manifest.yaml` |
-| Agents    | 38     | `npm run validate` |
-| Workflows | 36     | `npm run validate` |
+| Skills    | 52     | `manifest.yaml` (includes the `healing-swarm` orchestration skill, entry #52) |
+| Agents    | 38     | `manifest.yaml` agents block / `npm run validate` (includes `swarm-conductor`) |
+| Workflows | 25     | `npm run sync:timeline` (real `*.yaml` workflow files) |
+
+> **Count canon, settled in Phase 2:** use `npm run sync:timeline` — it is the
+> single source of truth. Note: `validate-skills.js` prints "36 workflows" but that
+> figure wrongly counts 11 `manifest.yaml` files as workflows; the honest count is
+> **25**. The docs ("53 skills") were an off-by-one — the orchestrator skill is
+> already inside the 52, so the canonical skill count is **52**.
 
 ---
 
@@ -53,7 +59,7 @@ Update the status, the date, and the note whenever you touch a phase.
 | ----- | ----- | ------ | ------- | ---- |
 | 0 | Make validators honest | Done | 2026-05-31 | `npm run validate` runs both validators clean; standalone-aware workflow check, dup-trigger + existence checks added; 10 workflow-less skills marked `standalone` |
 | 1 | Quick-win cleanup + honesty fixes | Done | 2026-05-31 | `packages/` + 3 empty template dirs deleted; dead scripts (build:docs, serve-docs) + Jekyll `.gitignore` block removed; ethics/claims gates now exit non-zero; CI `npm ci`; eslint/prettier/vitest configs added |
-| 2 | Eliminate doc drift + automate | Not started | 2026-05-31 | Counts wrong everywhere; build `sync-timeline.js` |
+| 2 | Eliminate doc drift + automate | Done | 2026-06-02 | All counts reconciled to manifest truth (52/38/25); `sync-timeline.js` (canonical counts + `--check` gate) + `generate-reference.js` (rebuilds skills/agents refs) wired into `npm run validate` + CI; CHANGELOG date typo fixed; CONTRIBUTING timeline rule added; family-nexus represented as a worked example |
 | 3 | SKILL.md generation + description rewrites | Not started | 2026-05-31 | Highest Opus 4.8 impact |
 | 4 | Model tiering + prompt slimming | Not started | 2026-05-31 | Add `model:` field; cut 350-680-line prompts |
 | 5 | Parallel orchestration + enforceable gates | Not started | 2026-05-31 | Fan-out + JSON gate contract |
@@ -83,12 +89,19 @@ leaves the repo shippable; none requires the next.
    discoverable? (Blocks finalizing Phase 3 descriptions.)
 2. **Model-downgrade tolerance?** Sonnet/Haiku acceptable for user-facing healing
    content, or Opus everywhere for voice/safety consistency? (Blocks Phase 4 tiers.)
-3. **`family-nexus-healing`: example or shipped skill?** Determines whether it's
-   counted and folded into timelines. (Blocks Phase 2 closure.)
-4. **Canonical "skill" definition?** Totals say 53, manifest has 52; does the
-   orchestrator count? Pin this before automating counts. (Blocks Phase 2.)
 5. **DAG-rename appetite?** The single-notation parallelism change touches ~24
    workflow files. (Blocks the schema-unification part of Phase 5.)
+
+### Resolved
+
+3. **`family-nexus-healing`: example or shipped skill?** → **Example only**
+   (human, 2026-06-02). Stays out of all counts; represented in both timelines as a
+   worked example. No manifest change.
+4. **Canonical "skill" definition?** → **52** (human chose "count the orchestrator",
+   2026-06-02). Key correction: the orchestrator skill (`healing-swarm`) is *already*
+   entry #52 in the manifest, so counting it yields 52, not 53. "53" was an
+   off-by-one. `swarm-conductor` is its agent (1 of 38). Count canon now lives in
+   `scripts/sync-timeline.js`.
 
 ---
 
@@ -138,6 +151,21 @@ leaves the repo shippable; none requires the next.
 
 ## 7. Activity log (newest first — append, don't overwrite)
 
+- **2026-06-02** — **Phase 2 complete.** Pinned canonical counts (52 skills / 38
+  agents / 25 workflows) after discovering two count bugs: (a) the orchestrator
+  skill is already inside the manifest's 52, so "53" was an off-by-one; (b) the
+  validator's "36 workflows" silently counts 11 `manifest.yaml` files — real count
+  is 25. Built `scripts/sync-timeline.js` (canonical counts + `--check` drift gate
+  over README + changelog) and `scripts/generate-reference.js` (regenerates
+  `docs/api/skills-reference.md` → all 52, and `agents-reference.md` → all 38, from
+  the manifest); both `--check` modes wired into `npm run validate`, which CI already
+  runs. Reconciled every count in README.md, website changelog, and the homepage
+  component; fixed the CHANGELOG v1.0.0 date typo (2025→2026); added the
+  timeline-sync rule + PR-checklist item to CONTRIBUTING.md; added a 2026-04-13
+  family-nexus worked-example entry to both timelines. All gates green
+  (validate / check:ethics / lint:prompts / test EXIT 0); website builds clean.
+  Left untouched: dated historical plan docs under `docs/plans/` (snapshots, not
+  living docs).
 - **2026-05-31** — **Phases 0 + 1 complete** via a 3-agent parallel run
   (partitioned by file; no conflicts). Phase 0: `validate-manifest.js` is now
   honest — standalone-aware workflow requirement, real `requires_ethics_approval`

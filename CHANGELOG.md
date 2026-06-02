@@ -33,6 +33,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   to the full website timeline.
 - **CLAUDE.md**: Project-level instructions enforcing timeline updates whenever new
   features are added.
+- **Family Nexus Healing worked example** (`examples/family-nexus-healing/`): the
+  largest worked example to date — a three-phase build culminating in a client-side
+  PWA with three modes, 21 quality-gated protocols, offline support, and
+  accessibility/privacy by construction. Reference code only; not a shipped skill.
+- **Count automation**: `scripts/sync-timeline.js` (canonical counts + `--check`
+  drift gate) and `scripts/generate-reference.js` (regenerates the skills/agents
+  reference docs from the manifest). Both wired into `npm run validate` and CI.
+- **Reference docs regenerated** from the manifest: `docs/api/skills-reference.md`
+  (now all 52 skills, was 35) and `docs/api/agents-reference.md` (now all 38 agents,
+  was 27).
+- Fixed the v1.0.0 date typo in this changelog (2025-01-01 → 2026-02-02) and
+  reconciled all cumulative counts to manifest ground truth (52 skills, 38 agents,
+  25 workflows).
 
 ---
 
@@ -109,7 +122,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [1.0.0] — 2025-01-01
+## [1.0.0] — 2026-02-02
 
 ### Added
 
