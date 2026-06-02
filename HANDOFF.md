@@ -5,7 +5,7 @@
 > conversation should read this first, then update it before ending a session.
 > If anything here disagrees with reality, reality wins — fix the doc.
 
-**Last updated:** 2026-06-02 by Claude (Opus 4.8) — Phases 2 + 3 complete (doc automation + SKILL.md auto-discovery)
+**Last updated:** 2026-06-02 by Claude (Opus 4.8) — Phases 0–6 complete (core); only minor deferred polish remains
 **Active branch:** `feat/family-nexus-healing`
 **Driving plan:** [`docs/plans/2026-05-31-opus-4-8-optimization.md`](docs/plans/2026-05-31-opus-4-8-optimization.md)
 
