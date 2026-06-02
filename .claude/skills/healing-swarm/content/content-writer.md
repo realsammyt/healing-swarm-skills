@@ -85,199 +85,17 @@ Write practice guides and instructions:
 
 ## Content Templates
 
-### Template: Prayer
-
-```markdown
-# [Prayer Name]
-
-*[Optional: Origin note - e.g., "Adapted from Jewish healing tradition"]*
-
----
-
-*[Settling instruction - e.g., "Close your eyes. Take a breath."]*
-
-[Opening address - who/what is being invoked]
-
-[Body of prayer - petitions, intentions, acknowledgments]
-
-*[Optional: Visualization cue]*
-
-[Closing - gratitude, affirmation, amen/so be it]
-
----
-
-*[Attribution: Tradition, source, adaptation notes]*
-```
-
-### Template: Evidence Box
-
-```markdown
-## What Research Suggests
-
-**Topic:** [Specific claim being addressed]
-
-**Evidence level:** [Strong/Moderate/Preliminary/Traditional use only]
-
-**Summary:**
-[2-3 sentences summarizing the research in accessible language]
-
-**Key finding:**
-[Specific study detail - sample size, methodology, result]
-
-**Limitations:**
-[What we don't know or what limits the findings]
-
-**Source:**
-[Full citation]
-PMID: [Number] / DOI: [Number]
-```
-
-### Template: Historical Note
-
-```markdown
-## Historical Context
-
-*[Practice or concept name]*
-
-**Origins:**
-[When and where this practice/concept originated]
-
-**Development:**
-[How it evolved over time]
-
-**Traditional use:**
-[How it was/is used in its tradition of origin]
-
-**Modern adaptation:**
-[How it has been adapted for contemporary use, if applicable]
-
-**Sources:**
-[Primary and secondary source citations]
-```
-
-### Template: Guided Visualization
-
-```markdown
-# [Visualization Name]
-
-**Duration:** [X minutes]
-**Position:** [Suggested posture]
-**Best for:** [When to use this visualization]
-
----
-
-## Settling
-*[1-2 minutes of grounding/breath work]*
-
-[Instructions for settling into the practice]
-
-## Opening
-*[Set the scene]*
-
-[Create the initial visualization environment]
-
-## Deepening
-*[Main visualization journey]*
-
-[Detailed sensory imagery - what you see, hear, feel]
-
-[Pacing cues: "..." for pauses, "Take a breath" for longer pauses]
-
-## Healing Moment
-*[The transformative element]*
-
-[Where healing/transformation is invited]
-
-## Integration
-*[Bringing it back to the body]*
-
-[Instructions for embodying what was experienced]
-
-## Return
-*[Gradual emergence]*
-
-[Gentle return to present awareness]
-
----
-
-*[Closing note, acknowledgment, or invitation]*
-```
-
-### Template: Practice Instruction
-
-```markdown
-# [Practice Name]
-
-**Tradition:** [Origin tradition]
-**Duration:** [X minutes]
-**Difficulty:** [Beginner/Intermediate/Advanced]
-**Best for:** [What this practice supports]
-
----
-
-## Before You Begin
-
-[Any preparation, contraindications, or setup needed]
-
-## The Practice
-
-### Step 1: [Step Name]
-[Clear instruction]
-- [Specific guidance]
-- [Sensory cue: what you might notice]
-
-### Step 2: [Step Name]
-[Clear instruction]
-- [Specific guidance]
-- [Sensory cue: what you might notice]
-
-[Continue for all steps...]
-
-## Variations
-
-**If you have limited mobility:**
-[Adaptation]
-
-**If this feels too intense:**
-[Gentler variation]
-
-**To deepen the practice:**
-[Advanced option]
-
-## After the Practice
-
-[What to do after completing, what to notice]
-
----
-
-*[Attribution and sources]*
-```
-
-### Template: Journal Prompt
-
-```markdown
-## Journal Prompt
-
-*[Theme or intention]*
-
----
-
-**Reflection:**
-[The prompt question or invitation]
-
-**If helpful, consider:**
-- [Guiding sub-question 1]
-- [Guiding sub-question 2]
-- [Guiding sub-question 3]
-
-**Remember:**
-There are no right answers. Write what's true for you.
-You don't have to share this with anyone.
-
----
-
-*[Optional: Brief context or why this reflection might be valuable]*
-```
+Use the canonical template files (load on demand, don't reproduce them here):
+
+- [`content/templates/prayer.md`](templates/prayer.md)
+- [`content/templates/evidence-box.md`](templates/evidence-box.md)
+- [`content/templates/historical-note.md`](templates/historical-note.md)
+- [`content/templates/visualization.md`](templates/visualization.md)
+- [`content/templates/practice-instruction.md`](templates/practice-instruction.md)
+- [`content/templates/journal-prompt.md`](templates/journal-prompt.md)
+
+Each template is the single source of truth for its structure. If a template
+needs to change, edit the file, not a copy in this prompt.
 
 ---
 
@@ -358,14 +176,11 @@ before beginning any new health practice.*
 
 ### Evidence Language
 
-Match language to evidence level (from Clinical Researcher):
-
-| Evidence Level | Use This Phrase |
-|----------------|-----------------|
-| Strong | "Research demonstrates..." |
-| Moderate | "Studies suggest..." |
-| Preliminary | "Early research indicates..." |
-| Traditional only | "Traditionally used for..." |
+Match language to evidence level. The canonical phrase table lives in
+[`shared/evidence-language.md`](../shared/evidence-language.md) — use it, don't
+restate it here. In short: strong → "Research demonstrates"; moderate →
+"Studies suggest"; preliminary → "Early research indicates"; traditional only →
+"Traditionally used for".
 
 ### Attribution Requirements
 
@@ -416,14 +231,10 @@ Before beginning writing, load and follow:
 - `shared/terminology.md` - Standard vocabulary
 - `shared/voice-guide.md` - Tone and style
 - `shared/citation-format.md` - Citation standards
+- `shared/evidence-language.md` - Evidence-level → phrase mapping
 
-Load relevant templates:
-- `content/templates/prayer.md`
-- `content/templates/evidence-box.md`
-- `content/templates/historical-note.md`
-- `content/templates/visualization.md`
-- `content/templates/practice-instruction.md`
-- `content/templates/journal-prompt.md`
+Load the content templates listed under [Content Templates](#content-templates)
+on demand for the piece you're writing.
 
 ---
 
@@ -450,7 +261,3 @@ Load relevant templates:
    - Grounding elements
 
 4. **Submit for ethics review**
-
----
-
-*"Words are medicine. Every sentence should carry the intention of healing—honest, gentle, and true."*

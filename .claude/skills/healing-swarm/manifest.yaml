@@ -1392,6 +1392,20 @@ settings:
   citation_verification: true
   accessibility_minimum: AA
 
+  # Model policy — locked 2026-06-02.
+  # Every agent runs Opus 4.8 at high reasoning effort. No Sonnet/Haiku
+  # downgrade anywhere: voice and safety consistency on user-facing healing
+  # content outweigh cost. To introduce tiers later, add a per-agent `model:`
+  # field in the agents block; absent that, every agent inherits the default.
+  models:
+    default: claude-opus-4-8
+    reasoning_effort: high
+    # The two hardest reasoners carry an explicit extended-thinking cue in
+    # their prompts (dependency planning, competing-values escalation).
+    extended_thinking:
+      - swarm-conductor
+      - ethics-guardian
+
   # Quality gates
   gates:
     ethics:

@@ -61,7 +61,7 @@ Update the status, the date, and the note whenever you touch a phase.
 | 1 | Quick-win cleanup + honesty fixes | Done | 2026-05-31 | `packages/` + 3 empty template dirs deleted; dead scripts (build:docs, serve-docs) + Jekyll `.gitignore` block removed; ethics/claims gates now exit non-zero; CI `npm ci`; eslint/prettier/vitest configs added |
 | 2 | Eliminate doc drift + automate | Done | 2026-06-02 | All counts reconciled to manifest truth (52/38/25); `sync-timeline.js` (canonical counts + `--check` gate) + `generate-reference.js` (rebuilds skills/agents refs) wired into `npm run validate` + CI; CHANGELOG date typo fixed; CONTRIBUTING timeline rule added; family-nexus represented as a worked example |
 | 3 | SKILL.md generation + description rewrites | Done | 2026-06-02 | 52 `SKILL.md` generated from manifest + `skill-discovery.yaml`; `generate-skills.js` codegen + discovery linter in `npm run validate`; sensitive skills carry "Do NOT auto-launch" guards (conservative default for open Q1); overlapping triggers de-duped via disjoint "Use when" + cross-refs; `create-skill.js` repaired + emits discovery entry. CAVEAT: verify Claude Code discovers SKILL.md at `healing-swarm/<name>/` (nested, not top-level `.claude/skills/`). |
-| 4 | Model tiering + prompt slimming | Not started | 2026-05-31 | Add `model:` field; cut 350-680-line prompts |
+| 4 | Model tiering + prompt slimming | Mostly done | 2026-06-02 | Opus-everywhere policy in `settings.models` (no downgrade); extended-thinking cues on swarm-conductor + ethics-guardian; content-writer slimmed (~190 inlined template lines removed); `shared/evidence-language.md` extracted (shared 9→10). DEFERRED polish: per-research-agent tool-use guidance, closing-quote stripping, worked-example upgrades. |
 | 5 | Parallel orchestration + enforceable gates | Not started | 2026-05-31 | Fan-out + JSON gate contract |
 | 6 | Runtime decision | Not started | 2026-05-31 | Recommendation: thin harness for ethics/a11y veto only |
 
@@ -72,6 +72,17 @@ leaves the repo shippable; none requires the next.
 ---
 
 ## 4. Decisions locked (do not relitigate without the human)
+
+0. **Model policy (2026-06-02):** **Opus 4.8 at high reasoning effort for every
+   agent.** No Sonnet/Haiku downgrade anywhere — voice and safety consistency on
+   user-facing healing content outweighs cost. (Resolves Q2.)
+0b. **Phase 5 (2026-06-02):** proceed on the agent's recommendation — add real
+   fan-out + a structured gate contract + per-skill `requires`; **defer** the
+   full ~24-file DAG-notation rename (high churn, low marginal value now).
+   (Resolves Q5 as "not now.")
+0c. **Phase 6 (2026-06-02):** **yes** — Path A (LLM executor) plus a thin harness
+   that enforces only the ethics + accessibility veto via the Phase 5 JSON gate
+   contract. Do not build the full Path B SDK runner yet.
 
 1. **Skill format:** generate native `SKILL.md` from the manifest; keep
    `manifest.yaml` as source of truth. (Not a hard cutover.)
@@ -158,6 +169,16 @@ leaves the repo shippable; none requires the next.
 
 ## 7. Activity log (newest first — append, don't overwrite)
 
+- **2026-06-02** — **Phase 4 (core).** Locked Opus 4.8 high-effort everywhere
+  (`settings.models`, resolves Q2 — no downgrade). Added extended-thinking cues to
+  `swarm-conductor` (dependency planning) and `ethics-guardian` (competing-values
+  escalation). Slimmed `content-writer.md` (dropped ~190 lines of inlined templates
+  that already live in `content/templates/`, plus the filler closing quote).
+  Extracted the evidence-level phrase table into `shared/evidence-language.md` and
+  pointed content-writer + ethics-guardian at it (shared 9→10, docs reconciled).
+  Also planted the Phase 5 parallel-dispatch directive in the swarm-conductor.
+  Deferred: tool-use guidance for the 6 web-research agents, closing-quote
+  stripping across ~25 agent prompts, worked-example upgrades. All gates green.
 - **2026-06-02** — **Phase 3 complete** (same day as Phase 2). Turned 52
   slash-only skills into auto-discoverable ones: authored
   `.claude/skills/healing-swarm/skill-discovery.yaml` (52 WHAT+WHEN descriptions,

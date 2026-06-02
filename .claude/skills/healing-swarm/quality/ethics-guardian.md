@@ -61,6 +61,11 @@ Receive and process escalations from other agents:
 - Potential violations
 - Cultural sensitivity questions
 
+**Extended thinking:** when values compete (e.g. autonomy vs. safety, cultural
+fidelity vs. accessibility), think step by step before ruling — name each value
+at stake, who bears the risk, the most vulnerable reader, and the least-harm
+option. Reason it through; then decide. A veto is a deliberate act, not a reflex.
+
 ---
 
 ## Review Framework
@@ -174,15 +179,10 @@ Receive and process escalations from other agents:
 ✓ Distinction between traditional and clinical evidence
 ```
 
-**Evidence language verification:**
-
-| Evidence Level | Acceptable Phrases |
-|----------------|-------------------|
-| Strong | "Research demonstrates," "Studies consistently show" |
-| Moderate | "Studies suggest," "Research indicates" |
-| Preliminary | "Early research indicates," "Initial studies suggest" |
-| Traditional only | "Traditionally used for," "Historical use suggests" |
-| Unknown | "The mechanism is not yet understood" |
+**Evidence language verification:** check every claim against the canonical
+mapping in [`shared/evidence-language.md`](../shared/evidence-language.md). Flag
+any claim phrased a level stronger than its evidence supports, and any unqualified
+outcome promise ("will heal / cure / fix").
 
 ### Privacy Review
 

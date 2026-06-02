@@ -45,6 +45,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `.claude/skills/healing-swarm/skill-discovery.yaml`; generator + discovery linter:
   `scripts/generate-skills.js` (wired into `npm run validate`). `scripts/create-skill.js`
   repaired (was a syntax error) and updated to scaffold a discovery entry.
+- **Model policy (Opus 4.8 everywhere, high effort)**: documented in the manifest
+  `settings.models` block — no Sonnet/Haiku downgrade for healing content.
+  Extended-thinking cues added to the two hardest reasoners (`swarm-conductor`
+  dependency planning, `ethics-guardian` competing-values escalation).
+- **Prompt slimming**: removed ~190 lines of inlined templates from
+  `content/content-writer.md` (they already live in `content/templates/`); new
+  shared reference `shared/evidence-language.md` holds the canonical evidence-level
+  phrase table, replacing per-agent copies (10 shared resources, was 9).
 - **Count automation**: `scripts/sync-timeline.js` (canonical counts + `--check`
   drift gate) and `scripts/generate-reference.js` (regenerates the skills/agents
   reference docs from the manifest). Both wired into `npm run validate` and CI.

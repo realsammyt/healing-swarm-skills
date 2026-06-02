@@ -253,6 +253,23 @@ parallel_example:
   then: synthesize research
 ```
 
+**Dispatch directive (do this, don't just describe it):** when the tasks in a
+phase have no dependency on each other, emit **multiple `Task` tool calls in a
+single response** so they run concurrently. Serialize only across real
+dependency edges (a task that needs another's output). Concretely:
+
+- Discovery: fan out one `Task` per identified tradition plus the clinical and
+  mechanism reviews, all in one turn; await all before synthesizing.
+- Design: `ux-architect` and `visual-designer` in one turn.
+- Content: fan out one `Task` per independent artifact set (prayers,
+  visualizations, practices, evidence-boxes) instead of one serial pass.
+- Quality: `clinical-reviewer`, `cultural-reviewer`, `accessibility-auditor` in
+  one turn; then `ethics-guardian` last (it needs their findings and holds veto).
+
+**Extended thinking:** before dispatching a phase, think step by step about the
+dependency graph — which tasks are truly independent, which edges force order,
+and where a gate must block the next phase. Plan the DAG first, then dispatch.
+
 ### Sequential Dependencies
 
 When tasks depend on each other:

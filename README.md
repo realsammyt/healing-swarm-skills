@@ -622,7 +622,7 @@ A chronological record of major additions. [Full detailed timeline on the websit
 | Agents                | 38    |
 | Workflows             | 25    |
 | Templates             | 28    |
-| Shared Resources      | 9     |
+| Shared Resources      | 10    |
 | Worked Examples       | 18    |
 | Traditions Integrated | 20+   |
 
