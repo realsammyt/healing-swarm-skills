@@ -33,6 +33,47 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   to the full website timeline.
 - **CLAUDE.md**: Project-level instructions enforcing timeline updates whenever new
   features are added.
+- **Family Nexus Healing worked example** (`examples/family-nexus-healing/`): the
+  largest worked example to date — a three-phase build culminating in a client-side
+  PWA with three modes, 21 quality-gated protocols, offline support, and
+  accessibility/privacy by construction. Reference code only; not a shipped skill.
+- **Skill auto-discovery (Opus 4.8)**: 52 generated `SKILL.md` files give every
+  skill a WHAT + WHEN description so skills can be discovered by intent, not only by
+  exact slash command. Sensitive skills (shadow-work, resonance-pairing,
+  orbital-journey, umwelt-practice, grief-healing, language-awareness) carry explicit
+  "Do NOT auto-launch" guards. Source of the descriptions:
+  `.claude/skills/healing-swarm/skill-discovery.yaml`; generator + discovery linter:
+  `scripts/generate-skills.js` (wired into `npm run validate`). `scripts/create-skill.js`
+  repaired (was a syntax error) and updated to scaffold a discovery entry.
+- **Model policy (Opus 4.8 everywhere, high effort)**: documented in the manifest
+  `settings.models` block — no Sonnet/Haiku downgrade for healing content.
+  Extended-thinking cues added to the two hardest reasoners (`swarm-conductor`
+  dependency planning, `ethics-guardian` competing-values escalation).
+- **Prompt slimming**: removed ~190 lines of inlined templates from
+  `content/content-writer.md` (they already live in `content/templates/`); new
+  shared reference `shared/evidence-language.md` holds the canonical evidence-level
+  phrase table, replacing per-agent copies (10 shared resources, was 9).
+- **Enforceable gates + thin veto harness (ADR-004)**: every reviewer now emits a
+  machine-readable gate contract (fenced JSON `{ gate, status, blocking, issues }`).
+  `scripts/check-gates.js` parses it and halts on a failed veto gate; `ethics` and
+  `accessibility` veto on fail regardless of other signals. Unit-tested
+  (`scripts/check-gates.test.js`). `npm run check:gates -- <path>`.
+- **Parallel dispatch**: explicit fan-out directives added to the swarm-conductor
+  prompt and to the content + research workflows (per-artifact and per-tradition),
+  turning described parallelism into instructed behavior.
+- **Auditable safety context**: the six sensitive skills now declare
+  `requires: [crisis-response, contraindications]`, enforced by a new
+  `validate-manifest.js` check sourced from the `skill-discovery.yaml` sensitive
+  list. Runtime decision recorded in ADR-004 (Path A + thin veto harness).
+- **Count automation**: `scripts/sync-timeline.js` (canonical counts + `--check`
+  drift gate) and `scripts/generate-reference.js` (regenerates the skills/agents
+  reference docs from the manifest). Both wired into `npm run validate` and CI.
+- **Reference docs regenerated** from the manifest: `docs/api/skills-reference.md`
+  (now all 52 skills, was 35) and `docs/api/agents-reference.md` (now all 38 agents,
+  was 27).
+- Fixed the v1.0.0 date typo in this changelog (2025-01-01 → 2026-02-02) and
+  reconciled all cumulative counts to manifest ground truth (52 skills, 38 agents,
+  25 workflows).
 
 ---
 
@@ -109,7 +150,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [1.0.0] — 2025-01-01
+## [1.0.0] — 2026-02-02
 
 ### Added
 

@@ -1,95 +1,100 @@
 # Skills Reference
 
-> Quick reference for all healing swarm skills.
+> Generated from `manifest.yaml` by `scripts/generate-reference.js`. Do not edit by hand.
 
 ---
 
 ## Overview
 
 | Skill | Trigger | Category | Purpose |
-|-------|---------|----------|---------|
-| [healing-research](#healing-research) | `/healing-research` | research | Deep research into healing traditions and clinical evidence |
-| [traditions-research](#traditions-research) | `/traditions-research` | research | Research specific healing traditions |
-| [clinical-research](#clinical-research) | `/clinical-research` | research | Systematic review of clinical evidence |
-| [mechanism-mapping](#mechanism-mapping) | `/mechanism-mapping` | research | Bridge traditional concepts with neuroscience |
-| [coherence-meditation](#coherence-meditation) | `/coherence-meditation` | consciousness | Guided interhemispheric coherence practices |
-| [syntergic-research](#syntergic-research) | `/syntergic-research` | research | Deep research into Grinberg's consciousness science |
-| [resonance-pairing](#resonance-pairing) | `/resonance-pairing` | consciousness | Paired/group transferred potential protocols |
-| [orbital-journey](#orbital-journey) | `/orbital-journey` | consciousness | Progressive multi-day consciousness expansion |
-| [whm-breathwork](#whm-breathwork) | `/whm-breathwork` | breathwork | Guided Wim Hof breathing protocols with safety architecture |
-| [whm-cold-exposure](#whm-cold-exposure) | `/whm-cold-exposure` | breathwork | Progressive cold adaptation protocols |
-| [whm-journey](#whm-journey) | `/whm-journey` | breathwork | Multi-week integrated WHM program (all 3 pillars) |
-| [language-awareness](#language-awareness) | `/language-awareness` | perception | Individual cognitive deautomatization practices |
-| [group-perception](#group-perception) | `/group-perception` | perception | Group perception exercises with consent frameworks |
-| [sound-healing](#sound-healing) | `/sound-healing` | sound | Therapeutic sound practices — mantra, chanting, toning, singing bowl |
-| [somatic-practice](#somatic-practice) | `/somatic-practice` | movement | Gentle movement protocols — qigong, tai chi, yoga, walking meditation |
-| [sleep-healing](#sleep-healing) | `/sleep-healing` | sleep | Evening wind-down, bedtime meditation, dream journaling |
-| [nature-healing](#nature-healing) | `/nature-healing` | nature | Shinrin-yoku, earthing, garden therapy, Five Element observation |
-| [water-healing](#water-healing) | `/water-healing` | water | Contrast therapy, Kneipp method, ritual bathing education |
-| [grief-healing](#grief-healing) | `/grief-healing` | grief | Grief-informed practices across mourning traditions |
-| [expressive-healing](#expressive-healing) | `/expressive-healing` | expressive | Pennebaker writing, bibliotherapy, art-as-process |
-| [community-healing](#community-healing) | `/community-healing` | community | Healing circles, talking circles, group practice |
-| [contemplative-inquiry](#contemplative-inquiry) | `/contemplative-inquiry` | perception | Zen koan, self-inquiry, Socratic questioning, Ignatian Examen |
-| [pni-research](#pni-research) | `/pni-research` | research | Psychoneuroimmunology — mind-body-immune science |
-| [healing-design](#healing-design) | `/healing-design` | design | Design healing application UX and visuals |
-| [healing-ux](#healing-ux) | `/healing-ux` | design | UX design for healing contexts |
-| [sacred-visuals](#sacred-visuals) | `/sacred-visuals` | design | Visual system with healing aesthetics |
-| [healing-content](#healing-content) | `/healing-content` | content | Create prayers, evidence boxes, visualizations |
-| [healing-build](#healing-build) | `/healing-build` | build | Develop accessible, privacy-first applications |
-| [healing-review](#healing-review) | `/healing-review` | quality | Quality review (ethics, clinical, cultural, a11y) |
-| [ethics-review](#ethics-review) | `/ethics-review` | quality | Ethics and safety review |
-| [clinical-review](#clinical-review) | `/clinical-review` | quality | Verify clinical claims and citations |
-| [cultural-review](#cultural-review) | `/cultural-review` | quality | Cultural sensitivity review |
-| [a11y-audit](#a11y-audit) | `/a11y-audit` | quality | WCAG and healing-specific accessibility audit |
-| [healing-deploy](#healing-deploy) | `/healing-deploy` | deploy | Deploy and maintain applications |
-| [healing-swarm](#healing-swarm) | `/healing-swarm` | orchestrator | Full orchestrated development lifecycle |
+| ----- | ------- | -------- | ------- |
+| [healing-research](#healing-research) | `/healing-research` | research | Deep research into healing traditions and clinical evidence. |
+| [traditions-research](#traditions-research) | `/traditions-research` | research | Research specific healing traditions with scholarly rigor. |
+| [clinical-research](#clinical-research) | `/clinical-research` | research | Systematic review of clinical evidence for healing modalities. |
+| [mechanism-mapping](#mechanism-mapping) | `/mechanism-mapping` | research | Bridge traditional healing concepts with modern neuroscience. |
+| [aqal-check-in](#aqal-check-in) | `/aqal-check-in` | integral | Structured four-quadrant self-inquiry based on Wilber's AQAL framework. |
+| [shadow-work](#shadow-work) | `/shadow-work` | integral | Guided 3-2-1 shadow integration practice for approaching disowned aspects of self. |
+| [spectrum-meditation](#spectrum-meditation) | `/spectrum-meditation` | integral | Progressive three-body state-training meditation moving through gross, subtle, and causal realms. |
+| [integral-psychograph](#integral-psychograph) | `/integral-psychograph` | integral | Self-reflection tool for exploring multiple developmental lines. |
+| [perspective-practice](#perspective-practice) | `/perspective-practice` | integral | Quadrant perspective-taking exercise for viewing life situations from all four AQAL perspectives. |
+| [coherence-meditation](#coherence-meditation) | `/coherence-meditation` | consciousness | Guided interhemispheric coherence practices based on Grinberg's self-allusive meditation protocol. |
+| [syntergic-research](#syntergic-research) | `/syntergic-research` | research | Deep research into Grinberg's consciousness science with honest evidence presentation. |
+| [resonance-pairing](#resonance-pairing) | `/resonance-pairing` | consciousness | Paired and group meditation protocols based on Grinberg's transferred potential research. |
+| [orbital-journey](#orbital-journey) | `/orbital-journey` | consciousness | Progressive multi-day journeys through Grinberg's consciousness orbitals. |
+| [whm-breathwork](#whm-breathwork) | `/whm-breathwork` | breathwork | Wim Hof Method breathing protocols with comprehensive safety framing. |
+| [whm-cold-exposure](#whm-cold-exposure) | `/whm-cold-exposure` | breathwork | Progressive cold exposure protocols as part of the Wim Hof Method. |
+| [whm-journey](#whm-journey) | `/whm-journey` | breathwork | Complete multi-week Wim Hof Method training journey integrating all three pillars: breathing, cold exposure, and commitment (meditation). |
+| [language-awareness](#language-awareness) | `/language-awareness` | perception | Cognitive deautomatization and language awareness protocols. |
+| [group-perception](#group-perception) | `/group-perception` | perception | Group and paired perception exercises for collective language awareness. |
+| [sound-healing](#sound-healing) | `/sound-healing` | sound | Sound-based healing protocols (vocal toning, mantra, chanting, humming) |
+| [sound-research](#sound-research) | `/sound-research` | research | Evidence review for sound-based healing interventions |
+| [archaeoacoustic-toning](#archaeoacoustic-toning) | `/archaeoacoustic-toning` | sound | Guided vocal toning practices based on resonant frequencies of ancient sacred sites. |
+| [sound-consciousness](#sound-consciousness) | `/sound-consciousness` | sound | Museum of Consciousness-style audio experiences with Milliere 6D self-assessment. |
+| [holotechnica-stack](#holotechnica-stack) | `/holotechnica-stack` | consciousness | Personalized endo-technology experience stacks targeting altered traits. |
+| [hyperhumanism-inquiry](#hyperhumanism-inquiry) | `/hyperhumanism-inquiry` | consciousness | Guided philosophical inquiry on consciousness, technology, and innate human capacities. |
+| [umwelt-practice](#umwelt-practice) | `/umwelt-practice` | consciousness | Sensory augmentation exercises for perceiving-as-other and extending the sensorium. |
+| [cyberdelic-research](#cyberdelic-research) | `/cyberdelic-research` | research | Deep research into consciousness technologies and endo-technology science. |
+| [somatic-practice](#somatic-practice) | `/somatic-practice` | movement | Guided gentle movement protocols (qigong, tai chi, yoga, walking meditation) |
+| [walking-meditation](#walking-meditation) | `/walking-meditation` | movement | Mindful movement for those who cannot sit. |
+| [sleep-healing](#sleep-healing) | `/sleep-healing` | sleep | Evening wind-down protocols, sleep hygiene, bedtime meditations, dream journaling |
+| [dream-practice](#dream-practice) | `/dream-practice` | sleep | Dream journaling, dream incubation, lucid dreaming introduction |
+| [nature-healing](#nature-healing) | `/nature-healing` | nature | Structured nature connection (forest bathing, earthing, sky gazing, garden therapy) |
+| [water-healing](#water-healing) | `/water-healing` | water | Therapeutic water practices (contrast therapy, ritual bathing education, thermal protocols) |
+| [grief-healing](#grief-healing) | `/grief-healing` | grief | Grief-informed healing practices for processing loss (health, bereavement, transitions). |
+| [expressive-healing](#expressive-healing) | `/expressive-healing` | expressive | Creative healing practices (therapeutic writing, art-as-process, bibliotherapy) |
+| [healing-journaling](#healing-journaling) | `/healing-journaling` | expressive | Extended journaling protocols beyond simple prompts. |
+| [community-healing](#community-healing) | `/community-healing` | community | Group healing circle protocols, shared practice frameworks, facilitation guides |
+| [relational-practice](#relational-practice) | `/relational-practice` | community | Dyadic healing practices for relationships (distinct from Grinberg resonance pairing) |
+| [pni-research](#pni-research) | `/pni-research` | research | Deep research into psychoneuroimmunology findings relevant to healing practices |
+| [pni-mapping](#pni-mapping) | `/pni-mapping` | research | Map specific traditional practices to their PNI pathways |
+| [contemplative-inquiry](#contemplative-inquiry) | `/contemplative-inquiry` | perception | Guided self-inquiry from multiple traditions (Zen koan-inspired, Socratic, Ignatian Examen) |
+| [healing-design](#healing-design) | `/healing-design` | design | Design healing application UX and visuals. |
+| [healing-ux](#healing-ux) | `/healing-ux` | design | Design user experience for healing contexts. |
+| [sacred-visuals](#sacred-visuals) | `/sacred-visuals` | design | Design visual system with healing aesthetics. |
+| [healing-content](#healing-content) | `/healing-content` | content | Write content for healing applications. |
+| [healing-build](#healing-build) | `/healing-build` | build | Develop healing applications with accessibility and privacy focus. |
+| [healing-review](#healing-review) | `/healing-review` | quality | Comprehensive quality review for healing applications. |
+| [ethics-review](#ethics-review) | `/ethics-review` | quality | Ethics and safety review for healing content/features. |
+| [clinical-review](#clinical-review) | `/clinical-review` | quality | Verify clinical claims and citations. |
+| [cultural-review](#cultural-review) | `/cultural-review` | quality | Cultural sensitivity review for healing content. |
+| [a11y-audit](#a11y-audit) | `/a11y-audit` | quality | Accessibility audit for healing applications. |
+| [healing-deploy](#healing-deploy) | `/healing-deploy` | deploy | Deploy and maintain healing applications. |
+| [healing-swarm](#healing-swarm) | `/healing-swarm` | orchestration | Complete healing application development lifecycle. |
 
 ---
 
 ## healing-research
 
 **Trigger:** `/healing-research`
+
 **Category:** research
+
 **Workflow:** `research/workflow.yaml`
 
 ### Description
 
-Deep research into healing traditions and clinical evidence, coordinating multiple specialized research agents to produce comprehensive research briefs.
-
-### Inputs
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `query` | string | Yes | Research topic or question |
-| `depth` | enum | No | `quick`, `standard` (default), `comprehensive` |
-| `traditions` | array | No | Specific traditions to research |
-
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `research-brief.md` | Comprehensive research summary |
-| `traditions-research.md` | Traditional healing research |
-| `clinical-evidence.md` | Clinical evidence review |
-| `mechanism-bridges.md` | Science-tradition bridges |
+Deep research into healing traditions and clinical evidence. Coordinates traditions scholar, clinical researcher, and mechanisms neuroscientist to produce comprehensive research briefs.
 
 ### Agents
 
-- **traditions-scholar** - Ancient healing practices research
-- **clinical-researcher** - Clinical evidence review
-- **mechanisms-neuroscientist** - Science-tradition bridging
+- `traditions-scholar`
+- `clinical-researcher`
+- `mechanisms-neuroscientist`
 
-### Examples
+### Outputs
+
+- `research-brief.md`
+- `traditions-research.md`
+- `clinical-evidence.md`
+- `mechanism-bridges.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
 
 ```bash
-# Quick research
-/healing-research "acupressure for headache" --depth quick
-
-# Comprehensive research
-/healing-research "meditation for chronic pain" --depth comprehensive
-
-# Specific tradition
-/healing-research "pranayama breathing" --traditions "Vedic"
+/healing-research "acupressure for hand ligament injuries"
+/healing-research "visualization for chronic pain" --depth comprehensive
 ```
 
 ---
@@ -97,18 +102,20 @@ Deep research into healing traditions and clinical evidence, coordinating multip
 ## traditions-research
 
 **Trigger:** `/traditions-research`
+
 **Category:** research
-**Standalone:** Yes (single agent)
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
 
 ### Description
 
-Research specific healing traditions with scholarly rigor. Covers TCM, Ayurveda, Western esoteric, Indigenous, and Jewish mystical traditions.
+Research specific healing traditions with scholarly rigor. Covers TCM, Ayurveda, Western esoteric, Indigenous, Jewish mystical.
 
 ### Agents
 
-- **traditions-scholar** - Ancient healing practices research
+- `traditions-scholar`
 
-### Examples
+### Example Usage
 
 ```bash
 /traditions-research "Solomonic angel healing"
@@ -120,18 +127,20 @@ Research specific healing traditions with scholarly rigor. Covers TCM, Ayurveda,
 ## clinical-research
 
 **Trigger:** `/clinical-research`
+
 **Category:** research
-**Standalone:** Yes (single agent)
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
 
 ### Description
 
-Systematic review of clinical evidence for healing modalities. Searches PubMed/PMC, assesses study quality, and reports findings with appropriate evidence language.
+Systematic review of clinical evidence for healing modalities. Searches PubMed/PMC, assesses study quality, reports findings.
 
 ### Agents
 
-- **clinical-researcher** - Clinical evidence review
+- `clinical-researcher`
 
-### Examples
+### Example Usage
 
 ```bash
 /clinical-research "guided imagery pain reduction"
@@ -143,18 +152,20 @@ Systematic review of clinical evidence for healing modalities. Searches PubMed/P
 ## mechanism-mapping
 
 **Trigger:** `/mechanism-mapping`
+
 **Category:** research
-**Standalone:** Yes (single agent)
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
 
 ### Description
 
-Bridge traditional healing concepts with modern neuroscience. Translate between ancient wisdom and scientific understanding without conflating the two.
+Bridge traditional healing concepts with modern neuroscience. Translate between ancient wisdom and scientific understanding.
 
 ### Agents
 
-- **mechanisms-neuroscientist** - Science-tradition bridging
+- `mechanisms-neuroscientist`
 
-### Examples
+### Example Usage
 
 ```bash
 /mechanism-mapping "qi cultivation" --to neuroscience
@@ -163,40 +174,230 @@ Bridge traditional healing concepts with modern neuroscience. Translate between 
 
 ---
 
+## aqal-check-in
+
+**Trigger:** `/aqal-check-in`
+
+**Category:** integral
+
+**Workflow:** `content/aqal-checkin-workflow.yaml`
+
+### Description
+
+Structured four-quadrant self-inquiry based on Wilber's AQAL framework. Guides users through interior/exterior and individual/collective perspectives on any situation.
+
+### Agents
+
+- `integral-researcher`
+- `integral-guide`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/aqal-checkin.md`
+
+### Outputs
+
+- `aqal-checkin.md`
+- `integration-notes.md`
+- `evidence-brief.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/aqal-check-in "navigating a career change"
+/aqal-check-in "start of day" --depth brief
+/aqal-check-in "managing chronic illness" --depth deep
+```
+
+---
+
+## shadow-work
+
+**Trigger:** `/shadow-work`
+
+**Category:** integral
+
+**Workflow:** `content/shadow-work-workflow.yaml`
+
+### Description
+
+Guided 3-2-1 shadow integration practice for approaching disowned aspects of self. Three intensity levels with safety architecture. Ethics review is CRITICAL for all outputs.
+
+### Agents
+
+- `integral-researcher`
+- `shadow-facilitator`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/shadow-process.md`
+
+### Outputs
+
+- `shadow-practice.md`
+- `safety-checklist.md`
+- `evidence-brief.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/shadow-work "my critical boss" --intensity gentle
+/shadow-work "arrogance I notice in others" --type quality --intensity moderate
+/shadow-work "my need to control" --intensity deep
+```
+
+---
+
+## spectrum-meditation
+
+**Trigger:** `/spectrum-meditation`
+
+**Category:** integral
+
+**Workflow:** `content/spectrum-meditation-workflow.yaml`
+
+### Description
+
+Progressive three-body state-training meditation moving through gross, subtle, and causal realms. Based on Wilber's integral state model drawing from Vedantic three-body doctrine.
+
+### Agents
+
+- `integral-researcher`
+- `integral-guide`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/spectrum-meditation.md`
+
+### Outputs
+
+- `spectrum-meditation.md`
+- `timing-structure.json`
+- `evidence-brief.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/spectrum-meditation --scope foundation --duration 15
+/spectrum-meditation --scope intermediate --duration 20
+/spectrum-meditation --scope full_spectrum --duration 30
+```
+
+---
+
+## integral-psychograph
+
+**Trigger:** `/integral-psychograph`
+
+**Category:** integral
+
+**Workflow:** `research/integral-research-workflow.yaml`
+
+### Description
+
+Self-reflection tool for exploring multiple developmental lines. NOT a clinical assessment — a contemplative self-inquiry exercise. Uses established developmental models (Piaget, Cook-Greuter, Kohlberg).
+
+### Agents
+
+- `integral-researcher`
+- `ethics-guardian`
+
+### Outputs
+
+- `psychograph-reflection.md`
+- `evidence-brief.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/integral-psychograph --lines cognitive,moral,interpersonal
+/integral-psychograph --depth deep
+```
+
+---
+
+## perspective-practice
+
+**Trigger:** `/perspective-practice`
+
+**Category:** integral
+
+**Workflow:** `content/perspective-workflow.yaml`
+
+### Description
+
+Quadrant perspective-taking exercise for viewing life situations from all four AQAL perspectives. Builds cognitive flexibility and empathic understanding.
+
+### Agents
+
+- `integral-researcher`
+- `integral-guide`
+- `content-writer`
+- `ethics-guardian`
+
+### Outputs
+
+- `perspective-practice.md`
+- `synthesis-prompts.md`
+- `evidence-brief.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/perspective-practice "conflict with my partner about finances"
+/perspective-practice "team restructuring" --complexity complex
+```
+
+---
+
 ## coherence-meditation
 
 **Trigger:** `/coherence-meditation`
+
 **Category:** consciousness
+
 **Workflow:** `research/coherence-workflow.yaml`
 
 ### Description
 
 Guided interhemispheric coherence practices based on Grinberg's self-allusive meditation protocol. Produces 20-minute guided meditations with evidence context and safety framing.
 
-### Inputs
+### Agents
 
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `focus` | string | Yes | Focus area (e.g., "morning coherence", "stress reduction") |
-| `level` | enum | No | `beginner`, `intermediate`, `advanced` |
-| `duration` | number | No | `10`, `20` (default), `30` minutes |
+- `consciousness-researcher`
+- `coherence-guide`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/coherence-practice.md`
 
 ### Outputs
 
-| Output | Description |
-|--------|-------------|
-| `coherence-practice.md` | Complete guided meditation script |
-| `evidence-brief.md` | Research context with honest limitations |
-| `audio-timing.json` | Timing cues for audio recording |
+- `coherence-practice.md`
+- `evidence-brief.md`
+- `audio-timing.json`
 
-### Agents
+> ⚖️ Requires ethics approval before outputs are released.
 
-- **consciousness-researcher** - Grinberg research and EEG coherence evidence
-- **coherence-guide** - Self-allusive meditation practice design
-- **content-writer** - Practice language and framing
-- **ethics-guardian** - Safety and evidence claims review
-
-### Examples
+### Example Usage
 
 ```bash
 /coherence-meditation "morning coherence" --level beginner
@@ -208,31 +409,33 @@ Guided interhemispheric coherence practices based on Grinberg's self-allusive me
 ## syntergic-research
 
 **Trigger:** `/syntergic-research`
+
 **Category:** research
+
 **Workflow:** `research/syntergic-workflow.yaml`
 
 ### Description
 
 Deep research into Grinberg's consciousness science with honest evidence presentation. Bridges syntergic theory with mainstream neuroscience and contextualizes shamanic observations.
 
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `syntergic-research-brief.md` | Comprehensive research brief |
-| `grinberg-bibliography.md` | Complete bibliography |
-| `shamanic-context.md` | Shamanic observation context |
-| `honest-assessment.md` | Evidence level assessment |
-
 ### Agents
 
-- **consciousness-researcher** - Grinberg research specialist
-- **traditions-scholar** - Cross-tradition context
-- **clinical-researcher** - Evidence evaluation
-- **mechanisms-neuroscientist** - Neuroscience bridging
-- **ethics-guardian** - Claims review
+- `consciousness-researcher`
+- `traditions-scholar`
+- `clinical-researcher`
+- `mechanisms-neuroscientist`
+- `ethics-guardian`
 
-### Examples
+### Outputs
+
+- `syntergic-research-brief.md`
+- `grinberg-bibliography.md`
+- `shamanic-context.md`
+- `honest-assessment.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
 
 ```bash
 /syntergic-research "syntergic theory overview" --depth quick
@@ -244,38 +447,36 @@ Deep research into Grinberg's consciousness science with honest evidence present
 ## resonance-pairing
 
 **Trigger:** `/resonance-pairing`
+
 **Category:** consciousness
+
 **Workflow:** `content/resonance-workflow.yaml`
 
 ### Description
 
 Paired and group meditation protocols based on Grinberg's transferred potential research. Consent and safety are paramount. Ethics review is CRITICAL for all outputs.
 
-### Inputs
+### Agents
 
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `focus` | string | Yes | Session focus |
-| `group` | enum | No | `dyad`, `small_group`, `large_group` |
-| `level` | enum | No | `first_time`, `experienced`, `advanced` |
+- `consciousness-researcher`
+- `resonance-facilitator`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/resonance-pairing.md`
 
 ### Outputs
 
-| Output | Description |
-|--------|-------------|
-| `pairing-protocol.md` | Complete pairing guide |
-| `participant-guide.md` | Participant preparation |
-| `consent-framework.md` | Informed consent protocol |
-| `boundary-guidelines.md` | Boundary and safety guidelines |
+- `pairing-protocol.md`
+- `participant-guide.md`
+- `consent-framework.md`
+- `boundary-guidelines.md`
 
-### Agents
+> ⚖️ Requires ethics approval before outputs are released.
 
-- **consciousness-researcher** - Research context
-- **resonance-facilitator** - Pairing protocol design
-- **content-writer** - Script polishing
-- **ethics-guardian** - Consent and safety review
-
-### Examples
+### Example Usage
 
 ```bash
 /resonance-pairing "first session" --group dyad --level first_time
@@ -287,39 +488,38 @@ Paired and group meditation protocols based on Grinberg's transferred potential 
 ## orbital-journey
 
 **Trigger:** `/orbital-journey`
+
 **Category:** consciousness
+
 **Workflow:** `content/orbital-workflow.yaml`
 
 ### Description
 
 Progressive multi-day journeys through Grinberg's consciousness orbitals. Ethics review is CRITICAL for transpersonal content. Includes comprehensive safety architecture and screening.
 
-### Inputs
+### Agents
 
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `duration` | number | Yes | Journey duration in days (7, 14, 21, 28) |
-| `level` | enum | No | `beginner`, `intermediate`, `advanced` |
+- `consciousness-researcher`
+- `orbital-architect`
+- `coherence-guide`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/orbital-day.md`
 
 ### Outputs
 
-| Output | Description |
-|--------|-------------|
-| `journey-map.md` | Complete journey overview |
-| `daily-practices/` | Day-by-day practice guides |
-| `orbital-guide.md` | Orbital progression guide |
-| `safety-protocols.md` | Safety and grounding protocols |
-| `progress-tracker.md` | Journey tracking tool |
+- `journey-map.md`
+- `daily-practices/`
+- `orbital-guide.md`
+- `safety-protocols.md`
+- `progress-tracker.md`
 
-### Agents
+> ⚖️ Requires ethics approval before outputs are released.
 
-- **consciousness-researcher** - Research context
-- **orbital-architect** - Journey structure design
-- **coherence-guide** - Meditation practice design
-- **content-writer** - Daily practice scripting
-- **ethics-guardian** - Safety architecture review
-
-### Examples
+### Example Usage
 
 ```bash
 /orbital-journey --duration 7 --level beginner
@@ -329,45 +529,1016 @@ Progressive multi-day journeys through Grinberg's consciousness orbitals. Ethics
 
 ---
 
+## whm-breathwork
+
+**Trigger:** `/whm-breathwork`
+
+**Category:** breathwork
+
+**Workflow:** `content/breathwork-workflow.yaml`
+
+### Description
+
+Wim Hof Method breathing protocols with comprehensive safety framing. Produces guided breathing sessions with round structures, retention guidance, and progressive training plans. Coordinates research, protocol design, and safety review.
+
+### Agents
+
+- `breathwork-coach`
+- `traditions-scholar`
+- `clinical-researcher`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/breathwork-protocol.md`
+
+### Outputs
+
+- `breathwork-protocol.md`
+- `session-timing.json`
+- `quick-reference.md`
+- `audio-script.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/whm-breathwork "first session" --level beginner
+/whm-breathwork "week 4 training" --level intermediate
+/whm-breathwork "deep practice" --level advanced
+```
+
+---
+
+## whm-cold-exposure
+
+**Trigger:** `/whm-cold-exposure`
+
+**Category:** breathwork
+
+**Workflow:** `content/breathwork-workflow.yaml`
+
+### Description
+
+Progressive cold exposure protocols as part of the Wim Hof Method. Produces safe, graduated cold training plans from cold shower finishes through full cold immersion. Safety review is CRITICAL for all outputs.
+
+### Agents
+
+- `cold-exposure-guide`
+- `clinical-researcher`
+- `traditions-scholar`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/cold-exposure-protocol.md`
+
+### Outputs
+
+- `cold-exposure-protocol.md`
+- `weekly-progression.md`
+- `environment-guide.md`
+- `safety-checklist.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/whm-cold-exposure "week 1 cold shower" --level 1
+/whm-cold-exposure "cold immersion introduction" --level 4
+/whm-cold-exposure "winter training" --season cold
+```
+
+---
+
+## whm-journey
+
+**Trigger:** `/whm-journey`
+
+**Category:** breathwork
+
+**Workflow:** `content/whm-journey-workflow.yaml`
+
+### Description
+
+Complete multi-week Wim Hof Method training journey integrating all three pillars: breathing, cold exposure, and commitment (meditation). Produces progressive weekly plans with daily practices, safety protocols, and progress tracking.
+
+### Agents
+
+- `breathwork-coach`
+- `cold-exposure-guide`
+- `coherence-guide`
+- `traditions-scholar`
+- `clinical-researcher`
+- `mechanisms-neuroscientist`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/breathwork-protocol.md`
+- `content/templates/cold-exposure-protocol.md`
+
+### Outputs
+
+- `journey-overview.md`
+- `participant-guide.md`
+- `weekly-plans/`
+- `daily-practices/`
+- `progress-tracker.md`
+- `safety-protocols.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/whm-journey --duration 2 --level beginner
+/whm-journey --duration 4 --level beginner
+/whm-journey --duration 10 --level beginner
+```
+
+---
+
+## language-awareness
+
+**Trigger:** `/language-awareness`
+
+**Category:** perception
+
+**Workflow:** `content/language-awareness-workflow.yaml`
+
+### Description
+
+Cognitive deautomatization and language awareness protocols. Produces progressive practices for observing how language shapes perception, from label delay to extended un-naming. Based on contemplative traditions (Zen, Dzogchen, Phenomenology) and Chase Hughes' research. Ethics review is CRITICAL for psychological safety.
+
+### Agents
+
+- `language-awareness-guide`
+- `traditions-scholar`
+- `clinical-researcher`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/language-awareness-protocol.md`
+
+### Outputs
+
+- `language-awareness-protocol.md`
+- `grounding-guide.md`
+- `practice-journal-prompts.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/language-awareness "first practice" --level observation
+/language-awareness "full program" --duration 8 --progressive
+/language-awareness "meaning collapse" --level interruption
+```
+
+---
+
+## group-perception
+
+**Trigger:** `/group-perception`
+
+**Category:** perception
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Group and paired perception exercises for collective language awareness. Includes collective label delay, pronoun relay, meaning collapse circle, map-maker's interrogation, conversion drill, and silence sit. Consent framework required for all exercises.
+
+### Agents
+
+- `language-awareness-guide`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/group-perception-protocol.md`
+
+### Outputs
+
+- `group-protocol.md`
+- `facilitator-guide.md`
+- `consent-framework.md`
+- `debrief-questions.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/group-perception "team workshop" --exercise collective_label_delay
+/group-perception "book club" --exercise meaning_collapse_circle
+/group-perception "retreat" --exercise silence_sit --duration 30
+```
+
+---
+
+## sound-healing
+
+**Trigger:** `/sound-healing`
+
+**Category:** sound
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Sound-based healing protocols (vocal toning, mantra, chanting, humming)
+
+### Agents
+
+- `sound-healing-guide`
+- `traditions-scholar`
+- `clinical-researcher`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/sound-protocol.md`
+
+### Outputs
+
+- `sound-protocol.md`
+- `session-timing.json`
+- `quick-reference.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/sound-healing "humming practice" --level beginner
+```
+
+---
+
+## sound-research
+
+**Trigger:** `/sound-research`
+
+**Category:** research
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Evidence review for sound-based healing interventions
+
+### Agents
+
+- `sound-healing-guide`
+- `clinical-researcher`
+- `traditions-scholar`
+
+### Example Usage
+
+```bash
+/sound-research "vagal toning via humming"
+```
+
+---
+
+## archaeoacoustic-toning
+
+**Trigger:** `/archaeoacoustic-toning`
+
+**Category:** sound
+
+**Workflow:** `content/archaeoacoustic-toning-workflow.yaml`
+
+### Description
+
+Guided vocal toning practices based on resonant frequencies of ancient sacred sites. Progressive structure: listen, hum, tone, harmonics, silence.
+
+### Agents
+
+- `hyperhumanism-researcher`
+- `archaeoacoustic-guide`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/archaeoacoustic-toning.md`
+
+### Outputs
+
+- `toning-practice.md`
+- `resonance-body-map.md`
+- `evidence-brief.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/archaeoacoustic-toning "110 Hz King's Chamber" --depth standard
+```
+
+---
+
+## sound-consciousness
+
+**Trigger:** `/sound-consciousness`
+
+**Category:** sound
+
+**Workflow:** `content/sound-consciousness-workflow.yaml`
+
+### Description
+
+Museum of Consciousness-style audio experiences with Milliere 6D self-assessment. Short consciousness samples with assessment between each.
+
+### Agents
+
+- `hyperhumanism-researcher`
+- `archaeoacoustic-guide`
+- `content-writer`
+- `ethics-guardian`
+
+### Outputs
+
+- `consciousness-exhibit.md`
+- `self-assessment-form.md`
+- `evidence-brief.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/sound-consciousness "mindfulness samples" --duration 20
+```
+
+---
+
+## holotechnica-stack
+
+**Trigger:** `/holotechnica-stack`
+
+**Category:** consciousness
+
+**Workflow:** `content/holotechnica-workflow.yaml`
+
+### Description
+
+Personalized endo-technology experience stacks targeting altered traits. NO pharmaco-technologies (HARD EXCLUSION).
+
+### Agents
+
+- `hyperhumanism-researcher`
+- `holotechnica-architect`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/holotechnica-recipe.md`
+
+### Outputs
+
+- `holotechnica-recipe.md`
+- `ingredient-matrix.md`
+- `integration-journal.md`
+- `evidence-brief.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/holotechnica-stack "morning activation" --depth simple --duration 15
+```
+
+---
+
+## hyperhumanism-inquiry
+
+**Trigger:** `/hyperhumanism-inquiry`
+
+**Category:** consciousness
+
+**Workflow:** `content/hyperhumanism-workflow.yaml`
+
+### Description
+
+Guided philosophical inquiry on consciousness, technology, and innate human capacities. Four phases: inventory, audit, reclamation, practice design.
+
+### Agents
+
+- `hyperhumanism-researcher`
+- `umwelt-facilitator`
+- `content-writer`
+- `ethics-guardian`
+
+### Outputs
+
+- `inquiry-guide.md`
+- `capacity-inventory.md`
+- `micro-practice-design.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/hyperhumanism-inquiry "my relationship with technology"
+```
+
+---
+
+## umwelt-practice
+
+**Trigger:** `/umwelt-practice`
+
+**Category:** consciousness
+
+**Workflow:** `content/umwelt-workflow.yaml`
+
+### Description
+
+Sensory augmentation exercises for perceiving-as-other and extending the sensorium. CONTRAINDICATED for dissociative disorders.
+
+### Agents
+
+- `hyperhumanism-researcher`
+- `umwelt-facilitator`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/umwelt-exercise.md`
+
+### Outputs
+
+- `umwelt-practice.md`
+- `sensory-map.md`
+- `grounding-guide.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/umwelt-practice "forest sensing" --level perceiving_as_other
+```
+
+---
+
+## cyberdelic-research
+
+**Trigger:** `/cyberdelic-research`
+
+**Category:** research
+
+**Workflow:** `research/cyberdelic-research-workflow.yaml`
+
+### Description
+
+Deep research into consciousness technologies and endo-technology science. Covers evidence base, archaeoacoustics, consciousness models.
+
+### Agents
+
+- `hyperhumanism-researcher`
+- `traditions-scholar`
+- `clinical-researcher`
+- `ethics-guardian`
+
+### Outputs
+
+- `research-brief.md`
+- `evidence-synthesis.md`
+- `technology-assessment.md`
+
+### Example Usage
+
+```bash
+/cyberdelic-research "endo-technology evidence base" --depth standard
+```
+
+---
+
+## somatic-practice
+
+**Trigger:** `/somatic-practice`
+
+**Category:** movement
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Guided gentle movement protocols (qigong, tai chi, yoga, walking meditation)
+
+### Agents
+
+- `somatic-guide`
+- `traditions-scholar`
+- `clinical-researcher`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/movement-protocol.md`
+
+### Outputs
+
+- `movement-protocol.md`
+- `session-timing.json`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/somatic-practice "gentle qigong" --level beginner
+```
+
+---
+
+## walking-meditation
+
+**Trigger:** `/walking-meditation`
+
+**Category:** movement
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Mindful movement for those who cannot sit. Walking meditation protocols.
+
+### Agents
+
+- `somatic-guide`
+- `content-writer`
+- `ethics-guardian`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/walking-meditation "indoor kinhin" --duration 15
+```
+
+---
+
+## sleep-healing
+
+**Trigger:** `/sleep-healing`
+
+**Category:** sleep
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Evening wind-down protocols, sleep hygiene, bedtime meditations, dream journaling
+
+### Agents
+
+- `sleep-healing-guide`
+- `traditions-scholar`
+- `clinical-researcher`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/sleep-protocol.md`
+
+### Outputs
+
+- `sleep-protocol.md`
+- `evening-routine.md`
+- `dream-journal-prompts.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/sleep-healing "evening wind-down" --level beginner
+```
+
+---
+
+## dream-practice
+
+**Trigger:** `/dream-practice`
+
+**Category:** sleep
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Dream journaling, dream incubation, lucid dreaming introduction
+
+### Agents
+
+- `sleep-healing-guide`
+- `traditions-scholar`
+- `content-writer`
+- `ethics-guardian`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/dream-practice "dream journaling" --level beginner
+```
+
+---
+
+## nature-healing
+
+**Trigger:** `/nature-healing`
+
+**Category:** nature
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Structured nature connection (forest bathing, earthing, sky gazing, garden therapy)
+
+### Agents
+
+- `nature-guide`
+- `traditions-scholar`
+- `clinical-researcher`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/nature-protocol.md`
+
+### Outputs
+
+- `nature-protocol.md`
+- `seasonal-guide.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/nature-healing "forest bathing" --level beginner --setting park
+```
+
+---
+
+## water-healing
+
+**Trigger:** `/water-healing`
+
+**Category:** water
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Therapeutic water practices (contrast therapy, ritual bathing education, thermal protocols)
+
+### Agents
+
+- `water-guide`
+- `traditions-scholar`
+- `clinical-researcher`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/water-protocol.md`
+
+### Outputs
+
+- `water-protocol.md`
+- `safety-checklist.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/water-healing "contrast shower" --level beginner
+```
+
+---
+
+## grief-healing
+
+**Trigger:** `/grief-healing`
+
+**Category:** grief
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Grief-informed healing practices for processing loss (health, bereavement, transitions). Enhanced psychological safety.
+
+### Agents
+
+- `grief-guide`
+- `traditions-scholar`
+- `clinical-researcher`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/grief-practice.md`
+
+### Outputs
+
+- `grief-practice.md`
+- `grounding-guide.md`
+- `crisis-resources.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/grief-healing "acknowledging loss" --level foundation
+```
+
+---
+
+## expressive-healing
+
+**Trigger:** `/expressive-healing`
+
+**Category:** expressive
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Creative healing practices (therapeutic writing, art-as-process, bibliotherapy)
+
+### Agents
+
+- `expressive-guide`
+- `traditions-scholar`
+- `clinical-researcher`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/expressive-protocol.md`
+
+### Outputs
+
+- `expressive-protocol.md`
+- `journal-prompts.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/expressive-healing "healing writing" --method pennebaker
+```
+
+---
+
+## healing-journaling
+
+**Trigger:** `/healing-journaling`
+
+**Category:** expressive
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Extended journaling protocols beyond simple prompts. Structured multi-day writing sequences.
+
+### Agents
+
+- `expressive-guide`
+- `content-writer`
+
+### Example Usage
+
+```bash
+/healing-journaling "4-day writing sequence" --focus healing
+```
+
+---
+
+## community-healing
+
+**Trigger:** `/community-healing`
+
+**Category:** community
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Group healing circle protocols, shared practice frameworks, facilitation guides
+
+### Agents
+
+- `community-facilitator`
+- `traditions-scholar`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/community-protocol.md`
+
+### Outputs
+
+- `community-protocol.md`
+- `facilitator-guide.md`
+- `consent-framework.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/community-healing "healing circle" --group_size 8
+```
+
+---
+
+## relational-practice
+
+**Trigger:** `/relational-practice`
+
+**Category:** community
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Dyadic healing practices for relationships (distinct from Grinberg resonance pairing)
+
+### Agents
+
+- `community-facilitator`
+- `content-writer`
+- `ethics-guardian`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/relational-practice "partner meditation" --level beginner
+```
+
+---
+
+## pni-research
+
+**Trigger:** `/pni-research`
+
+**Category:** research
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Deep research into psychoneuroimmunology findings relevant to healing practices
+
+### Agents
+
+- `pni-researcher`
+- `clinical-researcher`
+- `mechanisms-neuroscientist`
+
+### Example Usage
+
+```bash
+/pni-research "meditation and immune function"
+```
+
+---
+
+## pni-mapping
+
+**Trigger:** `/pni-mapping`
+
+**Category:** research
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Map specific traditional practices to their PNI pathways
+
+### Agents
+
+- `pni-researcher`
+- `traditions-scholar`
+- `mechanisms-neuroscientist`
+
+### Example Usage
+
+```bash
+/pni-mapping "breathwork" --to immune-pathways
+```
+
+---
+
+## contemplative-inquiry
+
+**Trigger:** `/contemplative-inquiry`
+
+**Category:** perception
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Guided self-inquiry from multiple traditions (Zen koan-inspired, Socratic, Ignatian Examen)
+
+### Agents
+
+- `contemplative-guide`
+- `traditions-scholar`
+- `clinical-researcher`
+- `content-writer`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/contemplative-protocol.md`
+
+### Outputs
+
+- `inquiry-protocol.md`
+- `reflection-prompts.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/contemplative-inquiry "what is healing" --level beginner
+```
+
+---
+
 ## healing-design
 
 **Trigger:** `/healing-design`
+
 **Category:** design
+
 **Workflow:** `design/workflow.yaml`
 
 ### Description
 
-Design healing application user experience and visual elements, creating accessible, calming interfaces that support the healing journey.
-
-### Inputs
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `project` | string | Yes | Project name or context |
-| `scope` | enum | No | `component`, `page`, `full-app` |
-| `accessibility` | string | No | Specific accessibility focus |
-
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `ux-specification.md` | UX architecture document |
-| `visual-design.md` | Visual design guidelines |
-| `component-specs/` | Individual component specifications |
+Design healing application UX and visuals. Creates user journeys, wireframes, design systems optimized for vulnerable users and therapeutic contexts.
 
 ### Agents
 
-- **ux-architect** - Information architecture and flows
-- **visual-designer** - Visual design and aesthetics
+- `ux-architect`
+- `visual-designer`
 
-### Examples
+### Outputs
+
+- `design-system.json`
+- `wireframes.md`
+- `component-specs.md`
+- `user-journeys.md`
+
+### Example Usage
 
 ```bash
-# Design a component
-/healing-design "meditation timer" --scope component
-
-# Full app design
-/healing-design "Sacred Healing Journey app" --scope full-app
+/healing-design --input research-brief.md
+/healing-design --focus "meditation timer" --accessibility high
 ```
 
 ---
@@ -375,18 +1546,20 @@ Design healing application user experience and visual elements, creating accessi
 ## healing-ux
 
 **Trigger:** `/healing-ux`
+
 **Category:** design
-**Standalone:** Yes (single agent)
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
 
 ### Description
 
-Design user experience for healing contexts. Special attention to one-handed operation, vulnerable users, and therapeutic interaction patterns.
+Design user experience for healing contexts. Special attention to one-handed operation, vulnerable users, therapeutic interaction patterns.
 
 ### Agents
 
-- **ux-architect** - User experience architecture
+- `ux-architect`
 
-### Examples
+### Example Usage
 
 ```bash
 /healing-ux "21-day healing journey"
@@ -398,8 +1571,10 @@ Design user experience for healing contexts. Special attention to one-handed ope
 ## sacred-visuals
 
 **Trigger:** `/sacred-visuals`
+
 **Category:** design
-**Standalone:** Yes (single agent)
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
 
 ### Description
 
@@ -407,9 +1582,9 @@ Design visual system with healing aesthetics. Colors, typography, sacred geometr
 
 ### Agents
 
-- **visual-designer** - Visual design
+- `visual-designer`
 
-### Examples
+### Example Usage
 
 ```bash
 /sacred-visuals --palette "Raphael healing green"
@@ -421,54 +1596,38 @@ Design visual system with healing aesthetics. Colors, typography, sacred geometr
 ## healing-content
 
 **Trigger:** `/healing-content`
+
 **Category:** content
+
 **Workflow:** `content/workflow.yaml`
 
 ### Description
 
-Create healing content including prayers, guided visualizations, practice instructions, evidence summaries, and journal prompts.
-
-### Inputs
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `type` | enum | Yes | Content type (see below) |
-| `topic` | string | Yes | Content topic |
-| `tradition` | string | No | Source tradition |
-| `tone` | enum | No | `gentle`, `grounded`, `uplifting` |
-| `duration` | string | No | For timed content |
-
-### Content Types
-
-- `prayer` - Spiritual invocations and blessings
-- `visualization` - Guided imagery and meditations
-- `instruction` - Practice how-to guides
-- `evidence-box` - Research summaries
-- `journal-prompt` - Reflection questions
-- `historical-note` - Context and attribution
-
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `content.md` | Created content |
-| `metadata.yaml` | Content metadata |
+Write content for healing applications. Prayers, invocations, evidence boxes, historical notes, guided visualizations, practice instructions, journal prompts.
 
 ### Agents
 
-- **content-writer** - Content creation
+- `content-writer`
 
-### Examples
+### Templates
+
+- `content/templates/prayer.md`
+- `content/templates/evidence-box.md`
+- `content/templates/historical-note.md`
+- `content/templates/visualization.md`
+- `content/templates/practice-instruction.md`
+- `content/templates/journal-prompt.md`
+
+### Outputs
+
+- `content-library/`
+
+### Example Usage
 
 ```bash
-# Create a prayer
-/healing-content --type prayer --tradition "Jewish" --topic "healing presence"
-
-# Create visualization
-/healing-content --type visualization --topic "stress relief" --duration "10 minutes"
-
-# Create instructions
-/healing-content --type instruction --topic "box breathing"
+/healing-content --type prayer --tradition "Jewish mystical" --angel Raphael
+/healing-content --type evidence-box --topic "visualization and healing"
+/healing-content --type visualization --focus "hand healing"
 ```
 
 ---
@@ -476,41 +1635,29 @@ Create healing content including prayers, guided visualizations, practice instru
 ## healing-build
 
 **Trigger:** `/healing-build`
+
 **Category:** build
+
 **Workflow:** `build/workflow.yaml`
 
 ### Description
 
-Develop accessible, privacy-first healing applications with proper component architecture and implementation.
-
-### Inputs
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `component` | string | Yes | Component or feature to build |
-| `framework` | string | No | Framework preference |
-| `spec` | string | No | Path to existing specification |
-
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `implementation/` | Built components |
-| `tests/` | Test files |
-| `documentation.md` | Implementation documentation |
+Develop healing applications with accessibility and privacy focus. Builds meditation timers, journals, progress trackers, practice guides.
 
 ### Agents
 
-- **app-developer** - Application development
+- `app-developer`
 
-### Examples
+### Outputs
+
+- `application/`
+
+### Example Usage
 
 ```bash
-# Build a component
-/healing-build "meditation timer"
-
-# Build from spec
-/healing-build --spec build/components/meditation-timer.md
+/healing-build --design design-system.json --content content-library/
+/healing-build --component "meditation-timer"
+/healing-build --template web-app
 ```
 
 ---
@@ -518,46 +1665,31 @@ Develop accessible, privacy-first healing applications with proper component arc
 ## healing-review
 
 **Trigger:** `/healing-review`
+
 **Category:** quality
+
 **Workflow:** `quality/workflow.yaml`
 
 ### Description
 
-Comprehensive quality review covering ethics compliance, clinical accuracy, cultural sensitivity, and accessibility.
-
-### Inputs
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `target` | string | Yes | File or directory to review |
-| `type` | enum | No | `full`, `ethics`, `clinical`, `cultural`, `accessibility` |
-| `severity` | enum | No | `all` (default), `critical-only` |
-
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `review-report.md` | Complete review report |
-| `issues.yaml` | Structured issues list |
+Comprehensive quality review for healing applications. Ethics, clinical accuracy, cultural sensitivity, accessibility.
 
 ### Agents
 
-- **ethics-guardian** - Ethics and safety review
-- **clinical-reviewer** - Clinical accuracy
-- **cultural-reviewer** - Cultural sensitivity
-- **accessibility-auditor** - WCAG compliance
+- `ethics-guardian`
+- `clinical-reviewer`
+- `cultural-reviewer`
+- `accessibility-auditor`
 
-### Examples
+### Outputs
+
+- `review-report.md`
+
+### Example Usage
 
 ```bash
-# Full review
-/healing-review ./content/meditation.md
-
-# Ethics-only review
-/healing-review ./content/ --type ethics
-
-# Critical issues only
-/healing-review ./app/ --severity critical-only
+/healing-review ./healing-app/
+/healing-review --type ethics-only ./content/
 ```
 
 ---
@@ -565,19 +1697,20 @@ Comprehensive quality review covering ethics compliance, clinical accuracy, cult
 ## ethics-review
 
 **Trigger:** `/ethics-review`
+
 **Category:** quality
-**Standalone:** Yes (single agent)
-**Veto Power:** Yes
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
 
 ### Description
 
-Ethics and safety review for healing content and features. Covers medical safety, psychological safety, cultural integrity, and privacy. Has veto power to block deployment.
+Ethics and safety review for healing content/features. Medical safety, psychological safety, cultural integrity, privacy.
 
 ### Agents
 
-- **ethics-guardian** - Ethics and safety review
+- `ethics-guardian`
 
-### Examples
+### Example Usage
 
 ```bash
 /ethics-review ./healing-app/
@@ -589,18 +1722,20 @@ Ethics and safety review for healing content and features. Covers medical safety
 ## clinical-review
 
 **Trigger:** `/clinical-review`
+
 **Category:** quality
-**Standalone:** Yes (single agent)
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
 
 ### Description
 
-Verify clinical claims and citations. Check PMID validity, claim accuracy, and evidence representation.
+Verify clinical claims and citations. Check PMID validity, claim accuracy, evidence representation.
 
 ### Agents
 
-- **clinical-reviewer** - Clinical accuracy verification
+- `clinical-reviewer`
 
-### Examples
+### Example Usage
 
 ```bash
 /clinical-review ./content/evidence-boxes/
@@ -611,18 +1746,20 @@ Verify clinical claims and citations. Check PMID validity, claim accuracy, and e
 ## cultural-review
 
 **Trigger:** `/cultural-review`
+
 **Category:** quality
-**Standalone:** Yes (single agent)
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
 
 ### Description
 
-Cultural sensitivity review for healing content. Attribution, representation, and appropriation assessment.
+Cultural sensitivity review for healing content. Attribution, representation, appropriation assessment.
 
 ### Agents
 
-- **cultural-reviewer** - Cultural sensitivity review
+- `cultural-reviewer`
 
-### Examples
+### Example Usage
 
 ```bash
 /cultural-review ./content/traditions/
@@ -633,18 +1770,20 @@ Cultural sensitivity review for healing content. Attribution, representation, an
 ## a11y-audit
 
 **Trigger:** `/a11y-audit`
+
 **Category:** quality
-**Standalone:** Yes (single agent)
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
 
 ### Description
 
-Accessibility audit for healing applications. WCAG compliance plus healing-specific accessibility needs (one-handed operation, cognitive accessibility, vulnerable user design).
+Accessibility audit for healing applications. WCAG compliance plus healing-specific accessibility.
 
 ### Agents
 
-- **accessibility-auditor** - WCAG compliance auditing
+- `accessibility-auditor`
 
-### Examples
+### Example Usage
 
 ```bash
 /a11y-audit ./healing-app/
@@ -656,41 +1795,25 @@ Accessibility audit for healing applications. WCAG compliance plus healing-speci
 ## healing-deploy
 
 **Trigger:** `/healing-deploy`
+
 **Category:** deploy
+
 **Workflow:** `deploy/workflow.yaml`
 
 ### Description
 
-Deploy and maintain healing applications with proper infrastructure and content management.
-
-### Inputs
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `target` | string | Yes | Deployment target |
-| `environment` | enum | No | `staging`, `production` |
-| `content` | string | No | Content to deploy |
-
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `deployment-report.md` | Deployment status |
-| `urls.txt` | Deployed URLs |
+Deploy and maintain healing applications. Static hosting, monitoring, content updates.
 
 ### Agents
 
-- **devops-specialist** - Infrastructure and deployment
-- **content-manager** - Content deployment and updates
+- `devops-specialist`
+- `content-manager`
 
-### Examples
+### Example Usage
 
 ```bash
-# Deploy to staging
-/healing-deploy ./app --environment staging
-
-# Deploy content update
-/healing-deploy --content ./content/new-meditation.md
+/healing-deploy ./healing-app/ --platform netlify
+/healing-deploy --update-content ./new-content/
 ```
 
 ---
@@ -698,809 +1821,20 @@ Deploy and maintain healing applications with proper infrastructure and content 
 ## healing-swarm
 
 **Trigger:** `/healing-swarm`
-**Category:** orchestrator
+
+**Category:** orchestration
+
 **Workflow:** `orchestrator/workflow.yaml`
 
 ### Description
 
-Full orchestrated development lifecycle, coordinating all swarm agents from research through deployment.
+Complete healing application development lifecycle. Orchestrates all agents through research, design, content, build, quality, and deployment phases.
 
-### Inputs
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `project` | string | Yes | Project name |
-| `focus` | string | Yes | Healing focus area |
-| `users` | string | No | Target user personas |
-| `traditions` | array | No | Source traditions |
-
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `research/` | Research outputs |
-| `design/` | Design specifications |
-| `content/` | Created content |
-| `app/` | Built application |
-| `reviews/` | Quality reviews |
-
-### Agents
-
-All agents coordinated by **swarm-conductor**
-
-### Examples
+### Example Usage
 
 ```bash
-# Full development cycle
-/healing-swarm "Sacred Healing Journey" \
-  --focus "ligament healing" \
-  --users "injured individual, healing partner"
-
-# Focused development
-/healing-swarm "Breathwork App" \
-  --focus "stress relief" \
-  --traditions "Vedic, TCM"
+/healing-swarm "Sacred Healing Journey" --focus "ligament healing"
+/healing-swarm "Meditation Guide" --focus "anxiety reduction" --simple
 ```
 
 ---
-
-## whm-breathwork
-
-**Trigger:** `/whm-breathwork`
-**Category:** breathwork
-**Workflow:** `content/breathwork-workflow.yaml`
-
-### Description
-
-Guided Wim Hof Method breathing protocols with comprehensive safety architecture. Designs progressive breathwork sessions covering the three-phase round structure (power breaths, retention, recovery breath).
-
-### Inputs
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `focus` | string | Yes | Session focus (e.g., "morning energy", "stress relief") |
-| `level` | enum | No | `beginner` (default), `intermediate`, `advanced` |
-| `rounds` | number | No | Number of rounds (default: 3) |
-
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `breathwork-protocol.md` | Complete breathing session script |
-| `timing.json` | Phase timing for timer integration |
-| `safety-briefing.md` | Pre-session safety checklist |
-
-### Agents
-
-- **breathwork-coach** - WHM breathing protocol design
-- **traditions-scholar** - Tummo and pranayama context
-- **clinical-researcher** - Kox et al. 2014, Muzik et al. 2018 evidence
-- **content-writer** - Practice language polishing
-- **ethics-guardian** - Safety and evidence claims review
-
-### Examples
-
-```bash
-# Beginner session
-/whm-breathwork "first session" --level beginner
-
-# Advanced morning practice
-/whm-breathwork "morning energy" --level advanced --rounds 4
-```
-
----
-
-## whm-cold-exposure
-
-**Trigger:** `/whm-cold-exposure`
-**Category:** breathwork
-
-### Description
-
-Progressive cold exposure protocols for WHM Pillar 2. Designs safe, gradual cold adaptation programs from cold shower finishes through full cold immersion.
-
-### Inputs
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `level` | enum | Yes | `1-cold-finish`, `2-extended-cold`, `3-cold-first`, `4-cold-immersion` |
-| `context` | string | No | User context or goals |
-
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `cold-exposure-protocol.md` | Complete cold exposure guide |
-| `safety-checklist.md` | Pre-exposure safety verification |
-| `progression-guide.md` | When and how to advance levels |
-
-### Agents
-
-- **cold-exposure-guide** - Progressive cold adaptation design
-- **clinical-researcher** - Cold exposure physiology evidence
-- **traditions-scholar** - Tummo and cold adaptation traditions
-- **content-writer** - Protocol language
-- **ethics-guardian** - Safety review (partner requirements, afterdrop warnings)
-
-### Examples
-
-```bash
-# Start with cold finishes
-/whm-cold-exposure --level 1-cold-finish
-
-# Progress to immersion
-/whm-cold-exposure --level 4-cold-immersion --context "experienced, has partner"
-```
-
----
-
-## whm-journey
-
-**Trigger:** `/whm-journey`
-**Category:** breathwork
-**Workflow:** `content/whm-journey-workflow.yaml`
-
-### Description
-
-Multi-week integrated Wim Hof Method program combining all three pillars: breathing, cold exposure, and commitment (meditation/mindset). Available in 2-week intro, 4-week foundation, and 10-week comprehensive formats.
-
-### Inputs
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `duration` | enum | Yes | `2-week`, `4-week`, `10-week` |
-| `focus` | string | No | Primary goal or health focus |
-| `experience` | enum | No | `none`, `some-breathwork`, `experienced` |
-
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `journey-plan.md` | Complete multi-week program |
-| `weekly-schedules/` | Week-by-week practice plans |
-| `safety-guide.md` | Comprehensive safety reference |
-| `progress-tracker.md` | Weekly check-in questions and criteria |
-
-### Agents
-
-- **breathwork-coach** - Breathing protocol progression
-- **cold-exposure-guide** - Cold adaptation progression
-- **coherence-guide** - Meditation/commitment pillar
-- **traditions-scholar** - Cross-tradition context
-- **clinical-researcher** - Evidence for combined practices
-- **mechanisms-neuroscientist** - Physiological mechanism bridges
-- **content-writer** - Program language and framing
-- **ethics-guardian** - Comprehensive safety review
-
-### Examples
-
-```bash
-# 2-week introduction
-/whm-journey --duration 2-week --experience none
-
-# Full 10-week program
-/whm-journey --duration 10-week --focus "stress resilience" --experience some-breathwork
-```
-
----
-
-## language-awareness
-
-**Trigger:** `/language-awareness`
-**Category:** perception
-**Workflow:** `content/language-awareness-workflow.yaml`
-
-### Description
-
-Individual cognitive deautomatization practices that reveal how language shapes perception and identity. Based on research by Deikman (1966), semantic satiation studies, and practices from Chase Hughes' *Tongue: A Cognitive Hazard* (2024), with cross-tradition parallels from Zen, Dzogchen, and phenomenology.
-
-### Inputs
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `focus` | string | Yes | Practice focus or request |
-| `level` | enum | No | `observation`, `interruption`, `substitution`, `integration` |
-| `duration` | string | No | Practice duration (default: level-appropriate) |
-
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `language-awareness-protocol.md` | Complete practice guide with safety framing |
-| `grounding-guide.md` | Pocket Exit and Reintegration Ritual |
-| `journal-prompts.md` | Perception journal questions |
-
-### Agents
-
-- **language-awareness-guide** - Deautomatization protocol design
-- **traditions-scholar** - Zen, Dzogchen, phenomenology parallels
-- **clinical-researcher** - Deikman, semantic satiation evidence
-- **content-writer** - Practice language polishing
-- **ethics-guardian** - Psychological safety review
-
-### Examples
-
-```bash
-# Beginner observation practice
-/language-awareness "first practice" --level observation
-
-# Full 8-week progressive curriculum
-/language-awareness "full program" --duration 8 --level observation
-```
-
----
-
-## group-perception
-
-**Trigger:** `/group-perception`
-**Category:** perception
-
-### Description
-
-Group and paired perception exercises with consent frameworks, facilitation guides, and debrief structures. Includes Collective Label Delay, Pronoun Relay, Meaning Collapse Circle, Map-Maker's Interrogation, Conversion Drill, and Silence Sit.
-
-### Inputs
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `exercise` | enum | Yes | Exercise type (see available exercises) |
-| `participants` | number | No | Number of participants |
-| `context` | string | No | Setting (workshop, retreat, classroom) |
-
-### Available Exercises
-
-| Exercise | Participants | Duration |
-|----------|-------------|----------|
-| `collective-label-delay` | 3-12 | 10 min |
-| `pronoun-relay` | 3-6 | 15 min |
-| `meaning-collapse-circle` | 3-12 | 15 min |
-| `map-makers-interrogation` | 3-8 | 20 min |
-| `conversion-drill` | 2 (pairs) | 15 min |
-| `silence-sit` | 2-20 | 30 min |
-
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `facilitation-guide.md` | Complete facilitator script |
-| `consent-framework.md` | Informed consent protocol |
-| `debrief-questions.md` | Post-exercise discussion guide |
-
-### Agents
-
-- **language-awareness-guide** - Exercise design and facilitation
-- **content-writer** - Script polishing
-- **ethics-guardian** - Consent and safety review
-
-### Examples
-
-```bash
-# Team workshop exercise
-/group-perception --exercise collective-label-delay --participants 8 --context "team workshop"
-
-# Pairs exercise
-/group-perception --exercise conversion-drill --context "retreat"
-```
-
----
-
-## sound-healing
-
-**Trigger:** `/sound-healing`
-**Category:** sound
-
-### Description
-
-Therapeutic sound practices spanning Vedic mantra, Psalm chanting, Gregorian chant, Tibetan singing bowl, and vagal toning. All protocols screen for hearing conditions and respect open/closed practice boundaries.
-
-### Inputs
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `focus` | string | Yes | Practice focus (e.g., "vagal toning", "morning mantra") |
-| `level` | enum | No | `listening`, `humming`, `toning`, `chanting`, `extended` |
-| `tradition` | string | No | Specific tradition to draw from |
-
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `sound-protocol.md` | Complete sound practice guide |
-| `safety-screening.md` | Hearing and contraindication screening |
-
-### Agents
-
-- **sound-healing-guide** - Sound practice protocol design
-- **traditions-scholar** - Tradition context and attribution
-- **clinical-researcher** - Vagal stimulation and sound therapy evidence
-- **ethics-guardian** - Safety and closed practice review
-
-### Examples
-
-```bash
-/sound-healing "morning humming practice" --level humming
-/sound-healing "vagal toning session" --tradition "cross-tradition"
-```
-
----
-
-## somatic-practice
-
-**Trigger:** `/somatic-practice`
-**Category:** movement
-
-### Description
-
-Gentle movement protocols spanning qigong, tai chi, yoga, kinhin, and Feldenkrais. Every practice includes standing, seated, lying, and wheelchair modifications to ensure universal accessibility.
-
-### Inputs
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `focus` | string | Yes | Practice focus (e.g., "morning qigong", "gentle yoga") |
-| `level` | enum | No | `gentle`, `moderate`, `dynamic` |
-| `modification` | enum | No | `standing`, `seated`, `lying`, `wheelchair` |
-
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `movement-protocol.md` | Complete movement practice guide |
-| `modification-guide.md` | Adaptation guide for all positions |
-
-### Agents
-
-- **somatic-guide** - Movement protocol design
-- **traditions-scholar** - Tradition context and attribution
-- **clinical-researcher** - Movement therapy evidence
-- **ethics-guardian** - Safety and accessibility review
-
-### Examples
-
-```bash
-/somatic-practice "morning qigong" --level gentle
-/somatic-practice "chair yoga" --modification seated --level gentle
-```
-
----
-
-## sleep-healing
-
-**Trigger:** `/sleep-healing`
-**Category:** sleep
-
-### Description
-
-Evening wind-down, bedtime meditation, and dream journaling practices drawing from Asclepian dream temples, Tibetan dream yoga, TCM organ clock, and Ayurvedic dinacharya. Screen paradox acknowledged. CBT-I referral provided for persistent insomnia.
-
-### Inputs
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `focus` | string | Yes | Practice focus (e.g., "evening wind-down", "dream journaling") |
-| `phase` | enum | No | `wind-down`, `bedtime`, `dream-work` |
-| `tradition` | string | No | Specific tradition to draw from |
-
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `sleep-protocol.md` | Complete sleep practice guide |
-| `screen-paradox-note.md` | Digital delivery paradox acknowledgment |
-
-### Agents
-
-- **sleep-healing-guide** - Sleep practice protocol design
-- **traditions-scholar** - Tradition context and attribution
-- **clinical-researcher** - Sleep science evidence
-- **ethics-guardian** - Safety and referral review
-
-### Examples
-
-```bash
-/sleep-healing "evening wind-down" --phase wind-down
-/sleep-healing "dream journaling" --phase dream-work --tradition "Tibetan"
-```
-
----
-
-## nature-healing
-
-**Trigger:** `/nature-healing`
-**Category:** nature
-
-### Description
-
-Nature-based healing practices including shinrin-yoku, earthing, garden therapy, and Five Element observation, supported by 60+ forest bathing studies. Urban and indoor alternatives are always provided for accessibility.
-
-### Inputs
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `focus` | string | Yes | Practice focus (e.g., "forest bathing", "garden therapy") |
-| `setting` | enum | No | `forest`, `garden`, `urban`, `indoor` |
-| `season` | string | No | Season for practice adaptation |
-
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `nature-protocol.md` | Complete nature practice guide |
-| `urban-alternatives.md` | Urban and indoor adaptation guide |
-
-### Agents
-
-- **nature-guide** - Nature practice protocol design
-- **traditions-scholar** - Tradition context and attribution
-- **clinical-researcher** - Forest bathing and nature therapy evidence
-- **ethics-guardian** - Safety and accessibility review
-
-### Examples
-
-```bash
-/nature-healing "forest bathing" --setting forest --season "spring"
-/nature-healing "indoor nature practice" --setting indoor
-```
-
----
-
-## water-healing
-
-**Trigger:** `/water-healing`
-**Category:** water
-
-### Description
-
-Water and hydrotherapy practices including contrast therapy, mikveh education, onsen, Kneipp method, and Finnish sauna. Drowning and cardiac risk warnings are non-negotiable safety requirements.
-
-### Inputs
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `focus` | string | Yes | Practice focus (e.g., "contrast therapy", "Kneipp walk") |
-| `modality` | enum | No | `contrast`, `warm`, `cold`, `ritual` |
-| `level` | string | No | Experience level |
-
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `water-protocol.md` | Complete water practice guide |
-| `safety-checklist.md` | Drowning and cardiac risk safety checklist |
-
-### Agents
-
-- **water-guide** - Water practice protocol design
-- **traditions-scholar** - Tradition context and attribution
-- **clinical-researcher** - Hydrotherapy evidence
-- **ethics-guardian** - Safety and risk review
-
-### Examples
-
-```bash
-/water-healing "contrast shower" --modality contrast
-/water-healing "Kneipp method introduction" --modality cold --level beginner
-```
-
----
-
-## grief-healing
-
-**Trigger:** `/grief-healing`
-**Category:** grief
-
-### Description
-
-Grief-informed practices across mourning traditions including Jewish mourning, Buddhist impermanence, Dia de los Muertos, and Celtic keening. Highest psychological sensitivity with crisis resources, minimum 3 exit ramps, and suicidal ideation screening.
-
-### Inputs
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `focus` | string | Yes | Practice focus (e.g., "acute loss support", "anniversary ritual") |
-| `stage` | enum | No | `acute`, `ongoing`, `anniversary`, `complicated` |
-| `tradition` | string | No | Specific tradition to draw from |
-
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `grief-protocol.md` | Complete grief practice guide |
-| `crisis-resources.md` | Crisis hotlines and referral resources |
-| `exit-ramps.md` | Minimum 3 exit ramps for practice |
-
-### Agents
-
-- **grief-guide** - Grief practice protocol design
-- **traditions-scholar** - Tradition context and attribution
-- **clinical-researcher** - Bereavement and grief evidence
-- **ethics-guardian** - Safety, crisis screening, and exit ramp review
-
-### Examples
-
-```bash
-/grief-healing "acute loss support" --stage acute
-/grief-healing "anniversary ritual" --stage anniversary --tradition "Jewish"
-```
-
----
-
-## expressive-healing
-
-**Trigger:** `/expressive-healing`
-**Category:** expressive
-
-### Description
-
-Creative and expressive healing practices including Pennebaker writing (200+ studies), bibliotherapy, mandala, ikebana, and sacred poetry. Strongest privacy protections. No artistic skill required. Navajo sand painting noted as closed practice.
-
-### Inputs
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `focus` | string | Yes | Practice focus (e.g., "expressive writing", "mandala creation") |
-| `modality` | enum | No | `writing`, `art`, `poetry`, `movement` |
-| `privacy-level` | enum | No | `private`, `shared`, `facilitated` |
-
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `expressive-protocol.md` | Complete expressive practice guide |
-| `privacy-guide.md` | Privacy protections and data handling |
-
-### Agents
-
-- **expressive-guide** - Expressive practice protocol design
-- **traditions-scholar** - Tradition context and attribution
-- **clinical-researcher** - Pennebaker and expressive therapy evidence
-- **ethics-guardian** - Privacy, closed practice, and safety review
-
-### Examples
-
-```bash
-/expressive-healing "expressive writing" --modality writing --privacy-level private
-/expressive-healing "mandala creation" --modality art
-```
-
----
-
-## community-healing
-
-**Trigger:** `/community-healing`
-**Category:** community
-
-### Description
-
-Group and relational healing practices including talking circles, Mussar, Sangha, Quaker meeting, Ubuntu, and 12-Step. Trained facilitator required. Full consent framework, confidentiality, and power dynamics awareness.
-
-### Inputs
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `focus` | string | Yes | Practice focus (e.g., "healing circle", "talking circle") |
-| `format` | enum | No | `circle`, `dyad`, `sangha`, `meeting` |
-| `participants` | number | No | Number of participants |
-
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `facilitation-guide.md` | Complete facilitation guide |
-| `consent-framework.md` | Participant consent protocol |
-| `confidentiality-agreement.md` | Group confidentiality agreement |
-
-### Agents
-
-- **community-facilitator** - Group practice facilitation design
-- **traditions-scholar** - Tradition context and attribution
-- **clinical-researcher** - Group healing and social support evidence
-- **ethics-guardian** - Consent, confidentiality, and power dynamics review
-
-### Examples
-
-```bash
-/community-healing "healing circle" --format circle --participants 8
-/community-healing "dyad practice" --format dyad
-```
-
----
-
-## contemplative-inquiry
-
-**Trigger:** `/contemplative-inquiry`
-**Category:** perception
-
-### Description
-
-Deep inquiry and contemplation practices including Zen koan, Advaitic self-inquiry, Socratic questioning, Ignatian Examen, and ACT cognitive defusion. Dzogchen noted as closed/reference-only. 4 progressive levels from structured to silent.
-
-### Inputs
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `focus` | string | Yes | Practice focus (e.g., "self-inquiry", "koan practice") |
-| `method` | enum | No | `koan`, `self-inquiry`, `socratic`, `examen`, `defusion` |
-| `level` | enum | No | `structured`, `guided`, `open`, `silent` |
-
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `inquiry-protocol.md` | Complete inquiry practice guide |
-| `tradition-context.md` | Tradition context and attribution |
-
-### Agents
-
-- **contemplative-guide** - Inquiry practice protocol design
-- **traditions-scholar** - Tradition context and attribution
-- **clinical-researcher** - Contemplative practice evidence
-- **ethics-guardian** - Closed practice and safety review
-
-### Examples
-
-```bash
-/contemplative-inquiry "self-inquiry" --method self-inquiry --level structured
-/contemplative-inquiry "koan practice" --method koan --level guided
-```
-
----
-
-## pni-research
-
-**Trigger:** `/pni-research`
-**Category:** research
-
-### Description
-
-Psychoneuroimmunology research bridging traditional healing with documented PNI pathways. Covers HPA axis, vagal tone, telomeres, placebo mechanisms, wound healing, and social-immune interactions. Maps traditional healing to documented PNI pathways with honest limitations.
-
-### Inputs
-
-| Input | Type | Required | Description |
-|-------|------|----------|-------------|
-| `query` | string | Yes | Research topic (e.g., "meditation immune response", "social bonding oxytocin") |
-| `pathway` | enum | No | `hpa`, `vagal`, `telomere`, `placebo`, `social` |
-| `depth` | enum | No | `quick`, `standard`, `comprehensive` |
-
-### Outputs
-
-| Output | Description |
-|--------|-------------|
-| `pni-brief.md` | PNI research summary |
-| `practice-mapping.md` | Traditional practice to PNI pathway mapping |
-| `limitations.md` | Honest limitations and gaps in evidence |
-
-### Agents
-
-- **pni-researcher** - PNI pathway research
-- **clinical-researcher** - Clinical evidence review
-- **mechanisms-neuroscientist** - Neuroscience mechanism bridging
-- **ethics-guardian** - Claims and evidence integrity review
-
-### Examples
-
-```bash
-/pni-research "meditation immune response" --pathway vagal --depth standard
-/pni-research "social bonding healing" --pathway social --depth comprehensive
-```
-
----
-
-## Skill Categories
-
-### Research Skills
-Research and evidence gathering.
-- healing-research
-- traditions-research (standalone)
-- clinical-research (standalone)
-- mechanism-mapping (standalone)
-- syntergic-research
-
-### Consciousness Skills
-Grinberg research-based practices.
-- coherence-meditation
-- resonance-pairing
-- orbital-journey
-
-### Breathwork Skills
-Wim Hof Method protocols with safety architecture.
-- whm-breathwork
-- whm-cold-exposure
-- whm-journey
-
-### Perception Skills
-Cognitive deautomatization and language awareness.
-- language-awareness
-- group-perception
-- contemplative-inquiry
-
-### Sound Healing Skills
-Therapeutic sound and vibratory practices.
-- sound-healing
-
-### Movement Skills
-Somatic and movement-based practices.
-- somatic-practice
-
-### Sleep Skills
-Sleep quality and dream work.
-- sleep-healing
-
-### Nature Skills
-Nature-based healing practices.
-- nature-healing
-
-### Water Skills
-Water and hydrotherapy practices.
-- water-healing
-
-### Grief Skills
-Grief and bereavement support.
-- grief-healing
-
-### Expressive Skills
-Creative and expressive healing.
-- expressive-healing
-
-### Community Skills
-Group and relational healing.
-- community-healing
-
-### Contemplative Skills
-Deep inquiry and contemplation.
-- contemplative-inquiry
-
-### PNI Research Skills
-Psychoneuroimmunology research bridge.
-- pni-research
-
-### Design Skills
-UX and visual design.
-- healing-design
-- healing-ux (standalone)
-- sacred-visuals (standalone)
-
-### Content Skills
-Content creation.
-- healing-content
-
-### Build Skills
-Application development.
-- healing-build
-
-### Quality Skills
-Review and quality assurance.
-- healing-review
-- ethics-review (standalone, veto power)
-- clinical-review (standalone)
-- cultural-review (standalone)
-- a11y-audit (standalone)
-
-### Deploy Skills
-Deployment and maintenance.
-- healing-deploy
-
-### Orchestrator Skills
-Full lifecycle coordination.
-- healing-swarm
-
----
-
-## Common Options
-
-These options are available across multiple skills:
-
-| Option | Description |
-|--------|-------------|
-| `--verbose` | Show detailed output |
-| `--dry-run` | Preview without executing |
-| `--output` | Specify output directory |
-
----
-
-## See Also
-
-- [Agents Reference](agents-reference.md) - All agents
-- [Shared Resources](shared-resources.md) - Common resources
-- [Workflows Reference](workflows-reference.md) - Workflow patterns

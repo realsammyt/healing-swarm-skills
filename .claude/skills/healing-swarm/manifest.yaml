@@ -182,6 +182,9 @@ skills:
       - ethics-guardian
     workflow: content/shadow-work-workflow.yaml
     requires_ethics_approval: true
+    requires:
+      - shared/crisis-response.md
+      - shared/contraindications.md
     templates:
       - content/templates/shadow-process.md
     outputs:
@@ -325,6 +328,9 @@ skills:
       - ethics-guardian
     workflow: content/resonance-workflow.yaml
     requires_ethics_approval: true
+    requires:
+      - shared/crisis-response.md
+      - shared/contraindications.md
     templates:
       - content/templates/resonance-pairing.md
     outputs:
@@ -351,6 +357,9 @@ skills:
       - ethics-guardian
     workflow: content/orbital-workflow.yaml
     requires_ethics_approval: true
+    requires:
+      - shared/crisis-response.md
+      - shared/contraindications.md
     templates:
       - content/templates/orbital-day.md
     outputs:
@@ -478,6 +487,9 @@ skills:
       - ethics-guardian
     workflow: content/language-awareness-workflow.yaml
     requires_ethics_approval: true
+    requires:
+      - shared/crisis-response.md
+      - shared/contraindications.md
     templates:
       - content/templates/language-awareness-protocol.md
     outputs:
@@ -655,6 +667,9 @@ skills:
       - content-writer
       - ethics-guardian
     requires_ethics_approval: true
+    requires:
+      - shared/crisis-response.md
+      - shared/contraindications.md
     workflow: content/umwelt-workflow.yaml
     templates:
       - content/templates/umwelt-exercise.md
@@ -833,6 +848,9 @@ skills:
       - ethics-guardian
     requires_ethics_approval: true
     standalone: true
+    requires:
+      - shared/crisis-response.md
+      - shared/contraindications.md
     templates:
       - content/templates/grief-practice.md
     outputs:
@@ -1391,6 +1409,20 @@ settings:
   require_ethics_approval: true
   citation_verification: true
   accessibility_minimum: AA
+
+  # Model policy — locked 2026-06-02.
+  # Every agent runs Opus 4.8 at high reasoning effort. No Sonnet/Haiku
+  # downgrade anywhere: voice and safety consistency on user-facing healing
+  # content outweigh cost. To introduce tiers later, add a per-agent `model:`
+  # field in the agents block; absent that, every agent inherits the default.
+  models:
+    default: claude-opus-4-8
+    reasoning_effort: high
+    # The two hardest reasoners carry an explicit extended-thinking cue in
+    # their prompts (dependency planning, competing-values escalation).
+    extended_thinking:
+      - swarm-conductor
+      - ethics-guardian
 
   # Quality gates
   gates:

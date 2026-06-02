@@ -282,8 +282,8 @@ claude> /healing-swarm "Sacred Healing Journey" --focus "ligament healing"
 
 ### Reference
 
-- **[Skills Reference](docs/api/skills-reference.md)** - All 47 skills with triggers and options
-- **[Agents Reference](docs/api/agents-reference.md)** - All 26 agents with responsibilities
+- **[Skills Reference](docs/api/skills-reference.md)** - All 52 skills with triggers and options
+- **[Agents Reference](docs/api/agents-reference.md)** - All 38 agents with responsibilities
 - **[Shared Resources](docs/api/shared-resources.md)** - Ethics, safety, terminology, design tokens
 - **[Workflows Reference](docs/api/workflows-reference.md)** - Workflow patterns
 
@@ -298,6 +298,7 @@ claude> /healing-swarm "Sacred Healing Journey" --focus "ligament healing"
 - **[ADR-001: Ethics-First Architecture](docs/adr/001-ethics-first-architecture.md)**
 - **[ADR-002: Local-First Data Storage](docs/adr/002-local-first-data.md)**
 - **[ADR-003: Multi-Agent Quality Review](docs/adr/003-multi-agent-quality.md)**
+- **[ADR-004: Runtime Model and Gate Enforcement](docs/adr/004-runtime-and-gate-enforcement.md)**
 
 ---
 
@@ -550,6 +551,19 @@ And we honor you—for being here, for caring enough to explore this, for consid
 
 A chronological record of major additions. [Full detailed timeline on the website →](https://realsammyt.github.io/healing-swarm-skills/docs/changelog)
 
+### 2026-06-02 — Opus 4.8 Auto-Discovery & Count Automation
+
+- **Auto-discovery:** 52 generated `SKILL.md` files give every skill a WHAT + WHEN description, so Opus 4.8 / Claude Code can discover skills by intent, not just exact slash commands
+- **Conservative guards:** sensitive skills (shadow-work, resonance-pairing, orbital-journey, umwelt-practice, grief-healing, language-awareness) carry explicit "Do NOT auto-launch" guards
+- **Drift-proof counts:** `sync-timeline.js` + `generate-reference.js` derive all counts and reference docs from the manifest, enforced by `--check` gates in CI; `create-skill.js` repaired
+- No new skills, agents, or workflows — counts unchanged (52 / 38 / 25)
+
+### 2026-04-13 — Family Nexus Healing (Worked Example)
+
+- **1 worked example:** `examples/family-nexus-healing/` — a full client-side PWA built end-to-end with the swarm (research → content → quality gates → deployable app)
+- Three modes plus family-together, 21 quality-gated protocols, offline service worker, accessibility and privacy-first
+- Reference/demonstration code only — not a shipped skill, not counted in skill/agent/workflow totals
+
 ### 2026-03-08 — Hyperhumanism & Sound Consciousness Skills (Carl Hayden Smith)
 
 - **6 skills:** Archaeoacoustic Toning, Sound Consciousness, Holotechnica Stack, Hyperhumanism Inquiry, Umwelt Practice, Cyberdelic Research
@@ -605,12 +619,12 @@ A chronological record of major additions. [Full detailed timeline on the websit
 
 | Category              | Count |
 | --------------------- | ----- |
-| Skills                | 53    |
-| Agents                | 30    |
-| Workflows             | 26    |
-| Templates             | 13    |
-| Shared Resources      | 9     |
-| Worked Examples       | 16    |
+| Skills                | 52    |
+| Agents                | 38    |
+| Workflows             | 25    |
+| Templates             | 28    |
+| Shared Resources      | 10    |
+| Worked Examples       | 18    |
 | Traditions Integrated | 20+   |
 
 ---

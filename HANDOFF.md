@@ -5,7 +5,7 @@
 > conversation should read this first, then update it before ending a session.
 > If anything here disagrees with reality, reality wins — fix the doc.
 
-**Last updated:** 2026-06-01 by Claude (Opus 4.8) — Phases 0 + 1 complete + committed
+**Last updated:** 2026-06-02 by Claude (Opus 4.8) — Phases 0–6 complete (core); only minor deferred polish remains
 **Active branch:** `feat/family-nexus-healing`
 **Driving plan:** [`docs/plans/2026-05-31-opus-4-8-optimization.md`](docs/plans/2026-05-31-opus-4-8-optimization.md)
 
@@ -24,9 +24,15 @@
 
 | Thing     | Actual | Source |
 | --------- | ------ | ------ |
-| Skills    | 52     | `manifest.yaml` |
-| Agents    | 38     | `npm run validate` |
-| Workflows | 36     | `npm run validate` |
+| Skills    | 52     | `manifest.yaml` (includes the `healing-swarm` orchestration skill, entry #52) |
+| Agents    | 38     | `manifest.yaml` agents block / `npm run validate` (includes `swarm-conductor`) |
+| Workflows | 25     | `npm run sync:timeline` (real `*.yaml` workflow files) |
+
+> **Count canon, settled in Phase 2:** use `npm run sync:timeline` — it is the
+> single source of truth. Note: `validate-skills.js` prints "36 workflows" but that
+> figure wrongly counts 11 `manifest.yaml` files as workflows; the honest count is
+> **25**. The docs ("53 skills") were an off-by-one — the orchestrator skill is
+> already inside the 52, so the canonical skill count is **52**.
 
 ---
 
@@ -53,11 +59,11 @@ Update the status, the date, and the note whenever you touch a phase.
 | ----- | ----- | ------ | ------- | ---- |
 | 0 | Make validators honest | Done | 2026-05-31 | `npm run validate` runs both validators clean; standalone-aware workflow check, dup-trigger + existence checks added; 10 workflow-less skills marked `standalone` |
 | 1 | Quick-win cleanup + honesty fixes | Done | 2026-05-31 | `packages/` + 3 empty template dirs deleted; dead scripts (build:docs, serve-docs) + Jekyll `.gitignore` block removed; ethics/claims gates now exit non-zero; CI `npm ci`; eslint/prettier/vitest configs added |
-| 2 | Eliminate doc drift + automate | Not started | 2026-05-31 | Counts wrong everywhere; build `sync-timeline.js` |
-| 3 | SKILL.md generation + description rewrites | Not started | 2026-05-31 | Highest Opus 4.8 impact |
-| 4 | Model tiering + prompt slimming | Not started | 2026-05-31 | Add `model:` field; cut 350-680-line prompts |
-| 5 | Parallel orchestration + enforceable gates | Not started | 2026-05-31 | Fan-out + JSON gate contract |
-| 6 | Runtime decision | Not started | 2026-05-31 | Recommendation: thin harness for ethics/a11y veto only |
+| 2 | Eliminate doc drift + automate | Done | 2026-06-02 | All counts reconciled to manifest truth (52/38/25); `sync-timeline.js` (canonical counts + `--check` gate) + `generate-reference.js` (rebuilds skills/agents refs) wired into `npm run validate` + CI; CHANGELOG date typo fixed; CONTRIBUTING timeline rule added; family-nexus represented as a worked example |
+| 3 | SKILL.md generation + description rewrites | Done | 2026-06-02 | 52 `SKILL.md` generated from manifest + `skill-discovery.yaml`; `generate-skills.js` codegen + discovery linter in `npm run validate`; sensitive skills carry "Do NOT auto-launch" guards (conservative default for open Q1); overlapping triggers de-duped via disjoint "Use when" + cross-refs; `create-skill.js` repaired + emits discovery entry. CAVEAT: verify Claude Code discovers SKILL.md at `healing-swarm/<name>/` (nested, not top-level `.claude/skills/`). |
+| 4 | Model tiering + prompt slimming | Mostly done | 2026-06-02 | Opus-everywhere policy in `settings.models` (no downgrade); extended-thinking cues on swarm-conductor + ethics-guardian; content-writer slimmed (~190 inlined template lines removed); `shared/evidence-language.md` extracted (shared 9→10). DEFERRED polish: per-research-agent tool-use guidance, closing-quote stripping, worked-example upgrades. |
+| 5 | Parallel orchestration + enforceable gates | Mostly done | 2026-06-02 | JSON gate contract + `check-gates.js` harness (unit-tested); 4 reviewers emit gate blocks; fan-out in conductor prompt + content + research workflows; sensitive skills declare `requires` + validator safety check. DEFERRED: validator gate-token check, template-schema reconcile, full DAG rename (decision 0b). |
+| 6 | Runtime decision | Done | 2026-06-02 | ADR-004: Path A + thin veto harness (`check-gates.js`); ethics + accessibility veto enforced deterministically. Path B SDK runner deliberately not built. |
 
 **Suggested order:** 0 → 1 → 2 first (low risk). Phase 3 is highest impact and
 can run alongside 1-2. Phase 5 follows the Phase 6 runtime call. Each phase
@@ -66,6 +72,17 @@ leaves the repo shippable; none requires the next.
 ---
 
 ## 4. Decisions locked (do not relitigate without the human)
+
+0. **Model policy (2026-06-02):** **Opus 4.8 at high reasoning effort for every
+   agent.** No Sonnet/Haiku downgrade anywhere — voice and safety consistency on
+   user-facing healing content outweighs cost. (Resolves Q2.)
+0b. **Phase 5 (2026-06-02):** proceed on the agent's recommendation — add real
+   fan-out + a structured gate contract + per-skill `requires`; **defer** the
+   full ~24-file DAG-notation rename (high churn, low marginal value now).
+   (Resolves Q5 as "not now.")
+0c. **Phase 6 (2026-06-02):** **yes** — Path A (LLM executor) plus a thin harness
+   that enforces only the ethics + accessibility veto via the Phase 5 JSON gate
+   contract. Do not build the full Path B SDK runner yet.
 
 1. **Skill format:** generate native `SKILL.md` from the manifest; keep
    `manifest.yaml` as source of truth. (Not a hard cutover.)
@@ -78,17 +95,31 @@ leaves the repo shippable; none requires the next.
 
 ## 5. Open questions owned by the human (get answers before acting)
 
-1. **Auto-trigger sensitive skills?** Should `/shadow-work`, `/orbital-journey`,
-   `/resonance-pairing` stay slash-command-only after `SKILL.md` migration, or be
-   discoverable? (Blocks finalizing Phase 3 descriptions.)
 2. **Model-downgrade tolerance?** Sonnet/Haiku acceptable for user-facing healing
    content, or Opus everywhere for voice/safety consistency? (Blocks Phase 4 tiers.)
-3. **`family-nexus-healing`: example or shipped skill?** Determines whether it's
-   counted and folded into timelines. (Blocks Phase 2 closure.)
-4. **Canonical "skill" definition?** Totals say 53, manifest has 52; does the
-   orchestrator count? Pin this before automating counts. (Blocks Phase 2.)
 5. **DAG-rename appetite?** The single-notation parallelism change touches ~24
    workflow files. (Blocks the schema-unification part of Phase 5.)
+
+**Provisionally decided by default (confirm or change):**
+
+1. **Auto-trigger sensitive skills?** → Applied the **conservative default**
+   (Phase 3, 2026-06-02): general skills are auto-discoverable; the 6 sensitive
+   skills (`shadow-work`, `resonance-pairing`, `orbital-journey`, `umwelt-practice`,
+   `grief-healing`, `language-awareness`) carry explicit "Do NOT auto-launch from
+   loose cues" guards in their `SKILL.md` and `skill-discovery.yaml`. The human can
+   tighten these to slash-only or loosen them; edit `skill-discovery.yaml` +
+   `npm run generate:skills`.
+
+### Resolved
+
+3. **`family-nexus-healing`: example or shipped skill?** → **Example only**
+   (human, 2026-06-02). Stays out of all counts; represented in both timelines as a
+   worked example. No manifest change.
+4. **Canonical "skill" definition?** → **52** (human chose "count the orchestrator",
+   2026-06-02). Key correction: the orchestrator skill (`healing-swarm`) is *already*
+   entry #52 in the manifest, so counting it yields 52, not 53. "53" was an
+   off-by-one. `swarm-conductor` is its agent (1 of 38). Count canon now lives in
+   `scripts/sync-timeline.js`.
 
 ---
 
@@ -138,6 +169,60 @@ leaves the repo shippable; none requires the next.
 
 ## 7. Activity log (newest first — append, don't overwrite)
 
+- **2026-06-02** — **Phases 5 + 6.** Built the structured gate contract and its
+  enforcer: `scripts/check-gates.js` (`extractGates`/`evaluateGates`, veto gates =
+  ethics + accessibility) with `scripts/check-gates.test.js` (9 tests, run by
+  `npm test`). The four reviewers (ethics-guardian, clinical-reviewer,
+  cultural-reviewer, accessibility-auditor) now emit a REQUIRED fenced-JSON gate
+  block first. Added fan-out directives (content per-artifact, research
+  per-tradition) and a parallel-dispatch directive in the conductor. Wired
+  auditable safety context: the 6 sensitive skills declare
+  `requires: [crisis-response, contraindications]`, enforced by a new
+  validate-manifest check sourced from `skill-discovery.yaml`. Recorded the
+  runtime decision in **ADR-004** (Path A + thin veto harness; Path B deferred).
+  Made `npm test` one-shot (`vitest run`) and added `test:watch`. All gates green.
+  Deferred: validator gate-token check, template-schema reconcile, full DAG rename.
+- **2026-06-02** — **Phase 4 (core).** Locked Opus 4.8 high-effort everywhere
+  (`settings.models`, resolves Q2 — no downgrade). Added extended-thinking cues to
+  `swarm-conductor` (dependency planning) and `ethics-guardian` (competing-values
+  escalation). Slimmed `content-writer.md` (dropped ~190 lines of inlined templates
+  that already live in `content/templates/`, plus the filler closing quote).
+  Extracted the evidence-level phrase table into `shared/evidence-language.md` and
+  pointed content-writer + ethics-guardian at it (shared 9→10, docs reconciled).
+  Also planted the Phase 5 parallel-dispatch directive in the swarm-conductor.
+  Deferred: tool-use guidance for the 6 web-research agents, closing-quote
+  stripping across ~25 agent prompts, worked-example upgrades. All gates green.
+- **2026-06-02** — **Phase 3 complete** (same day as Phase 2). Turned 52
+  slash-only skills into auto-discoverable ones: authored
+  `.claude/skills/healing-swarm/skill-discovery.yaml` (52 WHAT+WHEN descriptions,
+  third person, mined from triggers/examples), built `scripts/generate-skills.js`
+  (emits one `SKILL.md` per skill with progressive-disclosure links to
+  agents/workflow/templates + a discovery linter), and generated all 52 SKILL.md.
+  Took the **conservative default** on open Q1: 6 sensitive skills carry explicit
+  "Do NOT auto-launch" guards (see Section 5). De-duped the overlapping research +
+  resonance/relational triggers via disjoint "Use when" boundaries and cross-refs.
+  Updated the three validators to exclude `SKILL.md` (validate-skills, check-ethics,
+  lint-prompts) and `skill-discovery.yaml` (validate-skills, sync-timeline) so
+  counts stay honest (still 52/38/25). Repaired `scripts/create-skill.js` (real
+  syntax error: orphan `` `; `` at EOF) and updated it to scaffold a discovery
+  entry + point at `generate:skills`. Wired `generate:skills --check` into
+  `npm run validate`. Added a 2026-06-02 timeline entry to README + website
+  changelog + CHANGELOG. All gates green; website builds.
+- **2026-06-02** — **Phase 2 complete.** Pinned canonical counts (52 skills / 38
+  agents / 25 workflows) after discovering two count bugs: (a) the orchestrator
+  skill is already inside the manifest's 52, so "53" was an off-by-one; (b) the
+  validator's "36 workflows" silently counts 11 `manifest.yaml` files — real count
+  is 25. Built `scripts/sync-timeline.js` (canonical counts + `--check` drift gate
+  over README + changelog) and `scripts/generate-reference.js` (regenerates
+  `docs/api/skills-reference.md` → all 52, and `agents-reference.md` → all 38, from
+  the manifest); both `--check` modes wired into `npm run validate`, which CI already
+  runs. Reconciled every count in README.md, website changelog, and the homepage
+  component; fixed the CHANGELOG v1.0.0 date typo (2025→2026); added the
+  timeline-sync rule + PR-checklist item to CONTRIBUTING.md; added a 2026-04-13
+  family-nexus worked-example entry to both timelines. All gates green
+  (validate / check:ethics / lint:prompts / test EXIT 0); website builds clean.
+  Left untouched: dated historical plan docs under `docs/plans/` (snapshots, not
+  living docs).
 - **2026-05-31** — **Phases 0 + 1 complete** via a 3-agent parallel run
   (partitioned by file; no conflicts). Phase 0: `validate-manifest.js` is now
   honest — standalone-aware workflow requirement, real `requires_ethics_approval`

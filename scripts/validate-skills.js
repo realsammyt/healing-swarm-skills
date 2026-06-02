@@ -214,6 +214,8 @@ function main() {
 
   // Find all files
   let workflowFiles = findFiles(SKILLS_DIR, '.yaml');
+  // skill-discovery.yaml is structural (SKILL.md source), not a workflow.
+  workflowFiles = workflowFiles.filter((f) => path.basename(f) !== 'skill-discovery.yaml');
   let agentFiles = findFiles(SKILLS_DIR, '.md');
 
   // Filter non-agent files
@@ -221,6 +223,7 @@ function main() {
   agentFiles = agentFiles.filter((f) => !f.includes(path.sep + 'templates' + path.sep));
   agentFiles = agentFiles.filter((f) => !f.includes(path.sep + 'components' + path.sep));  // Component specs, not agents
   agentFiles = agentFiles.filter((f) => !f.includes(path.sep + 'examples' + path.sep));  // Worked examples (content outputs), not agents
+  agentFiles = agentFiles.filter((f) => path.basename(f) !== 'SKILL.md');  // Generated skill descriptors, not agents
 
   // Apply file filter if specified
   if (FILE_FILTER) {

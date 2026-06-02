@@ -23,16 +23,24 @@
   ],
   "type": "module",
   "scripts": {
-    "validate": "node scripts/validate-skills.js && node scripts/validate-manifest.js",
+    "validate": "node scripts/validate-skills.js && node scripts/validate-manifest.js && node scripts/sync-timeline.js --check && node scripts/generate-reference.js --check && node scripts/generate-skills.js --check",
     "validate:manifest": "node scripts/validate-manifest.js",
     "validate:workflows": "node scripts/validate-skills.js --file *.yaml",
     "validate:agents": "node scripts/validate-skills.js --file *.md",
     "check:ethics": "node scripts/check-ethics.js",
     "lint:prompts": "node scripts/lint-prompts.js",
+    "sync:timeline": "node scripts/sync-timeline.js",
+    "sync:check": "node scripts/sync-timeline.js --check",
+    "generate:reference": "node scripts/generate-reference.js",
+    "generate:check": "node scripts/generate-reference.js --check",
+    "generate:skills": "node scripts/generate-skills.js",
+    "skills:check": "node scripts/generate-skills.js --check",
     "create-skill": "node scripts/create-skill.js",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "test": "vitest"
+    "check:gates": "node scripts/check-gates.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "devDependencies": {
     "eslint": "^8.57.0",

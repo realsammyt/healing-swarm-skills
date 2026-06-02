@@ -205,6 +205,26 @@ REQUIRES CORRECTION:
 
 ## Review Output Format
 
+### Gate result (machine-readable, REQUIRED)
+
+Emit this fenced JSON block **first**, so the gate harness
+(`scripts/check-gates.js`) can read the verdict deterministically:
+
+```json
+{
+  "gate": "cultural",
+  "status": "pass",
+  "blocking": false,
+  "issues": [
+    { "severity": "high", "location": "file:section", "finding": "appropriation / misattribution", "fix": "attribute, contextualize, or remove" }
+  ]
+}
+```
+
+`status` is `pass`, `fail`, or `veto`. This gate is advisory by default, but set
+`"status": "veto"` for genuine appropriation of closed/sacred practice — a veto
+halts the pipeline. Then give the human-readable report:
+
 ### Full Cultural Review
 
 ```markdown

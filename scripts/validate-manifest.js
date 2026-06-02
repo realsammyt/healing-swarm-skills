@@ -62,6 +62,19 @@ function main() {
   // `prompt` path declared here, relative to SKILLS_DIR.
   const agentMap = manifest.agents && typeof manifest.agents === 'object' ? manifest.agents : {};
 
+  // Safety context requirement. Sensitive skills (single source of truth:
+  // skill-discovery.yaml `sensitive`) MUST load the crisis-response and
+  // contraindications references via `requires`, so the safety wiring is
+  // auditable instead of trusting each agent's prose.
+  const REQUIRED_SAFETY_REFS = ['shared/crisis-response.md', 'shared/contraindications.md'];
+  let sensitiveSkills = new Set();
+  try {
+    const discovery = YAML.parse(fs.readFileSync(path.join(SKILLS_DIR, 'skill-discovery.yaml'), 'utf8'));
+    sensitiveSkills = new Set(discovery.sensitive || []);
+  } catch {
+    warnings.push('Could not read skill-discovery.yaml; skipping sensitive-skill safety check');
+  }
+
   // Validate skills array
   if (!manifest.skills || !Array.isArray(manifest.skills)) {
     errors.push('Missing "skills" array in manifest');
@@ -138,6 +151,22 @@ function main() {
         warnings.push(
           `${prefix} (${skill.name}): 'requires_ethics_approval' must be a boolean, got ${typeof skill.requires_ethics_approval}`,
         );
+      }
+
+      // Validate `requires` references exist, and enforce the safety floor for
+      // sensitive skills.
+      const requires = Array.isArray(skill.requires) ? skill.requires : [];
+      requires.forEach((ref) => {
+        if (!fs.existsSync(path.join(SKILLS_DIR, ref))) {
+          errors.push(`${prefix} (${skill.name}): requires reference not found: ${ref}`);
+        }
+      });
+      if (skill.name && sensitiveSkills.has(skill.name)) {
+        for (const ref of REQUIRED_SAFETY_REFS) {
+          if (!requires.includes(ref)) {
+            errors.push(`${prefix} (${skill.name}): sensitive skill must list '${ref}' in requires (safety context)`);
+          }
+        }
       }
 
       // Validate trigger format and collect for duplicate detection.

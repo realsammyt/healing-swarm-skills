@@ -1,1045 +1,508 @@
 # Agents Reference
 
-> Quick reference for all healing swarm agents.
+> Generated from `manifest.yaml` by `scripts/generate-reference.js`. Do not edit by hand.
 
 ---
 
 ## Overview
 
-| Agent | Category | Primary Role |
-|-------|----------|--------------|
-| [traditions-scholar](#traditions-scholar) | Research | Traditional healing research |
-| [clinical-researcher](#clinical-researcher) | Research | Clinical evidence review |
-| [mechanisms-neuroscientist](#mechanisms-neuroscientist) | Research | Science-tradition bridging |
-| [ux-architect](#ux-architect) | Design | User experience architecture |
-| [visual-designer](#visual-designer) | Design | Visual design |
-| [content-writer](#content-writer) | Content | Healing content creation |
-| [app-developer](#app-developer) | Build | Application development |
-| [ethics-guardian](#ethics-guardian) | Quality | Ethics and safety |
-| [clinical-reviewer](#clinical-reviewer) | Quality | Clinical accuracy |
-| [cultural-reviewer](#cultural-reviewer) | Quality | Cultural sensitivity |
-| [accessibility-auditor](#accessibility-auditor) | Quality | WCAG compliance |
-| [devops-specialist](#devops-specialist) | Deploy | Infrastructure |
-| [content-manager](#content-manager) | Deploy | Content management |
-| [swarm-conductor](#swarm-conductor) | Orchestrator | Swarm coordination |
-| [breathwork-coach](#breathwork-coach) | Specialist | WHM breathing protocol design |
-| [cold-exposure-guide](#cold-exposure-guide) | Specialist | Progressive cold adaptation |
-| [language-awareness-guide](#language-awareness-guide) | Specialist | Cognitive deautomatization practices |
-| [sound-healing-guide](#sound-healing-guide) | Specialist | Sound healing protocol design |
-| [somatic-guide](#somatic-guide) | Specialist | Movement and somatic practice design |
-| [sleep-healing-guide](#sleep-healing-guide) | Specialist | Sleep and dream practice design |
-| [nature-guide](#nature-guide) | Specialist | Nature connection protocol design |
-| [water-guide](#water-guide) | Specialist | Water and hydrotherapy protocol design |
-| [grief-guide](#grief-guide) | Specialist | Grief support protocol design |
-| [expressive-guide](#expressive-guide) | Specialist | Creative and expressive healing design |
-| [community-facilitator](#community-facilitator) | Specialist | Group healing circle facilitation |
-| [contemplative-guide](#contemplative-guide) | Specialist | Contemplative inquiry protocol design |
-| [pni-researcher](#pni-researcher) | Research | Psychoneuroimmunology research |
+| Agent | Category | File | Tools |
+| ----- | -------- | ---- | ----- |
+| [integral-researcher](#integral-researcher) | Research | `research/integral-researcher.md` | WebSearch, WebFetch, Read, Glob, Grep |
+| [integral-guide](#integral-guide) | Content | `content/integral-guide.md` | Read, Write, Glob |
+| [shadow-facilitator](#shadow-facilitator) | Content | `content/shadow-facilitator.md` | Read, Write, Glob |
+| [consciousness-researcher](#consciousness-researcher) | Research | `research/consciousness-researcher.md` | WebSearch, WebFetch, Read, Glob, Grep |
+| [coherence-guide](#coherence-guide) | Content | `content/coherence-guide.md` | Read, Write, Glob |
+| [resonance-facilitator](#resonance-facilitator) | Content | `content/resonance-facilitator.md` | Read, Write, Glob |
+| [orbital-architect](#orbital-architect) | Content | `content/orbital-architect.md` | Read, Write, Glob, Grep |
+| [breathwork-coach](#breathwork-coach) | Content | `content/breathwork-coach.md` | Read, Write, Glob |
+| [cold-exposure-guide](#cold-exposure-guide) | Content | `content/cold-exposure-guide.md` | Read, Write, Glob |
+| [language-awareness-guide](#language-awareness-guide) | Content | `content/language-awareness-guide.md` | Read, Write, Glob |
+| [traditions-scholar](#traditions-scholar) | Research | `research/traditions-scholar.md` | WebSearch, WebFetch, Read, Glob, Grep |
+| [clinical-researcher](#clinical-researcher) | Research | `research/clinical-researcher.md` | WebSearch, WebFetch, Read, Glob, Grep |
+| [mechanisms-neuroscientist](#mechanisms-neuroscientist) | Research | `research/mechanisms-neuroscientist.md` | WebSearch, WebFetch, Read |
+| [ux-architect](#ux-architect) | Design | `design/ux-architect.md` | Read, Write, Glob |
+| [visual-designer](#visual-designer) | Design | `design/visual-designer.md` | Read, Write, Glob |
+| [content-writer](#content-writer) | Content | `content/content-writer.md` | Read, Write, Glob, Grep |
+| [app-developer](#app-developer) | Build | `build/app-developer.md` | Read, Write, Edit, Bash, Glob, Grep |
+| [ethics-guardian](#ethics-guardian) | Quality | `quality/ethics-guardian.md` | Read, Glob, Grep |
+| [clinical-reviewer](#clinical-reviewer) | Quality | `quality/clinical-reviewer.md` | Read, WebSearch, WebFetch, Glob |
+| [cultural-reviewer](#cultural-reviewer) | Quality | `quality/cultural-reviewer.md` | Read, Glob, Grep |
+| [accessibility-auditor](#accessibility-auditor) | Quality | `quality/accessibility-auditor.md` | Read, Bash, Glob |
+| [devops-specialist](#devops-specialist) | Deploy | `deploy/devops-specialist.md` | Read, Write, Bash, Glob |
+| [content-manager](#content-manager) | Deploy | `deploy/content-manager.md` | Read, Write, Edit, Glob, Grep |
+| [sound-healing-guide](#sound-healing-guide) | Content | `content/sound-healing-guide.md` | Read, Write, Glob |
+| [hyperhumanism-researcher](#hyperhumanism-researcher) | Research | `research/hyperhumanism-researcher.md` | WebSearch, WebFetch, Read, Glob, Grep |
+| [archaeoacoustic-guide](#archaeoacoustic-guide) | Content | `content/archaeoacoustic-guide.md` | Read, Write, Glob |
+| [holotechnica-architect](#holotechnica-architect) | Content | `content/holotechnica-architect.md` | Read, Write, Glob |
+| [umwelt-facilitator](#umwelt-facilitator) | Content | `content/umwelt-facilitator.md` | Read, Write, Glob |
+| [somatic-guide](#somatic-guide) | Content | `content/somatic-guide.md` | Read, Write, Glob |
+| [sleep-healing-guide](#sleep-healing-guide) | Content | `content/sleep-healing-guide.md` | Read, Write, Glob |
+| [nature-guide](#nature-guide) | Content | `content/nature-guide.md` | Read, Write, Glob |
+| [water-guide](#water-guide) | Content | `content/water-guide.md` | Read, Write, Glob |
+| [grief-guide](#grief-guide) | Content | `content/grief-guide.md` | Read, Write, Glob |
+| [expressive-guide](#expressive-guide) | Content | `content/expressive-guide.md` | Read, Write, Glob |
+| [community-facilitator](#community-facilitator) | Content | `content/community-facilitator.md` | Read, Write, Glob |
+| [pni-researcher](#pni-researcher) | Research | `research/pni-researcher.md` | WebSearch, WebFetch, Read, Glob, Grep |
+| [contemplative-guide](#contemplative-guide) | Content | `content/contemplative-guide.md` | Read, Write, Glob |
+| [swarm-conductor](#swarm-conductor) | Orchestration | `orchestrator/swarm-conductor.md` | Read, Write, Task, Glob, Grep |
 
 ---
 
-## Research Agents
+## integral-researcher
 
-### traditions-scholar
+**File:** `research/integral-researcher.md`
 
-**File:** `research/traditions-scholar.md`
+**Category:** Research
 
-Specializes in academic study of healing traditions across cultures and time periods.
+**Tools:** `WebSearch`, `WebFetch`, `Read`, `Glob`, `Grep`
 
-**Expertise:**
-- Traditional Chinese Medicine (TCM)
-- Vedic/Ayurvedic traditions
-- Jewish mystical healing
-- Western esoteric traditions
-- Indigenous healing systems
-
-**Responsibilities:**
-- Primary source research
-- Cross-cultural analysis
-- Authenticity assessment
-- Attribution documentation
-
-**Outputs:**
-- Research briefs with sources
-- Traditions comparisons
-- Practice documentation
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `shared/terminology.md`
-- `shared/citation-format.md`
+Deep research into Ken Wilber's integral metatheory, AQAL framework, and transpersonal psychology with honest evidence assessment.
 
 ---
 
-### clinical-researcher
+## integral-guide
 
-**File:** `research/clinical-researcher.md`
+**File:** `content/integral-guide.md`
 
-Conducts systematic reviews of clinical evidence for healing practices.
+**Category:** Content
 
-**Expertise:**
-- Systematic review methodology
-- Evidence grading (GRADE framework)
-- Study quality assessment
-- Safety evaluation
+**Tools:** `Read`, `Write`, `Glob`
 
-**Responsibilities:**
-- Literature search
-- Evidence synthesis
-- Quality assessment
-- Safety profiling
-
-**Outputs:**
-- Evidence summaries
-- Study analyses
-- Safety reports
-- Evidence level assignments
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `shared/citation-format.md`
+Specialist in AQAL-based practice design: quadrant check-ins, spectrum meditation, and perspective-taking exercises.
 
 ---
 
-### mechanisms-neuroscientist
+## shadow-facilitator
 
-**File:** `research/mechanisms-neuroscientist.md`
+**File:** `content/shadow-facilitator.md`
 
-Bridges traditional explanatory models with scientific understanding.
+**Category:** Content
 
-**Expertise:**
-- Neuroscience
-- Physiology
-- Traditional conceptual frameworks
-- Mechanism mapping
+**Tools:** `Read`, `Write`, `Glob`
 
-**Responsibilities:**
-- Traditional framework analysis
-- Scientific mechanism identification
-- Bridge building
-- Gap documentation
-
-**Outputs:**
-- Mechanism bridge documents
-- Translation notes
-- Integration guidance
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `shared/terminology.md`
+Specialist in the 3-2-1 Shadow Process with safety architecture for self-guided exploration.
 
 ---
 
-## Design Agents
-
-### ux-architect
-
-**File:** `design/ux-architect.md`
-
-Designs user experience for healing applications.
-
-**Expertise:**
-- Information architecture
-- User flow design
-- Accessibility (WCAG)
-- One-handed operation
-- Trauma-informed design
-
-**Responsibilities:**
-- User journey mapping
-- Navigation design
-- Accessibility requirements
-- Flow optimization
-
-**Outputs:**
-- UX specifications
-- User flow diagrams
-- Accessibility requirements
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `shared/design-tokens.json`
-
----
-
-### visual-designer
-
-**File:** `design/visual-designer.md`
-
-Creates visual design for healing applications.
-
-**Expertise:**
-- Visual hierarchy
-- Color theory (healing-focused)
-- Typography
-- Dark mode design
-- Calming aesthetics
-
-**Responsibilities:**
-- Visual specifications
-- Color systems
-- Typography systems
-- Component styling
-
-**Outputs:**
-- Visual design specs
-- Style guides
-- Component designs
-
-**Key Context:**
-- `shared/design-tokens.json`
-- `shared/ethics-guardrails.md`
-
----
-
-## Content Agents
-
-### content-writer
-
-**File:** `content/content-writer.md`
-
-Creates healing content across multiple formats.
-
-**Expertise:**
-- Spiritual content (prayers, invocations)
-- Guided experiences (visualizations)
-- Instructions (practice guides)
-- Educational content
-
-**Responsibilities:**
-- Content creation
-- Voice consistency
-- Safety integration
-- Attribution
-
-**Outputs:**
-- Prayers and invocations
-- Visualizations
-- Practice instructions
-- Evidence boxes
-- Journal prompts
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `shared/voice-guide.md`
-- `shared/terminology.md`
-- `content/templates/*`
-
----
-
-## Build Agents
-
-### app-developer
-
-**File:** `build/app-developer.md`
-
-Develops accessible, privacy-first healing applications.
-
-**Expertise:**
-- TypeScript/React
-- Accessibility implementation
-- Privacy-first architecture
-- Performance optimization
-
-**Responsibilities:**
-- Component implementation
-- Accessibility compliance
-- Privacy architecture
-- Testing
-
-**Outputs:**
-- Application code
-- Components
-- Tests
-- Documentation
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `shared/design-tokens.json`
-- `build/components/*`
-
----
-
-## Quality Agents
-
-### ethics-guardian
-
-**File:** `quality/ethics-guardian.md`
-
-Ensures ethical compliance across all healing content and applications.
-
-**Expertise:**
-- Medical ethics
-- Psychological safety
-- Cultural respect
-- Privacy protection
-
-**Responsibilities:**
-- Ethics review
-- Safety assessment
-- Guardrail enforcement
-- Escalation management
-
-**Outputs:**
-- Ethics review reports
-- Approval/rejection decisions
-- Required modifications
-
-**Key Context:**
-- `shared/ethics-guardrails.md` (PRIMARY)
-
-**Authority:**
-- Can block deployment
-- Can require modifications
-- Final word on ethics issues
-
----
-
-### clinical-reviewer
-
-**File:** `quality/clinical-reviewer.md`
-
-Verifies clinical accuracy and evidence claims.
-
-**Expertise:**
-- Evidence evaluation
-- Medical accuracy
-- Safety verification
-- Citation checking
-
-**Responsibilities:**
-- Evidence verification
-- Claim appropriateness
-- Citation accuracy
-- Safety information completeness
-
-**Outputs:**
-- Clinical review reports
-- Evidence assessments
-- Accuracy ratings
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `shared/citation-format.md`
-
----
-
-### cultural-reviewer
-
-**File:** `quality/cultural-reviewer.md`
-
-Ensures cultural sensitivity and proper attribution.
-
-**Expertise:**
-- Cultural competency
-- Attribution practices
-- Closed practice identification
-- Context preservation
-
-**Responsibilities:**
-- Attribution verification
-- Cultural sensitivity review
-- Closed practice protection
-- Context assessment
-
-**Outputs:**
-- Cultural review reports
-- Attribution assessments
-- Sensitivity recommendations
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `shared/terminology.md`
-
----
-
-### accessibility-auditor
-
-**File:** `quality/accessibility-auditor.md`
-
-Audits for WCAG compliance and accessibility.
-
-**Expertise:**
-- WCAG guidelines
-- Screen reader compatibility
-- Motor accessibility
-- Cognitive accessibility
-
-**Responsibilities:**
-- WCAG auditing
-- Keyboard navigation testing
-- Screen reader testing
-- Touch target verification
-
-**Outputs:**
-- Accessibility audit reports
-- WCAG compliance scores
-- Remediation guides
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `shared/design-tokens.json`
-
----
-
-## Deploy Agents
-
-### devops-specialist
-
-**File:** `deploy/devops-specialist.md`
-
-Manages infrastructure and deployment.
-
-**Expertise:**
-- Cloud deployment
-- CI/CD pipelines
-- Security configuration
-- Performance monitoring
-
-**Responsibilities:**
-- Infrastructure setup
-- Deployment automation
-- Security hardening
-- Monitoring configuration
-
-**Outputs:**
-- Deployment configurations
-- Infrastructure specs
-- Monitoring dashboards
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-
----
-
-### content-manager
-
-**File:** `deploy/content-manager.md`
-
-Manages content deployment and updates.
-
-**Expertise:**
-- Content versioning
-- A/B testing
-- Content scheduling
-- Update coordination
-
-**Responsibilities:**
-- Content deployment
-- Version management
-- Update scheduling
-- Rollback handling
-
-**Outputs:**
-- Content deployment reports
-- Version history
-- Update schedules
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-
----
-
-## Orchestrator Agents
-
-### swarm-conductor
-
-**File:** `orchestrator/swarm-conductor.md`
-
-Coordinates all swarm agents for full development lifecycle.
-
-**Expertise:**
-- Workflow orchestration
-- Agent coordination
-- Quality gate management
-- Delivery optimization
-
-**Responsibilities:**
-- Workflow execution
-- Agent assignment
-- Quality gate enforcement
-- Timeline management
-
-**Outputs:**
-- Orchestration plans
-- Status reports
-- Deliverable coordination
-
-**Key Context:**
-- All shared resources
-- All workflows
-
----
-
-## Consciousness Agents
-
-### consciousness-researcher
+## consciousness-researcher
 
 **File:** `research/consciousness-researcher.md`
 
-Specializes in Grinberg's consciousness science, EEG coherence research, and cross-tradition contemplative studies.
+**Category:** Research
 
-**Expertise:**
-- Grinberg-Zylberbaum research (UNAM, 1970s-1994)
-- EEG coherence and transferred potential studies
-- Syntergic theory
-- Shamanic observation methodology
-- Cross-tradition consciousness research
+**Tools:** `WebSearch`, `WebFetch`, `Read`, `Glob`, `Grep`
 
-**Responsibilities:**
-- Grinberg research synthesis
-- Evidence-level assessment
-- Cross-tradition consciousness parallels
-- Honest limitations documentation
-
-**Outputs:**
-- Research briefs with evidence levels
-- Bibliography compilations
-- Shamanic context documents
-- Honest assessment reports
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `shared/citation-format.md`
+Research specialist for consciousness science, Grinberg's work, EEG coherence, and meditation neuroscience.
 
 ---
 
-### coherence-guide
+## coherence-guide
 
 **File:** `content/coherence-guide.md`
 
-Designs self-allusive meditation practices based on Grinberg's 6-phase interhemispheric coherence protocol.
+**Category:** Content
 
-**Expertise:**
-- Grinberg's 6-phase meditation protocol
-- Interhemispheric coherence techniques
-- "High-inclusion" unified field awareness
-- Progressive meditation instruction
+**Tools:** `Read`, `Write`, `Glob`
 
-**Responsibilities:**
-- Coherence practice design (6-phase structure)
-- Audio timing specification
-- Meditation script creation
-- Level-appropriate progression
-
-**Outputs:**
-- Guided meditation scripts
-- Audio timing JSON
-- Practice progression guides
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `content/templates/coherence-practice.md`
+Specialist in self-allusive meditation protocol design for interhemispheric coherence.
 
 ---
 
-### resonance-facilitator
+## resonance-facilitator
 
 **File:** `content/resonance-facilitator.md`
 
-Designs paired and group meditation protocols based on Grinberg's transferred potential research.
+**Category:** Content
 
-**Expertise:**
-- Transferred potential experiment protocols
-- Paired meditation facilitation
-- Consent framework design
-- Boundary management in group practice
+**Tools:** `Read`, `Write`, `Glob`
 
-**Responsibilities:**
-- Pairing protocol design
-- Consent framework creation
-- Participant screening and preparation
-- Boundary and safety guidelines
-
-**Outputs:**
-- Pairing protocol guides
-- Participant preparation documents
-- Consent frameworks
-- Boundary guidelines
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `content/templates/resonance-pairing.md`
+Paired and group meditation facilitator specializing in transferred potential protocols with rigorous consent.
 
 ---
 
-### orbital-architect
+## orbital-architect
 
 **File:** `content/orbital-architect.md`
 
-Designs progressive multi-day consciousness journeys through Grinberg's orbital model.
+**Category:** Content
 
-**Expertise:**
-- Grinberg's orbital consciousness model
-- Multi-day contemplative program design
-- Progressive challenge architecture
-- Safety screening for transpersonal content
+**Tools:** `Read`, `Write`, `Glob`, `Grep`
 
-**Responsibilities:**
-- Journey structure and pacing
-- Daily practice sequencing
-- Orbital progression design
-- Safety architecture for advanced practices
-
-**Outputs:**
-- Journey maps
-- Daily practice guides
-- Orbital progression guides
-- Safety and screening protocols
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `content/templates/orbital-day.md`
+Multi-day consciousness journey designer based on Grinberg's orbital model.
 
 ---
 
-## Specialist Agents
-
-### breathwork-coach
+## breathwork-coach
 
 **File:** `content/breathwork-coach.md`
 
-Designs Wim Hof Method breathing protocols with comprehensive safety architecture covering the three-phase round structure (power breaths, retention, recovery breath).
+**Category:** Content
 
-**Expertise:**
-- WHM three-phase breathing rounds
-- Progressive training design (beginner to advanced)
-- Breath retention safety (competitive holding prevention)
-- Tummo and pranayama cross-tradition context
+**Tools:** `Read`, `Write`, `Glob`
 
-**Responsibilities:**
-- Breathing protocol design with timing calibration
-- Safety briefing creation (water, driving, standing contraindications)
-- Progressive session structuring
-- Timer specification (count-up, not countdown)
-
-**Outputs:**
-- Breathing session scripts
-- Timing JSON for timer integration
-- Quick reference cards
-- Safety briefings
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `content/templates/breathwork-protocol.md`
-- `content/breathwork-workflow.yaml`
+Specialist in Wim Hof Method breathing protocol design and progressive breathwork training.
 
 ---
 
-### cold-exposure-guide
+## cold-exposure-guide
 
 **File:** `content/cold-exposure-guide.md`
 
-Designs progressive cold exposure protocols for WHM Pillar 2, from cold shower finishes through full cold immersion.
+**Category:** Content
 
-**Expertise:**
-- Progressive cold adaptation (4 levels)
-- Afterdrop physiology and safety
-- Partner protocols for immersion
-- Temperature guidelines (Celsius/Fahrenheit)
+**Tools:** `Read`, `Write`, `Glob`
 
-**Responsibilities:**
-- Cold exposure protocol design
-- Safety verification (partner requirements, medical screening)
-- Progression criteria and timing
-- Rewarming guidance
-
-**Outputs:**
-- Cold exposure protocol guides
-- Safety checklists
-- Progression criteria
-- Temperature reference tables
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `content/templates/cold-exposure-protocol.md`
+Specialist in progressive cold exposure protocol design for autonomic conditioning and stress resilience.
 
 ---
 
-### language-awareness-guide
+## language-awareness-guide
 
 **File:** `content/language-awareness-guide.md`
 
-Designs cognitive deautomatization protocols based on research by Deikman (1966), semantic satiation studies, and Chase Hughes' *Tongue* (2024). Creates practices that reveal how language shapes perception.
+**Category:** Content
 
-**Expertise:**
-- Label delay and un-naming practices
-- Pronoun and identity observation ("I" tracing)
-- Semantic satiation and meaning collapse
-- Group perception protocols (6 exercise types)
-- Cross-tradition parallels (Zen, Dzogchen, phenomenology, vipassana)
+**Tools:** `Read`, `Write`, `Glob`
 
-**Responsibilities:**
-- Individual protocol design (4 progressive levels)
-- Group exercise facilitation guides
-- Psychological safety architecture (Pocket Exit, Reintegration Ritual)
-- Consent framework design for group exercises
-
-**Outputs:**
-- Language awareness practice protocols
-- Group facilitation scripts with consent frameworks
-- Grounding protocol guides
-- Perception journal prompts
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `content/templates/language-awareness-protocol.md`
-- `content/templates/group-perception-protocol.md`
-- `content/language-awareness-workflow.yaml`
+Specialist in cognitive deautomatization protocols — practices that reveal how language shapes perception and identity.
 
 ---
 
-### sound-healing-guide
+## traditions-scholar
+
+**File:** `research/traditions-scholar.md`
+
+**Category:** Research
+
+**Tools:** `WebSearch`, `WebFetch`, `Read`, `Glob`, `Grep`
+
+Deep research into ancient and traditional healing practices with scholarly rigor.
+
+---
+
+## clinical-researcher
+
+**File:** `research/clinical-researcher.md`
+
+**Category:** Research
+
+**Tools:** `WebSearch`, `WebFetch`, `Read`, `Glob`, `Grep`
+
+Systematic review of clinical evidence for healing modalities with scientific rigor.
+
+---
+
+## mechanisms-neuroscientist
+
+**File:** `research/mechanisms-neuroscientist.md`
+
+**Category:** Research
+
+**Tools:** `WebSearch`, `WebFetch`, `Read`
+
+Bridge traditional healing concepts with modern neuroscience and psychophysiology.
+
+---
+
+## ux-architect
+
+**File:** `design/ux-architect.md`
+
+**Category:** Design
+
+**Tools:** `Read`, `Write`, `Glob`
+
+Design healing-focused user experiences with accessibility and therapeutic intent.
+
+---
+
+## visual-designer
+
+**File:** `design/visual-designer.md`
+
+**Category:** Design
+
+**Tools:** `Read`, `Write`, `Glob`
+
+Create sacred, healing-focused visual systems with beauty and accessibility.
+
+---
+
+## content-writer
+
+**File:** `content/content-writer.md`
+
+**Category:** Content
+
+**Tools:** `Read`, `Write`, `Glob`, `Grep`
+
+Write healing content with compassion, accuracy, and therapeutic intent.
+
+---
+
+## app-developer
+
+**File:** `build/app-developer.md`
+
+**Category:** Build
+
+**Tools:** `Read`, `Write`, `Edit`, `Bash`, `Glob`, `Grep`
+
+Build accessible, privacy-first healing applications with modern web technologies.
+
+---
+
+## ethics-guardian
+
+**File:** `quality/ethics-guardian.md`
+
+**Category:** Quality
+
+**Tools:** `Read`, `Glob`, `Grep`
+
+> 🛑 Holds veto power over swarm outputs.
+
+Protect users through rigorous ethical review of all healing content and features.
+
+---
+
+## clinical-reviewer
+
+**File:** `quality/clinical-reviewer.md`
+
+**Category:** Quality
+
+**Tools:** `Read`, `WebSearch`, `WebFetch`, `Glob`
+
+Verify clinical accuracy of all evidence claims and citations.
+
+---
+
+## cultural-reviewer
+
+**File:** `quality/cultural-reviewer.md`
+
+**Category:** Quality
+
+**Tools:** `Read`, `Glob`, `Grep`
+
+Ensure respectful, accurate representation of all healing traditions.
+
+---
+
+## accessibility-auditor
+
+**File:** `quality/accessibility-auditor.md`
+
+**Category:** Quality
+
+**Tools:** `Read`, `Bash`, `Glob`
+
+Ensure healing applications are accessible to all users, including those with disabilities.
+
+---
+
+## devops-specialist
+
+**File:** `deploy/devops-specialist.md`
+
+**Category:** Deploy
+
+**Tools:** `Read`, `Write`, `Bash`, `Glob`
+
+Deploy and maintain healing applications with reliability and privacy focus.
+
+---
+
+## content-manager
+
+**File:** `deploy/content-manager.md`
+
+**Category:** Deploy
+
+**Tools:** `Read`, `Write`, `Edit`, `Glob`, `Grep`
+
+Manage healing content lifecycle from creation through deployment and updates.
+
+---
+
+## sound-healing-guide
 
 **File:** `content/sound-healing-guide.md`
 
-Designs therapeutic sound practices spanning Vedic mantra, Psalm chanting, Gregorian chant, Tibetan singing bowl, and vagal toning.
+**Category:** Content
 
-**Expertise:**
-- Vedic mantra traditions
-- Sacred chanting (Psalm, Gregorian)
-- Tibetan singing bowl protocols
-- Vagal toning techniques
-- Hearing safety screening
+**Tools:** `Read`, `Write`, `Glob`
 
-**Responsibilities:**
-- Sound protocol design with tradition attribution
-- Safety screening (hearing conditions, seizure disorders)
-- Progressive level structuring (listening through extended chanting)
-- Open/closed practice boundary enforcement
-
-**Outputs:**
-- Sound practice protocols
-- Safety screening checklists
-- Tradition context documents
-- Progressive curricula
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `content/templates/sound-protocol.md`
+Specialist in therapeutic sound practices across traditions — vocal toning, mantra, chanting, singing bowl, and humming protocols.
 
 ---
 
-### somatic-guide
+## hyperhumanism-researcher
+
+**File:** `research/hyperhumanism-researcher.md`
+
+**Category:** Research
+
+**Tools:** `WebSearch`, `WebFetch`, `Read`, `Glob`, `Grep`
+
+Research specialist for Carl Hayden Smith's work, endo-technology evidence, archaeoacoustics, and consciousness assessment models.
+
+---
+
+## archaeoacoustic-guide
+
+**File:** `content/archaeoacoustic-guide.md`
+
+**Category:** Content
+
+**Tools:** `Read`, `Write`, `Glob`
+
+Specialist in sacred site frequency practices, vocal toning, and sound-consciousness exploration.
+
+---
+
+## holotechnica-architect
+
+**File:** `content/holotechnica-architect.md`
+
+**Category:** Content
+
+**Tools:** `Read`, `Write`, `Glob`
+
+Specialist in designing endo-technology experience stacks targeting altered traits.
+
+---
+
+## umwelt-facilitator
+
+**File:** `content/umwelt-facilitator.md`
+
+**Category:** Content
+
+**Tools:** `Read`, `Write`, `Glob`
+
+Specialist in sensory augmentation exercises, perceiving-as-other practices, and perceptual frame shifting.
+
+---
+
+## somatic-guide
 
 **File:** `content/somatic-guide.md`
 
-Designs gentle movement protocols with universal accessibility modifications.
+**Category:** Content
 
-**Expertise:**
-- Qigong and tai chi forms
-- Yoga adaptations
-- Kinhin (Zen walking meditation)
-- Feldenkrais awareness through movement
-- Polyvagal-informed movement
+**Tools:** `Read`, `Write`, `Glob`
 
-**Responsibilities:**
-- Movement protocol design with 4 modification levels
-- Standing/seated/lying/wheelchair adaptations
-- Pain boundary enforcement (within comfort, never through pain)
-- Biomechanical safety screening
-
-**Outputs:**
-- Movement practice protocols
-- Modification guides (4 positions)
-- Safety screening checklists
-- Progressive training plans
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `content/templates/movement-protocol.md`
+Specialist in body-based healing practices — gentle movement protocols, somatic awareness, and movement as medicine across traditions.
 
 ---
 
-### sleep-healing-guide
+## sleep-healing-guide
 
 **File:** `content/sleep-healing-guide.md`
 
-Designs sleep quality and dream work protocols across traditions.
+**Category:** Content
 
-**Expertise:**
-- Asclepian dream temple practices
-- Tibetan dream yoga (milam)
-- TCM organ clock theory
-- Ayurvedic dinacharya (daily routines)
-- CBT-I referral criteria
+**Tools:** `Read`, `Write`, `Glob`
 
-**Responsibilities:**
-- Sleep protocol design with screen paradox acknowledgment
-- Dream practice design with contraindication awareness
-- CBT-I referral for persistent insomnia (>3 months)
-- Progressive level structuring
-
-**Outputs:**
-- Sleep practice protocols
-- Screen paradox notes
-- Dream practice guides
-- CBT-I referral criteria documents
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `content/templates/sleep-protocol.md`
+Specialist in sleep-supportive practices and dream work across healing traditions.
 
 ---
 
-### nature-guide
+## nature-guide
 
 **File:** `content/nature-guide.md`
 
-Designs nature connection and forest bathing protocols with urban alternatives.
+**Category:** Content
 
-**Expertise:**
-- Shinrin-yoku (forest bathing)
-- Earthing/grounding practices
-- Horticultural therapy
-- Five Element nature observation
-- Urban nature connection
+**Tools:** `Read`, `Write`, `Glob`
 
-**Responsibilities:**
-- Nature protocol design with environmental privilege awareness
-- Urban/indoor alternative provision (never as "lesser")
-- Seasonal and weather adaptation
-- Safety screening (allergies, mobility, weather)
-
-**Outputs:**
-- Nature practice protocols
-- Urban alternative guides
-- Seasonal adaptation notes
-- Environmental accessibility assessments
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `content/templates/nature-protocol.md`
+Specialist in nature connection practices and ecotherapy across healing traditions.
 
 ---
 
-### water-guide
+## water-guide
 
 **File:** `content/water-guide.md`
 
-Designs water and hydrotherapy protocols with non-negotiable safety requirements.
+**Category:** Content
 
-**Expertise:**
-- Contrast therapy (hot/cold cycling)
-- Kneipp method (5 pillars)
-- Finnish sauna protocols
-- Ritual bathing education (mikveh, onsen)
-- Drowning prevention
+**Tools:** `Read`, `Write`, `Glob`
 
-**Responsibilities:**
-- Water protocol design with cardiac and drowning safety
-- Temperature and duration guidelines
-- Relationship to existing cold-exposure skill
-- Cultural context for ritual bathing (education, not instruction)
-
-**Outputs:**
-- Water therapy protocols
-- Safety checklists (non-negotiable)
-- Temperature reference tables
-- Cultural context documents
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `content/templates/water-protocol.md`
+Specialist in therapeutic water practices across healing traditions, extending cold exposure into broader hydrotherapy.
 
 ---
 
-### grief-guide
+## grief-guide
 
 **File:** `content/grief-guide.md`
 
-Designs grief support protocols with the highest psychological sensitivity in the system.
+**Category:** Content
 
-**Expertise:**
-- Jewish mourning structures (shiva, shloshim, yahrzeit)
-- Buddhist impermanence practices
-- Dia de los Muertos traditions
-- Celtic keening
-- Complicated grief recognition
+**Tools:** `Read`, `Write`, `Glob`
 
-**Responsibilities:**
-- Grief protocol design with minimum 3 exit ramps per practice
-- Crisis resource placement (at least 3 locations per document)
-- Suicidal ideation screening integration
-- Stage-appropriate content (acute through complicated)
-
-**Outputs:**
-- Grief practice protocols
-- Crisis resource documents
-- Exit ramp guides
-- Screening integration notes
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `shared/crisis-response.md`
-- `content/templates/grief-practice.md`
+Specialist in grief-informed healing practices across cultures, trained in trauma-sensitive facilitation for loss of all kinds.
 
 ---
 
-### expressive-guide
+## expressive-guide
 
 **File:** `content/expressive-guide.md`
 
-Designs creative and expressive healing protocols with strongest privacy protections.
+**Category:** Content
 
-**Expertise:**
-- Pennebaker expressive writing (200+ studies)
-- Bibliotherapy
-- Mandala creation
-- Ikebana (Japanese flower arranging)
-- Sacred poetry traditions
+**Tools:** `Read`, `Write`, `Glob`
 
-**Responsibilities:**
-- Expressive protocol design with privacy-first architecture
-- No artistic skill requirements (process over product)
-- Closed practice boundary enforcement (Navajo sand painting)
-- Journal and writing privacy protections
-
-**Outputs:**
-- Expressive practice protocols
-- Privacy protection guides
-- Process-focused instructions
-- Tradition attribution documents
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `content/templates/expressive-protocol.md`
+Specialist in creative and expressive healing modalities — therapeutic writing, art-as-process, and creative expression for emotional processing.
 
 ---
 
-### community-facilitator
+## community-facilitator
 
 **File:** `content/community-facilitator.md`
 
-Designs group healing circle facilitation guides with consent and safety architecture.
+**Category:** Content
 
-**Expertise:**
-- Talking circle facilitation
-- Mussar practice groups
-- Buddhist Sangha structure
-- Quaker meeting for worship
-- Ubuntu philosophy
-- 12-Step traditions
+**Tools:** `Read`, `Write`, `Glob`
 
-**Responsibilities:**
-- Facilitation guide design with trained facilitator requirement
-- Full consent framework creation
-- Confidentiality agreement templates
-- Power dynamic awareness and mitigation
-
-**Outputs:**
-- Facilitation guides
-- Consent frameworks
-- Confidentiality agreements
-- Power dynamic assessments
-- Participant preparation documents
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `content/templates/community-protocol.md`
+Specialist in group healing dynamics and community-based practice facilitation with rigorous consent and safety architecture.
 
 ---
 
-### contemplative-guide
-
-**File:** `content/contemplative-guide.md`
-
-Designs contemplative inquiry protocols from structured reflection to silent investigation.
-
-**Expertise:**
-- Zen koan practice
-- Advaitic self-inquiry (Ramana Maharshi)
-- Socratic questioning method
-- Ignatian Examen
-- ACT cognitive defusion
-- Dzogchen (closed practice awareness)
-
-**Responsibilities:**
-- Inquiry protocol design with progressive safety requirements
-- Closed tradition enforcement (Dzogchen reference only)
-- Level-appropriate progression (structured → guided → open → silent)
-- Integration with language awareness practices
-
-**Outputs:**
-- Inquiry practice protocols
-- Tradition context documents
-- Progressive curricula
-- Safety requirement escalation guides
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `content/templates/contemplative-protocol.md`
-
----
-
-### pni-researcher
+## pni-researcher
 
 **File:** `research/pni-researcher.md`
 
-Specializes in psychoneuroimmunology — the science of mind-body-immune connections.
+**Category:** Research
 
-**Expertise:**
-- HPA axis stress pathways
-- Vagal tone and parasympathetic function
-- Telomere biology and cellular aging
-- Placebo and nocebo mechanisms
-- Wound healing psychophysiology
-- Social-immune connections
+**Tools:** `WebSearch`, `WebFetch`, `Read`, `Glob`, `Grep`
 
-**Responsibilities:**
-- PNI pathway research and documentation
-- Traditional practice → biological pathway mapping
-- Honest limitations documentation
-- Evidence strength calibration for PNI claims
-
-**Outputs:**
-- PNI research briefs
-- Practice-to-pathway mapping documents
-- Limitations assessments
-- Evidence-calibrated summaries
-
-**Key Context:**
-- `shared/ethics-guardrails.md`
-- `shared/citation-format.md`
+Specialist in mind-body-immune interactions — the science of why healing practices may work.
 
 ---
 
-## Agent Coordination Patterns
+## contemplative-guide
 
-### Research → Content
-```
-traditions-scholar → content-writer
-  (background research for content creation)
+**File:** `content/contemplative-guide.md`
 
-clinical-researcher → content-writer
-  (evidence for evidence boxes)
-```
+**Category:** Content
 
-### Content → Quality
-```
-content-writer → ethics-guardian
-  (safety review before use)
+**Tools:** `Read`, `Write`, `Glob`
 
-content-writer → accessibility-auditor
-  (accessibility verification)
-```
-
-### Build → Quality → Deploy
-```
-app-developer → ethics-guardian → devops-specialist
-  (implementation → review → deployment)
-```
-
-### Full Orchestration
-```
-swarm-conductor coordinates all:
-  Research swarm → Design swarm → Content + Build → Quality → Deploy
-```
+Specialist in inquiry-based contemplative practices that use questioning and investigation as paths to healing insight.
 
 ---
 
-## See Also
+## swarm-conductor
 
-- [Skills Reference](skills-reference.md) - All skills
-- [Shared Resources](shared-resources.md) - Common resources
-- [Workflows Reference](workflows-reference.md) - Workflow patterns
+**File:** `orchestrator/swarm-conductor.md`
+
+**Category:** Orchestration
+
+**Tools:** `Read`, `Write`, `Task`, `Glob`, `Grep`
+
+Orchestrate the complete healing application development lifecycle.
+
+---
