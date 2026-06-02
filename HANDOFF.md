@@ -5,7 +5,7 @@
 > conversation should read this first, then update it before ending a session.
 > If anything here disagrees with reality, reality wins — fix the doc.
 
-**Last updated:** 2026-06-02 by Claude (Opus 4.8) — Phases 0–6 complete (core); only minor deferred polish remains
+**Last updated:** 2026-06-02 by Claude (Opus 4.8) — Phases 0–6 merged to `master` (PR #16); only minor deferred polish remains
 **Active branch:** `feat/family-nexus-healing`
 **Driving plan:** [`docs/plans/2026-05-31-opus-4-8-optimization.md`](docs/plans/2026-05-31-opus-4-8-optimization.md)
 
@@ -169,6 +169,12 @@ leaves the repo shippable; none requires the next.
 
 ## 7. Activity log (newest first — append, don't overwrite)
 
+- **2026-06-02** — **Phases 2–6 merged to `master` via PR #16** (merge commit
+  `4c7ad52`). All 7 CI checks green (validate-skills, lint yaml/markdown, tests on
+  Node 22 + 24, coverage, validation summary). Phases 0–1 had already landed in
+  PR #15. The whole Opus 4.8 optimization effort is now on `master`; what remains
+  is the deferred minor polish listed in the phase notes. Branch
+  `feat/family-nexus-healing` kept (effort's active working branch).
 - **2026-06-02** — **Phases 5 + 6.** Built the structured gate contract and its
   enforcer: `scripts/check-gates.js` (`extractGates`/`evaluateGates`, veto gates =
   ethics + accessibility) with `scripts/check-gates.test.js` (9 tests, run by
