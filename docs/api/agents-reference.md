@@ -36,6 +36,7 @@
 | [archaeoacoustic-guide](#archaeoacoustic-guide) | Content | `content/archaeoacoustic-guide.md` | Read, Write, Glob |
 | [holotechnica-architect](#holotechnica-architect) | Content | `content/holotechnica-architect.md` | Read, Write, Glob |
 | [umwelt-facilitator](#umwelt-facilitator) | Content | `content/umwelt-facilitator.md` | Read, Write, Glob |
+| [context-engineer](#context-engineer) | Content | `content/context-engineer.md` | Read, Write, Glob |
 | [somatic-guide](#somatic-guide) | Content | `content/somatic-guide.md` | Read, Write, Glob |
 | [sleep-healing-guide](#sleep-healing-guide) | Content | `content/sleep-healing-guide.md` | Read, Write, Glob |
 | [nature-guide](#nature-guide) | Content | `content/nature-guide.md` | Read, Write, Glob |
@@ -386,6 +387,18 @@ Specialist in designing endo-technology experience stacks targeting altered trai
 **Tools:** `Read`, `Write`, `Glob`
 
 Specialist in sensory augmentation exercises, perceiving-as-other practices, and perceptual frame shifting.
+
+---
+
+## context-engineer
+
+**File:** `content/context-engineer.md`
+
+**Category:** Content
+
+**Tools:** `Read`, `Write`, `Glob`
+
+Specialist in designing the experiential container (setting, priming, intention, re-entry) before any practice begins.
 
 ---
 

@@ -32,6 +32,7 @@
 | [sound-consciousness](#sound-consciousness) | `/sound-consciousness` | sound | Museum of Consciousness-style audio experiences with Milliere 6D self-assessment. |
 | [holotechnica-stack](#holotechnica-stack) | `/holotechnica-stack` | consciousness | Personalized endo-technology experience stacks targeting altered traits. |
 | [hyperhumanism-inquiry](#hyperhumanism-inquiry) | `/hyperhumanism-inquiry` | consciousness | Guided philosophical inquiry on consciousness, technology, and innate human capacities. |
+| [context-engineering](#context-engineering) | `/context-engineering` | consciousness | Designs the experiential container (setting, priming, intention, re-entry) before any practice begins. |
 | [umwelt-practice](#umwelt-practice) | `/umwelt-practice` | consciousness | Sensory augmentation exercises for perceiving-as-other and extending the sensorium. |
 | [cyberdelic-research](#cyberdelic-research) | `/cyberdelic-research` | research | Deep research into consciousness technologies and endo-technology science. |
 | [somatic-practice](#somatic-practice) | `/somatic-practice` | movement | Guided gentle movement protocols (qigong, tai chi, yoga, walking meditation) |
@@ -969,6 +970,42 @@ Guided philosophical inquiry on consciousness, technology, and innate human capa
 
 ```bash
 /hyperhumanism-inquiry "my relationship with technology"
+```
+
+---
+
+## context-engineering
+
+**Trigger:** `/context-engineering`
+
+**Category:** consciousness
+
+**Workflow:** `content/context-engineering-workflow.yaml`
+
+### Description
+
+Designs the experiential container (setting, priming, intention, re-entry) before any practice begins. Usable on its own or as a preparation step before any other healing-swarm skill.
+
+### Agents
+
+- `context-engineer`
+- `accessibility-auditor`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/context-design.md`
+
+### Outputs
+
+- `context-design.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/context-engineering "20-minute breath practice at home, alone"
 ```
 
 ---

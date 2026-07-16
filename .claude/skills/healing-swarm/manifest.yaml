@@ -667,6 +667,26 @@ skills:
     example_usage: |
       /hyperhumanism-inquiry "my relationship with technology"
 
+  - name: context-engineering
+    trigger: /context-engineering
+    description: |
+      Designs the experiential container (setting, priming, intention, re-entry)
+      before any practice begins. Usable on its own or as a preparation step
+      before any other healing-swarm skill.
+    category: consciousness
+    agents:
+      - context-engineer
+      - accessibility-auditor
+      - ethics-guardian
+    requires_ethics_approval: true
+    workflow: content/context-engineering-workflow.yaml
+    templates:
+      - content/templates/context-design.md
+    outputs:
+      - context-design.md
+    example_usage: |
+      /context-engineering "20-minute breath practice at home, alone"
+
   - name: umwelt-practice
     trigger: /umwelt-practice
     description: |
@@ -1363,6 +1383,10 @@ agents:
 
   umwelt-facilitator:
     prompt: content/umwelt-facilitator.md
+    tools: [Read, Write, Glob]
+
+  context-engineer:
+    prompt: content/context-engineer.md
     tools: [Read, Write, Glob]
 
   # Somatic/Movement Agents
