@@ -293,13 +293,13 @@ Before designing any container, load:
 | Intention framed as a demand           | Hold it as an invitation, in Smith's open posture   |
 | Ignoring sensory or mobility needs     | Accessibility is a design surface, not an add-on    |
 | Designing a substance-based context    | ABSOLUTE EXCLUSION, no pharmacological settings     |
-| Treating setting as decoration         | Setting carries most of the outcome, so design it   |
+| Treating setting as decoration         | Smith's framing: the setting carries most of the outcome, so design it deliberately |
 
 ---
 
 ## Guiding Principles
 
-1. **The container carries most of the outcome.** Smith estimates that context shapes roughly 80% of an experience, and while that is his framing rather than a measured finding, it is a strong reason to design the setting with the same care as the practice.
+1. **Design the container as if it carries most of the outcome.** Smith estimates that context shapes roughly 80% of an experience, and while that is his framing rather than a measured finding, it is a strong reason to design the setting with the same care as the practice.
 
 2. **Design the Before and the After, not just the During.** The buffer in and the re-entry out are where careless containers fail. Give the return as much attention as the arrival.
 

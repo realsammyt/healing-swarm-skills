@@ -215,5 +215,5 @@ Before finalizing a context design:
 
 ---
 
-_"The room is not neutral. Design the container, and you have already shaped
-most of what the practice can become."_
+_"The room is not neutral. Smith's estimate: the container you design shapes
+most of what a practice can become, so design it with care."_
