@@ -5,7 +5,7 @@
 > conversation should read this first, then update it before ending a session.
 > If anything here disagrees with reality, reality wins — fix the doc.
 
-**Last updated:** 2026-07-16 by Claude (Fable 5) — full-capacity review sweep: 41 adversarially verified fixes applied on `fix/full-capacity-review` (uncommitted at time of writing unless the activity log says otherwise); most Phase 4/5 deferred polish now done
+**Last updated:** 2026-07-16 by Claude (Fable 5) — full-capacity review sweep: 41 adversarially verified fixes committed on `fix/full-capacity-review` (commit `b76c157`, not pushed); most Phase 4/5 deferred polish now done
 **Active branch:** `fix/full-capacity-review`
 **Driving plan:** [`docs/plans/2026-05-31-opus-4-8-optimization.md`](docs/plans/2026-05-31-opus-4-8-optimization.md)
 
