@@ -22,6 +22,10 @@ Builds a Museum-of-Consciousness style audio sequence with Milliere six-dimensio
 
 **Workflow:** [`content/sound-consciousness-workflow.yaml`](../content/sound-consciousness-workflow.yaml)
 
+**Templates:**
+
+- [`content/templates/consciousness-exhibit.md`](../content/templates/consciousness-exhibit.md)
+
 **Outputs:** `consciousness-exhibit.md`, `self-assessment-form.md`, `evidence-brief.md`
 
 ## Example usage

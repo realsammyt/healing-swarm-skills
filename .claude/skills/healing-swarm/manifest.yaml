@@ -590,6 +590,7 @@ skills:
     workflow: content/archaeoacoustic-toning-workflow.yaml
     templates:
       - content/templates/archaeoacoustic-toning.md
+      - content/templates/resonance-body-map.md
     outputs:
       - toning-practice.md
       - resonance-body-map.md
@@ -610,6 +611,8 @@ skills:
       - ethics-guardian
     requires_ethics_approval: true
     workflow: content/sound-consciousness-workflow.yaml
+    templates:
+      - content/templates/consciousness-exhibit.md
     outputs:
       - consciousness-exhibit.md
       - self-assessment-form.md
@@ -653,6 +656,10 @@ skills:
       - ethics-guardian
     requires_ethics_approval: true
     workflow: content/hyperhumanism-workflow.yaml
+    templates:
+      - content/templates/capacity-inventory.md
+      - content/templates/technology-landscape.md
+      - content/templates/micro-practice-design.md
     outputs:
       - inquiry-guide.md
       - capacity-inventory.md

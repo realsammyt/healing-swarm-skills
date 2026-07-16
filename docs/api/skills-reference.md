@@ -835,6 +835,7 @@ Guided vocal toning practices based on resonant frequencies of ancient sacred si
 ### Templates
 
 - `content/templates/archaeoacoustic-toning.md`
+- `content/templates/resonance-body-map.md`
 
 ### Outputs
 
@@ -870,6 +871,10 @@ Museum of Consciousness-style audio experiences with Milliere 6D self-assessment
 - `archaeoacoustic-guide`
 - `content-writer`
 - `ethics-guardian`
+
+### Templates
+
+- `content/templates/consciousness-exhibit.md`
 
 ### Outputs
 
@@ -945,6 +950,12 @@ Guided philosophical inquiry on consciousness, technology, and innate human capa
 - `umwelt-facilitator`
 - `content-writer`
 - `ethics-guardian`
+
+### Templates
+
+- `content/templates/capacity-inventory.md`
+- `content/templates/technology-landscape.md`
+- `content/templates/micro-practice-design.md`
 
 ### Outputs
 
