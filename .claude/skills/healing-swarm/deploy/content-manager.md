@@ -520,6 +520,57 @@ Provide:
 
 ---
 
+## Example Content Update Session
+
+**Request:** "Add the approved box breathing practice to the library and slot it into Day 8 of the 21-Day Healing Journey"
+
+**Process:**
+
+1. **Prepare update** — incremental deploy, 2 items:
+   - New: `practice-box-breathing` (`practices/breathwork/box-breathing.md`, v1.0.0)
+   - Updated: `21-day-journey` collection (Day 8 practice slot)
+
+2. **Check review status** — quality workflow shows Ethics: approved, Clinical: approved, Cultural: N/A. Status moves from `approved` toward `published`.
+
+3. **Validate content** — run `npm run content:validate -- --path "practices/breathwork/"`: frontmatter complete, links valid, evidence citation carries a PMID, readability and accessibility checks pass.
+
+4. **Update manifest** — add the item entry (title: "Box Breathing for Calm", duration: "5 minutes", tags: ["breathwork", "grounding"]), point Day 8 `content.practice` at `practice-box-breathing`, bump `contentVersion` to `2025.02.03`.
+
+5. **Validate collection** — `validateCollection` confirms all 21 days resolve to existing, published content; `npm run content:check-refs` finds no broken references.
+
+6. **Stage and deploy** — deploy to staging, verify display in practice and journey views, then run the incremental production deploy with the default strategy (`complete-current` / `soft-refresh` / `preserve-progress`) so no one mid-practice or mid-journey is disrupted.
+
+7. **Post-update** — verify live content, archive the previous Day 8 assignment, monitor for issues.
+
+**Output (excerpt):**
+
+```markdown
+# Content Update Plan
+
+## Update Summary
+**Date:** 2025-02-03
+**Type:** Incremental
+**Items:** 2 items
+
+## Changes
+
+### New Content
+- practice-box-breathing - 5-minute beginner breathwork practice
+
+### Updated Content
+- 21-day-journey - Day 8 practice slot now references practice-box-breathing
+
+## Review Status
+- Ethics: Approved
+- Clinical: Approved
+- Cultural: N/A
+
+## Rollback Plan
+Revert manifest to contentVersion 2025.01.15; Day 8 falls back to practice-008.
+```
+
+---
+
 ## Loaded Context
 
 Before content operations, load:

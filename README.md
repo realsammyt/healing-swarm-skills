@@ -557,6 +557,7 @@ A chronological record of major additions. [Full detailed timeline on the websit
 - **Safety wiring made real:** crisis-response + contraindications now loaded by the 6 sensitive-skill facilitators and ethics-guardian (validator-enforced); sensitive SKILL.md files link their required safety context; crisis resources labeled US with international fallbacks (IASP, Find a Helpline)
 - **Gates hardened:** `npm test` actually runs again (a shebang silently killed vitest); check-gates normalizes case/whitespace and supports fail-closed `--require=`; accessibility veto declared everywhere ethics was; all 14 topic content workflows now run the accessibility-auditor
 - **Honest tooling:** validator prints the true 25 workflows; `create-skill.js` scaffolds pass validation; 7 research agents gained tool-use + citation-verification guidance; 37 filler closing quotes stripped from agent prompts
+- **Follow-up polish:** gate-token anti-rot check (the 4 reviewers must keep their JSON gate contract block); worked example sessions completed for all 38 agents
 - No new skills, agents, or workflows — counts unchanged (52 / 38 / 25)
 
 ### 2026-06-02 — Opus 4.8 Auto-Discovery & Count Automation

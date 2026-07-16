@@ -5,8 +5,8 @@
 > conversation should read this first, then update it before ending a session.
 > If anything here disagrees with reality, reality wins — fix the doc.
 
-**Last updated:** 2026-07-16 by Claude (Fable 5) — full-capacity review sweep: 41 adversarially verified fixes committed on `fix/full-capacity-review` (commit `b76c157`, not pushed); most Phase 4/5 deferred polish now done
-**Active branch:** `fix/full-capacity-review`
+**Last updated:** 2026-07-16 by Claude (Fable 5) — review sweep merged (PR #18); remaining deferred polish finished on `fix/deferred-polish` (gate-token validator check, last 3 worked examples, Smith plan tracked). Opus 4.8 optimization effort fully done except the locked-deferred DAG rename.
+**Active branch:** `fix/deferred-polish`
 **Driving plan:** [`docs/plans/2026-05-31-opus-4-8-optimization.md`](docs/plans/2026-05-31-opus-4-8-optimization.md)
 
 ---
@@ -61,8 +61,8 @@ Update the status, the date, and the note whenever you touch a phase.
 | 1 | Quick-win cleanup + honesty fixes | Done | 2026-05-31 | `packages/` + 3 empty template dirs deleted; dead scripts (build:docs, serve-docs) + Jekyll `.gitignore` block removed; ethics/claims gates now exit non-zero; CI `npm ci`; eslint/prettier/vitest configs added |
 | 2 | Eliminate doc drift + automate | Done | 2026-06-02 | All counts reconciled to manifest truth (52/38/25); `sync-timeline.js` (canonical counts + `--check` gate) + `generate-reference.js` (rebuilds skills/agents refs) wired into `npm run validate` + CI; CHANGELOG date typo fixed; CONTRIBUTING timeline rule added; family-nexus represented as a worked example |
 | 3 | SKILL.md generation + description rewrites | Done | 2026-06-02 | 52 `SKILL.md` generated from manifest + `skill-discovery.yaml`; `generate-skills.js` codegen + discovery linter in `npm run validate`; sensitive skills carry "Do NOT auto-launch" guards (conservative default for open Q1); overlapping triggers de-duped via disjoint "Use when" + cross-refs; `create-skill.js` repaired + emits discovery entry. CAVEAT: verify Claude Code discovers SKILL.md at `healing-swarm/<name>/` (nested, not top-level `.claude/skills/`). |
-| 4 | Model tiering + prompt slimming | Done | 2026-07-16 | Review sweep finished the deferred polish: 7 research agents have Tool Use guidance, all 37 filler closing quotes stripped (+ lint regression warning). Still open (minor): worked-example upgrades. |
-| 5 | Parallel orchestration + enforceable gates | Done | 2026-07-16 | Review sweep finished most deferred items: template refs reconciled (build component registry fixed; everything else was already clean), accessibility veto declared everywhere ethics was, a11y stage added to all 14 topic workflows, check-gates hardened (case-normalization + `--require=` fail-closed mode). Still open (minor): validator gate-token check for the 4 reviewer prompts. DAG rename stays deferred (decision 0b). |
+| 4 | Model tiering + prompt slimming | Done | 2026-07-16 | Review sweep finished the deferred polish: 7 research agents have Tool Use guidance, all 37 filler closing quotes stripped (+ lint regression warning). Worked examples complete: survey showed 35/38 agents already had concrete input→output sessions; the last 3 (content-manager, visual-designer, hyperhumanism-researcher) added on `fix/deferred-polish`. |
+| 5 | Parallel orchestration + enforceable gates | Done | 2026-07-16 | Review sweep finished most deferred items: template refs reconciled (build component registry fixed; everything else was already clean), accessibility veto declared everywhere ethics was, a11y stage added to all 14 topic workflows, check-gates hardened (case-normalization + `--require=` fail-closed mode). Gate-token validator check added on `fix/deferred-polish` (the 4 reviewers must keep their `"gate": "<name>"` + status/blocking contract block; drift = validate error). DAG rename stays deferred (decision 0b). |
 | 6 | Runtime decision | Done | 2026-06-02 | ADR-004: Path A + thin veto harness (`check-gates.js`); ethics + accessibility veto enforced deterministically. Path B SDK runner deliberately not built. |
 
 **Suggested order:** 0 → 1 → 2 first (low risk). Phase 3 is highest impact and
@@ -175,6 +175,20 @@ leaves the repo shippable; none requires the next.
 
 ## 7. Activity log (newest first — append, don't overwrite)
 
+- **2026-07-16 (later)** — **Deferred polish finished** on `fix/deferred-polish`
+  (after PR #18 merged the sweep). (1) Gate-token anti-rot check added to
+  `validate-skills.js`: the 4 gate-emitting reviewers must retain their fenced
+  JSON contract block (`"gate": "<name>"` + `"status"` + `"blocking"`) or
+  validate errors; negative case verified. (2) Worked-example survey: 35/38
+  agents already had concrete input→output example sessions (under variant
+  headings — the plan's "Large" estimate was stale); added the missing 3
+  (deploy/content-manager, design/visual-designer, research/hyperhumanism-researcher,
+  ~50 lines each, evidence-language compliant, hyperhumanism example demonstrates
+  verify-before-cite with an explicit unverified exclusion). (3) The untracked
+  Smith integration plan committed as a tracked snapshot at
+  `docs/plans/2026-04-10-smith-improve-hyperhumanism-sound-conscious.md` —
+  execution is a future effort, not started. Phases 4+5 now fully Done; only the
+  locked-deferred DAG rename (decision 0b) remains in the whole effort.
 - **2026-07-16** — **Full-capacity review sweep** on `fix/full-capacity-review`.
   Six-lens multi-agent review (47 agents: 6 reviewers + 41 adversarial verifiers);
   all 41 findings confirmed, zero refuted, all applied. Highlights: fixed invalid

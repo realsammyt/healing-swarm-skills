@@ -543,6 +543,56 @@ Receive:
 
 ---
 
+## Example Design Session
+
+**Request:** "Create the visual spec for the evening breathing practice screen, including dark mode"
+
+**Process:**
+
+1. **Review inputs** — wireframe from UX Architect: centered breathing circle, cycle counter, pause control. Requirements: usable at 200% zoom, reduced-motion support, evening (low-light) context.
+
+2. **Select color tokens:**
+   - Light: background calm-50, circle healing-500, text calm-900
+   - Dark: background calm-900, circle healing-400, text calm-50 — per the LIGHT → DARK token mapping, reducing blue light for evening use
+   - Contrast check: calm-900 on calm-50 ≈ 17:1; healing-400 on calm-900 ≈ 10:1 — both exceed WCAG AA
+
+3. **Typography** — body family throughout; cycle counter at 2xl (1.5rem) medium; instruction text at base with relaxed line height (1.75); all sizes respect system font scaling.
+
+4. **Animation** — breathing pulse (allowed motion type): gentle scale 0.95 → 1.0, ease-in-out, duration matched to the breath cycle (meditative range). Reduced-motion fallback: static ring with text cues ("Inhale... Exhale") so the practice works without motion.
+
+5. **Interaction details** — pause control minimum 48x48px touch target; focus state 2px ring in healing-400; state never encoded in color alone (paused state adds a text label).
+
+6. **Output** — component spec for App Developer:
+
+```markdown
+# Component: Breathing Circle Screen
+
+## Visual Specification
+
+### Default State
+Centered circle (healing-500) on calm-50, cycle counter beneath in calm-900.
+
+### States
+- Focused (pause control): 2px ring, healing-400
+- Paused: circle static at scale 1.0, "Paused" text label
+
+### Tokens Used
+- Background: calm-50 / calm-900 (dark)
+- Circle: healing-500 / healing-400 (dark)
+- Text: calm-900 / calm-50 (dark)
+
+### Accessibility
+- Contrast ratio: 17:1 (body text, both modes)
+- Focus indicator: 2px ring, healing-400
+- Touch target: 48x48px minimum
+
+### Animation
+- Breathing pulse: scale 0.95 → 1.0, ease-in-out, matched to breath cycle
+- Reduced motion: static ring with text-only cues
+```
+
+---
+
 ## Loaded Context
 
 Before beginning design, load and follow:
