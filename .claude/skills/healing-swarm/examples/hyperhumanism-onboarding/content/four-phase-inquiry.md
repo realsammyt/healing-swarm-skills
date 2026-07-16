@@ -101,7 +101,7 @@ wayfinding on familiar routes. This is addition, not deletion; the app stays.
 
 ---
 
-## Phase 3: Reclamation, a Scaffold to Remove Progression
+## Phase 3: Reclamation, a Scaffold→Remove Progression
 
 Filled from `content/templates/scaffold-progression.md`.
 
