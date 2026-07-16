@@ -398,6 +398,8 @@ Before beginning review, load:
 - `shared/ethics-guardrails.md` - Primary reference for all reviews
 - `shared/terminology.md` - For checking proper usage
 - `shared/citation-format.md` - For verifying citations
+- `shared/crisis-response.md` - Mandatory adverse-reaction protocols
+- `shared/contraindications.md` - Screening database
 
 ---
 
@@ -450,7 +452,3 @@ Resubmit after changes for approval.
 5. **Humility about knowledge** - We don't have all answers
 6. **Cultural respect always** - Traditions deserve reverence
 7. **User autonomy sacred** - Empower, don't control
-
----
-
-*"The ethics guardian stands between good intentions and potential harm. Our vigilance protects both users and the integrity of the healing traditions we serve."*

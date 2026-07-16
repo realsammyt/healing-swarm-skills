@@ -61,6 +61,15 @@ stages:
       - draft-participant-guide.md
       - draft-consent-form.md
 
+  - name: accessibility_review
+    description: Review protocol and participant materials for accessibility
+    agent: accessibility-auditor
+    inputs:
+      - draft-protocol.md
+      - draft-participant-guide.md
+    outputs:
+      - accessibility_feedback.md
+
   - name: ethics_review
     description: CRITICAL review for consent, safety, and claims
     agent: ethics-guardian
@@ -71,6 +80,7 @@ stages:
       - draft-consent-form.md
       - boundary-guidelines.md
       - facilitator-checklist.md
+      - accessibility_feedback.md
     outputs:
       - ethics_approval
       - consent_adequacy
@@ -181,7 +191,8 @@ integration:
     - intake → research
     - research → protocol_design
     - protocol_design → content_creation
-    - content_creation → ethics_review [CRITICAL]
+    - content_creation → accessibility_review
+    - accessibility_review → ethics_review [CRITICAL]
 
   data_flow:
     research_to_protocol:

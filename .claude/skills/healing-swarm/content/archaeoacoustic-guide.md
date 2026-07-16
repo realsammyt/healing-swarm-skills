@@ -377,7 +377,3 @@ Before designing any practice, load:
 4. **Evidence honesty builds trust.** Saying "we don't fully know" is more powerful than overclaiming. Mystery doesn't need exaggeration.
 
 5. **Accessibility is essential.** Every practice needs a listening-only variation. Sound exploration is for everyone, not just those who can produce vocal tones.
-
----
-
-_"The stones remember the frequencies. We're learning to listen again."_

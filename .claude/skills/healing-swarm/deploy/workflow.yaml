@@ -24,7 +24,7 @@ stages:
     description: Prepare content for deployment
     agent: content-manager
     inputs:
-      - content_library
+      - content-library
       - approved_updates
     outputs:
       - manifest.json
@@ -46,14 +46,14 @@ stages:
     inputs:
       - verified_build
     outputs:
-      - staging_url
+      - staging-url
       - deploy_status
 
   - name: staging_verification
     description: Verify staging deployment
     agent: orchestrator
     inputs:
-      - staging_url
+      - staging-url
     actions:
       - health_check
       - content_verification
@@ -68,16 +68,16 @@ stages:
       - verified_build
       - staging_verification_report
     outputs:
-      - production_url
+      - production-url
       - deploy_status
 
   - name: post_deploy_verification
     description: Verify production deployment
     agent: devops-specialist
     inputs:
-      - production_url
+      - production-url
     outputs:
-      - post_deploy_report
+      - deployment-report.md
       - monitoring_status
 
   - name: content_update_only
@@ -88,6 +88,14 @@ stages:
       - content_changes
     outputs:
       - content_update_status
+
+  - name: identify_target_version
+    description: Select the previous version to restore
+    agent: orchestrator
+    actions:
+      - select_rollback_version
+    outputs:
+      - target_version
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DEPLOYMENT TYPES
@@ -130,8 +138,6 @@ deployment_types:
     requires:
       - critical_issue_confirmed
       - minimal_testing_passed
-    skip:
-      - full_staging_verification
 
   rollback:
     description: Revert to previous version

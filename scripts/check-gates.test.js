@@ -52,4 +52,12 @@ describe('evaluateGates', () => {
     expect(VETO_GATES).toContain('ethics');
     expect(VETO_GATES).toContain('accessibility');
   });
+
+  it('halts on an uppercase FAIL status for a veto gate', () => {
+    expect(evaluateGates([{ gate: 'ethics', status: 'FAIL' }]).halt).toBe(true);
+  });
+
+  it('halts on a capitalized Ethics gate name with status fail', () => {
+    expect(evaluateGates([{ gate: 'Ethics', status: 'fail' }]).halt).toBe(true);
+  });
 });

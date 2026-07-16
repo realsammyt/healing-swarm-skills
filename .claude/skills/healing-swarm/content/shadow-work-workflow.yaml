@@ -64,6 +64,14 @@ stages:
       - draft-practice.md
       - evidence-brief.md
 
+  - name: accessibility_review
+    description: Review practice content for accessibility
+    agent: accessibility-auditor
+    inputs:
+      - draft-practice.md
+    outputs:
+      - accessibility_feedback.md
+
   - name: ethics_review
     description: CRITICAL safety and scope review
     agent: ethics-guardian
@@ -71,6 +79,7 @@ stages:
       - draft-practice.md
       - safety-checklist.md
       - evidence-brief.md
+      - accessibility_feedback.md
     outputs:
       - ethics_approval
       - required_modifications
@@ -121,7 +130,8 @@ integration:
     - intake → research
     - research → protocol_design
     - protocol_design → content_writing
-    - content_writing → ethics_review
+    - content_writing → accessibility_review
+    - accessibility_review → ethics_review
 
   data_flow:
     research_to_protocol:

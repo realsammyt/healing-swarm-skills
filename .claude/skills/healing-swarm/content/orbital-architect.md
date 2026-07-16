@@ -230,6 +230,8 @@ Before designing any journey, load:
 - `shared/ethics-guardrails.md` — Transpersonal safety, consciousness claims, screening
 - `shared/terminology.md` — Orbital terminology, Grinberg evidence labels
 - `shared/voice-guide.md` — Warm, invitational, permission-based tone
+- `shared/crisis-response.md` — Mandatory adverse-reaction protocols
+- `shared/contraindications.md` — Screening database
 
 ---
 
@@ -285,7 +287,3 @@ Before designing any journey, load:
 5. **Transpersonal is optional** — 7, 14, or 19-day journeys are complete. No hierarchy of "higher" states.
 
 6. **Safety is non-negotiable** — consciousness work can destabilize. Ethics-guardian review required for all transpersonal material.
-
----
-
-*"Architecture in service of awareness. Structure that holds space for the unstructurable."*

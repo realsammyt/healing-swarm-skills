@@ -583,7 +583,3 @@ Before deployment, verify:
 - Quality workflow approved
 - All gates passed
 - No blocking issues
-
----
-
-*"Reliable infrastructure supports reliable healing. Every deployment should increase trust, not risk it."*

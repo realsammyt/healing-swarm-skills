@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /**
  * Healing Swarm Skills - Gate Contract Checker (the thin veto harness)
  *
@@ -25,6 +23,8 @@
  *
  * Usage:
  *   node scripts/check-gates.js <file-or-dir> [more...]   # enforce; exit 1 on halt
+ *   node scripts/check-gates.js --require=ethics,accessibility <dir>
+ *                                # also halt when a named gate is missing entirely
  *   import { extractGates, evaluateGates } from './check-gates.js'  # for tests
  */
 
@@ -64,9 +64,13 @@ export function extractGates(text) {
 export function evaluateGates(gates) {
   const halts = [];
   for (const g of gates) {
-    const failing = g.status === 'fail' || g.status === 'veto';
+    // Normalize LLM-emitted values ('FAIL', ' Veto', 'Ethics') so case or
+    // whitespace drift can never slip past the safety veto.
+    const status = String(g.status).trim().toLowerCase();
+    const gate = String(g.gate).trim().toLowerCase();
+    const failing = status === 'fail' || status === 'veto';
     if (!failing) continue;
-    const isVetoGate = VETO_GATES.includes(g.gate);
+    const isVetoGate = VETO_GATES.includes(gate);
     if (isVetoGate || g.blocking === true) {
       halts.push(g);
     }
@@ -91,9 +95,17 @@ function collectFiles(target, out = []) {
 
 function main() {
   const targets = process.argv.slice(2).filter((a) => !a.startsWith('-'));
+  // Opt-in fail-closed mode: --require=ethics,accessibility halts when a named
+  // gate is missing entirely (a skipped review must not pass enforcement).
+  // Equals form only — a space-separated value would be swallowed as a path.
+  const requireArg = process.argv.slice(2).find((a) => a.startsWith('--require='));
+  const required = requireArg
+    ? requireArg.slice(10).split(',').map((s) => s.trim().toLowerCase()).filter(Boolean)
+    : [];
   if (targets.length === 0) {
-    c('Usage: node scripts/check-gates.js <file-or-dir> [more...]', 'yellow');
+    c('Usage: node scripts/check-gates.js [--require=gate,...] <file-or-dir> [more...]', 'yellow');
     c('Scans for fenced JSON gate blocks and halts on a failed veto/blocking gate.', 'yellow');
+    c('--require=ethics,accessibility also halts when a named gate is missing entirely.', 'yellow');
     process.exit(2);
   }
 
@@ -104,6 +116,14 @@ function main() {
     for (const g of gates) allGates.push({ ...g, _file: path.relative(process.cwd(), f) });
   }
 
+  const missing = required.filter(
+    (name) => !allGates.some((g) => String(g.gate).trim().toLowerCase() === name)
+  );
+  if (missing.length) {
+    c(`✗ HALT — required gate(s) missing: ${missing.join(', ')}`, 'red');
+    process.exit(1);
+  }
+
   if (allGates.length === 0) {
     c('No gate blocks found in the given path(s). Nothing to enforce.', 'yellow');
     process.exit(0);
@@ -112,14 +132,16 @@ function main() {
   const { halt, halts } = evaluateGates(allGates);
   c(`Found ${allGates.length} gate result(s):`, 'cyan');
   for (const g of allGates) {
-    const ok = g.status === 'pass';
+    const status = String(g.status).trim().toLowerCase();
+    const ok = status === 'pass';
     c(`  ${ok ? '✓' : '✗'} ${g.gate} = ${g.status}${g.blocking ? ' (blocking)' : ''}  ${g._file}`, ok ? 'green' : 'red');
   }
 
   if (halt) {
     c('\n✗ HALT — a non-negotiable gate did not pass:', 'red');
     for (const g of halts) {
-      c(`  - ${g.gate}: ${g.status}${VETO_GATES.includes(g.gate) ? ' (veto gate)' : ' (blocking)'} [${g._file}]`, 'red');
+      const isVeto = VETO_GATES.includes(String(g.gate).trim().toLowerCase());
+      c(`  - ${g.gate}: ${g.status}${isVeto ? ' (veto gate)' : ' (blocking)'} [${g._file}]`, 'red');
       for (const issue of g.issues || []) {
         c(`      • [${issue.severity || '?'}] ${issue.finding || ''}${issue.location ? ` @ ${issue.location}` : ''}`, 'red');
       }

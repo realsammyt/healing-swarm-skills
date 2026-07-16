@@ -5,8 +5,8 @@
 > conversation should read this first, then update it before ending a session.
 > If anything here disagrees with reality, reality wins — fix the doc.
 
-**Last updated:** 2026-06-02 by Claude (Opus 4.8) — Phases 0–6 merged to `master` (PR #16); only minor deferred polish remains
-**Active branch:** `feat/family-nexus-healing`
+**Last updated:** 2026-07-16 by Claude (Fable 5) — full-capacity review sweep: 41 adversarially verified fixes committed on `fix/full-capacity-review` (commit `b76c157`, not pushed); most Phase 4/5 deferred polish now done
+**Active branch:** `fix/full-capacity-review`
 **Driving plan:** [`docs/plans/2026-05-31-opus-4-8-optimization.md`](docs/plans/2026-05-31-opus-4-8-optimization.md)
 
 ---
@@ -29,10 +29,10 @@
 | Workflows | 25     | `npm run sync:timeline` (real `*.yaml` workflow files) |
 
 > **Count canon, settled in Phase 2:** use `npm run sync:timeline` — it is the
-> single source of truth. Note: `validate-skills.js` prints "36 workflows" but that
-> figure wrongly counts 11 `manifest.yaml` files as workflows; the honest count is
-> **25**. The docs ("53 skills") were an off-by-one — the orchestrator skill is
-> already inside the 52, so the canonical skill count is **52**.
+> single source of truth. The old "36 workflows" validator bug (11 `manifest.yaml`
+> files miscounted) was fixed 2026-07-16; `validate-skills.js` now prints the
+> honest **25**. The docs ("53 skills") were an off-by-one — the orchestrator skill
+> is already inside the 52, so the canonical skill count is **52**.
 
 ---
 
@@ -61,8 +61,8 @@ Update the status, the date, and the note whenever you touch a phase.
 | 1 | Quick-win cleanup + honesty fixes | Done | 2026-05-31 | `packages/` + 3 empty template dirs deleted; dead scripts (build:docs, serve-docs) + Jekyll `.gitignore` block removed; ethics/claims gates now exit non-zero; CI `npm ci`; eslint/prettier/vitest configs added |
 | 2 | Eliminate doc drift + automate | Done | 2026-06-02 | All counts reconciled to manifest truth (52/38/25); `sync-timeline.js` (canonical counts + `--check` gate) + `generate-reference.js` (rebuilds skills/agents refs) wired into `npm run validate` + CI; CHANGELOG date typo fixed; CONTRIBUTING timeline rule added; family-nexus represented as a worked example |
 | 3 | SKILL.md generation + description rewrites | Done | 2026-06-02 | 52 `SKILL.md` generated from manifest + `skill-discovery.yaml`; `generate-skills.js` codegen + discovery linter in `npm run validate`; sensitive skills carry "Do NOT auto-launch" guards (conservative default for open Q1); overlapping triggers de-duped via disjoint "Use when" + cross-refs; `create-skill.js` repaired + emits discovery entry. CAVEAT: verify Claude Code discovers SKILL.md at `healing-swarm/<name>/` (nested, not top-level `.claude/skills/`). |
-| 4 | Model tiering + prompt slimming | Mostly done | 2026-06-02 | Opus-everywhere policy in `settings.models` (no downgrade); extended-thinking cues on swarm-conductor + ethics-guardian; content-writer slimmed (~190 inlined template lines removed); `shared/evidence-language.md` extracted (shared 9→10). DEFERRED polish: per-research-agent tool-use guidance, closing-quote stripping, worked-example upgrades. |
-| 5 | Parallel orchestration + enforceable gates | Mostly done | 2026-06-02 | JSON gate contract + `check-gates.js` harness (unit-tested); 4 reviewers emit gate blocks; fan-out in conductor prompt + content + research workflows; sensitive skills declare `requires` + validator safety check. DEFERRED: validator gate-token check, template-schema reconcile, full DAG rename (decision 0b). |
+| 4 | Model tiering + prompt slimming | Done | 2026-07-16 | Review sweep finished the deferred polish: 7 research agents have Tool Use guidance, all 37 filler closing quotes stripped (+ lint regression warning). Still open (minor): worked-example upgrades. |
+| 5 | Parallel orchestration + enforceable gates | Done | 2026-07-16 | Review sweep finished most deferred items: template refs reconciled (build component registry fixed; everything else was already clean), accessibility veto declared everywhere ethics was, a11y stage added to all 14 topic workflows, check-gates hardened (case-normalization + `--require=` fail-closed mode). Still open (minor): validator gate-token check for the 4 reviewer prompts. DAG rename stays deferred (decision 0b). |
 | 6 | Runtime decision | Done | 2026-06-02 | ADR-004: Path A + thin veto harness (`check-gates.js`); ethics + accessibility veto enforced deterministically. Path B SDK runner deliberately not built. |
 
 **Suggested order:** 0 → 1 → 2 first (low risk). Phase 3 is highest impact and
@@ -125,10 +125,10 @@ leaves the repo shippable; none requires the next.
 
 ## 6. Key facts a fresh agent will want (so you don't re-discover them)
 
-- **The validators currently lie.** `validate-manifest.js` errors on legitimate
-  `standalone` skills and warns on every skill for a dead `requires` check. It is
-  NOT in the default `npm run validate` (only `validate-skills.js` runs). Fix in
-  Phase 0 before trusting it.
+- **The validators are honest now** (Phase 0 + the 2026-07-16 sweep): both run in
+  `npm run validate`, workflow count prints the true 25, `--file` filtering works,
+  and a new check errors if the 6 sensitive-skill facilitators or ethics-guardian
+  drop `crisis-response.md` from Loaded Context.
 - **Two gates are theater.** `scripts/check-ethics.js` and `scripts/lint-prompts.js`
   both end `process.exit(0)` unconditionally. The medical-claims regex only matches
   the literal quoted string `"will cure"`. Phase 1 fixes these.
@@ -153,10 +153,16 @@ leaves the repo shippable; none requires the next.
   `contemplative-inquiry`. They genuinely have no orchestrated workflow. This is a
   low-risk reconciliation, not a Phase-5 "generate a workflow vs mark improvised"
   decision — that choice is still open. Standalone count: 17 → 27.
-- **`scripts/create-skill.js` is BROKEN** — genuine syntax error
-  (`Unexpected end of input`, file ends ~line 525 truncated). `npm run
-  create-skill` cannot run today. Not in Phase 0/1 scope; Phase 3 already plans to
-  rewrite this script, so fix it there. CI does not run it, so no gate is blocked.
+- **`scripts/create-skill.js` works end-to-end now** — syntax error fixed in
+  Phase 3; the 2026-07-16 sweep fixed the rest (scaffold snippets no longer break
+  `npm run validate`, `requires` paths resolve, stale `healing-` prefix dropped,
+  no filler-quote placeholder in scaffolded agents).
+- **`npm test` was silently running ZERO tests until 2026-07-16** — a shebang in
+  `check-gates.js` broke vitest's transform. If tests ever report "no tests"
+  again, suspect a shebang or transform issue first. 11/11 pass now.
+- **check-gates.js has an opt-in fail-closed mode** —
+  `--require=ethics,accessibility` halts when a required gate emitted no block
+  at all (a missing/skipped review no longer passes). Documented in ADR-004.
 - **Claims linter is now context-aware.** `lint-prompts.js` flags affirmative,
   unquoted outcome promises ("the breathing will heal your nervous system") but
   skips claim phrases quoted inside anti-pattern / "DON'T use" teaching blocks
@@ -169,6 +175,22 @@ leaves the repo shippable; none requires the next.
 
 ## 7. Activity log (newest first — append, don't overwrite)
 
+- **2026-07-16** — **Full-capacity review sweep** on `fix/full-capacity-review`.
+  Six-lens multi-agent review (47 agents: 6 reviewers + 41 adversarial verifiers);
+  all 41 findings confirmed, zero refuted, all applied. Highlights: fixed invalid
+  YAML frontmatter in 13 SKILL.md (incl. all 6 sensitive skills); un-broke
+  `npm test` (shebang killed vitest — 0 tests ran since Phase 5); crisis-response +
+  contraindications now actually loaded by the 7 safety-critical agents
+  (validator-enforced); crisis resources internationalized; accessibility veto
+  declared everywhere + a11y stage added to all 14 topic workflows; check-gates
+  case-normalized + `--require=` fail-closed mode; honest 25-workflow count;
+  create-skill.js fully working; 37 filler quotes stripped; 7 research agents got
+  tool-use guidance; docs drift (Node 18→22, fictional outputs, 6 missing catalog
+  skills) fixed. Phases 4+5 deferred polish now done except worked-example
+  upgrades + validator gate-token check. All gates green; website builds. NOTE:
+  untracked `docs/plans/2026-04-10-smith-improve-hyperhumanism-sound-conscious.md`
+  (Carl Hayden Smith integration plan) found in the tree — future work, left
+  untracked for the human to decide.
 - **2026-06-02** — **Phases 2–6 merged to `master` via PR #16** (merge commit
   `4c7ad52`). All 7 CI checks green (validate-skills, lint yaml/markdown, tests on
   Node 22 + 24, coverage, validation summary). Phases 0–1 had already landed in

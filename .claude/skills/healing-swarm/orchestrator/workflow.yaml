@@ -70,11 +70,11 @@ phases:
       - content-requirements.md
     outputs:
       - content-library/
-        - prayers/
-        - visualizations/
-        - practices/
-        - evidence-boxes/
-        - journal-prompts/
+      - content-library/prayers/
+      - content-library/visualizations/
+      - content-library/practices/
+      - content-library/evidence-boxes/
+      - content-library/journal-prompts/
       - content-manifest.json
     checkpoint: true
 
@@ -208,7 +208,7 @@ gates:
       - cultural_review_passed
       - accessibility_audit_passed
     blocking: true
-    veto_authority: ethics-guardian
+    veto_authority: [ethics-guardian, accessibility-auditor]
 
   deployment_ready:
     checks:
@@ -255,6 +255,8 @@ error_handling:
     on_max: escalate_to_human
 
   ethics_veto:
+    # Veto protocol covers both veto gates: ethics (ethics-guardian) and
+    # accessibility (accessibility-auditor).
     action: halt_workflow
     require: human_review_or_major_revision
     cannot_override: true

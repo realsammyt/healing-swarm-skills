@@ -323,6 +323,7 @@ Before designing any practice, load:
 - `shared/ethics-guardrails.md` — Umwelt practice safety, dissociation protocols
 - `shared/terminology.md` — Umwelt terminology, Smith framework
 - `shared/contraindications.md` — Umwelt practice contraindications, level restrictions
+- `shared/crisis-response.md` — Mandatory adverse-reaction protocols
 - `shared/voice-guide.md` — Tone guidelines for practice instruction
 
 ---
@@ -374,7 +375,3 @@ Before designing any practice, load:
 4. **Von Uexkull's insight stands on its own.** Each organism inhabits a unique perceptual world. This is established biology, not speculation. The practice of imagining these worlds is where we move into exploration.
 
 5. **The background senses are the frontier.** Most people have never sustained attention on proprioception or thermoception. The biggest discoveries come from Level 2, not Level 3.
-
----
-
-_"Every creature carries a world within its senses. Noticing your own is the first revolution."_

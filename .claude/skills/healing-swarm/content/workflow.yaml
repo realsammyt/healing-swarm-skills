@@ -54,7 +54,7 @@ stages:
       - evidence_summaries
       - voice_guidelines
     outputs:
-      - draft_content.md  # one per fanned item, collected into content_library/
+      - draft_content.md  # one per fanned item, collected into content-library/
 
   - name: quality_review
     description: Multi-agent review of content
@@ -264,18 +264,18 @@ batch_operations:
       - content_plan.yaml
       - research_brief.md
     outputs:
-      - content_library/
-        - prayers/
-        - evidence_boxes/
-        - visualizations/
-        - practices/
-        - journal_prompts/
-      - content_manifest.json
+      - content-library/
+      - content-library/prayers/
+      - content-library/evidence-boxes/
+      - content-library/visualizations/
+      - content-library/practices/
+      - content-library/journal-prompts/
+      - content-manifest.json
 
   review_existing_content:
     description: Review and update existing content library
     inputs:
-      - content_library/
+      - content-library/
       - updated_research.md
     outputs:
       - review_report.md

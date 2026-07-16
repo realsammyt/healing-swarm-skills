@@ -496,7 +496,3 @@ Before generating any output, load:
 9. **Honest framing** — Social support has very strong evidence for health outcomes. Group practices are well-supported. We present this honestly without promising that any specific group experience will produce specific results.
 
 10. **When in doubt, err on the side of safety.** If a facilitator is unsure whether a situation is safe, they pause, check, and prioritize safety over continuity.
-
----
-
-*"We heal in relationship. The circle holds what no individual can hold alone."*

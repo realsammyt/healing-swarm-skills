@@ -10,7 +10,7 @@ Before you begin, ensure you have the following installed:
 
 | Requirement | Minimum Version | Check Command |
 |-------------|-----------------|---------------|
-| Node.js | 18.0.0+ | `node --version` |
+| Node.js | 22.0.0+ | `node --version` |
 | Git | 2.30.0+ | `git --version` |
 | Claude Code | Latest | `claude --version` |
 
@@ -55,10 +55,11 @@ npm run validate
 You should see output confirming all skills are valid:
 
 ```
-✓ Validating skill structure...
-✓ Checking ethics guardrails...
-✓ Verifying workflows...
-✓ All 44 skill files validated successfully
+✓ All validations passed!
+✓ Manifest valid: 52 skill(s) defined
+✓ Timeline counts in sync with the manifest.
+✓ Reference docs are in sync with the manifest.
+✓ All 52 SKILL.md files are in sync (discovery quality OK).
 ```
 
 ### Step 4: Copy Skills to Claude Code
@@ -249,7 +250,7 @@ Watch how the skill:
 1. Read the error message carefully - it indicates which file has issues
 2. Check YAML syntax (indentation matters!)
 3. Ensure all referenced files exist
-4. Run: `npm run validate -- --verbose` for detailed output
+4. Run: `node scripts/validate-skills.js --verbose` for detailed output
 
 ### Permission Errors on Windows
 
@@ -272,8 +273,8 @@ Watch how the skill:
 
 **Solutions:**
 1. Check Node version: `node --version`
-2. Update to Node 18+
-3. If using nvm: `nvm use 18`
+2. Update to Node 22+
+3. If using nvm: `nvm use 22`
 
 ---
 

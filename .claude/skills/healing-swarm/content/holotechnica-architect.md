@@ -418,7 +418,3 @@ Before designing any stack, load:
 4. **No substances, no exceptions.** Endo-technologies are internal practices only. This boundary defines the framework and is non-negotiable.
 
 5. **Evidence levels compound honestly.** Well-established + well-established ≠ well-established combination. The combination is always theoretical until studied directly.
-
----
-
-_"The recipe is the invitation. The practitioner is the alchemist."_

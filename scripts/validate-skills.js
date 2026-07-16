@@ -26,7 +26,10 @@ const SKILLS_DIR = path.join(__dirname, '..', '.claude', 'skills', 'healing-swar
 // CLI args
 const args = process.argv.slice(2);
 const VERBOSE = args.includes('--verbose') || args.includes('-v');
-const FILE_FILTER = args.find((a) => a.startsWith('--file='))?.slice(7);
+// Accept both `--file=X` and `--file X` forms.
+const eq = args.find((a) => a.startsWith('--file='))?.slice(7);
+const sp = args[args.indexOf('--file') + 1];
+const FILE_FILTER = eq ?? (args.includes('--file') ? sp : undefined);
 
 // Colors
 const colors = {
@@ -80,13 +83,6 @@ function validateWorkflow(filePath) {
 
   const workflow = result.data;
   const errors = [];
-
-  // Required top-level fields (skip manifest.yaml which has different structure)
-  const filename = path.basename(filePath);
-  if (filename === 'manifest.yaml') {
-    // Manifest has different structure - just check YAML validity
-    return { valid: true, errors: [] };
-  }
 
   const requiredFields = ['name', 'version', 'description'];
   for (const field of requiredFields) {
@@ -164,6 +160,22 @@ function validateAgentPrompt(filePath) {
     verbose(`Consider adding ethics guardrails reference`);
   }
 
+  // Anti-rot: user-facing facilitator prompts for sensitive skills (and the
+  // ethics guardian) MUST reference the shared crisis-response protocol.
+  const CRISIS_REQUIRED = new Set([
+    'content/grief-guide.md',
+    'content/shadow-facilitator.md',
+    'content/resonance-facilitator.md',
+    'content/umwelt-facilitator.md',
+    'content/language-awareness-guide.md',
+    'content/orbital-architect.md',
+    'quality/ethics-guardian.md',
+  ]);
+  const relPath = path.relative(SKILLS_DIR, filePath).split(path.sep).join('/');
+  if (CRISIS_REQUIRED.has(relPath) && !/crisis-response\.md/i.test(content)) {
+    errors.push(`Missing required crisis-response.md reference (sensitive-skill agent)`);
+  }
+
   // Check for title (# Agent Name or similar)
   if (!/^# .+/m.test(content)) {
     errors.push(`Missing document title`);
@@ -216,6 +228,11 @@ function main() {
   let workflowFiles = findFiles(SKILLS_DIR, '.yaml');
   // skill-discovery.yaml is structural (SKILL.md source), not a workflow.
   workflowFiles = workflowFiles.filter((f) => path.basename(f) !== 'skill-discovery.yaml');
+  // manifest.yaml files are structural (root manifest is validated by
+  // validate-manifest.js; example manifests are docs), not workflows.
+  workflowFiles = workflowFiles.filter((f) => path.basename(f) !== 'manifest.yaml');
+  // Worked examples are content outputs, not workflows.
+  workflowFiles = workflowFiles.filter((f) => !f.split(path.sep).includes('examples'));
   let agentFiles = findFiles(SKILLS_DIR, '.md');
 
   // Filter non-agent files
@@ -227,7 +244,6 @@ function main() {
 
   // Apply file filter if specified
   if (FILE_FILTER) {
-    const filterPath = path.join(SKILLS_DIR, FILE_FILTER);
     workflowFiles = workflowFiles.filter((f) => f.includes(FILE_FILTER));
     agentFiles = agentFiles.filter((f) => f.includes(FILE_FILTER));
   }

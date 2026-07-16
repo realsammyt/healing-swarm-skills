@@ -69,6 +69,11 @@ shared_resources:
     required: false
     load_order: 9
 
+  - path: shared/evidence-language.md
+    description: Evidence-level to phrase mapping for claim wording
+    required: true
+    load_order: 10
+
 # ═══════════════════════════════════════════════════════════════════════════════
 # SKILL DEFINITIONS
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -691,7 +696,6 @@ skills:
       - traditions-scholar
       - clinical-researcher
       - ethics-guardian
-    standalone: true
     workflow: research/cyberdelic-research-workflow.yaml
     outputs:
       - research-brief.md
@@ -894,6 +898,8 @@ skills:
     agents:
       - expressive-guide
       - content-writer
+      - ethics-guardian
+    requires_ethics_approval: true
     standalone: true
     example_usage: |
       /healing-journaling "4-day writing sequence" --focus healing
@@ -1058,6 +1064,7 @@ skills:
     agents:
       - content-writer
     workflow: content/workflow.yaml
+    requires_ethics_approval: true
     templates:
       - content/templates/prayer.md
       - content/templates/evidence-box.md
@@ -1318,6 +1325,7 @@ agents:
   accessibility-auditor:
     prompt: quality/accessibility-auditor.md
     tools: [Read, Bash, Glob]
+    veto_power: true
 
   # Deploy Agents
   devops-specialist:

@@ -57,7 +57,7 @@ stages:
     description: Integrate healing content into application
     agent: app-developer
     inputs:
-      - content_library/
+      - content-library/
     outputs:
       - src/content/
       - content manifest
@@ -110,7 +110,8 @@ stages:
       - source code
     outputs:
       - dist/
-      - build manifest
+      - healing-app/  # packaged dist/
+      - build-manifest.json
 
   - name: quality_review
     description: Final quality review before deployment
@@ -172,13 +173,10 @@ templates:
 components:
   core:
     - name: Button
-      spec: build/components/common/button.md
       priority: high
     - name: Card
-      spec: build/components/common/card.md
       priority: high
     - name: Modal
-      spec: build/components/common/modal.md
       priority: medium
 
   healing:
@@ -199,6 +197,18 @@ components:
       priority: medium
     - name: AcupointGuide
       spec: build/components/acupoint-guide.md
+      priority: medium
+    - name: BreathworkTimer
+      spec: build/components/breathwork-timer.md
+      priority: medium
+    - name: MovementGuide
+      spec: build/components/movement-guide.md
+      priority: medium
+    - name: SleepTimer
+      spec: build/components/sleep-timer.md
+      priority: medium
+    - name: SoundGuide
+      spec: build/components/sound-guide.md
       priority: medium
 
 # ═══════════════════════════════════════════════════════════════════════════════

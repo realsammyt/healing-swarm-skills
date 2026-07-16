@@ -1,6 +1,6 @@
 ---
 name: shadow-work
-description: Builds a guided 3-2-1 shadow-integration practice with layered safety for approaching disowned parts of self. Sensitive: use only when the user explicitly asks for shadow work, 3-2-1, or working with a trigger or projection, and offer it gently. Do NOT auto-launch from general venting, conflict, or distress, and never for acute trauma or crisis (point to grief-healing or crisis resources instead).
+description: "Builds a guided 3-2-1 shadow-integration practice with layered safety for approaching disowned parts of self. Sensitive: use only when the user explicitly asks for shadow work, 3-2-1, or working with a trigger or projection, and offer it gently. Do NOT auto-launch from general venting, conflict, or distress, and never for acute trauma or crisis (point to grief-healing or crisis resources instead)."
 ---
 
 # Shadow Work
@@ -25,6 +25,11 @@ Builds a guided 3-2-1 shadow-integration practice with layered safety for approa
 **Templates:**
 
 - [`content/templates/shadow-process.md`](../content/templates/shadow-process.md)
+
+**Safety context (load before generating output):**
+
+- [`shared/crisis-response.md`](../shared/crisis-response.md)
+- [`shared/contraindications.md`](../shared/contraindications.md)
 
 **Outputs:** `shadow-practice.md`, `safety-checklist.md`, `evidence-brief.md`
 

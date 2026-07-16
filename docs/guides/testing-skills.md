@@ -50,7 +50,7 @@ npm run check:ethics
 For detailed error information:
 
 ```bash
-npm run validate -- --verbose
+node scripts/validate-skills.js --verbose
 ```
 
 ---
@@ -291,7 +291,7 @@ stages:
 Add verbose flag to see detailed output:
 
 ```bash
-npm run validate -- --verbose
+node scripts/validate-skills.js --verbose
 ```
 
 ### Check Individual Files
@@ -299,7 +299,7 @@ npm run validate -- --verbose
 Test a single file:
 
 ```bash
-npm run validate -- --file research/traditions-scholar.md
+node scripts/validate-skills.js --file=traditions-scholar.md
 ```
 
 ### Lint YAML Separately
@@ -314,14 +314,6 @@ npx yaml-lint .claude/skills/healing-swarm/**/*.yaml
 npx markdownlint .claude/skills/healing-swarm/**/*.md
 ```
 
-### Watch for Changes
-
-Auto-validate on file changes during development:
-
-```bash
-npm run validate:watch
-```
-
 ---
 
 ## Example Test Session
@@ -333,11 +325,11 @@ Here's a complete test session for a new breathwork skill:
 ```bash
 $ npm run validate
 
-✓ Validating skill structure...
-✓ Checking workflows: 8 valid
-✓ Checking agents: 14 valid
-✓ Checking ethics references: All agents reference guardrails
-✓ All validations passed
+✓ All validations passed!
+✓ Manifest valid: 52 skill(s) defined
+✓ Timeline counts in sync with the manifest.
+✓ Reference docs are in sync with the manifest.
+✓ All 52 SKILL.md files are in sync (discovery quality OK).
 ```
 
 ### 2. Copy and Test

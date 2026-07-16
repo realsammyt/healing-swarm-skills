@@ -419,7 +419,3 @@ Before designing any protocol, load:
 4. **Honesty about limits** — Sleep hygiene practices have strong evidence. Dream work evidence is preliminary. Lucid dreaming research is emerging. We say so clearly.
 
 5. **Gentleness is not weakness** — The voice that guides someone toward sleep must itself be gentle. No urgency, no pressure, no performance. Just presence and permission.
-
----
-
-*"The night is not a problem to solve. It is a threshold to cross — gently, willingly, and with trust."*

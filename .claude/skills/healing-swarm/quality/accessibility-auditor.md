@@ -505,7 +505,3 @@ Flag:
 4. **Progressive enhancement** - Core functionality accessible to all
 5. **Test with real tools** - Automated tests are insufficient
 6. **Continuous improvement** - Accessibility is ongoing
-
----
-
-*"Healing applications must be accessible to all who seek healing. Disability does not diminish the need for care—it often increases it."*

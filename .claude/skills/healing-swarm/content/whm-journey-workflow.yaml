@@ -112,6 +112,16 @@ stages:
       - final-weekly-plans/
       - participant-guide.md
 
+  - name: accessibility_review
+    description: Review journey materials for accessibility
+    agent: accessibility-auditor
+    inputs:
+      - final-journey-map.md
+      - final-weekly-plans/
+      - participant-guide.md
+    outputs:
+      - accessibility_feedback.md
+
   - name: finalize
     description: Produce final journey package
     agent: orchestrator
@@ -121,6 +131,7 @@ stages:
       - participant-guide.md
       - all-session-timings/
       - safety_approval
+      - accessibility_feedback.md
     outputs:
       - whm-journey/
       - journey-overview.md

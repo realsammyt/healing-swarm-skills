@@ -40,18 +40,18 @@ stages:
       - user_needs.md
       - practice_structure (from research)
     outputs:
-      - user_journeys.md
+      - user-journeys.md
       - flow_diagrams.md
 
   - name: wireframing
     description: Create structural wireframes
     agent: ux-architect
     inputs:
-      - user_journeys.md
+      - user-journeys.md
       - component_requirements
     outputs:
       - wireframes.md
-      - component_specs.md
+      - component-specs.md
       - interaction_specs.md
 
   - name: visual_system
@@ -84,16 +84,16 @@ stages:
     inputs:
       - wireframes.md
       - visual_specs.md
-      - component_specs.md
+      - component-specs.md
     outputs:
-      - design_system.json
+      - design-system.json
       - complete_specs.md
 
   - name: accessibility_review
     description: Review design for accessibility
     agent: accessibility-auditor
     inputs:
-      - design_system.json
+      - design-system.json
       - complete_specs.md
     outputs:
       - accessibility_audit.md
@@ -107,7 +107,7 @@ stages:
     inputs:
       - required_changes.md
     outputs:
-      - updated_design_system.json
+      - updated-design-system.json
 
   - name: ethics_review
     description: Review design for ethical concerns
@@ -180,7 +180,7 @@ focus_areas:
 # ═══════════════════════════════════════════════════════════════════════════════
 
 output_structure:
-  design_system.json:
+  design-system.json:
     description: Complete design token system
     includes:
       - colors
@@ -191,7 +191,7 @@ output_structure:
       - animations
       - breakpoints
 
-  user_journeys.md:
+  user-journeys.md:
     sections:
       - journey_overview
       - phases
@@ -207,7 +207,7 @@ output_structure:
       - interaction_flows
       - edge_cases
 
-  component_specs.md:
+  component-specs.md:
     per_component:
       - purpose
       - visual_spec

@@ -495,7 +495,3 @@ Before beginning development, load and follow:
    - Manual screen reader testing
    - One-handed operation verification
 6. **Document usage**
-
----
-
-*"Every line of code is in service of healing. Accessibility isn't a feature—it's respect for the humans who will use what we build."*

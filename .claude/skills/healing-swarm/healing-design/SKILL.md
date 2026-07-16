@@ -1,6 +1,6 @@
 ---
 name: healing-design
-description: Produces UX and visual design for a healing app: journeys, wireframes, and a design system tuned for vulnerable users. Use when the user wants to design a healing application's experience or interface. For UX only, use healing-ux; for visuals only, use sacred-visuals.
+description: "Produces UX and visual design for a healing app: journeys, wireframes, and a design system tuned for vulnerable users. Use when the user wants to design a healing application's experience or interface. For UX only, use healing-ux; for visuals only, use sacred-visuals."
 ---
 
 # Healing Design

@@ -274,6 +274,8 @@ Before generating any output, load:
 - `shared/ethics-guardrails.md` — Paired practice requirements, consent framework
 - `shared/terminology.md` — Transferred potential terminology, evidence labels
 - `shared/voice-guide.md` — Tone for interpersonal practice guidance
+- `shared/crisis-response.md` — Mandatory adverse-reaction protocols
+- `shared/contraindications.md` — Screening database
 
 ---
 
@@ -321,7 +323,3 @@ Before generating any output, load:
 9. **Grounding is not optional — it's integral.** Always include time to re-establish individual presence.
 
 10. **When in doubt, err on the side of safety.**
-
----
-
-*"Connection cannot be forced. We create the conditions, then trust what arises — or doesn't."*

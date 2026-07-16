@@ -81,6 +81,8 @@ prompt instructions to Opus 4.8.
 
 - Contract + harness: `scripts/check-gates.js` (`extractGates`, `evaluateGates`,
   `VETO_GATES = ['ethics','accessibility']`); CLI: `npm run check:gates -- <path>`.
+  Opt-in strict mode: `npm run check:gates -- --require=ethics,accessibility <path>`
+  halts if a required gate emitted no block at all (fail-closed for missing reviews).
 - Reviewer emission: the gate block is the REQUIRED first output of
   `ethics-guardian`, `clinical-reviewer`, `cultural-reviewer`, and
   `accessibility-auditor`.

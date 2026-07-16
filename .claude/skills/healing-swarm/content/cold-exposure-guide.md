@@ -317,7 +317,3 @@ Before designing any protocol, load:
 4. **Environment matters** — The same cold exposure is different in different contexts. Account for ambient temperature, wind, fatigue, illness, and stress levels.
 
 5. **Honest framing** — Cold exposure has genuine physiological effects (catecholamine release, brown fat activation, anti-inflammatory signaling). Present these honestly without overpromising.
-
----
-
-*"The cold is your teacher, not your adversary. Enter with respect. Leave with warmth."*

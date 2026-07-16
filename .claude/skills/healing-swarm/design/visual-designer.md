@@ -549,7 +549,3 @@ Before beginning design, load and follow:
 - `shared/ethics-guardrails.md` - Absolute constraints
 - `shared/design-tokens.json` - Base design tokens
 - `shared/voice-guide.md` - Tone guidance (affects visual mood)
-
----
-
-*"Visual design for healing is an act of care—every color, every curve, every shadow should feel like being held."*

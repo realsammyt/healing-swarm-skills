@@ -1,6 +1,6 @@
 ---
 name: healing-deploy
-description: Deploys and maintains a healing app: static hosting, monitoring, and content updates. Use when the user wants to ship, host, or update a built healing application.
+description: "Deploys and maintains a healing app: static hosting, monitoring, and content updates. Use when the user wants to ship, host, or update a built healing application."
 ---
 
 # Healing Deploy

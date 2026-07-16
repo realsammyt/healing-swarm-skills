@@ -194,7 +194,7 @@ import { GentleError } from '@/components/integration';
 
 | Requirement | Minimum Version | Check Command |
 |-------------|-----------------|---------------|
-| Node.js | 18.0.0+ | `node --version` |
+| Node.js | 22.0.0+ | `node --version` |
 | Git | 2.30.0+ | `git --version` |
 | Claude Code | Latest | `claude --version` |
 
@@ -221,10 +221,11 @@ npm run validate
 
 You should see:
 ```
-Validating skill structure...
-Checking ethics guardrails...
-Verifying workflows...
-All 44 skill files validated successfully
+✓ All validations passed!
+✓ Manifest valid: 52 skill(s) defined
+✓ Timeline counts in sync with the manifest.
+✓ Reference docs are in sync with the manifest.
+✓ All 52 SKILL.md files are in sync (discovery quality OK).
 ```
 
 **Step 4: Copy Skills to Claude Code**

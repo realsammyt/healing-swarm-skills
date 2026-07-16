@@ -1,6 +1,6 @@
 ---
 name: sleep-healing
-description: Builds an evening wind-down: sleep hygiene, bedtime meditation, and dream-journal prompts. Use when the user wants help winding down, sleeping better, or a bedtime practice. For dream work specifically, use dream-practice.
+description: "Builds an evening wind-down: sleep hygiene, bedtime meditation, and dream-journal prompts. Use when the user wants help winding down, sleeping better, or a bedtime practice. For dream work specifically, use dream-practice."
 ---
 
 # Sleep Healing

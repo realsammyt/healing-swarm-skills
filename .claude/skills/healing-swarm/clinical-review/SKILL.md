@@ -1,6 +1,6 @@
 ---
 name: clinical-review
-description: Verifies clinical claims and citations: PMID/DOI validity, claim accuracy, and evidence-level wording. Use when the user wants existing content fact-checked. For new evidence research, use clinical-research.
+description: "Verifies clinical claims and citations: PMID/DOI validity, claim accuracy, and evidence-level wording. Use when the user wants existing content fact-checked. For new evidence research, use clinical-research."
 ---
 
 # Clinical Review

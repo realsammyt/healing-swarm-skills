@@ -1,6 +1,6 @@
 ---
 name: resonance-pairing
-description: Designs paired or small-group meditation protocols from Grinberg's transferred-potential work, with consent and boundary frameworks. Sensitive: use only when the user explicitly asks for a paired, dyad, or group resonance practice. Do NOT auto-launch from general relationship talk, and keep the consent framework. For everyday relationship practices use relational-practice instead.
+description: "Designs paired or small-group meditation protocols from Grinberg's transferred-potential work, with consent and boundary frameworks. Sensitive: use only when the user explicitly asks for a paired, dyad, or group resonance practice. Do NOT auto-launch from general relationship talk, and keep the consent framework. For everyday relationship practices use relational-practice instead."
 ---
 
 # Resonance Pairing
@@ -25,6 +25,11 @@ Designs paired or small-group meditation protocols from Grinberg's transferred-p
 **Templates:**
 
 - [`content/templates/resonance-pairing.md`](../content/templates/resonance-pairing.md)
+
+**Safety context (load before generating output):**
+
+- [`shared/crisis-response.md`](../shared/crisis-response.md)
+- [`shared/contraindications.md`](../shared/contraindications.md)
 
 **Outputs:** `pairing-protocol.md`, `participant-guide.md`, `consent-framework.md`, `boundary-guidelines.md`
 

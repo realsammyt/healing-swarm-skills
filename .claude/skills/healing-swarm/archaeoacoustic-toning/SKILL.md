@@ -1,6 +1,6 @@
 ---
 name: archaeoacoustic-toning
-description: Builds a vocal toning practice tuned to the resonant frequencies of ancient sacred sites, structured listen-hum-tone-harmonics-silence. Use when the user asks about sacred-site frequencies, archaeoacoustics, or resonant toning. Frame frequency claims honestly.
+description: Builds a vocal toning practice tuned to the resonant frequencies of ancient sacred sites, structured listen-hum-tone-harmonics-silence. Use when the user asks about sacred-site frequencies, archaeoacoustics, or resonant toning. For general vocal toning without the sacred-site framing, use sound-healing. Frame frequency claims honestly.
 ---
 
 # Archaeoacoustic Toning
@@ -11,7 +11,7 @@ Guided vocal toning practices based on resonant frequencies of ancient sacred si
 
 ## When to use
 
-Builds a vocal toning practice tuned to the resonant frequencies of ancient sacred sites, structured listen-hum-tone-harmonics-silence. Use when the user asks about sacred-site frequencies, archaeoacoustics, or resonant toning. Frame frequency claims honestly.
+Builds a vocal toning practice tuned to the resonant frequencies of ancient sacred sites, structured listen-hum-tone-harmonics-silence. Use when the user asks about sacred-site frequencies, archaeoacoustics, or resonant toning. For general vocal toning without the sacred-site framing, use sound-healing. Frame frequency claims honestly.
 
 ## Agents this skill coordinates
 

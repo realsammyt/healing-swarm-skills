@@ -1,6 +1,6 @@
 ---
 name: orbital-journey
-description: Designs a multi-day transpersonal journey through Grinberg's consciousness orbitals, with screening and safety architecture. Sensitive: use only when the user explicitly asks for a multi-day consciousness journey or orbital program. Do NOT auto-launch, and screen for crisis, psychosis risk, or dissociation first.
+description: "Designs a multi-day transpersonal journey through Grinberg's consciousness orbitals, with screening and safety architecture. Sensitive: use only when the user explicitly asks for a multi-day consciousness journey or orbital program. Do NOT auto-launch, and screen for crisis, psychosis risk, or dissociation first."
 ---
 
 # Orbital Journey
@@ -26,6 +26,11 @@ Designs a multi-day transpersonal journey through Grinberg's consciousness orbit
 **Templates:**
 
 - [`content/templates/orbital-day.md`](../content/templates/orbital-day.md)
+
+**Safety context (load before generating output):**
+
+- [`shared/crisis-response.md`](../shared/crisis-response.md)
+- [`shared/contraindications.md`](../shared/contraindications.md)
 
 **Outputs:** `journey-map.md`, `daily-practices/`, `orbital-guide.md`, `safety-protocols.md`, `progress-tracker.md`
 

@@ -1,6 +1,6 @@
 ---
 name: healing-content
-description: Writes healing content: prayers, invocations, evidence boxes, historical notes, guided visualizations, practice instructions, and journal prompts. Use when the user wants written healing material with proper attribution and honest evidence framing.
+description: "Writes healing content: prayers, invocations, evidence boxes, historical notes, guided visualizations, practice instructions, and journal prompts. Use when the user wants written healing material with proper attribution and honest evidence framing."
 ---
 
 # Healing Content
@@ -37,6 +37,10 @@ Writes healing content: prayers, invocations, evidence boxes, historical notes, 
 /healing-content --type evidence-box --topic "visualization and healing"
 /healing-content --type visualization --focus "hand healing"
 ```
+
+## Safety
+
+> Outputs require ethics approval before release. The `ethics-guardian` review applies, and it can block content that overclaims or risks harm.
 
 ---
 

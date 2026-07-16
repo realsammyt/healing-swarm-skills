@@ -60,6 +60,14 @@ stages:
       - draft-practice.md
       - evidence-brief.md
 
+  - name: accessibility_review
+    description: Review practice content for accessibility
+    agent: accessibility-auditor
+    inputs:
+      - draft-practice.md
+    outputs:
+      - accessibility_feedback.md
+
   - name: ethics_review
     description: Review for dissociation safety and appropriate framing
     agent: ethics-guardian
@@ -68,6 +76,7 @@ stages:
       - draft-practice.md
       - grounding-guide.md
       - evidence-brief.md
+      - accessibility_feedback.md
     outputs:
       - ethics_approval
       - dissociation_safety_assessment

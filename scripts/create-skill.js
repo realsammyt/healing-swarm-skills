@@ -94,8 +94,8 @@ function toPascalCase(str) {
 function generateManifestEntry(config) {
   return `# Add this to .claude/skills/healing-swarm/manifest.yaml under 'skills:'
 
-  - name: healing-${config.name}
-    trigger: /healing-${config.name}
+  - name: ${config.name}
+    trigger: /${config.name}
     description: ${config.description}
     category: ${config.category}
     agents:
@@ -107,9 +107,9 @@ ${config.inputs.map((i) => `      - ${i}: string`).join('\n')}
     outputs:
       - ${config.name}-output.md
     requires:
-      - ethics-guardrails
-      - voice-guide
-      - terminology
+      - shared/ethics-guardrails.md
+      - shared/voice-guide.md
+      - shared/terminology.md
 `;
 }
 
@@ -120,7 +120,7 @@ function generateDiscoveryEntry(config) {
 # .claude/skills/healing-swarm/skill-discovery.yaml
 # Then run: npm run generate:skills
 
-  healing-${config.name}: |-
+  ${config.name}: |-
     ${config.description} Use when the user asks for <situation A>, wants
     <phrase B>, or mentions <C>. Do NOT use for <the adjacent skill's job>
     (use <that-skill> instead).
@@ -267,10 +267,6 @@ This is for informational purposes only.
 2. **Honesty over comfort** - Be truthful about limitations
 3. **Accessibility matters** - Design for vulnerable users
 4. **Attribution is respect** - Always cite sources
-
----
-
-*"[Closing quote relevant to your skill]"*
 `;
 }
 
@@ -387,14 +383,14 @@ error_handling:
 
 examples:
   - name: Basic usage
-    invocation: /healing-${config.name} "example query"
+    invocation: /${config.name} "example query"
     expected_output:
       - Appropriate response
       - Safety information included
       - Sources cited
 
   - name: Edge case
-    invocation: /healing-${config.name} "edge case query"
+    invocation: /${config.name} "edge case query"
     expected_output:
       - Graceful handling
       - Clarification or appropriate refusal
@@ -465,7 +461,7 @@ async function main() {
   print('                        SKILL SUMMARY                          ', 'cyan');
   print('═══════════════════════════════════════════════════════════════', 'cyan');
   console.log(`  Name:        ${skillName}`);
-  console.log(`  Trigger:     /healing-${skillName}`);
+  console.log(`  Trigger:     /${skillName}`);
   console.log(`  Category:    ${category}`);
   console.log(`  Description: ${description}`);
   console.log(`  Agents:      ${agents.join(', ')}`);
@@ -501,15 +497,15 @@ async function main() {
   fs.writeFileSync(workflowPath, generateWorkflow(config));
   print(`  ✓ Created workflow: workflow.yaml`, 'green');
 
-  // Generate manifest entry
-  const manifestPath = path.join(skillDir, 'manifest-entry.yaml');
+  // Generate manifest entry (.txt suffix keeps it out of workflow validation)
+  const manifestPath = path.join(skillDir, 'manifest-entry.yaml.txt');
   fs.writeFileSync(manifestPath, generateManifestEntry(config));
-  print(`  ✓ Created manifest entry: manifest-entry.yaml`, 'green');
+  print(`  ✓ Created manifest entry: manifest-entry.yaml.txt`, 'green');
 
   // Generate discovery entry (drives SKILL.md auto-discovery)
-  const discoveryPath = path.join(skillDir, 'discovery-entry.yaml');
+  const discoveryPath = path.join(skillDir, 'discovery-entry.yaml.txt');
   fs.writeFileSync(discoveryPath, generateDiscoveryEntry(config));
-  print(`  ✓ Created discovery entry: discovery-entry.yaml`, 'green');
+  print(`  ✓ Created discovery entry: discovery-entry.yaml.txt`, 'green');
 
   // Success message
   console.log('\n');
@@ -520,14 +516,14 @@ async function main() {
   print('\nNext steps:', 'yellow');
   console.log('  1. Edit the agent prompt(s) to customize behavior');
   console.log('  2. Update the workflow stages as needed');
-  console.log('  3. Add the manifest entry (manifest-entry.yaml) to manifest.yaml:');
+  console.log('  3. Add the manifest entry (manifest-entry.yaml.txt) to manifest.yaml:');
   console.log(`     ${path.join(SKILLS_DIR, 'manifest.yaml')}`);
-  console.log('  4. Add the discovery entry (discovery-entry.yaml) to skill-discovery.yaml,');
+  console.log('  4. Add the discovery entry (discovery-entry.yaml.txt) to skill-discovery.yaml,');
   console.log('     then generate the SKILL.md: npm run generate:skills');
   console.log('  5. Run validation: npm run validate');
   console.log('  6. Copy to Claude Code and test:');
   console.log('     cp -r .claude/skills/healing-swarm ~/.claude/skills/');
-  console.log(`     claude> /healing-${skillName} "test query"`);
+  console.log(`     claude> /${skillName} "test query"`);
 
   print('\nDocumentation:', 'yellow');
   console.log('  - Creating Skills: docs/guides/creating-skills.md');

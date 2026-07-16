@@ -17,6 +17,7 @@ Builds structured multi-day writing sequences that go beyond single prompts. Use
 
 - [`expressive-guide`](../content/expressive-guide.md)
 - [`content-writer`](../content/content-writer.md)
+- [`ethics-guardian`](../quality/ethics-guardian.md)
 
 **Workflow:** standalone — agent-driven, no orchestrated workflow.
 
@@ -25,6 +26,10 @@ Builds structured multi-day writing sequences that go beyond single prompts. Use
 ```bash
 /healing-journaling "4-day writing sequence" --focus healing
 ```
+
+## Safety
+
+> Outputs require ethics approval before release. The `ethics-guardian` review applies, and it can block content that overclaims or risks harm.
 
 ---
 

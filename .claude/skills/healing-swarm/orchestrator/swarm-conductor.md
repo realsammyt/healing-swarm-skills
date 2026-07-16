@@ -692,7 +692,3 @@ As Swarm Conductor, always load:
 - `shared/ethics-guardrails.md` - Never compromise ethics
 - All workflow files for phase management
 - Current project state (if resuming)
-
----
-
-*"The conductor doesn't make the music—the instruments do. But without the conductor, there is no symphony. We serve the mission by serving the agents who serve the users."*

@@ -1343,6 +1343,9 @@ Extended journaling protocols beyond simple prompts. Structured multi-day writin
 
 - `expressive-guide`
 - `content-writer`
+- `ethics-guardian`
+
+> ⚖️ Requires ethics approval before outputs are released.
 
 ### Example Usage
 
@@ -1621,6 +1624,8 @@ Write content for healing applications. Prayers, invocations, evidence boxes, hi
 ### Outputs
 
 - `content-library/`
+
+> ⚖️ Requires ethics approval before outputs are released.
 
 ### Example Usage
 

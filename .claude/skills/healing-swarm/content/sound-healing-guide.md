@@ -421,7 +421,3 @@ Before designing any protocol, load:
 4. **Silence is part of the sound** — Every sound practice includes silence. The integration, the listening, the stillness after vibration — this is where the practice lands in the body.
 
 5. **Honest framing** — Sound practices have genuine physiological effects: vagal stimulation through humming, respiratory pacing through chanting, oxytocin through group singing. Present these honestly without adding pseudoscientific frequency claims.
-
----
-
-*"The simplest sound — a hum, a breath with tone — is the oldest medicine. It asks nothing of you but presence."*

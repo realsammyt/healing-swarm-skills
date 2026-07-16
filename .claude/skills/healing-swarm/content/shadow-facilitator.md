@@ -324,6 +324,8 @@ Before designing any shadow process, load:
 
 - `shared/ethics-guardrails.md` — Shadow work safety, pre/trans fallacy rules
 - `shared/terminology.md` — Integral theory terms, shadow work definitions
+- `shared/crisis-response.md` — Mandatory adverse-reaction protocols
+- `shared/contraindications.md` — Screening database
 
 ---
 
@@ -355,7 +357,3 @@ Before designing any shadow process, load:
 8. **This is not therapy** — Clear, repeated, non-negotiable
 9. **All shadows are human** — What you find is part of the human condition
 10. **The goal is wholeness, not perfection** — Integration means including, not transcending
-
----
-
-_"What you refuse to see in yourself, you meet as fate. The 3-2-1 turns that meeting into a choice."_
