@@ -49,7 +49,7 @@ scorecard, and a session with no shift is still worth recording.]
 
 ---
 
-## Step 1 — Baseline Perceptual Inventory (before)
+## Step 1: Baseline Perceptual Inventory (before)
 
 Before the practice, note how the relevant channels feel right now. Mark only the
 ones this practice works with; leave the rest blank.
@@ -67,7 +67,7 @@ Present state in a word or two: [For example: rushed, foggy, steady]
 
 ---
 
-## Step 2 — Practice Performed (the novel perspective)
+## Step 2: Practice Performed (the novel perspective)
 
 What you actually did, and the new angle it invited.
 
@@ -80,7 +80,7 @@ What you actually did, and the new angle it invited.
 
 ---
 
-## Step 3 — Perceptual Shift Report (after)
+## Step 3: Perceptual Shift Report (after)
 
 What changed in perception itself, if anything. Report plainly, without deciding
 in advance that something dramatic should have happened.
@@ -96,7 +96,7 @@ in advance that something dramatic should have happened.
 
 ---
 
-## Step 4 — Capacity-in-World Markers
+## Step 4: Capacity-in-World Markers
 
 Smith's third step is the practical one: did wider perception change how able you
 felt to meet ordinary life? Look for small, observable markers over the next few
