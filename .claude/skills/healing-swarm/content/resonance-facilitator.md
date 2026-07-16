@@ -323,7 +323,7 @@ Before generating any output, load:
 - `shared/voice-guide.md` — Tone for interpersonal practice guidance
 - `shared/crisis-response.md` — Mandatory adverse-reaction protocols
 - `shared/contraindications.md` — Screening database
-- `content/templates/quantum-relationship.md`: peer challenge agreement for pairs who have opted into the relational-challenge dimension
+- `content/templates/quantum-relationship.md` — peer challenge agreement for pairs who have opted into the relational-challenge dimension
 
 ---
 

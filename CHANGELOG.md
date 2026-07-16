@@ -115,7 +115,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed the v1.0.0 date typo in this changelog (2025-01-01 → 2026-02-02) and
   reconciled all cumulative counts to manifest ground truth (52 skills, 38 agents,
   25 workflows).
-- **Carl Hayden Smith Integration** (Contextology, Scaffold-to-Remove, consciousness
+- **Carl Hayden Smith Integration** (Contextology, Scaffold→Remove, consciousness
   literacy): 2 new skills — Context Engineering (`/context-engineering`) and
   Consciousness Audit (`/consciousness-audit`, standalone)
 - **1 new agent**: Context Engineer — designs the experiential container (setting,
@@ -129,7 +129,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   inventory with evidence levels and contraindications) and consciousness-literacy-levels
   (four-level literacy taxonomy across modality clusters)
 - **Shared resources updated**: terminology (nine-term Smith vocabulary table),
-  practice-pathways (Scaffold-to-Remove progression + Hyperhuman Cultivation Arc),
+  practice-pathways (Scaffold→Remove progression + Hyperhuman Cultivation Arc),
   voice-guide (Smith's Hyperhuman Posture opening frames), outcome-measurement
   (longitudinal consciousness-literacy tracking)
 - **Agent and workflow updates**: resonance-facilitator gained an inter-being

@@ -1,6 +1,6 @@
 # Scaffold-Progression Template
 
-> Template for designing a Scaffold to Remove progression, based on Carl Hayden
+> Template for designing a Scaffold→Remove Progression, based on Carl Hayden
 > Smith's principle that technology is a catalyst for innate capacity, not a
 > permanent crutch. It moves a learner through three phases: a tool-supported
 > phase, a bridging phase where the tool is gradually removed, and an unaided
@@ -11,7 +11,7 @@
 ## Structure
 
 ```markdown
-# [Practice Name]: Scaffold to Remove Progression
+# [Practice Name]: Scaffold→Remove Progression
 
 **Target capacity:** [The skill or sense being learned, e.g. breath coherence]
 **Scaffolding tool:** [The temporary tool, e.g. a breath-pacing app]

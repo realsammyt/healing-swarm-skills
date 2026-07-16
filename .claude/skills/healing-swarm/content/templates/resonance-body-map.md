@@ -33,7 +33,7 @@ common and valid result.]
 > of your body. Where it registers depends on pitch, vowel shape, and
 > individual anatomy. The frequencies referenced here are acoustic
 > measurements documented at ancient sites (for example the King's
-> Chamber of the Great Pyramid at roughly 117 Hz, Jahn & Dunne 1992).
+> Chamber of the Great Pyramid at roughly 117 Hz, Smith et al. 2023).
 > Research suggests these spaces have distinctive acoustic properties.
 > This map records your subjective experience, not a physiological
 > measurement, and it makes no health claim.

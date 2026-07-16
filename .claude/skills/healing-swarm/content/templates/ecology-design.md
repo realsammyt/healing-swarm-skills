@@ -86,7 +86,7 @@ An ecology stays alive by changing, not by staying fixed.
 - **Swap what has gone stale:** if a practice has become rote, rest it or
   replace it with another from the taxonomy in the same domain
 - **Integrate what practice reveals:** let what you notice reshape the mix, and
-  move an ingredient toward unaided form using the Scaffold to Remove
+  move an ingredient toward unaided form using the Scaffold→Remove
   Progression in shared/practice-pathways.md once a tool has done its work
 - **Track literacy, not achievement:** note your level per cluster from
   shared/consciousness-literacy-levels.md as a trend over time, never a score
@@ -148,7 +148,7 @@ the mix is what endures._
 
 - A named review rhythm for reading the whole mix
 - Permission to rest or swap a stale practice for another in the same domain
-- A link to the Scaffold to Remove Progression for moving a tool-supported
+- A link to the Scaffold→Remove Progression for moving a tool-supported
   ingredient toward unaided form
 - Literacy tracked per cluster as a trend, never scored
 

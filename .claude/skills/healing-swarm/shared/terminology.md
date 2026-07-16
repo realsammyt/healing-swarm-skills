@@ -441,6 +441,9 @@ as Wilber's own cross-referencing, not as independent discovery.
 | Umwelt Hacking                   | Deliberately shifting perceptual frames to experience sensing-as-other — "Can we sense like a forest, a mycelium network, or an octopus?"                   | Theoretical (Smith's framework)                                                  |
 | Experience Stacking              | Combining multiple endo-technologies in deliberate sequence for compounding effects; core method of Holotechnica                                            | Theoretical (individual components researched)                                   |
 | Consciousness Recipe             | A designed sequence of endo-technology ingredients with preparation, transitions, and integration; output of Holotechnica                                   | Theoretical                                                                      |
+| Contextology                     | The study and design of experiential contexts; Smith's framework for context engineering                                                                    | Theoretical framework                                                            |
+| Inter-being                      | A relational state of mutual becoming; the hyperhuman's orientation beyond individual optimization                                                          | Theoretical framework                                                            |
+| Consciousness literacy           | The cumulative development of capacity to move through and assess one's own states of consciousness                                                         | Theoretical framework                                                            |
 
 ### Practice Mode Terms (Smith)
 

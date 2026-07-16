@@ -72,7 +72,7 @@ additive: when practices are combined, the whole inherits every ingredient's fla
   breathing is broadly accessible; use Caution with panic or acute anxiety.
 - **Smith designation:** Endo-technology. Paced or biofeedback-app breathing sits
   at the cyberdelic boundary; the breath itself is the practice, the app is a
-  temporary scaffold (see the Scaffold to Remove Progression in
+  temporary scaffold (see the Scaffold→Remove Progression in
   `shared/practice-pathways.md`).
 - **Implemented by:** agents `breathwork-coach`, `coherence-guide`,
   `holotechnica-architect`; templates `content/templates/breathwork-protocol.md`,
@@ -176,7 +176,7 @@ additive: when practices are combined, the whole inherits every ingredient's fla
    flag as flagging the whole practice.
 4. Label any combination of ingredients as Theoretical.
 5. Keep the endo boundary: if a step depends on a device, name it as a temporary
-   scaffold and point to the Scaffold to Remove Progression, or move it to a
+   scaffold and point to the Scaffold→Remove Progression, or move it to a
    cyberdelic-labeled context. No substances, ever.
 
 ---

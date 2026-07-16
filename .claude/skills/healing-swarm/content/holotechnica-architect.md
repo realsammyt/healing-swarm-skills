@@ -369,6 +369,7 @@ Before designing any stack, load:
 - `shared/endo-technology-taxonomy.md` — Canonical endo-technology inventory: evidence levels, contraindications, endo-vs-cyberdelic boundaries
 - `shared/contraindications.md` — Per-ingredient contraindication lists, additive logic
 - `shared/voice-guide.md` — Tone guidelines for recipe writing
+- `content/templates/perceptual-augmentation-tracker.md` — Artifact for tracking perceptual-augmentation arcs across sessions
 
 ---
 
