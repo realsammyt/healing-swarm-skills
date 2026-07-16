@@ -176,6 +176,25 @@ function validateAgentPrompt(filePath) {
     errors.push(`Missing required crisis-response.md reference (sensitive-skill agent)`);
   }
 
+  // Anti-rot: the four gate-emitting reviewers MUST keep the fenced JSON gate
+  // block that scripts/check-gates.js enforces (gate name + status + blocking).
+  const GATE_REQUIRED = {
+    'quality/ethics-guardian.md': 'ethics',
+    'quality/clinical-reviewer.md': 'clinical',
+    'quality/cultural-reviewer.md': 'cultural',
+    'quality/accessibility-auditor.md': 'accessibility',
+  };
+  const gateName = GATE_REQUIRED[relPath];
+  if (gateName) {
+    const hasGateToken = new RegExp(`"gate":\\s*"${gateName}"`).test(content);
+    const hasContract = /"status"/.test(content) && /"blocking"/.test(content);
+    if (!hasGateToken || !hasContract) {
+      errors.push(
+        `Missing required JSON gate block token ("gate": "${gateName}" with "status" and "blocking") — check-gates.js contract`
+      );
+    }
+  }
+
   // Check for title (# Agent Name or similar)
   if (!/^# .+/m.test(content)) {
     errors.push(`Missing document title`);

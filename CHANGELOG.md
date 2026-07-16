@@ -44,6 +44,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `shared/evidence-language.md` registered as shared resource #10
 - 7 research agents gained tool-use and citation-verification guidance; 37
   filler closing quotes stripped from agent prompts
+- Gate-token anti-rot check in `validate-skills.js`: the 4 gate-emitting
+  reviewers must retain their fenced JSON contract block
+  (`"gate": "<name>"` + `"status"` + `"blocking"`) or validation errors
+- Worked examples completed: the last 3 agents without a concrete
+  input→output example session (content-manager, visual-designer,
+  hyperhumanism-researcher) now have one; all 38 agents covered
 
 ### Added
 
