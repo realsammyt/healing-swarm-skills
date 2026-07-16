@@ -34,6 +34,7 @@
 | [hyperhumanism-inquiry](#hyperhumanism-inquiry) | `/hyperhumanism-inquiry` | consciousness | Guided philosophical inquiry on consciousness, technology, and innate human capacities. |
 | [context-engineering](#context-engineering) | `/context-engineering` | consciousness | Designs the experiential container (setting, priming, intention, re-entry) before any practice begins. |
 | [umwelt-practice](#umwelt-practice) | `/umwelt-practice` | consciousness | Sensory augmentation exercises for perceiving-as-other and extending the sensorium. |
+| [consciousness-audit](#consciousness-audit) | `/consciousness-audit` | consciousness | Periodic consciousness-literacy check-in. |
 | [cyberdelic-research](#cyberdelic-research) | `/cyberdelic-research` | research | Deep research into consciousness technologies and endo-technology science. |
 | [somatic-practice](#somatic-practice) | `/somatic-practice` | movement | Guided gentle movement protocols (qigong, tai chi, yoga, walking meditation) |
 | [walking-meditation](#walking-meditation) | `/walking-meditation` | movement | Mindful movement for those who cannot sit. |
@@ -1045,6 +1046,37 @@ Sensory augmentation exercises for perceiving-as-other and extending the sensori
 
 ```bash
 /umwelt-practice "forest sensing" --level perceiving_as_other
+```
+
+---
+
+## consciousness-audit
+
+**Trigger:** `/consciousness-audit`
+
+**Category:** consciousness
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Periodic consciousness-literacy check-in. Reviews practice history and maps the current literacy level per modality cluster over weeks and months.
+
+### Agents
+
+- `hyperhumanism-researcher`
+- `ethics-guardian`
+
+### Outputs
+
+- `literacy-audit.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/consciousness-audit "8-week check-in on my daily practice"
 ```
 
 ---

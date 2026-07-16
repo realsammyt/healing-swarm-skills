@@ -712,6 +712,25 @@ skills:
     example_usage: |
       /umwelt-practice "forest sensing" --level perceiving_as_other
 
+  - name: consciousness-audit
+    trigger: /consciousness-audit
+    description: |
+      Periodic consciousness-literacy check-in. Reviews practice history and maps
+      the current literacy level per modality cluster over weeks and months.
+    category: consciousness
+    agents:
+      - hyperhumanism-researcher
+      - ethics-guardian
+    requires_ethics_approval: true
+    standalone: true
+    requires:
+      - shared/consciousness-literacy-levels.md
+      - shared/outcome-measurement.md
+    outputs:
+      - literacy-audit.md
+    example_usage: |
+      /consciousness-audit "8-week check-in on my daily practice"
+
   - name: cyberdelic-research
     trigger: /cyberdelic-research
     description: |

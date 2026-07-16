@@ -282,7 +282,7 @@ claude> /healing-swarm "Sacred Healing Journey" --focus "ligament healing"
 
 ### Reference
 
-- **[Skills Reference](docs/api/skills-reference.md)** - All 53 skills with triggers and options
+- **[Skills Reference](docs/api/skills-reference.md)** - All 54 skills with triggers and options
 - **[Agents Reference](docs/api/agents-reference.md)** - All 39 agents with responsibilities
 - **[Shared Resources](docs/api/shared-resources.md)** - Ethics, safety, terminology, design tokens
 - **[Workflows Reference](docs/api/workflows-reference.md)** - Workflow patterns
@@ -628,11 +628,11 @@ A chronological record of major additions. [Full detailed timeline on the websit
 
 | Category              | Count |
 | --------------------- | ----- |
-| Skills                | 53    |
+| Skills                | 54    |
 | Agents                | 39    |
 | Workflows             | 26    |
-| Templates             | 35    |
-| Shared Resources      | 11    |
+| Templates             | 36    |
+| Shared Resources      | 12    |
 | Worked Examples       | 18    |
 | Traditions Integrated | 20+   |
 
