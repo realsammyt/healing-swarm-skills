@@ -21,6 +21,7 @@ stages:
       - determine_inquiry_focus
       - set_duration_target
       - identify_capacity_domain
+      - offer_open_project_framing
 
   - name: research
     description: Gather hyperhumanism context and capacity evidence

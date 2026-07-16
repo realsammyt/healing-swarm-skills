@@ -336,6 +336,131 @@ PHASE 4: Expanding (Weeks 9+)
 
 ---
 
+## HYPERHUMANISM PROGRESSIONS (SMITH FRAMEWORK)
+
+These two progressions apply Carl Hayden Smith's principle that technology is a
+catalyst for innate capacity, not a permanent substitute for it. Present them as
+theoretical frameworks (see terminology.md for evidence labeling), and keep every
+ingredient to inner practices only. No substances.
+
+### Scaffold→Remove Progression
+
+**For:** Anyone learning a new skill or sense with temporary technological
+support, following Smith's "technology as catalyst, not crutch" principle
+
+**Primary goals:** Build a capacity with a tool, then internalize it so the tool
+is no longer needed
+
+**Prerequisites:** A clearly defined target skill or sense, and one tool that
+gives feedback on it
+
+Smith puts it plainly:
+
+> "You may use technology for a few weeks to learn a new skill or a new sense,
+> but then you take the technology away and you develop that skill for
+> yourselves."
+
+```
+PHASE 1: Technology-Supported (Weeks 1-3)
+├── Use the chosen tool to scaffold the target skill or sense
+│   (e.g., a breath-pacing app for coherence, a tuner for toning pitch)
+├── Short daily sessions with the tool providing feedback
+├── Notice what the tool makes visible that you cannot yet sense unaided
+└── Track: your baseline capacity while the tool is present
+
+PHASE 2: Bridging, Gradual Removal (Weeks 4-6)
+├── Alternate tool-supported sessions with unaided sessions
+├── Step the tool down: every other session, then weekly, then off
+│   "Check with the tool less often. Trust your own sensing more."
+├── Use the tool only to confirm afterward, not to guide during
+└── Track: how closely unaided practice matches tool-supported practice
+
+PHASE 3: Unaided (Weeks 7+)
+├── Practice the skill or sense with no technology at all
+├── The capacity is now yours to call on wherever you are
+├── Optional: occasional tool check-ins to recalibrate
+└── Outcome markers:
+    - You perform the practice reliably without the tool
+    - You can self-assess quality without external feedback
+    - The capacity shows up in daily life, not only in practice sessions
+```
+
+```
+✅ ALWAYS name the removal plan at the start, so the tool is never a dependency
+✅ ALWAYS frame the tool as a temporary scaffold, not the practice itself
+✅ ALWAYS allow a slower removal pace when a capacity needs more time
+❌ NEVER present the technology as permanently required
+❌ NEVER treat tool removal as a test the user can fail
+```
+
+Pairs well with /holotechnica-stack (build the skill inside a stack, then thin
+the scaffolding) and the Hyperhuman Cultivation Arc below.
+
+---
+
+### Hyperhuman Cultivation Arc
+
+**For:** People wanting a longer arc that moves from taking stock of innate
+capacities to assembling, then internalizing, a personal endo-technology practice
+
+**Primary goals:** Consciousness literacy, a self-sustaining daily practice, and
+a considered relationship with technology
+
+**Prerequisites:** Willingness to reflect; the later stages are optional
+
+**Related skills:** /hyperhumanism-inquiry (capacity inventory and technology
+audit), /holotechnica-stack (ecology assembly), /umwelt-practice (sensory
+foundation work). Fillable artifacts: capacity-inventory.md and
+technology-landscape.md.
+
+```
+WEEK 1-2: Capacity Inventory
+├── Name the innate capacities you already carry (breath, wonder, memory,
+│   imagination, presence)
+├── Skill: /hyperhumanism-inquiry (inventory phase)
+├── Artifact: capacity-inventory.md
+└── "What can your body and mind do without any tool?"
+
+WEEK 3-4: Technology Audit
+├── Map where capacities have been outsourced to devices, without judgment
+├── Skill: /hyperhumanism-inquiry (audit phase)
+├── Artifact: technology-landscape.md
+└── "What do you gain, and what do you set down, in each exchange?"
+
+WEEK 5-6: Endo-Technology Foundation
+├── Establish one or two well-evidenced inner practices (breathwork, body scan,
+│   sound, or silence)
+├── Skill: /umwelt-practice for sensory foregrounding
+├── Short daily sessions, tool-free
+└── Build a reliable baseline before combining anything
+
+WEEK 7-8: Ecology Assembly
+├── Combine foundation practices into a small, personal stack
+├── Skill: /holotechnica-stack (simple or standard depth)
+├── Ground between ingredients; keep the whole thing short
+└── Remember: stacking is a design framework, not a validated protocol
+
+WEEK 9-10: Scaffold→Remove Progressions
+├── Where a tool has helped, run the Scaffold→Remove Progression (above)
+├── Move one target skill or sense from tool-supported to unaided
+└── The capacity becomes portable, not tethered to an app
+
+WEEK 11-12: Consciousness Literacy Check-in
+├── Review: which states can you now recognize, enter, and leave on purpose?
+├── Self-assess without external scoring
+├── Choose what to keep, what to rest, what to revisit
+└── "Literacy is cumulative. This is a checkpoint, not a finish line."
+```
+
+```
+✅ ALWAYS let the user set the pace; twelve weeks is a suggestion, not a schedule
+✅ ALWAYS keep pharmaco-technologies out; ingredients are inner practices only
+❌ NEVER frame later weeks as more advanced or more worthy
+❌ NEVER treat the arc as linear; returning to inventory is welcome
+```
+
+---
+
 ## MULTI-MODALITY PROGRAM TEMPLATES
 
 ### Morning Activation (20 minutes)
