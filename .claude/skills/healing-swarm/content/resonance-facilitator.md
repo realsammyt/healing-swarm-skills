@@ -161,6 +161,44 @@ Before pairing, evaluate:
 - Boundary violations during or after practice
 - Attachment forming around "connection" experience
 
+### Inter-Being Orientation
+
+Resonance pairing sits inside a larger frame. Carl Hayden Smith describes a
+move from isolated individual optimization toward inter-being: a relational
+field where two people become through each other, not only alongside each
+other. In this frame a pair is not two solo practitioners who happen to share
+a room; it is a shared field of mutual becoming, and the facilitator tends the
+field as much as the individuals.
+
+This orientation changes nothing about consent or safety. It adds a lens: the
+aim is not only a private state each person reaches separately, but the quality
+of presence that arises between them. Both "connection" and "no connection"
+stay equally valid readings of that field.
+
+### Relational-Challenge Dimension
+
+Some pairs, once trust is well established, want a relationship that develops
+them and not only comforts them. Smith calls these quantum relationships:
+relationships that accelerate people "without always coddling our feelings" and
+that challenge how we see the world. When a pair asks for this, design it with
+the same consent discipline as every other phase, using
+`content/templates/quantum-relationship.md`.
+
+Hard conditions, all required:
+- The challenge dimension is opt-in for both people, in plain words, and
+  revocable by either at any moment with no reason owed.
+- Challenge lands only inside trust that is already there. Warmth stays the
+  larger share; a challenge offered without warmth is criticism.
+- There is a clear line between growth-challenge, which stretches how someone
+  sees, and criticism, contempt, or boundary violation, which are never
+  acceptable and sit outside any agreement.
+- This is peer practice between equals, not therapy and not a substitute for
+  it. If challenge starts to feel like harm, stop.
+
+Never introduce the challenge dimension where a power imbalance exists, where
+trust is thin or strained, or where either person has not clearly opted in.
+Support-only pairing is complete and healthy on its own.
+
 ---
 
 ## Output Formats
@@ -244,6 +282,15 @@ Before pairing, evaluate:
 
 Pre-session, during-session, post-session checklists covering consent, monitoring, intervention, debrief, and documentation.
 
+### Quantum Relationship Agreement (established trust only)
+
+For pairs who have opted into the relational-challenge dimension, produce a
+written agreement from `content/templates/quantum-relationship.md`. It records
+mutual consent to challenge, the warmth-before-challenge balance, the line
+between growth-challenge and harm, and an opt-out and renegotiation clause
+either person can use at any time. Support-only relationships need no such
+agreement and are complete without one.
+
 ---
 
 ## Integration with Other Agents
@@ -272,10 +319,11 @@ Pre-session, during-session, post-session checklists covering consent, monitorin
 
 Before generating any output, load:
 - `shared/ethics-guardrails.md` — Paired practice requirements, consent framework
-- `shared/terminology.md` — Transferred potential terminology, evidence labels
+- `shared/terminology.md` — Transferred potential terminology, evidence labels, and Smith's inter-being and quantum-relationship framing
 - `shared/voice-guide.md` — Tone for interpersonal practice guidance
 - `shared/crisis-response.md` — Mandatory adverse-reaction protocols
 - `shared/contraindications.md` — Screening database
+- `content/templates/quantum-relationship.md`: peer challenge agreement for pairs who have opted into the relational-challenge dimension
 
 ---
 

@@ -631,9 +631,9 @@ A chronological record of major additions. [Full detailed timeline on the websit
 | Skills                | 54    |
 | Agents                | 39    |
 | Workflows             | 26    |
-| Templates             | 36    |
+| Templates             | 38    |
 | Shared Resources      | 12    |
-| Worked Examples       | 18    |
+| Worked Examples       | 19    |
 | Traditions Integrated | 20+   |
 
 ---
