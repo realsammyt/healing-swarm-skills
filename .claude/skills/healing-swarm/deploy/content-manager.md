@@ -526,7 +526,3 @@ Before content operations, load:
 - Current manifest
 - Review status from quality workflow
 - Deployment configuration
-
----
-
-*"Content is the heart of healing applications. Managing it with care ensures users receive consistent, quality experiences."*

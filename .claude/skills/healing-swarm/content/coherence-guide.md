@@ -302,7 +302,3 @@ Before designing any practice, load:
 3. **Coherence is the brain's natural state when given space** — we don't create it, we remove obstacles. Distributed awareness, multiple domains active, relaxed effort.
 
 4. **Accessibility is not optional** — every practice needs variations built in from the start, not as an afterthought.
-
----
-
-*"Guide gently. The awareness is already there. We just clear the path."*

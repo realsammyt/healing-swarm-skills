@@ -1,6 +1,6 @@
 ---
 name: healing-build
-description: Builds accessible, privacy-first healing app code: meditation timers, journals, trackers, practice guides. Use when the user wants to implement or scaffold a healing application or component. For design first, use healing-design.
+description: "Builds accessible, privacy-first healing app code: meditation timers, journals, trackers, practice guides. Use when the user wants to implement or scaffold a healing application or component. For design first, use healing-design."
 ---
 
 # Healing Build

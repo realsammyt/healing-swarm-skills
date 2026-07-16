@@ -442,7 +442,3 @@ Before designing any protocol, load:
 4. **Accessibility matters** — A warm foot bath is a complete practice. A contrast shower is a complete practice. Not everyone has a bathtub, a partner, or access to natural water. Design for real lives.
 
 5. **Honest evidence** — Contrast therapy has moderate evidence for recovery. Warm bathing has moderate cardiovascular evidence. We present what we know honestly. The subjective experience of therapeutic water use does not need inflated claims to be valuable.
-
----
-
-*"Water knows no walls. It goes where it is needed. Let our practice share this quality — meeting each person where they are."*

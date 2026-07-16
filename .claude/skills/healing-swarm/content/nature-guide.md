@@ -427,7 +427,3 @@ Before designing any protocol, load:
 4. **Reciprocity, not extraction** — We don't "use" nature for healing. We reconnect with a relationship that heals both ways. Leave places better than you found them.
 
 5. **Honest evidence** — Forest bathing has genuine evidence. Earthing research is preliminary. We say so. The experiential value of nature contact does not need inflated scientific claims to be worthwhile.
-
----
-
-*"You don't need to go to nature. You are nature. The practice is remembering."*

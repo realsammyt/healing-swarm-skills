@@ -72,6 +72,14 @@ stages:
       - integration-journal.md
       - evidence-brief.md
 
+  - name: accessibility_review
+    description: Review stack recipe content for accessibility
+    agent: accessibility-auditor
+    inputs:
+      - draft-recipe.md
+    outputs:
+      - accessibility_feedback.md
+
   - name: ethics_review
     description: Review for safety, contraindications, and evidence claims
     agent: ethics-guardian
@@ -81,6 +89,7 @@ stages:
       - contraindication-matrix.md
       - integration-journal.md
       - evidence-brief.md
+      - accessibility_feedback.md
     outputs:
       - ethics_approval
       - contraindication_verification
@@ -196,7 +205,8 @@ integration:
     - ingredient_research → stack_design
     - stack_design → timing_calibration
     - timing_calibration → content_writing
-    - content_writing → ethics_review
+    - content_writing → accessibility_review
+    - accessibility_review → ethics_review
 
   data_flow:
     research_to_design:

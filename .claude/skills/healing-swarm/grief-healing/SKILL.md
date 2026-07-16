@@ -1,6 +1,6 @@
 ---
 name: grief-healing
-description: Builds grief-informed practices for loss (bereavement, health changes, transitions) with strong psychological safety and crisis resources. Sensitive: use when the user names grief, loss, or mourning and wants a practice. Go gently, keep crisis resources visible, and do NOT rush the process or pathologize normal grief.
+description: "Builds grief-informed practices for loss (bereavement, health changes, transitions) with strong psychological safety and crisis resources. Sensitive: use only when the user explicitly asks for a grief practice. Do NOT auto-launch from mentions of loss in passing or general sadness; wait for an explicit request. Go gently, keep crisis resources visible, and do NOT rush the process or pathologize normal grief."
 ---
 
 # Grief Healing
@@ -11,7 +11,7 @@ Grief-informed healing practices for processing loss (health, bereavement, trans
 
 ## When to use
 
-Builds grief-informed practices for loss (bereavement, health changes, transitions) with strong psychological safety and crisis resources. Sensitive: use when the user names grief, loss, or mourning and wants a practice. Go gently, keep crisis resources visible, and do NOT rush the process or pathologize normal grief.
+Builds grief-informed practices for loss (bereavement, health changes, transitions) with strong psychological safety and crisis resources. Sensitive: use only when the user explicitly asks for a grief practice. Do NOT auto-launch from mentions of loss in passing or general sadness; wait for an explicit request. Go gently, keep crisis resources visible, and do NOT rush the process or pathologize normal grief.
 
 ## Agents this skill coordinates
 
@@ -26,6 +26,11 @@ Builds grief-informed practices for loss (bereavement, health changes, transitio
 **Templates:**
 
 - [`content/templates/grief-practice.md`](../content/templates/grief-practice.md)
+
+**Safety context (load before generating output):**
+
+- [`shared/crisis-response.md`](../shared/crisis-response.md)
+- [`shared/contraindications.md`](../shared/contraindications.md)
 
 **Outputs:** `grief-practice.md`, `grounding-guide.md`, `crisis-resources.md`
 

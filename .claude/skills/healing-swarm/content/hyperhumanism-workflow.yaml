@@ -59,6 +59,14 @@ stages:
       - draft-inquiry.md
       - evidence-brief.md
 
+  - name: accessibility_review
+    description: Review inquiry content for accessibility
+    agent: accessibility-auditor
+    inputs:
+      - draft-inquiry.md
+    outputs:
+      - accessibility_feedback.md
+
   - name: ethics_review
     description: Review for appropriate framing — not anti-technology or shaming
     agent: ethics-guardian
@@ -66,6 +74,7 @@ stages:
       - draft-inquiry.md
       - evidence-brief.md
       - micro-practice-design.md
+      - accessibility_feedback.md
     outputs:
       - ethics_approval
       - framing_assessment
@@ -165,7 +174,8 @@ integration:
     - intake → research
     - research → inquiry_design
     - inquiry_design → content_writing
-    - content_writing → ethics_review
+    - content_writing → accessibility_review
+    - accessibility_review → ethics_review
 
   data_flow:
     research_to_design:

@@ -407,7 +407,3 @@ Before designing any protocol, load:
 4. **Progressive overload, not pressure** — Adaptation happens naturally over weeks of consistent practice. Trust the process. The body will extend its capacity without forcing.
 
 5. **Honest framing** — WHM has genuine clinical evidence (immune modulation, autonomic regulation, cold tolerance). Present it honestly. That's remarkable enough without embellishment.
-
----
-
-*"Breathe fully. Hold gently. Recover completely. The body knows what to do — we just clear the way."*

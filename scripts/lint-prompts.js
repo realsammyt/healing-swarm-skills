@@ -168,6 +168,8 @@ function lintAgentPrompt(filePath) {
         issues.errors.push(ref.message);
       } else if (ref.severity === 'warning') {
         issues.warnings.push(ref.message);
+      } else {
+        issues.suggestions.push(ref.message);
       }
     }
   }
@@ -190,6 +192,12 @@ function lintAgentPrompt(filePath) {
 
   if (/\bscience proves\b/i.test(content)) {
     issues.warnings.push('Use "research suggests" instead of "science proves"');
+  }
+
+  // Phase 4 polish regression check: agent prompts should not end with a
+  // horizontal rule followed by an italic filler quote.
+  if (/\n---\s*\n+\s*[*_].*[*_]\s*$/.test(content)) {
+    issues.warnings.push('ends with a filler closing quote — strip it (see Phase 4 polish)');
   }
 
   return issues;

@@ -161,8 +161,9 @@ descriptions:
     Builds progressive cognitive-deautomatization practices for noticing how
     language shapes perception, with grounding. Sensitive: use when the user asks
     to observe labeling, un-name experience, or work with Zen/Dzogchen-style
-    perception. Do NOT push past grounding; stop if depersonalization or
-    derealization shows up.
+    perception. Do NOT auto-launch from loose mentions of language or perception;
+    wait for an explicit request for this practice. Do NOT push past grounding;
+    stop if depersonalization or derealization shows up.
 
   group-perception: |-
     Designs group and paired perception exercises (collective label delay,
@@ -179,13 +180,15 @@ descriptions:
   sound-healing: |-
     Builds a vocal sound-healing practice (toning, mantra, chanting, humming)
     with timing and safety notes. Use when the user wants a sound, chant, toning,
-    or humming practice. Do NOT use for the research behind sound (use
+    or humming practice. For toning tuned to ancient-site frequencies, use
+    archaeoacoustic-toning. Do NOT use for the research behind sound (use
     sound-research).
 
   archaeoacoustic-toning: |-
     Builds a vocal toning practice tuned to the resonant frequencies of ancient
     sacred sites, structured listen-hum-tone-harmonics-silence. Use when the user
-    asks about sacred-site frequencies, archaeoacoustics, or resonant toning.
+    asks about sacred-site frequencies, archaeoacoustics, or resonant toning. For
+    general vocal toning without the sacred-site framing, use sound-healing.
     Frame frequency claims honestly.
 
   sound-consciousness: |-
@@ -209,9 +212,11 @@ descriptions:
 
   umwelt-practice: |-
     Builds sensory-augmentation exercises for perceiving-as-other and extending
-    the sensorium, with grounding. Sensitive: use when the user wants to explore
-    other-than-human perception or sensory expansion. Do NOT use with dissociative
-    disorders; keep grounding present and stop on derealization.
+    the sensorium, with grounding. Sensitive: use when the user explicitly asks to
+    explore other-than-human perception or sensory expansion. Do NOT auto-launch
+    from loose curiosity about perception; wait for an explicit request. Do NOT
+    use with dissociative disorders; keep grounding present and stop on
+    derealization.
 
   # ── Movement ────────────────────────────────────────────────────────────────
   somatic-practice: |-
@@ -253,9 +258,10 @@ descriptions:
   grief-healing: |-
     Builds grief-informed practices for loss (bereavement, health changes,
     transitions) with strong psychological safety and crisis resources.
-    Sensitive: use when the user names grief, loss, or mourning and wants a
-    practice. Go gently, keep crisis resources visible, and do NOT rush the
-    process or pathologize normal grief.
+    Sensitive: use only when the user explicitly asks for a grief practice. Do
+    NOT auto-launch from mentions of loss in passing or general sadness; wait
+    for an explicit request. Go gently, keep crisis resources visible, and do
+    NOT rush the process or pathologize normal grief.
 
   # ── Expressive ──────────────────────────────────────────────────────────────
   expressive-healing: |-

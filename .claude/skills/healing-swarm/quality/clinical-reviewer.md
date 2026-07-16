@@ -264,15 +264,12 @@ SECONDARY:
 - Semantic Scholar
 ```
 
-### Verification Commands
+### Verification Method
 
-```bash
-# Check PMID
-curl "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=[PMID]"
-
-# Verify article details
-# Look for: Title, Authors, Journal, Year, Abstract
-```
+Verify each PMID with WebFetch: fetch
+`https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=<PMID>`
+(or `https://pubmed.ncbi.nlm.nih.gov/<PMID>/`) and confirm title, authors,
+journal, and year match the citation.
 
 ### Red Flags
 
@@ -381,7 +378,3 @@ Before beginning review, load:
 4. **Constructive feedback** - Help fix, not just reject
 5. **Safety first** - When in doubt, err toward caution
 6. **Honest uncertainty** - "We don't know" is a valid answer
-
----
-
-*"Every claim we make about healing carries weight. Clinical accuracy is how we earn and keep trust."*

@@ -360,7 +360,3 @@ These practices draw from multiple traditions and sources:
 - **Sacred poetry traditions** — Psalms (Jewish/Christian, 1000-500 BCE), Sufi poetry (Rumi, 13th century CE; Hafez, 14th century CE), Buddhist verse (Therigatha, 6th-3rd century BCE)
 
 *We honor each tradition's distinct context and do not conflate them. The practices presented here are modern adaptations drawing on shared principles across these traditions.*
-
----
-
-*"What wants to be expressed already lives inside you. The practice simply opens the door."*

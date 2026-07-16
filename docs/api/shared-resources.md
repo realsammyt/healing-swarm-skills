@@ -390,7 +390,7 @@ Before beginning work, load and follow:
 ## crisis-response.md
 
 **Path:** `shared/crisis-response.md`
-**Required By:** ALL agents (mandatory safety resource)
+**Required By:** the six sensitive-skill facilitators (grief-guide, shadow-facilitator, resonance-facilitator, umwelt-facilitator, language-awareness-guide, orbital-architect) plus ethics-guardian
 
 ### Purpose
 
@@ -433,7 +433,7 @@ Physical Practice Reactions:
 
 ### Usage
 
-Every agent MUST include in Loaded Context:
+The six sensitive-skill facilitators (grief-guide, shadow-facilitator, resonance-facilitator, umwelt-facilitator, language-awareness-guide, orbital-architect) plus ethics-guardian MUST include in Loaded Context:
 ```markdown
 ## Loaded Context
 
@@ -446,7 +446,7 @@ Before beginning work, load and follow:
 ## contraindications.md
 
 **Path:** `shared/contraindications.md`
-**Required By:** ALL agents (mandatory safety resource)
+**Required By:** the six sensitive-skill facilitators (grief-guide, shadow-facilitator, resonance-facilitator, umwelt-facilitator, language-awareness-guide, orbital-architect) plus ethics-guardian
 
 ### Purpose
 

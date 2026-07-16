@@ -10,6 +10,71 @@ A living record of every feature, skill, workflow, template, and infrastructure 
 
 ---
 
+## 2026-07-16 — Full-Capacity Review Sweep
+
+**Branch `fix/full-capacity-review` | 41 adversarially verified fixes across 6 review lenses (no new skills)**
+
+A six-lens multi-agent review (skill discovery, agent prompts, scripts, workflow
+gates, docs, mission/safety) with every finding verified against the actual
+files before being applied. Counts unchanged (52 / 38 / 25).
+
+### Safety
+
+- **SKILL.md discovery repaired** — the generator emitted invalid YAML
+  frontmatter for 13 skills, including all 6 sensitive ones; descriptions are
+  now safely quoted and all 52 parse. Sensitive SKILL.md files also link their
+  required safety context (`crisis-response.md`, `contraindications.md`).
+- **"Do NOT auto-launch" guards** added to the three sensitive skills that
+  lacked them at trigger-decision time (grief-healing, umwelt-practice,
+  language-awareness).
+- **Crisis protocols actually loaded** — the 6 sensitive-skill facilitators and
+  ethics-guardian now carry `crisis-response.md` + `contraindications.md` in
+  Loaded Context, enforced by a new validator check.
+- **Crisis resources internationalized** — US numbers labeled (US); IASP
+  crisis-centre directory and Find a Helpline added; localization required.
+- **Ethics gates reconciled** — healing-content and healing-journaling now
+  declare `requires_ethics_approval` (journaling also gained ethics-guardian).
+
+### Gate Enforcement
+
+- **`npm test` runs again** — a shebang in `check-gates.js` silently prevented
+  vitest from running any tests; 11/11 now pass.
+- **check-gates hardened** — status/gate comparisons normalize case and
+  whitespace ('FAIL', 'Veto', ' fail' no longer pass silently); new opt-in
+  `--require=ethics,accessibility` halts when a required gate emitted no block.
+- **Accessibility veto declared everywhere ethics was** — quality + orchestrator
+  workflows, and the agent registry (`veto_power: true`).
+- **All 14 topic content workflows** now include an accessibility-auditor
+  review stage, so the accessibility veto has an emitter in every pipeline.
+- **Cultural reviewer veto fixed** — instructions now match the harness
+  contract (veto requires `blocking: true`).
+
+### Infrastructure
+
+- **Honest validator output** — 25/25 workflows (11 manifest files no longer
+  counted); `--file` filter works in both forms.
+- **`create-skill.js` scaffolds pass validation** — snippet files no longer
+  counted as workflows, `requires` paths resolve, `healing-` prefix dropped.
+- **Workflow artifact names reconciled** to the orchestrator's hyphen-case
+  contract across the 5 phase sub-workflows; nested output lists flattened;
+  deploy rollback stage defined; build component registry points only at specs
+  that exist.
+- **7 research agents** gained Tool Use guidance (WebSearch/WebFetch,
+  verify-before-cite, unverified-marking); clinical-researcher now defers to
+  `shared/evidence-language.md` (registered as shared resource #10).
+- **37 filler closing quotes** stripped from agent prompts, with a lint warning
+  to prevent regression.
+
+### Documentation
+
+- Node 22 prerequisite corrected (was 18); fictional validator output replaced
+  with real output; nonexistent commands removed; website skills catalog now
+  lists all 52; Jekyll-era docs/index.md cleaned; ADR-004 documents the
+  fail-closed gate mode; vision line reworded to match the project's own
+  evidence-language rules.
+
+---
+
 ## 2026-06-02 — Opus 4.8 Auto-Discovery & Count Automation
 
 **Branch `feat/family-nexus-healing` | Triggering + doc-drift optimization (no new skills)**
@@ -288,7 +353,7 @@ Worked examples for all new practice skills: sound healing, somatic movement, sl
 - **Resonance Facilitator** — Paired practice facilitation and consent
 - **Orbital Architect** — Multi-day consciousness journey architecture
 
-### Workflows Added (3)
+### Workflows Added (4)
 
 - `coherence-workflow.yaml` — Self-allusive meditation pipeline
 - `syntergic-workflow.yaml` — Consciousness research pipeline

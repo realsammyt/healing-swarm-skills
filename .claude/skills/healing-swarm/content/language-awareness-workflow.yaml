@@ -88,6 +88,14 @@ stages:
     outputs:
       - final-protocol.md
 
+  - name: accessibility_review
+    description: Review protocol content for accessibility
+    agent: accessibility-auditor
+    inputs:
+      - final-protocol.md
+    outputs:
+      - accessibility_feedback.md
+
   - name: finalize
     description: Produce final outputs
     agent: orchestrator
@@ -96,6 +104,7 @@ stages:
       - grounding-guide.md
       - practice-journal-prompts.md
       - safety_approval
+      - accessibility_feedback.md
     outputs:
       - language-awareness-protocol-final.md
       - grounding-guide-final.md

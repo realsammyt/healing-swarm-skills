@@ -1,6 +1,6 @@
 ---
 name: language-awareness
-description: Builds progressive cognitive-deautomatization practices for noticing how language shapes perception, with grounding. Sensitive: use when the user asks to observe labeling, un-name experience, or work with Zen/Dzogchen-style perception. Do NOT push past grounding; stop if depersonalization or derealization shows up.
+description: "Builds progressive cognitive-deautomatization practices for noticing how language shapes perception, with grounding. Sensitive: use when the user asks to observe labeling, un-name experience, or work with Zen/Dzogchen-style perception. Do NOT auto-launch from loose mentions of language or perception; wait for an explicit request for this practice. Do NOT push past grounding; stop if depersonalization or derealization shows up."
 ---
 
 # Language Awareness
@@ -11,7 +11,7 @@ Cognitive deautomatization and language awareness protocols. Produces progressiv
 
 ## When to use
 
-Builds progressive cognitive-deautomatization practices for noticing how language shapes perception, with grounding. Sensitive: use when the user asks to observe labeling, un-name experience, or work with Zen/Dzogchen-style perception. Do NOT push past grounding; stop if depersonalization or derealization shows up.
+Builds progressive cognitive-deautomatization practices for noticing how language shapes perception, with grounding. Sensitive: use when the user asks to observe labeling, un-name experience, or work with Zen/Dzogchen-style perception. Do NOT auto-launch from loose mentions of language or perception; wait for an explicit request for this practice. Do NOT push past grounding; stop if depersonalization or derealization shows up.
 
 ## Agents this skill coordinates
 
@@ -26,6 +26,11 @@ Builds progressive cognitive-deautomatization practices for noticing how languag
 **Templates:**
 
 - [`content/templates/language-awareness-protocol.md`](../content/templates/language-awareness-protocol.md)
+
+**Safety context (load before generating output):**
+
+- [`shared/crisis-response.md`](../shared/crisis-response.md)
+- [`shared/contraindications.md`](../shared/contraindications.md)
 
 **Outputs:** `language-awareness-protocol.md`, `grounding-guide.md`, `practice-journal-prompts.md`
 

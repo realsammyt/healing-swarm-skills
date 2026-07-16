@@ -360,7 +360,3 @@ Before designing any practice, load:
 5. **Silence is valid** — "Nothing particular" is a real response
 6. **Safety before depth** — Master gross before subtle, subtle before causal
 7. **Grounding is non-negotiable** — Every practice begins and ends grounded
-
----
-
-_"Hold the map lightly. The quadrants point at territory that was always already here."_

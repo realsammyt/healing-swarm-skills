@@ -390,15 +390,22 @@ The extended exhale activates the parasympathetic response."
 
 ## EMERGENCY RESOURCES
 
-### Always Available
+### Always Available (United States)
 
 | Resource | Contact | When to Use |
 |----------|---------|-------------|
-| **911 (Emergency Services)** | Call 911 | Medical emergency, loss of consciousness, cardiac symptoms, danger to self or others |
-| **988 Suicide & Crisis Lifeline** | Call or text **988** | Suicidal ideation, severe emotional crisis, self-harm urges |
-| **Crisis Text Line** | Text **HOME** to **741741** | Emotional distress, crisis support via text |
-| **SAMHSA Helpline** | **1-800-662-4357** | Substance use and mental health referrals (24/7, free, confidential) |
-| **Poison Control** | **1-800-222-1222** | Ingestion of substances related to healing practices (herbs, supplements) |
+| **911 (Emergency Services)** | Call 911 (US) | Medical emergency, loss of consciousness, cardiac symptoms, danger to self or others |
+| **988 Suicide & Crisis Lifeline** | Call or text **988** (US) | Suicidal ideation, severe emotional crisis, self-harm urges |
+| **Crisis Text Line** | Text **HOME** to **741741** (US) | Emotional distress, crisis support via text |
+| **SAMHSA Helpline** | **1-800-662-4357** (US) | Substance use and mental health referrals (24/7, free, confidential) |
+| **Poison Control** | **1-800-222-1222** (US) | Ingestion of substances related to healing practices (herbs, supplements) |
+
+### International
+
+| Resource | Contact | When to Use |
+|----------|---------|-------------|
+| **International Association for Suicide Prevention (IASP)** | https://www.iasp.info/resources/Crisis_Centres/ | Crisis-centre directory for locating suicide prevention resources outside the US |
+| **Find a Helpline** | https://findahelpline.com | Locate crisis helplines by country and topic |
 
 ### Specialized Resources
 
@@ -406,7 +413,7 @@ The extended exhale activates the parasympathetic response."
 |----------|---------|-------------|
 | **Spiritual Emergence Network** | spiritualemergence.org | Spiritual emergency, kundalini syndrome, transpersonal crisis |
 | **Cheetah House** | cheetahhouse.org | Meditation-related adverse experiences |
-| **NAMI Helpline** | **1-800-950-6264** | Mental health information and referrals |
+| **NAMI Helpline** | **1-800-950-6264** (US) | Mental health information and referrals |
 
 ### Required Display
 
@@ -417,6 +424,8 @@ The extended exhale activates the parasympathetic response."
 ✅ Resources MUST include both phone and text options for accessibility
 ✅ Resources MUST be verified current at least quarterly
 ```
+
+Localize emergency numbers to the user's region; the US numbers above are defaults, not universal.
 
 ---
 

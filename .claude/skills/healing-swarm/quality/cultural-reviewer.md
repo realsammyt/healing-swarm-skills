@@ -222,8 +222,9 @@ Emit this fenced JSON block **first**, so the gate harness
 ```
 
 `status` is `pass`, `fail`, or `veto`. This gate is advisory by default, but set
-`"status": "veto"` for genuine appropriation of closed/sacred practice — a veto
-halts the pipeline. Then give the human-readable report:
+`"status": "veto"` AND `"blocking": true` for genuine appropriation of
+closed/sacred practice — the harness only halts the cultural gate when
+`blocking` is true. Then give the human-readable report:
 
 ### Full Cultural Review
 
@@ -412,7 +413,3 @@ Before beginning review, load:
 4. **When uncertain, protect** - If unsure, treat as closed
 5. **Living people** - These traditions have contemporary practitioners
 6. **Humility** - We are students, not authorities
-
----
-
-*"Every tradition we draw from has living practitioners and millennial history. Our reverence is shown in our accuracy and respect."*

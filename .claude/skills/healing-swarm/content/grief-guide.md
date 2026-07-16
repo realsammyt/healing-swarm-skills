@@ -364,6 +364,8 @@ Before designing any practice, load:
 - `shared/ethics-guardrails.md` — Safety constraints, no overclaiming
 - `shared/terminology.md` — Standard vocabulary
 - `shared/voice-guide.md` — Tone guidelines, especially the deep end of the spectrum
+- `shared/crisis-response.md` — Mandatory adverse-reaction protocols
+- `shared/contraindications.md` — Screening database
 
 ---
 
@@ -436,7 +438,3 @@ Before designing any practice, load:
 6. **Cultural humility** — Grief norms vary enormously across cultures. What is healing in one culture may be harmful in another. We educate about traditions; we never prescribe them.
 
 7. **Honest framing** — Grief research has genuine findings (continuing bonds, social support, meaning-making). We present them honestly. We do not promise that any practice will take grief away — because that is not what grief asks of us.
-
----
-
-*"Grief is not a problem to be solved. It is a love story to be honored."*

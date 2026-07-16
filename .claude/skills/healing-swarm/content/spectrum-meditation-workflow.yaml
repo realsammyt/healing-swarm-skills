@@ -66,6 +66,14 @@ stages:
       - draft-meditation.md
       - evidence-brief.md
 
+  - name: accessibility_review
+    description: Review meditation content for accessibility
+    agent: accessibility-auditor
+    inputs:
+      - draft-meditation.md
+    outputs:
+      - accessibility_feedback.md
+
   - name: ethics_review
     description: CRITICAL review for state training safety
     agent: ethics-guardian
@@ -73,6 +81,7 @@ stages:
       - draft-meditation.md
       - evidence-brief.md
       - timing-structure.json
+      - accessibility_feedback.md
     outputs:
       - ethics_approval
       - required_modifications
@@ -123,7 +132,8 @@ integration:
     - intake → research
     - research → practice_creation
     - practice_creation → content_writing
-    - content_writing → ethics_review
+    - content_writing → accessibility_review
+    - accessibility_review → ethics_review
 
   data_flow:
     research_to_practice:

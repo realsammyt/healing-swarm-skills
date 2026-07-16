@@ -1,6 +1,6 @@
 ---
 name: sound-healing
-description: Builds a vocal sound-healing practice (toning, mantra, chanting, humming) with timing and safety notes. Use when the user wants a sound, chant, toning, or humming practice. Do NOT use for the research behind sound (use sound-research).
+description: Builds a vocal sound-healing practice (toning, mantra, chanting, humming) with timing and safety notes. Use when the user wants a sound, chant, toning, or humming practice. For toning tuned to ancient-site frequencies, use archaeoacoustic-toning. Do NOT use for the research behind sound (use sound-research).
 ---
 
 # Sound Healing
@@ -11,7 +11,7 @@ Sound-based healing protocols (vocal toning, mantra, chanting, humming)
 
 ## When to use
 
-Builds a vocal sound-healing practice (toning, mantra, chanting, humming) with timing and safety notes. Use when the user wants a sound, chant, toning, or humming practice. Do NOT use for the research behind sound (use sound-research).
+Builds a vocal sound-healing practice (toning, mantra, chanting, humming) with timing and safety notes. Use when the user wants a sound, chant, toning, or humming practice. For toning tuned to ancient-site frequencies, use archaeoacoustic-toning. Do NOT use for the research behind sound (use sound-research).
 
 ## Agents this skill coordinates
 

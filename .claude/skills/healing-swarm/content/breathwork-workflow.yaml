@@ -85,6 +85,15 @@ stages:
       - final-protocol.md
       - audio-script.md
 
+  - name: accessibility_review
+    description: Review protocol content for accessibility
+    agent: accessibility-auditor
+    inputs:
+      - final-protocol.md
+      - audio-script.md
+    outputs:
+      - accessibility_feedback.md
+
   - name: finalize
     description: Apply modifications and produce final outputs
     agent: orchestrator
@@ -94,6 +103,7 @@ stages:
       - quick-reference.md
       - audio-script.md
       - safety_approval
+      - accessibility_feedback.md
     outputs:
       - breathwork-protocol-final.md
       - session-timing-final.json
@@ -162,7 +172,8 @@ integration:
     - "traditions_research + clinical_research → protocol_design"
     - "protocol_design → safety_review"
     - "safety_review → content_polish"
-    - "content_polish → finalize"
+    - "content_polish → accessibility_review"
+    - "accessibility_review → finalize"
 
   data_flow:
     traditions_to_protocol:

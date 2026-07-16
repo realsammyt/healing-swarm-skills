@@ -25,8 +25,8 @@
   "scripts": {
     "validate": "node scripts/validate-skills.js && node scripts/validate-manifest.js && node scripts/sync-timeline.js --check && node scripts/generate-reference.js --check && node scripts/generate-skills.js --check",
     "validate:manifest": "node scripts/validate-manifest.js",
-    "validate:workflows": "node scripts/validate-skills.js --file *.yaml",
-    "validate:agents": "node scripts/validate-skills.js --file *.md",
+    "validate:workflows": "node scripts/validate-skills.js --file=.yaml",
+    "validate:agents": "node scripts/validate-skills.js --file=.md",
     "check:ethics": "node scripts/check-ethics.js",
     "lint:prompts": "node scripts/lint-prompts.js",
     "sync:timeline": "node scripts/sync-timeline.js",

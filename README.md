@@ -25,7 +25,7 @@
 
 ## Vision
 
-To democratize access to holistic healing wisdom by synthesizing rigorously validated ancient practices with modern clinical evidence, delivered through beautiful, intuitive digital experiences that empower individuals to actively participate in their healing journey.
+To democratize access to holistic healing wisdom by synthesizing ancient practices with modern clinical evidence — each honestly labeled by evidence strength — delivered through beautiful, intuitive digital experiences that empower individuals to actively participate in their healing journey.
 
 ---
 
@@ -550,6 +550,14 @@ And we honor you—for being here, for caring enough to explore this, for consid
 ## Development Timeline
 
 A chronological record of major additions. [Full detailed timeline on the website →](https://realsammyt.github.io/healing-swarm-skills/docs/changelog)
+
+### 2026-07-16 — Full-Capacity Review Sweep (41 verified fixes)
+
+- **Discovery repaired:** the SKILL.md generator emitted invalid YAML frontmatter for 13 skills (including all 6 sensitive ones) — descriptions are now safely quoted and all 52 parse; grief-healing, umwelt-practice, and language-awareness gained explicit "Do NOT auto-launch" guards
+- **Safety wiring made real:** crisis-response + contraindications now loaded by the 6 sensitive-skill facilitators and ethics-guardian (validator-enforced); sensitive SKILL.md files link their required safety context; crisis resources labeled US with international fallbacks (IASP, Find a Helpline)
+- **Gates hardened:** `npm test` actually runs again (a shebang silently killed vitest); check-gates normalizes case/whitespace and supports fail-closed `--require=`; accessibility veto declared everywhere ethics was; all 14 topic content workflows now run the accessibility-auditor
+- **Honest tooling:** validator prints the true 25 workflows; `create-skill.js` scaffolds pass validation; 7 research agents gained tool-use + citation-verification guidance; 37 filler closing quotes stripped from agent prompts
+- No new skills, agents, or workflows — counts unchanged (52 / 38 / 25)
 
 ### 2026-06-02 — Opus 4.8 Auto-Discovery & Count Automation
 

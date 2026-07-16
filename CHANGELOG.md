@@ -10,6 +10,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- **SKILL.md YAML frontmatter** — the generator emitted unquoted descriptions,
+  producing unparseable frontmatter for 13 skills (including all 6 sensitive
+  ones); descriptions are now emitted as quoted scalars and all 52 parse
+- **`npm test` ran zero tests** — a shebang in `scripts/check-gates.js` broke
+  vitest's transform; removed, 11/11 tests pass
+- **Validator workflow count** — no longer counts 11 manifest.yaml files as
+  workflows; prints the honest 25/25
+- **`create-skill.js` scaffolds** — no longer break `npm run validate`
+  (snippet files renamed, `requires` paths resolve, `healing-` prefix dropped)
+- **check-gates fail-open cases** — status/gate matching normalizes case and
+  whitespace; cultural-reviewer veto instructions match the harness contract
+- **Docs drift** — Node 22 prerequisite (was 18), real validator output in
+  setup guides, nonexistent commands removed, website skills catalog lists all
+  52 skills, Grinberg entry workflow count corrected
+
+### Changed (safety hardening)
+
+- Crisis-response + contraindications now loaded by the 6 sensitive-skill
+  facilitators and ethics-guardian, enforced by a validator check; sensitive
+  SKILL.md files link their required safety context
+- "Do NOT auto-launch" guards added to grief-healing, umwelt-practice, and
+  language-awareness discovery descriptions
+- Crisis resources labeled (US) with international fallbacks (IASP directory,
+  Find a Helpline) and a localization requirement
+- Accessibility veto declared in quality/orchestrator workflows and the agent
+  registry; all 14 topic content workflows gained an accessibility review stage
+- `check-gates.js` supports opt-in fail-closed mode
+  (`--require=ethics,accessibility`)
+- healing-content and healing-journaling declare `requires_ethics_approval`;
+  `shared/evidence-language.md` registered as shared resource #10
+- 7 research agents gained tool-use and citation-verification guidance; 37
+  filler closing quotes stripped from agent prompts
+
 ### Added
 
 - **Hyperhumanism & Sound Consciousness Skills** (Carl Hayden Smith): 6 new skills —

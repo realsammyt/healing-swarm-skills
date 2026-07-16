@@ -1,9 +1,4 @@
----
-layout: page
-title: Documentation
-description: Full technical documentation for the Healing Swarm Skills framework.
-permalink: /docs/
----
+# Documentation
 
 Complete documentation for building, extending, and contributing to the healing swarm.
 
@@ -47,6 +42,7 @@ Complete documentation for building, extending, and contributing to the healing 
 | [ADR-001](https://github.com/realsammyt/healing-swarm-skills/blob/master/docs/adr/001-ethics-first-architecture.md) | Ethics-First Architecture |
 | [ADR-002](https://github.com/realsammyt/healing-swarm-skills/blob/master/docs/adr/002-local-first-data.md) | Local-First Data Storage |
 | [ADR-003](https://github.com/realsammyt/healing-swarm-skills/blob/master/docs/adr/003-multi-agent-quality.md) | Multi-Agent Quality Review |
+| [ADR-004](https://github.com/realsammyt/healing-swarm-skills/blob/master/docs/adr/004-runtime-and-gate-enforcement.md) | Runtime Model and Gate Enforcement |
 
 ---
 
@@ -94,4 +90,4 @@ npm test
 
 ## Contributing
 
-See the [Contributing Guide](/contribute/) for how to contribute to the documentation or codebase.
+See the [Contributing Guide](../CONTRIBUTING.md) for how to contribute to the documentation or codebase.

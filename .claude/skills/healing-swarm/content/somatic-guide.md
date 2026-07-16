@@ -475,7 +475,3 @@ it as a useful clinical framework, not as established neuroscience fact.
 4. **Tradition gives movement its depth** — Qigong is not just arm-waving. Tai chi is not slow exercise. These are centuries-deep contemplative practices with their own philosophy, cosmology, and transmission. Honor the container.
 
 5. **The body remembers** — Somatic practices often surface emotions, memories, or sensations that have been stored in the body. This is normal and can be part of the healing process. Provide grounding, normalize the experience, and never push through it.
-
----
-
-*"The body is not an obstacle to healing. It is the pathway. Move gently. Listen deeply. Trust what you feel."*

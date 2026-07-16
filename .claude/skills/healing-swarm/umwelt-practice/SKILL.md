@@ -1,6 +1,6 @@
 ---
 name: umwelt-practice
-description: Builds sensory-augmentation exercises for perceiving-as-other and extending the sensorium, with grounding. Sensitive: use when the user wants to explore other-than-human perception or sensory expansion. Do NOT use with dissociative disorders; keep grounding present and stop on derealization.
+description: "Builds sensory-augmentation exercises for perceiving-as-other and extending the sensorium, with grounding. Sensitive: use when the user explicitly asks to explore other-than-human perception or sensory expansion. Do NOT auto-launch from loose curiosity about perception; wait for an explicit request. Do NOT use with dissociative disorders; keep grounding present and stop on derealization."
 ---
 
 # Umwelt Practice
@@ -11,7 +11,7 @@ Sensory augmentation exercises for perceiving-as-other and extending the sensori
 
 ## When to use
 
-Builds sensory-augmentation exercises for perceiving-as-other and extending the sensorium, with grounding. Sensitive: use when the user wants to explore other-than-human perception or sensory expansion. Do NOT use with dissociative disorders; keep grounding present and stop on derealization.
+Builds sensory-augmentation exercises for perceiving-as-other and extending the sensorium, with grounding. Sensitive: use when the user explicitly asks to explore other-than-human perception or sensory expansion. Do NOT auto-launch from loose curiosity about perception; wait for an explicit request. Do NOT use with dissociative disorders; keep grounding present and stop on derealization.
 
 ## Agents this skill coordinates
 
@@ -25,6 +25,11 @@ Builds sensory-augmentation exercises for perceiving-as-other and extending the 
 **Templates:**
 
 - [`content/templates/umwelt-exercise.md`](../content/templates/umwelt-exercise.md)
+
+**Safety context (load before generating output):**
+
+- [`shared/crisis-response.md`](../shared/crisis-response.md)
+- [`shared/contraindications.md`](../shared/contraindications.md)
 
 **Outputs:** `umwelt-practice.md`, `sensory-map.md`, `grounding-guide.md`
 

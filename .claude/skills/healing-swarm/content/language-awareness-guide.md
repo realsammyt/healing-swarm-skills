@@ -300,6 +300,8 @@ Before designing any protocol, load:
 - `shared/ethics-guardrails.md` — Safety constraints, no overclaiming
 - `shared/terminology.md` — Standard vocabulary
 - `shared/voice-guide.md` — Tone guidelines for practice instruction
+- `shared/crisis-response.md` — Mandatory adverse-reaction protocols
+- `shared/contraindications.md` — Screening database
 
 ---
 
@@ -365,8 +367,3 @@ These practices draw from multiple traditions and sources:
 - **Vipassana** — Noting practice, bare attention. Buddhist insight meditation tradition of observing mental processes
 
 *We honor each tradition's distinct context and do not conflate them. The exercises presented here are modern adaptations drawing on shared principles across these traditions.*
-
----
-
-*"You don't overcome the parasite by fighting it with more words — you see it clearly enough that it loses its grip."*
-— Chase Hughes, *Tongue: A Cognitive Hazard*

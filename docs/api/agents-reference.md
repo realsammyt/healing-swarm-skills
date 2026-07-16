@@ -299,6 +299,8 @@ Ensure respectful, accurate representation of all healing traditions.
 
 **Tools:** `Read`, `Bash`, `Glob`
 
+> 🛑 Holds veto power over swarm outputs.
+
 Ensure healing applications are accessible to all users, including those with disabilities.
 
 ---

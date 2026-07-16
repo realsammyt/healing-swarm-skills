@@ -423,7 +423,3 @@ Before beginning design, load and follow:
    - Wireframes for each screen
    - Interaction specifications
    - Accessibility notes
-
----
-
-*"Every tap, every transition, every word should feel like a gentle hand guiding the user toward their own healing capacity."*

@@ -1,6 +1,6 @@
 ---
 name: sacred-visuals
-description: Designs the visual system for a healing app: palette, typography, sacred geometry, calming motion. Use when the user wants the look and feel, colors, or visual style. For interaction design, use healing-ux.
+description: "Designs the visual system for a healing app: palette, typography, sacred geometry, calming motion. Use when the user wants the look and feel, colors, or visual style. For interaction design, use healing-ux."
 ---
 
 # Sacred Visuals

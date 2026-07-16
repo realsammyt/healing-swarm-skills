@@ -58,8 +58,8 @@ function validateDiscovery(manifest, discovery) {
     if (!/use(?:\s+\w+){0,3}\s+when\b/i.test(text))
       problems.push(`"${name}": description must contain a "Use ... when" clause`);
     if (/\bI(?:'|'ll| will| am)\b/.test(text)) problems.push(`"${name}": use third person, not first person`);
-    if (sensitive.has(name) && !/do not/i.test(text))
-      problems.push(`"${name}" is sensitive and must carry an explicit "Do NOT" guard`);
+    if (sensitive.has(name) && !/do not auto-launch/i.test(text))
+      problems.push(`"${name}" is sensitive and must carry an explicit "Do NOT auto-launch" guard`);
   }
   for (const name of Object.keys(descMap)) {
     if (!skillNames.includes(name)) problems.push(`discovery description "${name}" has no matching manifest skill`);
@@ -79,8 +79,9 @@ function renderSkill(skill, manifest, discovery) {
   const out = [];
   out.push('---');
   out.push(`name: ${skill.name}`);
-  // YAML-safe single-line description (no embedded quotes used in the prose).
-  out.push(`description: ${description}`);
+  // YAML-safe single-line description: emit via the YAML library so values
+  // containing ': ', quotes, or other special characters are quoted correctly.
+  out.push(YAML.stringify({ description }, { lineWidth: 0 }).trimEnd());
   out.push('---');
   out.push('');
   out.push(`# ${titleCase(skill.name)}`);
@@ -124,6 +125,13 @@ function renderSkill(skill, manifest, discovery) {
     out.push('**Templates:**');
     out.push('');
     for (const t of skill.templates) out.push(`- [\`${t}\`](../${t})`);
+    out.push('');
+  }
+
+  if (Array.isArray(skill.requires) && skill.requires.length) {
+    out.push('**Safety context (load before generating output):**');
+    out.push('');
+    for (const r of skill.requires) out.push(`- [\`${r}\`](../${r})`);
     out.push('');
   }
 

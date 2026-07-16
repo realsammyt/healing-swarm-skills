@@ -69,6 +69,15 @@ stages:
       - consciousness-exhibit.md
       - evidence-brief.md
 
+  - name: accessibility_review
+    description: Review exhibit and assessment materials for accessibility
+    agent: accessibility-auditor
+    inputs:
+      - consciousness-exhibit.md
+      - self-assessment-form.md
+    outputs:
+      - accessibility_feedback.md
+
   - name: ethics_review
     description: Review for dissociation safety and evidence claims
     agent: ethics-guardian
@@ -78,6 +87,7 @@ stages:
       - self-assessment-form.md
       - evidence-brief.md
       - grounding-anchors.md
+      - accessibility_feedback.md
     outputs:
       - ethics_approval
       - dissociation_safety_assessment

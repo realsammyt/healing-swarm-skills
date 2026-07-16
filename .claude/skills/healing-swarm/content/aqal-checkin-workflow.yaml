@@ -64,12 +64,21 @@ stages:
       - draft-checkin.md
       - evidence-brief.md
 
+  - name: accessibility_review
+    description: Review check-in content for accessibility
+    agent: accessibility-auditor
+    inputs:
+      - draft-checkin.md
+    outputs:
+      - accessibility_feedback.md
+
   - name: ethics_review
     description: Review for appropriate framing and safety
     agent: ethics-guardian
     inputs:
       - draft-checkin.md
       - evidence-brief.md
+      - accessibility_feedback.md
     outputs:
       - ethics_approval
       - required_modifications
@@ -106,7 +115,8 @@ integration:
     - intake → research
     - research → practice_creation
     - practice_creation → content_writing
-    - content_writing → ethics_review
+    - content_writing → accessibility_review
+    - accessibility_review → ethics_review
 
   data_flow:
     research_to_practice:

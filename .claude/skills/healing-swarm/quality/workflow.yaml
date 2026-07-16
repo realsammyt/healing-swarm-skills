@@ -54,13 +54,13 @@ stages:
       - all_findings
       - ethics_review
     outputs:
-      - quality_report.md
+      - quality-report.md
 
   - name: remediation_tracking
     description: Track fixes and re-review
     agent: orchestrator
     inputs:
-      - quality_report
+      - quality-report
       - remediation_submissions
     outputs:
       - remediation_status
@@ -127,7 +127,7 @@ quality_gates:
       - No privacy violations
     veto_power: true
 
-  clinical_accuracy:
+  clinical:
     agent: clinical-reviewer
     blocking: true
     criteria:
@@ -136,9 +136,9 @@ quality_gates:
       - Appropriate language used
       - Contraindications noted
 
-  cultural_integrity:
+  cultural:
     agent: cultural-reviewer
-    blocking: true
+    blocking: false # advisory; reviewer may veto closed-practice appropriation (veto + blocking: true)
     criteria:
       - Proper attribution present
       - Open practices only (unless approved)
@@ -148,6 +148,7 @@ quality_gates:
   accessibility:
     agent: accessibility-auditor
     blocking: true
+    veto_power: true
     criteria:
       - WCAG AA compliance
       - Keyboard navigation complete
@@ -199,7 +200,7 @@ severity_levels:
 # ═══════════════════════════════════════════════════════════════════════════════
 
 output_structure:
-  quality_report.md:
+  quality-report.md:
     sections:
       - executive_summary
       - review_scope
@@ -243,7 +244,7 @@ escalation:
       - Request human decision
 
   ethics_veto:
-    authority: ethics-guardian
+    authority: [ethics-guardian, accessibility-auditor]
     process:
       - Issue veto with full explanation
       - Document what would be needed to approve

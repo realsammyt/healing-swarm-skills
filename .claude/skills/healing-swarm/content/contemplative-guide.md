@@ -435,7 +435,3 @@ These practices draw from multiple inquiry traditions:
 - **Dzogchen** (Tibetan Buddhist tradition) — Referenced as an inquiry tradition; CLOSED practice requiring qualified teacher. Not taught here
 
 *We honor each tradition's distinct context, transmission lineages, and requirements. The practices here are modern adaptations drawing on shared principles of investigation and inquiry.*
-
----
-
-*"The question itself is the practice. The answer may never come — and that is also healing."*

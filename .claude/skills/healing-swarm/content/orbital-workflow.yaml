@@ -65,6 +65,15 @@ stages:
       - journal-prompts/
       - integration-guides/
 
+  - name: accessibility_review
+    description: Review journey content for accessibility
+    agent: accessibility-auditor
+    inputs:
+      - daily-practices/
+      - journal-prompts/
+    outputs:
+      - accessibility_feedback.md
+
   - name: ethics_review
     description: CRITICAL review especially for transpersonal content
     agent: ethics-guardian
@@ -75,6 +84,7 @@ stages:
       - orbital-guide.md
       - safety-protocols.md
       - progress-tracker.md
+      - accessibility_feedback.md
     outputs:
       - ethics_approval
       - transpersonal_safety_assessment
@@ -281,7 +291,8 @@ integration:
     - intake → orbital_research
     - orbital_research → journey_architecture
     - journey_architecture → daily_content_creation
-    - daily_content_creation → ethics_review [CRITICAL]
+    - daily_content_creation → accessibility_review
+    - accessibility_review → ethics_review [CRITICAL]
 
   data_flow:
     research_to_architecture:
