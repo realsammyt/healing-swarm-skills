@@ -1,5 +1,12 @@
 # Healing Swarm Skills — Project Instructions
 
+## Session Handoff (READ FIRST)
+
+Before starting work, read [`HANDOFF.md`](HANDOFF.md) at the repo root. It's the
+living source of truth for the Opus 4.8 optimization effort: current phase
+status, locked decisions, open questions, and what's next. **Update it before
+ending any session that touched that work** (protocol is in the file).
+
 ## Timeline Update Workflow (MANDATORY)
 
 **Whenever new features, skills, workflows, templates, agents, or shared resources are added to this project, you MUST update the timeline in BOTH locations before committing:**
