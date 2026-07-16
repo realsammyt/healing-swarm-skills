@@ -325,6 +325,7 @@ Before designing any practice, load:
 - `shared/contraindications.md` — Umwelt practice contraindications, level restrictions
 - `shared/crisis-response.md` — Mandatory adverse-reaction protocols
 - `shared/voice-guide.md` — Tone guidelines for practice instruction
+- `content/templates/perceptual-augmentation-tracker.md` — Artifact for tracking perceptual-augmentation arcs across sessions
 
 ---
 

@@ -210,6 +210,15 @@ descriptions:
     Use when the user wants to examine their relationship with technology or
     reclaim an outsourced capacity.
 
+  context-engineering: |-
+    Designs the experiential container around a practice: physical setting, body
+    priming, temporal buffers, social frame, intention, and re-entry, from
+    Smith's Contextology. Use when the user wants to prepare the conditions,
+    setting, or environment for a practice, or a considered re-entry afterward.
+    Do NOT use to design the practice itself: for an endo-technology practice
+    stack use holotechnica-stack, and for the capacity inquiry use
+    hyperhumanism-inquiry.
+
   umwelt-practice: |-
     Builds sensory-augmentation exercises for perceiving-as-other and extending
     the sensorium, with grounding. Sensitive: use when the user explicitly asks to
@@ -217,6 +226,16 @@ descriptions:
     from loose curiosity about perception; wait for an explicit request. Do NOT
     use with dissociative disorders; keep grounding present and stop on
     derealization.
+
+  consciousness-audit: |-
+    A periodic check-in that reviews a person's practice history and maps their
+    current consciousness-literacy level across the somatic, perceptual,
+    relational, and attentional clusters, tracking development over weeks and
+    months. Use when the user wants a longitudinal review of how their practice is
+    progressing or where to focus next. Do NOT use for a single-session state
+    assessment: for one sitting use sound-consciousness with its Milliere
+    six-dimension self-assessment, since this skill tracks cumulative change over
+    time rather than a single session.
 
   # ── Movement ────────────────────────────────────────────────────────────────
   somatic-practice: |-

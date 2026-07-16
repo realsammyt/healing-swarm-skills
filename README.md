@@ -282,8 +282,8 @@ claude> /healing-swarm "Sacred Healing Journey" --focus "ligament healing"
 
 ### Reference
 
-- **[Skills Reference](docs/api/skills-reference.md)** - All 52 skills with triggers and options
-- **[Agents Reference](docs/api/agents-reference.md)** - All 38 agents with responsibilities
+- **[Skills Reference](docs/api/skills-reference.md)** - All 54 skills with triggers and options
+- **[Agents Reference](docs/api/agents-reference.md)** - All 39 agents with responsibilities
 - **[Shared Resources](docs/api/shared-resources.md)** - Ethics, safety, terminology, design tokens
 - **[Workflows Reference](docs/api/workflows-reference.md)** - Workflow patterns
 
@@ -551,6 +551,17 @@ And we honor you—for being here, for caring enough to explore this, for consid
 
 A chronological record of major additions. [Full detailed timeline on the website →](https://realsammyt.github.io/healing-swarm-skills/docs/changelog)
 
+### 2026-07-16 — Carl Hayden Smith Integration (Contextology & Consciousness Literacy)
+
+- **2 skills:** Context Engineering, Consciousness Audit
+- **1 agent:** Context Engineer
+- **1 workflow:** context-engineering
+- **10 templates:** resonance-body-map, consciousness-exhibit, capacity-inventory, micro-practice-design, technology-landscape, scaffold-progression, context-design, perceptual-augmentation-tracker, quantum-relationship, ecology-design
+- **2 shared resources added:** endo-technology-taxonomy, consciousness-literacy-levels; updated: terminology, practice-pathways, voice-guide, outcome-measurement
+- **1 worked example:** examples/hyperhumanism-onboarding/
+- Updated: resonance-facilitator (inter-being orientation), holotechnica-architect (taxonomy reference), hyperhumanism-workflow (manifest alignment)
+- Counts now 54 / 39 / 26
+
 ### 2026-07-16 — Full-Capacity Review Sweep (41 verified fixes)
 
 - **Discovery repaired:** the SKILL.md generator emitted invalid YAML frontmatter for 13 skills (including all 6 sensitive ones) — descriptions are now safely quoted and all 52 parse; grief-healing, umwelt-practice, and language-awareness gained explicit "Do NOT auto-launch" guards
@@ -628,12 +639,12 @@ A chronological record of major additions. [Full detailed timeline on the websit
 
 | Category              | Count |
 | --------------------- | ----- |
-| Skills                | 52    |
-| Agents                | 38    |
-| Workflows             | 25    |
-| Templates             | 28    |
-| Shared Resources      | 10    |
-| Worked Examples       | 18    |
+| Skills                | 54    |
+| Agents                | 39    |
+| Workflows             | 26    |
+| Templates             | 38    |
+| Shared Resources      | 12    |
+| Worked Examples       | 19    |
 | Traditions Integrated | 20+   |
 
 ---

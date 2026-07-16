@@ -22,6 +22,12 @@ Guides a four-phase philosophical inquiry (inventory, audit, reclamation, practi
 
 **Workflow:** [`content/hyperhumanism-workflow.yaml`](../content/hyperhumanism-workflow.yaml)
 
+**Templates:**
+
+- [`content/templates/capacity-inventory.md`](../content/templates/capacity-inventory.md)
+- [`content/templates/technology-landscape.md`](../content/templates/technology-landscape.md)
+- [`content/templates/micro-practice-design.md`](../content/templates/micro-practice-design.md)
+
 **Outputs:** `inquiry-guide.md`, `capacity-inventory.md`, `micro-practice-design.md`
 
 ## Example usage

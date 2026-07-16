@@ -441,6 +441,9 @@ as Wilber's own cross-referencing, not as independent discovery.
 | Umwelt Hacking                   | Deliberately shifting perceptual frames to experience sensing-as-other — "Can we sense like a forest, a mycelium network, or an octopus?"                   | Theoretical (Smith's framework)                                                  |
 | Experience Stacking              | Combining multiple endo-technologies in deliberate sequence for compounding effects; core method of Holotechnica                                            | Theoretical (individual components researched)                                   |
 | Consciousness Recipe             | A designed sequence of endo-technology ingredients with preparation, transitions, and integration; output of Holotechnica                                   | Theoretical                                                                      |
+| Contextology                     | The study and design of experiential contexts; Smith's framework for context engineering                                                                    | Theoretical framework                                                            |
+| Inter-being                      | A relational state of mutual becoming; the hyperhuman's orientation beyond individual optimization                                                          | Theoretical framework                                                            |
+| Consciousness literacy           | The cumulative development of capacity to move through and assess one's own states of consciousness                                                         | Theoretical framework                                                            |
 
 ### Practice Mode Terms (Smith)
 
@@ -499,3 +502,31 @@ as Wilber's own cross-referencing, not as independent discovery.
 
 **Note:** Smith's framework explicitly synthesizes across traditions and technologies.
 Present his work as an integrative framework, not a standalone tradition.
+
+---
+
+## Hyperhumanism and Consciousness Technology (Smith Framework)
+
+> A concise vocabulary reference for the hyperhumanism practice family. It
+> complements the fuller, evidence-annotated table above; for each term's
+> evidence status, see "Hyperhumanism & Sound Consciousness Terminology (Smith)"
+> earlier in this file.
+
+| Term                   | Definition                                                                                                                  | Source                     |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| Endo-technology        | Inner practice that needs no external tool; contrasted with cyberdelics and pharmaco-technologies                           | Smith framework            |
+| Holotechnica           | A designed stack of endo-technologies aimed at altered traits; holo (whole) + technica (technique)                          | Smith framework            |
+| Umwelt                 | The subjective perceptual world of an organism (von Uexkull 1934); "umwelt hacking" is deliberate perceptual frame-shifting | Smith / von Uexkull        |
+| Cyberdelic             | Technology-augmented consciousness exploration (VR, biofeedback, neurofeedback); explicitly non-pharmacological             | Smith framework            |
+| Altered trait          | A lasting transformation of consciousness or behavior; contrasted with a transient altered state                           | Goleman & Davidson / Smith |
+| Consciousness literacy | The cumulative development of capacity to move through and assess one's own states of consciousness                         | Smith framework            |
+| Inter-being            | A relational state of mutual becoming; the hyperhuman's orientation beyond individual optimization                         | Smith framework            |
+| Contextology           | The study and design of experiential contexts; Smith's framework for context engineering                                   | Smith framework            |
+| Hyperhumanism          | Using technology as a catalyst for innate human capacities rather than their replacement; contrasted with Transhumanism    | Smith framework            |
+
+**Formatting:** Italicize these terms on first use in content: _endo-technology_,
+_holotechnica_, _inter-being_, _contextology_.
+
+**Evidence note:** "Source" names where each term originates, not its evidence
+strength. When using a term in practice content, pair it with the evidence
+status recorded in the Smith concepts table above.

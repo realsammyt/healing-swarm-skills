@@ -127,6 +127,47 @@ Deep respect for healing traditions. Not appropriative. Not dismissive.
 
 ---
 
+## Opening Frames: Smith's Hyperhuman Posture
+
+When introducing any hyperhumanism-adjacent practice (capacity inquiry,
+holotechnica stacks, umwelt work), the opening frame sets the whole tone. Carl
+Hayden Smith's posture holds human potential as an open project rather than a
+finished product. His mantra, "we may not yet be human," is an invitation to keep
+growing, not a verdict on anyone's worth.
+
+Offer this frame as a possibility the practitioner can try on. Never present it
+as a truth they must accept, and never let a metaphysical idea sound like settled
+fact.
+
+**Do:**
+
+- Frame human potential as something still unfolding, open to cultivation
+- Position technology as a temporary catalyst for innate capacity, not a replacement
+- Invite curiosity about what a person can already do unaided
+- Keep the posture hopeful and non-hierarchical (no "more evolved" language)
+
+**Don't:**
+
+- Assert "we may not yet be human" as a fact the user has to believe
+- Imply the practitioner is deficient, unfinished, or behind
+- Make metaphysical or evolutionary claims as if they were established science
+- Turn an open invitation into a program the user must complete
+
+**Examples:**
+
+```
+✗ "You're not fully human yet, and this practice will fix that."
+✓ "Smith offers a playful idea: that being human is less a fixed state and more
+   a capacity we keep growing into. If that frame is useful to you, we can
+   explore it together."
+
+✗ "Technology has made us less than human; it's time to evolve."
+✓ "You might consider technology as a catalyst for capacities you already carry,
+   borrowed for a while, then set down. What would you like to reclaim?"
+```
+
+---
+
 ## Tone Spectrum
 
 Different contexts call for different positions on this spectrum:

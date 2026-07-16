@@ -115,6 +115,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed the v1.0.0 date typo in this changelog (2025-01-01 → 2026-02-02) and
   reconciled all cumulative counts to manifest ground truth (52 skills, 38 agents,
   25 workflows).
+- **Carl Hayden Smith Integration** (Contextology, Scaffold→Remove, consciousness
+  literacy): 2 new skills — Context Engineering (`/context-engineering`) and
+  Consciousness Audit (`/consciousness-audit`, standalone)
+- **1 new agent**: Context Engineer — designs the experiential container (setting,
+  priming, intention, re-entry) before any practice begins
+- **1 new workflow**: context-engineering (context design with accessibility and
+  ethics review stages)
+- **10 new templates**: resonance-body-map, consciousness-exhibit, capacity-inventory,
+  micro-practice-design, technology-landscape, scaffold-progression, context-design,
+  perceptual-augmentation-tracker, quantum-relationship, ecology-design
+- **2 new shared resources**: endo-technology-taxonomy (canonical endo-technology
+  inventory with evidence levels and contraindications) and consciousness-literacy-levels
+  (four-level literacy taxonomy across modality clusters)
+- **Shared resources updated**: terminology (nine-term Smith vocabulary table),
+  practice-pathways (Scaffold→Remove progression + Hyperhuman Cultivation Arc),
+  voice-guide (Smith's Hyperhuman Posture opening frames), outcome-measurement
+  (longitudinal consciousness-literacy tracking)
+- **Agent and workflow updates**: resonance-facilitator gained an inter-being
+  orientation and a relational-challenge dimension; holotechnica-architect now loads
+  the endo-technology taxonomy; hyperhumanism-workflow aligned its capacity-inventory
+  output name to the manifest and added an open-project framing action
+- **1 new worked example**: `examples/hyperhumanism-onboarding/` — a full four-phase
+  inquiry onboarding for one composite participant
+- Cumulative counts reconciled to manifest ground truth (54 skills, 39 agents,
+  26 workflows)
 
 ---
 

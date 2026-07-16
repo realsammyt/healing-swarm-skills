@@ -32,7 +32,9 @@
 | [sound-consciousness](#sound-consciousness) | `/sound-consciousness` | sound | Museum of Consciousness-style audio experiences with Milliere 6D self-assessment. |
 | [holotechnica-stack](#holotechnica-stack) | `/holotechnica-stack` | consciousness | Personalized endo-technology experience stacks targeting altered traits. |
 | [hyperhumanism-inquiry](#hyperhumanism-inquiry) | `/hyperhumanism-inquiry` | consciousness | Guided philosophical inquiry on consciousness, technology, and innate human capacities. |
+| [context-engineering](#context-engineering) | `/context-engineering` | consciousness | Designs the experiential container (setting, priming, intention, re-entry) before any practice begins. |
 | [umwelt-practice](#umwelt-practice) | `/umwelt-practice` | consciousness | Sensory augmentation exercises for perceiving-as-other and extending the sensorium. |
+| [consciousness-audit](#consciousness-audit) | `/consciousness-audit` | consciousness | Periodic consciousness-literacy check-in. |
 | [cyberdelic-research](#cyberdelic-research) | `/cyberdelic-research` | research | Deep research into consciousness technologies and endo-technology science. |
 | [somatic-practice](#somatic-practice) | `/somatic-practice` | movement | Guided gentle movement protocols (qigong, tai chi, yoga, walking meditation) |
 | [walking-meditation](#walking-meditation) | `/walking-meditation` | movement | Mindful movement for those who cannot sit. |
@@ -835,6 +837,7 @@ Guided vocal toning practices based on resonant frequencies of ancient sacred si
 ### Templates
 
 - `content/templates/archaeoacoustic-toning.md`
+- `content/templates/resonance-body-map.md`
 
 ### Outputs
 
@@ -870,6 +873,10 @@ Museum of Consciousness-style audio experiences with Milliere 6D self-assessment
 - `archaeoacoustic-guide`
 - `content-writer`
 - `ethics-guardian`
+
+### Templates
+
+- `content/templates/consciousness-exhibit.md`
 
 ### Outputs
 
@@ -946,6 +953,12 @@ Guided philosophical inquiry on consciousness, technology, and innate human capa
 - `content-writer`
 - `ethics-guardian`
 
+### Templates
+
+- `content/templates/capacity-inventory.md`
+- `content/templates/technology-landscape.md`
+- `content/templates/micro-practice-design.md`
+
 ### Outputs
 
 - `inquiry-guide.md`
@@ -958,6 +971,42 @@ Guided philosophical inquiry on consciousness, technology, and innate human capa
 
 ```bash
 /hyperhumanism-inquiry "my relationship with technology"
+```
+
+---
+
+## context-engineering
+
+**Trigger:** `/context-engineering`
+
+**Category:** consciousness
+
+**Workflow:** `content/context-engineering-workflow.yaml`
+
+### Description
+
+Designs the experiential container (setting, priming, intention, re-entry) before any practice begins. Usable on its own or as a preparation step before any other healing-swarm skill.
+
+### Agents
+
+- `context-engineer`
+- `accessibility-auditor`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/context-design.md`
+
+### Outputs
+
+- `context-design.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/context-engineering "20-minute breath practice at home, alone"
 ```
 
 ---
@@ -997,6 +1046,37 @@ Sensory augmentation exercises for perceiving-as-other and extending the sensori
 
 ```bash
 /umwelt-practice "forest sensing" --level perceiving_as_other
+```
+
+---
+
+## consciousness-audit
+
+**Trigger:** `/consciousness-audit`
+
+**Category:** consciousness
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Periodic consciousness-literacy check-in. Reviews practice history and maps the current literacy level per modality cluster over weeks and months.
+
+### Agents
+
+- `hyperhumanism-researcher`
+- `ethics-guardian`
+
+### Outputs
+
+- `literacy-audit.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/consciousness-audit "8-week check-in on my daily practice"
 ```
 
 ---

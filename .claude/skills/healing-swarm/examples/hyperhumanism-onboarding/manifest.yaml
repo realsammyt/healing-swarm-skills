@@ -1,0 +1,72 @@
+name: hyperhumanism-onboarding
+description: >
+  A full hyperhumanism-inquiry onboarding for one composite, fictional
+  participant. Demonstrates the four-phase inquiry (inventory, audit,
+  reclamation, practice design) end to end, using the capacity-inventory and
+  technology-landscape templates, the consciousness-literacy levels, the
+  endo-technology taxonomy, and a scaffold-to-remove progression. Shows the
+  hyperhumanism system working from baseline assessment to a small daily
+  practice, with honest evidence framing throughout.
+version: 1.0.0
+
+type: hyperhumanism-onboarding
+level: beginner
+duration_minutes: 90
+setting: quiet-indoor-reflection
+season: all-seasons
+
+traditions:
+  - name: Hyperhumanism
+    era: Contemporary
+    origin: Carl Hayden Smith
+    elements: ["innate human capacities", "endo-technology", "scaffold to remove", "inter-being"]
+  - name: Hyperhuman Cultivation Arc
+    era: Contemporary
+    elements: ["capacity inventory", "technology audit", "ecology assembly", "consciousness literacy"]
+
+content_files:
+  - content/four-phase-inquiry.md
+
+research_files:
+  - research/capacity-baseline.md
+  - research/technology-displacement.md
+
+quality_files:
+  - quality/review-report.md
+
+templates_used:
+  - content/templates/capacity-inventory.md
+  - content/templates/technology-landscape.md
+  - content/templates/scaffold-progression.md
+  - content/templates/micro-practice-design.md
+
+shared_resources_used:
+  - shared/consciousness-literacy-levels.md
+  - shared/endo-technology-taxonomy.md
+  - shared/practice-pathways.md
+
+agents_involved:
+  - hyperhumanism-researcher
+  - umwelt-facilitator
+  - content-writer
+  - accessibility-auditor
+  - ethics-guardian
+
+safety_requirements:
+  - medical_disclaimer: required
+  - not_therapy: stated_clearly
+  - no_substances: pharmaco_exclusion_held
+  - framing: curious_never_anti_technology_no_shame
+  - accessibility: spoken_alternatives_and_partial_completion
+  - privacy: private_reflection
+
+evidence_level: >
+  Hyperhumanism is a theoretical framework from Carl Hayden Smith, offered as
+  a lens for reflection, not a validated instrument. Capacity-specific research
+  is noted only where it exists and is framed honestly: the association between
+  habitual satellite-navigation use and reduced spatial-memory engagement is
+  correlational (for example Dahmani and Bohbot, 2020), not causal. Awe and
+  wonder research (for example Piff et al., 2015) suggests associations with
+  prosocial states, with individual variation. Individual responses vary, and
+  no outcome is promised. Evidence does not compound: any combination of
+  practices is Theoretical as a whole.

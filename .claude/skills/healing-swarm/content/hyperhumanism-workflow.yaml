@@ -21,6 +21,7 @@ stages:
       - determine_inquiry_focus
       - set_duration_target
       - identify_capacity_domain
+      - offer_open_project_framing
 
   - name: research
     description: Gather hyperhumanism context and capacity evidence
@@ -44,7 +45,7 @@ stages:
       - duration_target
     outputs:
       - inquiry-guide.md
-      - capacity-inventory-template.md
+      - capacity-inventory.md
       - micro-practice-design.md
 
   - name: content_writing
@@ -52,7 +53,7 @@ stages:
     agent: content-writer
     inputs:
       - inquiry-guide.md
-      - capacity-inventory-template.md
+      - capacity-inventory.md
       - micro-practice-design.md
       - capacity-evidence.md
     outputs:

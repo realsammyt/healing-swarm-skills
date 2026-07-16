@@ -1,0 +1,220 @@
+# Context Engineering Workflow
+# Coordinates context-engineer, accessibility-auditor, ethics-guardian
+
+name: context-engineering-workflow
+version: 1.0.0
+description: |
+  Orchestrates the design of an experiential container (setting, priming,
+  intention, re-entry) before any practice begins. Based on Carl Hayden Smith's
+  Contextology. Smith estimates that the conditions surrounding an experience
+  shape roughly 80% of its outcome, and this workflow makes that container a
+  deliberate design step rather than an afterthought.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Gather the practice, the person, and the constraints
+    agent: orchestrator
+    actions:
+      - parse_request
+      - identify_target_practice
+      - gather_person_constraints
+      - set_container_duration
+      - offer_open_project_framing
+
+  - name: context_design
+    description: Design the container across all six Contextology dimensions
+    agent: context-engineer
+    inputs:
+      - target_practice
+      - person_constraints
+      - container_duration
+    outputs:
+      - context-design.md
+
+  - name: accessibility_review
+    description: Review the container for sensory, mobility, and cognitive access
+    agent: accessibility-auditor
+    inputs:
+      - context-design.md
+    outputs:
+      - accessibility_feedback.md
+
+  - name: ethics_review
+    description: Review for consent, invitation-not-demand framing, and safe re-entry
+    agent: ethics-guardian
+    inputs:
+      - context-design.md
+      - accessibility_feedback.md
+    outputs:
+      - ethics_approval
+      - framing_assessment
+      - required_modifications
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PRACTICE PARAMETERS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+practice_parameters:
+  durations:
+    brief:
+      total: 20
+      buffers:
+        arrival: 2
+        practice: 13
+        re_entry: 5
+    standard:
+      total: 35
+      buffers:
+        arrival: 3
+        practice: 25
+        re_entry: 7
+    deep:
+      total: 55
+      buffers:
+        arrival: 5
+        practice: 40
+        re_entry: 10
+
+  context_dimensions:
+    physical_setting:
+      description: Light, sound, temperature, arrangement, and boundary of the space
+      prompts:
+        - What should the person see, hear, and feel in the space?
+        - What boundary marks the start and the end of the container?
+    body_priming:
+      description: The posture and breath state the practice begins from
+      prompts:
+        - What posture supports this practice?
+        - What breath state should the person arrive in?
+    temporal_framing:
+      description: Time of day and the buffers before and after
+      prompts:
+        - When does this practice tend to land best?
+        - What buffer protects the arrival and the return?
+    social_setting:
+      description: Alone, dyad, or group, and the facilitation stance
+      prompts:
+        - Is the person alone, with a partner, or in a group?
+        - What facilitation or self-check-in stance fits?
+    intention_setting:
+      description: Why this practice and why now, held as an invitation
+      prompts:
+        - Why this practice, why now?
+        - How is the intention held as an invitation, not a demand?
+    re_entry:
+      description: The soft landing and the environment the person returns to
+      prompts:
+        - How is the landing softened?
+        - What does the person return to, and how is it protected?
+
+  focus_areas:
+    - preparing_a_solo_practice
+    - preparing_a_dyad_session
+    - preparing_a_group_container
+    - re_entry_and_integration_design
+    - accessible_setting_design
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTEGRATION PATTERNS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+integration:
+  sequential_execution:
+    - intake → context_design
+    - context_design → accessibility_review
+    - accessibility_review → ethics_review
+
+  data_flow:
+    intake_to_design:
+      - Target practice and what it needs from a setting
+      - Person constraints, including sensory and mobility needs
+      - Container duration and buffer budget
+    design_to_accessibility:
+      - The six-dimension container design
+      - Adaptations already noted, for the auditor to extend
+    accessibility_to_ethics:
+      - The revised container
+      - Accessibility feedback folded in
+      - Consent and re-entry framing for the ethics check
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  framing:
+    - Intention held as invitation, never as demand
+    - Smith's open posture, no deficiency language
+    - Context estimate attributed ('Smith estimates ~80%'), never stated as fact
+    - No claims that a setting produces a fixed outcome
+
+  container_design:
+    - All six Contextology dimensions addressed
+    - Arrival buffer and re-entry buffer both present
+    - Re-entry design and a protected return included
+    - A stopping option offered
+
+  accessibility:
+    - Sensory adaptations for light and sound sensitivity
+    - Mobility adaptations (seated, lying, no-movement options)
+    - Cognitive access (plain language, predictable structure)
+
+  safety:
+    - Pharmaco-exclusion enforced (no substance-based context)
+    - No pressure to enter or continue an experience
+    - Re-entry never drops a person into a demanding task
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  context_estimate_stated_as_fact:
+    action: revise
+    message: The 80% context figure appears as fact rather than as Smith's estimate
+    continue: true
+    require: attribute_estimate_to_smith
+
+  intention_reads_as_demand:
+    action: revise
+    message: Intention framing pressures the person instead of inviting them
+    continue: true
+    require: reframe_as_invitation
+
+  missing_re_entry:
+    action: revise
+    message: The container has no designed re-entry or protected return
+    continue: true
+    require: add_soft_landing_and_buffer
+
+  substance_based_context:
+    action: halt
+    message: Request asks for a context around a substance-based experience
+    continue: false
+    require: decline_and_explain_pharmaco_exclusion
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: Solo home breath practice container
+    invocation: /context-engineering "20-minute breath practice at home, alone"
+    expected_output:
+      - Physical setting for a busy apartment
+      - Body priming and arrival buffer
+      - Invitation-framed intention
+      - Soft landing and protected return
+      - Accessibility adaptations
+
+  - name: Dyad session container
+    invocation: /context-engineering "prepare a paired session" --social dyad
+    expected_output:
+      - Shared setting with consent notes
+      - Witness and facilitation stance
+      - Re-entry for both participants
+      - Ethics review of consent framing

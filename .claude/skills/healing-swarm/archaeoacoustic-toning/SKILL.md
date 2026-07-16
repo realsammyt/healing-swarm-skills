@@ -25,6 +25,7 @@ Builds a vocal toning practice tuned to the resonant frequencies of ancient sacr
 **Templates:**
 
 - [`content/templates/archaeoacoustic-toning.md`](../content/templates/archaeoacoustic-toning.md)
+- [`content/templates/resonance-body-map.md`](../content/templates/resonance-body-map.md)
 
 **Outputs:** `toning-practice.md`, `resonance-body-map.md`, `evidence-brief.md`
 

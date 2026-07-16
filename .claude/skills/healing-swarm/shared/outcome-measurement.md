@@ -198,6 +198,54 @@ Frequency: Weekly
 
 ---
 
+## LONGITUDINAL CONSCIOUSNESS-LITERACY TRACKING
+
+The VAS measures above capture one sitting. Some users also want to see how their
+skill at noticing and working with their own states develops across weeks and
+months. This protocol records a self-rated literacy level per modality cluster at
+intake and at each periodic audit, so the user can watch a trend rather than a
+single score. It is the measurement companion to the `/consciousness-audit`
+check-in.
+
+> **Not a validated instrument.** The consciousness-literacy levels are a
+> self-report practice tool, not a validated psychometric scale. They have no
+> published sensitivity, specificity, cutoff scores, or norms. Read every level
+> as the user's own honest reading against the observable markers in
+> `shared/consciousness-literacy-levels.md`, never as a clinical measurement.
+> This tracking supports the user's self-awareness; it is not evidence that any
+> practice works.
+
+### Consciousness-Literacy Level (per cluster)
+
+```
+Use for: Tracking self-rated skill at observing and working with one's own
+         states, per modality cluster, over weeks and months
+Format:  For each cluster (somatic, perceptual, relational, attentional) the
+         user picks one level (nascent, developing, established, or embodied),
+         anchored to the observable markers in consciousness-literacy-levels.md
+Scoring: No numeric score and no total. The levels are ordered labels, not
+         points. Do NOT sum, average, or combine clusters into one figure
+Frequency: At intake, then every 4-6 weeks (via the /consciousness-audit skill)
+```
+
+**Implementation notes:**
+
+- Anchor every self-rating to the observable markers, not to a felt sense of how
+  advanced the user is. The question is "what can you notice and do", not "how
+  far along do you feel".
+- Present the history as a trend per cluster (for example, perceptual moved from
+  nascent to developing over two months). Never render it as a combined score or
+  a single "literacy number".
+- A level that moves backward is data, not failure. Illness, stress, rest
+  periods, and life disruption all move literacy around, and the record should
+  show that honestly.
+- Do NOT compare one user's levels against another's, and do NOT tie a level to
+  any claim that a practice caused a change.
+- Keep it optional and low-burden. A user can track one cluster, all four, or
+  none, and can stop at any time.
+
+---
+
 ## BEFORE/AFTER MEASUREMENT PROTOCOL
 
 ### Single Session Protocol
