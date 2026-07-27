@@ -25,6 +25,7 @@ Builds sensory-augmentation exercises for perceiving-as-other and extending the 
 **Templates:**
 
 - [`content/templates/umwelt-exercise.md`](../healing-swarm/content/templates/umwelt-exercise.md)
+- [`content/templates/perceptual-augmentation-tracker.md`](../healing-swarm/content/templates/perceptual-augmentation-tracker.md)
 
 **Safety context (load before generating output):**
 

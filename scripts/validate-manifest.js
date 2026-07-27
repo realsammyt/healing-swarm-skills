@@ -199,6 +199,20 @@ function main() {
     }
   }
 
+  // The swarm-conductor's routing registry must cover every registered agent.
+  // (It sat at 13 of 39 for months, then went stale again at 39 of 46 inside
+  // the very PR that fixed it — this check closes the drift class.)
+  try {
+    const conductor = fs.readFileSync(path.join(SKILLS_DIR, 'orchestrator', 'swarm-conductor.md'), 'utf8');
+    for (const agentName of Object.keys(agentMap)) {
+      if (!conductor.includes(`\`${agentName}\``)) {
+        errors.push(`orchestrator/swarm-conductor.md: agent registry is missing '${agentName}'`);
+      }
+    }
+  } catch (err) {
+    errors.push(`Could not read orchestrator/swarm-conductor.md (${err.message}) — registry check cannot run`);
+  }
+
   // Workflow stage agents must resolve to registered agents. (For months, 26
   // workflows said `agent: orchestrator` — a name the manifest never defined —
   // and nothing noticed.)

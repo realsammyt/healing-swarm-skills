@@ -1,7 +1,9 @@
-#!/usr/bin/env node
-
 /**
  * Healing Swarm Skills - Agent Prompt Linter
+ *
+ * (No shebang: this file is imported by lint-prompts.test.js, and a shebang
+ * breaks vitest's transform — the same bug that once silently disabled the
+ * whole test suite via check-gates.js. Invoke with `node scripts/...`.)
  *
  * Checks agent prompts have all required sections and follow conventions.
  *
@@ -142,27 +144,33 @@ function findAgentFiles(dir, results = []) {
 
 // Overclaiming-language check, shared by the agent-prompt lint and the wider
 // claims-surface pass. Line-by-line so demonstrative examples can be skipped:
-// a claim phrase inside DOUBLE quotes, or on a line with an explicit negation
-// marker (✗ / ❌ / don't / avoid / overclaim / a review catching a violation),
-// is the file teaching what NOT to say. Bare apostrophes/possessives do NOT
-// exempt a line (that loophole previously exempted "the body's..." claims),
-// and neither does a trailing disclaimer ("...does not replace medical care").
+// a claim whose MATCH sits inside a double-quoted span, or a line with an
+// explicit negation marker (✗ / ❌ / don't / avoid / overclaim / a review
+// catching a violation), is the file teaching what NOT to say. Bare
+// apostrophes/possessives do NOT exempt a line (that loophole previously
+// exempted "the body's..." claims), an unrelated quotation elsewhere on the
+// line does NOT exempt an unquoted claim, and neither does a trailing
+// disclaimer ("...does not replace medical care").
 const CLAIM_MODAL_RE =
-  /\b(will|can|could|proven to|clinically proven to|guaranteed to)\s+(cure|heal|fix|treat|reverse|eliminate|restore|rewire|detox)\b/i;
+  /\b(will|can|could|proven to|clinically proven to|guaranteed to)\s+(?:\w+\s+)?(cure|heal|fix|treat|reverse|eliminate|restore|rewire|detox)\b/i;
 // Third-person claims need a symptom-ish object to avoid flagging benign prose
 // ("treats the breath as an anchor"). Extend the object list as needed.
 const CLAIM_THIRD_PERSON_RE =
   /\b(cures|heals|treats|fixes|reverses|eliminates|rewires)\s+(your\s+|the\s+)?(depression|anxiety|trauma|ptsd|insomnia|chronic\s+pain|pain|disease|illness|cancer|inflammation|addiction|tinnitus)\b/i;
 const NEG_CONTEXT_RE =
-  /["“”]|✗|❌|🚫|don'?t|do not|\bnever\b|\bavoid\b|overclaim|\bviolation\b|instead of/i;
+  /✗|❌|🚫|don'?t|do not|\bavoid\b|overclaim|\bviolation\b|instead of/i;
+
+const insideQuotedSpan = (line, index) =>
+  ((line.slice(0, index).match(/["“”]/g) || []).length % 2) === 1;
 
 export function findClaimViolations(content) {
   const hits = [];
   for (const line of content.split(/\r?\n/)) {
     if (NEG_CONTEXT_RE.test(line)) continue;
-    if (CLAIM_MODAL_RE.test(line) || CLAIM_THIRD_PERSON_RE.test(line)) {
-      hits.push(`Avoid promising outcomes ("will/can cure/heal/treat/…") - use "may help" — found: ${line.trim()}`);
-    }
+    const m = CLAIM_MODAL_RE.exec(line) || CLAIM_THIRD_PERSON_RE.exec(line);
+    if (!m) continue;
+    if (insideQuotedSpan(line, m.index)) continue; // quoted teaching example
+    hits.push(`Avoid promising outcomes ("will/can cure/heal/treat/…") - use "may help" — found: ${line.trim()}`);
   }
   return hits;
 }
@@ -209,7 +217,8 @@ function lintAgentPrompt(filePath) {
   // Same negative-example awareness as the claims check: a quoted
   // "Science proves…" inside a DON'T list is teaching, not claiming.
   for (const line of content.split(/\r?\n/)) {
-    if (/\bscience proves\b/i.test(line) && !NEG_CONTEXT_RE.test(line)) {
+    const m = /\bscience proves\b/i.exec(line);
+    if (m && !NEG_CONTEXT_RE.test(line) && !insideQuotedSpan(line, m.index)) {
       issues.warnings.push(`Use "research suggests" instead of "science proves" — found: ${line.trim()}`);
     }
   }
@@ -333,4 +342,8 @@ function main() {
   process.exit(0);
 }
 
-main();
+// Only run the CLI when invoked directly — findClaimViolations is imported by
+// the test suite, and running main() on import would process.exit the runner.
+const invokedDirectly =
+  process.argv[1] && path.resolve(process.argv[1]) === path.resolve(__filename);
+if (invokedDirectly) main();

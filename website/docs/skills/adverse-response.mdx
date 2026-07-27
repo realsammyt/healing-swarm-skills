@@ -1,0 +1,109 @@
+---
+sidebar_position: 45
+title: Adverse Response
+description: Stabilize, ground, assess severity, and log what happened after a practice went wrong — not crisis care, not therapy
+---
+
+# adverse-response
+
+**Trigger:** `/adverse-response`
+
+Guides the response after a distressing or adverse reaction to a practice: stabilize, ground, assess severity against the crisis-response table, choose a referral level, decide whether the practice is adapted or retired, and log the event. Built on the six-step protocol (recognize, stop, ground, assess, respond, follow up) in `shared/crisis-response.md` and its per-modality reaction catalog.
+
+**Sensitive skill.** Do not auto-launch for ordinary practice questions or as therapy. Use when a user reports a distressing or adverse reaction to a practice, during it or in the hours and days after. This is not crisis care — for an active crisis, follow the `shared/crisis-response.md` escalation directly rather than working through this flow. For screening before a practice begins, use `/practice-screening`; to rebuild an adapted protocol afterward, return to the practice skill itself (`whm-breathwork`, `coherence-meditation`, `language-awareness`, and so on).
+
+## Agents
+
+- **Adverse Response Guide** - Triages report versus emergency, stabilizes and grounds, assesses severity and referral level, decides adapt-or-retire with the person, and writes the log
+- **Ethics Guardian** - Verifies escalation criteria were applied rather than talked around, the response stayed out of therapy and diagnosis, an immediate retry was avoided, and crisis resources appeared with exact numbers
+
+## Inputs
+
+| Input   | Required | Description                                                                                    |
+| ------- | -------- | -------------------------------------------------------------------------------------------------- |
+| `focus` | Yes      | What happened, in the person's own words (e.g., "the breathing made me panic", "I feel strange since yesterday's practice") |
+
+## Outputs
+
+- `adverse-event-log.md` - Practice, timeline, reaction matched against the per-modality catalog, severity, action taken, referral level, the adapt-or-retire decision, and the follow-up plan; stays local
+
+## Examples
+
+**A reaction during the practice:**
+
+```bash
+/adverse-response "the breathing made me panic"
+```
+
+**A delayed reaction:**
+
+```bash
+/adverse-response "I feel strange since yesterday's practice"
+```
+
+## Triage: Escalate Immediately
+
+Before any other step, escalation happens right away when the person reports: chest pain, pressure, or tightness; loss of consciousness, or a fall with possible head injury; seizure activity; difficulty breathing not caused by voluntary breathwork; confusion, slurred speech, or shivering that has stopped in a cold context; suicidal intent with plan or means, or self-harm in progress; psychotic features with danger to self or others; face drooping, arm weakness, or speech difficulty.
+
+## Severity and Referral Level
+
+| Severity     | Signs                                                                    | Referral level                                                  |
+| ------------ | ------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| **Mild**     | Slight dizziness, mild anxiety, minor discomfort, settling with grounding | Self-managed recovery                                                |
+| **Moderate** | Sustained distress, persistent symptoms, emotional flooding               | End the session, run the grounding protocol, professional follow-up recommended |
+| **Severe**   | Loss of consciousness, chest pain, inability to reorient, psychotic features | Emergency medical care                                            |
+
+Self-managed recovery only applies when every criterion holds: conscious, alert, oriented; no chest pain or breathing difficulty; no psychotic features; no suicidal or self-harm ideation; symptoms improving with grounding and rest; able to articulate what they are experiencing; not feeling they need emergency care. If one criterion fails, the level goes up. When in doubt, the referral errs toward professional care.
+
+## The Per-Modality Reaction Catalog
+
+The reported reaction is matched against a catalog, named as a possibility rather than a verdict:
+
+- **Breathwork** — hyperventilation, syncope, panic response, tetany (carpopedal spasm)
+- **Cold exposure** — hypothermia stages, cardiac symptoms, cold shock response
+- **Meditation and contemplative** — dissociation, depersonalization / derealization, anxiety spikes, trauma resurfacing
+- **Transpersonal and consciousness** — kundalini-type activation, spiritual emergency, psychotic-like experiences
+- **Paired and group** — boundary violation, emotional flooding, attachment disruption
+- **Physical and somatic** — acute injury, pain escalation, autonomic dysregulation
+
+Two catalog entries carry standing rules: psychotic features are never framed as spiritual awakening and always route to professional assessment, and pain is never framed as energy releasing or toxins clearing.
+
+## Adapt or Retire
+
+**Retire** (do not resume, redirect elsewhere) when the event revealed an absolute contraindication, severity was severe or required emergency care, psychotic features or trauma resurfacing or a dissociative episode occurred, the same reaction has now happened twice, or the person simply does not want to return to it.
+
+**Adapt** (resume modified, later, not today) when severity was mild and settled with grounding, the mechanism is identifiable and adjustable (too long, eyes closed, standing rather than seated, too intense a round, fasted or dehydrated, alone rather than with someone nearby), and no contraindication surfaced that would have blocked it in screening.
+
+Either way, an immediate retry is never encouraged. Resumption routes back through `/practice-screening` first, carrying the event as a new flag.
+
+## Research Basis
+
+> **Evidence level: Safety protocol built from crisis-response and grounding-technique literature, not a therapeutic intervention**
+>
+> The six-step structure (recognize, stop, ground, assess, respond, follow up) and the severity and referral thresholds are the swarm's own synthesis, informed by general crisis-intervention and grounding-technique literature rather than a single validated instrument specific to contemplative or breathwork practice. The reaction catalog names documented phenomena — panic response, tetany, depersonalization / derealization, and others — without diagnosing them. A completed response means the known escalation criteria were checked against what the person described; it does not replace a clinician's judgment.
+
+## Safety
+
+- `shared/crisis-response.md` and `shared/contraindications.md` are both required for this skill.
+- This is not crisis care. When escalation criteria are met, the correct move is immediate escalation, not a structured conversation: call your local emergency number (911 in the US) for a medical emergency or danger to self or others; **988** (Suicide & Crisis Lifeline), by call or text, for suicidal ideation, severe emotional crisis, or self-harm urges; text **HOME** to **741741** (Crisis Text Line) for text-based support.
+- Not therapy and not diagnosis. Trauma content that surfaces during a practice is not processed here — it is grounded, referred, and stopped.
+- Never encourage an immediate retry of the triggering practice. Any resumption routes back through `/practice-screening` first, carrying the event as a new flag.
+- The two standing catalog rules hold without exception: psychotic features are never framed as spiritual awakening, and pain is never framed as energy releasing or toxins clearing.
+- Delayed reports get a timeline before anything else, and specific persistence thresholds (for example, dissociation or derealization past two hours warrants same-day consultation) push the referral level up rather than down.
+
+## Quality Gates
+
+Before output is finalized:
+
+- Stabilization and grounding happen before history-taking, every time
+- Escalation criteria applied as a floor, never argued down in the moment
+- Severity assessed against the mild / moderate / severe table, with the specific criteria named
+- The reaction matched to the per-modality catalog using the person's own words, offered as a possibility rather than a verdict
+- Adapt-or-retire decision made explicitly, with retirement treated as a genuine and complete outcome
+- No immediate retry suggested; resumption routed back through `/practice-screening`
+- Crisis numbers exact and complete wherever they appear
+- Log written and stays local
+
+---
+
+_A reaction to a practice is information about fit, not a failure of the person._

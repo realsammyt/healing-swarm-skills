@@ -10,11 +10,17 @@
  * files and silently missed in others.
  *
  * Rules enforced (per markdown file under the skills tree):
- *   1. A line naming a known crisis SERVICE must contain that service's
- *      canonical number (nearby on the same line).
+ *   1. A line naming a known crisis SERVICE must not carry any phone-shaped
+ *      number outside the canonical set. (Deliberately NOT "must carry that
+ *      service's own number": many legitimate lines name one service next to
+ *      another service's number — "988 Lifeline, Crisis Text Line, …" — so a
+ *      per-service ownership rule would false-positive. The drift this
+ *      catches is a typo'd or stale number appearing beside a service name.)
  *   2. shared/crisis-response.md itself must contain every canonical number —
  *      if the human updates a number there, this script's table must be
  *      updated too, which is the prompt to sweep the restatements.
+ *   3. The outcome-tracker prompt must retain its self-harm-item hard rule
+ *      (depression-instrument item endorsement -> crisis resources FIRST).
  *
  * Usage: node scripts/check-crisis-numbers.js
  */
@@ -65,7 +71,9 @@ function main() {
   // phone-shaped number. (A line may legitimately pair one service's name with
   // ANOTHER service's canonical number — "988 Lifeline, Crisis Text Line, …" —
   // so the check is "no unknown numbers", not "this service's number present".)
-  const PHONE_TOKEN_RE = /\b1-8\d{2}-\d{3}-\d{4}\b|\b\d{3}-\d{3}-\d{4}\b|\b\d{6}\b|\b9\d{2}\b/g;
+  // The 3-digit shortcode branch must not match inside larger figures
+  // ("answered 900,000 calls"), hence the trailing digit/decimal guard.
+  const PHONE_TOKEN_RE = /\b1-8\d{2}-\d{3}-\d{4}\b|\b\d{3}-\d{3}-\d{4}\b|\b\d{6}\b|\b9\d{2}\b(?![,.]?\d)/g;
   const ALLOWED = [/\b988\b/, /\b911\b/, /\b741\s?741\b/, /1-800-662-4357/, /1-800-222-1222/];
   const namesAnyService = (line) => SERVICES.some((svc) => svc.name.test(line));
 
@@ -82,6 +90,17 @@ function main() {
         }
       }
     });
+  }
+
+  // Rule 3: the outcome-tracker's self-harm-item rule is load-bearing safety
+  // text — validate it hasn't been edited away.
+  const trackerPath = path.join(SKILLS_DIR, 'content', 'outcome-tracker.md');
+  if (fs.existsSync(trackerPath)) {
+    const tracker = fs.readFileSync(trackerPath, 'utf8');
+    const hasRule = /self-harm/i.test(tracker) && /\b988\b/.test(tracker) && /741\s?741/.test(tracker);
+    if (!hasRule) {
+      problems.push('content/outcome-tracker.md lost its self-harm-item hard rule (must mention self-harm + 988 + 741741)');
+    }
   }
 
   if (problems.length > 0) {

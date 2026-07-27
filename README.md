@@ -224,6 +224,17 @@ claude> /healing-swarm "Sacred Healing Journey" --focus "ligament healing"
 | [Context Engineering](docs/api/skills-reference.md#context-engineering) | `/context-engineering` | Designs the experiential container (setting, priming, intention, re-entry) before any practice begins     |
 | [Consciousness Audit](docs/api/skills-reference.md#consciousness-audit) | `/consciousness-audit` | Periodic consciousness-literacy check-in mapping practice history to literacy levels per modality cluster |
 
+### Safety & Practice Support Skills
+
+| Skill                                                                       | Trigger                  | Purpose                                                                   |
+| --------------------------------------------------------------------------- | ------------------------ | -------------------------------------------------------------------------- |
+| [Practice Screening](docs/api/skills-reference.md#practice-screening)       | `/practice-screening`    | Contraindication screening front door before any practice skill runs      |
+| [Adverse Response](docs/api/skills-reference.md#adverse-response)           | `/adverse-response`      | Stabilize, ground, assess, adapt, and log after a practice reaction       |
+| [Practice Pathway](docs/api/skills-reference.md#practice-pathway)           | `/practice-pathway`      | Multi-week plans sequencing existing skills, screening-first              |
+| [Outcome Tracking](docs/api/skills-reference.md#outcome-tracking)           | `/outcome-tracking`      | WHO-5/PSS-10/PSQI/VAS measurement plans, privacy-first, not diagnosis     |
+| [Foundation Meditation](docs/api/skills-reference.md#foundation-meditation) | `/foundation-meditation` | Plain breath/body-scan/loving-kindness practice, framework-neutral        |
+| [Caregiver Support](docs/api/skills-reference.md#caregiver-support)         | `/caregiver-support`     | Capacity, boundaries, anticipatory grief, and respite for asymmetric care |
+
 ### Sound & Vibratory Healing
 
 | Skill                                                         | Trigger           | Purpose                                                                   |
@@ -288,6 +299,7 @@ claude> /healing-swarm "Sacred Healing Journey" --focus "ligament healing"
 | Skill                                                     | Trigger         | Purpose                                                   |
 | --------------------------------------------------------- | --------------- | --------------------------------------------------------- |
 | [PNI Research](docs/api/skills-reference.md#pni-research) | `/pni-research` | Psychoneuroimmunology — mind-body-immune science bridging |
+| [PNI Mapping](docs/api/skills-reference.md#pni-mapping) | `/pni-mapping` | Map one practice to the psychoneuroimmune pathways it may act on |
 
 ### Standalone Skills
 

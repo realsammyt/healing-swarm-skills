@@ -1002,6 +1002,7 @@ Guided philosophical inquiry on consciousness, technology, and innate human capa
 - `content/templates/capacity-inventory.md`
 - `content/templates/technology-landscape.md`
 - `content/templates/micro-practice-design.md`
+- `content/templates/quantum-relationship.md`
 
 ### Outputs
 
@@ -1077,6 +1078,7 @@ Sensory augmentation exercises for perceiving-as-other and extending the sensori
 ### Templates
 
 - `content/templates/umwelt-exercise.md`
+- `content/templates/perceptual-augmentation-tracker.md`
 
 ### Outputs
 

@@ -114,8 +114,9 @@ STATE TRACKING:
 
 ## Agent Registry
 
-All 39 registered agents. Prompt paths and tool grants live in the `agents:` map
-in `manifest.yaml`; this table is the routing view.
+All 46 registered agents. Prompt paths and tool grants live in the `agents:` map
+in `manifest.yaml`; this table is the routing view (validator-enforced: every
+manifest agent must appear here).
 
 ### Research Agents
 
@@ -162,6 +163,17 @@ in `manifest.yaml`; this table is the routing view.
 | `expressive-guide` | Therapeutic writing, art-as-process, bibliotherapy | Expressive content, journaling sequences |
 | `community-facilitator` | Group dynamics and circle facilitation | Community protocols, relational practice |
 | `contemplative-guide` | Inquiry-based contemplative practice | Contemplative inquiry, daily review |
+| `meditation-guide` | Plain breath/body-scan/loving-kindness practice, framework-neutral | Foundation meditation, the plain default |
+| `caregiver-companion` | Capacity, boundaries, anticipatory grief, respite micro-practices | Caregiver support, asymmetric care |
+| `pathway-planner` | Multi-week plans from the practice-pathways archetypes | Practice pathways, "where do I start" |
+| `outcome-tracker` | WHO-5/PSS-10/PSQI/VAS measurement plans, privacy-first | Outcome tracking; self-harm item -> crisis resources |
+
+### Safety Agents
+
+| Agent | Purpose | When to Invoke |
+|-------|---------|----------------|
+| `screening-guide` | Contraindications Tier 1/2/3 screening + decision tree | BEFORE any risky practice skill runs |
+| `adverse-response-guide` | Stabilize, ground, assess, adapt/retire, log after a reaction | When a user reports a distressing practice reaction |
 
 ### Build Agents
 
@@ -177,6 +189,7 @@ in `manifest.yaml`; this table is the routing view.
 | `clinical-reviewer` | Clinical accuracy | Quality phase, evidence content |
 | `cultural-reviewer` | Cultural sensitivity | Quality phase, traditional content |
 | `accessibility-auditor` | Accessibility | Quality phase, all UI, veto authority |
+| `trauma-informed-reviewer` | Trauma-informed design: titration, choice, exits, pacing | Quality phase, practice content, blocking gate |
 
 ### Deploy Agents
 

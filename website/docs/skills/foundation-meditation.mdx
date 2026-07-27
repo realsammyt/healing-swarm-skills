@@ -1,0 +1,104 @@
+---
+sidebar_position: 43
+title: Foundation Meditation
+description: Plain, framework-neutral meditation — breath awareness, body scan, or loving-kindness — at 5, 10, or 20 minutes
+---
+
+# foundation-meditation
+
+**Trigger:** `/foundation-meditation`
+
+Builds a plain, framework-neutral meditation: breath awareness, body scan, or loving-kindness, taught without any tradition, model, or cosmology layered on top. This is the default starting point when someone simply wants to sit down and meditate, before choosing a worldview to sit inside. Standalone, usable directly.
+
+## Agents
+
+- **Meditation Guide** - Plain instruction across breath awareness, body scan, and loving-kindness, with duration architecture and honest framing of difficulty
+- **Ethics Guardian** - Contraindication screening, adverse-experience framing, attribution, and no-promised-outcome review
+
+## Inputs
+
+| Input        | Required | Description                                                                                          |
+| ------------ | -------- | ----------------------------------------------------------------------------------------------------- |
+| `focus`      | Yes      | Which practice to build: "breath awareness", "body scan", or "loving-kindness"                        |
+| `--duration` | No       | `5`, `10`, or `20` minutes. Defaults to breath awareness at 10 minutes for a bare "teach me to meditate" request |
+
+## Outputs
+
+- `practice-instruction.md` - Filled from the shared practice-instruction template: overview, before-you-begin (needs, best times, cautions), numbered practice steps, completing the practice, variations, troubleshooting, building a practice, attribution, and the medical disclaimer
+
+## Examples
+
+**Breath awareness, ten minutes:**
+
+```bash
+/foundation-meditation "breath awareness" --duration 10
+```
+
+**Full body scan, twenty minutes:**
+
+```bash
+/foundation-meditation "body scan" --duration 20
+```
+
+**Loving-kindness, five minutes:**
+
+```bash
+/foundation-meditation "loving-kindness" --duration 5
+```
+
+## Framework Neutrality
+
+The defining constraint of this skill: instructions must stand on their own for someone with no interest in any tradition, theory, or map.
+
+| Excluded                                                                    | Why it belongs elsewhere                                          |
+| ----------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Quadrants, levels, lines, states-stages                                       | `aqal-check-in`, `spectrum-meditation`                                 |
+| Interhemispheric coherence, syntergic field, self-allusive structure          | `coherence-meditation`                                                 |
+| Endo-technology, capacity reclamation, "we may not yet be human"              | `hyperhumanism-inquiry`, `holotechnica-stack`                          |
+| Chakras, meridians, qi, subtle bodies, kundalini, energy anatomy              | The tradition's own skill                                              |
+| Enlightenment, awakening, jhana maps, witness consciousness, non-dual talk    | Goal states that turn a beginner's first sit into a test                |
+| Koan, Examen, Socratic questioning                                            | `contemplative-inquiry`                                                |
+
+One exception, and it is mandatory rather than optional: loving-kindness comes from a specific place (Buddhist *metta bhavana*), and body scan carries a lighter version of the same duty (Kabat-Zinn's MBSR, 1979, itself drawing on Burmese vipassana instruction). Each gets one sentence of attribution, then the practice. Stripping that attribution would be appropriation dressed as neutrality, not real neutrality.
+
+## Duration Architecture — Breath Awareness
+
+| Duration | Settling | Breath   | Closing | Notes                                          |
+| -------- | -------- | -------- | ------- | ----------------------------------------------- |
+| 5 min    | 1 min    | 3 min    | 1 min   | One anchor only, no counting variations          |
+| 10 min   | 2 min    | 6.5 min  | 1.5 min | Counting to ten offered as an option, not a requirement |
+| 20 min   | 3 min    | 14 min   | 3 min   | Includes one explicit permission to shift posture |
+
+Body scan scales from 5-6 regions at 5 minutes to 20+ regions at 20 minutes, with permission to skip any region built in throughout. Loving-kindness scales from self plus one easily-loved person at 5 minutes to self, easily-loved, neutral, an optional and never-assigned difficult person, and all beings at 20 minutes.
+
+## Research Basis
+
+> **Evidence level: Moderate (mindfulness meditation programs); strong at the program level (MBSR, where body scan is one component)**
+>
+> Mindfulness meditation programs show moderate evidence for anxiety, depression, and pain, with the same review finding no evidence of superiority over active comparators such as exercise or medication (Goyal et al., 2014, *JAMA Internal Medicine*). MBSR evidence is strong at the eight-week program level, not for the body scan practiced in isolation (Kabat-Zinn, 1990; Khoury et al., 2013). Loving-kindness meditation shows moderate evidence for increases in self-compassion and positive affect, with less established effects on clinical outcomes (Galante et al., 2014; Zeng et al., 2015). Meditation-related adverse experiences are documented, not rare: one systematic review found effects in roughly 8% of participants across studies (Farias et al., 2020; Lindahl et al., 2017). No claim here says "science proves," and none promises a state.
+
+## Safety
+
+- `shared/contraindications.md` is required for this skill. Intensive meditation is **absolute** for active psychotic and active dissociative disorders; **relative** for PTSD, bipolar disorder, and epilepsy; **caution** in pregnancy, chronic pain, and cardiovascular conditions. This skill's 5-minute, eyes-open variants are frequently the safe alternative other skills redirect a person to.
+- `shared/crisis-response.md` is loaded for adverse experiences during or after practice (its Meditation Adverse Reactions section covers dissociation, depersonalization, anxiety spikes, and trauma resurfacing). Every artifact carries a short response ladder and, for crisis: call or text **988** (Suicide & Crisis Lifeline); text **HOME** to **741741** (Crisis Text Line); call your local emergency number (**911** in the US) for a medical emergency.
+- Framework-neutral by design — see the exclusion table above. Where a framework or a specific model is actually what's wanted, this skill hands off rather than importing one.
+- Loving-kindness and body scan each carry a one-sentence, mandatory attribution to their origin.
+- Hands off explicitly: `coherence-meditation` for whole-brain/Grinberg-style work, `spectrum-meditation` for gross/subtle/causal state training, `contemplative-inquiry` for reflective questioning, `walking-meditation` for anyone who can't sit comfortably, `sound-healing` for toning/chanting/humming, `aqal-check-in` for four-quadrant reflection, `grief-healing` when grief or loss is the actual subject, and `caregiver-support` when the person is caring for someone else and running empty.
+- Stated plainly in every artifact: this is a practice, not therapy, and it does not replace medical or mental health care.
+
+## Quality Gates
+
+Before output is finalized:
+
+- Contraindication screening present and specific, never a formality
+- Adverse-experience ("what to expect") section present and non-alarming
+- No promised outcomes: no "you will feel calmer," no "science proves"
+- Attribution present for loving-kindness and body scan, one sentence each, no further cosmology
+- Medical disclaimer present
+- "This is a practice, not therapy" stated plainly
+- No framework, tradition, or cosmology imported into the instructions
+- Eyes-open option and a stopping option offered throughout
+
+---
+
+_A wandering mind is not a failed sit. Coming back is the practice._

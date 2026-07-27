@@ -1,0 +1,118 @@
+---
+sidebar_position: 44
+title: Practice Screening
+description: The front door for contraindication screening — every risky practice routes through here before a protocol is written
+---
+
+# practice-screening
+
+**Trigger:** `/practice-screening`
+
+One front door for contraindication screening, run before any practice skill generates a protocol. Walks the Tier 1, Tier 2, and Tier 3 question sets, applies the severity decision tree, then hands off to the requested practice with modifications attached or offers safe alternatives instead. This is a screening conversation, not a diagnosis and not medical clearance.
+
+## Agents
+
+- **Screening Guide** - Routes the request to a practice family, runs the tiered questions, applies the severity decision tree, writes the screening record, and hands off or redirects
+- **Ethics Guardian** - Verifies absolute contraindications were honored rather than softened, alternatives were genuinely offered, the record stays local, and no diagnosing or interpreting occurred
+
+## Inputs
+
+| Input   | Required | Description                                                                                       |
+| ------- | -------- | --------------------------------------------------------------------------------------------------- |
+| `focus` | Yes      | The practice to screen, or the safety question to answer (e.g., "wim hof breathing", "is cold exposure safe with high blood pressure") |
+
+## Outputs
+
+- `screening-record.md` - What was screened, tiers run, what surfaced, verdict per practice family, modifications, alternatives offered, provider-consultation guidance, dated and kept local
+
+## Examples
+
+**Screening a specific practice:**
+
+```bash
+/practice-screening "wim hof breathing"
+```
+
+**Screening an extended program:**
+
+```bash
+/practice-screening "21-day orbital journey"
+```
+
+**A direct safety question:**
+
+```bash
+/practice-screening "is cold exposure safe with high blood pressure"
+```
+
+## The Three Tiers
+
+| Tier   | Scope                                                                                                              | Required                            |
+| ------ | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| Tier 1 | Universal, seven questions: medical conditions, medications, pregnancy, surgery within six weeks, heart/blood pressure, breathing conditions, seizure history | Always asked                              |
+| Tier 2 | Mental health: working with a professional, diagnosis history, dissociation, trauma still affecting them, experiences others might call psychotic | Before intensive or transpersonal work    |
+| Tier 3 | Practice-specific: the exact question set for the routed practice family                                          | Whenever the family has one                |
+
+## Practice Family Routing
+
+`shared/contraindications.md` is organized by practice family, not by skill name, so the first move is translation:
+
+| Requested skill                                                      | Screened as                                    | Tiers required                    |
+| ------------------------------------------------------------------------ | ---------------------------------------------------- | --------------------------------------- |
+| `whm-breathwork`, `whm-journey`                                         | Breathwork (WHM)                                      | 1 + breathwork-specific                  |
+| `whm-cold-exposure`, `water-healing` (cold/contrast)                    | Cold exposure                                          | 1 + cold-specific                        |
+| `coherence-meditation`, `spectrum-meditation`, `contemplative-inquiry`  | Intensive meditation (when extended or silent)         | 1, plus 2 if over 30 minutes             |
+| `orbital-journey`, `holotechnica-stack` (hypnagogic ingredients)        | Transpersonal                                          | 1 + 2 + transpersonal-specific           |
+| `shadow-work`, `grief-healing`                                          | Intensive meditation + mental health                   | 1 + 2                                    |
+| `resonance-pairing`                                                     | Paired practices + transpersonal                       | 1 + 2 + transpersonal-specific           |
+| `relational-practice`, `community-healing`                              | Paired practices                                        | 1                                         |
+| `language-awareness`, `group-perception`                                | Language awareness & deautomatization                  | 1 + 2 + deautomatization-specific         |
+| `umwelt-practice`                                                       | Umwelt practice                                         | 1 + 2 + umwelt-specific                   |
+| `archaeoacoustic-toning`, `sound-healing`                                | Sound / archaeoacoustic toning                          | 1 + sound-specific                        |
+| `sound-consciousness`                                                   | Sound consciousness                                     | 1 + 2 + sound-specific                    |
+| `somatic-practice`, `walking-meditation`                                | Movement / somatic                                      | 1                                         |
+| `sleep-healing`, `dream-practice`, `expressive-healing`, `healing-journaling` | Universal only                                     | 1                                         |
+| `holotechnica-stack` (any)                                              | Every ingredient, separately                            | 1 + each ingredient's family              |
+
+For a stack, the additive rule governs: if any single ingredient is contraindicated, the whole stack is contraindicated until that ingredient is removed or replaced.
+
+## The Severity Decision Tree
+
+Each condition that surfaces resolves to one of three verdicts, in order of severity:
+
+- **ABSOLUTE** — no hand-off. The reason is named plainly, and safe alternatives are offered from the library instead.
+- **RELATIVE** — hand off with the required modifications attached, and healthcare-provider consultation is recommended.
+- **CAUTION** — hand off with the consideration noted and self-monitoring guidance included.
+
+Four rules govern how multiple answers combine: the **most restrictive verdict wins** when conditions differ; an **unknown answer resolves down**, toward the more restrictive branch, never up; **stacks are additive**, so the strictest single ingredient result sets the verdict for the whole stack; and **group settings raise the floor** — for `group-perception` and `community-healing`, screening happens with the invitation, before the room assembles, because a facilitator cannot screen individuals mid-session.
+
+## Research Basis
+
+> **Evidence level: Screening protocol built on a contraindication reference, not a validated clinical instrument**
+>
+> The Tier 1/2/3 structure and severity decision tree are the swarm's own synthesis of contraindication guidance for breathwork, cold exposure, meditation, and transpersonal practice, gathered in `shared/contraindications.md`. It functions as a structured intake, the same way a health questionnaire before a physically demanding class does: it surfaces known risk factors so a decision can be made, and it carries no diagnostic claim. A cleared screening does not mean a practice is guaranteed comfortable, and it never substitutes for a healthcare provider's judgment.
+
+## Safety
+
+- `shared/contraindications.md` and `shared/crisis-response.md` are both required for this skill.
+- Screening stops immediately, before any tier completes, on: active suicidal ideation or self-harm urges or danger to others; chest pain, loss of consciousness, seizure activity, or stroke signs; psychotic features or inability to distinguish internal experience from external reality; an adverse reaction currently underway. For active crisis, escalation follows `shared/crisis-response.md`: call your local emergency number (911 in the US) for a medical emergency or danger to self or others; **988** (Suicide & Crisis Lifeline) for suicidal ideation or severe emotional crisis; text **HOME** to **741741** (Crisis Text Line) for text-based support.
+- For a reaction that has already happened and settled, this skill hands off to `/adverse-response` rather than continuing the screening conversation.
+- Unknown resolves to the more restrictive branch, never the more permissive one.
+- This is screening, not diagnosis and not medical clearance. Written provider clearance is required, not merely suggested, for: an absolute contraindication someone wants a modified version of; pregnancy with any physically active practice; cardiovascular disease with breathwork, cold, or intensive practice; an active or recent psychotic episode with any practice; recent surgery with physically active practice; epilepsy with breathwork, cold, or transpersonal work; and multiple interacting conditions.
+- The screening record belongs to the person, stays local, and is never treated as swarm data.
+
+## Quality Gates
+
+Before output is finalized:
+
+- Correct tiers run for the routed practice family; Tier 2 never skipped before intensive or transpersonal work
+- Verdict stated as PROCEED / PROCEED WITH MODIFICATIONS / DO NOT PROCEED, never softened
+- Unknown answers resolve to the more restrictive branch
+- Alternatives offered as genuine practices, never a consolation prize
+- Crisis or active adverse-reaction reports stop screening and escalate or hand off immediately
+- Screening record stays local and under the person's control
+- No diagnosing, interpreting symptoms, or naming a condition the person hasn't named
+
+---
+
+_Finding out beforehand is an act of care, not a gate to pass._

@@ -74,13 +74,23 @@ describe('evaluateGates', () => {
 });
 
 describe('collectFiles', () => {
-  it('excludes the reviewer prompt files so their documentation examples cannot satisfy --require', () => {
+  it('excludes the quality/ reviewer prompts so their documentation examples cannot satisfy --require', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'gates-'));
-    fs.writeFileSync(path.join(dir, 'ethics-guardian.md'), '```json\n{"gate":"ethics","status":"pass","blocking":true}\n```');
-    fs.writeFileSync(path.join(dir, 'accessibility-auditor.md'), '```json\n{"gate":"accessibility","status":"pass","blocking":true}\n```');
+    fs.mkdirSync(path.join(dir, 'quality'));
+    fs.writeFileSync(path.join(dir, 'quality', 'ethics-guardian.md'), '```json\n{"gate":"ethics","status":"pass","blocking":true}\n```');
+    fs.writeFileSync(path.join(dir, 'quality', 'accessibility-auditor.md'), '```json\n{"gate":"accessibility","status":"pass","blocking":true}\n```');
     fs.writeFileSync(path.join(dir, 'real-review-output.md'), '```json\n{"gate":"ethics","status":"pass","blocking":true}\n```');
     const files = collectFiles(dir).map((f) => path.basename(f));
     expect(files).toEqual(['real-review-output.md']);
+    fs.rmSync(dir, { recursive: true, force: true });
+  });
+
+  it('still scans a real review saved under a reviewer basename OUTSIDE quality/ (must not fail open)', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'gates-'));
+    fs.mkdirSync(path.join(dir, 'reviews'));
+    fs.writeFileSync(path.join(dir, 'reviews', 'ethics-guardian.md'), '```json\n{"gate":"ethics","status":"veto","blocking":true}\n```');
+    const files = collectFiles(dir).map((f) => path.basename(f));
+    expect(files).toEqual(['ethics-guardian.md']);
     fs.rmSync(dir, { recursive: true, force: true });
   });
 });

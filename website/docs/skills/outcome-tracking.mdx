@@ -1,0 +1,86 @@
+---
+sidebar_position: 47
+title: Outcome Tracking
+description: Pre/post measurement plans from validated self-report instruments, kept local, kept optional, read honestly as one person's time series
+---
+
+# outcome-tracking
+
+**Trigger:** `/outcome-tracking`
+
+Builds a pre/post measurement plan from validated self-report instruments (WHO-5, PSS-10, PSQI, VAS, and on request PHQ-9/GAD-7), with a privacy-first local record and an honest reading of a single-person time series. This is measurement, not clinical assessment: no score is a diagnosis, and no single-person record can show that a practice caused a change.
+
+## Agents
+
+- **Outcome Tracker** - Selects instruments matched to what the person wants to know, sets a cadence from each instrument's recall period, designs the local record, and presents results as trends rather than verdicts
+- **Ethics Guardian** - Checks that no presentation implies causation, no plan would transmit or retain data beyond the user's device, and no score reads as a grade, diagnosis, or engagement mechanic
+
+## Inputs
+
+| Input   | Required | Description                                                                 |
+| ------- | -------- | ---------------------------------------------------------------------------- |
+| `focus` | Yes      | What to track and why (e.g., "8 weeks of stress practice, is it doing anything?") |
+
+## Outputs
+
+- `measurement-plan.md` - Instruments and why each was chosen, baseline, cadence, review point, storage/export/delete terms, what the record can and cannot show, and the crisis rule if a mood instrument is included
+- `outcome-log.md` - The user-facing record: baseline block, session log, weekly and monthly instrument tables, a review section with interpretation prompts, and the crisis block
+
+## Examples
+
+**Asking whether a practice is doing anything:**
+
+```bash
+/outcome-tracking "8 weeks of stress practice, is it doing anything?"
+```
+
+**Tracking alongside an evening practice:**
+
+```bash
+/outcome-tracking "track sleep alongside my evening practice"
+```
+
+## The Instruments
+
+| Instrument | Measures                                                    | Items | Cadence                                          |
+| ---------- | -------------------------------------------------------------- | ----- | ------------------------------------------------------ |
+| **WHO-5**  | General wellbeing                                               | 5     | Weekly                                                   |
+| **VAS**    | Pain, tension, energy, calm, and similar single dimensions      | 1 each| Before and after a session                               |
+| **PSS-10** | Perceived stress                                                 | 10    | Monthly                                                   |
+| **PSQI**   | Sleep quality across 7 components                                | 19    | Monthly                                                   |
+| **PHQ-9**  | Mood, over a 2-week recall                                       | 9     | Every 2 weeks, only when asked for, crisis rule in force  |
+| **GAD-7**  | Anxiety, over a 2-week recall                                    | 7     | Every 2 weeks, only when asked for                        |
+
+WHO-5 is the default starting instrument: five items, one minute, positively framed, non-pathologizing. A second instrument is added only when the person names a domain the first one misses.
+
+## Research Basis
+
+> **Evidence level: Validated instruments used for measurement, not for diagnosis**
+>
+> WHO-5 (World Health Organization, 1998), PSS (Cohen, Kamarck & Mermelstein, 1983), PSQI (Buysse, Reynolds, Monk, Berman & Kupfer, 1989), and PHQ-9/GAD-7 (Spitzer, Kroenke, Williams, and colleagues) each carry published psychometrics for what they measure. None of that makes a self-administered plan clinical assessment. A single-person time series cannot separate a practice's effect from regression to the mean, expectancy, natural history, the Hawthorne effect, or self-report bias, and the measurement plan states each of those limitations before the first measurement is taken.
+
+## Safety
+
+- `shared/outcome-measurement.md` and `shared/crisis-response.md` are both required for this skill.
+- **Measurement is not diagnosis.** These instruments are validated for measurement, not for diagnosis; no score is used to tell someone what they are, and no single-person record supports a causal claim that a practice produced a change.
+- **The self-harm-item hard rule, non-negotiable:** if any depression instrument is ever used, a positive response on a self-harm item (for example, PHQ-9 item 9) immediately surfaces crisis resources before anything else, with no exceptions. It does not wait for the rest of the questionnaire, does not finish the scoring, and is not filed for a weekly review. The scoring stops, the plan stops, and the session becomes about the person rather than their data: call or text **988** (Suicide & Crisis Lifeline), text **HOME** to **741741** (Crisis Text Line), or call your local emergency number (911 in the US).
+- Any threshold crossing — PHQ-9 at 15 or above, GAD-7 at 15 or above or a rise of 5 or more between measurements, WHO-5 at 28 or below raw or 50% or below, or consistent worsening across 4 or more weeks on any measure — triggers a plain recommendation to seek professional consultation, framed as a prompt rather than a diagnosis.
+- The record is local, exportable, and deletable in full at any time; never transmitted, never aggregated across people without explicit, informed, revocable consent; no analytics, advertising use, or profiling; no streaks, badges, or completion scores.
+- Disjoint from `/consciousness-audit` by design: that skill tracks ordered, self-rated literacy levels, while this skill tracks validated numeric instruments. The two are never merged or converted into each other.
+
+## Quality Gates
+
+Before output is finalized:
+
+- Measurement confirmed as wanted before any instrument is chosen; declining is fully supported
+- Instrument wording, scoring, and recall period used exactly as published, never paraphrased
+- Cadence matches each instrument's recall period, never enthusiasm
+- Results presented as values and trends, never as improvement percentages that imply causation
+- Declines shown as plainly as improvements
+- Self-harm item rule enforced with zero exceptions, resources appearing before anything else
+- Record stays local, exportable, and deletable; no gamification
+- Never used to gate progression through a practice pathway
+
+---
+
+_Measure honestly. Report humbly. Protect fiercely._

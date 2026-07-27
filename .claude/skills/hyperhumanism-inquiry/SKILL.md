@@ -27,6 +27,7 @@ Guides a four-phase philosophical inquiry (inventory, audit, reclamation, practi
 - [`content/templates/capacity-inventory.md`](../healing-swarm/content/templates/capacity-inventory.md)
 - [`content/templates/technology-landscape.md`](../healing-swarm/content/templates/technology-landscape.md)
 - [`content/templates/micro-practice-design.md`](../healing-swarm/content/templates/micro-practice-design.md)
+- [`content/templates/quantum-relationship.md`](../healing-swarm/content/templates/quantum-relationship.md)
 
 **Outputs:** `inquiry-guide.md`, `capacity-inventory.md`, `micro-practice-design.md`
 

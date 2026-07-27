@@ -130,7 +130,7 @@ function totalsTable(counts) {
     ['Templates', counts.Templates],
     ['Shared Resources', counts['Shared Resources']],
     ['Worked Examples', counts['Worked Examples']],
-    ['Website Pages', '91+'],
+    ['Website Pages', '99+'],
     ['Traditions Integrated', '20+'],
   ];
   const lines = ['| Category | Count |', '| -------- | ----- |'];

@@ -719,6 +719,7 @@ skills:
       - content/templates/capacity-inventory.md
       - content/templates/technology-landscape.md
       - content/templates/micro-practice-design.md
+      - content/templates/quantum-relationship.md
     outputs:
       - inquiry-guide.md
       - capacity-inventory.md
@@ -764,6 +765,7 @@ skills:
     workflow: content/umwelt-workflow.yaml
     templates:
       - content/templates/umwelt-exercise.md
+      - content/templates/perceptual-augmentation-tracker.md
     outputs:
       - umwelt-practice.md
       - sensory-map.md
