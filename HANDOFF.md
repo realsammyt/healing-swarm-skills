@@ -5,7 +5,7 @@
 > conversation should read this first, then update it before ending a session.
 > If anything here disagrees with reality, reality wins — fix the doc.
 
-**Last updated:** 2026-07-27 by Claude (Fable 5) — Six-lens review improvements implemented on `feat/six-lens-improvements` (8 commits): enforcement honesty, safety wiring (group-perception P0), citation reconciliation, docs truth, registry truth, the DISCOVERY FIX (top-level SKILL.md stubs — nested ones were never loaded; verified live), 6 new skills + trauma gate, timelines/1.3.0. Counts now 60/46/27. **PR opened, NOT merged — human review required** (per governance rule after PR #20). Opus 4.8 effort itself unchanged; DAG rename still locked-deferred.
+**Last updated:** 2026-07-27 by Claude (Fable 5) — Six-lens review improvements implemented on `feat/six-lens-improvements` (8 commits): enforcement honesty, safety wiring (group-perception P0), citation reconciliation, docs truth, registry truth, the DISCOVERY FIX (top-level SKILL.md stubs — nested ones were never loaded; verified live), 6 new skills + trauma gate, timelines/1.3.0. Counts now 60/46/27. **PR #22 opened (https://github.com/realsammyt/healing-swarm-skills/pull/22), NOT merged — human review required** (per governance rule after PR #20). Opus 4.8 effort itself unchanged; DAG rename still locked-deferred.
 **Active branch:** `feat/six-lens-improvements` (PR pending human review; `master` unchanged)
 **Driving plan:** [`docs/plans/2026-05-31-opus-4-8-optimization.md`](docs/plans/2026-05-31-opus-4-8-optimization.md)
 
