@@ -75,7 +75,7 @@ Research and assess the evidence for sacred site acoustics:
 
 | Source                         | Type                     | Key Finding                                                      | Evidence Level                                  |
 | ------------------------------ | ------------------------ | ---------------------------------------------------------------- | ----------------------------------------------- |
-| Jahn & Dunne 1992 (JASA)       | Journal article          | Acoustic measurements of ancient sites; resonance at ~110-117 Hz | Moderate — well-documented acoustic measurement |
+| Jahn, Devereux & Ibison 1996 (JASA)       | Journal article          | Acoustic measurements of ancient sites; resonance at ~110-117 Hz | Moderate — well-documented acoustic measurement |
 | Cook et al. 2008               | Journal article          | EEG changes at 110 Hz vs 90/130 Hz (n=30)                        | Preliminary — single study, moderate sample     |
 | Smith et al. 2023 (EVA London) | Conference proceedings   | 139.01 Hz at Saqqara, consciousness framework                    | Preliminary — conference presentation           |
 | Smith et al. 2021              | Exhibition documentation | Museum of Consciousness framework                                | Theoretical framework                           |
@@ -365,11 +365,11 @@ EVA London proceedings: Smith + consciousness
 
 **Process:**
 
-1. **Scope with WebSearch** — "archaeoacoustics 110 Hz resonance EEG", "Cook 2008 ancient architectural acoustics brain activity". Candidate sources: Jahn & Dunne 1992 (acoustic measurements), Cook et al. 2008 (EEG study), Smith et al. 2023 (EVA London).
+1. **Scope with WebSearch** — "archaeoacoustics 110 Hz resonance EEG", "Cook 2008 ancient architectural acoustics brain activity". Candidate sources: Jahn, Devereux & Ibison 1996 (acoustic measurements), Cook et al. 2008 (EEG study), Smith et al. 2023 (EVA London).
 
 2. **Verify each source with WebFetch before citing:**
    - Cook et al. 2008 — fetch the journal record; confirm title, authors, year, and n=30 match. No PMID located, so cite by author/year/journal per shared/citation-format.md.
-   - Jahn & Dunne 1992 — fetch the JASA listing; confirm the reported resonance range (~110-117 Hz) matches the paper.
+   - Jahn, Devereux & Ibison 1996 — fetch the JASA listing; confirm the reported resonance range (~110-117 Hz) matches the paper.
    - Smith et al. 2023 — fetch the EVA London proceedings entry; confirm the 139.01 Hz Saqqara measurement and its framing as a consciousness framework.
    - A recurring web claim that "ancient builders deliberately tuned chambers to 110 Hz to induce trance" traces only to secondary blogs; no primary source could be fetched. **Marked unverified — excluded from citations.**
 
@@ -384,7 +384,7 @@ EVA London proceedings: Smith + consciousness
 
 ```markdown
 **What we can say with confidence:** Several ancient chambers have measurable
-resonant frequencies near 110-117 Hz (Jahn & Dunne 1992, verified via JASA record).
+resonant frequencies near 110-117 Hz (Jahn, Devereux & Ibison 1996, verified via JASA record).
 
 **What is preliminary/suggestive:** Early research indicates a possible
 frequency-specific EEG effect: one study (Cook et al. 2008, n=30) found different

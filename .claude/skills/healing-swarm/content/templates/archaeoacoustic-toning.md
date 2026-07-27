@@ -27,7 +27,7 @@ Balliol College, Oxford)
 archaeoacoustic research, and its purpose. Include evidence level.]
 
 > **Evidence note:** Archaeoacoustic research has documented resonant
-> frequencies in ancient structures (Jahn & Dunne 1992, JASA). A
+> frequencies in ancient structures (Jahn, Devereux & Ibison 1996, JASA). A
 > preliminary study by Cook et al. (2008, n=30) found that 110 Hz
 > exposure produced different EEG patterns compared to 90 Hz and 130
 > Hz. The relationship between specific frequencies and consciousness
@@ -306,7 +306,7 @@ _Take a gentle moment before moving on with your day._
 > **What research suggests:** Ancient structures such as the Great
 > Pyramid of Giza (King's Chamber, ~117 Hz) and Maltese temples
 > have documented resonant frequencies in the 95-120 Hz range
-> (Jahn & Dunne 1992). A preliminary study found EEG pattern
+> (Jahn, Devereux & Ibison 1996). A preliminary study found EEG pattern
 > differences at 110 Hz compared to control frequencies (Cook
 > et al. 2008, n=30).
 >
@@ -319,7 +319,7 @@ _Take a gentle moment before moving on with your day._
 >
 > **Sources:**
 >
-> - Jahn RG, Dunne BJ. J Acoust Soc Am. 1992.
+> - Jahn RG, Devereux P, Ibison M. J Acoust Soc Am. 1996;99(2):649-658.
 > - Cook IA et al. 2008. (n=30, EEG study at 110 Hz)
 > - Smith CH et al. EVA London 2023. (139.01 Hz, Saqqara)
 
@@ -406,7 +406,7 @@ toning. Most people notice changes in body awareness within
 Archaeoacoustics is the study of sound in archaeological contexts —
 how ancient structures were designed with acoustic properties and
 how sound may have been used in ancient ritual contexts. Research
-by Jahn & Dunne (1992) documented resonant frequencies in sites
+by Jahn, Devereux & Ibison (1996) documented resonant frequencies in sites
 including the Great Pyramid of Giza, Newgrange, and Maltese temples.
 
 Carl Hayden Smith (Museum of Consciousness, Balliol College, Oxford)
@@ -416,9 +416,9 @@ archaeoacoustic frequencies and consciousness, including documenting
 
 ### Key Research
 
-- Jahn RG, Dunne BJ. Acoustical resonances of assorted ancient
-  structures. J Acoust Soc Am. 1992. Well-documented acoustic
-  measurements.
+- Jahn RG, Devereux P, Ibison M. Acoustical resonances of assorted
+  ancient structures. J Acoust Soc Am. 1996;99(2):649-658.
+  Well-documented acoustic measurements.
 - Cook IA, et al. Regional brain activity at 110 Hz. 2008. n=30.
   EEG differences at 110 Hz vs control. Preliminary.
 - Smith CH, et al. EVA London. 2023. 139.01 Hz at Saqqara.

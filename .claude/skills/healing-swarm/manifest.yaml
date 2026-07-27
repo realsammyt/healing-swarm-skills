@@ -610,7 +610,7 @@ skills:
       - resonance-body-map.md
       - evidence-brief.md
     example_usage: |
-      /archaeoacoustic-toning "110 Hz King's Chamber" --depth standard
+      /archaeoacoustic-toning "117 Hz King's Chamber" --depth standard
 
   - name: sound-consciousness
     trigger: /sound-consciousness

@@ -850,7 +850,7 @@ Guided vocal toning practices based on resonant frequencies of ancient sacred si
 ### Example Usage
 
 ```bash
-/archaeoacoustic-toning "110 Hz King's Chamber" --depth standard
+/archaeoacoustic-toning "117 Hz King's Chamber" --depth standard
 ```
 
 ---

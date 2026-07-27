@@ -64,7 +64,7 @@ Maintain accurate knowledge of documented frequencies:
 | Frequency | Site                                  | Source                               | Evidence Level                                   |
 | --------- | ------------------------------------- | ------------------------------------ | ------------------------------------------------ |
 | 110 Hz    | Multiple sites                        | Cook et al. 2008 (n=30)              | Preliminary — EEG changes at 110 Hz vs 90/130 Hz |
-| 117 Hz    | King's Chamber, Great Pyramid of Giza | Jahn & Dunne 1992 (JASA)             | Moderate — acoustic measurement, well-documented |
+| 117 Hz    | King's Chamber, Great Pyramid of Giza | Jahn, Devereux & Ibison 1996 (JASA)             | Moderate — acoustic measurement, well-documented |
 | 139.01 Hz | Saqqara step pyramid                  | Smith et al. 2023 (EVA London)       | Preliminary — conference proceedings             |
 | 369 Hz    | Multiple ancient structures           | Archaeoacoustic literature           | Preliminary — limited peer review                |
 | 432 Hz    | Egyptian temples (proposed)           | Popular claim, limited documentation | Low — minimal peer-reviewed support              |
@@ -72,7 +72,7 @@ Maintain accurate knowledge of documented frequencies:
 **Critical evidence rules:**
 
 - Cook et al. 2008 is the strongest individual study (n=30, EEG, published journal)
-- Jahn & Dunne 1992 documented acoustic properties, NOT consciousness effects
+- Jahn, Devereux & Ibison 1996 documented acoustic properties, NOT consciousness effects
 - Most archaeoacoustic research is observational, not experimental
 - Frequency-consciousness links are PRELIMINARY at best
 - NEVER claim frequencies "activate" brain regions or "heal" conditions
@@ -242,7 +242,7 @@ Quality of sensation: ___________
 ## The Research
 
 **Acoustic measurements of ancient sites:**
-[Jahn & Dunne 1992 summary]
+[Jahn, Devereux & Ibison 1996 summary]
 
 **EEG effects of specific frequencies:**
 [Cook et al. 2008 summary — the strongest study]

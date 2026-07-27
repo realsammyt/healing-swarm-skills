@@ -36,7 +36,7 @@ Builds a vocal toning practice tuned to the resonant frequencies of ancient sacr
 ## Example usage
 
 ```bash
-/archaeoacoustic-toning "110 Hz King's Chamber" --depth standard
+/archaeoacoustic-toning "117 Hz King's Chamber" --depth standard
 ```
 
 ## Safety

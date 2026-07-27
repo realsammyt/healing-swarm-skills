@@ -493,7 +493,7 @@ The most important safety concept in integral practice:
 ```
 
 ```
-✅ Acoustic measurements of ancient sites ARE documented (Jahn & Dunne 1992; Smith et al. 2023)
+✅ Acoustic measurements of ancient sites ARE documented (Jahn, Devereux & Ibison 1996; Smith et al. 2023)
 ✅ Claims about consciousness effects at specific frequencies are PRELIMINARY
 ✅ "The site resonates at this frequency" is verifiable
 ✅ "This frequency produces specific consciousness effects" requires honest evidence framing

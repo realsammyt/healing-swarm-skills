@@ -134,30 +134,30 @@ practice_parameters:
 
   frequencies:
     - hz: 110
-      site: Hal Saflieni Hypogeum, Malta
-      source: Jahn & Dunne 1992
-      evidence: EEG prefrontal shift (preliminary, n=30)
+      site: Multiple sites (incl. Hal Saflieni Hypogeum, Malta)
+      source: Cook et al. 2008 (n=30)
+      evidence: Preliminary — EEG changes at 110 Hz vs 90/130 Hz
       note: Not from Smith's research but related archaeoacoustic finding
 
     - hz: 117
       site: King's Chamber, Great Pyramid of Giza
-      source: Smith et al. 2023
-      evidence: Acoustic measurement confirmed
+      source: 'Jahn, Devereux & Ibison 1996 (JASA)'
+      evidence: Moderate — acoustic measurement, well-documented
 
     - hz: 139.01
       site: Step Pyramid, Saqqara
       source: Smith et al. 2023
-      evidence: Acoustic measurement confirmed
+      evidence: Preliminary — conference-reported acoustic measurement
 
     - hz: 369
-      site: Egyptian temples (various)
-      source: Smith et al. 2023
-      evidence: Acoustic measurement confirmed
+      site: Egyptian temples (attributed)
+      source: Popular claim, limited documentation
+      evidence: Low — minimal peer-reviewed support
 
     - hz: 432
-      site: Egyptian temples (various)
-      source: Smith et al. 2023
-      evidence: Acoustic measurement confirmed
+      site: Egyptian temples (proposed)
+      source: Popular claim, limited documentation
+      evidence: Low — minimal peer-reviewed support
 
   frequency_segment_structure:
     listen:
