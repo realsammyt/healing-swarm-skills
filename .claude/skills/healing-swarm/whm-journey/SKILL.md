@@ -31,6 +31,11 @@ Builds a multi-week Wim Hof program integrating breathing, cold, and commitment.
 - [`content/templates/breathwork-protocol.md`](../content/templates/breathwork-protocol.md)
 - [`content/templates/cold-exposure-protocol.md`](../content/templates/cold-exposure-protocol.md)
 
+**Safety context (load before generating output):**
+
+- [`shared/crisis-response.md`](../shared/crisis-response.md)
+- [`shared/contraindications.md`](../shared/contraindications.md)
+
 **Outputs:** `journey-overview.md`, `participant-guide.md`, `weekly-plans/`, `daily-practices/`, `progress-tracker.md`, `safety-protocols.md`
 
 ## Example usage

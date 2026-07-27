@@ -442,6 +442,42 @@ The space between the two is where safe practice lives."_
 
 ---
 
+## LANGUAGE AWARENESS & DEAUTOMATIZATION CONTRAINDICATIONS
+
+Applies to `language-awareness` (solo) and `group-perception` (group/paired).
+Group practice raises the bar: facilitators cannot screen individuals in the
+room, so screening happens with the invitation, before the session.
+
+| Condition                                                | Severity | Notes                                                                                     |
+| -------------------------------------------------------- | :------: | ----------------------------------------------------------------------------------------- |
+| Active psychosis or psychotic features                   |   ABS    | Deautomatization deliberately loosens consensus perception                                |
+| Active dissociative disorders                            |   ABS    | Un-naming and label-delay practices can deepen dissociation                               |
+| Severe depersonalization/derealization disorder          |   ABS    | These practices can directly trigger DP/DR episodes                                       |
+| Mania or hypomania                                       |   ABS    | Perceptual loosening during elevated states is destabilizing                              |
+| PTSD without therapeutic support                         |   REL    | Especially if triggers involve identity or reality; require clinician awareness           |
+| Acute grief or existential crisis                        |   REL    | Meaning-collapse exercises land differently during active crisis; defer                   |
+| History of adverse meditation experiences                |   REL    | Only with integration support in place                                                    |
+| Group settings (any of the above, any participant)       |   —      | Screen via invitation text BEFORE the session; sitting out needs no explanation           |
+
+**Practice-Specific Screening:**
+
+```
+✅ "Have you ever experienced psychosis, mania, or a dissociative episode?"
+✅ "Have you ever felt persistently unreal, or that the world felt unreal
+    (depersonalization/derealization)?"
+✅ "Are you currently in treatment for PTSD or acute trauma?"
+✅ "Are you currently in acute grief or crisis?"
+✅ "Have you had a distressing meditation experience that was hard to
+    integrate?"
+```
+
+**Stop signs during practice** (end the exercise, run grounding): reports
+that things feel "unreal" or "dream-like," a distant or glassy stare,
+delayed response to one's own name, panic, or fear of losing contact with
+reality. See `crisis-response.md` for the escalation ladder.
+
+---
+
 ## UMWELT PRACTICE CONTRAINDICATIONS
 
 | Condition                                           | Severity | Notes                                                         |

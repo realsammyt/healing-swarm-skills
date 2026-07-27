@@ -175,6 +175,53 @@ silently or leave without judgment]
 - Grounding protocol (Pocket Exit) ready for any participant
 - Mental health professional contact information available
 - These exercises are NOT therapy — do not process trauma in this context
+
+## Pre-Session Screening (send with the invitation)
+
+A group facilitator cannot screen individuals in the room, and social
+pressure works against "you may stop at any time." Screening therefore
+happens BEFORE the session, privately:
+
+- **Do not participate** if you have active psychosis, a dissociative
+  disorder, severe depersonalization/derealization, or are in acute
+  mental health crisis. Sitting out carries no explanation burden —
+  "I'll observe this one" is a complete sentence.
+- **Check with your clinician first** if you have PTSD or are in active
+  trauma treatment; these exercises deliberately loosen habitual
+  perception, which can be destabilizing.
+- Include this screening text verbatim in the session invitation, not
+  only at the door.
+
+## Stop Signal and Higher-Risk Exercises
+
+- Agree on a group-wide stop signal (e.g., a raised flat hand) before
+  the first exercise. Anyone may use it, including the facilitator; it
+  pauses the exercise for everyone with no discussion owed.
+- **Meaning Collapse Circle** and **Silence Sit** carry the highest
+  derealization potential of the exercise set. Never run them as a
+  group's first exercise, keep them shorter for new groups, and watch
+  for the signs below during both.
+- Watch for: a distant or "glassy" stare, delayed responses to their own
+  name, a participant reporting things feel "unreal" or "dream-like."
+  Respond by pausing the exercise and running the grounding protocol
+  with the whole group — never single one person out mid-circle.
+
+## If Someone Is in Crisis
+
+If grounding does not resolve distress, or a participant expresses
+thoughts of self-harm:
+
+- Stay with them; do not leave them alone while acutely distressed
+- In the US: 988 Suicide & Crisis Lifeline (call/text 988), or
+  Crisis Text Line (text HOME to 741741)
+- Outside the US: use your local emergency number and national crisis
+  line; have these looked up for your region BEFORE the session
+- For emergencies (medical or safety): call your local emergency number
+  (911 in the US)
+- Follow up with the participant within 24 hours
+
+See `shared/crisis-response.md` for the full escalation protocol and
+`shared/contraindications.md` for the complete screening database.
 ```
 
 ---

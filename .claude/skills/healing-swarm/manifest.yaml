@@ -398,6 +398,9 @@ skills:
       - ethics-guardian
     workflow: content/breathwork-workflow.yaml
     requires_ethics_approval: true
+    requires:
+      - shared/crisis-response.md
+      - shared/contraindications.md
     templates:
       - content/templates/breathwork-protocol.md
     outputs:
@@ -425,6 +428,9 @@ skills:
       - ethics-guardian
     workflow: content/breathwork-workflow.yaml
     requires_ethics_approval: true
+    requires:
+      - shared/crisis-response.md
+      - shared/contraindications.md
     templates:
       - content/templates/cold-exposure-protocol.md
     outputs:
@@ -456,6 +462,9 @@ skills:
       - ethics-guardian
     workflow: content/whm-journey-workflow.yaml
     requires_ethics_approval: true
+    requires:
+      - shared/crisis-response.md
+      - shared/contraindications.md
     templates:
       - content/templates/breathwork-protocol.md
       - content/templates/cold-exposure-protocol.md
@@ -520,6 +529,9 @@ skills:
       - ethics-guardian
     requires_ethics_approval: true
     standalone: true
+    requires:
+      - shared/crisis-response.md
+      - shared/contraindications.md
     templates:
       - content/templates/group-perception-protocol.md
     outputs:
@@ -587,6 +599,8 @@ skills:
       - content-writer
       - ethics-guardian
     requires_ethics_approval: true
+    requires:
+      - shared/contraindications.md
     workflow: content/archaeoacoustic-toning-workflow.yaml
     templates:
       - content/templates/archaeoacoustic-toning.md
@@ -610,6 +624,9 @@ skills:
       - content-writer
       - ethics-guardian
     requires_ethics_approval: true
+    requires:
+      - shared/crisis-response.md
+      - shared/contraindications.md
     workflow: content/sound-consciousness-workflow.yaml
     templates:
       - content/templates/consciousness-exhibit.md
@@ -632,6 +649,8 @@ skills:
       - content-writer
       - ethics-guardian
     requires_ethics_approval: true
+    requires:
+      - shared/contraindications.md
     workflow: content/holotechnica-workflow.yaml
     templates:
       - content/templates/holotechnica-recipe.md
@@ -726,6 +745,7 @@ skills:
     requires:
       - shared/consciousness-literacy-levels.md
       - shared/outcome-measurement.md
+      - shared/crisis-response.md
     outputs:
       - literacy-audit.md
     example_usage: |
@@ -767,6 +787,9 @@ skills:
       - ethics-guardian
     requires_ethics_approval: true
     standalone: true
+    requires:
+      - shared/crisis-response.md
+      - shared/contraindications.md
     templates:
       - content/templates/movement-protocol.md
     outputs:
@@ -872,6 +895,9 @@ skills:
       - ethics-guardian
     requires_ethics_approval: true
     standalone: true
+    requires:
+      - shared/crisis-response.md
+      - shared/contraindications.md
     templates:
       - content/templates/water-protocol.md
     outputs:

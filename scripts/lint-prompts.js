@@ -206,8 +206,12 @@ function lintAgentPrompt(filePath) {
     issues.errors.push(hit);
   }
 
-  if (/\bscience proves\b/i.test(content)) {
-    issues.warnings.push('Use "research suggests" instead of "science proves"');
+  // Same negative-example awareness as the claims check: a quoted
+  // "Science proves…" inside a DON'T list is teaching, not claiming.
+  for (const line of content.split(/\r?\n/)) {
+    if (/\bscience proves\b/i.test(line) && !NEG_CONTEXT_RE.test(line)) {
+      issues.warnings.push(`Use "research suggests" instead of "science proves" — found: ${line.trim()}`);
+    }
   }
 
   // Phase 4 polish regression check: agent prompts should not end with a

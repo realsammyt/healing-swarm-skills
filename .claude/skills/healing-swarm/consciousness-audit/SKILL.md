@@ -24,6 +24,7 @@ A periodic check-in that reviews a person's practice history and maps their curr
 
 - [`shared/consciousness-literacy-levels.md`](../shared/consciousness-literacy-levels.md)
 - [`shared/outcome-measurement.md`](../shared/outcome-measurement.md)
+- [`shared/crisis-response.md`](../shared/crisis-response.md)
 
 **Outputs:** `literacy-audit.md`
 

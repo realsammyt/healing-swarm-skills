@@ -422,6 +422,20 @@ describe('Accessibility', () => {
 
 ---
 
+## Loaded Context
+
+Before auditing, load:
+
+- `shared/design-tokens.json`: The design system's color, type, and spacing
+  tokens — contrast and touch-target findings should reference token names,
+  not raw values, so fixes land in the system rather than one screen
+- `shared/crisis-response.md`: Required Display rules — emergency resources
+  must be reachable from any practice screen without burying, and with both
+  phone and text options; auditing that display requirement is part of this
+  agent's remit
+- `shared/voice-guide.md`: Plain-language expectations for user-facing copy
+  flagged in cognitive-accessibility findings
+
 ## Integration with Other Agents
 
 ### From Build Agents

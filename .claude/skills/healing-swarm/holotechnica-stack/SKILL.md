@@ -26,6 +26,10 @@ Designs a personalized endo-technology experience stack (breath, sound, movement
 
 - [`content/templates/holotechnica-recipe.md`](../content/templates/holotechnica-recipe.md)
 
+**Safety context (load before generating output):**
+
+- [`shared/contraindications.md`](../shared/contraindications.md)
+
 **Outputs:** `holotechnica-recipe.md`, `ingredient-matrix.md`, `integration-journal.md`, `evidence-brief.md`
 
 ## Example usage

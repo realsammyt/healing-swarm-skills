@@ -27,6 +27,11 @@ Builds a Wim Hof Method breathing session with round structure, retention guidan
 
 - [`content/templates/breathwork-protocol.md`](../content/templates/breathwork-protocol.md)
 
+**Safety context (load before generating output):**
+
+- [`shared/crisis-response.md`](../shared/crisis-response.md)
+- [`shared/contraindications.md`](../shared/contraindications.md)
+
 **Outputs:** `breathwork-protocol.md`, `session-timing.json`, `quick-reference.md`, `audio-script.md`
 
 ## Example usage

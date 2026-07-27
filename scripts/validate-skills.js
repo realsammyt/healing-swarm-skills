@@ -168,6 +168,7 @@ function validateAgentPrompt(filePath) {
     'content/umwelt-facilitator.md',
     'content/language-awareness-guide.md',
     'content/orbital-architect.md',
+    'content/context-engineer.md',
     'quality/ethics-guardian.md',
   ]);
   const relPath = path.relative(SKILLS_DIR, filePath).split(path.sep).join('/');

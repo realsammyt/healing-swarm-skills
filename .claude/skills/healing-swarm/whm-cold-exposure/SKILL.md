@@ -27,6 +27,11 @@ Builds a graduated cold-exposure plan, from cold-shower finishes to immersion, w
 
 - [`content/templates/cold-exposure-protocol.md`](../content/templates/cold-exposure-protocol.md)
 
+**Safety context (load before generating output):**
+
+- [`shared/crisis-response.md`](../shared/crisis-response.md)
+- [`shared/contraindications.md`](../shared/contraindications.md)
+
 **Outputs:** `cold-exposure-protocol.md`, `weekly-progression.md`, `environment-guide.md`, `safety-checklist.md`
 
 ## Example usage

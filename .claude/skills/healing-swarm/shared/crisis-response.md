@@ -19,6 +19,12 @@ practice and guide a user toward safety.
 
 ## GENERAL CRISIS PROTOCOL
 
+> **Localization rule (applies to every instruction in this document):**
+> emergency and crisis numbers below are US defaults, not universal. "Call
+> 911" means "call your local emergency number (911 in the US)". Generated
+> content MUST localize numbers to the user's region, or state the US-default
+> caveat explicitly when the region is unknown.
+
 All adverse reactions follow this six-step structure:
 
 ```
@@ -143,7 +149,7 @@ Apply grounding techniques from the Grounding Techniques Library (below):
 |-------|-------|--------|
 | **Mild** (35-32C / 95-90F) | Shivering, goosebumps, numbness, clumsiness | Exit cold, warm gradually, warm dry clothing |
 | **Moderate** (32-28C / 90-82F) | Violent shivering then shivering stops, confusion, drowsiness, slurred speech | Emergency medical care. Warm core first, not extremities |
-| **Severe** (<28C / <82F) | No shivering, loss of consciousness, weak pulse, rigid muscles | Call 911 immediately. Do NOT rub extremities. Handle gently |
+| **Severe** (<28C / <82F) | No shivering, loss of consciousness, weak pulse, rigid muscles | Call your local emergency number (911 in the US) immediately. Do NOT rub extremities. Handle gently |
 
 ### Cardiac Events
 
@@ -157,7 +163,7 @@ Apply grounding techniques from the Grounding Techniques Library (below):
 |--------|--------|
 | **Signs** | Chest pain, pressure, or tightness during cold exposure; irregular heartbeat; shortness of breath; pain radiating to arm, jaw, or back |
 | **Risk factors** | Cardiovascular disease, hypertension, family history of cardiac events, age >50, sedentary lifestyle |
-| **Immediate response** | Exit cold immediately. Call 911. Do NOT continue warming if cardiac symptoms present — wait for EMS |
+| **Immediate response** | Exit cold immediately. Call your local emergency number (911 in the US). Do NOT continue warming if cardiac symptoms present — wait for EMS |
 | **When to seek emergency care** | ANY chest pain or cardiac symptoms during cold exposure — always |
 
 ### Cold Shock Response
@@ -390,6 +396,10 @@ The extended exhale activates the parasympathetic response."
 
 ## EMERGENCY RESOURCES
 
+> Emergency resources last verified: 2026-07-27 (per the quarterly
+> verification requirement below — update this stamp when re-verifying, and
+> keep `scripts/check-crisis-numbers.js` in sync if any number changes).
+
 ### Always Available (United States)
 
 | Resource | Contact | When to Use |
@@ -431,7 +441,7 @@ Localize emergency numbers to the user's region; the US numbers above are defaul
 
 ## WHEN TO ADVISE EMERGENCY MEDICAL CARE
 
-### Always Advise Emergency Care (Call 911)
+### Always Advise Emergency Care (call your local emergency number — 911 in the US)
 
 ```
 ✅ Loss of consciousness
