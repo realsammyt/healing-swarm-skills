@@ -140,6 +140,33 @@ function findAgentFiles(dir, results = []) {
   return results;
 }
 
+// Overclaiming-language check, shared by the agent-prompt lint and the wider
+// claims-surface pass. Line-by-line so demonstrative examples can be skipped:
+// a claim phrase inside DOUBLE quotes, or on a line with an explicit negation
+// marker (✗ / ❌ / don't / avoid / overclaim / a review catching a violation),
+// is the file teaching what NOT to say. Bare apostrophes/possessives do NOT
+// exempt a line (that loophole previously exempted "the body's..." claims),
+// and neither does a trailing disclaimer ("...does not replace medical care").
+const CLAIM_MODAL_RE =
+  /\b(will|can|could|proven to|clinically proven to|guaranteed to)\s+(cure|heal|fix|treat|reverse|eliminate|restore|rewire|detox)\b/i;
+// Third-person claims need a symptom-ish object to avoid flagging benign prose
+// ("treats the breath as an anchor"). Extend the object list as needed.
+const CLAIM_THIRD_PERSON_RE =
+  /\b(cures|heals|treats|fixes|reverses|eliminates|rewires)\s+(your\s+|the\s+)?(depression|anxiety|trauma|ptsd|insomnia|chronic\s+pain|pain|disease|illness|cancer|inflammation|addiction|tinnitus)\b/i;
+const NEG_CONTEXT_RE =
+  /["“”]|✗|❌|🚫|don'?t|do not|\bnever\b|\bavoid\b|overclaim|\bviolation\b|instead of/i;
+
+export function findClaimViolations(content) {
+  const hits = [];
+  for (const line of content.split(/\r?\n/)) {
+    if (NEG_CONTEXT_RE.test(line)) continue;
+    if (CLAIM_MODAL_RE.test(line) || CLAIM_THIRD_PERSON_RE.test(line)) {
+      hits.push(`Avoid promising outcomes ("will/can cure/heal/treat/…") - use "may help" — found: ${line.trim()}`);
+    }
+  }
+  return hits;
+}
+
 function lintAgentPrompt(filePath) {
   const content = fs.readFileSync(filePath, 'utf8');
   const issues = {
@@ -174,20 +201,9 @@ function lintAgentPrompt(filePath) {
     }
   }
 
-  // Check for common issues. Scan real prose (no literal-quote requirement) for
-  // outcome-promising language. Done line-by-line so we can skip demonstrative
-  // examples: a claim phrase quoted inside a "DON'T use" list or an anti-pattern
-  // block (✗ / ❌ / "overclaiming" / a review session catching a violation) is
-  // the prompt teaching what NOT to say, not the agent making the claim. Flagging
-  // those would train maintainers to ignore the gate. Affirmative, unquoted prose
-  // like "the breathing will heal your nervous system" still gets caught.
-  const claimRe = /\b(will|can|guaranteed to)\s+(cure|heal|fix|treat)\b/i;
-  const negContextRe = /["'“”‘’]|✗|❌|🚫|don'?t|do not|\bavoid\b|overclaim|\bviolation\b|instead of|\breplace\b/i;
-  for (const line of content.split(/\r?\n/)) {
-    if (claimRe.test(line) && !negContextRe.test(line)) {
-      issues.errors.push(`Avoid promising outcomes (e.g. "will/can cure/heal/fix/treat") - use "may help" — found: ${line.trim()}`);
-      break;
-    }
+  // Check for common issues: outcome-promising language.
+  for (const hit of findClaimViolations(content)) {
+    issues.errors.push(hit);
   }
 
   if (/\bscience proves\b/i.test(content)) {
@@ -201,6 +217,29 @@ function lintAgentPrompt(filePath) {
   }
 
   return issues;
+}
+
+// Claims-surface discovery: templates, shared resources, and generated
+// SKILL.md descriptors ship user-facing healing language too — they get the
+// claims check (only), not the agent-prompt section-structure checks.
+function findClaimSurfaceFiles() {
+  const results = [];
+  const walkMd = (dir) => {
+    if (!fs.existsSync(dir)) return;
+    for (const entry of fs.readdirSync(dir)) {
+      const full = path.join(dir, entry);
+      if (fs.statSync(full).isDirectory()) walkMd(full);
+      else if (entry.endsWith('.md')) results.push(full);
+    }
+  };
+  walkMd(path.join(SKILLS_DIR, 'shared'));
+  walkMd(path.join(SKILLS_DIR, 'content', 'templates'));
+  // Every generated SKILL.md (one level below SKILLS_DIR).
+  for (const entry of fs.readdirSync(SKILLS_DIR)) {
+    const candidate = path.join(SKILLS_DIR, entry, 'SKILL.md');
+    if (fs.existsSync(candidate)) results.push(candidate);
+  }
+  return results;
 }
 
 function main() {
@@ -246,10 +285,24 @@ function main() {
     }
   }
 
+  // Claims-only pass over templates, shared resources, and SKILL.md files.
+  const claimSurface = findClaimSurfaceFiles();
+  for (const file of claimSurface) {
+    const violations = findClaimViolations(fs.readFileSync(file, 'utf8'));
+    if (violations.length > 0) {
+      filesWithIssues++;
+      log(`\n${path.relative(SKILLS_DIR, file)}`, 'cyan');
+      for (const v of violations) {
+        log(`  ✗ ${v}`, 'red');
+        totalErrors++;
+      }
+    }
+  }
+
   // Summary
   console.log('');
   log('═══════════════════════════════════════════════════════════════', 'cyan');
-  log(`  Checked ${agentFiles.length} agent files`, 'cyan');
+  log(`  Checked ${agentFiles.length} agent files + ${claimSurface.length} claim-surface files (templates/shared/SKILL.md)`, 'cyan');
 
   if (totalErrors === 0 && totalWarnings === 0) {
     log('  ✓ No errors or warnings found!', 'green');

@@ -37,7 +37,9 @@ jobs:
 
       - name: Validate manifest
         run: npm run validate:manifest
-        continue-on-error: true  # May not have manifest yet
+
+      - name: Lint scripts
+        run: npm run lint
 
   yaml-lint:
     name: Lint YAML
@@ -56,10 +58,12 @@ jobs:
         run: npm ci
 
       - name: Lint YAML files
-        run: npx yaml-lint '.claude/skills/**/*.yaml' || true
+        run: npx yaml-lint '.claude/skills/**/*.yaml'
 
   markdown-lint:
-    name: Lint Markdown
+    # Advisory only: the repo's markdown intentionally ignores cosmetic rules
+    # (line length, table style). This job surfaces the report without gating.
+    name: Lint Markdown (advisory)
     runs-on: ubuntu-latest
 
     steps:
@@ -74,7 +78,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint Markdown files
+      - name: Lint Markdown files (advisory)
         run: npx markdownlint-cli2 '.claude/skills/**/*.md' || true
 
   summary:
@@ -96,13 +100,13 @@ jobs:
           if [ "${{ needs.yaml-lint.result }}" == "success" ]; then
             echo "✅ **YAML Lint**: Passed" >> $GITHUB_STEP_SUMMARY
           else
-            echo "⚠️ **YAML Lint**: Issues found" >> $GITHUB_STEP_SUMMARY
+            echo "❌ **YAML Lint**: Failed" >> $GITHUB_STEP_SUMMARY
           fi
-          if [ "${{ needs.markdown-lint.result }}" == "success" ]; then
-            echo "✅ **Markdown Lint**: Passed" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "⚠️ **Markdown Lint**: Issues found" >> $GITHUB_STEP_SUMMARY
-          fi
+          echo "ℹ️ **Markdown Lint**: advisory only — see job log (not enforced)" >> $GITHUB_STEP_SUMMARY
+
+      - name: Fail if YAML lint failed
+        if: needs.yaml-lint.result != 'success'
+        run: exit 1
 
       - name: Fail if validation failed
         if: needs.validate.result != 'success'

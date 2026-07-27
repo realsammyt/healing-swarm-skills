@@ -126,7 +126,6 @@ function validateWorkflow(filePath) {
 function validateAgentPrompt(filePath) {
   const content = fs.readFileSync(filePath, 'utf8');
   const errors = [];
-  const warnings = [];
 
   // Required sections (with flexible naming)
   const requiredSections = [

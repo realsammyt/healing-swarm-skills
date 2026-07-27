@@ -71,7 +71,10 @@ export function evaluateGates(gates) {
     const failing = status === 'fail' || status === 'veto';
     if (!failing) continue;
     const isVetoGate = VETO_GATES.includes(gate);
-    if (isVetoGate || g.blocking === true) {
+    // Normalize `blocking` too: an LLM may emit the string "true". Only an
+    // explicit false/"false" is non-blocking drift we accept.
+    const blocking = g.blocking === true || String(g.blocking).trim().toLowerCase() === 'true';
+    if (isVetoGate || blocking) {
       halts.push(g);
     }
   }
@@ -82,12 +85,24 @@ export function evaluateGates(gates) {
 // CLI
 // ─────────────────────────────────────────────────────────────────────────────
 
-function collectFiles(target, out = []) {
+// The four reviewer PROMPTS document the gate contract with example blocks
+// (validate-skills.js requires them to). Scanning the prompts would let those
+// documentation examples satisfy --require with zero reviews actually run, so
+// they are excluded from enforcement scans.
+const REVIEWER_PROMPTS = new Set([
+  'ethics-guardian.md',
+  'clinical-reviewer.md',
+  'cultural-reviewer.md',
+  'accessibility-auditor.md',
+  'trauma-informed-reviewer.md',
+]);
+
+export function collectFiles(target, out = []) {
   if (!fs.existsSync(target)) return out;
   const stat = fs.statSync(target);
   if (stat.isDirectory()) {
     for (const e of fs.readdirSync(target)) collectFiles(path.join(target, e), out);
-  } else if (/\.(md|markdown|json|txt)$/i.test(target)) {
+  } else if (/\.(md|markdown|json|txt)$/i.test(target) && !REVIEWER_PROMPTS.has(path.basename(target))) {
     out.push(target);
   }
   return out;

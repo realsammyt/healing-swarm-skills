@@ -71,16 +71,19 @@ function main() {
   try {
     const discovery = YAML.parse(fs.readFileSync(path.join(SKILLS_DIR, 'skill-discovery.yaml'), 'utf8'));
     sensitiveSkills = new Set(discovery.sensitive || []);
-  } catch {
-    warnings.push('Could not read skill-discovery.yaml; skipping sensitive-skill safety check');
+  } catch (err) {
+    // Fail CLOSED: this file drives a safety gate. If it can't be read, the
+    // sensitive-skill floor cannot be verified, so validation must not pass.
+    errors.push(`Could not read skill-discovery.yaml (${err.message}) — sensitive-skill safety check cannot run`);
   }
 
   // Validate skills array
   if (!manifest.skills || !Array.isArray(manifest.skills)) {
     errors.push('Missing "skills" array in manifest');
   } else {
-    // Track triggers to detect duplicates across skills.
+    // Track triggers and names to detect duplicates across skills.
     const triggerOwners = new Map(); // trigger -> [skill names]
+    const nameOwners = new Map(); // name -> count
 
     // Validate each skill
     manifest.skills.forEach((skill, index) => {
@@ -89,6 +92,7 @@ function main() {
 
       // Required fields
       if (!skill.name) errors.push(`${prefix}: missing 'name'`);
+      if (skill.name) nameOwners.set(skill.name, (nameOwners.get(skill.name) || 0) + 1);
       if (!skill.trigger) errors.push(`${prefix}: missing 'trigger'`);
       if (!skill.description) errors.push(`${prefix}: missing 'description'`);
 
@@ -184,6 +188,13 @@ function main() {
     for (const [trigger, owners] of triggerOwners) {
       if (owners.length > 1) {
         errors.push(`Duplicate trigger '${trigger}' used by: ${owners.join(', ')}`);
+      }
+    }
+
+    // Duplicate-name detection: a copy-pasted entry would silently double-count.
+    for (const [name, count] of nameOwners) {
+      if (count > 1) {
+        errors.push(`Duplicate skill name '${name}' appears ${count} times`);
       }
     }
   }

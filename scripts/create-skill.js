@@ -59,21 +59,18 @@ function ask(question) {
   });
 }
 
-function askWithOptions(question, options) {
-  return new Promise(async (resolve) => {
-    console.log(`\n${colors.yellow}${question}${colors.reset}`);
-    options.forEach((opt, i) => {
-      console.log(`  ${colors.cyan}${i + 1}${colors.reset}) ${opt}`);
-    });
-    const answer = await ask('Enter number: ');
-    const index = parseInt(answer, 10) - 1;
-    if (index >= 0 && index < options.length) {
-      resolve(options[index]);
-    } else {
-      print('Invalid selection, using first option', 'yellow');
-      resolve(options[0]);
-    }
+async function askWithOptions(question, options) {
+  console.log(`\n${colors.yellow}${question}${colors.reset}`);
+  options.forEach((opt, i) => {
+    console.log(`  ${colors.cyan}${i + 1}${colors.reset}) ${opt}`);
   });
+  const answer = await ask('Enter number: ');
+  const index = parseInt(answer, 10) - 1;
+  if (index >= 0 && index < options.length) {
+    return options[index];
+  }
+  print('Invalid selection, using first option', 'yellow');
+  return options[0];
 }
 
 function toKebabCase(str) {

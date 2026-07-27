@@ -1,0 +1,22 @@
+# Normalize line endings: everything text is LF in the repo AND the working
+# tree. The generator scripts (generate-skills.js, generate-reference.js)
+# write LF; without this, a Windows clone with core.autocrlf=true smudges
+# tracked files to CRLF and the next generator run produces whole-file diffs.
+# NOTE: existing files were NOT renormalized in the commit that added this
+# file; run `git add --renormalize .` as a separate follow-up if desired.
+* text=auto eol=lf
+
+# Binary assets — never touch line endings.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.mp3 binary
+*.mp4 binary
+*.pdf binary

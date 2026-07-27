@@ -1,5 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { extractGates, evaluateGates, VETO_GATES } from './check-gates.js';
+import fs from 'fs';
+import os from 'os';
+import path from 'path';
+import { extractGates, evaluateGates, collectFiles, VETO_GATES } from './check-gates.js';
 
 const block = (obj) => '```json\n' + JSON.stringify(obj, null, 2) + '\n```';
 
@@ -59,5 +62,25 @@ describe('evaluateGates', () => {
 
   it('halts on a capitalized Ethics gate name with status fail', () => {
     expect(evaluateGates([{ gate: 'Ethics', status: 'fail' }]).halt).toBe(true);
+  });
+
+  it('halts on a non-veto gate whose blocking is the STRING "true"', () => {
+    expect(evaluateGates([{ gate: 'clinical', status: 'fail', blocking: 'true' }]).halt).toBe(true);
+  });
+
+  it('does NOT halt on a non-veto gate whose blocking is the string "false"', () => {
+    expect(evaluateGates([{ gate: 'clinical', status: 'fail', blocking: 'false' }]).halt).toBe(false);
+  });
+});
+
+describe('collectFiles', () => {
+  it('excludes the reviewer prompt files so their documentation examples cannot satisfy --require', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'gates-'));
+    fs.writeFileSync(path.join(dir, 'ethics-guardian.md'), '```json\n{"gate":"ethics","status":"pass","blocking":true}\n```');
+    fs.writeFileSync(path.join(dir, 'accessibility-auditor.md'), '```json\n{"gate":"accessibility","status":"pass","blocking":true}\n```');
+    fs.writeFileSync(path.join(dir, 'real-review-output.md'), '```json\n{"gate":"ethics","status":"pass","blocking":true}\n```');
+    const files = collectFiles(dir).map((f) => path.basename(f));
+    expect(files).toEqual(['real-review-output.md']);
+    fs.rmSync(dir, { recursive: true, force: true });
   });
 });
