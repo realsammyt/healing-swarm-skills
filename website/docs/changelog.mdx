@@ -10,6 +10,65 @@ A living record of every feature, skill, workflow, template, and infrastructure 
 
 ---
 
+## 2026-07-27 — Six-Lens Review: Safety, Discovery & Practice-Support Skills
+
+**Six-agent review (build health, content quality, safety, tooling, docs, growth) applied end to end: enforcement made honest, safety wiring completed, citations reconciled, discovery actually fixed, and six practice-support skills added**
+
+### Skills Added (6)
+
+| Skill                 | Trigger                | Category      |
+| --------------------- | ---------------------- | ------------- |
+| Practice Screening    | `/practice-screening`  | Quality       |
+| Adverse Response      | `/adverse-response`    | Quality       |
+| Practice Pathway      | `/practice-pathway`    | Orchestration |
+| Outcome Tracking      | `/outcome-tracking`    | Quality       |
+| Foundation Meditation | `/foundation-meditation` | Meditation  |
+| Caregiver Support     | `/caregiver-support`   | Caregiving    |
+
+### Agents Added (7)
+
+- **screening-guide** — Walks the contraindications Tier 1/2/3 questions and decision tree before any practice skill runs
+- **adverse-response-guide** — Stabilize → ground → assess → adapt/retire → log, after a practice reaction (sensitive skill)
+- **pathway-planner** — Sequences existing skills into multi-week plans from the practice-pathways archetypes
+- **outcome-tracker** — WHO-5/PSS-10/PSQI/VAS measurement plans; hard self-harm-item → crisis-resources rule
+- **meditation-guide** — Plain breath/body-scan/loving-kindness practice, framework-neutral
+- **caregiver-companion** — Capacity, boundaries, anticipatory grief, respite micro-practices for asymmetric care
+- **trauma-informed-reviewer** — Fifth quality gate (`trauma`, blocking): titration, choice points, exit ramps, orientation vs flooding
+
+### Workflows Added (1)
+
+- `practice-pathway-workflow.yaml` — Intake → pathway selection → safety screen (via /practice-screening) → plan assembly → ethics gate
+
+### Templates Added (6)
+
+- `screening-record.md` — Screening outcome artifact the user keeps
+- `adverse-event-log.md` — What happened, severity, action, follow-up
+- `pathway-plan.md` — Weeks, skills, progression criteria, stop rules
+- `outcome-log.md` — Instrument scores over time, honest interpretation
+- `capacity-check.md` — Caregiver capacity snapshot + boundary worksheet
+- `literacy-audit.md` — consciousness-audit's declared output finally exists
+
+### Shared Resources Updated
+
+- `crisis-response.md` — Localization rule moved to the top, inline "call 911" strings localized, quarterly verification stamp (2026-07-27) wired to a new `check-crisis-numbers.js` consistency gate
+- `contraindications.md` — New LANGUAGE AWARENESS & DEAUTOMATIZATION table (ABS: psychosis, dissociative disorders, severe DP/DR, mania)
+- `terminology.md` — Frequency table reconciled to the calibrated citation set
+- `endo-technology-taxonomy.md` + `consciousness-literacy-levels.md` — Now registered in the manifest `shared_resources` block
+
+### Infrastructure
+
+- **Discovery fixed for real:** `generate:skills` now also emits top-level `.claude/skills/<name>/SKILL.md` — the nested copies were empirically never loaded by Claude Code, so all 54 previous skills were slash-command-only despite Phase 3
+- **Enforcement honesty:** CI `npm test` gates (was `continue-on-error: true`); yaml-lint is a real gate; markdown-lint explicitly advisory; eslint in CI; `npm run validate` now includes check-ethics, lint-prompts, and check-crisis-numbers; claims linter lost its any-apostrophe loophole (7/9 probe misses before) and covers templates/shared/SKILL.md; `check-gates --require` can no longer be satisfied by reviewer documentation templates; validate-manifest fails closed on unreadable discovery file, detects duplicate names, and resolves every workflow `agent:` against the registry
+- **Citations:** archaeoacoustics measurement paper corrected to Jahn, Devereux & Ibison 1996 (JASA 99(2):649-658) everywhere; Cook et al. 2008 consistently EEG; "110 Hz King's Chamber" examples corrected to 117 Hz; 369/432 Hz graded Low
+- **Registry:** swarm-conductor's registry now lists all agents (was 13 of 39); 26 workflows renamed `agent: orchestrator` → `swarm-conductor`; safety `requires:` added to group-perception (now sensitive), WHM trio, water-healing, somatic-practice, sound-consciousness, holotechnica-stack, archaeoacoustic-toning, consciousness-audit, context-engineering
+
+### Documentation
+
+- Integration/Gamification/Narrative/Game Healing reframed as documentation patterns (the `/healing-integrate` slash command never existed); retroactive correction note added
+- Context Engineering + Consciousness Audit website pages added (missing since PR #20); README Skills Overview completed (+18 missing skills); worked-example paths corrected; CONTRIBUTING paths fixed; stale hardcoded counts replaced with sync-timeline pointers
+
+---
+
 ## 2026-07-16 — Carl Hayden Smith Integration (Contextology & Consciousness Literacy)
 
 **PR #20 | Operationalizes Smith's Contextology, Scaffold→Remove Progression, consciousness literacy, ecology of practices, and inter-being patterns from the Smith integration plan**
@@ -62,7 +121,7 @@ A living record of every feature, skill, workflow, template, and infrastructure 
 
 ### Examples Added (1)
 
-- `examples/hyperhumanism-onboarding/` — Full four-phase inquiry onboarding for one composite participant, from baseline assessment to a small daily practice
+- `.claude/skills/healing-swarm/examples/hyperhumanism-onboarding/` — Full four-phase inquiry onboarding for one composite participant, from baseline assessment to a small daily practice
 
 ### Documentation
 
@@ -438,18 +497,26 @@ Worked examples for all new practice skills: sound healing, somatic movement, sl
 
 ---
 
-## 2026-02-02 — Healing Integration Skills
+## 2026-02-02 — Healing Integration Patterns
 
-**Commit 709d019, 47c9d7c | Integration skillset for existing projects**
+**Commit 709d019, 47c9d7c | Integration patterns for existing projects**
 
-### Skills Added (4)
+:::note Retroactive correction (2026-07-27)
+These four were documented as skills but were never shipped as manifest
+skills — the slash commands in the original table do not exist. They are
+**documentation patterns** invoked via freeform prompt (see the
+[Integration page](./skills/integration.mdx)), and they are not counted in
+the skill totals.
+:::
 
-| Skill                | Trigger                 | Category    |
-| -------------------- | ----------------------- | ----------- |
-| Healing Integration  | `/healing-integrate`    | Integration |
-| Healing Gamification | `/healing-gamification` | Integration |
-| Narrative Healing    | `/narrative-healing`    | Integration |
-| Game Healing         | `/game-healing`         | Integration |
+### Documentation Patterns Added (4 — not counted as skills)
+
+| Pattern              | Invocation      | Category    |
+| -------------------- | --------------- | ----------- |
+| Healing Integration  | Freeform prompt | Integration |
+| Healing Gamification | Freeform prompt | Integration |
+| Narrative Healing    | Freeform prompt | Integration |
+| Game Healing         | Freeform prompt | Integration |
 
 ### Documentation Added
 
@@ -535,13 +602,13 @@ Worked examples for all new practice skills: sound healing, somatic movement, sl
 
 | Category                  | Count |
 | ------------------------- | ----- |
-| **Skills**                | 54    |
-| **Agents**                | 39    |
-| **Workflows**             | 26    |
-| **Templates**             | 38    |
+| **Skills**                | 60    |
+| **Agents**                | 46    |
+| **Workflows**             | 27    |
+| **Templates**             | 44    |
 | **Shared Resources**      | 12    |
 | **Worked Examples**       | 19    |
-| **Website Pages**         | 91+   |
+| **Website Pages**         | 93+   |
 | **Traditions Integrated** | 20+   |
 
 ---

@@ -56,11 +56,14 @@ You should see output confirming all skills are valid:
 
 ```
 ✓ All validations passed!
-✓ Manifest valid: 52 skill(s) defined
+✓ Manifest valid: N skill(s) defined
 ✓ Timeline counts in sync with the manifest.
 ✓ Reference docs are in sync with the manifest.
-✓ All 52 SKILL.md files are in sync (discovery quality OK).
+✓ All N SKILL.md files are in sync (discovery quality OK).
 ```
+
+(`N` is the current skill count — `npm run sync:timeline` prints the
+canonical numbers; the docs deliberately don't hardcode them.)
 
 ### Step 4: Copy Skills to Claude Code
 

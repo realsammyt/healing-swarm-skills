@@ -1,0 +1,112 @@
+---
+sidebar_position: 41
+title: Context Engineering
+description: Designs the experiential container — setting, priming, intention, and re-entry — before any practice begins
+---
+
+# context-engineering
+
+**Trigger:** `/context-engineering`
+
+Designs the experiential container around a practice: physical setting, body priming, temporal framing, social setting, intention, and re-entry. Based on Carl Hayden Smith's Contextology. Usable on its own to prepare any space for practice, or as a preparation step ahead of any other healing-swarm skill.
+
+## Agents
+
+- **Context Engineer** - Container design across all six Contextology dimensions
+- **Accessibility Auditor** - Sensory, mobility, and cognitive access review
+- **Ethics Guardian** - Consent, invitation-not-demand framing, and re-entry safety review
+
+## Inputs
+
+| Input      | Required | Description                                                                                 |
+| ---------- | -------- | -------------------------------------------------------------------------------------------- |
+| `focus`    | Yes      | The practice and setting to prepare for (e.g., "20-minute breath practice at home, alone")   |
+| `social`   | No       | `alone` (default), `dyad`, `group`                                                           |
+| `duration` | No       | `brief` (20 min total), `standard` (35 min total), `deep` (55 min total)                     |
+
+## Outputs
+
+- `context-design.md` - Complete container design across all six dimensions, with accessibility adaptations and a re-entry plan folded in
+
+## Examples
+
+**Solo home practice container:**
+
+```bash
+/context-engineering "20-minute breath practice at home, alone"
+```
+
+**Dyad session container:**
+
+```bash
+/context-engineering "prepare a paired session" --social dyad
+```
+
+**Deep integration container:**
+
+```bash
+/context-engineering "closing container after a difficult session" --duration deep
+```
+
+## The Six Contextology Dimensions
+
+| Dimension        | Design question                                                    |
+| ----------------- | -------------------------------------------------------------------- |
+| Physical setting  | What should the person see, hear, and feel in the space?            |
+| Body priming      | What posture and breath state should the practice begin from?        |
+| Temporal framing  | When is this best done, and what buffers surround it?                |
+| Social setting    | Alone, dyad, or group, and what facilitation stance fits?            |
+| Intention         | Why this practice, why now, held as an invitation?                    |
+| Re-entry          | What does the person return to, and how do we soften the landing?    |
+
+## Container Durations
+
+| Duration | Total  | Arrival Buffer | Practice | Re-entry Buffer |
+| -------- | ------ | --------------- | -------- | ----------------- |
+| Brief    | 20 min | 2 min           | 13 min   | 5 min             |
+| Standard | 35 min | 3 min           | 25 min   | 7 min             |
+| Deep     | 55 min | 5 min           | 40 min   | 10 min            |
+
+## Research Basis
+
+> **Evidence level: Theoretical (framework)**
+>
+> Contextology is Carl Hayden Smith's framework for treating context as a
+> deliberate design surface. His estimate that surrounding conditions shape
+> roughly 80% of an experience's outcome is his own working figure, not a
+> measured research finding, and every context-design.md attributes it that
+> way. The broader claim that "set and setting" shape subjective experience
+> does have research heritage of its own, most visibly in the
+> psychedelic-assisted therapy literature (Leary & Metzner's original
+> framing, later synthesized by Hartogsohn) and in placebo/expectancy
+> research. This skill borrows the concept, never the substance:
+> pharmaco-technologies are hard excluded from every container it designs.
+
+## Safety
+
+- `shared/crisis-response.md` is loaded for this skill. The Context Engineer
+  owns re-entry, and re-entry is exactly where adverse reactions surface — a
+  destabilized return needs a crisis path, not only a "stop early" option.
+- `shared/contraindications.md` screens whatever practice the container wraps.
+- Pharmaco-technologies are a hard, non-negotiable exclusion. No context is
+  ever designed around a substance-based experience.
+- A stopping option is required in every container: permission to end early
+  and re-enter gently at any point.
+- Intention is held as an invitation, never a demand. Ethics Guardian
+  escalates if framing drifts toward pressure or deficiency language.
+
+## Quality Gates
+
+Before output is finalized:
+
+- All six Contextology dimensions addressed
+- Arrival buffer and re-entry buffer both present
+- Context estimate attributed to Smith ("~80%"), never stated as fact
+- Sensory, mobility, and cognitive accessibility adaptations included
+- Pharmaco-exclusion enforced
+- Re-entry never drops a person into a demanding task
+- A stopping option offered
+
+---
+
+_The room shapes the practice as much as the practice shapes the room._

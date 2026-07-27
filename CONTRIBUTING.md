@@ -72,8 +72,8 @@ Create healing content:
 - Journal prompts
 
 **Requirements:**
-- Follow templates in `content/templates/`
-- Adhere to `shared/voice-guide.md`
+- Follow templates in `.claude/skills/healing-swarm/content/templates/`
+- Adhere to `.claude/skills/healing-swarm/shared/voice-guide.md`
 - Pass ethics review before merge
 - Include all required metadata
 
@@ -87,7 +87,7 @@ Improve user experience:
 - Component designs
 
 **Requirements:**
-- Follow design tokens in `shared/design-tokens.json`
+- Follow design tokens in `.claude/skills/healing-swarm/shared/design-tokens.json`
 - Meet WCAG AA accessibility standards
 - Support one-handed operation
 - Include dark mode support
@@ -124,7 +124,7 @@ Help others understand and use the swarm:
 
 - **Check existing issues** - Someone may already be working on it
 - **Open an issue** - Discuss your idea before major work
-- **Read the ethics guardrails** - `shared/ethics-guardrails.md`
+- **Read the ethics guardrails** - `.claude/skills/healing-swarm/shared/ethics-guardrails.md`
 
 ### 2. Development Workflow
 

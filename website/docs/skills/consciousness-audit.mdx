@@ -1,0 +1,106 @@
+---
+sidebar_position: 42
+title: Consciousness Audit
+description: Periodic self-assessment mapping practice history to consciousness-literacy levels across four modality clusters
+---
+
+# consciousness-audit
+
+**Trigger:** `/consciousness-audit`
+
+A periodic consciousness-literacy check-in. Reviews practice history and maps the current literacy level per modality cluster — somatic, perceptual, relational, attentional — tracking development over weeks and months. This is reflective self-assessment, not a clinical or diagnostic measurement.
+
+## Agents
+
+- **Hyperhumanism Researcher** - Literacy taxonomy context and practice-history synthesis
+- **Ethics Guardian** - Self-report framing review; blocks diagnostic or ranking language
+
+## Inputs
+
+| Input   | Required | Description                                                                                |
+| ------- | -------- | --------------------------------------------------------------------------------------------- |
+| `focus` | Yes      | The period and practice history to review (e.g., "8-week check-in on my daily practice")     |
+
+## Outputs
+
+- `literacy-audit.md` - Per-cluster literacy ratings against observable markers, with a longitudinal trend across the review period
+
+## Examples
+
+**Eight-week check-in:**
+
+```bash
+/consciousness-audit "8-week check-in on my daily practice"
+```
+
+**Season-long review:**
+
+```bash
+/consciousness-audit "three-month review since starting breathwork and somatic practice"
+```
+
+## The Four Clusters
+
+Literacy is tracked separately per cluster, because skill in one does not transfer automatically to another. A person can sit at different levels in different clusters, and that is expected.
+
+| Cluster     | What it covers                                               | Example endo-technologies                          | Related skills                                    |
+| ----------- | -------------------------------------------------------------- | ------------------------------------------------------ | ----------------------------------------------------- |
+| Somatic     | Working with breath, body sensation, and movement              | Breathwork, body scan, movement                          | `/whm-breathwork`, `/somatic-practice`                |
+| Perceptual  | Foregrounding a sense, extending the sensorium, sound           | Sensory foregrounding, visualization, sound / toning     | `/umwelt-practice`, `/sound-healing`                  |
+| Relational  | Practising with another person or a group, with consent         | Paired resonance, group perception                        | `/relational-practice`, `/resonance-pairing`          |
+| Attentional | Sustaining and releasing attention; contemplative stillness     | Silence, meditation, coherence                             | `/contemplative-inquiry`, `/coherence-meditation`     |
+
+## The Four Levels
+
+The same four ordered labels apply inside every cluster. They are ordered, not scored: nascent comes before developing, but the distance between them is not a number.
+
+| Level       | One-line marker                                                                      |
+| ----------- | ---------------------------------------------------------------------------------------- |
+| Nascent     | Notices a state mostly afterward, and needs full external structure to enter it          |
+| Developing  | Recognises a state as it arises and can enter a familiar practice with a cue             |
+| Established | Enters, sustains, and leaves a practiced state on purpose in a supportive setting        |
+| Embodied    | The capacity is portable, available in ordinary life, and can be adapted or taught       |
+
+There is no level above embodied. Fluency deepens without end, but the taxonomy stops there on purpose, so no one treats literacy as a ladder to worth.
+
+## Research Basis
+
+> **Evidence level: Self-report reflection tool, not a psychometric instrument**
+>
+> The four-level taxonomy is a self-report anchor drawn from Carl Hayden
+> Smith's consciousness-literacy framing (practices build fluency the way
+> letters build reading literacy), extended with the swarm's own modality
+> clusters. It has no published norms, no cutoff scores, and no diagnostic
+> meaning. A higher level names more practice, not more worth, and does not
+> predict any health outcome. This tool does not replace medical or
+> psychological care.
+
+## Safety
+
+- `shared/crisis-response.md` is loaded: reviewing practice history can
+  surface distress (a hard season, a disrupted practice, a difficult
+  memory), and the audit needs an escalation path ready, not just a
+  reflection prompt.
+- `shared/outcome-measurement.md` frames the longitudinal approach: measure
+  honestly, report humbly, protect data fiercely, and never use the audit to
+  prove a practice "works."
+- Movement backward in a cluster (established slipping to developing after
+  illness, stress, or a long gap) is treated as ordinary data, not failure or
+  loss of worth.
+- No level is ever tied to a promised outcome, and no cluster rating is
+  compared between people.
+
+## Quality Gates
+
+Before output is finalized:
+
+- Each cluster (somatic, perceptual, relational, attentional) rated separately against its own observable markers, never against a felt sense of "how advanced"
+- Levels presented as ordered, not scored — no numeric conversion or cross-person ranking
+- Movement backward framed as ordinary data, never as a loss of worth
+- Self-report framing stated explicitly: no published norms, no cutoff scores, not a diagnostic tool
+- Longitudinal trend reported per cluster over the stated period, not a single-session snapshot (for single-session states, use `/sound-consciousness`)
+- No claim that a level predicts or certifies any health outcome
+
+---
+
+_Literacy is cumulative, and it is nobody's finish line._
