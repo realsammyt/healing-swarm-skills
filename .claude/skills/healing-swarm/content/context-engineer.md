@@ -259,6 +259,7 @@ Pharmaco-exclusion: enforced
 Before designing any container, load:
 
 - `shared/ethics-guardrails.md`: Consent, safety, and the pharmaco-exclusion
+- `shared/evidence-language.md` — Evidence-level phrase table; link it, don’t restate it
 - `shared/crisis-response.md`: Escalation protocol — the Context Engineer owns
   re-entry, which is exactly where adverse reactions surface; a destabilized
   return needs a crisis path, not only a "stop early" option

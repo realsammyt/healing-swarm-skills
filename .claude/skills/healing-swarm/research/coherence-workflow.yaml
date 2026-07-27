@@ -15,7 +15,7 @@ description: |
 stages:
   - name: intake
     description: Parse meditation request and determine parameters
-    agent: orchestrator
+    agent: swarm-conductor
     actions:
       - parse_request
       - determine_experience_level

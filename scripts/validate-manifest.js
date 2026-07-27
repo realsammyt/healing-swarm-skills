@@ -199,6 +199,46 @@ function main() {
     }
   }
 
+  // Workflow stage agents must resolve to registered agents. (For months, 26
+  // workflows said `agent: orchestrator` — a name the manifest never defined —
+  // and nothing noticed.)
+  const walkYaml = (dir, out = []) => {
+    for (const entry of fs.readdirSync(dir)) {
+      if (entry.startsWith('_') || entry.startsWith('.') || entry === 'examples') continue;
+      const full = path.join(dir, entry);
+      if (fs.statSync(full).isDirectory()) walkYaml(full, out);
+      else if (
+        entry.endsWith('.yaml') &&
+        entry !== 'manifest.yaml' &&
+        entry !== 'skill-discovery.yaml'
+      ) {
+        out.push(full);
+      }
+    }
+    return out;
+  };
+  for (const wf of walkYaml(SKILLS_DIR)) {
+    let doc;
+    try {
+      doc = YAML.parse(fs.readFileSync(wf, 'utf8'));
+    } catch {
+      continue; // workflow syntax is validate-skills.js's job
+    }
+    if (!doc || !Array.isArray(doc.stages)) continue;
+    const rel = path.relative(SKILLS_DIR, wf).split(path.sep).join('/');
+    for (const stage of doc.stages) {
+      const stageAgents = [
+        ...(typeof stage?.agent === 'string' ? [stage.agent] : []),
+        ...(Array.isArray(stage?.agents) ? stage.agents.filter((a) => typeof a === 'string') : []),
+      ];
+      for (const a of stageAgents) {
+        if (!agentMap[a]) {
+          errors.push(`${rel}: stage '${stage.name || '?'}' references unregistered agent '${a}'`);
+        }
+      }
+    }
+  }
+
   // Report results
   console.log('');
 

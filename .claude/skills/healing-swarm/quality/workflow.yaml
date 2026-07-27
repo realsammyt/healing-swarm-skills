@@ -1,5 +1,6 @@
 # Quality Workflow
-# Orchestrates ethics-guardian, clinical-reviewer, cultural-reviewer, accessibility-auditor
+# Orchestrates ethics-guardian, clinical-reviewer, cultural-reviewer,
+# accessibility-auditor, trauma-informed-reviewer
 
 name: quality-workflow
 version: 1.0.0
@@ -14,7 +15,7 @@ description: |
 stages:
   - name: intake
     description: Receive and categorize items for review
-    agent: orchestrator
+    agent: swarm-conductor
     actions:
       - identify_review_type
       - route_to_reviewers
@@ -34,6 +35,16 @@ stages:
       - cultural_findings
       - accessibility_findings
 
+  - name: trauma_review
+    description: Trauma-informed design review of practice content (titration, choice, exits, pacing)
+    agent: trauma-informed-reviewer
+    inputs:
+      - content_or_application
+      - clinical_findings
+    outputs:
+      - trauma_findings
+      - exit_ramp_census
+
   - name: ethics_synthesis
     description: Ethics guardian reviews all findings and content
     agent: ethics-guardian
@@ -42,6 +53,7 @@ stages:
       - clinical_findings
       - cultural_findings
       - accessibility_findings
+      - trauma_findings
     outputs:
       - ethics_review
       - final_status
@@ -49,7 +61,7 @@ stages:
 
   - name: report_generation
     description: Generate comprehensive quality report
-    agent: orchestrator
+    agent: swarm-conductor
     inputs:
       - all_findings
       - ethics_review
@@ -58,7 +70,7 @@ stages:
 
   - name: remediation_tracking
     description: Track fixes and re-review
-    agent: orchestrator
+    agent: swarm-conductor
     inputs:
       - quality-report
       - remediation_submissions
@@ -136,6 +148,17 @@ quality_gates:
       - Appropriate language used
       - Contraindications noted
 
+  trauma:
+    agent: trauma-informed-reviewer
+    blocking: true
+    criteria:
+      - Intensity titrated; no deep-end opening
+      - Explicit choice and permission at each phase
+      - Exit ramp named at every stage requiring one
+      - Present-moment orientation before difficult material
+      - Non-coercive pacing language; body autonomy respected
+      - Grounding taught or linked before depth work
+
   cultural:
     agent: cultural-reviewer
     blocking: false # advisory; reviewer may veto closed-practice appropriation (veto + blocking: true)
@@ -207,6 +230,7 @@ output_structure:
       - clinical_findings
       - cultural_findings
       - accessibility_findings
+      - trauma_findings
       - ethics_review
       - required_changes
       - recommendations

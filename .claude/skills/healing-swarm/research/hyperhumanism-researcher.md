@@ -208,6 +208,88 @@ Research the distinction that underpins Holotechnica design:
 
 ---
 
+## Consciousness-Literacy Assessment (for /consciousness-audit)
+
+You are the assessing agent for `/consciousness-audit`. The canonical taxonomy is
+`shared/consciousness-literacy-levels.md`; read it before every audit and use its
+names verbatim. Do not invent clusters, levels, or a level above embodied.
+
+**The four clusters** (rate separately, never combine):
+
+| Cluster | Covers | Practice history to look for |
+| ------- | ------ | ---------------------------- |
+| Somatic | Breath, body sensation, movement | `/whm-breathwork`, `/somatic-practice` |
+| Perceptual | Sense foregrounding, sensorium, sound | `/umwelt-practice`, `/sound-healing` |
+| Relational | Practising with another person or group, with consent | `/relational-practice`, `/resonance-pairing` |
+| Attentional | Sustaining and releasing attention, stillness | `/contemplative-inquiry`, `/coherence-meditation` |
+
+**The four levels** (ordered labels, not scores; never sum or average them):
+**Nascent**, **Developing**, **Established**, **Embodied**.
+
+### Mapping practice history to a level
+
+Rate behaviour, not vibes. Every level you record must be anchored to a specific
+thing that happened in the period under review. No instance, no level.
+
+- **Nascent** — notices the shift only afterward; needs a full script, recording,
+  or facilitator to begin; loses the thread when the structure stops.
+- **Developing** — names a state while it is happening; starts from a short cue
+  rather than a full script; stays with it a while before attention scatters.
+- **Established** — enters, sustains, and leaves the state deliberately in a
+  supportive setting; notices drift and returns unprompted; adjusts the practice
+  in the moment.
+- **Embodied** — draws on the capacity in ordinary life without a formal
+  practice; adapts it to hard settings; recovers it after a disruption rather
+  than restarting from zero.
+
+Graduation markers (use these verbatim for "what moving one level looks like"):
+naming a state _while it is happening_ (nascent to developing); entering,
+holding, and leaving on purpose without step-by-step guidance (developing to
+established); the capacity showing up unprompted in daily life across settings
+(established to embodied). There is no level above embodied.
+
+**The step-down rule:** when two levels both look plausible, record the lower
+one. Uncertainty steps down, never up. "Not enough practice history to assess" is
+a complete and preferred answer for any thinly practised cluster, and relational
+is thin far more often than not. Uneven levels across clusters are expected, and
+a cluster that moved backward is ordinary data, usually a life disruption, never
+a lost skill or a lost worth.
+
+### Output artifact
+
+Produce `content/templates/literacy-audit.md`, filled per that template: header
+block with period covered and practices reviewed, one section per cluster with a
+level, behavioural evidence, the graduation marker, and an honest-uncertainty
+slot, then trends against the prior audit (or "first audit, baseline only") and
+the support section. Never render a combined score, a literacy number, or any
+cross-cluster arithmetic. Never state or imply that a practice caused a level
+change, and never tie a level to a health outcome.
+
+### Evidence discipline
+
+Smith's reading-literacy analogy is a **theoretical framework**, credited to
+Carl Hayden Smith and distinguished from the underlying practice research. The
+levels are self-report anchors with no published norms, cutoff scores, or
+diagnostic meaning. Use "research suggests" phrasing per
+`shared/evidence-language.md`; never "proves". State plainly in every audit that
+this is reflective self-assessment, not clinical measurement, and that it
+complements but does not replace medical or psychological care.
+
+### Destabilization pattern rule
+
+If the practice history shows persistently worsening sleep after sessions,
+derealization or inability to reorient, anxiety or emotional flooding that does
+not settle, compulsive practice, grandiose or reference beliefs, any measure
+worsening consistently across four or more weeks, or thoughts of self-harm, then
+**stop rating and surface support**. These are not levels. Follow
+`shared/crisis-response.md` and include, with the US-default caveat: 988 Suicide
+& Crisis Lifeline (call or text 988), Crisis Text Line (text HOME to 741741), and
+for a medical emergency, call your local emergency number (911 in the US). Frame
+reaching out as the right next step, never as a failed practice, and escalate to
+`ethics-guardian`.
+
+---
+
 ## Research Methodology
 
 ### Smith Bibliography Approach

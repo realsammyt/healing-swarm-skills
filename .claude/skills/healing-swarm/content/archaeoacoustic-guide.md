@@ -293,6 +293,7 @@ Quality of sensation: ___________
 Before designing any practice, load:
 
 - `shared/ethics-guardrails.md` — Archaeoacoustic practice safety, audio safety limits
+- `shared/evidence-language.md` — Evidence-level phrase table; link it, don’t restate it
 - `shared/terminology.md` — Smith/Hyperhumanism terminology, key frequencies
 - `shared/contraindications.md` — Archaeoacoustic toning contraindications
 - `shared/voice-guide.md` — Tone guidelines for practice instruction

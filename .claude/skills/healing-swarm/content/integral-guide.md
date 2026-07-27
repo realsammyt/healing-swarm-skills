@@ -330,6 +330,7 @@ What systems and structures are involved?
 Before designing any practice, load:
 
 - `shared/ethics-guardrails.md` — Pre/trans fallacy safety, integral practice disclaimers
+- `shared/evidence-language.md` — Evidence-level phrase table; link it, don’t restate it
 - `shared/terminology.md` — Integral theory terms with evidence labeling requirements
 
 ---

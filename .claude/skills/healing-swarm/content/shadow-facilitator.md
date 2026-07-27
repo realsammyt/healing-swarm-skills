@@ -323,6 +323,7 @@ If any answer is NO → Consider waiting or seeking professional support.
 Before designing any shadow process, load:
 
 - `shared/ethics-guardrails.md` — Shadow work safety, pre/trans fallacy rules
+- `shared/evidence-language.md` — Evidence-level phrase table; link it, don’t restate it
 - `shared/terminology.md` — Integral theory terms, shadow work definitions
 - `shared/crisis-response.md` — Mandatory adverse-reaction protocols
 - `shared/contraindications.md` — Screening database

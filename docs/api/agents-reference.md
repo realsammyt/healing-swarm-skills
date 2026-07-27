@@ -8,35 +8,39 @@
 
 | Agent | Category | File | Tools |
 | ----- | -------- | ---- | ----- |
-| [integral-researcher](#integral-researcher) | Research | `research/integral-researcher.md` | WebSearch, WebFetch, Read, Glob, Grep |
+| [integral-researcher](#integral-researcher) | Research | `research/integral-researcher.md` | WebSearch, WebFetch, Read, Write, Glob, Grep |
 | [integral-guide](#integral-guide) | Content | `content/integral-guide.md` | Read, Write, Glob |
 | [shadow-facilitator](#shadow-facilitator) | Content | `content/shadow-facilitator.md` | Read, Write, Glob |
-| [consciousness-researcher](#consciousness-researcher) | Research | `research/consciousness-researcher.md` | WebSearch, WebFetch, Read, Glob, Grep |
+| [consciousness-researcher](#consciousness-researcher) | Research | `research/consciousness-researcher.md` | WebSearch, WebFetch, Read, Write, Glob, Grep |
 | [coherence-guide](#coherence-guide) | Content | `content/coherence-guide.md` | Read, Write, Glob |
 | [resonance-facilitator](#resonance-facilitator) | Content | `content/resonance-facilitator.md` | Read, Write, Glob |
 | [orbital-architect](#orbital-architect) | Content | `content/orbital-architect.md` | Read, Write, Glob, Grep |
 | [breathwork-coach](#breathwork-coach) | Content | `content/breathwork-coach.md` | Read, Write, Glob |
 | [cold-exposure-guide](#cold-exposure-guide) | Content | `content/cold-exposure-guide.md` | Read, Write, Glob |
 | [language-awareness-guide](#language-awareness-guide) | Content | `content/language-awareness-guide.md` | Read, Write, Glob |
-| [traditions-scholar](#traditions-scholar) | Research | `research/traditions-scholar.md` | WebSearch, WebFetch, Read, Glob, Grep |
-| [clinical-researcher](#clinical-researcher) | Research | `research/clinical-researcher.md` | WebSearch, WebFetch, Read, Glob, Grep |
-| [mechanisms-neuroscientist](#mechanisms-neuroscientist) | Research | `research/mechanisms-neuroscientist.md` | WebSearch, WebFetch, Read |
+| [traditions-scholar](#traditions-scholar) | Research | `research/traditions-scholar.md` | WebSearch, WebFetch, Read, Write, Glob, Grep |
+| [clinical-researcher](#clinical-researcher) | Research | `research/clinical-researcher.md` | WebSearch, WebFetch, Read, Write, Glob, Grep |
+| [mechanisms-neuroscientist](#mechanisms-neuroscientist) | Research | `research/mechanisms-neuroscientist.md` | WebSearch, WebFetch, Read, Write |
 | [ux-architect](#ux-architect) | Design | `design/ux-architect.md` | Read, Write, Glob |
 | [visual-designer](#visual-designer) | Design | `design/visual-designer.md` | Read, Write, Glob |
 | [content-writer](#content-writer) | Content | `content/content-writer.md` | Read, Write, Glob, Grep |
 | [app-developer](#app-developer) | Build | `build/app-developer.md` | Read, Write, Edit, Bash, Glob, Grep |
-| [ethics-guardian](#ethics-guardian) | Quality | `quality/ethics-guardian.md` | Read, Glob, Grep |
-| [clinical-reviewer](#clinical-reviewer) | Quality | `quality/clinical-reviewer.md` | Read, WebSearch, WebFetch, Glob |
-| [cultural-reviewer](#cultural-reviewer) | Quality | `quality/cultural-reviewer.md` | Read, Glob, Grep |
-| [accessibility-auditor](#accessibility-auditor) | Quality | `quality/accessibility-auditor.md` | Read, Bash, Glob |
+| [ethics-guardian](#ethics-guardian) | Quality | `quality/ethics-guardian.md` | Read, Write, Glob, Grep |
+| [clinical-reviewer](#clinical-reviewer) | Quality | `quality/clinical-reviewer.md` | Read, Write, WebSearch, WebFetch, Glob |
+| [cultural-reviewer](#cultural-reviewer) | Quality | `quality/cultural-reviewer.md` | Read, Write, Glob, Grep |
+| [accessibility-auditor](#accessibility-auditor) | Quality | `quality/accessibility-auditor.md` | Read, Write, Bash, Glob |
+| [trauma-informed-reviewer](#trauma-informed-reviewer) | Quality | `quality/trauma-informed-reviewer.md` | Read, Write, Glob, Grep |
+| [screening-guide](#screening-guide) | Content | `content/screening-guide.md` | Read, Write, Glob |
+| [adverse-response-guide](#adverse-response-guide) | Content | `content/adverse-response-guide.md` | Read, Write, Glob |
 | [devops-specialist](#devops-specialist) | Deploy | `deploy/devops-specialist.md` | Read, Write, Bash, Glob |
 | [content-manager](#content-manager) | Deploy | `deploy/content-manager.md` | Read, Write, Edit, Glob, Grep |
 | [sound-healing-guide](#sound-healing-guide) | Content | `content/sound-healing-guide.md` | Read, Write, Glob |
-| [hyperhumanism-researcher](#hyperhumanism-researcher) | Research | `research/hyperhumanism-researcher.md` | WebSearch, WebFetch, Read, Glob, Grep |
+| [hyperhumanism-researcher](#hyperhumanism-researcher) | Research | `research/hyperhumanism-researcher.md` | WebSearch, WebFetch, Read, Write, Glob, Grep |
 | [archaeoacoustic-guide](#archaeoacoustic-guide) | Content | `content/archaeoacoustic-guide.md` | Read, Write, Glob |
 | [holotechnica-architect](#holotechnica-architect) | Content | `content/holotechnica-architect.md` | Read, Write, Glob |
 | [umwelt-facilitator](#umwelt-facilitator) | Content | `content/umwelt-facilitator.md` | Read, Write, Glob |
 | [context-engineer](#context-engineer) | Content | `content/context-engineer.md` | Read, Write, Glob |
+| [meditation-guide](#meditation-guide) | Content | `content/meditation-guide.md` | Read, Write, Glob |
 | [somatic-guide](#somatic-guide) | Content | `content/somatic-guide.md` | Read, Write, Glob |
 | [sleep-healing-guide](#sleep-healing-guide) | Content | `content/sleep-healing-guide.md` | Read, Write, Glob |
 | [nature-guide](#nature-guide) | Content | `content/nature-guide.md` | Read, Write, Glob |
@@ -44,8 +48,11 @@
 | [grief-guide](#grief-guide) | Content | `content/grief-guide.md` | Read, Write, Glob |
 | [expressive-guide](#expressive-guide) | Content | `content/expressive-guide.md` | Read, Write, Glob |
 | [community-facilitator](#community-facilitator) | Content | `content/community-facilitator.md` | Read, Write, Glob |
-| [pni-researcher](#pni-researcher) | Research | `research/pni-researcher.md` | WebSearch, WebFetch, Read, Glob, Grep |
+| [caregiver-companion](#caregiver-companion) | Content | `content/caregiver-companion.md` | Read, Write, Glob |
+| [pni-researcher](#pni-researcher) | Research | `research/pni-researcher.md` | WebSearch, WebFetch, Read, Write, Glob, Grep |
 | [contemplative-guide](#contemplative-guide) | Content | `content/contemplative-guide.md` | Read, Write, Glob |
+| [pathway-planner](#pathway-planner) | Content | `content/pathway-planner.md` | Read, Write, Glob |
+| [outcome-tracker](#outcome-tracker) | Content | `content/outcome-tracker.md` | Read, Write, Glob |
 | [swarm-conductor](#swarm-conductor) | Orchestration | `orchestrator/swarm-conductor.md` | Read, Write, Task, Glob, Grep |
 
 ---
@@ -56,7 +63,7 @@
 
 **Category:** Research
 
-**Tools:** `WebSearch`, `WebFetch`, `Read`, `Glob`, `Grep`
+**Tools:** `WebSearch`, `WebFetch`, `Read`, `Write`, `Glob`, `Grep`
 
 Deep research into Ken Wilber's integral metatheory, AQAL framework, and transpersonal psychology with honest evidence assessment.
 
@@ -92,7 +99,7 @@ Specialist in the 3-2-1 Shadow Process with safety architecture for self-guided 
 
 **Category:** Research
 
-**Tools:** `WebSearch`, `WebFetch`, `Read`, `Glob`, `Grep`
+**Tools:** `WebSearch`, `WebFetch`, `Read`, `Write`, `Glob`, `Grep`
 
 Research specialist for consciousness science, Grinberg's work, EEG coherence, and meditation neuroscience.
 
@@ -176,7 +183,7 @@ Specialist in cognitive deautomatization protocols — practices that reveal how
 
 **Category:** Research
 
-**Tools:** `WebSearch`, `WebFetch`, `Read`, `Glob`, `Grep`
+**Tools:** `WebSearch`, `WebFetch`, `Read`, `Write`, `Glob`, `Grep`
 
 Deep research into ancient and traditional healing practices with scholarly rigor.
 
@@ -188,7 +195,7 @@ Deep research into ancient and traditional healing practices with scholarly rigo
 
 **Category:** Research
 
-**Tools:** `WebSearch`, `WebFetch`, `Read`, `Glob`, `Grep`
+**Tools:** `WebSearch`, `WebFetch`, `Read`, `Write`, `Glob`, `Grep`
 
 Systematic review of clinical evidence for healing modalities with scientific rigor.
 
@@ -200,7 +207,7 @@ Systematic review of clinical evidence for healing modalities with scientific ri
 
 **Category:** Research
 
-**Tools:** `WebSearch`, `WebFetch`, `Read`
+**Tools:** `WebSearch`, `WebFetch`, `Read`, `Write`
 
 Bridge traditional healing concepts with modern neuroscience and psychophysiology.
 
@@ -260,7 +267,7 @@ Build accessible, privacy-first healing applications with modern web technologie
 
 **Category:** Quality
 
-**Tools:** `Read`, `Glob`, `Grep`
+**Tools:** `Read`, `Write`, `Glob`, `Grep`
 
 > 🛑 Holds veto power over swarm outputs.
 
@@ -274,7 +281,7 @@ Protect users through rigorous ethical review of all healing content and feature
 
 **Category:** Quality
 
-**Tools:** `Read`, `WebSearch`, `WebFetch`, `Glob`
+**Tools:** `Read`, `Write`, `WebSearch`, `WebFetch`, `Glob`
 
 Verify clinical accuracy of all evidence claims and citations.
 
@@ -286,7 +293,7 @@ Verify clinical accuracy of all evidence claims and citations.
 
 **Category:** Quality
 
-**Tools:** `Read`, `Glob`, `Grep`
+**Tools:** `Read`, `Write`, `Glob`, `Grep`
 
 Ensure respectful, accurate representation of all healing traditions.
 
@@ -298,11 +305,47 @@ Ensure respectful, accurate representation of all healing traditions.
 
 **Category:** Quality
 
-**Tools:** `Read`, `Bash`, `Glob`
+**Tools:** `Read`, `Write`, `Bash`, `Glob`
 
 > 🛑 Holds veto power over swarm outputs.
 
 Ensure healing applications are accessible to all users, including those with disabilities.
+
+---
+
+## trauma-informed-reviewer
+
+**File:** `quality/trauma-informed-reviewer.md`
+
+**Category:** Quality
+
+**Tools:** `Read`, `Write`, `Glob`, `Grep`
+
+Review the experience design of generated practice content: how it paces, where it offers choice, and whether a person can always get out.
+
+---
+
+## screening-guide
+
+**File:** `content/screening-guide.md`
+
+**Category:** Content
+
+**Tools:** `Read`, `Write`, `Glob`
+
+One front door.
+
+---
+
+## adverse-response-guide
+
+**File:** `content/adverse-response-guide.md`
+
+**Category:** Content
+
+**Tools:** `Read`, `Write`, `Glob`
+
+The flow for after something went wrong in a practice.
 
 ---
 
@@ -348,7 +391,7 @@ Specialist in therapeutic sound practices across traditions — vocal toning, ma
 
 **Category:** Research
 
-**Tools:** `WebSearch`, `WebFetch`, `Read`, `Glob`, `Grep`
+**Tools:** `WebSearch`, `WebFetch`, `Read`, `Write`, `Glob`, `Grep`
 
 Research specialist for Carl Hayden Smith's work, endo-technology evidence, archaeoacoustics, and consciousness assessment models.
 
@@ -399,6 +442,18 @@ Specialist in sensory augmentation exercises, perceiving-as-other practices, and
 **Tools:** `Read`, `Write`, `Glob`
 
 Specialist in designing the experiential container (setting, priming, intention, re-entry) before any practice begins.
+
+---
+
+## meditation-guide
+
+**File:** `content/meditation-guide.md`
+
+**Category:** Content
+
+**Tools:** `Read`, `Write`, `Glob`
+
+Specialist in plain meditation instruction: breath awareness, body scan, and loving-kindness, taught without a framework layered on top.
 
 ---
 
@@ -486,13 +541,25 @@ Specialist in group healing dynamics and community-based practice facilitation w
 
 ---
 
+## caregiver-companion
+
+**File:** `content/caregiver-companion.md`
+
+**Category:** Content
+
+**Tools:** `Read`, `Write`, `Glob`
+
+Specialist in support for the person doing the caring: capacity, boundaries, anticipatory grief, and respite that fits inside an interrupted day.
+
+---
+
 ## pni-researcher
 
 **File:** `research/pni-researcher.md`
 
 **Category:** Research
 
-**Tools:** `WebSearch`, `WebFetch`, `Read`, `Glob`, `Grep`
+**Tools:** `WebSearch`, `WebFetch`, `Read`, `Write`, `Glob`, `Grep`
 
 Specialist in mind-body-immune interactions — the science of why healing practices may work.
 
@@ -507,6 +574,30 @@ Specialist in mind-body-immune interactions — the science of why healing pract
 **Tools:** `Read`, `Write`, `Glob`
 
 Specialist in inquiry-based contemplative practices that use questioning and investigation as paths to healing insight.
+
+---
+
+## pathway-planner
+
+**File:** `content/pathway-planner.md`
+
+**Category:** Content
+
+**Tools:** `Read`, `Write`, `Glob`
+
+Specialist in sequencing existing healing-swarm skills into a multi-week practice plan that honors foundation periods, rest, and the user's own pace.
+
+---
+
+## outcome-tracker
+
+**File:** `content/outcome-tracker.md`
+
+**Category:** Content
+
+**Tools:** `Read`, `Write`, `Glob`
+
+Specialist in pre/post measurement plans built from validated self-report instruments, kept local, kept optional, and read honestly as one person's time series.
 
 ---
 

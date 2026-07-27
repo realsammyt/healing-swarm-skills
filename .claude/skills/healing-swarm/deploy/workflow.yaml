@@ -14,7 +14,7 @@ description: |
 stages:
   - name: pre_deploy_check
     description: Verify all requirements for deployment
-    agent: orchestrator
+    agent: swarm-conductor
     actions:
       - verify_quality_gates_passed
       - check_content_reviews
@@ -30,12 +30,22 @@ stages:
       - manifest.json
       - content_bundle
 
+  - name: ship_ethics_review
+    description: Ethics review of the content bundle actually being shipped
+    agent: ethics-guardian
+    inputs:
+      - content_bundle
+    outputs:
+      - ethics_approval
+      - required_modifications
+
   - name: build_verification
     description: Verify build is ready for deployment
     agent: devops-specialist
     inputs:
       - source_code
       - content_bundle
+      - ethics_approval
     outputs:
       - verified_build
       - build_report
@@ -51,7 +61,7 @@ stages:
 
   - name: staging_verification
     description: Verify staging deployment
-    agent: orchestrator
+    agent: swarm-conductor
     inputs:
       - staging-url
     actions:
@@ -91,7 +101,7 @@ stages:
 
   - name: identify_target_version
     description: Select the previous version to restore
-    agent: orchestrator
+    agent: swarm-conductor
     actions:
       - select_rollback_version
     outputs:
@@ -107,6 +117,7 @@ deployment_types:
     stages:
       - pre_deploy_check
       - content_preparation
+      - ship_ethics_review
       - build_verification
       - staging_deploy
       - staging_verification
@@ -121,6 +132,7 @@ deployment_types:
     stages:
       - pre_deploy_check
       - content_preparation
+      - ship_ethics_review
       - content_update_only
       - post_deploy_verification
     requires:

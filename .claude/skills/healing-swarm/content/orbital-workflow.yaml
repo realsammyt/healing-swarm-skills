@@ -16,7 +16,7 @@ description: |
 stages:
   - name: intake
     description: Parse journey request and determine parameters
-    agent: orchestrator
+    agent: swarm-conductor
     actions:
       - parse_request
       - determine_journey_duration

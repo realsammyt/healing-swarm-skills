@@ -1,0 +1,50 @@
+---
+name: umwelt-practice
+description: "Builds sensory-augmentation exercises for perceiving-as-other and extending the sensorium, with grounding. Sensitive: use when the user explicitly asks to explore other-than-human perception or sensory expansion. Do NOT auto-launch from loose curiosity about perception; wait for an explicit request. Do NOT use with dissociative disorders; keep grounding present and stop on derealization."
+---
+
+# Umwelt Practice
+
+Sensory augmentation exercises for perceiving-as-other and extending the sensorium. CONTRAINDICATED for dissociative disorders.
+
+**Trigger:** `/umwelt-practice`  ·  **Category:** consciousness
+
+## When to use
+
+Builds sensory-augmentation exercises for perceiving-as-other and extending the sensorium, with grounding. Sensitive: use when the user explicitly asks to explore other-than-human perception or sensory expansion. Do NOT auto-launch from loose curiosity about perception; wait for an explicit request. Do NOT use with dissociative disorders; keep grounding present and stop on derealization.
+
+## Agents this skill coordinates
+
+- [`hyperhumanism-researcher`](../healing-swarm/research/hyperhumanism-researcher.md)
+- [`umwelt-facilitator`](../healing-swarm/content/umwelt-facilitator.md)
+- [`content-writer`](../healing-swarm/content/content-writer.md)
+- [`ethics-guardian`](../healing-swarm/quality/ethics-guardian.md)
+
+**Workflow:** [`content/umwelt-workflow.yaml`](../healing-swarm/content/umwelt-workflow.yaml)
+
+**Templates:**
+
+- [`content/templates/umwelt-exercise.md`](../healing-swarm/content/templates/umwelt-exercise.md)
+
+**Safety context (load before generating output):**
+
+- [`shared/crisis-response.md`](../healing-swarm/shared/crisis-response.md)
+- [`shared/contraindications.md`](../healing-swarm/shared/contraindications.md)
+
+**Outputs:** `umwelt-practice.md`, `sensory-map.md`, `grounding-guide.md`
+
+## Example usage
+
+```bash
+/umwelt-practice "forest sensing" --level perceiving_as_other
+```
+
+## Safety
+
+> This is a **sensitive** skill. Do not auto-launch it from loose conversational cues; wait for an explicit request, offer it gently, and honor the guards in the description above.
+
+> Outputs require ethics approval before release. The `ethics-guardian` review applies, and it can block content that overclaims or risks harm.
+
+---
+
+_Generated from `manifest.yaml` + `skill-discovery.yaml` by `scripts/generate-skills.js`. Do not edit by hand._

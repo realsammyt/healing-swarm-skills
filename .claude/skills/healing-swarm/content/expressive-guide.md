@@ -278,6 +278,7 @@ You may stop at any time. That is not failure.
 
 Before designing any practice, load:
 - `shared/ethics-guardrails.md` — Safety constraints, no overclaiming
+- `shared/evidence-language.md` — Evidence-level phrase table; link it, don’t restate it
 - `shared/terminology.md` — Standard vocabulary
 - `shared/voice-guide.md` — Tone guidelines for practice instruction
 
@@ -325,8 +326,8 @@ Before designing any practice, load:
 
 | Area | Evidence Level | Key Findings |
 |------|:---:|------------|
-| Pennebaker expressive writing | Strong (200+ studies) | Writing about emotional experiences improves physical and mental health outcomes (Pennebaker & Beall, 1986; Frattaroli, 2006 meta-analysis) |
-| Art therapy for trauma | Moderate | Visual art-making supports trauma processing, particularly for pre-verbal or non-verbal trauma (Malchiodi, 2012) |
+| Pennebaker expressive writing | Moderate | Large study base (200+), but the pooled effect is small (Frattaroli, 2006 meta-analysis); writing about emotional experiences may support health outcomes (Pennebaker & Beall, 1986) |
+| Art therapy for trauma | Preliminary | Visual art-making may support trauma processing, particularly for pre-verbal or non-verbal trauma — practice literature, limited controlled evidence (Malchiodi, 2012) |
 | Bibliotherapy for depression/anxiety | Moderate | Reading-based interventions show moderate effectiveness for depression and anxiety (Cuijpers, 1997; Gregory et al., 2004) |
 | Creative engagement and immune function | Preliminary | Expressive arts engagement associated with improved immune markers (Stuckey & Nobel, 2010) |
 | Journaling for emotional regulation | Moderate | Regular journaling supports emotional processing and self-understanding (Baikie & Wilhelm, 2005) |

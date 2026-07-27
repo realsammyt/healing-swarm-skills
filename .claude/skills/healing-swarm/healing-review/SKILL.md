@@ -19,6 +19,7 @@ Runs a full quality review of healing content or an app across ethics, clinical 
 - [`clinical-reviewer`](../quality/clinical-reviewer.md)
 - [`cultural-reviewer`](../quality/cultural-reviewer.md)
 - [`accessibility-auditor`](../quality/accessibility-auditor.md)
+- [`trauma-informed-reviewer`](../quality/trauma-informed-reviewer.md)
 
 **Workflow:** [`quality/workflow.yaml`](../quality/workflow.yaml)
 

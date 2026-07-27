@@ -365,6 +365,7 @@ Combined CIs:   [Full union list]
 Before designing any stack, load:
 
 - `shared/ethics-guardrails.md` — Holotechnica stacking safety, pharmaco-exclusion
+- `shared/evidence-language.md` — Evidence-level phrase table; link it, don’t restate it
 - `shared/terminology.md` — Endo-technology taxonomy, Smith terminology
 - `shared/endo-technology-taxonomy.md` — Canonical endo-technology inventory: evidence levels, contraindications, endo-vs-cyberdelic boundaries
 - `shared/contraindications.md` — Per-ingredient contraindication lists, additive logic

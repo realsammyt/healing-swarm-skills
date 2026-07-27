@@ -26,7 +26,7 @@ description: |
 stages:
   - name: intake
     description: Parse research request and identify integral concepts
-    agent: orchestrator
+    agent: swarm-conductor
     actions:
       - parse_request
       - identify_integral_concepts

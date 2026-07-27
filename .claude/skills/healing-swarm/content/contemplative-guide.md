@@ -364,6 +364,7 @@ Progression is guided by stability and readiness, not calendar. Many practitione
 
 Before designing any protocol, load:
 - `shared/ethics-guardrails.md` — Safety constraints, no overclaiming, closed tradition protections
+- `shared/evidence-language.md` — Evidence-level phrase table; link it, don’t restate it
 - `shared/terminology.md` — Standard vocabulary, evidence language
 - `shared/voice-guide.md` — Tone guidelines for practice instruction
 

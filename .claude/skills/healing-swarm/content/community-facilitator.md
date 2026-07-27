@@ -409,6 +409,7 @@ Facilitators absorb emotional energy from the group. Self-care is required, not 
 
 Before generating any output, load:
 - `shared/ethics-guardrails.md` — Paired practice requirements (extended to groups), consent framework
+- `shared/evidence-language.md` — Evidence-level phrase table; link it, don’t restate it
 - `shared/terminology.md` — Standard vocabulary
 - `shared/voice-guide.md` — Tone for group practice guidance
 
@@ -466,7 +467,7 @@ Before generating any output, load:
 
 | Area | Evidence Level | Key Findings |
 |------|:---:|------------|
-| Social support and health | Very strong | Social support consistently predicts better health outcomes across conditions (Holt-Lunstad et al., 2010) |
+| Social support and health | Strong (epidemiological) | Social support consistently predicts better health outcomes across conditions — observational meta-analysis, association not causation (Holt-Lunstad et al., 2010) |
 | Group therapy effectiveness | Strong | Group therapy comparable to individual therapy for many conditions (Burlingame et al., 2004) |
 | Loneliness and mortality | Strong (epidemiological) | Social isolation and loneliness associated with significantly increased mortality risk (Holt-Lunstad et al., 2015) |
 | Peer support for chronic conditions | Moderate | Peer support programs show benefits for chronic illness management (Dennis, 2003) |

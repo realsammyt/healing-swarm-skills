@@ -16,7 +16,7 @@ description: |
 stages:
   - name: intake
     description: Parse request and determine protocol parameters
-    agent: orchestrator
+    agent: swarm-conductor
     actions:
       - parse_query
       - determine_experience_level
@@ -98,7 +98,7 @@ stages:
 
   - name: finalize
     description: Produce final outputs
-    agent: orchestrator
+    agent: swarm-conductor
     inputs:
       - final-protocol.md
       - grounding-guide.md

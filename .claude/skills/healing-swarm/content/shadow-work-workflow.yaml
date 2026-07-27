@@ -25,7 +25,7 @@ description: |
 stages:
   - name: intake
     description: Parse shadow work request and assess intensity
-    agent: orchestrator
+    agent: swarm-conductor
     actions:
       - parse_shadow_figure
       - assess_emotional_charge

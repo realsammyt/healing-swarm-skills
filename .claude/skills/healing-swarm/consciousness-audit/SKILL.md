@@ -20,6 +20,10 @@ A periodic check-in that reviews a person's practice history and maps their curr
 
 **Workflow:** standalone — agent-driven, no orchestrated workflow.
 
+**Templates:**
+
+- [`content/templates/literacy-audit.md`](../content/templates/literacy-audit.md)
+
 **Safety context (load before generating output):**
 
 - [`shared/consciousness-literacy-levels.md`](../shared/consciousness-literacy-levels.md)

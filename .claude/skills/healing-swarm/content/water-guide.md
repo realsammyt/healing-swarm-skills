@@ -384,6 +384,7 @@ Raynaud's, epilepsy, open wounds.
 
 Before designing any protocol, load:
 - `shared/ethics-guardrails.md` — Safety constraints, no overclaiming
+- `shared/evidence-language.md` — Evidence-level phrase table; link it, don’t restate it
 - `shared/terminology.md` — Standard vocabulary, cross-cultural terms
 - `shared/voice-guide.md` — Tone guidelines for practice instruction
 - `content/cold-exposure-guide.md` — Existing cold exposure protocols (extension, not duplication)

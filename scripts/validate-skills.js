@@ -183,6 +183,7 @@ function validateAgentPrompt(filePath) {
     'quality/clinical-reviewer.md': 'clinical',
     'quality/cultural-reviewer.md': 'cultural',
     'quality/accessibility-auditor.md': 'accessibility',
+    'quality/trauma-informed-reviewer.md': 'trauma',
   };
   const gateName = GATE_REQUIRED[relPath];
   if (gateName) {

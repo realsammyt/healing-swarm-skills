@@ -16,7 +16,7 @@ description: |
 stages:
   - name: intake
     description: Parse content request and load requirements
-    agent: orchestrator
+    agent: swarm-conductor
     actions:
       - parse_content_request
       - identify_content_type
