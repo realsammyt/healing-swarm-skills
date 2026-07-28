@@ -5,8 +5,8 @@
 > conversation should read this first, then update it before ending a session.
 > If anything here disagrees with reality, reality wins — fix the doc.
 
-**Last updated:** 2026-07-27 by Claude (Fable 5) — Six-lens review improvements implemented on `feat/six-lens-improvements` (8 commits): enforcement honesty, safety wiring (group-perception P0), citation reconciliation, docs truth, registry truth, the DISCOVERY FIX (top-level SKILL.md stubs — nested ones were never loaded; verified live), 6 new skills + trauma gate, timelines/1.3.0. Counts now 60/46/27. **PR #22 opened (https://github.com/realsammyt/healing-swarm-skills/pull/22), NOT merged — human review required** (per governance rule after PR #20). Opus 4.8 effort itself unchanged; DAG rename still locked-deferred.
-**Active branch:** `feat/six-lens-improvements` (PR pending human review; `master` unchanged)
+**Last updated:** 2026-07-27 by Claude (Fable 5) — Six-lens review improvements **merged to master via PR #22** (merge commit `a6235c0`) **at the human's explicit instruction** ("pr, merge, and cleanup"); CI 7/7 green at merge. Counts on master now 60/46/27 (v1.3.0). Branch cleanup done: 3 stale merged local branches + 4 merged remote branches deleted; `feat/smith-hyperhumanism-skills` KEPT (unmerged — its tip `8661596` carries GoatCounter analytics work that never landed; human call whether to revive or discard). Opus 4.8 effort unchanged; DAG rename still locked-deferred.
+**Active branch:** `master`
 **Driving plan:** [`docs/plans/2026-05-31-opus-4-8-optimization.md`](docs/plans/2026-05-31-opus-4-8-optimization.md)
 
 ---
@@ -24,9 +24,9 @@
 
 | Thing     | Actual | Source |
 | --------- | ------ | ------ |
-| Skills    | 60 on `feat/six-lens-improvements` (54 on master) | `manifest.yaml` (+6: practice-screening, adverse-response, practice-pathway, outcome-tracking, foundation-meditation, caregiver-support) |
-| Agents    | 46 on branch (39 on master) | `manifest.yaml` agents block (+7 incl. trauma-informed-reviewer, the 5th gate) |
-| Workflows | 27 on branch (26 on master) | `npm run sync:timeline` (+practice-pathway-workflow.yaml) |
+| Skills    | 60     | `manifest.yaml` (+6 in PR #22: practice-screening, adverse-response, practice-pathway, outcome-tracking, foundation-meditation, caregiver-support) |
+| Agents    | 46     | `manifest.yaml` agents block (+7 in PR #22 incl. trauma-informed-reviewer, the 5th gate) |
+| Workflows | 27     | `npm run sync:timeline` (+practice-pathway-workflow.yaml, PR #22) |
 
 > **Count canon, settled in Phase 2:** use `npm run sync:timeline` — it is the
 > single source of truth. The old "36 workflows" validator bug (11 `manifest.yaml`
@@ -175,6 +175,17 @@ leaves the repo shippable; none requires the next.
 
 ## 7. Activity log (newest first — append, don't overwrite)
 
+- **2026-07-27 (merge + cleanup)** — PR #22 merged to master (merge commit
+  `a6235c0`) at the human's explicit instruction; all 7 CI checks green,
+  including the newly un-neutered test gate and real yaml-lint gate.
+  Cleanup: deleted 3 fully-merged local branches
+  (feat/development-timeline-and-workflow, feat/website-showcase-integral-
+  skills, feat/wilber-integral-theory-skills) and 4 fully-merged remote
+  branches (those three + claude/review-healing-skills-R4qNg); pruned 3
+  dead remote refs. **Kept `feat/smith-hyperhumanism-skills` (local +
+  remote): it is NOT merged — tip `8661596` "feat: Add GoatCounter
+  analytics tracking" never landed; revive or discard is the human's
+  call.** Handoff closed out via docs/handoff-six-lens-close.
 - **2026-07-27 (six-lens review + expansion)** — User asked for a superpowers
   review + Opus/Sonnet agent-team improvement pass. Six parallel reviewers
   (build health, content quality, safety, tooling, docs, growth) → plan
