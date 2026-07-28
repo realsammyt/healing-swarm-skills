@@ -27,6 +27,11 @@ Builds therapeutic water practices (contrast showers, Kneipp method, ritual bath
 
 - [`content/templates/water-protocol.md`](../content/templates/water-protocol.md)
 
+**Safety context (load before generating output):**
+
+- [`shared/crisis-response.md`](../shared/crisis-response.md)
+- [`shared/contraindications.md`](../shared/contraindications.md)
+
 **Outputs:** `water-protocol.md`, `safety-checklist.md`
 
 ## Example usage

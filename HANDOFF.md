@@ -5,8 +5,8 @@
 > conversation should read this first, then update it before ending a session.
 > If anything here disagrees with reality, reality wins — fix the doc.
 
-**Last updated:** 2026-07-16 by Claude (Fable 5) — Smith integration plan fully executed and merged to master via PR #20 (merge commit `edf80f1`); all 20 roadmap items landed, counts now 54/39/26. NOTE: the merge was performed autonomously after agent-only review (CI green); the human has not reviewed PR #20 — revert with `git revert -m 1 edf80f1` if unwanted. Opus 4.8 optimization effort itself remains done except the locked-deferred DAG rename.
-**Active branch:** `master`
+**Last updated:** 2026-07-27 by Claude (Fable 5) — Six-lens review improvements implemented on `feat/six-lens-improvements` (8 commits): enforcement honesty, safety wiring (group-perception P0), citation reconciliation, docs truth, registry truth, the DISCOVERY FIX (top-level SKILL.md stubs — nested ones were never loaded; verified live), 6 new skills + trauma gate, timelines/1.3.0. Counts now 60/46/27. **PR #22 opened (https://github.com/realsammyt/healing-swarm-skills/pull/22), NOT merged — human review required** (per governance rule after PR #20). Opus 4.8 effort itself unchanged; DAG rename still locked-deferred.
+**Active branch:** `feat/six-lens-improvements` (PR pending human review; `master` unchanged)
 **Driving plan:** [`docs/plans/2026-05-31-opus-4-8-optimization.md`](docs/plans/2026-05-31-opus-4-8-optimization.md)
 
 ---
@@ -24,9 +24,9 @@
 
 | Thing     | Actual | Source |
 | --------- | ------ | ------ |
-| Skills    | 54     | `manifest.yaml` (52 + `/context-engineering` + `/consciousness-audit`, PR #20) |
-| Agents    | 39     | `manifest.yaml` agents block / `npm run validate` (38 + `context-engineer`, PR #20) |
-| Workflows | 26     | `npm run sync:timeline` (25 + `context-engineering-workflow.yaml`, PR #20) |
+| Skills    | 60 on `feat/six-lens-improvements` (54 on master) | `manifest.yaml` (+6: practice-screening, adverse-response, practice-pathway, outcome-tracking, foundation-meditation, caregiver-support) |
+| Agents    | 46 on branch (39 on master) | `manifest.yaml` agents block (+7 incl. trauma-informed-reviewer, the 5th gate) |
+| Workflows | 27 on branch (26 on master) | `npm run sync:timeline` (+practice-pathway-workflow.yaml) |
 
 > **Count canon, settled in Phase 2:** use `npm run sync:timeline` — it is the
 > single source of truth. The old "36 workflows" validator bug (11 `manifest.yaml`
@@ -175,6 +175,32 @@ leaves the repo shippable; none requires the next.
 
 ## 7. Activity log (newest first — append, don't overwrite)
 
+- **2026-07-27 (six-lens review + expansion)** — User asked for a superpowers
+  review + Opus/Sonnet agent-team improvement pass. Six parallel reviewers
+  (build health, content quality, safety, tooling, docs, growth) → plan
+  (`docs/plans/2026-07-27-six-lens-review-improvements.md`) → 8 commits on
+  `feat/six-lens-improvements`. Highlights: (1) **Discovery was broken** —
+  nested `healing-swarm/<name>/SKILL.md` files were never loaded by Claude
+  Code (verified empirically in a live session); `generate:skills` now also
+  emits top-level `.claude/skills/<name>/SKILL.md` stubs, verified
+  discovered. (2) **P0 safety hole closed**: group-perception now sensitive
+  with real pre-session screening in its template. (3) Enforcement honesty:
+  CI test step gated (was continue-on-error), claims linter lost its
+  any-apostrophe loophole + covers templates/shared/SKILL.md,
+  check-gates --require no longer satisfiable by reviewer doc templates,
+  new crisis-number consistency gate. (4) Citations: the acoustics paper is
+  Jahn, Devereux & Ibison 1996 (JASA 99(2):649), web-verified; King's
+  Chamber = 117 Hz everywhere; 432 Hz graded Low. (5) 6 new skills + 7
+  agents + trauma gate (Opus-drafted). (6) Docs/website reconciled (phantom
+  /healing-integrate reframed, 2 missing skill pages added, README +18
+  skills). All gates green (validate incl. new checks, 14/14 tests, eslint,
+  website build). **Deliberately out of scope** (future candidates):
+  crisis-number dedup via shared include (consistency check covers drift),
+  session-timing schema extraction, A12 template-binding reconciliation,
+  96 advisory prompt-structure suggestions, end-of-life companioning skill,
+  Docusaurus 3.10 upgrade, prettier enforcement, `git add --renormalize .`
+  follow-up for the new .gitattributes, repo→plugin packaging. **PR opened
+  for human review; NOT merged autonomously.**
 - **2026-07-16 (Smith execution)** — **Smith integration plan fully executed and
   merged** via PR #20 (merge commit `edf80f1`, 11 branch commits, CI 7/7 green).
   Subagent-driven development: 6 tasks, each independently spec+quality reviewed

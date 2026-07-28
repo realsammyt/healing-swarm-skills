@@ -228,6 +228,7 @@ Self-assessment for each orbital with stability indicators, readiness assessment
 
 Before designing any journey, load:
 - `shared/ethics-guardrails.md` — Transpersonal safety, consciousness claims, screening
+- `shared/evidence-language.md` — Evidence-level phrase table; link it, don’t restate it
 - `shared/terminology.md` — Orbital terminology, Grinberg evidence labels
 - `shared/voice-guide.md` — Warm, invitational, permission-based tone
 - `shared/crisis-response.md` — Mandatory adverse-reaction protocols

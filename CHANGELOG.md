@@ -136,12 +136,78 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   orientation and a relational-challenge dimension; holotechnica-architect now loads
   the endo-technology taxonomy; hyperhumanism-workflow aligned its capacity-inventory
   output name to the manifest and added an open-project framing action
-- **1 new worked example**: `examples/hyperhumanism-onboarding/` — a full four-phase
+- **1 new worked example**: `.claude/skills/healing-swarm/examples/hyperhumanism-onboarding/` — a full four-phase
   inquiry onboarding for one composite participant
 - Cumulative counts reconciled to manifest ground truth (54 skills, 39 agents,
   26 workflows)
 
 ---
+
+## [1.3.0] — 2026-07-27
+
+Six-lens multi-agent review applied end to end (build health, content
+quality, safety, tooling, docs, growth), plus six new practice-support
+skills and a fifth quality gate.
+
+### Added
+
+- **6 skills:** `/practice-screening`, `/adverse-response` (sensitive),
+  `/practice-pathway`, `/outcome-tracking`, `/foundation-meditation`,
+  `/caregiver-support` — with 6 agents, 1 workflow, and 6 templates
+  (screening-record, adverse-event-log, pathway-plan, outcome-log,
+  capacity-check, literacy-audit)
+- **trauma-informed-reviewer** — fifth quality gate (`trauma`, blocking):
+  titration, choice points, exit ramps, orientation vs flooding; wired into
+  the quality workflow, gate-token anti-rot check, and healing-review
+- **Top-level SKILL.md stubs** — `generate:skills` emits
+  `.claude/skills/<name>/SKILL.md`; the nested copies were empirically never
+  discovered by Claude Code, so every skill was slash-command-only
+- **`scripts/check-crisis-numbers.js`** — crisis-hotline restatements can no
+  longer drift from the `crisis-response.md` canon (in `npm run validate`)
+- `.gitattributes` (LF policy for generated files; no renormalize yet)
+
+### Fixed
+
+- **Enforcement was partly decorative:** CI `npm test` had
+  `continue-on-error: true` (the ethics/accessibility veto test suite was
+  not gating); yaml/markdown lint ended `|| true` while the summary printed
+  ✅; eslint never ran (2 real errors); the claims linter exempted any line
+  containing an apostrophe and missed 7/9 overclaim probes; `check-gates
+  --require` was satisfiable by the reviewers' own documentation templates;
+  validate-manifest failed open on an unreadable skill-discovery.yaml
+- **Citations:** the archaeoacoustics measurement paper is Jahn, Devereux &
+  Ibison 1996 (JASA 99(2):649-658) — every live "Jahn & Dunne 1992"
+  reference corrected; Cook et al. 2008 consistently EEG (one page said
+  fMRI); "110 Hz King's Chamber" examples corrected to 117 Hz; 369/432 Hz
+  graded Low instead of "confirmed"
+- **Docs told users things that don't exist:** `/healing-integrate` +
+  Gamification/Narrative/Game Healing reframed as documentation patterns
+  (they were never manifest skills — historical timeline corrected);
+  worked-example paths fixed in 4 docs; the 2 newest skills got their
+  missing website pages; README Skills Overview completed (+18 skills);
+  CONTRIBUTING paths prefixed; stale hardcoded counts removed
+- **Registry drift:** swarm-conductor now lists all agents (was 13); 26
+  workflows referenced the unregistered name `orchestrator` (now
+  `swarm-conductor`, with a validator check); research/quality agents got
+  the Write tool their declared outputs require; consciousness-audit's
+  declared `literacy-audit.md` output template now exists and its agents
+  know the literacy taxonomy
+
+### Changed (safety hardening)
+
+- `group-perception` is now a **sensitive** skill: discovery guard,
+  crisis/contraindication requires, and pre-session screening + stop-signal
+  + crisis block in its facilitation template
+- Safety `requires:` added to whm-breathwork, whm-cold-exposure,
+  whm-journey, water-healing, somatic-practice, sound-consciousness,
+  holotechnica-stack, archaeoacoustic-toning, consciousness-audit,
+  context-engineering
+- `contraindications.md` gained a LANGUAGE AWARENESS & DEAUTOMATIZATION
+  table; `crisis-response.md` localization rule moved to the top, inline
+  "call 911" strings localized, quarterly verification stamp added
+- Deploy workflow gained a ship-stage ethics review; evidence-language.md
+  now referenced by all content guides; four inflated evidence labels
+  corrected
 
 ## [1.2.0] — 2026-03-04
 

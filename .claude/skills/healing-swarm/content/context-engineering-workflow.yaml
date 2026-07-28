@@ -17,7 +17,7 @@ description: |
 stages:
   - name: intake
     description: Gather the practice, the person, and the constraints
-    agent: orchestrator
+    agent: swarm-conductor
     actions:
       - parse_request
       - identify_target_practice

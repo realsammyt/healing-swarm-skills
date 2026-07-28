@@ -354,6 +354,7 @@ Post-session: Body scan, slow standing.
 
 Before designing any protocol, load:
 - `shared/ethics-guardrails.md` — Safety constraints, no overclaiming
+- `shared/evidence-language.md` — Evidence-level phrase table; link it, don’t restate it
 - `shared/terminology.md` — Standard vocabulary, breathwork terms
 - `shared/voice-guide.md` — Tone guidelines for practice instruction
 

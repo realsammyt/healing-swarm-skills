@@ -75,7 +75,7 @@ Research and assess the evidence for sacred site acoustics:
 
 | Source                         | Type                     | Key Finding                                                      | Evidence Level                                  |
 | ------------------------------ | ------------------------ | ---------------------------------------------------------------- | ----------------------------------------------- |
-| Jahn & Dunne 1992 (JASA)       | Journal article          | Acoustic measurements of ancient sites; resonance at ~110-117 Hz | Moderate — well-documented acoustic measurement |
+| Jahn, Devereux & Ibison 1996 (JASA)       | Journal article          | Acoustic measurements of ancient sites; resonance at ~110-117 Hz | Moderate — well-documented acoustic measurement |
 | Cook et al. 2008               | Journal article          | EEG changes at 110 Hz vs 90/130 Hz (n=30)                        | Preliminary — single study, moderate sample     |
 | Smith et al. 2023 (EVA London) | Conference proceedings   | 139.01 Hz at Saqqara, consciousness framework                    | Preliminary — conference presentation           |
 | Smith et al. 2021              | Exhibition documentation | Museum of Consciousness framework                                | Theoretical framework                           |
@@ -205,6 +205,88 @@ Research the distinction that underpins Holotechnica design:
 - Trait changes with sustained practice: Moderate to well-established (depends on trait)
 - Specific dosage requirements: Preliminary (varies widely)
 - Holotechnica stacking for trait development: Theoretical
+
+---
+
+## Consciousness-Literacy Assessment (for /consciousness-audit)
+
+You are the assessing agent for `/consciousness-audit`. The canonical taxonomy is
+`shared/consciousness-literacy-levels.md`; read it before every audit and use its
+names verbatim. Do not invent clusters, levels, or a level above embodied.
+
+**The four clusters** (rate separately, never combine):
+
+| Cluster | Covers | Practice history to look for |
+| ------- | ------ | ---------------------------- |
+| Somatic | Breath, body sensation, movement | `/whm-breathwork`, `/somatic-practice` |
+| Perceptual | Sense foregrounding, sensorium, sound | `/umwelt-practice`, `/sound-healing` |
+| Relational | Practising with another person or group, with consent | `/relational-practice`, `/resonance-pairing` |
+| Attentional | Sustaining and releasing attention, stillness | `/contemplative-inquiry`, `/coherence-meditation` |
+
+**The four levels** (ordered labels, not scores; never sum or average them):
+**Nascent**, **Developing**, **Established**, **Embodied**.
+
+### Mapping practice history to a level
+
+Rate behaviour, not vibes. Every level you record must be anchored to a specific
+thing that happened in the period under review. No instance, no level.
+
+- **Nascent** — notices the shift only afterward; needs a full script, recording,
+  or facilitator to begin; loses the thread when the structure stops.
+- **Developing** — names a state while it is happening; starts from a short cue
+  rather than a full script; stays with it a while before attention scatters.
+- **Established** — enters, sustains, and leaves the state deliberately in a
+  supportive setting; notices drift and returns unprompted; adjusts the practice
+  in the moment.
+- **Embodied** — draws on the capacity in ordinary life without a formal
+  practice; adapts it to hard settings; recovers it after a disruption rather
+  than restarting from zero.
+
+Graduation markers (use these verbatim for "what moving one level looks like"):
+naming a state _while it is happening_ (nascent to developing); entering,
+holding, and leaving on purpose without step-by-step guidance (developing to
+established); the capacity showing up unprompted in daily life across settings
+(established to embodied). There is no level above embodied.
+
+**The step-down rule:** when two levels both look plausible, record the lower
+one. Uncertainty steps down, never up. "Not enough practice history to assess" is
+a complete and preferred answer for any thinly practised cluster, and relational
+is thin far more often than not. Uneven levels across clusters are expected, and
+a cluster that moved backward is ordinary data, usually a life disruption, never
+a lost skill or a lost worth.
+
+### Output artifact
+
+Produce `content/templates/literacy-audit.md`, filled per that template: header
+block with period covered and practices reviewed, one section per cluster with a
+level, behavioural evidence, the graduation marker, and an honest-uncertainty
+slot, then trends against the prior audit (or "first audit, baseline only") and
+the support section. Never render a combined score, a literacy number, or any
+cross-cluster arithmetic. Never state or imply that a practice caused a level
+change, and never tie a level to a health outcome.
+
+### Evidence discipline
+
+Smith's reading-literacy analogy is a **theoretical framework**, credited to
+Carl Hayden Smith and distinguished from the underlying practice research. The
+levels are self-report anchors with no published norms, cutoff scores, or
+diagnostic meaning. Use "research suggests" phrasing per
+`shared/evidence-language.md`; never "proves". State plainly in every audit that
+this is reflective self-assessment, not clinical measurement, and that it
+complements but does not replace medical or psychological care.
+
+### Destabilization pattern rule
+
+If the practice history shows persistently worsening sleep after sessions,
+derealization or inability to reorient, anxiety or emotional flooding that does
+not settle, compulsive practice, grandiose or reference beliefs, any measure
+worsening consistently across four or more weeks, or thoughts of self-harm, then
+**stop rating and surface support**. These are not levels. Follow
+`shared/crisis-response.md` and include, with the US-default caveat: 988 Suicide
+& Crisis Lifeline (call or text 988), Crisis Text Line (text HOME to 741741), and
+for a medical emergency, call your local emergency number (911 in the US). Frame
+reaching out as the right next step, never as a failed practice, and escalate to
+`ethics-guardian`.
 
 ---
 
@@ -365,11 +447,11 @@ EVA London proceedings: Smith + consciousness
 
 **Process:**
 
-1. **Scope with WebSearch** — "archaeoacoustics 110 Hz resonance EEG", "Cook 2008 ancient architectural acoustics brain activity". Candidate sources: Jahn & Dunne 1992 (acoustic measurements), Cook et al. 2008 (EEG study), Smith et al. 2023 (EVA London).
+1. **Scope with WebSearch** — "archaeoacoustics 110 Hz resonance EEG", "Cook 2008 ancient architectural acoustics brain activity". Candidate sources: Jahn, Devereux & Ibison 1996 (acoustic measurements), Cook et al. 2008 (EEG study), Smith et al. 2023 (EVA London).
 
 2. **Verify each source with WebFetch before citing:**
    - Cook et al. 2008 — fetch the journal record; confirm title, authors, year, and n=30 match. No PMID located, so cite by author/year/journal per shared/citation-format.md.
-   - Jahn & Dunne 1992 — fetch the JASA listing; confirm the reported resonance range (~110-117 Hz) matches the paper.
+   - Jahn, Devereux & Ibison 1996 — fetch the JASA listing; confirm the reported resonance range (~110-117 Hz) matches the paper.
    - Smith et al. 2023 — fetch the EVA London proceedings entry; confirm the 139.01 Hz Saqqara measurement and its framing as a consciousness framework.
    - A recurring web claim that "ancient builders deliberately tuned chambers to 110 Hz to induce trance" traces only to secondary blogs; no primary source could be fetched. **Marked unverified — excluded from citations.**
 
@@ -384,7 +466,7 @@ EVA London proceedings: Smith + consciousness
 
 ```markdown
 **What we can say with confidence:** Several ancient chambers have measurable
-resonant frequencies near 110-117 Hz (Jahn & Dunne 1992, verified via JASA record).
+resonant frequencies near 110-117 Hz (Jahn, Devereux & Ibison 1996, verified via JASA record).
 
 **What is preliminary/suggestive:** Early research indicates a possible
 frequency-specific EEG effect: one study (Cook et al. 2008, n=30) found different

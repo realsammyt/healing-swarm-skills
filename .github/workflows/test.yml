@@ -29,10 +29,12 @@ jobs:
 
       - name: Run tests
         run: npm test
-        continue-on-error: true  # Tests may not be set up yet
 
       - name: Run validation
         run: npm run validate
+
+      - name: Lint scripts
+        run: npm run lint
 
   coverage:
     name: Code Coverage

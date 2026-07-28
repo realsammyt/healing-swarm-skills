@@ -319,6 +319,7 @@ agreement and are complete without one.
 
 Before generating any output, load:
 - `shared/ethics-guardrails.md` — Paired practice requirements, consent framework
+- `shared/evidence-language.md` — Evidence-level phrase table; link it, don’t restate it
 - `shared/terminology.md` — Transferred potential terminology, evidence labels, and Smith's inter-being and quantum-relationship framing
 - `shared/voice-guide.md` — Tone for interpersonal practice guidance
 - `shared/crisis-response.md` — Mandatory adverse-reaction protocols

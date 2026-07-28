@@ -1,0 +1,100 @@
+---
+sidebar_position: 48
+title: Caregiver Support
+description: Capacity work, boundary work, anticipatory grief, and 2-to-10-minute respite for the person doing the caring
+---
+
+# caregiver-support
+
+**Trigger:** `/caregiver-support`
+
+Supports the person doing the caring — an aging parent, an ill partner, a disabled child, a dying friend — with an honest capacity snapshot, boundary work, anticipatory-grief companionship, and 2-to-10-minute respite practices built for an interrupted day. Assumes **asymmetric care** throughout: nothing offered depends on the care recipient's participation, memory, or agreement.
+
+## Agents
+
+- **Caregiver Companion** - Honest capacity snapshot, boundary work in three registers, anticipatory-grief companionship, a respite menu sized to the actual day, and plain handling of guilt, resentment, and relief
+- **Ethics Guardian** - Verifies crisis resources are present and correctly worded, no clinical assessment or scoring occurred, no diagnostic language was applied to either party, and the asymmetric-care rules held throughout
+
+## Inputs
+
+| Input     | Required | Description                                                                    |
+| --------- | -------- | ---------------------------------------------------------------------------------- |
+| `focus`   | Yes      | The caregiving situation, in the person's own words (e.g., "caring for my mother with dementia") |
+| `--focus` | No       | Narrows the session to one thread: e.g. `anticipatory-grief` or `respite`          |
+
+## Outputs
+
+- `capacity-check.md` - Honest snapshot (sleep, support, time, body signals, the unsaid), a boundary worksheet, a respite menu selected for the actual day, and when-to-seek-support indicators with resources
+- `respite-menu.md` - The pick-one, skip-the-rest respite card; each entry interruptible without loss
+- `boundary-worksheet.md` - One boundary per block: what it is, who it applies to, the sentence to say, what it costs, and what to do if it isn't respected
+
+## Examples
+
+**General intake:**
+
+```bash
+/caregiver-support "caring for my mother with dementia"
+```
+
+**Naming anticipatory grief directly:**
+
+```bash
+/caregiver-support "partner in hospice" --focus anticipatory-grief
+```
+
+**Naming respite directly:**
+
+```bash
+/caregiver-support "no time for anything" --focus respite
+```
+
+## Asymmetric Care: the Design Constraint
+
+Every other relational skill in this library (`community-healing`, `relational-practice`, `resonance-pairing`) assumes symmetry: both parties consent, effort alternates, boundaries are negotiated together. Caregiving is not that, and this skill designs for the difference directly.
+
+| Symmetric practice assumes           | Caregiving reality                                                          |
+| --------------------------------------- | -------------------------------------------------------------------------------- |
+| Both parties consent to the practice    | The care recipient may be unable to consent to anything, including the caregiving |
+| Effort is shared or alternates          | Effort flows one direction, often for years                                       |
+| Boundaries are negotiated                | Boundaries must be held unilaterally, sometimes against someone who cannot understand them |
+| Both parties can leave                   | Leaving is not available, or costs more than the caregiver can pay                |
+| Repair happens between two people        | Repair may be impossible; the other person may not remember the rupture           |
+| Gratitude circulates                     | Thanks may never come, and wanting it is not a character flaw                     |
+
+Three consequences follow: no practice ever requires the care recipient's participation; needs are never routed through asking the relationship to change; and a good relationship is never implied to make this easier.
+
+## Respite Design Constraints
+
+Every respite offering is interruptible at any second without loss, needs no equipment, app, floor, or privacy, works while listening for a monitor or a call bell, and is doable one-handed, standing, or in a parked car. Nothing is framed as something the caregiver "owes themselves," and there are no streaks or daily requirements. Sample entries run from a 30-second doorway pause to a 5-to-10-minute walk to the end of the block; the menu is adapted to the actual day (audible-safe and door-adjacent for a hospital bed in the living room, car-based for hours of daily driving).
+
+## Research Basis
+
+> **Evidence level: Mixed, strongest for caregiver-strain epidemiology**
+>
+> Caregivers reporting strain show higher mortality risk than non-caregiving controls in a large prospective cohort (Schulz & Beach, 1999, *JAMA*) — presented as a reason to take one's own care seriously, never as a prediction about an individual. Structured multicomponent programs combining education, support, and respite show moderate evidence for reduced burden and depressive symptoms (Belle et al., 2006, *Annals of Internal Medicine*; REACH II). Whether grieving in advance eases subsequent bereavement is genuinely mixed in the literature, and this skill never claims that it does. Ambiguous loss (Boss, 1999) is offered as a descriptive framework that may fit, not as a diagnosis.
+
+## Safety
+
+- `shared/crisis-response.md` and `shared/contraindications.md` are both required for this skill; any practice offered, however brief, is screened first.
+- **Not therapy and not care management.** The care recipient is never assessed, medically advised, or care-planned; the work stays with the caregiver's own capacity, limits, and grief.
+- Caregiver-burden instruments (for example, the Zarit Burden Interview) may be mentioned as something a clinician or program might use. This skill never administers, reproduces, or scores one, and never produces a capacity total, level, or grade of its own.
+- Thoughts of harming themselves or the person they care for get an immediate, non-judgmental, resourced response, not deferred: call or text **988** (Suicide & Crisis Lifeline), text **HOME** to **741741** (Crisis Text Line), or call your local emergency number (911 in the US) if anyone is in immediate danger.
+- **Anticipatory grief carries the same discipline `grief-healing` applies to bereavement**: no imposed stages or timelines, no claim that grieving now eases later, no comparison framing ("at least you have time to prepare"). When the person being cared for has died, or grief is the whole of what's present, this skill hands off to `/grief-healing` rather than continuing.
+- For a group, support circle, or family meeting, this skill hands off to `/community-healing` rather than designing group protocols itself.
+
+## Quality Gates
+
+Before output is finalized:
+
+- Capacity snapshot presented as description, never a total, score, level, or grade
+- No practice prescribed that depends on the care recipient's participation, memory, or agreement
+- Guilt, resentment, and relief named as information, never pathologized or called irrational
+- Anticipatory grief carries no stage model, no timeline, and no promised payoff
+- Harm-to-self-or-other indicators handled without judgment, resources appearing immediately
+- Respite menu sized to the actual day: interruptible, no equipment, no privacy required
+- "Not therapy, not care management" stated plainly in every artifact
+- Hands off to `/grief-healing` after a death and to `/community-healing` for group needs, rather than duplicating either
+
+---
+
+_You are allowed to want this to be over and still love them._

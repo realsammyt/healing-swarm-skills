@@ -196,23 +196,65 @@ claude> /healing-swarm "Sacred Healing Journey" --focus "ligament healing"
 | [Language Awareness](docs/api/skills-reference.md#language-awareness) | `/language-awareness` | Individual cognitive deautomatization practices    |
 | [Group Perception](docs/api/skills-reference.md#group-perception)     | `/group-perception`   | Group perception exercises with consent frameworks |
 
+### Integral Theory Skills (Wilber)
+
+| Skill                                                                     | Trigger                 | Purpose                                             |
+| ------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------- |
+| [AQAL Check-In](docs/api/skills-reference.md#aqal-check-in)               | `/aqal-check-in`        | Structured four-quadrant self-inquiry               |
+| [Shadow Integration](docs/api/skills-reference.md#shadow-work)            | `/shadow-work`          | 3-2-1 shadow process with safety architecture       |
+| [Spectrum Meditation](docs/api/skills-reference.md#spectrum-meditation)   | `/spectrum-meditation`  | Three-body progressive state training               |
+| [Integral Psychograph](docs/api/skills-reference.md#integral-psychograph) | `/integral-psychograph` | Developmental line self-reflection (not assessment) |
+| [Perspective Practice](docs/api/skills-reference.md#perspective-practice) | `/perspective-practice` | Quadrant perspective-taking on life situations      |
+
+### Hyperhumanism & Sound Consciousness Skills (Carl Hayden Smith)
+
+| Skill                                                                         | Trigger                   | Purpose                                                                            |
+| ----------------------------------------------------------------------------- | ------------------------- | ---------------------------------------------------------------------------------- |
+| [Archaeoacoustic Toning](docs/api/skills-reference.md#archaeoacoustic-toning) | `/archaeoacoustic-toning` | Guided vocal toning at resonant frequencies of ancient sacred sites                |
+| [Sound Consciousness](docs/api/skills-reference.md#sound-consciousness)       | `/sound-consciousness`    | Museum of Consciousness-style samples with Milliere 6D self-assessment             |
+| [Holotechnica Stack](docs/api/skills-reference.md#holotechnica-stack)         | `/holotechnica-stack`     | Personalized endo-technology experience stacks targeting altered traits            |
+| [Hyperhumanism Inquiry](docs/api/skills-reference.md#hyperhumanism-inquiry)   | `/hyperhumanism-inquiry`  | Guided philosophical inquiry on technology and innate human capacities             |
+| [Umwelt Practice](docs/api/skills-reference.md#umwelt-practice)               | `/umwelt-practice`        | Sensory augmentation exercises for perceiving-as-other and extending the sensorium |
+| [Cyberdelic Research](docs/api/skills-reference.md#cyberdelic-research)       | `/cyberdelic-research`    | Deep research into consciousness technologies and endo-technology science          |
+
+### Consciousness Literacy Skills
+
+| Skill                                                                   | Trigger                | Purpose                                                                                                   |
+| ----------------------------------------------------------------------- | ---------------------- | --------------------------------------------------------------------------------------------------------- |
+| [Context Engineering](docs/api/skills-reference.md#context-engineering) | `/context-engineering` | Designs the experiential container (setting, priming, intention, re-entry) before any practice begins     |
+| [Consciousness Audit](docs/api/skills-reference.md#consciousness-audit) | `/consciousness-audit` | Periodic consciousness-literacy check-in mapping practice history to literacy levels per modality cluster |
+
+### Safety & Practice Support Skills
+
+| Skill                                                                       | Trigger                  | Purpose                                                                   |
+| --------------------------------------------------------------------------- | ------------------------ | -------------------------------------------------------------------------- |
+| [Practice Screening](docs/api/skills-reference.md#practice-screening)       | `/practice-screening`    | Contraindication screening front door before any practice skill runs      |
+| [Adverse Response](docs/api/skills-reference.md#adverse-response)           | `/adverse-response`      | Stabilize, ground, assess, adapt, and log after a practice reaction       |
+| [Practice Pathway](docs/api/skills-reference.md#practice-pathway)           | `/practice-pathway`      | Multi-week plans sequencing existing skills, screening-first              |
+| [Outcome Tracking](docs/api/skills-reference.md#outcome-tracking)           | `/outcome-tracking`      | WHO-5/PSS-10/PSQI/VAS measurement plans, privacy-first, not diagnosis     |
+| [Foundation Meditation](docs/api/skills-reference.md#foundation-meditation) | `/foundation-meditation` | Plain breath/body-scan/loving-kindness practice, framework-neutral        |
+| [Caregiver Support](docs/api/skills-reference.md#caregiver-support)         | `/caregiver-support`     | Capacity, boundaries, anticipatory grief, and respite for asymmetric care |
+
 ### Sound & Vibratory Healing
 
-| Skill                                                       | Trigger          | Purpose                                                                   |
-| ----------------------------------------------------------- | ---------------- | ------------------------------------------------------------------------- |
-| [Sound Healing](docs/api/skills-reference.md#sound-healing) | `/sound-healing` | Vedic mantra, Psalm chanting, Gregorian chant, singing bowl, vagal toning |
+| Skill                                                         | Trigger           | Purpose                                                                   |
+| ------------------------------------------------------------- | ----------------- | ------------------------------------------------------------------------- |
+| [Sound Healing](docs/api/skills-reference.md#sound-healing)   | `/sound-healing`  | Vedic mantra, Psalm chanting, Gregorian chant, singing bowl, vagal toning |
+| [Sound Research](docs/api/skills-reference.md#sound-research) | `/sound-research` | Evidence review for sound-based healing interventions                     |
 
 ### Somatic & Movement Healing
 
 | Skill                                                             | Trigger             | Purpose                                                                                 |
 | ----------------------------------------------------------------- | ------------------- | --------------------------------------------------------------------------------------- |
 | [Somatic Practice](docs/api/skills-reference.md#somatic-practice) | `/somatic-practice` | Qigong, tai chi, yoga, kinhin, Feldenkrais — with standing/seated/lying/wheelchair mods |
+| [Walking Meditation](docs/api/skills-reference.md#walking-meditation) | `/walking-meditation` | Mindful movement for those who cannot sit |
 
 ### Sleep & Dream Healing
 
 | Skill                                                       | Trigger          | Purpose                                                                            |
 | ----------------------------------------------------------- | ---------------- | ---------------------------------------------------------------------------------- |
 | [Sleep Healing](docs/api/skills-reference.md#sleep-healing) | `/sleep-healing` | Asclepian dream temples, Tibetan dream yoga, TCM organ clock, Ayurvedic dinacharya |
+| [Dream Practice](docs/api/skills-reference.md#dream-practice) | `/dream-practice` | Dream journaling, dream incubation, lucid dreaming introduction |
 
 ### Nature-Based Healing
 
@@ -237,12 +279,14 @@ claude> /healing-swarm "Sacred Healing Journey" --focus "ligament healing"
 | Skill                                                                 | Trigger               | Purpose                                                            |
 | --------------------------------------------------------------------- | --------------------- | ------------------------------------------------------------------ |
 | [Expressive Healing](docs/api/skills-reference.md#expressive-healing) | `/expressive-healing` | Pennebaker writing, bibliotherapy, mandala, ikebana, sacred poetry |
+| [Healing Journaling](docs/api/skills-reference.md#healing-journaling) | `/healing-journaling` | Extended journaling protocols beyond simple prompts |
 
 ### Community & Relational Healing
 
 | Skill                                                               | Trigger              | Purpose                                                                   |
 | ------------------------------------------------------------------- | -------------------- | ------------------------------------------------------------------------- |
 | [Community Healing](docs/api/skills-reference.md#community-healing) | `/community-healing` | Healing circles, talking circles, Sangha, Quaker meeting, Ubuntu, 12-Step |
+| [Relational Practice](docs/api/skills-reference.md#relational-practice) | `/relational-practice` | Dyadic healing practices for relationships (distinct from Grinberg resonance pairing) |
 
 ### Contemplative Inquiry
 
@@ -255,6 +299,7 @@ claude> /healing-swarm "Sacred Healing Journey" --focus "ligament healing"
 | Skill                                                     | Trigger         | Purpose                                                   |
 | --------------------------------------------------------- | --------------- | --------------------------------------------------------- |
 | [PNI Research](docs/api/skills-reference.md#pni-research) | `/pni-research` | Psychoneuroimmunology — mind-body-immune science bridging |
+| [PNI Mapping](docs/api/skills-reference.md#pni-mapping) | `/pni-mapping` | Map one practice to the psychoneuroimmune pathways it may act on |
 
 ### Standalone Skills
 
@@ -282,8 +327,8 @@ claude> /healing-swarm "Sacred Healing Journey" --focus "ligament healing"
 
 ### Reference
 
-- **[Skills Reference](docs/api/skills-reference.md)** - All 54 skills with triggers and options
-- **[Agents Reference](docs/api/agents-reference.md)** - All 39 agents with responsibilities
+- **[Skills Reference](docs/api/skills-reference.md)** - All 60 skills with triggers and options
+- **[Agents Reference](docs/api/agents-reference.md)** - All 46 agents with responsibilities
 - **[Shared Resources](docs/api/shared-resources.md)** - Ethics, safety, terminology, design tokens
 - **[Workflows Reference](docs/api/workflows-reference.md)** - Workflow patterns
 
@@ -445,7 +490,17 @@ Every skill in the healing swarm is underpinned by mandatory safety resources:
 
 ## Examples
 
-See the [examples](examples/) directory for working demonstrations:
+Worked examples live in TWO places:
+
+- **[examples/](examples/)** (repo root) — the larger showcase examples:
+  simple-meditation, whm-breathwork, language-awareness, coherence-meditation,
+  cold-exposure, group-perception, healing-research, and
+  **[family-nexus-healing](examples/family-nexus-healing/)** (a full
+  client-side PWA — the project's largest worked example)
+- **`.claude/skills/healing-swarm/examples/`** — the per-practice-skill worked
+  examples listed below (research background → content → quality review),
+  plus **hyperhumanism-onboarding** (the newest, a four-phase inquiry
+  onboarding)
 
 **Core Examples:**
 
@@ -453,7 +508,7 @@ See the [examples](examples/) directory for working demonstrations:
 - **[WHM Breathwork](examples/whm-breathwork/)** - WHM breathing session with safety architecture
 - **[Language Awareness](examples/language-awareness/)** - Cognitive deautomatization practice with grounding
 
-**Practice Skill Examples (v1.1.0):**
+**Practice Skill Examples (v1.1.0, under `.claude/skills/healing-swarm/examples/`):**
 
 10 complete worked examples with research background, clinical evidence, practice content, and quality review:
 
@@ -549,7 +604,22 @@ And we honor you—for being here, for caring enough to explore this, for consid
 
 ## Development Timeline
 
-A chronological record of major additions. [Full detailed timeline on the website →](https://realsammyt.github.io/healing-swarm-skills/docs/changelog)
+A chronological record of major additions. This is an intentionally
+**condensed digest** — some website timeline entries are merged or summarized
+here. [Full detailed timeline on the website →](https://realsammyt.github.io/healing-swarm-skills/docs/changelog)
+
+### 2026-07-27 — Six-Lens Review: Safety, Discovery & Practice-Support Skills
+
+- **6 skills:** Practice Screening, Adverse Response, Practice Pathway, Outcome Tracking, Foundation Meditation, Caregiver Support
+- **7 agents:** screening-guide, adverse-response-guide, pathway-planner, outcome-tracker, meditation-guide, caregiver-companion, trauma-informed-reviewer (5th quality gate: `trauma`, blocking)
+- **1 workflow:** practice-pathway-workflow
+- **6 templates:** screening-record, adverse-event-log, pathway-plan, outcome-log, capacity-check, literacy-audit
+- **Discovery actually works now:** `generate:skills` emits top-level `.claude/skills/<name>/SKILL.md` stubs — the nested copies were never loaded by Claude Code (empirically verified)
+- **Safety wiring:** group-perception is now a sensitive skill with real screening in its template; WHM trio, water, somatic, and sound skills declare crisis/contraindication requires; deautomatization contraindications table added; crisis file localized + verification-stamped; crisis-number consistency check in `npm run validate`
+- **Enforcement honesty:** CI `npm test` gates for real (was `continue-on-error`); claims linter lost its any-apostrophe exemption and now covers templates/shared/SKILL.md; check-gates can't be satisfied by reviewer doc templates; validators fail closed
+- **Citations reconciled:** the archaeoacoustics paper is Jahn, Devereux & Ibison 1996 (JASA 99(2):649), not "Jahn & Dunne 1992"; King's Chamber = 117 Hz everywhere; 432 Hz graded honestly
+- **Registry truth:** swarm-conductor knows all agents (was 13); 26 workflows' `agent: orchestrator` renamed to the registered `swarm-conductor` + validator check; consciousness-audit can now actually produce its literacy-audit.md
+- Counts now 60 / 46 / 27
 
 ### 2026-07-16 — Carl Hayden Smith Integration (Contextology & Consciousness Literacy)
 
@@ -558,7 +628,7 @@ A chronological record of major additions. [Full detailed timeline on the websit
 - **1 workflow:** context-engineering
 - **10 templates:** resonance-body-map, consciousness-exhibit, capacity-inventory, micro-practice-design, technology-landscape, scaffold-progression, context-design, perceptual-augmentation-tracker, quantum-relationship, ecology-design
 - **2 shared resources added:** endo-technology-taxonomy, consciousness-literacy-levels; updated: terminology, practice-pathways, voice-guide, outcome-measurement
-- **1 worked example:** examples/hyperhumanism-onboarding/
+- **1 worked example:** `.claude/skills/healing-swarm/examples/hyperhumanism-onboarding/`
 - Updated: resonance-facilitator (inter-being orientation), holotechnica-architect (taxonomy reference), hyperhumanism-workflow (manifest alignment)
 - Counts now 54 / 39 / 26
 
@@ -608,6 +678,13 @@ A chronological record of major additions. [Full detailed timeline on the websit
 - **Safety infrastructure:** Crisis response protocols, contraindications database, outcome measurement, practice pathways
 - **10 worked examples** for all new practice skills
 
+### 2026-02-20 — Expanded Examples & Complete Documentation
+
+- Complete skill documentation pages for all skills existing at the time
+- 4 comprehensive worked examples (simple meditation, WHM breathwork, language awareness, healing research)
+- Component + integration-pattern documentation pages
+- No new skills, agents, or workflows
+
 ### 2026-02-20 — WHM Breathwork & Language Awareness
 
 - **5 skills:** WHM Breathwork, WHM Cold Exposure, WHM Journey, Language Awareness, Group Perception
@@ -624,7 +701,9 @@ A chronological record of major additions. [Full detailed timeline on the websit
 
 ### 2026-02-02 — Healing Integration & Website Launch
 
-- **4 skills:** Healing Integration, Healing Gamification, Narrative Healing, Game Healing
+- **4 documentation patterns** (not shipped manifest skills — no slash
+  commands; invoked via freeform prompt, and not counted in skill totals):
+  Healing Integration, Healing Gamification, Narrative Healing, Game Healing
 - Website migrated from Jekyll to Docusaurus with healing UI components
 
 ### 2026-02-02 — Initial Release (v1.0.0)
@@ -639,10 +718,10 @@ A chronological record of major additions. [Full detailed timeline on the websit
 
 | Category              | Count |
 | --------------------- | ----- |
-| Skills                | 54    |
-| Agents                | 39    |
-| Workflows             | 26    |
-| Templates             | 38    |
+| Skills                | 60    |
+| Agents                | 46    |
+| Workflows             | 27    |
+| Templates             | 44    |
 | Shared Resources      | 12    |
 | Worked Examples       | 19    |
 | Traditions Integrated | 20+   |

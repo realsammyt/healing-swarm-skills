@@ -26,6 +26,11 @@ Builds a Museum-of-Consciousness style audio sequence with Milliere six-dimensio
 
 - [`content/templates/consciousness-exhibit.md`](../content/templates/consciousness-exhibit.md)
 
+**Safety context (load before generating output):**
+
+- [`shared/crisis-response.md`](../shared/crisis-response.md)
+- [`shared/contraindications.md`](../shared/contraindications.md)
+
 **Outputs:** `consciousness-exhibit.md`, `self-assessment-form.md`, `evidence-brief.md`
 
 ## Example usage

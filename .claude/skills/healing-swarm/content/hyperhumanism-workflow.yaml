@@ -15,7 +15,7 @@ description: |
 stages:
   - name: intake
     description: Parse inquiry topic and determine focus
-    agent: orchestrator
+    agent: swarm-conductor
     actions:
       - parse_request
       - determine_inquiry_focus

@@ -1,0 +1,105 @@
+---
+sidebar_position: 46
+title: Practice Pathway
+description: Sequences existing healing-swarm skills into a multi-week practice plan that honors foundation periods, rest, and screening
+---
+
+# practice-pathway
+
+**Trigger:** `/practice-pathway`
+
+Sequences existing healing-swarm skills into a multi-week practice plan. Selects a pathway archetype, or names a deliberate blend of two, honors the minimum foundation period each dependent practice needs underneath it, routes risky practices through `/practice-screening` first, and ships rest weeks, adaptation rules, and stop rules with every plan. This is sequencing, not practice design: each week names the skill trigger that actually delivers the content, and the practice agents behind it write what happens inside the session.
+
+## Agents
+
+- **Pathway Planner** - Reads the goal, starting point, and constraints; selects or blends an archetype; sequences weeks against the dependency table; attaches skill triggers, rest weeks, adaptation rules, and stop rules
+- **Ethics Guardian** - Checks for compressed foundation periods, performance-framed progression criteria, implied health outcomes, and any plan built around a practice screening excluded
+
+## Inputs
+
+| Input        | Required | Description                                                                                       |
+| ------------ | -------- | ----------------------------------------------------------------------------------------------------- |
+| `focus`      | Yes      | The goal and situation to plan around (e.g., "I'm new, stressed, sleeping badly, 15 minutes a day")   |
+| `--archetype`| No       | Forces a specific pathway archetype instead of letting the planner select one (e.g., `scaffold_to_remove`) |
+
+## Outputs
+
+- `pathway-plan.md` - Archetype, horizon, screening status, week-by-week plan with triggers and progression criteria, rest weeks, adaptation rules, stop rules and crisis resources, an optional measurement cadence, and what comes after
+
+## Examples
+
+**Starting from nothing:**
+
+```bash
+/practice-pathway "I'm new, stressed, sleeping badly, 15 minutes a day"
+```
+
+**Continuing an established practice:**
+
+```bash
+/practice-pathway "6 weeks of daily coherent breathing done, what next?"
+```
+
+**Forcing a specific archetype:**
+
+```bash
+/practice-pathway "learn breath coherence without the app" --archetype scaffold_to_remove
+```
+
+## The Seven Pathway Archetypes
+
+| Archetype                     | Choose when                                                       |
+| ------------------------------ | --------------------------------------------------------------------- |
+| Acute Injury Recovery          | Recent physical injury or post-surgical recovery                       |
+| Chronic Condition Management   | Ongoing condition, quality-of-life focus                                |
+| Stress and Anxiety             | Stress, burnout, anxiety, sleep disruption                              |
+| Spiritual Seeker                | Contemplative, mystical, or transpersonal draw                          |
+| General Wellness                | No specific condition, broad wellbeing                                  |
+| Scaffold→Remove                 | Learning one skill or sense with temporary tool support                 |
+| Hyperhuman Cultivation Arc      | Longer arc from capacity inventory to self-sustaining practice          |
+
+A blend of two is fine when a situation genuinely spans both (chronic condition plus stress is common) — the plan names the blend rather than silently averaging it.
+
+## The Dependency Table
+
+Weeks are laid out so nothing arrives before its foundation:
+
+| Foundation                        | Builds to                        | Minimum foundation period                     |
+| ----------------------------------- | ----------------------------------- | -------------------------------------------------- |
+| Basic breath awareness              | WHM breathwork                      | 2 weeks of daily breath observation                  |
+| Room-temperature water exposure     | Cold immersion                      | 2 weeks of gradual temperature reduction             |
+| 10-minute guided meditation         | Extended silent sits                | 4 weeks of consistent short sits                     |
+| Solo meditation stability           | Paired resonance practice           | 4 weeks of stable solo practice                      |
+| Body awareness (somatic)            | Transpersonal body practices        | 4 weeks of embodied practice                         |
+| Grounding and centering             | Any transpersonal practice          | An established, reliable grounding skill              |
+
+## Research Basis
+
+> **Evidence level: Sequencing framework, not a validated protocol**
+>
+> The pathway archetypes and dependency table are the swarm's own synthesis of complementary-practice logic and traditional progression patterns, drawn together in `shared/practice-pathways.md`. Combining practices does not compound the evidence behind any one of them; each practice keeps its own evidence level, stated where that practice appears. This sequence is a framework for ordering existing, separately-evidenced practices. It is not a clinically validated protocol, and it promises no outcome.
+
+## Safety
+
+- `shared/practice-pathways.md` and `shared/contraindications.md` are required. `shared/crisis-response.md` supplies the stop-rules and crisis resources restated in every plan.
+- Minimum foundation periods are non-negotiable: a plan never compresses the dependency table's windows to look more ambitious, regardless of how ready the person feels.
+- Any practice carrying contraindication risk (breathwork, cold exposure, transpersonal work, extended meditation, intensive movement, water practices) enters a plan only after `/practice-screening` has cleared it. The planner never screens the person directly and never schedules an uncleared risky practice "to check later" — it stays marked pending.
+- Every plan ships both adaptation rules (low-capacity days, flare-ups, missed weeks, a practice that stops fitting) and stop rules (specific signals such as dizziness or chest symptoms during breathwork, numbness during cold, derealization during perception work, worsening mood across four or more weeks), plus the crisis numbers restated directly in the plan: **988** (Suicide & Crisis Lifeline), text **HOME** to **741741** (Crisis Text Line), and your local emergency number (911 in the US).
+- At least one rest week is built in per eight weeks, and an unplanned rest week is treated as normal, not as failure.
+- Progression criteria describe an observable condition, never a performance target, and returning to an earlier phase is presented as a legitimate plan rather than as regression.
+
+## Quality Gates
+
+Before output is finalized:
+
+- Every risky practice shows a screening status (cleared, cleared with modifications, or pending) before it appears in a week
+- No foundation period compressed to fit a shorter horizon
+- Each week names the skill trigger that delivers it; the plan itself writes no practice content
+- At least one rest week per eight weeks, adaptation rules and stop rules both present
+- No "level" or "advanced" language implying a hierarchy
+- No claim that the sequence itself produces a health outcome
+- Sent to `ethics-guardian` before the plan reaches the person
+
+---
+
+_A pathway is a map the person redraws, not a mandate they follow._

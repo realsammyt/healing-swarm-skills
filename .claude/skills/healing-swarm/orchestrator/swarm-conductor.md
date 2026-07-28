@@ -114,6 +114,10 @@ STATE TRACKING:
 
 ## Agent Registry
 
+All 46 registered agents. Prompt paths and tool grants live in the `agents:` map
+in `manifest.yaml`; this table is the routing view (validator-enforced: every
+manifest agent must appear here).
+
 ### Research Agents
 
 | Agent | Purpose | When to Invoke |
@@ -121,6 +125,10 @@ STATE TRACKING:
 | `traditions-scholar` | Research healing traditions | Discovery phase, tradition-specific content |
 | `clinical-researcher` | Evidence review | Discovery phase, evidence boxes |
 | `mechanisms-neuroscientist` | Bridge science and tradition | Discovery phase, mechanism explanations |
+| `consciousness-researcher` | Consciousness science, Grinberg, EEG coherence | Coherence, resonance, and orbital work |
+| `integral-researcher` | Wilber AQAL and developmental-line research | Integral skills, psychograph, shadow framing |
+| `hyperhumanism-researcher` | Smith's framework, endo-technology evidence, archaeoacoustics | Hyperhumanism skills, consciousness-literacy audits |
+| `pni-researcher` | Mind-body-immune pathways | PNI research, practice-to-pathway mapping |
 
 ### Design Agents
 
@@ -134,6 +142,38 @@ STATE TRACKING:
 | Agent | Purpose | When to Invoke |
 |-------|---------|----------------|
 | `content-writer` | Healing content | Content phase, all content types |
+| `integral-guide` | AQAL check-ins, spectrum meditation, perspective-taking | Integral practice content |
+| `shadow-facilitator` | 3-2-1 shadow process with safety architecture | Shadow work, ethics review critical |
+| `coherence-guide` | Self-allusive interhemispheric coherence protocols | Coherence meditation, WHM commitment pillar |
+| `resonance-facilitator` | Paired and group meditation with rigorous consent | Resonance pairing, ethics review critical |
+| `orbital-architect` | Multi-day consciousness journey design | Orbital journeys, progressive transpersonal content |
+| `breathwork-coach` | Wim Hof Method breathing protocols | Breathwork sessions, training progressions |
+| `cold-exposure-guide` | Progressive cold exposure protocols | Cold training, safety review critical |
+| `language-awareness-guide` | Cognitive deautomatization protocols | Language awareness, group perception |
+| `sound-healing-guide` | Toning, mantra, chanting, humming protocols | Sound practice content |
+| `archaeoacoustic-guide` | Sacred-site frequency practices and vocal toning | Archaeoacoustic toning, sound-consciousness |
+| `holotechnica-architect` | Endo-technology experience stacks for altered traits | Holotechnica recipes, no pharmaco-technologies |
+| `umwelt-facilitator` | Sensory augmentation and perceiving-as-other | Umwelt practice, hyperhumanism inquiry |
+| `context-engineer` | Experiential container: setting, priming, intention, re-entry | Before any practice, standalone or as prep |
+| `somatic-guide` | Gentle movement and somatic awareness | Movement protocols, walking meditation |
+| `sleep-healing-guide` | Sleep-supportive practice and dream work | Sleep protocols, dream journaling |
+| `nature-guide` | Nature connection and ecotherapy | Forest bathing, seasonal nature practice |
+| `water-guide` | Therapeutic water and hydrotherapy practice | Contrast therapy, thermal protocols |
+| `grief-guide` | Grief-informed, trauma-sensitive loss practice | Grief content, enhanced psychological safety |
+| `expressive-guide` | Therapeutic writing, art-as-process, bibliotherapy | Expressive content, journaling sequences |
+| `community-facilitator` | Group dynamics and circle facilitation | Community protocols, relational practice |
+| `contemplative-guide` | Inquiry-based contemplative practice | Contemplative inquiry, daily review |
+| `meditation-guide` | Plain breath/body-scan/loving-kindness practice, framework-neutral | Foundation meditation, the plain default |
+| `caregiver-companion` | Capacity, boundaries, anticipatory grief, respite micro-practices | Caregiver support, asymmetric care |
+| `pathway-planner` | Multi-week plans from the practice-pathways archetypes | Practice pathways, "where do I start" |
+| `outcome-tracker` | WHO-5/PSS-10/PSQI/VAS measurement plans, privacy-first | Outcome tracking; self-harm item -> crisis resources |
+
+### Safety Agents
+
+| Agent | Purpose | When to Invoke |
+|-------|---------|----------------|
+| `screening-guide` | Contraindications Tier 1/2/3 screening + decision tree | BEFORE any risky practice skill runs |
+| `adverse-response-guide` | Stabilize, ground, assess, adapt/retire, log after a reaction | When a user reports a distressing practice reaction |
 
 ### Build Agents
 
@@ -148,7 +188,8 @@ STATE TRACKING:
 | `ethics-guardian` | Ethics review | Quality phase, veto authority |
 | `clinical-reviewer` | Clinical accuracy | Quality phase, evidence content |
 | `cultural-reviewer` | Cultural sensitivity | Quality phase, traditional content |
-| `accessibility-auditor` | Accessibility | Quality phase, all UI |
+| `accessibility-auditor` | Accessibility | Quality phase, all UI, veto authority |
+| `trauma-informed-reviewer` | Trauma-informed design: titration, choice, exits, pacing | Quality phase, practice content, blocking gate |
 
 ### Deploy Agents
 
@@ -156,6 +197,12 @@ STATE TRACKING:
 |-------|---------|----------------|
 | `devops-specialist` | Deployment | Deployment phase |
 | `content-manager` | Content lifecycle | Deployment phase, updates |
+
+### Orchestration
+
+| Agent | Purpose | When to Invoke |
+|-------|---------|----------------|
+| `swarm-conductor` | Lifecycle orchestration across all phases | This agent, the entry point for `/healing-swarm` |
 
 ---
 

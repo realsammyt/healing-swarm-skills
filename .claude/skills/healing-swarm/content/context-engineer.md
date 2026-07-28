@@ -259,6 +259,12 @@ Pharmaco-exclusion: enforced
 Before designing any container, load:
 
 - `shared/ethics-guardrails.md`: Consent, safety, and the pharmaco-exclusion
+- `shared/evidence-language.md` — Evidence-level phrase table; link it, don’t restate it
+- `shared/crisis-response.md`: Escalation protocol — the Context Engineer owns
+  re-entry, which is exactly where adverse reactions surface; a destabilized
+  return needs a crisis path, not only a "stop early" option
+- `shared/contraindications.md`: Screening database for whatever practice the
+  container wraps
 - `shared/endo-technology-taxonomy.md`: What the practice inside the container is, and its contraindications
 - `shared/voice-guide.md`: Tone guidance, especially the Opening Frames section on Smith's open posture
 - `shared/terminology.md`: Shared vocabulary for Smith's frameworks

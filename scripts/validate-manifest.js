@@ -71,16 +71,19 @@ function main() {
   try {
     const discovery = YAML.parse(fs.readFileSync(path.join(SKILLS_DIR, 'skill-discovery.yaml'), 'utf8'));
     sensitiveSkills = new Set(discovery.sensitive || []);
-  } catch {
-    warnings.push('Could not read skill-discovery.yaml; skipping sensitive-skill safety check');
+  } catch (err) {
+    // Fail CLOSED: this file drives a safety gate. If it can't be read, the
+    // sensitive-skill floor cannot be verified, so validation must not pass.
+    errors.push(`Could not read skill-discovery.yaml (${err.message}) — sensitive-skill safety check cannot run`);
   }
 
   // Validate skills array
   if (!manifest.skills || !Array.isArray(manifest.skills)) {
     errors.push('Missing "skills" array in manifest');
   } else {
-    // Track triggers to detect duplicates across skills.
+    // Track triggers and names to detect duplicates across skills.
     const triggerOwners = new Map(); // trigger -> [skill names]
+    const nameOwners = new Map(); // name -> count
 
     // Validate each skill
     manifest.skills.forEach((skill, index) => {
@@ -89,6 +92,7 @@ function main() {
 
       // Required fields
       if (!skill.name) errors.push(`${prefix}: missing 'name'`);
+      if (skill.name) nameOwners.set(skill.name, (nameOwners.get(skill.name) || 0) + 1);
       if (!skill.trigger) errors.push(`${prefix}: missing 'trigger'`);
       if (!skill.description) errors.push(`${prefix}: missing 'description'`);
 
@@ -184,6 +188,67 @@ function main() {
     for (const [trigger, owners] of triggerOwners) {
       if (owners.length > 1) {
         errors.push(`Duplicate trigger '${trigger}' used by: ${owners.join(', ')}`);
+      }
+    }
+
+    // Duplicate-name detection: a copy-pasted entry would silently double-count.
+    for (const [name, count] of nameOwners) {
+      if (count > 1) {
+        errors.push(`Duplicate skill name '${name}' appears ${count} times`);
+      }
+    }
+  }
+
+  // The swarm-conductor's routing registry must cover every registered agent.
+  // (It sat at 13 of 39 for months, then went stale again at 39 of 46 inside
+  // the very PR that fixed it — this check closes the drift class.)
+  try {
+    const conductor = fs.readFileSync(path.join(SKILLS_DIR, 'orchestrator', 'swarm-conductor.md'), 'utf8');
+    for (const agentName of Object.keys(agentMap)) {
+      if (!conductor.includes(`\`${agentName}\``)) {
+        errors.push(`orchestrator/swarm-conductor.md: agent registry is missing '${agentName}'`);
+      }
+    }
+  } catch (err) {
+    errors.push(`Could not read orchestrator/swarm-conductor.md (${err.message}) — registry check cannot run`);
+  }
+
+  // Workflow stage agents must resolve to registered agents. (For months, 26
+  // workflows said `agent: orchestrator` — a name the manifest never defined —
+  // and nothing noticed.)
+  const walkYaml = (dir, out = []) => {
+    for (const entry of fs.readdirSync(dir)) {
+      if (entry.startsWith('_') || entry.startsWith('.') || entry === 'examples') continue;
+      const full = path.join(dir, entry);
+      if (fs.statSync(full).isDirectory()) walkYaml(full, out);
+      else if (
+        entry.endsWith('.yaml') &&
+        entry !== 'manifest.yaml' &&
+        entry !== 'skill-discovery.yaml'
+      ) {
+        out.push(full);
+      }
+    }
+    return out;
+  };
+  for (const wf of walkYaml(SKILLS_DIR)) {
+    let doc;
+    try {
+      doc = YAML.parse(fs.readFileSync(wf, 'utf8'));
+    } catch {
+      continue; // workflow syntax is validate-skills.js's job
+    }
+    if (!doc || !Array.isArray(doc.stages)) continue;
+    const rel = path.relative(SKILLS_DIR, wf).split(path.sep).join('/');
+    for (const stage of doc.stages) {
+      const stageAgents = [
+        ...(typeof stage?.agent === 'string' ? [stage.agent] : []),
+        ...(Array.isArray(stage?.agents) ? stage.agents.filter((a) => typeof a === 'string') : []),
+      ];
+      for (const a of stageAgents) {
+        if (!agentMap[a]) {
+          errors.push(`${rel}: stage '${stage.name || '?'}' references unregistered agent '${a}'`);
+        }
       }
     }
   }

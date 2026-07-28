@@ -27,12 +27,16 @@ Builds a vocal toning practice tuned to the resonant frequencies of ancient sacr
 - [`content/templates/archaeoacoustic-toning.md`](../content/templates/archaeoacoustic-toning.md)
 - [`content/templates/resonance-body-map.md`](../content/templates/resonance-body-map.md)
 
+**Safety context (load before generating output):**
+
+- [`shared/contraindications.md`](../shared/contraindications.md)
+
 **Outputs:** `toning-practice.md`, `resonance-body-map.md`, `evidence-brief.md`
 
 ## Example usage
 
 ```bash
-/archaeoacoustic-toning "110 Hz King's Chamber" --depth standard
+/archaeoacoustic-toning "117 Hz King's Chamber" --depth standard
 ```
 
 ## Safety

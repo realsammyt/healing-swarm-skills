@@ -56,7 +56,7 @@ stages:
   # Add research stage if needed:
   # - name: research
   #   description: Gather background information
-  #   agent: orchestrator
+  #   agent: swarm-conductor
   #   invokes:
   #     - research/traditions-scholar
   #     - research/clinical-researcher
@@ -65,7 +65,7 @@ stages:
 
   - name: quality_review
     description: Review outputs for safety and quality
-    agent: orchestrator
+    agent: swarm-conductor
     invokes:
       - quality/ethics-guardian
       # Add other reviewers as needed:

@@ -15,7 +15,7 @@ description: |
 stages:
   - name: intake
     description: Parse consciousness exploration request
-    agent: orchestrator
+    agent: swarm-conductor
     actions:
       - parse_request
       - determine_sample_types

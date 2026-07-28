@@ -74,6 +74,16 @@ shared_resources:
     required: true
     load_order: 10
 
+  - path: shared/endo-technology-taxonomy.md
+    description: Endo-technology catalog with evidence levels and contraindications (Smith)
+    required: false
+    load_order: 11
+
+  - path: shared/consciousness-literacy-levels.md
+    description: Four-cluster, four-level consciousness-literacy taxonomy (Smith)
+    required: false
+    load_order: 12
+
 # ═══════════════════════════════════════════════════════════════════════════════
 # SKILL DEFINITIONS
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -94,6 +104,7 @@ skills:
       - traditions-scholar
       - clinical-researcher
       - mechanisms-neuroscientist
+      - ethics-guardian
     workflow: research/workflow.yaml
     requires_ethics_approval: true
     outputs:
@@ -143,6 +154,35 @@ skills:
     example_usage: |
       /mechanism-mapping "qi cultivation" --to neuroscience
       /mechanism-mapping "chakra activation" --to psychophysiology
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FOUNDATION MEDITATION SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: foundation-meditation
+    trigger: /foundation-meditation
+    description: |
+      Plain, framework-neutral meditation: breath awareness, body scan, and
+      loving-kindness at 5, 10, or 20 minutes. No Integral, Grinberg, or
+      hyperhumanism framing and no tradition-specific cosmology. The default
+      starting point when someone simply wants to sit down and meditate.
+    category: meditation
+    agents:
+      - meditation-guide
+      - ethics-guardian
+    requires_ethics_approval: true
+    standalone: true
+    requires:
+      - shared/contraindications.md
+      - shared/crisis-response.md
+    templates:
+      - content/templates/practice-instruction.md
+    outputs:
+      - practice-instruction.md
+    example_usage: |
+      /foundation-meditation "breath awareness" --duration 10
+      /foundation-meditation "body scan" --duration 20
+      /foundation-meditation "loving-kindness" --duration 5
 
   # ─────────────────────────────────────────────────────────────────────────────
   # INTEGRAL THEORY SKILLS (Wilber)
@@ -398,6 +438,9 @@ skills:
       - ethics-guardian
     workflow: content/breathwork-workflow.yaml
     requires_ethics_approval: true
+    requires:
+      - shared/crisis-response.md
+      - shared/contraindications.md
     templates:
       - content/templates/breathwork-protocol.md
     outputs:
@@ -425,6 +468,9 @@ skills:
       - ethics-guardian
     workflow: content/breathwork-workflow.yaml
     requires_ethics_approval: true
+    requires:
+      - shared/crisis-response.md
+      - shared/contraindications.md
     templates:
       - content/templates/cold-exposure-protocol.md
     outputs:
@@ -456,6 +502,9 @@ skills:
       - ethics-guardian
     workflow: content/whm-journey-workflow.yaml
     requires_ethics_approval: true
+    requires:
+      - shared/crisis-response.md
+      - shared/contraindications.md
     templates:
       - content/templates/breathwork-protocol.md
       - content/templates/cold-exposure-protocol.md
@@ -520,6 +569,9 @@ skills:
       - ethics-guardian
     requires_ethics_approval: true
     standalone: true
+    requires:
+      - shared/crisis-response.md
+      - shared/contraindications.md
     templates:
       - content/templates/group-perception-protocol.md
     outputs:
@@ -587,6 +639,8 @@ skills:
       - content-writer
       - ethics-guardian
     requires_ethics_approval: true
+    requires:
+      - shared/contraindications.md
     workflow: content/archaeoacoustic-toning-workflow.yaml
     templates:
       - content/templates/archaeoacoustic-toning.md
@@ -596,7 +650,7 @@ skills:
       - resonance-body-map.md
       - evidence-brief.md
     example_usage: |
-      /archaeoacoustic-toning "110 Hz King's Chamber" --depth standard
+      /archaeoacoustic-toning "117 Hz King's Chamber" --depth standard
 
   - name: sound-consciousness
     trigger: /sound-consciousness
@@ -610,6 +664,9 @@ skills:
       - content-writer
       - ethics-guardian
     requires_ethics_approval: true
+    requires:
+      - shared/crisis-response.md
+      - shared/contraindications.md
     workflow: content/sound-consciousness-workflow.yaml
     templates:
       - content/templates/consciousness-exhibit.md
@@ -632,6 +689,8 @@ skills:
       - content-writer
       - ethics-guardian
     requires_ethics_approval: true
+    requires:
+      - shared/contraindications.md
     workflow: content/holotechnica-workflow.yaml
     templates:
       - content/templates/holotechnica-recipe.md
@@ -660,6 +719,7 @@ skills:
       - content/templates/capacity-inventory.md
       - content/templates/technology-landscape.md
       - content/templates/micro-practice-design.md
+      - content/templates/quantum-relationship.md
     outputs:
       - inquiry-guide.md
       - capacity-inventory.md
@@ -705,6 +765,7 @@ skills:
     workflow: content/umwelt-workflow.yaml
     templates:
       - content/templates/umwelt-exercise.md
+      - content/templates/perceptual-augmentation-tracker.md
     outputs:
       - umwelt-practice.md
       - sensory-map.md
@@ -726,6 +787,9 @@ skills:
     requires:
       - shared/consciousness-literacy-levels.md
       - shared/outcome-measurement.md
+      - shared/crisis-response.md
+    templates:
+      - content/templates/literacy-audit.md
     outputs:
       - literacy-audit.md
     example_usage: |
@@ -767,6 +831,9 @@ skills:
       - ethics-guardian
     requires_ethics_approval: true
     standalone: true
+    requires:
+      - shared/crisis-response.md
+      - shared/contraindications.md
     templates:
       - content/templates/movement-protocol.md
     outputs:
@@ -872,6 +939,9 @@ skills:
       - ethics-guardian
     requires_ethics_approval: true
     standalone: true
+    requires:
+      - shared/crisis-response.md
+      - shared/contraindications.md
     templates:
       - content/templates/water-protocol.md
     outputs:
@@ -988,6 +1058,38 @@ skills:
     standalone: true
     example_usage: |
       /relational-practice "partner meditation" --level beginner
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CAREGIVER SUPPORT SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: caregiver-support
+    trigger: /caregiver-support
+    description: |
+      Support for the person caring for someone else — aging parent, ill
+      partner, disabled child, dying friend. Capacity and boundary work,
+      anticipatory grief, guilt without pathologizing, and 2-10 minute respite
+      practices built for an interrupted day. Assumes asymmetric care, not
+      the mutual participation the community and relational skills expect.
+    category: caregiving
+    agents:
+      - caregiver-companion
+      - ethics-guardian
+    requires_ethics_approval: true
+    standalone: true
+    requires:
+      - shared/crisis-response.md
+      - shared/contraindications.md
+    templates:
+      - content/templates/capacity-check.md
+    outputs:
+      - capacity-check.md
+      - respite-menu.md
+      - boundary-worksheet.md
+    example_usage: |
+      /caregiver-support "caring for my mother with dementia"
+      /caregiver-support "partner in hospice" --focus anticipatory-grief
+      /caregiver-support "no time for anything" --focus respite
 
   # ─────────────────────────────────────────────────────────────────────────────
   # PNI RESEARCH SKILLS
@@ -1109,6 +1211,7 @@ skills:
     category: content
     agents:
       - content-writer
+      - ethics-guardian
     workflow: content/workflow.yaml
     requires_ethics_approval: true
     templates:
@@ -1157,6 +1260,59 @@ skills:
       /healing-build --template web-app
 
   # ─────────────────────────────────────────────────────────────────────────────
+  # SAFETY SKILLS (screening & adverse response)
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: practice-screening
+    trigger: /practice-screening
+    description: |
+      One front door for contraindication screening, run before any practice
+      skill generates a protocol. Walks the Tier 1/2/3 questions, applies the
+      severity decision tree, then hands off to the requested practice with
+      modifications attached or offers safe alternatives instead.
+    category: quality
+    agents:
+      - screening-guide
+      - ethics-guardian
+    requires_ethics_approval: true
+    standalone: true
+    requires:
+      - shared/contraindications.md
+      - shared/crisis-response.md
+    templates:
+      - content/templates/screening-record.md
+    outputs:
+      - screening-record.md
+    example_usage: |
+      /practice-screening "wim hof breathing"
+      /practice-screening "21-day orbital journey"
+      /practice-screening "is cold exposure safe with high blood pressure"
+
+  - name: adverse-response
+    trigger: /adverse-response
+    description: |
+      Response flow after a distressing or adverse reaction to a practice:
+      stabilize, ground, assess the referral level, adapt or retire the
+      practice, and log the event. Built on the crisis-response six-step
+      protocol and its per-modality reaction catalog.
+    category: quality
+    agents:
+      - adverse-response-guide
+      - ethics-guardian
+    requires_ethics_approval: true
+    standalone: true
+    requires:
+      - shared/crisis-response.md
+      - shared/contraindications.md
+    templates:
+      - content/templates/adverse-event-log.md
+    outputs:
+      - adverse-event-log.md
+    example_usage: |
+      /adverse-response "the breathing made me panic"
+      /adverse-response "I feel strange since yesterday's practice"
+
+  # ─────────────────────────────────────────────────────────────────────────────
   # QUALITY SKILLS
   # ─────────────────────────────────────────────────────────────────────────────
 
@@ -1171,6 +1327,7 @@ skills:
       - clinical-reviewer
       - cultural-reviewer
       - accessibility-auditor
+      - trauma-informed-reviewer
     workflow: quality/workflow.yaml
     outputs:
       - review-report.md
@@ -1248,6 +1405,61 @@ skills:
       /healing-deploy --update-content ./new-content/
 
   # ─────────────────────────────────────────────────────────────────────────────
+  # PRACTICE PLANNING & MEASUREMENT SKILLS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - name: practice-pathway
+    trigger: /practice-pathway
+    description: |
+      Sequence existing healing-swarm skills into a multi-week practice plan.
+      Selects a pathway archetype, honors minimum foundation periods, routes
+      risky practices through practice-screening first, and ships rest weeks,
+      adaptation rules, and stop rules with every plan.
+    category: orchestration
+    agents:
+      - pathway-planner
+      - ethics-guardian
+    workflow: content/practice-pathway-workflow.yaml
+    requires_ethics_approval: true
+    requires:
+      - shared/practice-pathways.md
+      - shared/contraindications.md
+    templates:
+      - content/templates/pathway-plan.md
+      - content/templates/ecology-design.md
+      - content/templates/scaffold-progression.md
+    outputs:
+      - pathway-plan.md
+    example_usage: |
+      /practice-pathway "I'm new, stressed, sleeping badly, 15 minutes a day"
+      /practice-pathway "6 weeks of daily coherent breathing done, what next?"
+      /practice-pathway "learn breath coherence without the app" --archetype scaffold_to_remove
+
+  - name: outcome-tracking
+    trigger: /outcome-tracking
+    description: |
+      Pre/post measurement plans built from validated self-report instruments
+      (WHO-5, PSS-10, PSQI, VAS). Privacy-first local records, honest reading of
+      a single-person time series, no causal claims. Not clinical assessment.
+    category: quality
+    agents:
+      - outcome-tracker
+      - ethics-guardian
+    requires_ethics_approval: true
+    standalone: true
+    requires:
+      - shared/outcome-measurement.md
+      - shared/crisis-response.md
+    templates:
+      - content/templates/outcome-log.md
+    outputs:
+      - measurement-plan.md
+      - outcome-log.md
+    example_usage: |
+      /outcome-tracking "8 weeks of stress practice, is it doing anything?"
+      /outcome-tracking "track sleep alongside my evening practice"
+
+  # ─────────────────────────────────────────────────────────────────────────────
   # ORCHESTRATION
   # ─────────────────────────────────────────────────────────────────────────────
 
@@ -1281,7 +1493,7 @@ agents:
   # Integral Theory Agents
   integral-researcher:
     prompt: research/integral-researcher.md
-    tools: [WebSearch, WebFetch, Read, Glob, Grep]
+    tools: [WebSearch, WebFetch, Read, Write, Glob, Grep]
 
   integral-guide:
     prompt: content/integral-guide.md
@@ -1294,7 +1506,7 @@ agents:
   # Consciousness Research Agents
   consciousness-researcher:
     prompt: research/consciousness-researcher.md
-    tools: [WebSearch, WebFetch, Read, Glob, Grep]
+    tools: [WebSearch, WebFetch, Read, Write, Glob, Grep]
 
   coherence-guide:
     prompt: content/coherence-guide.md
@@ -1325,15 +1537,15 @@ agents:
   # Research Agents
   traditions-scholar:
     prompt: research/traditions-scholar.md
-    tools: [WebSearch, WebFetch, Read, Glob, Grep]
+    tools: [WebSearch, WebFetch, Read, Write, Glob, Grep]
 
   clinical-researcher:
     prompt: research/clinical-researcher.md
-    tools: [WebSearch, WebFetch, Read, Glob, Grep]
+    tools: [WebSearch, WebFetch, Read, Write, Glob, Grep]
 
   mechanisms-neuroscientist:
     prompt: research/mechanisms-neuroscientist.md
-    tools: [WebSearch, WebFetch, Read]
+    tools: [WebSearch, WebFetch, Read, Write]
 
   # Design Agents
   ux-architect:
@@ -1357,21 +1569,34 @@ agents:
   # Quality Agents
   ethics-guardian:
     prompt: quality/ethics-guardian.md
-    tools: [Read, Glob, Grep]
+    tools: [Read, Write, Glob, Grep]
     veto_power: true
 
   clinical-reviewer:
     prompt: quality/clinical-reviewer.md
-    tools: [Read, WebSearch, WebFetch, Glob]
+    tools: [Read, Write, WebSearch, WebFetch, Glob]
 
   cultural-reviewer:
     prompt: quality/cultural-reviewer.md
-    tools: [Read, Glob, Grep]
+    tools: [Read, Write, Glob, Grep]
 
   accessibility-auditor:
     prompt: quality/accessibility-auditor.md
-    tools: [Read, Bash, Glob]
+    tools: [Read, Write, Bash, Glob]
     veto_power: true
+
+  trauma-informed-reviewer:
+    prompt: quality/trauma-informed-reviewer.md
+    tools: [Read, Write, Glob, Grep]
+
+  # Safety Agents (screening & adverse response)
+  screening-guide:
+    prompt: content/screening-guide.md
+    tools: [Read, Write, Glob]
+
+  adverse-response-guide:
+    prompt: content/adverse-response-guide.md
+    tools: [Read, Write, Glob]
 
   # Deploy Agents
   devops-specialist:
@@ -1390,7 +1615,7 @@ agents:
   # Hyperhumanism & Sound Consciousness Agents (Carl Hayden Smith)
   hyperhumanism-researcher:
     prompt: research/hyperhumanism-researcher.md
-    tools: [WebSearch, WebFetch, Read, Glob, Grep]
+    tools: [WebSearch, WebFetch, Read, Write, Glob, Grep]
 
   archaeoacoustic-guide:
     prompt: content/archaeoacoustic-guide.md
@@ -1406,6 +1631,11 @@ agents:
 
   context-engineer:
     prompt: content/context-engineer.md
+    tools: [Read, Write, Glob]
+
+  # Foundation Meditation Agents
+  meditation-guide:
+    prompt: content/meditation-guide.md
     tools: [Read, Write, Glob]
 
   # Somatic/Movement Agents
@@ -1443,14 +1673,28 @@ agents:
     prompt: content/community-facilitator.md
     tools: [Read, Write, Glob]
 
+  # Caregiver Support Agents
+  caregiver-companion:
+    prompt: content/caregiver-companion.md
+    tools: [Read, Write, Glob]
+
   # PNI Research Agents
   pni-researcher:
     prompt: research/pni-researcher.md
-    tools: [WebSearch, WebFetch, Read, Glob, Grep]
+    tools: [WebSearch, WebFetch, Read, Write, Glob, Grep]
 
   # Contemplative Inquiry Agents
   contemplative-guide:
     prompt: content/contemplative-guide.md
+    tools: [Read, Write, Glob]
+
+  # Practice Planning & Measurement Agents
+  pathway-planner:
+    prompt: content/pathway-planner.md
+    tools: [Read, Write, Glob]
+
+  outcome-tracker:
+    prompt: content/outcome-tracker.md
     tools: [Read, Write, Glob]
 
   # Orchestration

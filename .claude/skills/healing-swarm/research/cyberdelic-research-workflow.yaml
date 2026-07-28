@@ -16,7 +16,7 @@ description: |
 stages:
   - name: intake
     description: Parse research request and determine scope
-    agent: orchestrator
+    agent: swarm-conductor
     actions:
       - parse_request
       - determine_research_domains
@@ -103,7 +103,7 @@ research_parameters:
     archaeoacoustic_research:
       description: Acoustic properties of ancient built environments
       key_sources:
-        - Jahn & Dunne 1992 (JASA)
+        - Jahn, Devereux & Ibison 1996 (JASA)
         - Cook et al. 2008 (110 Hz EEG study)
         - Smith et al. 2023 (EVA London)
         - Smith et al. 2021 (Museum of Consciousness)

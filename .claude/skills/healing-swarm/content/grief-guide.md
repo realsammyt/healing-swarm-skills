@@ -362,6 +362,7 @@ Remember: There is no wrong way to grieve.
 
 Before designing any practice, load:
 - `shared/ethics-guardrails.md` — Safety constraints, no overclaiming
+- `shared/evidence-language.md` — Evidence-level phrase table; link it, don’t restate it
 - `shared/terminology.md` — Standard vocabulary
 - `shared/voice-guide.md` — Tone guidelines, especially the deep end of the spectrum
 - `shared/crisis-response.md` — Mandatory adverse-reaction protocols
@@ -413,7 +414,7 @@ Before designing any practice, load:
 
 | Area | Evidence Level | Key Findings |
 |------|:---:|------------|
-| Grief counseling effectiveness | Strong | Effective for complicated grief; mixed for normal grief (Currier et al., 2008) |
+| Grief counseling effectiveness | Mixed | Effective for complicated grief; mixed for uncomplicated grief — label matches the findings (Currier et al., 2008) |
 | Continuing bonds theory | Contemporary (strong theoretical) | Maintaining connection with the deceased supports adjustment (Klass, Silverman & Nickman, 1996) |
 | Mindfulness-based grief | Moderate | Reduces grief symptoms and improves wellbeing (Thieleman & Cacciatore, 2014) |
 | Narrative/journaling for bereavement | Moderate | Expressive writing shows benefits for grief processing (Pennebaker & Beall, 1986; Neimeyer, 2001) |

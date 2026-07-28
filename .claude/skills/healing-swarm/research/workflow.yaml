@@ -14,7 +14,7 @@ description: |
 stages:
   - name: intake
     description: Parse research request and determine scope
-    agent: orchestrator
+    agent: swarm-conductor
     actions:
       - parse_query
       - determine_traditions
@@ -65,7 +65,7 @@ stages:
 
   - name: synthesis
     description: Integrate all research into comprehensive brief
-    agent: orchestrator
+    agent: swarm-conductor
     inputs:
       - traditions_research_output
       - clinical_research_output

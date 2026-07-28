@@ -130,7 +130,7 @@ function totalsTable(counts) {
     ['Templates', counts.Templates],
     ['Shared Resources', counts['Shared Resources']],
     ['Worked Examples', counts['Worked Examples']],
-    ['Website Pages', '91+'],
+    ['Website Pages', '99+'],
     ['Traditions Integrated', '20+'],
   ];
   const lines = ['| Category | Count |', '| -------- | ----- |'];
@@ -161,7 +161,12 @@ function check(counts) {
   for (const { name, text } of files) {
     for (const label of ENFORCED) {
       const expected = counts[label];
-      for (const actual of tableValues(text, label)) {
+      const actuals = tableValues(text, label);
+      // A deleted/reworded totals row must count as drift, not silently pass.
+      if (actuals.length === 0) {
+        problems.push(`${name}: no "| ${label} | N |" totals row found — row deleted or reformatted?`);
+      }
+      for (const actual of actuals) {
         if (actual !== expected) {
           problems.push(`${name}: "${label}" totals row says ${actual}, manifest says ${expected}`);
         }

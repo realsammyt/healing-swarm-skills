@@ -433,8 +433,8 @@ as Wilber's own cross-referencing, not as independent discovery.
 | Pharmaco-technology              | Substance-based approaches to altered states (psychedelics, entheogens) — EXCLUDED from all healing-swarm practices                                         | N/A (hard exclusion)                                                             |
 | Holotechnica                     | Combining endo-technologies into structured "experience stacks" — recipes for consciousness exploration; holo (whole) + technica (technique)                | Theoretical (individual components researched)                                   |
 | Altered States vs Altered Traits | Critical distinction: states are temporary peak experiences; traits are lasting developmental changes. Holotechnica targets traits                          | Research-supported (Goleman & Davidson 2017)                                     |
-| Archaeoacoustics                 | Study of sound properties in ancient built environments; how architecture was intentionally designed for acoustic/consciousness effects                     | Preliminary (Jahn & Dunne 1992; Smith et al. 2023)                               |
-| Sacred Frequencies               | Resonant frequencies found in ancient sites: 117 Hz (King's Chamber, Giza), 139.01 Hz (Saqqara), 369 Hz, 432 Hz (Egyptian temples)                          | Preliminary (acoustic measurements confirmed; consciousness effects preliminary) |
+| Archaeoacoustics                 | Study of sound properties in ancient built environments; how architecture was intentionally designed for acoustic/consciousness effects                     | Acoustic measurements moderate (Jahn, Devereux & Ibison 1996, JASA); consciousness effects preliminary (Cook et al. 2008, n=30 EEG) |
+| Sacred Frequencies               | Resonant frequencies measured in ancient sites: 117 Hz (King's Chamber, Giza), 139.01 Hz (Saqqara); popular 369/432 Hz attributions have minimal peer-reviewed support | Mixed — see Key Frequencies Reference below for per-frequency evidence grading   |
 | Museum of Consciousness          | Interactive audio-based exhibit installation for cultivating altered states; Smith's primary research platform at Oxford                                    | Documented (Smith et al. 2021, EVA)                                              |
 | Milliere's 6D Model              | Six dimensions of self-consciousness: sense of agency, sense of ownership, sense of self-location, first-person perspective, sense of unity, narrative self | Theoretical (Milliere 2017; philosophical framework)                             |
 | Umwelt                           | An organism's subjective perceptual world; the sensory environment as experienced by a particular being (von Uexkull 1934)                                  | Established (ethology/biosemiotics)                                              |
@@ -470,7 +470,7 @@ as Wilber's own cross-referencing, not as independent discovery.
 **Evidence labeling:** ALWAYS pair Smith terms with their evidence status:
 
 - "Smith's _hyperhumanism_ framework (a theoretical position, not an empirical claim)..."
-- "Archaeoacoustic measurements confirm resonant frequencies in ancient sites (Jahn & Dunne 1992, n=6 sites); consciousness effects are preliminary..."
+- "Archaeoacoustic measurements document resonant frequencies of 95-120 Hz in ancient sites (Jahn, Devereux & Ibison 1996, n=6 sites); consciousness effects are preliminary..."
 - "_Holotechnica_ combines individually researched practices into designed stacks; the stacking methodology itself is theoretical..."
 
 **HARD EXCLUSION — Pharmaco-technologies:**
@@ -481,13 +481,13 @@ as Wilber's own cross-referencing, not as independent discovery.
 
 ### Key Frequencies Reference
 
-| Frequency | Site                                  | Source            | Evidence                                 |
-| --------- | ------------------------------------- | ----------------- | ---------------------------------------- |
-| 110 Hz    | Hal Saflieni Hypogeum, Malta          | Jahn & Dunne 1992 | EEG prefrontal shift (preliminary, n=30) |
-| 117 Hz    | King's Chamber, Great Pyramid of Giza | Smith et al. 2023 | Acoustic measurement confirmed           |
-| 139.01 Hz | Step Pyramid, Saqqara                 | Smith et al. 2023 | Acoustic measurement confirmed           |
-| 369 Hz    | Egyptian temples (various)            | Smith et al. 2023 | Acoustic measurement confirmed           |
-| 432 Hz    | Egyptian temples (various)            | Smith et al. 2023 | Acoustic measurement confirmed           |
+| Frequency | Site                                  | Source                                | Evidence                                             |
+| --------- | ------------------------------------- | ------------------------------------- | ---------------------------------------------------- |
+| 110 Hz    | Multiple sites (incl. Hal Saflieni Hypogeum, Malta) | Cook et al. 2008 (n=30) | Preliminary — EEG changes at 110 Hz vs 90/130 Hz     |
+| 117 Hz    | King's Chamber, Great Pyramid of Giza | Jahn, Devereux & Ibison 1996 (JASA)   | Moderate — acoustic measurement, well-documented     |
+| 139.01 Hz | Step Pyramid, Saqqara                 | Smith et al. 2023                     | Preliminary — conference-reported acoustic measurement |
+| 369 Hz    | Egyptian temples (attributed)         | Popular claim, limited documentation  | Low — minimal peer-reviewed support                  |
+| 432 Hz    | Egyptian temples (proposed)           | Popular claim, limited documentation  | Low — minimal peer-reviewed support                  |
 
 ### Cross-Reference with Existing Traditions
 

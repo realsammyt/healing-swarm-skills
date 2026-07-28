@@ -14,7 +14,7 @@ description: |
 stages:
   - name: intake
     description: Understand design requirements and constraints
-    agent: orchestrator
+    agent: swarm-conductor
     actions:
       - parse_design_brief
       - identify_user_needs
@@ -80,7 +80,7 @@ stages:
 
   - name: design_integration
     description: Integrate UX and visual into complete system
-    agent: orchestrator
+    agent: swarm-conductor
     inputs:
       - wireframes.md
       - visual_specs.md

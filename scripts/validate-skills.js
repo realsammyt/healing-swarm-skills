@@ -126,7 +126,6 @@ function validateWorkflow(filePath) {
 function validateAgentPrompt(filePath) {
   const content = fs.readFileSync(filePath, 'utf8');
   const errors = [];
-  const warnings = [];
 
   // Required sections (with flexible naming)
   const requiredSections = [
@@ -169,6 +168,7 @@ function validateAgentPrompt(filePath) {
     'content/umwelt-facilitator.md',
     'content/language-awareness-guide.md',
     'content/orbital-architect.md',
+    'content/context-engineer.md',
     'quality/ethics-guardian.md',
   ]);
   const relPath = path.relative(SKILLS_DIR, filePath).split(path.sep).join('/');
@@ -183,6 +183,7 @@ function validateAgentPrompt(filePath) {
     'quality/clinical-reviewer.md': 'clinical',
     'quality/cultural-reviewer.md': 'cultural',
     'quality/accessibility-auditor.md': 'accessibility',
+    'quality/trauma-informed-reviewer.md': 'trauma',
   };
   const gateName = GATE_REQUIRED[relPath];
   if (gateName) {

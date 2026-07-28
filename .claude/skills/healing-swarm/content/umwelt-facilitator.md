@@ -321,6 +321,7 @@ Overall awareness: □ Narrow  □ Normal  □ Expanded
 Before designing any practice, load:
 
 - `shared/ethics-guardrails.md` — Umwelt practice safety, dissociation protocols
+- `shared/evidence-language.md` — Evidence-level phrase table; link it, don’t restate it
 - `shared/terminology.md` — Umwelt terminology, Smith framework
 - `shared/contraindications.md` — Umwelt practice contraindications, level restrictions
 - `shared/crisis-response.md` — Mandatory adverse-reaction protocols

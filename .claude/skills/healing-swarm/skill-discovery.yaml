@@ -18,6 +18,8 @@ sensitive:
   - umwelt-practice
   - grief-healing
   - language-awareness
+  - group-perception
+  - adverse-response
 
 descriptions:
   # ── Research ────────────────────────────────────────────────────────────────
@@ -80,6 +82,21 @@ descriptions:
     Use when the user names a single practice and wants its immune or
     neuroendocrine pathway picture. Do NOT use for a broad PNI literature review
     (use pni-research).
+
+  # ── Foundation meditation ───────────────────────────────────────────────────
+  foundation-meditation: |-
+    Builds a plain, framework-neutral meditation — breath awareness, body scan,
+    or loving-kindness — at 5, 10, or 20 minutes, with honest notes on what
+    practice does and does not do and what difficulty can look like. Use when
+    the user asks for a simple meditation, a breathing practice, a body scan, or
+    a loving-kindness practice without naming a specific tradition or framework.
+    This is the plain default. For Grinberg-style whole-brain work use
+    coherence-meditation; for Wilber's gross/subtle/causal state training use
+    spectrum-meditation; for reflective questioning on a theme use
+    contemplative-inquiry; for practice while moving use walking-meditation; for
+    toning, chant, or humming use sound-healing; for four-quadrant reflection on
+    a situation use aqal-check-in. Do NOT layer any framework or cosmology onto
+    the instructions, and do NOT present it as therapy.
 
   # ── Integral (Wilber) ───────────────────────────────────────────────────────
   aqal-check-in: |-
@@ -167,9 +184,14 @@ descriptions:
 
   group-perception: |-
     Designs group and paired perception exercises (collective label delay,
-    meaning-collapse circle, silence sit) with a consent framework. Use when the
-    user is facilitating a workshop, circle, or team session on perception. Keep
-    the consent and debrief steps.
+    meaning-collapse circle, silence sit) with a consent framework. Sensitive:
+    these are the same deautomatization practices as language-awareness, run in
+    a group where facilitators cannot screen individuals. Use when the user is
+    explicitly facilitating a workshop, circle, or team session on perception.
+    Do NOT auto-launch from loose mentions of groups or perception; wait for an
+    explicit facilitation request. Keep the consent, screening, and debrief
+    steps; stop any exercise if a participant shows depersonalization or
+    derealization.
 
   contemplative-inquiry: |-
     Guides self-inquiry drawn from Zen koan, Socratic, and Ignatian Examen
@@ -305,6 +327,68 @@ descriptions:
     when the user wants a two-person practice for connection or repair. This is
     distinct from Grinberg transferred-potential work (use resonance-pairing for
     that).
+
+  caregiver-support: |-
+    Supports the person doing the caring — for an aging parent, an ill partner,
+    a disabled child, a dying friend — with an honest capacity snapshot,
+    boundary work, anticipatory-grief companionship, and 2-to-10-minute respite
+    practices that fit an interrupted day. Use when the user describes caring
+    for someone else and is running low, feeling guilty, or grieving someone who
+    is still alive. Assumes asymmetric care: nothing offered depends on the care
+    recipient's participation, memory, or agreement. For active bereavement
+    after a death, use grief-healing. For running a group or support circle, use
+    community-healing. Do NOT treat caregiver exhaustion as a personal failing,
+    do NOT administer or score a caregiver-burden instrument, and do NOT
+    position this as therapy or care management.
+
+  # ── Practice planning & measurement ─────────────────────────────────────────
+  practice-pathway: |-
+    Sequences existing healing-swarm skills into a multi-week practice plan,
+    choosing a pathway archetype and honoring the minimum foundation period each
+    practice depends on. Use when the user asks where to start, what to practice
+    next, or wants a several-week plan rather than a single session. Risky
+    practices (breathwork, cold exposure, transpersonal work, extended
+    meditation) go through practice-screening first, and that clearance shapes
+    the plan. Do NOT use to write the practice content itself: each week names
+    the skill that delivers it. To measure whether it is worth continuing, use
+    outcome-tracking.
+
+  outcome-tracking: |-
+    Builds a pre/post measurement plan from validated self-report instruments
+    (WHO-5, PSS-10, PSQI, VAS) with a privacy-first local record and an honest
+    reading of a single-person time series. Use when the user wants to track
+    wellbeing, stress, sleep, or pain alongside a practice, or asks whether a
+    practice is doing anything. This is measurement, not clinical assessment,
+    and no score is a diagnosis. Do NOT use for consciousness-literacy levels
+    across modality clusters (use consciousness-audit, which tracks ordered
+    self-rated levels rather than validated instruments). For the plan being
+    measured, use practice-pathway.
+
+  # ── Safety (screening & adverse response) ───────────────────────────────────
+  practice-screening: |-
+    Runs the contraindication screening before any practice skill produces a
+    protocol: the Tier 1, Tier 2, and Tier 3 question sets, the severity
+    decision tree, and a screening record the user keeps. Use when a user asks
+    for a breathwork, cold-exposure, meditation, transpersonal, paired, sound,
+    or perception practice and has not been screened, or asks whether a practice
+    is safe with their condition, pregnancy, medication, or recent surgery.
+    Hands off to the requested practice skill (whm-breathwork,
+    whm-cold-exposure, orbital-journey, language-awareness, umwelt-practice, and
+    the rest) with any required modifications attached, or offers safe
+    alternatives instead. This is screening, not diagnosis and not medical
+    clearance. For a reaction that has already happened, use adverse-response.
+
+  adverse-response: |-
+    Guides the response after a practice went wrong: stabilize, ground, assess
+    severity against the crisis-response table, choose a referral level, adapt or
+    retire the practice, and log the event. Sensitive: Do NOT auto-launch for
+    ordinary practice questions or as therapy; DO use when a user reports a
+    distressing or adverse reaction to a practice, during it or in the hours and
+    days after. This is not crisis care — for active crisis follow
+    shared/crisis-response.md escalation. For screening before a practice, use
+    practice-screening; to rebuild an adapted protocol afterward, return to the
+    practice skill itself (whm-breathwork, coherence-meditation,
+    language-awareness, and so on).
 
   # ── PNI handled above; Contemplative handled above ──────────────────────────
 

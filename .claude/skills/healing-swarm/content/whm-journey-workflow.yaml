@@ -16,7 +16,7 @@ description: |
 stages:
   - name: intake
     description: Parse journey request and determine parameters
-    agent: orchestrator
+    agent: swarm-conductor
     actions:
       - parse_query
       - determine_journey_duration
@@ -76,7 +76,7 @@ stages:
 
   - name: journey_integration
     description: Integrate all three pillars into cohesive weekly plans
-    agent: orchestrator
+    agent: swarm-conductor
     inputs:
       - weekly-breathwork-protocols/
       - weekly-cold-protocols/
@@ -124,7 +124,7 @@ stages:
 
   - name: finalize
     description: Produce final journey package
-    agent: orchestrator
+    agent: swarm-conductor
     inputs:
       - final-journey-map.md
       - final-weekly-plans/

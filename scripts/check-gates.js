@@ -71,7 +71,10 @@ export function evaluateGates(gates) {
     const failing = status === 'fail' || status === 'veto';
     if (!failing) continue;
     const isVetoGate = VETO_GATES.includes(gate);
-    if (isVetoGate || g.blocking === true) {
+    // Normalize `blocking` too: an LLM may emit the string "true". Only an
+    // explicit false/"false" is non-blocking drift we accept.
+    const blocking = g.blocking === true || String(g.blocking).trim().toLowerCase() === 'true';
+    if (isVetoGate || blocking) {
       halts.push(g);
     }
   }
@@ -82,12 +85,28 @@ export function evaluateGates(gates) {
 // CLI
 // ─────────────────────────────────────────────────────────────────────────────
 
-function collectFiles(target, out = []) {
+// The five reviewer PROMPTS document the gate contract with example blocks
+// (validate-skills.js requires them to). Scanning the prompts would let those
+// documentation examples satisfy --require with zero reviews actually run, so
+// they are excluded from enforcement scans. Scoped to the quality/ prompt
+// directory ONLY — a real review saved elsewhere under the same basename
+// (e.g. reviews/2026-07-27/ethics-guardian.md) must still be scanned.
+const REVIEWER_PROMPTS = new Set([
+  'ethics-guardian.md',
+  'clinical-reviewer.md',
+  'cultural-reviewer.md',
+  'accessibility-auditor.md',
+  'trauma-informed-reviewer.md',
+]);
+const isReviewerPrompt = (file) =>
+  REVIEWER_PROMPTS.has(path.basename(file)) && path.basename(path.dirname(file)) === 'quality';
+
+export function collectFiles(target, out = []) {
   if (!fs.existsSync(target)) return out;
   const stat = fs.statSync(target);
   if (stat.isDirectory()) {
     for (const e of fs.readdirSync(target)) collectFiles(path.join(target, e), out);
-  } else if (/\.(md|markdown|json|txt)$/i.test(target)) {
+  } else if (/\.(md|markdown|json|txt)$/i.test(target) && !isReviewerPrompt(target)) {
     out.push(target);
   }
   return out;

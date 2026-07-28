@@ -12,6 +12,7 @@
 | [traditions-research](#traditions-research) | `/traditions-research` | research | Research specific healing traditions with scholarly rigor. |
 | [clinical-research](#clinical-research) | `/clinical-research` | research | Systematic review of clinical evidence for healing modalities. |
 | [mechanism-mapping](#mechanism-mapping) | `/mechanism-mapping` | research | Bridge traditional healing concepts with modern neuroscience. |
+| [foundation-meditation](#foundation-meditation) | `/foundation-meditation` | meditation | Plain, framework-neutral meditation: breath awareness, body scan, and loving-kindness at 5, 10, or 20 minutes. |
 | [aqal-check-in](#aqal-check-in) | `/aqal-check-in` | integral | Structured four-quadrant self-inquiry based on Wilber's AQAL framework. |
 | [shadow-work](#shadow-work) | `/shadow-work` | integral | Guided 3-2-1 shadow integration practice for approaching disowned aspects of self. |
 | [spectrum-meditation](#spectrum-meditation) | `/spectrum-meditation` | integral | Progressive three-body state-training meditation moving through gross, subtle, and causal realms. |
@@ -47,6 +48,7 @@
 | [healing-journaling](#healing-journaling) | `/healing-journaling` | expressive | Extended journaling protocols beyond simple prompts. |
 | [community-healing](#community-healing) | `/community-healing` | community | Group healing circle protocols, shared practice frameworks, facilitation guides |
 | [relational-practice](#relational-practice) | `/relational-practice` | community | Dyadic healing practices for relationships (distinct from Grinberg resonance pairing) |
+| [caregiver-support](#caregiver-support) | `/caregiver-support` | caregiving | Support for the person caring for someone else — aging parent, ill partner, disabled child, dying friend. |
 | [pni-research](#pni-research) | `/pni-research` | research | Deep research into psychoneuroimmunology findings relevant to healing practices |
 | [pni-mapping](#pni-mapping) | `/pni-mapping` | research | Map specific traditional practices to their PNI pathways |
 | [contemplative-inquiry](#contemplative-inquiry) | `/contemplative-inquiry` | perception | Guided self-inquiry from multiple traditions (Zen koan-inspired, Socratic, Ignatian Examen) |
@@ -55,12 +57,16 @@
 | [sacred-visuals](#sacred-visuals) | `/sacred-visuals` | design | Design visual system with healing aesthetics. |
 | [healing-content](#healing-content) | `/healing-content` | content | Write content for healing applications. |
 | [healing-build](#healing-build) | `/healing-build` | build | Develop healing applications with accessibility and privacy focus. |
+| [practice-screening](#practice-screening) | `/practice-screening` | quality | One front door for contraindication screening, run before any practice skill generates a protocol. |
+| [adverse-response](#adverse-response) | `/adverse-response` | quality | Response flow after a distressing or adverse reaction to a practice: stabilize, ground, assess the referral level, adapt or retire the practice, and log the event. |
 | [healing-review](#healing-review) | `/healing-review` | quality | Comprehensive quality review for healing applications. |
 | [ethics-review](#ethics-review) | `/ethics-review` | quality | Ethics and safety review for healing content/features. |
 | [clinical-review](#clinical-review) | `/clinical-review` | quality | Verify clinical claims and citations. |
 | [cultural-review](#cultural-review) | `/cultural-review` | quality | Cultural sensitivity review for healing content. |
 | [a11y-audit](#a11y-audit) | `/a11y-audit` | quality | Accessibility audit for healing applications. |
 | [healing-deploy](#healing-deploy) | `/healing-deploy` | deploy | Deploy and maintain healing applications. |
+| [practice-pathway](#practice-pathway) | `/practice-pathway` | orchestration | Sequence existing healing-swarm skills into a multi-week practice plan. |
+| [outcome-tracking](#outcome-tracking) | `/outcome-tracking` | quality | Pre/post measurement plans built from validated self-report instruments (WHO-5, PSS-10, PSQI, VAS). |
 | [healing-swarm](#healing-swarm) | `/healing-swarm` | orchestration | Complete healing application development lifecycle. |
 
 ---
@@ -82,6 +88,7 @@ Deep research into healing traditions and clinical evidence. Coordinates traditi
 - `traditions-scholar`
 - `clinical-researcher`
 - `mechanisms-neuroscientist`
+- `ethics-guardian`
 
 ### Outputs
 
@@ -172,6 +179,43 @@ Bridge traditional healing concepts with modern neuroscience. Translate between 
 ```bash
 /mechanism-mapping "qi cultivation" --to neuroscience
 /mechanism-mapping "chakra activation" --to psychophysiology
+```
+
+---
+
+## foundation-meditation
+
+**Trigger:** `/foundation-meditation`
+
+**Category:** meditation
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Plain, framework-neutral meditation: breath awareness, body scan, and loving-kindness at 5, 10, or 20 minutes. No Integral, Grinberg, or hyperhumanism framing and no tradition-specific cosmology. The default starting point when someone simply wants to sit down and meditate.
+
+### Agents
+
+- `meditation-guide`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/practice-instruction.md`
+
+### Outputs
+
+- `practice-instruction.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/foundation-meditation "breath awareness" --duration 10
+/foundation-meditation "body scan" --duration 20
+/foundation-meditation "loving-kindness" --duration 5
 ```
 
 ---
@@ -850,7 +894,7 @@ Guided vocal toning practices based on resonant frequencies of ancient sacred si
 ### Example Usage
 
 ```bash
-/archaeoacoustic-toning "110 Hz King's Chamber" --depth standard
+/archaeoacoustic-toning "117 Hz King's Chamber" --depth standard
 ```
 
 ---
@@ -958,6 +1002,7 @@ Guided philosophical inquiry on consciousness, technology, and innate human capa
 - `content/templates/capacity-inventory.md`
 - `content/templates/technology-landscape.md`
 - `content/templates/micro-practice-design.md`
+- `content/templates/quantum-relationship.md`
 
 ### Outputs
 
@@ -1033,6 +1078,7 @@ Sensory augmentation exercises for perceiving-as-other and extending the sensori
 ### Templates
 
 - `content/templates/umwelt-exercise.md`
+- `content/templates/perceptual-augmentation-tracker.md`
 
 ### Outputs
 
@@ -1066,6 +1112,10 @@ Periodic consciousness-literacy check-in. Reviews practice history and maps the 
 
 - `hyperhumanism-researcher`
 - `ethics-guardian`
+
+### Templates
+
+- `content/templates/literacy-audit.md`
 
 ### Outputs
 
@@ -1502,6 +1552,45 @@ Dyadic healing practices for relationships (distinct from Grinberg resonance pai
 
 ---
 
+## caregiver-support
+
+**Trigger:** `/caregiver-support`
+
+**Category:** caregiving
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Support for the person caring for someone else — aging parent, ill partner, disabled child, dying friend. Capacity and boundary work, anticipatory grief, guilt without pathologizing, and 2-10 minute respite practices built for an interrupted day. Assumes asymmetric care, not the mutual participation the community and relational skills expect.
+
+### Agents
+
+- `caregiver-companion`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/capacity-check.md`
+
+### Outputs
+
+- `capacity-check.md`
+- `respite-menu.md`
+- `boundary-worksheet.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/caregiver-support "caring for my mother with dementia"
+/caregiver-support "partner in hospice" --focus anticipatory-grief
+/caregiver-support "no time for anything" --focus respite
+```
+
+---
+
 ## pni-research
 
 **Trigger:** `/pni-research`
@@ -1691,6 +1780,7 @@ Write content for healing applications. Prayers, invocations, evidence boxes, hi
 ### Agents
 
 - `content-writer`
+- `ethics-guardian`
 
 ### Templates
 
@@ -1747,6 +1837,79 @@ Develop healing applications with accessibility and privacy focus. Builds medita
 
 ---
 
+## practice-screening
+
+**Trigger:** `/practice-screening`
+
+**Category:** quality
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+One front door for contraindication screening, run before any practice skill generates a protocol. Walks the Tier 1/2/3 questions, applies the severity decision tree, then hands off to the requested practice with modifications attached or offers safe alternatives instead.
+
+### Agents
+
+- `screening-guide`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/screening-record.md`
+
+### Outputs
+
+- `screening-record.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/practice-screening "wim hof breathing"
+/practice-screening "21-day orbital journey"
+/practice-screening "is cold exposure safe with high blood pressure"
+```
+
+---
+
+## adverse-response
+
+**Trigger:** `/adverse-response`
+
+**Category:** quality
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Response flow after a distressing or adverse reaction to a practice: stabilize, ground, assess the referral level, adapt or retire the practice, and log the event. Built on the crisis-response six-step protocol and its per-modality reaction catalog.
+
+### Agents
+
+- `adverse-response-guide`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/adverse-event-log.md`
+
+### Outputs
+
+- `adverse-event-log.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/adverse-response "the breathing made me panic"
+/adverse-response "I feel strange since yesterday's practice"
+```
+
+---
+
 ## healing-review
 
 **Trigger:** `/healing-review`
@@ -1765,6 +1928,7 @@ Comprehensive quality review for healing applications. Ethics, clinical accuracy
 - `clinical-reviewer`
 - `cultural-reviewer`
 - `accessibility-auditor`
+- `trauma-informed-reviewer`
 
 ### Outputs
 
@@ -1899,6 +2063,82 @@ Deploy and maintain healing applications. Static hosting, monitoring, content up
 ```bash
 /healing-deploy ./healing-app/ --platform netlify
 /healing-deploy --update-content ./new-content/
+```
+
+---
+
+## practice-pathway
+
+**Trigger:** `/practice-pathway`
+
+**Category:** orchestration
+
+**Workflow:** `content/practice-pathway-workflow.yaml`
+
+### Description
+
+Sequence existing healing-swarm skills into a multi-week practice plan. Selects a pathway archetype, honors minimum foundation periods, routes risky practices through practice-screening first, and ships rest weeks, adaptation rules, and stop rules with every plan.
+
+### Agents
+
+- `pathway-planner`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/pathway-plan.md`
+- `content/templates/ecology-design.md`
+- `content/templates/scaffold-progression.md`
+
+### Outputs
+
+- `pathway-plan.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/practice-pathway "I'm new, stressed, sleeping badly, 15 minutes a day"
+/practice-pathway "6 weeks of daily coherent breathing done, what next?"
+/practice-pathway "learn breath coherence without the app" --archetype scaffold_to_remove
+```
+
+---
+
+## outcome-tracking
+
+**Trigger:** `/outcome-tracking`
+
+**Category:** quality
+
+**Workflow:** standalone (agent-driven, no orchestrated workflow)
+
+### Description
+
+Pre/post measurement plans built from validated self-report instruments (WHO-5, PSS-10, PSQI, VAS). Privacy-first local records, honest reading of a single-person time series, no causal claims. Not clinical assessment.
+
+### Agents
+
+- `outcome-tracker`
+- `ethics-guardian`
+
+### Templates
+
+- `content/templates/outcome-log.md`
+
+### Outputs
+
+- `measurement-plan.md`
+- `outcome-log.md`
+
+> ⚖️ Requires ethics approval before outputs are released.
+
+### Example Usage
+
+```bash
+/outcome-tracking "8 weeks of stress practice, is it doing anything?"
+/outcome-tracking "track sleep alongside my evening practice"
 ```
 
 ---

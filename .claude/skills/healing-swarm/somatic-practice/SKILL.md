@@ -27,6 +27,11 @@ Builds a gentle movement protocol (qigong, tai chi, yoga, walking meditation) wi
 
 - [`content/templates/movement-protocol.md`](../content/templates/movement-protocol.md)
 
+**Safety context (load before generating output):**
+
+- [`shared/crisis-response.md`](../shared/crisis-response.md)
+- [`shared/contraindications.md`](../shared/contraindications.md)
+
 **Outputs:** `movement-protocol.md`, `session-timing.json`
 
 ## Example usage

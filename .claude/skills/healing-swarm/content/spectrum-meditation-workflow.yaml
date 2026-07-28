@@ -25,7 +25,7 @@ description: |
 stages:
   - name: intake
     description: Parse meditation request and determine state scope
-    agent: orchestrator
+    agent: swarm-conductor
     actions:
       - parse_request
       - determine_state_scope

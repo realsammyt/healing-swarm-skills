@@ -25,7 +25,7 @@ description: |
 stages:
   - name: intake
     description: Parse check-in request and determine parameters
-    agent: orchestrator
+    agent: swarm-conductor
     actions:
       - parse_situation
       - determine_depth

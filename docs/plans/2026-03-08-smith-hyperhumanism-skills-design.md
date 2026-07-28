@@ -1,8 +1,15 @@
 # Carl Hayden Smith — Hyperhumanism & Sound Consciousness Skills Design
 
 **Date:** 2026-03-08
-**Status:** Approved
+**Status:** Approved (historical snapshot)
 **Author:** Claude Opus 4.6 + User
+
+> **Superseded note (2026-07-27):** the archaeoacoustic citations in this
+> snapshot were later corrected — the acoustics measurement paper is Jahn,
+> Devereux & Ibison 1996 (JASA 99(2):649-658), not "Jahn & Dunne 1992", and
+> the 110 Hz EEG finding is Cook et al. 2008. Do not re-propagate the
+> citations below; `shared/terminology.md` and
+> `content/archaeoacoustic-guide.md` hold the calibrated set.
 
 ---
 

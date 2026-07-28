@@ -71,10 +71,11 @@ function validateDiscovery(manifest, discovery) {
 // Rendering
 // ─────────────────────────────────────────────────────────────────────────────
 
-function renderSkill(skill, manifest, discovery) {
+function renderSkill(skill, manifest, discovery, linkPrefix = '../') {
   const agentsMap = manifest.agents || {};
   const description = collapse(discovery.descriptions[skill.name]);
   const sensitive = (discovery.sensitive || []).includes(skill.name);
+  const L = (p) => `${linkPrefix}${p}`;
 
   const out = [];
   out.push('---');
@@ -102,19 +103,19 @@ function renderSkill(skill, manifest, discovery) {
     out.push('');
     for (const a of skill.agents) {
       const prompt = agentsMap[a]?.prompt;
-      out.push(prompt ? `- [\`${a}\`](../${prompt})` : `- \`${a}\``);
+      out.push(prompt ? `- [\`${a}\`](${L(prompt)})` : `- \`${a}\``);
     }
     out.push('');
   }
 
   if (skill.orchestrator) {
     const prompt = agentsMap[skill.orchestrator]?.prompt;
-    out.push(`**Orchestrator:** ${prompt ? `[\`${skill.orchestrator}\`](../${prompt})` : `\`${skill.orchestrator}\``}`);
+    out.push(`**Orchestrator:** ${prompt ? `[\`${skill.orchestrator}\`](${L(prompt)})` : `\`${skill.orchestrator}\``}`);
     out.push('');
   }
 
   if (skill.workflow) {
-    out.push(`**Workflow:** [\`${skill.workflow}\`](../${skill.workflow})`);
+    out.push(`**Workflow:** [\`${skill.workflow}\`](${L(skill.workflow)})`);
     out.push('');
   } else if (skill.standalone) {
     out.push('**Workflow:** standalone — agent-driven, no orchestrated workflow.');
@@ -124,14 +125,14 @@ function renderSkill(skill, manifest, discovery) {
   if (Array.isArray(skill.templates) && skill.templates.length) {
     out.push('**Templates:**');
     out.push('');
-    for (const t of skill.templates) out.push(`- [\`${t}\`](../${t})`);
+    for (const t of skill.templates) out.push(`- [\`${t}\`](${L(t)})`);
     out.push('');
   }
 
   if (Array.isArray(skill.requires) && skill.requires.length) {
     out.push('**Safety context (load before generating output):**');
     out.push('');
-    for (const r of skill.requires) out.push(`- [\`${r}\`](../${r})`);
+    for (const r of skill.requires) out.push(`- [\`${r}\`](${L(r)})`);
     out.push('');
   }
 
@@ -196,12 +197,29 @@ function main() {
     process.exit(1);
   }
 
-  const targets = (manifest.skills || []).map((skill) => ({
-    dir: path.join(SKILLS_DIR, skill.name),
-    file: path.join(SKILLS_DIR, skill.name, 'SKILL.md'),
-    content: renderSkill(skill, manifest, discovery),
-    name: skill.name,
-  }));
+  // Two copies per skill:
+  //   nested   .claude/skills/healing-swarm/<name>/SKILL.md  (library-internal)
+  //   top      .claude/skills/<name>/SKILL.md                (what Claude Code
+  //            actually discovers — project skill discovery reads only
+  //            .claude/skills/<name>/SKILL.md, one level deep; the nested
+  //            copies were empirically never loaded)
+  // The healing-swarm orchestrator skill's "top" copy lands at the library
+  // root itself, which resolves with the same ../healing-swarm/ link prefix.
+  const TOP_DIR = path.join(SKILLS_DIR, '..');
+  const targets = (manifest.skills || []).flatMap((skill) => [
+    {
+      dir: path.join(SKILLS_DIR, skill.name),
+      file: path.join(SKILLS_DIR, skill.name, 'SKILL.md'),
+      content: renderSkill(skill, manifest, discovery, '../'),
+      name: skill.name,
+    },
+    {
+      dir: path.join(TOP_DIR, skill.name),
+      file: path.join(TOP_DIR, skill.name, 'SKILL.md'),
+      content: renderSkill(skill, manifest, discovery, '../healing-swarm/'),
+      name: `${skill.name} (top-level)`,
+    },
+  ]);
 
   if (isCheck) {
     const norm = (s) => s.replace(/\r\n/g, '\n');

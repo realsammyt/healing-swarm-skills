@@ -18,6 +18,7 @@ Produces an evidence-grounded research brief on a healing tradition or modality,
 - [`traditions-scholar`](../research/traditions-scholar.md)
 - [`clinical-researcher`](../research/clinical-researcher.md)
 - [`mechanisms-neuroscientist`](../research/mechanisms-neuroscientist.md)
+- [`ethics-guardian`](../quality/ethics-guardian.md)
 
 **Workflow:** [`research/workflow.yaml`](../research/workflow.yaml)
 

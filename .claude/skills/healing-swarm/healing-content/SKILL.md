@@ -16,6 +16,7 @@ Writes healing content: prayers, invocations, evidence boxes, historical notes, 
 ## Agents this skill coordinates
 
 - [`content-writer`](../content/content-writer.md)
+- [`ethics-guardian`](../quality/ethics-guardian.md)
 
 **Workflow:** [`content/workflow.yaml`](../content/workflow.yaml)
 

@@ -16,7 +16,7 @@ description: |
 stages:
   - name: intake
     description: Parse research request and identify scope
-    agent: orchestrator
+    agent: swarm-conductor
     actions:
       - parse_query
       - identify_grinberg_topics
