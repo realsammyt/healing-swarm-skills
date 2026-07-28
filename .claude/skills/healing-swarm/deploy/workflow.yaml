@@ -310,7 +310,9 @@ privacy:
     - Health check data
 
   analytics:
-    allowed: Plausible (self-hosted or cloud)
+    allowed:
+      - Plausible (self-hosted or cloud)
+      - GoatCounter (no cookies, no PII; used by the project's own docs site)
     forbidden:
       - Google Analytics
       - Facebook Pixel
