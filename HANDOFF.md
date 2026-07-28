@@ -178,6 +178,9 @@ leaves the repo shippable; none requires the next.
 - **2026-07-27 (merge + cleanup)** — PR #22 merged to master (merge commit
   `a6235c0`) at the human's explicit instruction; all 7 CI checks green,
   including the newly un-neutered test gate and real yaml-lint gate.
+  **Policy consistency (same day):** GoatCounter added to the deploy
+  workflow's analytics allowlist alongside Plausible — the docs site already
+  ships it, and the policy file now matches reality.
   **Follow-up (same day):** `feat/smith-hyperhumanism-skills` reviewed at the
   human's instruction and deleted (local + remote) — its single unique commit
   `8661596` (GoatCounter analytics) is patch-equivalent to content already on
