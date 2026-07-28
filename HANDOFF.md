@@ -5,7 +5,7 @@
 > conversation should read this first, then update it before ending a session.
 > If anything here disagrees with reality, reality wins — fix the doc.
 
-**Last updated:** 2026-07-27 by Claude (Fable 5) — Six-lens review improvements **merged to master via PR #22** (merge commit `a6235c0`) **at the human's explicit instruction** ("pr, merge, and cleanup"); CI 7/7 green at merge. Counts on master now 60/46/27 (v1.3.0). Branch cleanup done: 3 stale merged local branches + 4 merged remote branches deleted; `feat/smith-hyperhumanism-skills` KEPT (unmerged — its tip `8661596` carries GoatCounter analytics work that never landed; human call whether to revive or discard). Opus 4.8 effort unchanged; DAG rename still locked-deferred.
+**Last updated:** 2026-07-27 by Claude (Fable 5) — Six-lens review improvements **merged to master via PR #22** (merge commit `a6235c0`) **at the human's explicit instruction** ("pr, merge, and cleanup"); CI 7/7 green at merge. Counts on master now 60/46/27 (v1.3.0). Branch cleanup complete: 3 stale merged local branches + 4 merged remote branches deleted, and `feat/smith-hyperhumanism-skills` reviewed at the human's instruction and deleted too — its GoatCounter commit `8661596` proved patch-equivalent to content already on master (see activity log). Only `master` remains. Opus 4.8 effort unchanged; DAG rename still locked-deferred.
 **Active branch:** `master`
 **Driving plan:** [`docs/plans/2026-05-31-opus-4-8-optimization.md`](docs/plans/2026-05-31-opus-4-8-optimization.md)
 
@@ -178,6 +178,12 @@ leaves the repo shippable; none requires the next.
 - **2026-07-27 (merge + cleanup)** — PR #22 merged to master (merge commit
   `a6235c0`) at the human's explicit instruction; all 7 CI checks green,
   including the newly un-neutered test gate and real yaml-lint gate.
+  **Follow-up (same day):** `feat/smith-hyperhumanism-skills` reviewed at the
+  human's instruction and deleted (local + remote) — its single unique commit
+  `8661596` (GoatCounter analytics) is patch-equivalent to content already on
+  master (`git cherry` verdict `-`; the scripts block is byte-identical at
+  docusaurus.config.ts:28-34), and a real merge would only have conflicted
+  while regressing the PR #22 markdown.hooks fix. Nothing was lost.
   Cleanup: deleted 3 fully-merged local branches
   (feat/development-timeline-and-workflow, feat/website-showcase-integral-
   skills, feat/wilber-integral-theory-skills) and 4 fully-merged remote
