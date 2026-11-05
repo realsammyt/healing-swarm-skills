@@ -6,6 +6,79 @@ version: 1.0.0
 description: |
   Complete orchestration of healing application development from
   research through deployment, coordinating all specialized agents.
+  Runs in any coding agent: by default each phase runs inline, in order,
+  and hands off to the next through a file in ./healing-output/<run>/.
+  Parallel fan-out to subagents is optional and only used when the host
+  agent supports it. The handoff files are the contract in both modes.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXECUTION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+execution:
+  default_mode: sequential_inline
+  run_dir: ./healing-output/<run>/
+
+  modes:
+    sequential_inline:
+      description: |
+        The conductor plays each phase's roles itself, one phase at a time.
+        Each phase reads the previous handoff files and writes its own.
+        Needs only the ability to read and write files.
+      requires: [read files, write files]
+
+    parallel_subagents:
+      description: |
+        Optional speed-up. Independent tasks within a phase are handed to
+        subagents at the same time (see parallel_phases). Each subagent writes
+        its piece to the run directory; the conductor still writes the phase
+        handoff file. If subagents fail or aren't available, fall back to
+        sequential_inline for that phase.
+      requires: [read files, write files, hand a task to a subagent]
+      optional: true
+
+  # One handoff file per phase, written last. Its presence means the phase
+  # completed. Each opens with a status header (phase, status: complete,
+  # blocked, or veto; date; inputs) and ends with a For Next Phase section.
+  handoff_sequence:
+    - phase: discovery
+      writes: brief.md
+    - phase: planning
+      reads: [brief.md]
+      writes: plan.md
+    - phase: design
+      reads: [brief.md, plan.md]
+      writes: design.md
+    - phase: content
+      reads: [brief.md, plan.md, design.md]
+      writes: content.md
+    - phase: development
+      reads: [design.md, content.md]
+      writes: build.md
+    - phase: quality
+      reads: [content.md, build.md]
+      gate_files: reviews/<reviewer>.md
+      writes: quality.md
+    - phase: remediation
+      reads: [quality.md]
+      writes: remediation.md
+      then: re-run quality
+    - phase: deployment
+      reads: [quality.md, build.md, content.md]
+      writes: deploy.md
+
+  resume:
+    rule: Start at the first phase in handoff_sequence whose file is missing.
+    blocked: If a handoff file has status blocked, resume that phase.
+    veto: |
+      If quality.md has status veto, or a reviews/ gate block on a veto gate
+      (ethics, accessibility) has status fail or veto, halt. Do not deploy.
+      The veto stands until human review or a major revision passes a fresh
+      quality run.
+    stale_quality: If remediation.md is newer than quality.md, re-run quality.
+    partial: |
+      Supporting artifacts without a handoff file mean the phase was
+      interrupted. Reuse what is sound, finish the gap, then write the file.
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PHASES
@@ -21,11 +94,10 @@ phases:
       - traditions-scholar
       - clinical-researcher
       - mechanisms-neuroscientist
+    handoff: brief.md
     outputs:
-      - research-brief.md
-      - traditions-research.md
-      - clinical-evidence.md
-      - mechanism-bridges.md
+      - brief.md
+      - research/ # traditions, clinical evidence, mechanism bridges
     checkpoint: true
 
   - id: planning
@@ -33,11 +105,10 @@ phases:
     description: Create implementation plan
     agent: swarm-conductor
     inputs:
-      - research-brief.md
+      - brief.md
+    handoff: plan.md
     outputs:
-      - implementation-plan.md
-      - content-requirements.md
-      - milestone-schedule.md
+      - plan.md # implementation plan, content requirements, milestones
     checkpoint: true
 
   - id: design
@@ -49,13 +120,12 @@ phases:
       - ux-architect
       - visual-designer
     inputs:
-      - research-brief.md
-      - implementation-plan.md
+      - brief.md
+      - plan.md
+    handoff: design.md
     outputs:
+      - design.md # user journeys, wireframes, component specs
       - design-system.json
-      - user-journeys.md
-      - wireframes.md
-      - component-specs.md
     checkpoint: true
 
   - id: content
@@ -66,9 +136,12 @@ phases:
     agents:
       - content-writer
     inputs:
-      - research-brief.md
-      - content-requirements.md
+      - brief.md
+      - plan.md
+      - design.md
+    handoff: content.md
     outputs:
+      - content.md
       - content-library/
       - content-library/prayers/
       - content-library/visualizations/
@@ -86,12 +159,12 @@ phases:
     agents:
       - app-developer
     inputs:
-      - design-system.json
-      - component-specs.md
-      - content-library/
+      - design.md
+      - content.md
+    handoff: build.md
     outputs:
+      - build.md
       - healing-app/
-      - build-manifest.json
     checkpoint: true
 
   - id: quality
@@ -104,12 +177,16 @@ phases:
       - clinical-reviewer
       - cultural-reviewer
       - accessibility-auditor
+      - trauma-informed-reviewer
     inputs:
-      - content-library/
-      - healing-app/
+      - content.md
+      - build.md
+    handoff: quality.md
     outputs:
-      - quality-report.md
-      - approval-status
+      # One file per reviewer, each ending in its fenced JSON gate block:
+      # {"gate": "<name>", "status": "pass|fail|veto", "blocking": true, "issues": []}
+      - reviews/<reviewer>.md
+      - quality.md # written only after every review file exists
     gate: must_pass
     checkpoint: true
 
@@ -121,10 +198,11 @@ phases:
       - content-writer
       - app-developer
     inputs:
-      - quality-report.md
+      - quality.md
+    handoff: remediation.md
     outputs:
-      - remediated-content/
-      - remediated-app/
+      - remediation.md # fixes applied in place to content-library/ and healing-app/
+    then: re-run quality
     loop:
       until: all_reviews_pass
       max_iterations: 5
@@ -138,12 +216,12 @@ phases:
       - devops-specialist
       - content-manager
     inputs:
-      - healing-app/
-      - content-library/
+      - quality.md # all gates pass
+      - build.md
+      - content.md
+    handoff: deploy.md
     outputs:
-      - staging-url
-      - production-url
-      - deployment-report.md
+      - deploy.md # staging and production URLs recorded inside
     checkpoint: true
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -151,7 +229,10 @@ phases:
 # ═══════════════════════════════════════════════════════════════════════════════
 
 state:
-  storage: .claude/healing-swarm-state.json
+  # The handoff files are the source of truth. state.json is an optional
+  # convenience index; if it disagrees with the files, the files win.
+  source_of_truth: handoff_files
+  storage: ./healing-output/<run>/state.json
 
   schema:
     project_id: string
@@ -164,7 +245,7 @@ state:
     checkpoints: Checkpoint[]
 
   checkpoint_policy:
-    save_after: each_phase
+    save_after: each_phase # a checkpoint is the phase's written handoff file
     restore_capability: true
     max_checkpoints: 10
 
@@ -207,6 +288,10 @@ gates:
       - clinical_review_passed
       - cultural_review_passed
       - accessibility_audit_passed
+      - trauma_informed_review_passed
+      - every_review_file_has_gate_block
+    gate_files: ./healing-output/<run>/reviews/
+    check_command: node scripts/check-gates.js --require=ethics,accessibility ./healing-output/<run>/reviews
     blocking: true
     veto_authority: [ethics-guardian, accessibility-auditor]
 
@@ -218,9 +303,12 @@ gates:
     blocking: true
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# PARALLEL EXECUTION
+# PARALLEL EXECUTION (optional, parallel_subagents mode only)
 # ═══════════════════════════════════════════════════════════════════════════════
 
+# Used only when the host agent supports subagents. In the default
+# sequential_inline mode the same roles run one after another in this order,
+# writing the same files.
 parallel_phases:
   discovery:
     - traditions-scholar
@@ -236,6 +324,7 @@ parallel_phases:
       - clinical-reviewer
       - cultural-reviewer
       - accessibility-auditor
+      - trauma-informed-reviewer
     then:
       - ethics-guardian
 
@@ -247,6 +336,7 @@ error_handling:
   agent_failure:
     retry: 2
     backoff: exponential
+    fallback: run_task_inline # a failed subagent task is redone inline, same files
     on_failure: escalate_to_human
 
   quality_failure:
@@ -259,6 +349,13 @@ error_handling:
     # accessibility (accessibility-auditor).
     action: halt_workflow
     require: human_review_or_major_revision
+    cannot_override: true
+
+  crisis_disclosure:
+    # Anyone in the loop discloses suicidal thoughts, self-harm, or a
+    # medical emergency: stop the phase and follow the crisis protocol.
+    action: halt_phase_and_follow_crisis_protocol
+    protocol: shared/crisis-response.md
     cannot_override: true
 
   missing_input:
@@ -277,8 +374,8 @@ modes:
     estimated_time: varies_by_scope
 
   resume:
-    description: Continue from checkpoint
-    requires: checkpoint_id
+    description: Continue from the first missing handoff file
+    requires: run_dir
     phases: remaining
 
   phase_only:
@@ -374,8 +471,9 @@ examples:
   - name: Resume from checkpoint
     invocation: |
       /healing-swarm --resume
-        --checkpoint "checkpoint-20250115-design"
+        --run "sacred-healing-journey"
     expected:
+      - Finds brief.md and plan.md, no design.md
       - Resume from design phase
       - All prior work preserved
 
@@ -383,7 +481,7 @@ examples:
     invocation: |
       /healing-swarm "Project Name"
         --phase content
-        --input research-brief.md
+        --input ./healing-output/project-name/brief.md
     expected:
       - Content creation only
       - Uses existing research
@@ -393,16 +491,18 @@ examples:
 # ═══════════════════════════════════════════════════════════════════════════════
 
 final_output:
+  location: ./healing-output/<run>/
   artifacts:
-    - healing-app/ (deployed application)
-    - content-library/ (all healing content)
-    - research-brief.md (research documentation)
-    - design-system.json (design tokens)
-    - quality-report.md (review history)
-    - deployment-report.md (deployment info)
+    - brief.md (research documentation)
+    - plan.md (implementation plan)
+    - design.md and design-system.json (design and tokens)
+    - content.md and content-library/ (all healing content)
+    - build.md and healing-app/ (application)
+    - quality.md and reviews/ (review history with gate blocks)
+    - deploy.md (deployment info)
 
   state:
-    - Checkpoint at each phase
+    - Checkpoint at each phase (the handoff file)
     - Can resume if interrupted
     - Full audit trail
 

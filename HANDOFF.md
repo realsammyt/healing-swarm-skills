@@ -5,7 +5,7 @@
 > conversation should read this first, then update it before ending a session.
 > If anything here disagrees with reality, reality wins — fix the doc.
 
-**Last updated:** 2026-07-27 by Claude (Fable 5) — Six-lens review improvements **merged to master via PR #22** (merge commit `a6235c0`) **at the human's explicit instruction** ("pr, merge, and cleanup"); CI 7/7 green at merge. Counts on master now 60/46/27 (v1.3.0). Branch cleanup complete: 3 stale merged local branches + 4 merged remote branches deleted, and `feat/smith-hyperhumanism-skills` reviewed at the human's instruction and deleted too — its GoatCounter commit `8661596` proved patch-equivalent to content already on master (see activity log). Only `master` remains. Opus 4.8 effort unchanged; DAG rename still locked-deferred.
+**Last updated:** 2026-11-05 by Claude (Opus 5.5). Portable Agent Skills committed on branch `feat/portable-agent-skills` (pushed; **PR #26 open, awaiting human review/merge**; install docs across SETUP/getting-started/guides also fixed): self-contained `.agents/skills/` + inline `shared/safety-core.md`, Codex adapters for 8 sensitive skills, conductor file-handoff mode, AGENTS.md, `evals/` (20 cases, not yet run). validate/test/site build green. Open for human: Devin/Claude user-only frontmatter (ties to Q1), 4 clinical findings in activity log, skills-ref validator install. Previous: 2026-07-27 by Claude (Fable 5) — Six-lens review improvements **merged to master via PR #22** (merge commit `a6235c0`) **at the human's explicit instruction** ("pr, merge, and cleanup"); CI 7/7 green at merge. Counts on master now 60/46/27 (v1.3.0). Branch cleanup complete: 3 stale merged local branches + 4 merged remote branches deleted, and `feat/smith-hyperhumanism-skills` reviewed at the human's instruction and deleted too — its GoatCounter commit `8661596` proved patch-equivalent to content already on master (see activity log). Only `master` remains. Opus 4.8 effort unchanged; DAG rename still locked-deferred.
 **Active branch:** `master`
 **Driving plan:** [`docs/plans/2026-05-31-opus-4-8-optimization.md`](docs/plans/2026-05-31-opus-4-8-optimization.md)
 
@@ -174,6 +174,8 @@ leaves the repo shippable; none requires the next.
 ---
 
 ## 7. Activity log (newest first — append, don't overwrite)
+
+- **2026-11-05 (portable skills, WIP)** — Branch `feat/portable-agent-skills`: `generate-skills.js` emits `.agents/skills/<name>/` (spec frontmatter only, `references/` copies with library paths preserved, safety core inlined for ETH/sensitive/safety-requiring skills, file-handoff run instructions; `--check` covers freshness + orphans; 415 files, 6.4 MB). New `shared/safety-core.md`, `AGENTS.md`; WebSearch/WebFetch → plain verbs in 8 prompts. Subagents drafting conductor file-handoff mode, `evals/cases.yaml`, adapter-format verification. Committed after timeline entry (shared resources 13); validate + 34 tests + website build green. Clinical findings for human review (not changed): 988/911 lines missing US caveat (crisis-response.md L79/L264, ethics-guardrails.md L120); cold+hypertension rated Absolute vs "uncontrolled" rationale; panic script "not dangerous" vs emergency criteria; cupped-hand rebreathing advice may be outdated. Devin `triggers` / Claude `disable-model-invocation` deliberately not emitted (spec-only frontmatter + open Q1).
 
 - **2026-07-27 (merge + cleanup)** — PR #22 merged to master (merge commit
   `a6235c0`) at the human's explicit instruction; all 7 CI checks green,

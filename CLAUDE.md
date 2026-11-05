@@ -1,5 +1,8 @@
 # Healing Swarm Skills — Project Instructions
 
+Agent-neutral rules (layout, generated files, validation, safety) live in
+[`AGENTS.md`](AGENTS.md). Read it too. This file adds Claude-specific workflow.
+
 ## Session Handoff (READ FIRST)
 
 Before starting work, read [`HANDOFF.md`](HANDOFF.md) at the repo root. It's the

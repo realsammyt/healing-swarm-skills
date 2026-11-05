@@ -130,15 +130,28 @@ npm run validate
 
 **[📖 Full Setup Guide](docs/SETUP.md)**
 
-### 2. Install Skills
+### 2. Install Skills (any agent)
 
-```bash
-# macOS/Linux
-cp -r .claude/skills/healing-swarm ~/.claude/skills/
+Every skill ships as a self-contained folder in [`.agents/skills/`](.agents/skills/) in the open [Agent Skills](https://agentskills.io/specification) format. Each one is a `SKILL.md` plus a `references/` folder, with the safety rules written into the SKILL.md itself. Pick your tool:
 
-# Windows PowerShell
-Copy-Item -Recurse .claude\skills\healing-swarm $env:USERPROFILE\.claude\skills\
-```
+| Tool | How to use it |
+| --- | --- |
+| **Any supported agent** (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor and more) | `npx skills add realsammyt/healing-swarm-skills` |
+| **Claude Code** | Works inside this repo with no setup (it reads `.claude/skills/`). For every project, copy the portable skills: `cp -r .agents/skills/* ~/.claude/skills/` |
+| **OpenAI Codex** | Works inside this repo with no setup (it scans `.agents/skills/`). For every project: `cp -r .agents/skills/* ~/.agents/skills/` |
+| **Devin** | Works inside this repo with no setup (it reads `.agents/skills/`). To use it in another repo, copy the skill folders into that repo's `.agents/skills/` |
+| **Pi** | Run Pi from this repo, or copy the skill folders into `.agents/skills/` in your project |
+| **Other agents / plain chat** | Paste a skill's `SKILL.md` into the system prompt or project instructions, and attach files from its `references/` folder when they're needed |
+
+Windows PowerShell: `Copy-Item -Recurse .agents\skills\* $env:USERPROFILE\.claude\skills\` (use `.agents\skills` as the destination for Codex).
+
+**Notes for best results**
+
+- **Ask for a skill by name, or describe the task.** Skills load when your request matches their description. Sensitive skills (shadow work, grief and others) never start on their own; in Codex this is enforced by `agents/openai.yaml`.
+- **Subagents are optional.** The multi-agent skills (`healing-swarm` and the topic workflows) run each phase inline by default and hand off through files in `./healing-output/<run>/`, so you can stop a run and pick it up again. If your agent supports subagents, it may use them.
+- **Small and local models** (around 8B to 14B): use one skill at a time, not the full `healing-swarm` run. The safety core sits near the top of each SKILL.md, so it still applies even if the model never opens `references/`. Test against [`evals/cases.yaml`](evals/cases.yaml) before relying on a model.
+- **Web access** is only needed by the research and citation skills, which search and verify sources. Without it they mark claims as unverified instead of inventing citations.
+- **Don't edit `.agents/skills/` by hand.** It's generated from `manifest.yaml`; contributors should see [AGENTS.md](AGENTS.md).
 
 ### 3. Use Skills
 
@@ -608,6 +621,15 @@ A chronological record of major additions. This is an intentionally
 **condensed digest** — some website timeline entries are merged or summarized
 here. [Full detailed timeline on the website →](https://realsammyt.github.io/healing-swarm-skills/docs/changelog)
 
+### 2026-11-05 — Portable Agent Skills (Codex, Devin, Pi, any agent)
+
+- **Portable build:** `generate:skills` now also writes self-contained `.agents/skills/<name>/` (open Agent Skills spec): spec-only frontmatter, every needed file copied into `references/`, safety core inlined in every practice skill; freshness + orphan check in `npm run validate`
+- **Codex adapter:** `agents/openai.yaml` with `allow_implicit_invocation: false` on the 8 sensitive skills
+- **Conductor runs anywhere:** default mode is sequential inline phases handing off through `./healing-output/<run>/` files (resumable); subagent fan-out optional; trauma-informed gate wired into the quality phase
+- **Agent-neutral prompts:** WebSearch/WebFetch/Task replaced with plain verbs
+- **1 shared resource:** `safety-core.md` (crisis, screening, water/driving, never-rules)
+- `AGENTS.md` added; `evals/cases.yaml` starter set (20 cases: crisis, contraindication, evidence, benign controls)
+
 ### 2026-07-27 — Six-Lens Review: Safety, Discovery & Practice-Support Skills
 
 - **6 skills:** Practice Screening, Adverse Response, Practice Pathway, Outcome Tracking, Foundation Meditation, Caregiver Support
@@ -722,7 +744,7 @@ here. [Full detailed timeline on the website →](https://realsammyt.github.io/h
 | Agents                | 46    |
 | Workflows             | 27    |
 | Templates             | 44    |
-| Shared Resources      | 12    |
+| Shared Resources      | 13    |
 | Worked Examples       | 19    |
 | Traditions Integrated | 20+   |
 

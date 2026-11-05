@@ -10,6 +10,27 @@ A living record of every feature, skill, workflow, template, and infrastructure 
 
 ---
 
+## 2026-11-05 — Portable Agent Skills
+
+**Branch `feat/portable-agent-skills` | The pack now installs and runs in Codex, Devin, Pi and other Agent Skills hosts, not only Claude Code**
+
+### Shared Resources Added (1)
+
+- `safety-core.md` — Short always-inline safety block: crisis resources first, stop/ground/assess, universal screening, never in water or while driving, absolute prohibitions
+
+### Shared Resources Updated
+
+- Agent prompts (7 research agents, clinical-reviewer) — tool names replaced with plain verbs so any agent can map them
+- `orchestrator/swarm-conductor.md` + `orchestrator/workflow.yaml` — sequential inline phases with file handoffs and resume rules by default; subagent fan-out optional; trauma-informed reviewer joins the quality gates
+
+### Infrastructure
+
+- `scripts/generate-skills.js` — emits self-contained `.agents/skills/<name>/` (spec-only frontmatter, `references/` copies, inline safety core) plus Codex `agents/openai.yaml` for sensitive skills; `--check` covers the whole tree and orphans
+- `AGENTS.md` — agent-neutral repo rules; `CLAUDE.md` points to it
+- `evals/` — 20-case behavioral starter set for cross-model safety testing (no results yet)
+
+---
+
 ## 2026-07-27 — Six-Lens Review: Safety, Discovery & Practice-Support Skills
 
 **Six-agent review (build health, content quality, safety, tooling, docs, growth) applied end to end: enforcement made honest, safety wiring completed, citations reconciled, discovery actually fixed, and six practice-support skills added**
@@ -606,7 +627,7 @@ the skill totals.
 | **Agents**                | 46    |
 | **Workflows**             | 27    |
 | **Templates**             | 44    |
-| **Shared Resources**      | 12    |
+| **Shared Resources**      | 13    |
 | **Worked Examples**       | 19    |
 | **Website Pages**         | 99+   |
 | **Traditions Integrated** | 20+   |

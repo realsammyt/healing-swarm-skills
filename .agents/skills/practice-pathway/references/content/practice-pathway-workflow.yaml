@@ -1,0 +1,366 @@
+# Practice Pathway Workflow
+# Coordinates pathway-planner, the practice-screening front door, and ethics-guardian
+
+name: practice-pathway-workflow
+version: 1.0.0
+description: |
+  Orchestrates the assembly of a sequenced, multi-week practice plan built from
+  skills that already exist in this library. Selects a pathway archetype from
+  shared/practice-pathways.md, routes every risky practice through the
+  practice-screening front door, lays weeks against the sequential-dependency
+  table, and gates delivery behind a blocking ethics review.
+
+  A pathway is a sequencing framework, not a validated protocol. Combining
+  practices does not compound their evidence, and no plan produced here promises
+  an outcome.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOW STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stages:
+  - name: intake
+    description: Gather the goal, the starting point, the constraints, and the horizon
+    agent: swarm-conductor
+    actions:
+      - parse_request
+      - gather_goal_in_user_words
+      - read_current_practice_history
+      - capture_time_and_space_constraints
+      - note_conditions_medications_and_provider_status
+      - set_plan_horizon_and_checkpoint
+    outputs:
+      - intake_summary
+      - readiness_notes
+
+  - name: pathway_selection
+    description: Select the archetype spine, or name a deliberate blend of two
+    agent: pathway-planner
+    inputs:
+      - intake_summary
+      - readiness_notes
+    outputs:
+      - selected_archetype
+      - blend_rationale
+      - candidate_practices
+      - risky_practice_list
+
+  - name: safety_screen
+    description: |
+      Route every candidate practice carrying contraindication risk through the
+      practice-screening skill, which is the front door for this workflow. The
+      pathway-planner does not screen; it plans around what screening returns.
+    invokes: /practice-screening
+    inputs:
+      - candidate_practices
+      - risky_practice_list
+      - conditions_and_medications
+    outputs:
+      - clearance_status
+      - required_modifications
+      - excluded_practices
+      - provider_clearance_pending
+
+  - name: plan_assembly
+    description: |
+      Lay the weeks against the sequential-dependency table, attach skill
+      triggers and progression criteria, and add rest weeks, adaptation rules,
+      and stop rules
+    agent: pathway-planner
+    inputs:
+      - selected_archetype
+      - clearance_status
+      - required_modifications
+      - excluded_practices
+    outputs:
+      - pathway-plan.md
+      - pathway_snapshot
+      - measurement_handoff
+
+  - name: ethics_review
+    description: |
+      Blocking gate. Reviews foundation compression, progression-criteria
+      framing, outcome language, autonomy, and whether excluded practices stayed
+      excluded
+    agent: ethics-guardian
+    blocking: true
+    inputs:
+      - pathway-plan.md
+      - clearance_status
+      - excluded_practices
+    outputs:
+      - ethics_approval
+      - required_modifications
+      - concerns
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PATHWAY ARCHETYPES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+pathway_archetypes:
+  acute_injury_recovery:
+    description: Recovery from physical injury (sprains, fractures, post-surgical)
+    prerequisite: Healthcare provider clearance for practice participation
+    phases: 4
+    typical_horizon_weeks: 9
+    opening_practices:
+      - gentle breath awareness
+      - guided body relaxation
+      - ambient sound for rest
+
+  chronic_condition_management:
+    description: Living with an ongoing condition; quality of life focus
+    prerequisite: Healthcare provider awareness of practice participation
+    phases: 4
+    typical_horizon_weeks: 16
+    opening_practices:
+      - coherent breathing
+      - gentle body scan
+      - movement as tolerated
+
+  stress_and_anxiety:
+    description: Significant stress, anxiety, burnout, or disrupted sleep
+    prerequisite: Concurrent professional support if anxiety is at clinical level
+    phases: 4
+    typical_horizon_weeks: 9
+    opening_practices:
+      - extended exhale breathing
+      - grounding practice
+      - gentle walking
+
+  spiritual_seeker:
+    description: Contemplative, mystical, or transpersonal exploration
+    prerequisite: Stable mental health and an established grounding practice
+    phases: 4
+    typical_horizon_weeks: 17
+    opening_practices:
+      - daily focused-attention meditation
+      - grounding until automatic
+      - reflective journaling
+
+  general_wellness:
+    description: Broad wellbeing without a specific condition focus
+    prerequisite: Standard screening only
+    phases: 4
+    typical_horizon_weeks: 9
+    opening_practices:
+      - sampling across modalities
+      - simple daily routine
+
+  scaffold_to_remove:
+    description: Learning one skill or sense with temporary tool support, then setting the tool down
+    prerequisite: A defined target capacity and one feedback tool
+    phases: 3
+    typical_horizon_weeks: 7
+    template: content/templates/scaffold-progression.md
+
+  hyperhuman_cultivation_arc:
+    description: Capacity inventory through to a self-sustaining personal practice
+    prerequisite: Willingness to reflect; later stages optional
+    phases: 6
+    typical_horizon_weeks: 12
+    template: content/templates/ecology-design.md
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SEQUENTIAL DEPENDENCIES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+sequential_dependencies:
+  - foundation: Basic breath awareness
+    builds_to: WHM breathwork
+    minimum_foundation: 2 weeks of daily breath observation
+    gate: non_negotiable
+
+  - foundation: Room-temperature water exposure
+    builds_to: Cold immersion
+    minimum_foundation: 2 weeks of gradual temperature reduction
+    gate: non_negotiable
+
+  - foundation: 10-minute guided meditation
+    builds_to: Extended silent sits
+    minimum_foundation: 4 weeks of consistent short sits
+    gate: non_negotiable
+
+  - foundation: Solo meditation stability
+    builds_to: Paired resonance practice
+    minimum_foundation: 4 weeks of stable solo practice
+    gate: non_negotiable
+
+  - foundation: Body awareness (somatic)
+    builds_to: Transpersonal body practices
+    minimum_foundation: 4 weeks of embodied practice
+    gate: non_negotiable
+
+  - foundation: Grounding and centering
+    builds_to: Any transpersonal practice
+    minimum_foundation: Established, reliable grounding skill
+    gate: non_negotiable
+
+complementary_pairs:
+  - [Breathwork, Cold exposure]
+  - [Breathwork, Meditation]
+  - [Cold exposure, Movement]
+  - [Meditation, Transpersonal]
+  - [Movement, Meditation]
+  - [Sound healing, Meditation]
+  - [Solo meditation, Paired practice]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTEGRATION PATTERNS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+integration:
+  sequential_execution:
+    - intake → pathway_selection
+    - pathway_selection → safety_screen
+    - safety_screen → plan_assembly
+    - plan_assembly → ethics_review
+
+  data_flow:
+    intake_to_selection:
+      - Goal in the user's own words
+      - Established practice and its duration
+      - Realistic daily minutes, setting, and solo or accompanied
+      - Conditions, medications, pregnancy, provider relationship
+    selection_to_screening:
+      - Candidate practice list for the chosen archetype
+      - The subset carrying contraindication risk
+      - Conditions and medications relevant to screening
+    screening_to_assembly:
+      - Cleared, cleared-with-modifications, and excluded practices
+      - The modifications themselves, stated concretely
+      - Anything waiting on provider clearance
+    assembly_to_ethics:
+      - The week-by-week plan with triggers and progression criteria
+      - Rest weeks, adaptation rules, and stop rules
+      - The screening record the plan was built against
+
+  downstream_handoffs:
+    outcome_tracking:
+      skill: /outcome-tracking
+      purpose: Measurement cadence matched to the plan's phase boundaries
+      optional: true
+    practice_agents:
+      purpose: Each week names a skill trigger; the practice content belongs to that skill
+      examples:
+        - /whm-breathwork
+        - /coherence-meditation
+        - /somatic-practice
+        - /sleep-healing
+        - /sound-healing
+        - /nature-healing
+        - /contemplative-inquiry
+    context_engineering:
+      skill: /context-engineering
+      purpose: Design the container around a week that needs one
+      optional: true
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUALITY GATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quality_gates:
+  sequencing:
+    - Every dependent practice sits behind its full minimum foundation period
+    - No foundation period compressed to fit a shorter plan horizon
+    - Complementary pairings drawn from the source table, not improvised
+    - At least one rest week per eight weeks of plan
+    - Unplanned rest normalized in the plan text
+
+  screening:
+    - Every risky practice routed through /practice-screening before scheduling
+    - Excluded practices absent from the plan, not softened into modifications
+    - Modifications stated concretely, per practice
+    - Anything awaiting provider clearance marked pending, never scheduled
+
+  plan_design:
+    - Each week names the skill trigger that delivers its practice
+    - Progression criteria describe an observable condition, not a performance target
+    - Adaptation rules cover low-capacity days, flare-ups, and missed weeks
+    - Stop rules present, with crisis resources restated in the artifact
+    - Measurement offered as optional, with declining stated as costless
+
+  framing:
+    - Pathway presented as a starting point the user may redraw
+    - No hierarchy or 'level' language, no pressure to advance
+    - Returning to earlier phases framed as a legitimate plan
+    - Evidence levels per practice, with no compounding across a combination
+    - Medical disclaimer present (complements, does not replace, medical care)
+    - No outcome promised anywhere in the plan
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  foundation_period_compressed:
+    action: revise
+    message: A dependent practice is scheduled before its minimum foundation period completes
+    continue: true
+    require: restore_full_foundation_or_extend_horizon
+
+  screening_not_completed:
+    action: halt
+    message: A practice carrying contraindication risk was scheduled before screening returned
+    continue: false
+    require: route_through_practice_screening_first
+
+  absolute_contraindication_present:
+    action: halt_and_redirect
+    message: Screening returned an absolute contraindication for a planned practice
+    continue: false
+    redirect: Remove the practice from the plan and offer a cleared alternative
+
+  progression_reads_as_performance:
+    action: revise
+    message: A progression criterion reads as a target to hit rather than a condition to notice
+    continue: true
+    require: rewrite_criterion_as_observable_condition
+
+  outcome_promised:
+    action: revise
+    message: Plan language implies a health outcome the evidence does not support
+    continue: true
+    require: apply_evidence_language_downgrade
+
+  missing_stop_rules:
+    action: revise
+    message: The plan ships without stop rules or crisis resources
+    continue: true
+    require: add_stop_rules_and_crisis_resources
+
+  ethics_review_failed:
+    action: halt_and_revise
+    message: Ethics gate returned fail or veto on the assembled plan
+    continue: false
+    require: plan_revision_and_re_review
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE INVOCATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - name: First eight weeks for stress and sleep
+    invocation: /practice-pathway "I'm new, stressed, sleeping badly, 15 minutes a day"
+    expected_output:
+      - Stress and Anxiety spine with an evening wind-down emphasis
+      - Weeks 1-2 foundation, week 5 rest, checkpoint at week 8
+      - Skill triggers per week
+      - Cold exposure listed pending screening, never scheduled
+      - Stop rules and crisis resources
+
+  - name: What comes after six weeks
+    invocation: /practice-pathway "6 weeks of daily coherent breathing done, what next?"
+    expected_output:
+      - Extension rather than a restart
+      - Dependency check before adding breathwork or paired practice
+      - Complementary pairing suggestions with 'you might explore' framing
+      - Rest week placement
+
+  - name: Scaffold to remove a breath-pacing app
+    invocation: /practice-pathway "learn breath coherence without the app" --archetype scaffold_to_remove
+    expected_output:
+      - Three-phase progression on content/templates/scaffold-progression.md
+      - Written removal schedule
+      - Concrete, checkable outcome markers
+      - Removal framed as adjustable, never as a test

@@ -29,6 +29,7 @@ const __dirname = path.dirname(__filename);
 const SKILLS_DIR = path.join(__dirname, '..', '.claude', 'skills', 'healing-swarm');
 const MANIFEST = path.join(SKILLS_DIR, 'manifest.yaml');
 const DISCOVERY = path.join(SKILLS_DIR, 'skill-discovery.yaml');
+const AGENTS_DIR = path.join(__dirname, '..', '.agents', 'skills');
 
 const colors = { reset: '\x1b[0m', green: '\x1b[32m', red: '\x1b[31m', cyan: '\x1b[36m', yellow: '\x1b[33m' };
 const c = (msg, color = 'reset') => console.log(`${colors[color]}${msg}${colors.reset}`);
@@ -182,6 +183,134 @@ function renderSkill(skill, manifest, discovery, linkPrefix = '../') {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Portable build: .agents/skills/<name>/ (open Agent Skills spec)
+//
+// Each skill is self-contained: every file it needs is copied into its own
+// references/ folder (library-relative paths preserved, so cross-links like
+// ../shared/x.md inside agent prompts still resolve), and the safety core is
+// inlined in the body because agents may never open a linked file.
+// Frontmatter carries spec fields only; agent-specific extras go in adapters.
+// ─────────────────────────────────────────────────────────────────────────────
+
+const SAFETY_CORE = path.join(SKILLS_DIR, 'shared', 'safety-core.md');
+const SAFETY_FILES = ['shared/crisis-response.md', 'shared/contraindications.md', 'shared/ethics-guardrails.md'];
+
+const needsSafety = (skill, discovery) =>
+  Boolean(
+    skill.requires_ethics_approval ||
+      (discovery.sensitive || []).includes(skill.name) ||
+      (skill.requires || []).some((r) => SAFETY_FILES.includes(r))
+  );
+
+function referenceFiles(skill, manifest, discovery) {
+  const agentsMap = manifest.agents || {};
+  const files = new Set();
+  for (const a of [...(skill.agents || []), skill.orchestrator].filter(Boolean)) {
+    if (agentsMap[a]?.prompt) files.add(agentsMap[a].prompt);
+  }
+  if (skill.workflow) files.add(skill.workflow);
+  for (const f of [...(skill.templates || []), ...(skill.requires || [])]) files.add(f);
+  if (needsSafety(skill, discovery)) files.add('shared/ethics-guardrails.md');
+  return [...files].filter((f) => fs.existsSync(path.join(SKILLS_DIR, f)));
+}
+
+function renderPortable(skill, manifest, discovery, refs) {
+  const agentsMap = manifest.agents || {};
+  const description = collapse(discovery.descriptions[skill.name]);
+  const sensitive = (discovery.sensitive || []).includes(skill.name);
+  const R = (p) => `references/${p}`;
+  const has = (p) => refs.includes(p);
+
+  const out = ['---', `name: ${skill.name}`];
+  out.push(YAML.stringify({ description }, { lineWidth: 0 }).trimEnd());
+  out.push('license: CC-BY-NC-SA-4.0', '---', '', `# ${titleCase(skill.name)}`, '', collapse(skill.description), '');
+  out.push('## When to use', '', description, '');
+
+  if (sensitive) {
+    out.push(
+      '> **Sensitive skill.** Do not start this on your own from loose conversational cues. ' +
+        'Wait for an explicit request and offer it gently.',
+      ''
+    );
+  }
+
+  if (needsSafety(skill, discovery)) {
+    out.push(fs.readFileSync(SAFETY_CORE, 'utf8').replace(/\r\n/g, '\n').trim(), '');
+    const full = SAFETY_FILES.filter(has).map((f) => `[\`${path.basename(f)}\`](${R(f)})`);
+    out.push(`Full protocols: ${full.join(', ')}.`, '');
+  }
+
+  const roles = [...(skill.agents || [])];
+  if (skill.orchestrator && !roles.includes(skill.orchestrator)) roles.unshift(skill.orchestrator);
+  const roleLinks = roles.filter((a) => has(agentsMap[a]?.prompt || ''));
+  if (roleLinks.length || skill.workflow) {
+    out.push('## How to run', '');
+    if (skill.workflow && has(skill.workflow)) {
+      out.push(
+        `Follow the phases in [\`${path.basename(skill.workflow)}\`](${R(skill.workflow)}). ` +
+          'Run each phase inline, one after another. Each phase writes its result to a file ' +
+          '(for example `brief.md`, then `design.md`) and the next phase reads it, so a run can be resumed. ' +
+          'If your agent supports subagents, you may hand a phase to one; the files stay the handoff.',
+        ''
+      );
+    }
+    if (roleLinks.length) {
+      out.push('Roles (open the brief for the role you are playing):', '');
+      for (const a of roleLinks) out.push(`- [\`${a}\`](${R(agentsMap[a].prompt)})`);
+      out.push('');
+    }
+  }
+
+  const templates = (skill.templates || []).filter(has);
+  if (templates.length) {
+    out.push('**Templates:** ' + templates.map((t) => `[\`${path.basename(t)}\`](${R(t)})`).join(', '), '');
+  }
+  const extra = (skill.requires || []).filter((r) => has(r) && !SAFETY_FILES.includes(r));
+  if (extra.length) {
+    out.push('**Shared context:** ' + extra.map((r) => `[\`${path.basename(r)}\`](${R(r)})`).join(', '), '');
+  }
+  if (Array.isArray(skill.outputs) && skill.outputs.length) {
+    out.push('**Outputs** (write to `./healing-output/`): ' + skill.outputs.map((o) => `\`${o}\``).join(', '), '');
+  }
+  if (skill.requires_ethics_approval) {
+    out.push(
+      'Before releasing output, review it against the safety core above and ' +
+        (has('shared/ethics-guardrails.md') ? `[\`ethics-guardrails.md\`](${R('shared/ethics-guardrails.md')})` : 'the ethics guardrails') +
+        '. Block anything that overclaims or risks harm.',
+      ''
+    );
+  }
+
+  out.push('---', '', '_Generated from `manifest.yaml` + `skill-discovery.yaml` by `scripts/generate-skills.js`. Do not edit by hand._', '');
+  return out.join('\n');
+}
+
+// Every file the portable build should contain, as { rel, content }.
+function portableTree(manifest, discovery) {
+  const tree = [];
+  for (const skill of manifest.skills || []) {
+    const refs = referenceFiles(skill, manifest, discovery);
+    tree.push({ rel: `${skill.name}/SKILL.md`, content: renderPortable(skill, manifest, discovery, refs) });
+    // Codex adapter: sensitive skills run only on explicit user request.
+    if ((discovery.sensitive || []).includes(skill.name)) {
+      tree.push({ rel: `${skill.name}/agents/openai.yaml`, content: 'policy:\n  allow_implicit_invocation: false\n' });
+    }
+    for (const f of refs) {
+      tree.push({ rel: `${skill.name}/references/${f}`, content: fs.readFileSync(path.join(SKILLS_DIR, f), 'utf8') });
+    }
+  }
+  return tree;
+}
+
+const listFiles = (dir, base = dir) =>
+  !fs.existsSync(dir)
+    ? []
+    : fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
+        const full = path.join(dir, e.name);
+        return e.isDirectory() ? listFiles(full, base) : [path.relative(base, full).split(path.sep).join('/')];
+      });
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Main
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -221,6 +350,8 @@ function main() {
     },
   ]);
 
+  const portable = portableTree(manifest, discovery);
+
   if (isCheck) {
     const norm = (s) => s.replace(/\r\n/g, '\n');
     const stale = [];
@@ -228,11 +359,18 @@ function main() {
       const current = fs.existsSync(t.file) ? fs.readFileSync(t.file, 'utf8') : '';
       if (norm(current) !== norm(t.content)) stale.push(t.name);
     }
+    const expected = new Set(portable.map((p) => p.rel));
+    for (const p of portable) {
+      const file = path.join(AGENTS_DIR, p.rel);
+      const current = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : '';
+      if (norm(current) !== norm(p.content)) stale.push(`.agents/skills/${p.rel}`);
+    }
+    for (const rel of listFiles(AGENTS_DIR)) if (!expected.has(rel)) stale.push(`.agents/skills/${rel} (orphan)`);
     if (stale.length === 0) {
-      c(`✓ All ${targets.length} SKILL.md files are in sync (discovery quality OK).`, 'green');
+      c(`✓ All ${targets.length} SKILL.md files + ${portable.length} portable files in sync (discovery quality OK).`, 'green');
       process.exit(0);
     }
-    c(`✗ SKILL.md out of date for: ${stale.join(', ')}`, 'red');
+    c(`✗ Out of date (${stale.length}): ${stale.slice(0, 20).join(', ')}${stale.length > 20 ? ', …' : ''}`, 'red');
     c('Run `npm run generate:skills` to regenerate.', 'red');
     process.exit(1);
   }
@@ -241,7 +379,14 @@ function main() {
     fs.mkdirSync(t.dir, { recursive: true });
     fs.writeFileSync(t.file, t.content);
   }
-  c(`✓ Wrote ${targets.length} SKILL.md files (discovery quality OK).`, 'green');
+  // ponytail: full wipe + rewrite of the portable tree; stale files can't survive.
+  fs.rmSync(AGENTS_DIR, { recursive: true, force: true });
+  for (const p of portable) {
+    const file = path.join(AGENTS_DIR, p.rel);
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, p.content);
+  }
+  c(`✓ Wrote ${targets.length} SKILL.md files + ${portable.length} portable files to .agents/skills (discovery quality OK).`, 'green');
 }
 
 main();
