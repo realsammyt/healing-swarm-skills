@@ -10,6 +10,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **Portable Agent Skills build** — `.agents/skills/<name>/`, self-contained with inline safety core, generated from the manifest; Codex `agents/openai.yaml` for sensitive skills
+- **`shared/safety-core.md`**, **`AGENTS.md`**, **`evals/cases.yaml`** (20-case starter set)
+
+### Changed
+
+- Swarm conductor defaults to sequential inline phases with file handoffs; subagents optional
+- Agent prompts describe actions, not tool names
+
 ### Fixed
 
 - **SKILL.md YAML frontmatter** — the generator emitted unquoted descriptions,

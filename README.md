@@ -608,6 +608,15 @@ A chronological record of major additions. This is an intentionally
 **condensed digest** — some website timeline entries are merged or summarized
 here. [Full detailed timeline on the website →](https://realsammyt.github.io/healing-swarm-skills/docs/changelog)
 
+### 2026-11-05 — Portable Agent Skills (Codex, Devin, Pi, any agent)
+
+- **Portable build:** `generate:skills` now also writes self-contained `.agents/skills/<name>/` (open Agent Skills spec): spec-only frontmatter, every needed file copied into `references/`, safety core inlined in every practice skill; freshness + orphan check in `npm run validate`
+- **Codex adapter:** `agents/openai.yaml` with `allow_implicit_invocation: false` on the 8 sensitive skills
+- **Conductor runs anywhere:** default mode is sequential inline phases handing off through `./healing-output/<run>/` files (resumable); subagent fan-out optional; trauma-informed gate wired into the quality phase
+- **Agent-neutral prompts:** WebSearch/WebFetch/Task replaced with plain verbs
+- **1 shared resource:** `safety-core.md` (crisis, screening, water/driving, never-rules)
+- `AGENTS.md` added; `evals/cases.yaml` starter set (20 cases: crisis, contraindication, evidence, benign controls)
+
 ### 2026-07-27 — Six-Lens Review: Safety, Discovery & Practice-Support Skills
 
 - **6 skills:** Practice Screening, Adverse Response, Practice Pathway, Outcome Tracking, Foundation Meditation, Caregiver Support
@@ -722,7 +731,7 @@ here. [Full detailed timeline on the website →](https://realsammyt.github.io/h
 | Agents                | 46    |
 | Workflows             | 27    |
 | Templates             | 44    |
-| Shared Resources      | 12    |
+| Shared Resources      | 13    |
 | Worked Examples       | 19    |
 | Traditions Integrated | 20+   |
 

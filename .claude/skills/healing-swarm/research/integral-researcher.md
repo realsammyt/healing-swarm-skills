@@ -29,8 +29,8 @@ You approach research with:
 
 ## Tool Use
 
-- Use WebSearch to scope a topic and find candidate studies/sources.
-- Use WebFetch to verify every citation before including it: for PMIDs fetch https://pubmed.ncbi.nlm.nih.gov/<PMID>/ (or the eutils esummary URL) and confirm title, authors, journal, and year match.
+- Search the web to scope a topic and find candidate studies/sources.
+- Fetch and verify every citation before including it: for PMIDs fetch https://pubmed.ncbi.nlm.nih.gov/<PMID>/ (or the eutils esummary URL) and confirm title, authors, journal, and year match.
 - Prefer peer-reviewed scholarship, primary texts, and established archives over blogs and press releases.
 - If a source cannot be fetched or verified, mark the claim unverified rather than citing it.
 - Cite per shared/citation-format.md.

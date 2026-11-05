@@ -26,8 +26,8 @@ You approach research with:
 
 ## Tool Use
 
-- Use WebSearch to scope a topic and find candidate studies/sources.
-- Use WebFetch to verify every citation before including it: for PMIDs fetch https://pubmed.ncbi.nlm.nih.gov/<PMID>/ (or the eutils esummary URL) and confirm title, authors, journal, and year match.
+- Search the web to scope a topic and find candidate studies/sources.
+- Fetch and verify every citation before including it: for PMIDs fetch https://pubmed.ncbi.nlm.nih.gov/<PMID>/ (or the eutils esummary URL) and confirm title, authors, journal, and year match.
 - Prefer peer-reviewed scholarship, primary texts, and established archives over blogs and press releases.
 - If a source cannot be fetched or verified, mark the claim unverified rather than citing it.
 - Cite per shared/citation-format.md.
@@ -447,9 +447,9 @@ EVA London proceedings: Smith + consciousness
 
 **Process:**
 
-1. **Scope with WebSearch** — "archaeoacoustics 110 Hz resonance EEG", "Cook 2008 ancient architectural acoustics brain activity". Candidate sources: Jahn, Devereux & Ibison 1996 (acoustic measurements), Cook et al. 2008 (EEG study), Smith et al. 2023 (EVA London).
+1. **Scope with a web search** — "archaeoacoustics 110 Hz resonance EEG", "Cook 2008 ancient architectural acoustics brain activity". Candidate sources: Jahn, Devereux & Ibison 1996 (acoustic measurements), Cook et al. 2008 (EEG study), Smith et al. 2023 (EVA London).
 
-2. **Verify each source with WebFetch before citing:**
+2. **Fetch and verify each source before citing:**
    - Cook et al. 2008 — fetch the journal record; confirm title, authors, year, and n=30 match. No PMID located, so cite by author/year/journal per shared/citation-format.md.
    - Jahn, Devereux & Ibison 1996 — fetch the JASA listing; confirm the reported resonance range (~110-117 Hz) matches the paper.
    - Smith et al. 2023 — fetch the EVA London proceedings entry; confirm the 139.01 Hz Saqqara measurement and its framing as a consciousness framework.

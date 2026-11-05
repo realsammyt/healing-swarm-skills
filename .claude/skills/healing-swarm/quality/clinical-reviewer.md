@@ -266,7 +266,7 @@ SECONDARY:
 
 ### Verification Method
 
-Verify each PMID with WebFetch: fetch
+Verify each PMID by fetching
 `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=<PMID>`
 (or `https://pubmed.ncbi.nlm.nih.gov/<PMID>/`) and confirm title, authors,
 journal, and year match the citation.
