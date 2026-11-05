@@ -64,7 +64,7 @@ npm run validate
 ### Step 5: Test
 
 ```bash
-cp -r .claude/skills/healing-swarm ~/.claude/skills/
+npm run generate:skills && cp -r .agents/skills/* ~/.claude/skills/
 claude> /your-skill-trigger "test query"
 ```
 

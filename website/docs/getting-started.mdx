@@ -235,12 +235,12 @@ canonical numbers; the docs deliberately don't hardcode them.)
 
 macOS/Linux:
 ```bash
-cp -r .claude/skills/healing-swarm ~/.claude/skills/
+cp -r .agents/skills/* ~/.claude/skills/
 ```
 
 Windows (PowerShell):
 ```powershell
-Copy-Item -Recurse .claude\skills\healing-swarm $env:USERPROFILE\.claude\skills\
+Copy-Item -Recurse .agents\skills\* $env:USERPROFILE\.claude\skills\
 ```
 
 **Step 5: Verify Skills**

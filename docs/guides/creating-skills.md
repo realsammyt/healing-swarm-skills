@@ -551,7 +551,7 @@ Fix any errors until validation passes.
 Copy to Claude Code and test:
 
 ```bash
-cp -r .claude/skills/healing-swarm ~/.claude/skills/
+npm run generate:skills && cp -r .agents/skills/* ~/.claude/skills/
 
 # In Claude Code:
 claude> /healing-breathwork "help me relax"

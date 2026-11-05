@@ -67,21 +67,21 @@ canonical numbers; the docs deliberately don't hardcode them.)
 
 ### Step 4: Copy Skills to Claude Code
 
-Skills must be in your Claude Code configuration directory:
+Inside this repo, Claude Code finds the skills with no setup. To use them in every project, copy the self-contained skills from `.agents/skills/` (run `npm run generate:skills` first if you changed anything). For Codex, Devin, Pi and other agents, see the [README install table](../README.md#2-install-skills-any-agent).
 
 **macOS/Linux:**
 ```bash
-cp -r .claude/skills/healing-swarm ~/.claude/skills/
+cp -r .agents/skills/* ~/.claude/skills/
 ```
 
 **Windows (PowerShell):**
 ```powershell
-Copy-Item -Recurse .claude\skills\healing-swarm $env:USERPROFILE\.claude\skills\
+Copy-Item -Recurse .agents\skills\* $env:USERPROFILE\.claude\skills\
 ```
 
 **Windows (Command Prompt):**
 ```cmd
-xcopy /E /I .claude\skills\healing-swarm %USERPROFILE%\.claude\skills\healing-swarm
+xcopy /E /I /Y .agents\skills %USERPROFILE%\.claude\skills
 ```
 
 ### Step 5: Verify Skills Are Available

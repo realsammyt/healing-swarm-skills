@@ -61,10 +61,10 @@ node scripts/validate-skills.js --verbose
 
 ```bash
 # macOS/Linux
-cp -r .claude/skills/healing-swarm ~/.claude/skills/
+cp -r .agents/skills/* ~/.claude/skills/
 
 # Windows PowerShell
-Copy-Item -Recurse .claude\skills\healing-swarm $env:USERPROFILE\.claude\skills\ -Force
+Copy-Item -Recurse .agents\skills\* $env:USERPROFILE\.claude\skills\ -Force
 ```
 
 ### Step 2: Restart Claude Code
@@ -339,7 +339,7 @@ canonical numbers; the docs deliberately don't hardcode them.)
 
 ```bash
 # Copy skills
-$ cp -r .claude/skills/healing-swarm ~/.claude/skills/
+$ cp -r .agents/skills/* ~/.claude/skills/
 
 # Start Claude Code
 $ claude
