@@ -27,6 +27,14 @@ cd website && npm run build      # only if website/ changed
 
 YAML strings that contain double quotes must be wrapped in single quotes.
 
+## Using the skills (Devin, Codex, Pi and others)
+
+- Invoke a skill by name: `@skills:<name>` in Devin, `$<name>` in Codex, `/<name>` in Claude Code.
+- The 8 sensitive skills (`requires_ethics_approval` or `sensitive` in the manifest) start only when the user explicitly asks. Don't start one on your own judgment, and don't suggest one unprompted.
+- Every practice skill begins with an inline safety core. Follow it before the rest of the skill: crisis first, screen before any practice, no practice at all when a contraindication is absolute.
+- Multi-phase skills (`healing-swarm` and the topic workflows) run inline by default and hand off through `./healing-output/<run>/`. Resume from those files instead of starting over. Subagents are optional.
+- Installing into another repo for Devin: copy `.agents/skills/*`, then copy `.devin/skills/*` over it so the sensitive skills keep `triggers: ["user"]`.
+
 ## Safety
 
 Never weaken crisis response, contraindication screening or the ethics "never" rules. Crisis numbers must match `shared/crisis-response.md` (`npm run validate` enforces this).
