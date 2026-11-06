@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **Safety core v2** (indirect suicide signs, no conditional plans for absolute contraindications, no invented citations) and clinical fixes in crisis-response, contraindications (cold + hypertension), ethics-guardrails and the adverse-response guide
 - Swarm conductor defaults to sequential inline phases with file handoffs; subagents optional
 - Agent prompts describe actions, not tool names
 

@@ -194,7 +194,7 @@ contraindications is not bureaucratic caution — it is an expression of care.
 | Practice                    | Severity | Notes                                                                                                                     |
 | --------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
 | **Breathwork (WHM)**        | Relative | Breath holds increase blood pressure. Gentle, slow breathing (extended exhale) may actually help. Avoid forced techniques |
-| **Cold exposure**           | Absolute | Cold triggers vasoconstriction and acute blood pressure spike. Dangerous for uncontrolled hypertension                    |
+| **Cold exposure**           | Absolute (uncontrolled) / Relative (controlled) | Cold triggers vasoconstriction and an acute blood pressure spike. Absolute if blood pressure is uncontrolled; if controlled, only with clearance that covers cold exposure specifically, starting with cool (not cold) water |
 | **Intensive meditation**    | Caution  | Generally beneficial for blood pressure; well-studied                                                                     |
 | **Transpersonal practices** | Caution  | Avoid intensely arousing practices                                                                                        |
 | **Paired practices**        | Caution  | Safe                                                                                                                      |
@@ -343,7 +343,7 @@ any modifications."
 | Asthma/COPD            |      ABS       |      REL      |         CAU          |      CAU      |  CAU   |   REL    |  CAU  |
 | Recent surgery         |      ABS       |      REL      |         CAU          |      REL      |  CAU   | ABS-REL  |  CAU  |
 | Chronic pain           |      REL       |      REL      |         CAU          |      CAU      |  CAU   |   REL    |  CAU  |
-| Hypertension           |      REL       |      ABS      |         CAU          |      CAU      |  CAU   |   CAU    |  CAU  |
+| Hypertension           |      REL       |    ABS-REL    |         CAU          |      CAU      |  CAU   |   CAU    |  CAU  |
 | Diabetes               |      REL       |      REL      |         CAU          |      CAU      |  CAU   |   CAU    |  CAU  |
 
 **Legend:** ABS = Absolute (never), REL = Relative (with modifications), CAU = Caution (proceed carefully)

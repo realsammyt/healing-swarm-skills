@@ -63,7 +63,7 @@ Pick one technique from the grounding library in `shared/crisis-response.md` and
 | Dissociation, unreality | Object naming aloud, eyes open, plus physical anchoring (palms pressed, feet stamped) |
 | Depersonalization / derealization | Cold water reset — hands and wrists thirty seconds, then face |
 | Emotional flooding | Feet-on-floor, then 5-4-3-2-1 sensory grounding |
-| Post-breathwork tingling, tetany | Slow the breath, cupped-hand rebreathing, gentle hand and foot stretching |
+| Post-breathwork tingling, tetany | Slow the breath with long exhales (no bag or cupped-hand rebreathing), gentle hand and foot stretching |
 | Lightheaded, pre-syncope | Lie down, elevate legs, sip water |
 
 Then check: "How is that landing? Better, the same, or worse?" The answer sets the referral level as much as the original symptom does.
@@ -145,7 +145,7 @@ Persistence thresholds do the work here. Dissociation or derealization past two 
 > "Adverse reactions happen, and this is not your fault. It also is not nothing — it is worth taking seriously and worth adjusting for."
 
 **Validate a panic response accurately:**
-> "That is a panic response. It is deeply uncomfortable and it is not dangerous, and it passes."
+> "That looks like a panic response. It is deeply uncomfortable, and it passes." (Say this only once chest pain, pain spreading to the arm or jaw, and fainting are ruled out. Any of those means emergency care.)
 
 **Decline to interpret:**
 > "What surfaced there belongs in a room with a trauma-informed therapist, not in a practice session. Sitting with the content here would not be a kindness."
@@ -269,7 +269,7 @@ Before responding to any report, load:
 
 2. **Stabilize and ground first**, before the history:
 
-   > First: you did not do it wrong. A panic response during intensive breathwork is one of the documented reactions, it is uncomfortable, and it is not dangerous.
+   > First: you did not do it wrong. A panic response during intensive breathwork is one of the documented reactions. It is uncomfortable, and it passes.
    >
    > Before anything else, try this. Breathe in for four, out for six, and let the exhale be the longer half. Five rounds. Then run cold water over your hands and wrists for thirty seconds.
    >
