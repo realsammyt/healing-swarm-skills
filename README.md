@@ -139,7 +139,7 @@ Every skill ships as a self-contained folder in [`.agents/skills/`](.agents/skil
 | **Any supported agent** (Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor and more) | `npx skills add realsammyt/healing-swarm-skills` |
 | **Claude Code** | Works inside this repo with no setup (it reads `.claude/skills/`). For every project, copy the portable skills: `cp -r .agents/skills/* ~/.claude/skills/` |
 | **OpenAI Codex** | Works inside this repo with no setup (it scans `.agents/skills/`). For every project: `cp -r .agents/skills/* ~/.agents/skills/` |
-| **Devin** | Works inside this repo with no setup (it reads `.agents/skills/`). To use it in another repo, copy the skill folders into that repo's `.agents/skills/` |
+| **Devin** | Works inside this repo with no setup. Invoke with `@skills:<name>`. For another repo, see [Using with Devin](#using-with-devin) |
 | **Pi** | Run Pi from this repo, or copy the skill folders into `.agents/skills/` in your project |
 | **Other agents / plain chat** | Paste a skill's `SKILL.md` into the system prompt or project instructions, and attach files from its `references/` folder when they're needed |
 
@@ -152,6 +152,24 @@ Windows PowerShell: `Copy-Item -Recurse .agents\skills\* $env:USERPROFILE\.claud
 - **Small and local models** (around 8B to 14B): use one skill at a time, not the full `healing-swarm` run. The safety core sits near the top of each SKILL.md, so it still applies even if the model never opens `references/`. Test against [`evals/cases.yaml`](evals/cases.yaml) before relying on a model.
 - **Web access** is only needed by the research and citation skills, which search and verify sources. Without it they mark claims as unverified instead of inventing citations.
 - **Don't edit `.agents/skills/` by hand.** It's generated from `manifest.yaml`; contributors should see [AGENTS.md](AGENTS.md).
+
+#### Using with Devin
+
+- **In this repo:** nothing to install. Devin scans `.agents/skills/`, `.devin/skills/` and `.claude/skills/` on the branch it's working on.
+- **Invoke a skill:** `@skills:<name>` plus what you want, for example `@skills:sleep-healing wind-down routine for tonight`. This works the same from Slack, the API, Jira or Linear labels, and schedules. Devin can also pick a non-sensitive skill on its own when your request matches its description.
+- **Sensitive skills** (shadow work, grief, the orbital journey and the other 5): always start them with `@skills:<name>`. They're marked user-only in `.devin/skills/` and `.claude/skills/`. Devin's docs don't say which copy wins when the same name also exists in `.agents/skills/`, so don't rely on it never auto-starting one inside this repo.
+- **Another repo:** copy the portable skills, then lay the Devin copies over them. That leaves one copy of each skill, with the sensitive ones user-only. Commit the result to the branch Devin works on.
+
+  ```bash
+  mkdir -p ../your-repo/.agents/skills
+  cp -r .agents/skills/* ../your-repo/.agents/skills/
+  cp -r .devin/skills/* ../your-repo/.agents/skills/   # sensitive skills become user-only
+  ```
+
+  PowerShell: `New-Item -ItemType Directory -Force ../your-repo/.agents/skills; Copy-Item -Recurse -Force .agents/skills/*, .devin/skills/* ../your-repo/.agents/skills/`
+- **Prefer repo copies over the Customize page.** A skill pasted there loses its `references/` folder. The safety core still applies because it's inline, but the full protocols and templates won't be there.
+- **Long runs:** `@skills:healing-swarm` runs its phases one after another and writes each hand-off to `./healing-output/<run>/`. If a session ends, start a new one and ask Devin to resume from that folder. Tell it whether to commit the outputs.
+- **Changing the skills themselves:** follow [AGENTS.md](AGENTS.md). Edit the sources, run `npm run generate:skills` and `npm run validate`, then open a PR.
 
 ### 3. Use Skills
 
@@ -628,6 +646,7 @@ here. [Full detailed timeline on the website →](https://realsammyt.github.io/h
 - **CI:** advisory `skills-ref` spec validation of `.agents/skills`
 - **Safety core v2:** indirect suicide signs, no conditional plans for absolute contraindications, no invented citations; regular gemma-4-e4b went from 6/20 to 11/20 (crisis 2/6 to 4/6)
 - **Clinical fixes:** US caveats on 988/911 lines, cold exposure with hypertension is absolute only when uncontrolled, panic reassurance only after cardiac signs are ruled out, cupped-hand rebreathing replaced with slow long-exhale breathing
+- **Devin guide:** "Using with Devin" in the README and a "Using the skills" section in AGENTS.md (`@skills:<name>`, sensitive skills, installing into another repo with the user-only overlay)
 
 ### 2026-11-05 — Portable Agent Skills (Codex, Devin, Pi, any agent)
 
