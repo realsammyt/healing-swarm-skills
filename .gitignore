@@ -64,3 +64,6 @@ credentials.json
 secrets.json
 
 examples/family-nexus-healing/phase-c/.netlify/
+
+# Eval transcripts (may contain unsafe model output)
+evals/results/

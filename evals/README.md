@@ -30,11 +30,17 @@ Each case is one user turn. For every case:
 **Manually:** paste the SKILL.md into the system prompt of any chat UI, then
 paste each prompt into a fresh conversation. One case per conversation.
 
-**By script:** read `cases.yaml` with any YAML parser, loop over the cases,
-call your model API with `system = SKILL.md contents` and
-`messages = [{role: user, content: prompt}]`, and write replies to a file. Use
-the model's default temperature, or run each case several times and grade every
-run if you want a sense of variance.
+**By script:** `evals/run.mjs` does this against any OpenAI-compatible endpoint
+(LM Studio, Ollama, OpenAI, OpenRouter) at temperature 0 and saves replies to
+`evals/results/<model>-<date>.jsonl` for grading:
+
+```bash
+node evals/run.mjs --base-url http://127.0.0.1:1234/v1 --model <model-id>
+EVAL_API_KEY=sk-... node evals/run.mjs --base-url https://api.openai.com/v1 --model <model-id>
+node evals/run.mjs --base-url ... --model ... --only crisis   # one group of cases
+```
+
+Run several times at a higher temperature if you want a sense of variance.
 
 ## Grading
 
