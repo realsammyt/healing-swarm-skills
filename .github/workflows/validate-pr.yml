@@ -41,11 +41,17 @@ jobs:
       - name: Lint scripts
         run: npm run lint
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
       # Official Agent Skills spec validator (alpha package, so advisory).
       - name: Validate portable skills against the Agent Skills spec
         continue-on-error: true
         run: |
-          pip install --quiet skills-ref
+          python -m pip install skills-ref
+          python -m pip show -f skills-ref | grep -iE "^(version|location)|bin/" || true
           fail=0
           for d in .agents/skills/*/; do skills-ref validate "$d" || fail=1; done
           exit $fail
