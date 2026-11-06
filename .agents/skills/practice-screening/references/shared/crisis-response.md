@@ -76,7 +76,7 @@ Apply grounding techniques from the Grounding Techniques Library (below):
 |----------|-------|--------|
 | **Mild** | Slight dizziness, mild anxiety, minor discomfort | Self-managed recovery with grounding |
 | **Moderate** | Sustained distress, persistent symptoms, emotional flooding | Extended grounding, consider ending session |
-| **Severe** | Loss of consciousness, chest pain, inability to reorient, psychotic features | Emergency medical care (call 911 / local emergency) |
+| **Severe** | Loss of consciousness, chest pain, inability to reorient, psychotic features | Emergency medical care (call your local emergency number, 911 in the US) |
 
 ### Step 5: RESPOND
 
@@ -106,7 +106,7 @@ Apply grounding techniques from the Grounding Techniques Library (below):
 | **Signs** | Rapid shallow breathing, dizziness, chest tightness, air hunger, tingling in extremities |
 | **Risk factors** | Anxiety disorders, first-time practitioners, high-intensity breathwork (WHM, holotropic) |
 | **Immediate response** | Slow the breath — long exhales. Count exhales aloud: "Breathe out... two... three... four..." |
-| **Recovery** | Cupped-hand rebreathing (breathe into cupped hands to restore CO2 balance), rest in comfortable position |
+| **Recovery** | Slow nasal breathing with long exhales to let CO2 recover (no bag or cupped-hand rebreathing: it can lower oxygen and hide a cardiac or asthma cause), rest in comfortable position |
 | **When to seek emergency care** | Symptoms persist beyond 10 minutes, chest pain, loss of consciousness |
 
 ### Syncope (Fainting)
@@ -125,7 +125,7 @@ Apply grounding techniques from the Grounding Techniques Library (below):
 |--------|--------|
 | **Signs** | Terror, feeling of impending doom, racing heart, desire to flee, hyperventilation |
 | **Risk factors** | Anxiety disorders, PTSD, trauma history, unfamiliar breathing patterns |
-| **Immediate response** | Validate: "This is a panic response. It is uncomfortable but not dangerous. It will pass." |
+| **Immediate response** | First rule out cardiac signs (chest pain or pressure, pain spreading to arm, jaw or back, fainting). If any are present, treat it as a medical emergency. If not, validate: "This looks like a panic response. It is very uncomfortable, and it passes." |
 | **Recovery** | 5-4-3-2-1 grounding, slow breathing (4 counts in, 6 counts out), physical grounding (cold water on wrists) |
 | **When to seek emergency care** | Symptoms indistinguishable from cardiac event, first-ever episode, persistent >30 minutes |
 
@@ -135,7 +135,7 @@ Apply grounding techniques from the Grounding Techniques Library (below):
 |--------|--------|
 | **Signs** | Involuntary muscle contraction in hands/feet ("claw hands"), cramping, numbness |
 | **Risk factors** | Prolonged hyperventilation, alkalosis from CO2 depletion |
-| **Immediate response** | Stop breathwork immediately, slow the breath, cupped-hand rebreathing |
+| **Immediate response** | Stop breathwork immediately, slow nasal breathing with long exhales (no bag or cupped-hand rebreathing: it can lower oxygen and hide a cardiac or asthma cause) |
 | **Recovery** | Rest, gentle hand/foot stretching, hydration. Resolves as CO2 normalizes (typically 5-15 minutes) |
 | **When to seek emergency care** | Spasms spread beyond hands/feet, facial numbness, symptoms persist >20 minutes |
 
@@ -261,7 +261,7 @@ should be treated as an adverse reaction requiring support.
 | **Risk factors** | Family history of psychotic disorders, bipolar disorder, substance use, sleep deprivation, extended intensive practice |
 | **Immediate response** | Stop all practices immediately. Do NOT engage with content of delusions/hallucinations. Ensure physical safety |
 | **Recovery** | Immediate mental health evaluation. Do NOT frame as "spiritual awakening" if psychotic features present. Medication evaluation may be necessary |
-| **When to seek emergency care** | Always — psychotic symptoms require professional assessment. Call 988 or 911 |
+| **When to seek emergency care** | Always. Psychotic symptoms require professional assessment. Call or text 988 (US) or your local emergency number (911 in the US) |
 
 ```
 ❌ NEVER dismiss psychotic symptoms as "just a spiritual experience"

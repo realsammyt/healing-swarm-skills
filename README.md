@@ -626,6 +626,8 @@ here. [Full detailed timeline on the website →](https://realsammyt.github.io/h
 - **Sensitive skills explicit-only everywhere:** `disable-model-invocation` (Claude Code), `agents/openai.yaml` (Codex), `.devin/skills` copies with `triggers: ["user"]` (Devin); open question Q1 resolved
 - **Eval runner:** `evals/run.mjs` for any OpenAI-compatible endpoint; first run (an uncensored ~4B local model) scored 3/20, crisis 0/6, a documented release blocker for that model class
 - **CI:** advisory `skills-ref` spec validation of `.agents/skills`
+- **Safety core v2:** indirect suicide signs, no conditional plans for absolute contraindications, no invented citations; regular gemma-4-e4b went from 6/20 to 11/20 (crisis 2/6 to 4/6)
+- **Clinical fixes:** US caveats on 988/911 lines, cold exposure with hypertension is absolute only when uncontrolled, panic reassurance only after cardiac signs are ruled out, cupped-hand rebreathing replaced with slow long-exhale breathing
 
 ### 2026-11-05 — Portable Agent Skills (Codex, Devin, Pi, any agent)
 

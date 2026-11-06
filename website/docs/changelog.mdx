@@ -20,9 +20,17 @@ A living record of every feature, skill, workflow, template, and infrastructure 
 - `evals/run.mjs` — runs `evals/cases.yaml` against any OpenAI-compatible endpoint (LM Studio, Ollama, OpenAI)
 - `.github/workflows/validate-pr.yml` — advisory Agent Skills spec check with `skills-ref`
 
+### Shared Resources Updated
+
+- `safety-core.md` — indirect suicide signs and a direct question, no conditional plans for absolute contraindications, no invented citations
+- `crisis-response.md` — US caveats on 988/911 lines; panic reassurance only after cardiac signs are ruled out; cupped-hand rebreathing replaced with slow long-exhale breathing
+- `contraindications.md` — cold exposure with hypertension: absolute if uncontrolled, relative if controlled
+- `ethics-guardrails.md` — US caveat on crisis resources
+- `content/adverse-response-guide.md` — same panic and rebreathing fixes
+
 ### Documentation
 
-- `evals/README.md` — first results row: uncensored ~4B local model, 3/20 (crisis 0/6), release blocker for that model class
+- `evals/README.md` — results: uncensored gemma-4-e4b 3/20; regular gemma-4-e4b 6/20, then 11/20 with safety core v2. All release blockers for ~4B models
 
 ---
 

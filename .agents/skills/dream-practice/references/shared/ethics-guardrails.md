@@ -117,7 +117,7 @@ of any practice that could have physical effects.
 ```
 ✅ Grounding techniques alongside any intensive practice
 ✅ Explicit permission to stop: "If this feels overwhelming, pause and rest"
-✅ Mental health crisis resources (988 Suicide & Crisis Lifeline, etc.)
+✅ Mental health crisis resources (988 Suicide & Crisis Lifeline in the US, or the local equivalent)
 ✅ Self-compassion messaging for missed practices or slow progress
 ✅ Normalizing varied responses: "Experiences vary widely; all are valid"
 ```
