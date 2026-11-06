@@ -1,6 +1,7 @@
 ---
 name: grief-healing
 description: "Builds grief-informed practices for loss (bereavement, health changes, transitions) with strong psychological safety and crisis resources. Sensitive: use only when the user explicitly asks for a grief practice. Do NOT auto-launch from mentions of loss in passing or general sadness; wait for an explicit request. Go gently, keep crisis resources visible, and do NOT rush the process or pathologize normal grief."
+disable-model-invocation: true
 ---
 
 # Grief Healing

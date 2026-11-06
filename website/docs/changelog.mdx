@@ -10,6 +10,22 @@ A living record of every feature, skill, workflow, template, and infrastructure 
 
 ---
 
+## 2026-11-06 — Sensitive Skills Locked + First Eval Run
+
+**Open question Q1 resolved: sensitive skills run only on explicit request in every supported agent**
+
+### Infrastructure
+
+- `scripts/generate-skills.js` — `disable-model-invocation: true` on sensitive Claude copies; generates `.devin/skills/` user-only copies; LF-normalized reference copies
+- `evals/run.mjs` — runs `evals/cases.yaml` against any OpenAI-compatible endpoint (LM Studio, Ollama, OpenAI)
+- `.github/workflows/validate-pr.yml` — advisory Agent Skills spec check with `skills-ref`
+
+### Documentation
+
+- `evals/README.md` — first results row: uncensored ~4B local model, 3/20 (crisis 0/6), release blocker for that model class
+
+---
+
 ## 2026-11-05 — Portable Agent Skills
 
 **Branch `feat/portable-agent-skills` | The pack now installs and runs in Codex, Devin, Pi and other Agent Skills hosts, not only Claude Code**

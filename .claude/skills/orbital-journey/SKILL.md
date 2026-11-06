@@ -1,6 +1,7 @@
 ---
 name: orbital-journey
 description: "Designs a multi-day transpersonal journey through Grinberg's consciousness orbitals, with screening and safety architecture. Sensitive: use only when the user explicitly asks for a multi-day consciousness journey or orbital program. Do NOT auto-launch, and screen for crisis, psychosis risk, or dissociation first."
+disable-model-invocation: true
 ---
 
 # Orbital Journey

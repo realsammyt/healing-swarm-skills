@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Explicit-only sensitive skills** in Claude Code, Codex and Devin; `evals/run.mjs` eval runner; advisory `skills-ref` CI check
+
 - **Portable Agent Skills build** — `.agents/skills/<name>/`, self-contained with inline safety core, generated from the manifest; Codex `agents/openai.yaml` for sensitive skills
 - **`shared/safety-core.md`**, **`AGENTS.md`**, **`evals/cases.yaml`** (20-case starter set)
 

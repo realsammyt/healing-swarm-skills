@@ -1,6 +1,7 @@
 ---
 name: language-awareness
 description: "Builds progressive cognitive-deautomatization practices for noticing how language shapes perception, with grounding. Sensitive: use when the user asks to observe labeling, un-name experience, or work with Zen/Dzogchen-style perception. Do NOT auto-launch from loose mentions of language or perception; wait for an explicit request for this practice. Do NOT push past grounding; stop if depersonalization or derealization shows up."
+disable-model-invocation: true
 ---
 
 # Language Awareness

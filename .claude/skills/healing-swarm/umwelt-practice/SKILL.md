@@ -1,6 +1,7 @@
 ---
 name: umwelt-practice
 description: "Builds sensory-augmentation exercises for perceiving-as-other and extending the sensorium, with grounding. Sensitive: use when the user explicitly asks to explore other-than-human perception or sensory expansion. Do NOT auto-launch from loose curiosity about perception; wait for an explicit request. Do NOT use with dissociative disorders; keep grounding present and stop on derealization."
+disable-model-invocation: true
 ---
 
 # Umwelt Practice

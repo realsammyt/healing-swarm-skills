@@ -147,7 +147,7 @@ Windows PowerShell: `Copy-Item -Recurse .agents\skills\* $env:USERPROFILE\.claud
 
 **Notes for best results**
 
-- **Ask for a skill by name, or describe the task.** Skills load when your request matches their description. Sensitive skills (shadow work, grief and others) never start on their own; in Codex this is enforced by `agents/openai.yaml`.
+- **Ask for a skill by name, or describe the task.** Skills load when your request matches their description. The 8 sensitive skills (shadow work, grief and others) never start on their own; you have to ask for them. This is enforced in Claude Code (`disable-model-invocation`, so use the `/command`), Codex (`agents/openai.yaml`) and Devin (`.devin/skills` copies with `triggers: ["user"]`).
 - **Subagents are optional.** The multi-agent skills (`healing-swarm` and the topic workflows) run each phase inline by default and hand off through files in `./healing-output/<run>/`, so you can stop a run and pick it up again. If your agent supports subagents, it may use them.
 - **Small and local models** (around 8B to 14B): use one skill at a time, not the full `healing-swarm` run. The safety core sits near the top of each SKILL.md, so it still applies even if the model never opens `references/`. Test against [`evals/cases.yaml`](evals/cases.yaml) before relying on a model.
 - **Web access** is only needed by the research and citation skills, which search and verify sources. Without it they mark claims as unverified instead of inventing citations.
@@ -620,6 +620,12 @@ And we honor you—for being here, for caring enough to explore this, for consid
 A chronological record of major additions. This is an intentionally
 **condensed digest** — some website timeline entries are merged or summarized
 here. [Full detailed timeline on the website →](https://realsammyt.github.io/healing-swarm-skills/docs/changelog)
+
+### 2026-11-06 — Sensitive Skills Locked + First Eval Run
+
+- **Sensitive skills explicit-only everywhere:** `disable-model-invocation` (Claude Code), `agents/openai.yaml` (Codex), `.devin/skills` copies with `triggers: ["user"]` (Devin); open question Q1 resolved
+- **Eval runner:** `evals/run.mjs` for any OpenAI-compatible endpoint; first run (an uncensored ~4B local model) scored 3/20, crisis 0/6, a documented release blocker for that model class
+- **CI:** advisory `skills-ref` spec validation of `.agents/skills`
 
 ### 2026-11-05 — Portable Agent Skills (Codex, Devin, Pi, any agent)
 

@@ -1,6 +1,7 @@
 ---
 name: group-perception
 description: "Designs group and paired perception exercises (collective label delay, meaning-collapse circle, silence sit) with a consent framework. Sensitive: these are the same deautomatization practices as language-awareness, run in a group where facilitators cannot screen individuals. Use when the user is explicitly facilitating a workshop, circle, or team session on perception. Do NOT auto-launch from loose mentions of groups or perception; wait for an explicit facilitation request. Keep the consent, screening, and debrief steps; stop any exercise if a participant shows depersonalization or derealization."
+disable-model-invocation: true
 ---
 
 # Group Perception

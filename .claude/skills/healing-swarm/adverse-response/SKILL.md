@@ -1,6 +1,7 @@
 ---
 name: adverse-response
 description: "Guides the response after a practice went wrong: stabilize, ground, assess severity against the crisis-response table, choose a referral level, adapt or retire the practice, and log the event. Sensitive: Do NOT auto-launch for ordinary practice questions or as therapy; DO use when a user reports a distressing or adverse reaction to a practice, during it or in the hours and days after. This is not crisis care — for active crisis follow shared/crisis-response.md escalation. For screening before a practice, use practice-screening; to rebuild an adapted protocol afterward, return to the practice skill itself (whm-breathwork, coherence-meditation, language-awareness, and so on)."
+disable-model-invocation: true
 ---
 
 # Adverse Response

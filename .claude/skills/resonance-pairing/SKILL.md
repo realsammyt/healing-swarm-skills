@@ -1,6 +1,7 @@
 ---
 name: resonance-pairing
 description: "Designs paired or small-group meditation protocols from Grinberg's transferred-potential work, with consent and boundary frameworks. Sensitive: use only when the user explicitly asks for a paired, dyad, or group resonance practice. Do NOT auto-launch from general relationship talk, and keep the consent framework. For everyday relationship practices use relational-practice instead."
+disable-model-invocation: true
 ---
 
 # Resonance Pairing

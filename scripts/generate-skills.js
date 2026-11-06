@@ -30,6 +30,7 @@ const SKILLS_DIR = path.join(__dirname, '..', '.claude', 'skills', 'healing-swar
 const MANIFEST = path.join(SKILLS_DIR, 'manifest.yaml');
 const DISCOVERY = path.join(SKILLS_DIR, 'skill-discovery.yaml');
 const AGENTS_DIR = path.join(__dirname, '..', '.agents', 'skills');
+const DEVIN_DIR = path.join(__dirname, '..', '.devin', 'skills');
 
 const colors = { reset: '\x1b[0m', green: '\x1b[32m', red: '\x1b[31m', cyan: '\x1b[36m', yellow: '\x1b[33m' };
 const c = (msg, color = 'reset') => console.log(`${colors[color]}${msg}${colors.reset}`);
@@ -84,6 +85,8 @@ function renderSkill(skill, manifest, discovery, linkPrefix = '../') {
   // YAML-safe single-line description: emit via the YAML library so values
   // containing ': ', quotes, or other special characters are quoted correctly.
   out.push(YAML.stringify({ description }, { lineWidth: 0 }).trimEnd());
+  // Sensitive skills: Claude Code runs them only on an explicit /command.
+  if (sensitive) out.push('disable-model-invocation: true');
   out.push('---');
   out.push('');
   out.push(`# ${titleCase(skill.name)}`);
@@ -296,7 +299,10 @@ function portableTree(manifest, discovery) {
       tree.push({ rel: `${skill.name}/agents/openai.yaml`, content: 'policy:\n  allow_implicit_invocation: false\n' });
     }
     for (const f of refs) {
-      tree.push({ rel: `${skill.name}/references/${f}`, content: fs.readFileSync(path.join(SKILLS_DIR, f), 'utf8') });
+      tree.push({
+        rel: `${skill.name}/references/${f}`,
+        content: fs.readFileSync(path.join(SKILLS_DIR, f), 'utf8').replace(/\r\n/g, '\n'),
+      });
     }
   }
   return tree;
@@ -351,6 +357,20 @@ function main() {
   ]);
 
   const portable = portableTree(manifest, discovery);
+  // Devin: user-invocation-only copies of the sensitive skills (non-spec field,
+  // so it stays out of the canonical .agents build).
+  const sensitive = discovery.sensitive || [];
+  const devin = portable
+    .filter((p) => sensitive.includes(p.rel.split('/')[0]) && !p.rel.endsWith('agents/openai.yaml'))
+    .map((p) =>
+      p.rel.endsWith('/SKILL.md') && p.rel.split('/').length === 2
+        ? { ...p, content: p.content.replace('\nlicense:', '\ntriggers: ["user"]\nlicense:') }
+        : p
+    );
+  const trees = [
+    { dir: AGENTS_DIR, label: '.agents/skills', files: portable },
+    { dir: DEVIN_DIR, label: '.devin/skills', files: devin },
+  ];
 
   if (isCheck) {
     const norm = (s) => s.replace(/\r\n/g, '\n');
@@ -359,15 +379,17 @@ function main() {
       const current = fs.existsSync(t.file) ? fs.readFileSync(t.file, 'utf8') : '';
       if (norm(current) !== norm(t.content)) stale.push(t.name);
     }
-    const expected = new Set(portable.map((p) => p.rel));
-    for (const p of portable) {
-      const file = path.join(AGENTS_DIR, p.rel);
-      const current = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : '';
-      if (norm(current) !== norm(p.content)) stale.push(`.agents/skills/${p.rel}`);
+    for (const tree of trees) {
+      const expected = new Set(tree.files.map((p) => p.rel));
+      for (const p of tree.files) {
+        const file = path.join(tree.dir, p.rel);
+        const current = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : '';
+        if (norm(current) !== norm(p.content)) stale.push(`${tree.label}/${p.rel}`);
+      }
+      for (const rel of listFiles(tree.dir)) if (!expected.has(rel)) stale.push(`${tree.label}/${rel} (orphan)`);
     }
-    for (const rel of listFiles(AGENTS_DIR)) if (!expected.has(rel)) stale.push(`.agents/skills/${rel} (orphan)`);
     if (stale.length === 0) {
-      c(`✓ All ${targets.length} SKILL.md files + ${portable.length} portable files in sync (discovery quality OK).`, 'green');
+      c(`✓ All ${targets.length} SKILL.md files + ${portable.length} portable + ${devin.length} Devin files in sync (discovery quality OK).`, 'green');
       process.exit(0);
     }
     c(`✗ Out of date (${stale.length}): ${stale.slice(0, 20).join(', ')}${stale.length > 20 ? ', …' : ''}`, 'red');
@@ -380,13 +402,15 @@ function main() {
     fs.writeFileSync(t.file, t.content);
   }
   // ponytail: full wipe + rewrite of the portable tree; stale files can't survive.
-  fs.rmSync(AGENTS_DIR, { recursive: true, force: true });
-  for (const p of portable) {
-    const file = path.join(AGENTS_DIR, p.rel);
-    fs.mkdirSync(path.dirname(file), { recursive: true });
-    fs.writeFileSync(file, p.content);
+  for (const tree of trees) {
+    fs.rmSync(tree.dir, { recursive: true, force: true });
+    for (const p of tree.files) {
+      const file = path.join(tree.dir, p.rel);
+      fs.mkdirSync(path.dirname(file), { recursive: true });
+      fs.writeFileSync(file, p.content);
+    }
   }
-  c(`✓ Wrote ${targets.length} SKILL.md files + ${portable.length} portable files to .agents/skills (discovery quality OK).`, 'green');
+  c(`✓ Wrote ${targets.length} SKILL.md files + ${portable.length} portable + ${devin.length} Devin files (discovery quality OK).`, 'green');
 }
 
 main();
